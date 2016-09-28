@@ -1,0 +1,36 @@
+﻿Build started 9/28/2016 6:19:37 PM.
+     1>Project "E:\DandD\DandD\DandD.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game_loops.cpp levelEditorLoop.cpp level_built.cpp main.cpp
+         main.cpp
+         level_built.cpp
+     1>e:\dandd\dandd\level_built.cpp(65): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\dandd\dandd\level_built.cpp(93): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\dandd\dandd\level_built.cpp(99): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\dandd\dandd\level_built.cpp(105): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\dandd\dandd\level_built.cpp(171): warning C4018: '>' : signed/unsigned mismatch
+     1>e:\dandd\dandd\level_built.cpp(181): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\dandd\dandd\level_built.cpp(190): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\dandd\dandd\level_built.cpp(245): warning C4018: '<' : signed/unsigned mismatch
+         levelEditorLoop.cpp
+     1>e:\dandd\dandd\leveleditorloop.cpp(10): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\dandd\dandd\leveleditorloop.cpp(44): warning C4018: '<' : signed/unsigned mismatch
+     1>e:\dandd\dandd\leveleditorloop.cpp(208): warning C4018: '<' : signed/unsigned mismatch
+         game_loops.cpp
+     1>e:\dandd\dandd\game_loops.cpp(83): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+     1>e:\dandd\dandd\game_loops.cpp(50): warning C4700: uninitialized local variable 'destinationInt' used
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\DandD\Debug\DandD.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_mixer.lib SDL2_ttf.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\DandD\Debug\DandD.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\DandD\Debug\DandD.lib" /MACHINE:X86 Debug\gameplaygridcomponents.obj
+         Debug\game_loops.obj
+         Debug\image.obj
+         Debug\levelEditorLoop.obj
+         Debug\level_built.obj
+         Debug\main.obj
+         Debug\sdl_window.obj
+         DandD.vcxproj -> E:\DandD\Debug\DandD.exe
+     1>Done Building Project "E:\DandD\DandD\DandD.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:17.52
