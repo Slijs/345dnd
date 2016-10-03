@@ -10,65 +10,73 @@
 #include <string>
 #include <array>
 #include <stdexcept>
-
 #include "Item.h"
 
 using std::string;
 using std::array;
 
-// Accessor and Mutator implementation
+// Default constructor, useless item as is
+Item::Item() : 	name("Name Unset"),
+				weight(0),
+				value(0),
+				image("Image Unset"),
+				enchantmentValues({0, 0, 0, 0, 0, 0, 0, 0, 0}),
+				enchantmentsPossible({0, 0, 0, 0, 0, 0, 0, 0, 0}) {}
 
-string Item::getName() {
-	return name;
+// Constructor where all attributes EXCEPT the enchantmentsPossible
+// will be set. This is for the benefit of the subclasses, where each has their
+// own list of permissions that are possible. For the case of the superclass,
+// the list of possible enchantments will be initialized based off of the list
+// of current enchantments passed.
+Item::Item(string name, int weight, int value, string image, 
+		std::array<int,9> enchantmentValues) :
+				name(name),
+				weight(weight),
+				value(value),
+				image(image)
+{
+	// Initialize the enchantmentsPossible based off of the array of
+	// enchantmentValues.
+	for (int i = 0; i < 9; i++) {
+		// make sure that the enchantmentValues are in the correct range
+		if (enchantmentValues[i] < 0 || enchantmentValues[i] > 5) {
+			throw std::invalid_argument
+				("enchantmentValues elements must be >= 0 and <= 5.");
+		} else if (enchantmentValues[i] > 0) {
+			enchantmentsPossible[i] = true;
+		} 
+	}
+	this->enchantmentValues = enchantmentValues;
 }
 
-void Item::setName(string name) {
-	Item::name = name;
-}
-
-int Item::getWeight() {
-	return weight;
-}
-
-void Item::setWeight(int weight) {
-	Item::weight = weight;
-}
-
-int Item::getValue() {
-	return value;
-}
-
-void Item::setValue(int value) {
-	Item::value = value;
-}
-
-string Item::getImage() {
-	return image;
-}
-
-void Item::setImage(string image) {
-	Item::image = image;
-}
-
-array<int, 9> Item::getEnchantments() {
-	return enchantments;
-}
-
-void Item::setEnchantments(array<int, 9> setEnchantments) {
-	// make sure the array has a length of 9, and that all elements i in the
-	// array are 0 <= i <= 5
-	if (enchantments.size() != 9) {
-		throw std::invalid_argument("Enchantment array invalid: not of length 9");
-	} else {
-		for (int i = 0; i < enchantments.size(); i++) {
-			if (enchantments[i] < 0 || enchantments[i] > 5) {
-				throw std::invalid_argument("Enchantment array invalid: An enchantment is <0 or >5");
-				return;
-			}
-
-			// If there are no problems, set the enchantments
-			Item::enchantments = enchantments;
+// Constructor where ALL of the parameters will be set
+Item::Item(string name, int weight, int value, string image, 
+		std::array<int,9> enchantmentValues, 
+		std::array<bool,9> enchantmentsPossible) :
+				name(name),
+				weight(weight),
+				value(value),
+				image(image),
+				enchantmentsPossible(enchantmentsPossible)
+{
+	// Check to make sure that all of the values present in enchantmentValues
+	// are allowed according to enchantmentsPossible.
+	for (int i = 0; i < 9; i++) {
+		if (enchantmentsPossible[i] == false && enchantmentValues[i] != 0) {
+			throw std::invalid_argument
+				("Tried to have an enchantment value that is not permitted"
+				" for this type of item.");
+		} else if (enchantmentValues[i] < 0 || enchantmentValues[i] > 5) {
+			throw std::invalid_argument
+				("Enchantment values must be >= 0 and <= 5.");
 		}
 	}
-	
+	this->enchantmentValues = enchantmentValues;
+}
+
+
+// Accessor and Mutator implementation
+
+std::array<int, 9> Item::getEnchantmentValues() {
+	return enchantmentValues;
 }
