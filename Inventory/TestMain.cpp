@@ -35,18 +35,22 @@ int main() {
 	cout << myWeapon->name << " has value " << myWeapon->weight <<
 		" and damage " << myWeapon->damage << endl;
 	
-	Weapon *weapon1 = new Weapon("Garden Hose", 5, 3, "No Image Yet", {0,0,0,0,0,0,0,2,5});
+	Weapon *weapon1 = new Weapon("Garden Hose", 5, 3, "No Image Yet", 
+			{0,0,0,0,0,0,0,2,5}, 3, 2, 4);
 
 	cout << endl;
 	cout << "--------------------Weapon 1-------------------" << endl;
 	cout << "------------------" << weapon1->name << "---------------" << endl;
 	cout << "Weight: " << weapon1->weight << "\tValue: " <<
 		weapon1->value << "\tImage: " << weapon1->image << endl;
+	cout << "Damage: " << weapon1->damage << "\tDefense: " << weapon1->defense
+		<< "\tRange: " << weapon1->range << endl;
 	cout << "Enchantments:" << endl;
 	cout << "STR\tDEX\tCON\tINT\tWIS\tCHA\tARM\tATT\tDEF" << endl;
 	for (int i = 0; i < 9; i++) {
 		cout << weapon1->enchantmentValues[i] << "\t";
 	}
+	cout << endl;
 
 
 

@@ -20,7 +20,10 @@ Weapon::Weapon() :
 
 // Constructor where all attributes EXCEPT the enchantmentsPossible
 // will be set.
-Weapon::Weapon(std::string name, int weight, int value, std::string image, std::array<int, 9> enchantmentValues) : Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,0,1,1}) 
+Weapon::Weapon(std::string name, int weight, int value, std::string image,
+		std::array<int, 9> enchantmentValues, int damage, int defense, int range) 
+	: Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,0,1,1}),
+	damage(damage), defense(defense), range(range)
 {
 
 }

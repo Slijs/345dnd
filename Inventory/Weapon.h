@@ -24,7 +24,8 @@ class Weapon: public Item {
 		// Constructors
 		Weapon();
 		Weapon(string name, int weight, int value, string image, 
-				array<int, 9> enchantmentValues);
+				array<int, 9> enchantmentValues, int damage, int defense, 
+				int range);
 };
 
 #endif // Include guard
