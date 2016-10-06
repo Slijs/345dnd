@@ -27,3 +27,56 @@ Weapon::Weapon(std::string name, int weight, int value, std::string image,
 {
 
 }
+
+// Getters/Setters
+
+int Weapon::getDamage() {
+	return damage;
+}
+
+int Weapon::getDefense() {
+	return defense;
+}
+
+int Weapon::getRange() {
+	return range;
+}
+
+void Weapon::incrementDamage() {
+	damage++;
+}
+
+void Weapon::decrementDamage() {
+	damage--;
+}
+
+void Weapon::incrementDefense() {
+	defense++;
+}
+
+void Weapon::decrementDefense() {
+	defense--;
+}
+
+void Weapon::incrementRange() {
+	range++;
+}
+
+void Weapon::decrementRange() {
+	range--;
+}
+
+// Misc methods
+
+std::string Weapon::toString() {
+	std::string tempString;
+
+	tempString = Item::toString();
+	
+	tempString += "------------------ Weapon Properties  ---------------\n";
+	tempString += "Damage: " + std::to_string(getDamage()) +
+		"\tDefense: " + std::to_string(getDamage()) +
+		"\tRange: " + std::to_string(getRange());
+
+	return tempString;
+}

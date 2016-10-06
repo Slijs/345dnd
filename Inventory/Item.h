@@ -18,7 +18,7 @@ using std::string;
 using std::array;
 
 class Item {
-	public:
+	protected:
 		// Attributes common to all items
 		string name;
 		int weight;
@@ -26,6 +26,7 @@ class Item {
 		string image;
 		array<int, 9> enchantmentValues;
 		array<bool, 9> enchantmentsPossible;
+	public:
 		// Constructors
 		Item();
 		Item(string name, int weight, int value, string image, 
@@ -34,7 +35,14 @@ class Item {
 				array<int, 9> enchantmentValues, 
 				array<bool, 9> enchantmentsPossible);
 		// Accessors and Mutators
+		string getName();
+		int getWeight();
+		int getValue();
+		string getImage();
 		array<int, 9> getEnchantmentValues();
+		array<bool, 9> getEnchantmentsPossible();
+		// Misc methods
+		string toString();
 };
 
 #endif // Include guard

@@ -77,6 +77,44 @@ Item::Item(string name, int weight, int value, string image,
 
 // Accessor and Mutator implementation
 
-std::array<int, 9> Item::getEnchantmentValues() {
+string Item::getName() {
+	return name;
+}
+
+int Item::getWeight() {
+	return weight;
+}
+
+int Item::getValue() {
+	return value;
+}
+
+string Item::getImage() {
+	return image;
+}
+
+array<int, 9> Item::getEnchantmentValues() {
 	return enchantmentValues;
+}
+
+array<bool, 9> Item::getEnchantmentsPossible() {
+	return enchantmentsPossible;
+}
+
+// Misc methods
+
+string Item::toString() {
+	string tempString;
+	tempString += "------------------ " + getName() + " ---------------\n";
+	tempString += "Weight: " + std::to_string(getWeight()) + "\tValue: " 
+		+ std::to_string(getValue()) + 
+		"\tImage: " + getImage() + "\n";
+	tempString += "Enchantments:\n";
+	tempString += "STR\tDEX\tCON\tINT\tWIS\tCHA\tARM\tATT\tDEF\n";
+	array<int, 9> tempEnchantmentValues = getEnchantmentValues();
+	for (int i = 0; i < 9; i++) {
+		tempString += std::to_string(tempEnchantmentValues[i]) + "\t";
+	}
+	tempString += "\n";
+	return tempString;
 }
