@@ -1,6 +1,12 @@
 #include <iostream>
 #include "Item.h"
 #include "Weapon.h"
+#include "Armor.h"
+#include "Belt.h"
+#include "Boots.h"
+#include "Helmet.h"
+#include "Ring.h"
+#include "Shield.h"
 
 using std::cout;
 using std::endl;

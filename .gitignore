@@ -31,3 +31,6 @@
 # Temp files, backup editor files
 *~
 *.swp
+
+# IDE project files
+*.cbp
