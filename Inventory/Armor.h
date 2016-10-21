@@ -17,12 +17,6 @@ class Armor: public Item {
 	protected:
 		// Armor Attributes
 		int defense;
-		/**
-		 * @brief These are the enchantments possible. Order:
-		 * Strength, Dexterity, Constitution, Intelligence, Wisdom,
-		 * Charisma, Armor Class, Attack Bonus, Damage Bonus.
-		 */
-		const array<int, 9> enchantmentsPossible = {0,0,0,0,0,0,1,0,0};
 		// Constructors
 	public:
 		Armor();

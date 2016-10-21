@@ -11,7 +11,7 @@
 
 // Default constructor, useless item as is
 Armor::Armor() : 	
-	Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, enchantmentsPossible) 
+	Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,1,0,0}) 
 {
 
 }
@@ -31,7 +31,7 @@ Armor::Armor() :
  */
 Armor::Armor(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues, int defense) 
-	: Item(name, weight, value, image, enchantmentValues, enchantmentsPossible),
+	: Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,1,0,0}),
 	defense(defense)
 {
 
