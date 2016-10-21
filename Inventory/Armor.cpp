@@ -1,11 +1,9 @@
-/******************************************************************************
- * Class for Armors. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
+/**
+ * @brief Class for all armor.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
 
 #include <string>
 #include <stdexcept>
@@ -13,7 +11,7 @@
 
 // Default constructor, useless item as is
 Armor::Armor() : 	
-	Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,1,0,0}) 
+	Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, enchantmentsPossible) 
 {
 
 }
@@ -33,7 +31,7 @@ Armor::Armor() :
  */
 Armor::Armor(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues, int defense) 
-	: Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,1,0,0}),
+	: Item(name, weight, value, image, enchantmentValues, enchantmentsPossible),
 	defense(defense)
 {
 

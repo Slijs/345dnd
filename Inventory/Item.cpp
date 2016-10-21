@@ -1,11 +1,9 @@
-/******************************************************************************
- * Base class for all items. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
+/**
+ * @brief Base class for all items.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
 
 #include <string>
 #include <array>

@@ -1,12 +1,10 @@
-/******************************************************************************
- * Base class for all containers. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
-
+/**
+ * @brief Base class for all containers.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
+ 
 #include<string>
 #include<vector>
 #include<stdexcept>

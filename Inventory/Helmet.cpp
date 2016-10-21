@@ -1,11 +1,9 @@
-/******************************************************************************
- * Class for Helmets. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
+/**
+ * @brief Class for helmets.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
 
 #include <string>
 #include <stdexcept>

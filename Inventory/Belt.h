@@ -1,12 +1,10 @@
-/******************************************************************************
- * Class for the Belts. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
-
+/**
+ * @brief Class for belts.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
+ 
 // Include guard
 #ifndef Belt_H
 #define Belt_H

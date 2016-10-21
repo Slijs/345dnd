@@ -1,11 +1,9 @@
-/******************************************************************************
- * Class for the Shields. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
+/**
+ * @brief Class for shields.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
 
 // Include guard
 #ifndef Shield_H

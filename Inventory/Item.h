@@ -1,5 +1,4 @@
 /**
- * @file Item.h
  * @brief Base class for all items.
  * @author Philip Brink
  * @version 0.0.1

@@ -1,11 +1,9 @@
-/******************************************************************************
- * Class for the Rings. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
+/**
+ * @brief Class for rings.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
 
 // Include guard
 #ifndef Ring_H

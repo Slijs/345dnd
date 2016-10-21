@@ -1,11 +1,9 @@
-/******************************************************************************
- * Class for the Armors. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
+/**
+ * @brief Class for all armor.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
 
 // Include guard
 #ifndef Armor_H
@@ -19,6 +17,12 @@ class Armor: public Item {
 	protected:
 		// Armor Attributes
 		int defense;
+		/**
+		 * @brief These are the enchantments possible. Order:
+		 * Strength, Dexterity, Constitution, Intelligence, Wisdom,
+		 * Charisma, Armor Class, Attack Bonus, Damage Bonus.
+		 */
+		const array<int, 9> enchantmentsPossible = {0,0,0,0,0,0,1,0,0};
 		// Constructors
 	public:
 		Armor();
