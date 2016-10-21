@@ -49,8 +49,7 @@ std::string Helmet::toString() {
 
 	tempString = Item::toString();
 	
-	tempString += "------------------ Helmet Properties  ---------------\n";
-	tempString += "\tDefense: " + std::to_string(getDefense());
+	tempString += "\tDefense: " + std::to_string(getDefense()) + "\n";
 
 	return tempString;
 }

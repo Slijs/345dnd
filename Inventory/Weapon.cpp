@@ -73,10 +73,9 @@ std::string Weapon::toString() {
 
 	tempString = Item::toString();
 	
-	tempString += "------------------ Weapon Properties  ---------------\n";
 	tempString += "Damage: " + std::to_string(getDamage()) +
 		"\tDefense: " + std::to_string(getDamage()) +
-		"\tRange: " + std::to_string(getRange());
+		"\tRange: " + std::to_string(getRange()) + "\n";
 
 	return tempString;
 }

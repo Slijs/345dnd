@@ -49,8 +49,7 @@ std::string Armor::toString() {
 
 	tempString = Item::toString();
 	
-	tempString += "------------------ Armor Properties  ---------------\n";
-	tempString += "\tDefense: " + std::to_string(getDefense());
+	tempString += "Defense: " + std::to_string(getDefense()) + "\n";
 
 	return tempString;
 }

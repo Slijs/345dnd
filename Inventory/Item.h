@@ -42,7 +42,7 @@ class Item {
 		array<int, 9> getEnchantmentValues();
 		array<bool, 9> getEnchantmentsPossible();
 		// Misc methods
-		string toString();
+		virtual string toString();
 };
 
 #endif // Include guard

@@ -73,10 +73,9 @@ std::string Shield::toString() {
 
 	tempString = Item::toString();
 	
-	tempString += "------------------ Shield Properties  ---------------\n";
 	tempString += "Damage: " + std::to_string(getDamage()) +
 		"\tDefense: " + std::to_string(getDamage()) +
-		"\tRange: " + std::to_string(getRange());
+		"\tRange: " + std::to_string(getRange()) + "\n";
 
 	return tempString;
 }
