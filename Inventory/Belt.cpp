@@ -38,8 +38,13 @@ void Belt::incrementDefense() {
 	defense++;
 }
 
+/**
+ * @brief Decremented only when result will be >= 0
+ */
 void Belt::decrementDefense() {
-	defense--;
+	if (defense >= 1) {
+		defense--;
+	}
 }
 
 // Misc methods

@@ -16,8 +16,17 @@ using std::string;
 using std::vector;
 
 // Constructors
+/**
+ * @brief 
+ */
 Container::Container() : maxContents(5), numContents(0) {}
 
+/**
+ * @brief 
+ *
+ * @param m_maxContents
+ * @param m_contents
+ */
 Container::Container(int m_maxContents, vector<Item*> m_contents) {
 	if (m_maxContents >= m_contents.size()) {
 		maxContents = m_maxContents;
@@ -45,6 +54,13 @@ vector<Item*> Container::getContents() {
 	return contents;
 }
 
+/**
+ * @brief 
+ *
+ * @param m_contentsIndex
+ *
+ * @return 
+ */
 Item* Container::removeItem(int m_contentsIndex) {
 	if (m_contentsIndex < 0 || m_contentsIndex >= contents.size()) {
 		throw std::invalid_argument("The index must be between 0 and " + (contents.size()-1));
@@ -57,6 +73,13 @@ Item* Container::removeItem(int m_contentsIndex) {
 
 // Insert an item into the container. If size allowes, put the item in and
 // return true. If not, return false.
+/**
+ * @brief 
+ *
+ * @param m_item
+ *
+ * @return 
+ */
 bool Container::insertItem(Item *m_item) {
 	if (numContents < maxContents) {
 		contents.push_back(m_item);
@@ -69,6 +92,11 @@ bool Container::insertItem(Item *m_item) {
 // Misc methods
 
 // Return a string with the current state of the container.
+/**
+ * @brief 
+ *
+ * @return 
+ */
 string Container::toString() {
 	string containerState;
 	containerState += "----------- Container Properties --------------\n";
@@ -78,6 +106,11 @@ string Container::toString() {
 }
 
 // Return a string listing the details of every item in the container.
+/**
+ * @brief 
+ *
+ * @return 
+ */
 string Container::contentsToString() {
 	string itemList;
 	itemList += "----------------- Container Contents -----------------\n";

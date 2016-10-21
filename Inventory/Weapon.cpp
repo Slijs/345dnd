@@ -47,7 +47,9 @@ void Weapon::incrementDamage() {
 }
 
 void Weapon::decrementDamage() {
-	damage--;
+	if (damage >= 1) {
+		damage--;
+	}
 }
 
 void Weapon::incrementDefense() {
@@ -55,7 +57,9 @@ void Weapon::incrementDefense() {
 }
 
 void Weapon::decrementDefense() {
-	defense--;
+	if (defense >= 1) {
+		defense--;
+	}
 }
 
 void Weapon::incrementRange() {
@@ -63,7 +67,9 @@ void Weapon::incrementRange() {
 }
 
 void Weapon::decrementRange() {
-	range--;
+	if (range >= 1) {
+		range--;		
+	}
 }
 
 // Misc methods

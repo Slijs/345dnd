@@ -49,8 +49,13 @@ void Armor::incrementDefense() {
 	defense++;
 }
 
+/**
+ * @brief This will only decrement if the defense will remain >= 0
+ */
 void Armor::decrementDefense() {
-	defense--;
+	if (defense >=1 ) {
+		defense--;
+	}
 }
 
 // Misc methods
