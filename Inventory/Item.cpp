@@ -15,7 +15,9 @@
 using std::string;
 using std::array;
 
-// Default constructor, useless item as is
+/**
+ * @brief Default constructor, useless as is. All data is set to 0 or placeholder.
+ */
 Item::Item() : 	name("Name Unset"),
 				weight(0),
 				value(0),
@@ -23,11 +25,21 @@ Item::Item() : 	name("Name Unset"),
 				enchantmentValues({0, 0, 0, 0, 0, 0, 0, 0, 0}),
 				enchantmentsPossible({0, 0, 0, 0, 0, 0, 0, 0, 0}) {}
 
-// Constructor where all attributes EXCEPT the enchantmentsPossible
-// will be set. This is for the benefit of the subclasses, where each has their
-// own list of permissions that are possible. For the case of the superclass,
-// the list of possible enchantments will be initialized based off of the list
-// of current enchantments passed.
+/**
+ * @brief This will be the standard constructor to be used for the
+ * 			derived classes.
+ *
+ * @param name
+ * @param weight
+ * @param value
+ * @param image Path to image from project root directory
+ * @param enchantmentValues These values MUST match the values allowed
+ * 			by enchantmentsPossible. If not, std::invalid_argument will
+ * 			be thrown. They must also be >= 0 AND <= 5. If the object
+ * 			does not have an array of possible enchantments, this array
+ * 			will be used to generate the possible enchantments, where
+ * 			an enchantment will be allowed if it is > 0 in this list.
+ */
 Item::Item(string name, int weight, int value, string image, 
 		std::array<int,9> enchantmentValues) :
 				name(name),
@@ -49,7 +61,20 @@ Item::Item(string name, int weight, int value, string image,
 	this->enchantmentValues = enchantmentValues;
 }
 
-// Constructor where ALL of the parameters will be set
+/**
+ * @brief This constructor is present in order to add extra flexibility
+ * 			for later, and allow the set of possible enchantments for
+ * 			the item to be specified.
+ *
+ * @param name
+ * @param weight
+ * @param value
+ * @param image Path to image from project root directory
+ * @param enchantmentValues These values must be >= 0 AND <= 5, and
+ * 			no value can be > 0 if the corresponding value in
+ * 			enchantmentsPossible is false.
+ * @param enchantmentsPossible
+ */
 Item::Item(string name, int weight, int value, string image, 
 		std::array<int,9> enchantmentValues, 
 		std::array<bool,9> enchantmentsPossible) :
@@ -110,7 +135,7 @@ string Item::toString() {
 		+ std::to_string(getValue()) + 
 		"\tImage: " + getImage() + "\n";
 	tempString += "Enchantments:\n";
-	tempString += "STR\tDEX\tCON\tINT\tWIS\tCHA\tARM\tATT\tDEF\n";
+	tempString += "STR\tDEX\tCON\tINT\tWIS\tCHA\tARM\tATT\tDAM\n";
 	array<int, 9> tempEnchantmentValues = getEnchantmentValues();
 	for (int i = 0; i < 9; i++) {
 		tempString += std::to_string(tempEnchantmentValues[i]) + "\t";

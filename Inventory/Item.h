@@ -1,11 +1,10 @@
-/******************************************************************************
- * Base class for all items. 
- *
- * For COMP 345
- * Author: Philip Brink
- * v 0.0.1
- *
- * ***************************************************************************/
+/**
+ * @file Item.h
+ * @brief Base class for all items.
+ * @author Philip Brink
+ * @version 0.0.1
+ * @date 2016-10-20
+ */
 
 // Include guard
 #ifndef Item_H
@@ -23,14 +22,31 @@ class Item {
 		string name;
 		int weight;
 		int value;
+		/**
+		 * @brief This should be a relative path to the image.
+		 */
 		string image;
+		/**
+		 * @brief The sequence for this array of booleans is Strength,
+		 * Dexterity, Constitution, Intelligence, Wisdom, Charisma, Armor Class,
+		 * Attack Bonus, Damage Bonus.
+		 */
 		array<int, 9> enchantmentValues;
+		/**
+		 * @brief The sequence for this array of booleans is Strength,
+		 * Dexterity, Constitution, Intelligence, Wisdom, Charisma, Armor Class,
+		 * Attack Bonus, Damage Bonus.
+		 */
 		array<bool, 9> enchantmentsPossible;
 	public:
 		// Constructors
 		Item();
+
+
 		Item(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues);
+		
+
 		Item(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues, 
 				array<bool, 9> enchantmentsPossible);
