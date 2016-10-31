@@ -9,6 +9,9 @@
 #include <stdexcept>
 #include "Armor.h"
 
+// Windows
+#include "stdafx.h"
+
 // Default constructor, useless item as is
 Armor::Armor() : 	
 	Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,1,0,0}) 

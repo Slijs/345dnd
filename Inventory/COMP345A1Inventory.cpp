@@ -1,0 +1,11 @@
+// COMP345A1Inventory.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+
+
+int main()
+{
+    return 0;
+}
+

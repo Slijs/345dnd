@@ -8,6 +8,9 @@
 #include <string>
 #include <stdexcept>
 #include "Boots.h"
+ 
+// Windows
+#include "stdafx.h"
 
 // Default constructor, useless item as is
 Boots::Boots() : 	

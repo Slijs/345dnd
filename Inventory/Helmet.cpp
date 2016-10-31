@@ -8,6 +8,9 @@
 #include <string>
 #include <stdexcept>
 #include "Helmet.h"
+ 
+// Windows
+#include "stdafx.h"
 
 // Default constructor, useless item as is
 Helmet::Helmet() : 	

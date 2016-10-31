@@ -32,6 +32,7 @@ class Container {
 		int getNumContents();
 		string getImage();
 		vector<Item*> getContents();
+		Item* getItem(string name);
 		Item* removeItem(int m_contentsIndex);
 		bool insertItem(Item *m_item);
 

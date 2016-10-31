@@ -5,9 +5,9 @@
  * @date 2016-10-20
  */
  
-#include<string>
-#include<vector>
-#include<stdexcept>
+#include <string>
+#include <vector>
+#include <stdexcept>
 #include "Container.h"
 
 using std::string;
@@ -50,6 +50,21 @@ string Container::getImage() {
 
 vector<Item*> Container::getContents() {
 	return contents;
+}
+
+/**
+ * @brief This method will take the name of an object, and return a pointer
+ * to the first object in the container that matches that name.
+ * @param name The name of the desired object
+ */
+Item* Container::getItem(string name) {
+	for (int i = 0; i < contents.size(); i++) {
+		if (contents[i]->getName() == name) {
+			return contents[i];
+		}
+	}
+	// if we get here, there haven't been any matching items found
+	return NULL;
 }
 
 /**

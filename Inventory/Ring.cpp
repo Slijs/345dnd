@@ -8,6 +8,9 @@
 #include <string>
 #include <stdexcept>
 #include "Ring.h"
+ 
+// Windows
+#include "stdafx.h"
 
 // Default constructor, useless item as is
 Ring::Ring() : 	
