@@ -1,4 +1,5 @@
 #pragma once
+#include "Entity.h"
 #include "Equipment.h"
 #include <cstdlib>
 #include <ctime>
@@ -17,6 +18,8 @@ private:
 	int proficiencyBonus;
 	int armorClass; //can update when equip armor, shield, helmet, boots &/or ring
 	//or when dex goes up
+
+	Size size;
 
 	bool equiped; //start as false changes to true when equip something with bonus for AC
 
@@ -37,6 +40,7 @@ private:
 		HELPER FUNCTIONS ONLY USED IN CHARACTERS CPP
 	*/
 	//for the random Ability Scores
+	void raceProcess();
 	int roll4D6();
 	void reOrder();
 
@@ -60,7 +64,9 @@ private:
 	
 
 public:
-	Characters(int, string);
+	Characters(int, int, int, int, int, int, int, int);
+	Characters(int);
+
 	void destroyObject();
 	~Characters();
 

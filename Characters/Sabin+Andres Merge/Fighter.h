@@ -6,12 +6,12 @@ class Fighter : public Characters
 private:
 	const int HIT_DIE = 10; //d10
 	int hitPoints;
-	int level;
+	Race race;
 	string name;
 
 
 public:
-	Fighter(int, string);
+	Fighter(int,Race, string);
 	~Fighter();
 
 

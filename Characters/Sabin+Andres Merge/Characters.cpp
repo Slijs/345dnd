@@ -10,10 +10,25 @@ int experience[2][20] = {
 
 //CONSTRUCTOR
 //Monster
+Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass)
+{
+	this->level = level;
+	this->armorClass = armorClass;
+	scores[0][0] = STR;
+	scores[0][1] = DEX;
+	scores[0][2] = CON;
+	scores[0][3] = INT;
+	scores[0][4] = WIS;
+	scores[0][5] = CHA;
 
+	detProficiencyBonus();
+	abilityScoreMod();
+	calcAttackBonus();
+	calcDamageBonus();
+}
 
 //Hero
-Characters::Characters(int level, string name) 
+Characters::Characters(int level) 
 {
 	this->level = level;
 	armorClass = 0;
@@ -75,6 +90,7 @@ int Characters::getScores(int i, int j)
 {
 	return scores[i][j];
 }
+
 
 
 //DICE MECHANISM FOR CHARACTER

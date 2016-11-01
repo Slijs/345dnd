@@ -1,11 +1,11 @@
 #include "Fighter.h"
+#include "Entity.h"
 
 /*
 	CONSTRUCTOR
 */
-Fighter::Fighter(int level, string name) :Characters(level, name)
+Fighter::Fighter(int level, Race race,string name) : Characters(level)
 {
-	Fighter::level = level;
 	Fighter::name = name;
 	initHitPoints();
 }
@@ -21,6 +21,7 @@ Fighter::~Fighter()
 //Calculates the Hitpoints of the character
 void Fighter::initHitPoints()
 { 
+	int level = this->getLevel();
 	//At Level 1: HP = max_HitDie + CON_mod
 	hitPoints = HIT_DIE + this->getScores(1, 2);
 	//For every level: HP = HP + roll_HitDie + CON_mod
@@ -45,6 +46,7 @@ void Fighter::displayStats()
 
 bool Fighter::validateHitPoints()
 {
+	int level = this->getLevel();
 	int validHit = 10 + this->getScores(1, 2);
 	if (level == 1 && hitPoints != validHit)
 		return false;
