@@ -1,11 +1,12 @@
 #pragma once
 #include "Entity.h"
 #include "Equipment.h"
+#include "Subject.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
 
-class Characters
+class Characters: public Subject
 {
 private:
 	int const MAX_NUM_SCORES = 6;
@@ -74,6 +75,7 @@ public:
 	int getLevel();
 	int getScores(int, int);
 
+
 	void displayStats();   // displays all info on character
 
 	void displayEquip();
@@ -88,12 +90,17 @@ public:
 	void equip(Ring*);
 	void equip(Shield*);
 	
+
 	string currentArmor();
 	string currentWeapon();
 	string currentShield();
 	string currentHelmet();
 	string currentBoots();
 	string currentRing();
+
+	//For Subject
+	void currentState();
+
 
 	///FOR UNIT TEST
 	bool validateNewCharacter();

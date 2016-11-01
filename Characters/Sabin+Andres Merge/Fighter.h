@@ -18,6 +18,7 @@ public:
 	void initHitPoints();
 	void displayStats();
 
+
 	//TEST
 	bool validateHitPoints();
 };

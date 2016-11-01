@@ -1,5 +1,6 @@
 #include "Characters.h"
 #include "Fighter.h"
+#include "CharacterObserver.h"
 
 void processChoice(Fighter*, int);
 
@@ -15,10 +16,13 @@ int main()
 	cin >> name >> level;
 
 
-	Fighter* f1 = new Fighter(level, name);
+	Fighter* f1 = new Fighter(level, Dwarf, name);
 	f1->displayStats();
 
+	CharacterObserver *co = new CharacterObserver(f1);
 
+	string weaponName;
+	string currentWeapon;
 
 	if (level > 1)
 	{
@@ -29,7 +33,12 @@ int main()
 			int input2;
 			cout << "What do you wish to equip? (0: EXIT) " << endl;
 			cout << "1. ";
-			printf("%-10s %-10s", f1->currentWeapon().c_str(), "2. Light Shield\n");
+			currentWeapon = f1->currentWeapon().c_str();
+			if (currentWeapon.compare("Light Crossbow") == 0)
+				weaponName = "Longsword";
+			else
+				weaponName = "Light Crossbow";
+			printf("%-10s %-10s", weaponName.c_str(), "2. Light Shield\n");
 			printf("%-10s %-10s\n", "3. Helmet", "4. Ring of Strength");
 			printf("%-10s\n", "5. Boots of Agility");
 			cin >> input2;
@@ -47,7 +56,6 @@ int main()
 
 void processChoice(Fighter* f,int in)
 {
-	int in2;
 	string current;
 	switch (in)
 	{
@@ -57,13 +65,11 @@ void processChoice(Fighter* f,int in)
 		{
 			cout << "Longsword is now equipped.\n" << endl;
 			f->equip(new Weapon("Longsword", "1d8", "Melee"));
-			f->displayStats();
 		}
 		else
 		{
 			cout << "Light Crossbow is now equipped.\n" << endl;
 			f->equip(new Weapon("Light Crossbow", "1d8", "Ranged"));
-			f->displayStats();
 		}
 		break;	
 	case 2: //Shield
@@ -72,7 +78,6 @@ void processChoice(Fighter* f,int in)
 			{
 				cout << "This shield increases AC by 2\n" << endl;
 				f->equip(new Shield("Light Shield", 2));
-				f->displayStats();
 			}
 			else
 			{
@@ -85,7 +90,6 @@ void processChoice(Fighter* f,int in)
 		{
 			cout << "This Helmet increases INT by 1\n" << endl;
 			f->equip(new Helmet("Helmet", 2, 1));
-			f->displayStats();
 		}
 		else
 		{
@@ -98,7 +102,6 @@ void processChoice(Fighter* f,int in)
 		{
 			cout << "This ring will increase STR by 1.\n" << endl;
 			f->equip(new Ring("Ring of Strength", 1, 1));
-			f->displayStats();
 		}
 		else
 		{
@@ -110,8 +113,7 @@ void processChoice(Fighter* f,int in)
 		if (current.compare("NONE") == 0)
 		{
 			cout << "These boots will increase DEX by 1.\n" << endl;
-			f->equip(new Ring("Boots of Agility", 1, 1));
-			f->displayStats();
+			f->equip(new Boots("Boots of Agility", 1, 1));
 		}
 		else
 		{

@@ -93,6 +93,7 @@ int Characters::getScores(int i, int j)
 
 
 
+
 //DICE MECHANISM FOR CHARACTER
 int Characters::rollDice(int i)
 {
@@ -205,30 +206,16 @@ void Characters::detProficiencyBonus()
 //calculates the armorclass based on the equipment 
 void Characters::calcArmorClass()
 {
+
 	//If no equipment with ACBonus is equipped 
-	if (armor->compareName("NONE") && shield->compareName("NONE") && boots->compareName("NONE") && helmet->compareName("NONE") && ring->compareName("NONE"))
-		armorClass = 10 + scores[1][1];
+	if (armor->compareName("NONE"))
+		armorClass = 10;
 	else
 	{
-		//if there is armor equipped
-		if (!(armor->compareName("NONE")))
-			armorClass += armor->getACBonus();
-		else
-			//If no armor is equiped
-			armorClass = 10 + scores[1][1];
-		//if shield is equipped add ACbonus to AC
-		if (!(shield->compareName("NONE")))
-			armorClass += shield->getACBonus();
-		//if boots are equipped and bonus type is AC add bonus to Armor Class
-		if (!boots->compareName("NONE") && boots->getBonusType() == 3)
-			armorClass += boots->getBonus();
-		//if helmet are equipped and bonus type is AC add bonus to Armor Class
-		if (!helmet->compareName("NONE") && helmet->getBonusType() == 3)
-			armorClass += helmet->getBonus();
-		//if ring are equipped and bonus type is AC add bonus to Armor Class
-		if (!ring->compareName("NONE") && ring->getBonusType() == 5)
-			armorClass += ring->getBonus();
+		armorClass = armor->getACBonus();
 	}
+
+	armorClass += scores[1][1];
 }
 
 //RELATED TO ATTACK AND DAMAGE
@@ -290,8 +277,19 @@ void Characters::displayEquip()
 //If wish to de-equip use default constructor of these Classes
 void Characters::equip(Armor* a)
 {
+	//Remove bonus
+	if (armor->compareName("NONE"))
+		armorClass -= 10;
+	else
+		armorClass -= armor->getACBonus();
 	armor = a;
-	calcArmorClass();
+	//Add Bonus
+	if (armor->compareName("NONE"))
+		armorClass += 10;
+	else
+		armorClass += armor->getACBonus();
+
+	currentState();
 }
 
 void Characters::equip(Weapon* w)
@@ -299,6 +297,7 @@ void Characters::equip(Weapon* w)
 	weapon = w;
 	calcDamageBonus();
 	calcAttackBonus();
+	currentState();
 }
 
 void Characters::equip(Helmet* h)
@@ -308,6 +307,8 @@ void Characters::equip(Helmet* h)
 		updateStatsDQ(3, bonus);
 	else if (helmet->getBonusType() == 2) //WIS
 		updateStatsDQ(4, bonus);
+	else if (helmet->getBonusType() == 3)  //AC
+		armorClass -= bonus;
 	
 	helmet = h;
 	bonus = helmet->getBonus();
@@ -315,8 +316,10 @@ void Characters::equip(Helmet* h)
 		updateStatsEQ(3, bonus);
 	else if (helmet->getBonusType() == 2) //WIS
 		updateStatsEQ(4, bonus);
+	else if (helmet->getBonusType() == 3)  //AC
+		armorClass += bonus;
 
-	calcArmorClass();
+	currentState();
 }
 
 void Characters::equip(Boots* b)
@@ -324,15 +327,18 @@ void Characters::equip(Boots* b)
 	int bonus = boots->getBonus();
 	if (boots->getBonusType() == 1) //DEX
 		updateStatsEQ(1, bonus);
-	
+	if (boots->getBonusType() == 2) //AC
+		armorClass -= bonus;
 
 	boots = b;
 	bonus = boots->getBonus();
 
-	if (boots->getBonusType() == 1) //INT
+	if (boots->getBonusType() == 1) //DEX
 		updateStatsEQ(1, bonus);
+	if (boots->getBonusType() == 2) //AC
+		armorClass += bonus;
 
-	calcArmorClass();
+	currentState();
 }
 
 void Characters::equip(Ring* r)
@@ -346,6 +352,8 @@ void Characters::equip(Ring* r)
 		updateStatsDQ(4, bonus);
 	else if (ring->getBonusType() == 3) //CHA
 		updateStatsDQ(5, bonus);
+	else if (ring->getBonusType() == 4) //AC
+		armorClass -= bonus;
 	
 	ring = r;
 
@@ -360,13 +368,22 @@ void Characters::equip(Ring* r)
 		updateStatsEQ(4, bonus);
 	else if (ring->getBonusType() == 3) //CHA
 		updateStatsEQ(5, bonus);
+	else if (ring->getBonusType() == 4) //AC
+		armorClass += bonus;
 
-	calcArmorClass();
+	currentState();
 }
 
 void Characters::equip(Shield* s)
 {
+	if (!shield->compareName("NONE"))
+		armorClass -= shield->getACBonus();
+
 	shield = s;
+	
+	armorClass += shield->getACBonus();
+
+	currentState();
 }
 
 
@@ -409,6 +426,18 @@ string Characters::currentRing()
 {
 	return ring->getName();
 }
+
+/*
+	FOR SUBJECT
+
+*/
+
+
+void Characters::currentState()
+{
+		Notify();
+}
+
 
 /*
 	FOR UNIT TEST
