@@ -1,0 +1,38 @@
+\hypertarget{class_fighter}{}\section{Fighter Class Reference}
+\label{class_fighter}\index{Fighter@{Fighter}}
+
+
+{\ttfamily \#include $<$Fighter.\+h$>$}
+
+Inheritance diagram for Fighter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fighter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_fighter_ac50c9ff5d35986be5930dee55a71e909}{}\label{class_fighter_ac50c9ff5d35986be5930dee55a71e909} 
+{\bfseries Fighter} (int, string)
+\item 
+\hypertarget{class_fighter_a5bfd7630b47d4bf3b7b1288195bbad07}{}\label{class_fighter_a5bfd7630b47d4bf3b7b1288195bbad07} 
+void {\bfseries init\+Hit\+Points} ()
+\item 
+\hypertarget{class_fighter_a9e63e29c35aaca0bc60ee46efe00cc62}{}\label{class_fighter_a9e63e29c35aaca0bc60ee46efe00cc62} 
+void {\bfseries display\+Stats} ()
+\item 
+\hypertarget{class_fighter_a235df759d42bb20bd6314abe806dd6ce}{}\label{class_fighter_a235df759d42bb20bd6314abe806dd6ce} 
+bool {\bfseries validate\+Hit\+Points} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class inherits from \hyperlink{class_characters}{Characters} and creates a \hyperlink{class_fighter}{Fighter} character. All fighters are created with a level and a name. Fighters have a constant Hit\+\_\+\+Die = d10. This value is used to calculate the hit points as follows\+: At level 1\+: Hit\+Points = Hit\+\_\+\+Die\+\_\+\+Max + C\+O\+N\+\_\+mod = 10 + C\+O\+N\+\_\+mod With each level gained\+: Hit\+Points = Hit\+Points + Hit\+\_\+\+Die\+\_\+\+Roll + C\+O\+N\+\_\+mod
+
+All other information about the fighter is generated in the \hyperlink{class_characters}{Characters} class See \hyperlink{class_characters}{Characters} class for more details. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Sabin-\/\+Laptop/\+Documents/\+Visual Studio 2013/\+Projects/\+Assignment1\+Pr/\+Assignment1\+Pr/Fighter.\+h\item 
+C\+:/\+Users/\+Sabin-\/\+Laptop/\+Documents/\+Visual Studio 2013/\+Projects/\+Assignment1\+Pr/\+Assignment1\+Pr/Fighter.\+cpp\end{DoxyCompactItemize}
