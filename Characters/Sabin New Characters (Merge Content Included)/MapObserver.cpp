@@ -12,10 +12,20 @@ MapObserver::~MapObserver()
 
 void MapObserver::Update()
 {
-	display;
+	display();
 }
 
+/*!Function that clears screen and re-displays map.
+Note that if exit is reached will terminate program*/
 void MapObserver::display()
 {
+	system("CLS");
+	_sub->displayMap();
+	if (_sub->getCleared())
+	{
+		cout << "\nLevel Cleared!\n";
+		system("PAUSE");
+		exit(0);
+	}
 	
 }

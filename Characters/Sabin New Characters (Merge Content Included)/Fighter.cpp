@@ -24,24 +24,24 @@ void Fighter::detRaceTraits()
 	switch(race)
 	{
 	case Dwarf:
-		size = Dwarf::size;
-		speed = Dwarf::speed;
-		scoreIncrease(Dwarf::typeScore,Dwarf::ScoreIncrease);
+		size = Dwarfs::size;
+		speed = Dwarfs::speed;
+		scoreIncrease(Dwarfs::typeScore,Dwarfs::ScoreIncrease);
 		break;
 	case Elf:
-		size = Elf::size;
-		speed = Elf::speed;
-		scoreIncrease(Elf::typeScore, Elf::ScoreIncrease);
+		size = Elves::size;
+		speed = Elves::speed;
+		scoreIncrease(Elves::typeScore, Elves::ScoreIncrease);
 		break;
 	case Halfling:
-		size = Halfling::size;
-		speed = Halfling::speed;
-		scoreIncrease(Halfling::typeScore, Halfling::ScoreIncrease);
+		size = Halflings::size;
+		speed = Halflings::speed;
+		scoreIncrease(Halflings::typeScore, Halflings::ScoreIncrease);
 		break;
 	case Human:
-		size = Human::size;
-		speed = Human::speed;
-		scoreIncrease(Human::typeScore, Human::ScoreIncrease);
+		size = Humans::size;
+		speed = Humans::speed;
+		scoreIncrease(Humans::typeScore, Humans::ScoreIncrease);
 		break;
 	}
 

@@ -589,6 +589,13 @@ void Characters::scoreIncrease(int index, int value)
 }
 
 
+void Characters::setPosition(int y, int x)
+{
+	position.clear();
+	position.push_back(y);
+	position.push_back(x);
+}
+
 
 /*
 	FOR SUBJECT

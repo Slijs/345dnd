@@ -81,7 +81,6 @@
   <ItemGroup>
     <ClCompile Include="CharacterObserver.cpp" />
     <ClCompile Include="Characters.cpp" />
-    <ClCompile Include="Driver.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Fighter.cpp" />
@@ -90,6 +89,7 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="TestMap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

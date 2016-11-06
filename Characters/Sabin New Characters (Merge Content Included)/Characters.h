@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <vector>
 
 /*!
 Some changes were made from previous implementation of Characters Class
@@ -70,6 +71,8 @@ private:
 	int attackBonus;
 	int damageBonus;
 
+	vector<int> position;
+
 	/*
 	EQUIPMENT
 	*/
@@ -128,6 +131,7 @@ public:
 	void setIsDead(bool isDead) { this->isDead = isDead; }
 	bool getIsLevelUp() { return isLevelUp; }
 	void setIsLevelUp(bool isLevelUp) { this->isLevelUp = isLevelUp; }
+	vector<int> getPosition() { return position; }
 
 	void calcAttackBonus();		//from STR/DEX mod & proficiency level and base attack bonus
 	void calcDamageBonus();		//from STR mod 
@@ -151,6 +155,7 @@ public:
 	void equip(Ring*);
 	void equip(Shield*);
 	
+	
 
 	string currentArmor();
 	string currentWeapon();
@@ -173,8 +178,12 @@ public:
 	//For fighter race
 	void scoreIncrease(int, int);
 
+	//For map
+	void setPosition(int, int);
+
 	//For Subject
 	void currentState();
+
 
 
 	///FOR UNIT TEST
