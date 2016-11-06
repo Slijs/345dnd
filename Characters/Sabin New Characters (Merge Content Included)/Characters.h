@@ -84,7 +84,6 @@ private:
 		HELPER FUNCTIONS ONLY USED IN CHARACTERS CPP
 	*/
 	//for the random Ability Scores
-	void raceProcess();
 	int roll4D6();
 	void reOrder();
 
@@ -170,6 +169,9 @@ public:
 	
 	void gainExperience(int);
 	void updateAbilityScore(int);
+
+	//For fighter race
+	void scoreIncrease(int, int);
 
 	//For Subject
 	void currentState();

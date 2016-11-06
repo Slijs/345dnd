@@ -2,7 +2,7 @@
 
 
 //!Parameterized Constructor that sets name, type, size, level, speed , ability scores and armor class
-Monster::Monster(string name, Type type, Size size, int level,int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass) : Characters(level,STR,DEX, CON, INT, WIS, CHA, armorClass)
+Monster::Monster(string name, Type type, Size size, int level,int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level,STR,DEX, CON, INT, WIS, CHA, armorClass)
 {
 	this->name = name;
 	this->type = type;
@@ -10,6 +10,7 @@ Monster::Monster(string name, Type type, Size size, int level,int speed, int STR
 	this->speed = speed;
 	detHitDie();
 	detHitPoints();
+	equipWeapon(weapon);
 }
 
 //!Destructor

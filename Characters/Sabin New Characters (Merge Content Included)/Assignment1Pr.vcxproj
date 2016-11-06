@@ -70,7 +70,11 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="Fighter.h" />
+    <ClInclude Include="MapObserver.h" />
+    <ClInclude Include="Maps.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="MonsterCreator.h" />
+    <ClInclude Include="namespaces.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="Observer.h" />
   </ItemGroup>
@@ -81,6 +85,8 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="MapObserver.cpp" />
+    <ClCompile Include="Maps.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Subject.cpp" />

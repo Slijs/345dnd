@@ -8,7 +8,7 @@ using namespace std;
 int experience[3][20] = {
 	{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 },
 	{ 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 },
-	{ 200, 450, 700, 1100, 1800, 2300, 2900, 3900, 5000, 5900, 7200, 8400, 10000, 11500, 13000, 15000, 18000, 20000, 22000, 25000}
+	{ 50, 100, 200, 450, 700, 1100, 1800, 2300, 2900, 3900, 5000, 5900, 7200, 8400, 10000, 11500, 13000, 15000, 18000, 20000}
 };
 
 /*CONSTRUCTOR*/
@@ -573,6 +573,22 @@ void Characters::updateAbilityScore(int scoreIndex)
 	abilityScoreMod();
 	setIsLevelUp(false);
 }
+
+void Characters::scoreIncrease(int index, int value)
+{
+	if (index == 6)
+	{
+		for (int i = 0; i < MAX_NUM_SCORES; i++)
+			scores[0][i]+=value;
+	}
+	else
+	{
+		scores[0][index]+= value;
+	}
+	abilityScoreMod();	
+}
+
+
 
 /*
 	FOR SUBJECT

@@ -1,5 +1,4 @@
 #include "Fighter.h"
-#include "Entity.h"
 
 /*
 	CONSTRUCTOR
@@ -8,6 +7,7 @@
 Fighter::Fighter(int level, Race race,string name) : Characters(level)
 {
 	Fighter::name = name;
+	detRaceTraits();
 	initHitPoints();
 }
 
@@ -18,6 +18,36 @@ Fighter::~Fighter()
 {
 
 }
+
+void Fighter::detRaceTraits()
+{
+	switch(race)
+	{
+	case Dwarf:
+		size = Dwarf::size;
+		speed = Dwarf::speed;
+		scoreIncrease(Dwarf::typeScore,Dwarf::ScoreIncrease);
+		break;
+	case Elf:
+		size = Elf::size;
+		speed = Elf::speed;
+		scoreIncrease(Elf::typeScore, Elf::ScoreIncrease);
+		break;
+	case Halfling:
+		size = Halfling::size;
+		speed = Halfling::speed;
+		scoreIncrease(Halfling::typeScore, Halfling::ScoreIncrease);
+		break;
+	case Human:
+		size = Human::size;
+		speed = Human::speed;
+		scoreIncrease(Human::typeScore, Human::ScoreIncrease);
+		break;
+	}
+
+
+}
+
 
 //!Function that calculates the initial hitpoints of the character based on the level
 void Fighter::initHitPoints()
@@ -146,6 +176,10 @@ void Fighter::currentState()
 {
 	Notify();
 }
+
+
+
+
 
 //TEST
 

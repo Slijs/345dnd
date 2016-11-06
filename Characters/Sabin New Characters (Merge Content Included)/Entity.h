@@ -26,8 +26,7 @@ enum Race {  //this is useful to check if the user inputted a valid entry
 	Dwarf,
 	Elf,
 	Halfling,
-	Human,
-	Length2
+	Human
 };
 //!Array for Fighter Race string conversion
 static const char* raceString[] = { "Dwarf", "Elf", "Halfling", "Human" };

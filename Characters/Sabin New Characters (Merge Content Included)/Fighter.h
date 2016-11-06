@@ -1,5 +1,7 @@
 #pragma once
 #include "Characters.h"
+#include "Entity.h"
+#include "Dwarf.h"
 #include "Monster.h"
 
 /*!
@@ -21,9 +23,11 @@ private:
 	const int HIT_DIE = 10; //d10
 	int hitPoints;
 	Race race;
+	Size size;
 	string name;
 	int speed;
 
+	void detRaceTraits();
 	
 
 public:

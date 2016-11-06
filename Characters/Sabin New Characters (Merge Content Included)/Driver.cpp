@@ -11,8 +11,7 @@ int main()
 	int level;
 	string name;
 	string mName = "Goblin";
-	Monster* m1 = new Monster(mName, Humanoid, Small, 4, 30, 8, 14, 10, 10, 8, 8, 15);
-	m1->equipWeapon(new Weapon("Scimitar", "1d6", "Melee"));
+	Monster* m1 = new Monster(mName, Humanoid, Small, 4, 30, 8, 14, 10, 10, 8, 8, 15, new Weapon("Scimitar", "1d6", "Melee"));
 	CharacterObserver *mo = new CharacterObserver(m1);
 
 	cout << "Welcome to Dungeon and Dragon game!\n"<<endl;
