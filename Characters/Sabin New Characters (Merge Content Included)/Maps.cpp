@@ -5,11 +5,11 @@ Character now has a vector for his position which are used for
 X and Y coordinates on map*/
 Maps::Maps(Characters* c)
 {
-	map.push_back(new string("oeooo"));
-	map.push_back(new string("o...o"));
-	map.push_back(new string("ooo.o"));
-	map.push_back(new string("op..o"));
-	map.push_back(new string("ooooo"));
+	map.push_back("oeooo");
+	map.push_back("o...o");
+	map.push_back("ooo.o");
+	map.push_back("op..o");
+	map.push_back("ooooo");
 	player = c;
 	c->setPosition(3, 1);
 	vector<int> pos = player->getPosition();
@@ -50,7 +50,7 @@ void Maps::detectKey(int input)
 //!Function that moves postion of character up if there is no obstruction
 void Maps::moveUp()
 {
-	char above = map[Y - 1]->at(X);
+	char above = map[Y - 1].at(X);
 	if (above == 'o')
 		return;
 	else
@@ -58,7 +58,7 @@ void Maps::moveUp()
 		player->setPosition(Y - 1, X);
 		replacePwithDot();
 
-		char* next = &map[Y - 1]->at(X);
+		char* next = &map[Y - 1].at(X);
 		if (*next == 'e')
 			cleared = true;
 	
@@ -72,7 +72,7 @@ void Maps::moveUp()
 //!Function that moves postion of character left if there is no obstruction
 void Maps::moveLeft()
 {
-	char left = map[Y]->at(X-1);
+	char left = map[Y].at(X-1);
 	if (left == 'o')
 		return;
 	else
@@ -80,7 +80,7 @@ void Maps::moveLeft()
 		player->setPosition(Y, X - 1);
 		replacePwithDot();
 
-		char* next = &map[Y]->at(X - 1);
+		char* next = &map[Y].at(X - 1);
 		if (*next == 'e')
 			cleared = true;
 
@@ -94,7 +94,7 @@ void Maps::moveLeft()
 //!Function that moves postion of character right if there is no obstruction
 void Maps::moveRight()
 {
-	char right = map[Y]->at(X + 1);
+	char right = map[Y].at(X + 1);
 	if (right == 'o')
 		return;
 	else
@@ -102,7 +102,7 @@ void Maps::moveRight()
 		player->setPosition(Y, X + 1);
 		replacePwithDot();
 
-		char* next = &map[Y]->at(X + 1);
+		char* next = &map[Y].at(X + 1);
 		if (*next == 'e')
 			cleared = true;
 
@@ -117,7 +117,7 @@ void Maps::moveRight()
 //!Function that moves postion of character down if there is no obstruction
 void Maps::moveDown()
 {
-	char below = map[Y + 1]->at(X);
+	char below = map[Y + 1].at(X);
 
 	if (below == 'o')
 		return;
@@ -126,7 +126,7 @@ void Maps::moveDown()
 		player->setPosition(Y + 1, X);
 		replacePwithDot();
 
-		char* next = &map[Y + 1]->at(X);
+		char* next = &map[Y + 1].at(X);
 		if (*next == 'e')
 			cleared = true;
 		*next = 'p';
@@ -139,18 +139,18 @@ void Maps::moveDown()
 //!Function that changes previous positon to freepath
 void Maps::replacePwithDot()
 {
-	char* prev = &map[Y]->at(X);
+	char* prev = &map[Y].at(X);
 	*prev = '.';
 }
 
 //!Displays the map of strings on console
 void Maps::displayMap()
 {
-	string* row;
+	string row;
 	for (int i = 0; i<map.size(); i++)
 	{
 		row = map[i];
-		cout << row->c_str() << endl;
+		cout << row.c_str() << endl;
 	}
 		
 }

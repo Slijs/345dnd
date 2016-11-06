@@ -23,7 +23,7 @@ class Maps : public Subject
 {
 private:
 	bool cleared;
-	std::vector<string*> map;
+	std::vector<string> map;
 	int X, Y;
 	Characters* player;
 
