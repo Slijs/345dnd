@@ -7,3 +7,4 @@
 // copy constructor ring->Serialize(ar);
 // Add Inventory to Character, need ability to change items
 // Serialize fighter
+// Update Fighter Constructor for int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass)
