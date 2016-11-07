@@ -314,3 +314,5 @@ __pycache__/
 
 ## Mac garbage ignores ##
 .DS_Store
+*.suo
+Maps/DandD.sdf
