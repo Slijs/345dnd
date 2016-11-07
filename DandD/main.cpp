@@ -27,8 +27,6 @@ int main(int argc, char** argv)
 	system("pause");
 	int success = 0;
 
-	std::cout<<"THIS IS GITHUB TEST FROM KHATIB: \nPress key to continue\n";
-	getch();
 	/*std::cout << "Running CPP Unit Test" << std::endl;
 
 	// Get the top level suite from the registry
