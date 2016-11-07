@@ -1,3 +1,7 @@
+/**
+*@file Subject.h
+@brief Declaration of the Subject class for the MVC pattern
+*
 #pragma once
 
 #include "Observer.h"
