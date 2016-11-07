@@ -5,11 +5,12 @@ Character now has a vector for his position which are used for
 X and Y coordinates on map*/
 Maps::Maps(Characters* c)
 {
-	map.push_back("oeooo");
+	map.push_back(".e...");
 	map.push_back("o...o");
-	map.push_back("ooo.o");
-	map.push_back("op..o");
-	map.push_back("ooooo");
+	map.push_back("ooo..");
+	map.push_back(".p...");
+	map.push_back(".....");
+	map.shrink_to_fit();
 	player = c;
 	c->setPosition(3, 1);
 	vector<int> pos = player->getPosition();
@@ -33,28 +34,50 @@ void Maps::detectKey(int input)
 	switch (input)
 	{
 	case KEY_UP:
-		moveUp();
+		if (validatePlayerMove(X, Y - 1))
+			moveUp();
 		break;
 	case KEY_DOWN:
-		moveDown();
+		if (validatePlayerMove(X, Y + 1))
+			moveDown();
+		break;
+	case KEY_UP_LEFT:
+		if (validatePlayerMove(X - 1, Y - 1))
+			moveUpLeft();
+		break;
+	case KEY_DOWN_LEFT:
+		if (validatePlayerMove(X - 1, Y + 1))
+			moveDownLeft();
 		break;
 	case KEY_LEFT:
-		moveLeft();
+		if (validatePlayerMove(X-1, Y)) 
+			moveLeft();
+		break;
+	case KEY_UP_RIGHT:
+		if (validatePlayerMove(X + 1, Y - 1))
+			moveUpRight();
+		break;
+	case KEY_DOWN_RIGHT:
+		if (validatePlayerMove(X + 1, Y + 1))
+			moveUpRight();
 		break;
 	case KEY_RIGHT:
-		moveRight();
+		if (validatePlayerMove(X + 1, Y))
+
+			moveRight();
+		break;
+	default:
+		cout << input << endl;
 		break;
 	}
+
+	currentState();
+
 }
 
 //!Function that moves postion of character up if there is no obstruction
 void Maps::moveUp()
 {
-	char above = map[Y - 1].at(X);
-	if (above == 'o')
-		return;
-	else
-	{
 		player->setPosition(Y - 1, X);
 		replacePwithDot();
 
@@ -63,77 +86,116 @@ void Maps::moveUp()
 			cleared = true;
 	
 		*next = 'p';
-
+		
 		Y--;
-		currentState();
-	}
+}
+
+void Maps::moveUpLeft()
+{
+	player->setPosition(Y - 1, X-1);
+	replacePwithDot();
+
+	char* next = &map[Y - 1].at(X-1);
+	if (*next == 'e')
+		cleared = true;
+
+	*next = 'p';
+	X--;
+	Y--;
+}
+
+void Maps::moveDownLeft()
+{
+	player->setPosition(Y + 1, X - 1);
+	replacePwithDot();
+
+	char* next = &map[Y + 1].at(X - 1);
+	if (*next == 'e')
+		cleared = true;
+
+	*next = 'p';
+	X--;
+	Y++;
+
 }
 
 //!Function that moves postion of character left if there is no obstruction
 void Maps::moveLeft()
 {
-	char left = map[Y].at(X-1);
-	if (left == 'o')
-		return;
-	else
-	{
-		player->setPosition(Y, X - 1);
-		replacePwithDot();
+	player->setPosition(Y, X - 1);
+	replacePwithDot();
 
-		char* next = &map[Y].at(X - 1);
-		if (*next == 'e')
-			cleared = true;
+	char* next = &map[Y].at(X - 1);
+	if (*next == 'e')
+		cleared = true;
 
-		*next = 'p';
+	*next = 'p';
 
-		X--;
-		currentState();
-	}
+	X--;
+	
+}
+
+void Maps::moveUpRight()
+{
+	player->setPosition(Y-1, X + 1);
+	replacePwithDot();
+
+	char* next = &map[Y-1].at(X + 1);
+	if (*next == 'e')
+		cleared = true;
+
+
+	*next = 'p';
+
+	X++;
+	Y--;
+
+}
+
+void Maps::moveDownRight()
+{
+	player->setPosition(Y + 1, X + 1);
+	replacePwithDot();
+
+	char* next = &map[Y + 1].at(X + 1);
+	if (*next == 'e')
+		cleared = true;
+
+
+	*next = 'p';
+
+	X++;
+	Y++;
 }
 
 //!Function that moves postion of character right if there is no obstruction
 void Maps::moveRight()
 {
-	char right = map[Y].at(X + 1);
-	if (right == 'o')
-		return;
-	else
-	{
-		player->setPosition(Y, X + 1);
-		replacePwithDot();
+	player->setPosition(Y, X + 1);
+	replacePwithDot();
 
-		char* next = &map[Y].at(X + 1);
-		if (*next == 'e')
-			cleared = true;
+	char* next = &map[Y].at(X + 1);
+	if (*next == 'e')
+		cleared = true;
 
-		*next = 'p';
+	*next = 'p';
 
-		X++;
-		currentState();
-	}
+	X++;
 
 }
 
 //!Function that moves postion of character down if there is no obstruction
 void Maps::moveDown()
 {
-	char below = map[Y + 1].at(X);
+	player->setPosition(Y + 1, X);
+	replacePwithDot();
 
-	if (below == 'o')
-		return;
-	else
-	{
-		player->setPosition(Y + 1, X);
-		replacePwithDot();
+	char* next = &map[Y + 1].at(X);
+	if (*next == 'e')
+		cleared = true;
+	*next = 'p';
 
-		char* next = &map[Y + 1].at(X);
-		if (*next == 'e')
-			cleared = true;
-		*next = 'p';
-
-		Y++;
-		currentState();
-	}
+	Y++;
 }
 
 //!Function that changes previous positon to freepath
@@ -153,6 +215,18 @@ void Maps::displayMap()
 		cout << row.c_str() << endl;
 	}
 		
+}
+
+bool Maps::validatePlayerMove(int x, int y)
+{
+	if (x < 0 || x >= map[Y].length())
+		return false;
+	if (y < 0 || y >= map.size())
+		return false;
+	char posInQuestion = map[y].at(x);
+	if (posInQuestion == 'o')
+		return false;
+	else return true;
 }
 
 //!Informs subject of change in map to trigger redisplay in Map Observer.

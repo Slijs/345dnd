@@ -8,10 +8,15 @@
 
 using namespace std;
 
-#define KEY_UP 72
-#define KEY_DOWN 80
-#define KEY_LEFT 75
-#define KEY_RIGHT 77
+#define KEY_UP 56
+#define KEY_DOWN 50
+#define KEY_UP_LEFT 55
+#define KEY_DOWN_LEFT 49
+#define KEY_LEFT 52
+#define KEY_UP_RIGHT 57
+#define KEY_DOWN_RIGHT 51
+#define KEY_RIGHT 54
+
 
 /*!
 	Dummy class for maps that has a single hard-coded map
@@ -27,10 +32,7 @@ private:
 	int X, Y;
 	Characters* player;
 
-	void moveUp();
-	void moveLeft();
-	void moveRight();
-	void moveDown();
+	
 
 	void replacePwithDot();
 
@@ -40,12 +42,18 @@ public:
 
 	bool getCleared(){ return cleared; };
 
+	void moveUp();
+	void moveUpLeft();
+	void moveDownLeft();
+	void moveLeft();
+	void moveUpRight();
+	void moveDownRight();
+	void moveRight();
+	void moveDown();
+
 	void detectKey(int);
 
-
-
-
-
+	bool validatePlayerMove(int, int);
 	void displayMap();
 	
 	void currentState();

@@ -72,7 +72,7 @@ private:
 	int damageBonus;
 
 	vector<int> position;
-
+	vector<string> map;
 	/*
 	EQUIPMENT
 	*/
@@ -132,6 +132,7 @@ public:
 	bool getIsLevelUp() { return isLevelUp; }
 	void setIsLevelUp(bool isLevelUp) { this->isLevelUp = isLevelUp; }
 	vector<int> getPosition() { return position; }
+	void setMap();
 
 	void calcAttackBonus();		//from STR/DEX mod & proficiency level and base attack bonus
 	void calcDamageBonus();		//from STR mod 
