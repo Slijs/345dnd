@@ -11,7 +11,5 @@ public:
 	static Character* loadCharacter();
 	static void removeCharacter();
 	static string cstrTostr(CString &cstr);
-	//static void deleteCharacter(Character &theChar);
-
 };
 #endif
