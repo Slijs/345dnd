@@ -1,18 +1,28 @@
 #include "Fighter.h"
 
+IMPLEMENT_SERIAL(Fighter, Character, 1);
+
 /*
-	CONSTRUCTOR
+CONSTRUCTOR
 */
 //!Parameterized Constructor to set level, race and name. 
-Fighter::Fighter(int level, Race race,string name) : Characters(level)
+Fighter::Fighter(int level, Race race, string name) : Characters(level)
 {
 	Fighter::name = name;
 	detRaceTraits();
 	initHitPoints();
 }
 
+Fighter::Fighter() : Characters(){
+	Fighter::name = "Dummy";
+	size = Dwarfs::size;
+	speed = Dwarfs::speed;
+	scoreIncrease(Dwarfs::typeScore, Dwarfs::ScoreIncrease);
+	initHitPoints();
+}
+
 /*
-	DESTRUCTOR
+DESTRUCTOR
 */
 Fighter::~Fighter()
 {
@@ -21,12 +31,12 @@ Fighter::~Fighter()
 
 void Fighter::detRaceTraits()
 {
-	switch(race)
+	switch (race)
 	{
 	case Dwarf:
 		size = Dwarfs::size;
 		speed = Dwarfs::speed;
-		scoreIncrease(Dwarfs::typeScore,Dwarfs::ScoreIncrease);
+		scoreIncrease(Dwarfs::typeScore, Dwarfs::ScoreIncrease);
 		break;
 	case Elf:
 		size = Elves::size;
@@ -51,12 +61,12 @@ void Fighter::detRaceTraits()
 
 //!Function that calculates the initial hitpoints of the character based on the level
 void Fighter::initHitPoints()
-{ 
+{
 	int level = this->getLevel();
 	//At Level 1: HP = max_HitDie + CON_mod
 	hitPoints = HIT_DIE + this->getScores(1, 2);
 	//For every level: HP = HP + roll_HitDie + CON_mod
-	for(int i = 2; i <= level; i++)
+	for (int i = 2; i <= level; i++)
 	{
 		hitPoints += this->rollDice(HIT_DIE) + this->getScores(1, 2);
 	}
@@ -80,7 +90,7 @@ void Fighter::displayBattle()
 	string raceName;
 	cout << "Name: " << name << endl;
 	cout << "Class: Fighter";
-	cout << " Race: " << raceString[race]<< endl;
+	cout << " Race: " << raceString[race] << endl;
 	cout << "Hit Points: " << hitPoints << endl;
 	this->Characters::displayBattle();
 }
@@ -110,7 +120,7 @@ void Fighter::displayDeath()
 If larger than AC, damage roll is calculated and inflicted on Monster, otherwise attack fails*/
 void Fighter::attack(Monster* c)
 {
-	
+
 	int aRoll = attackRoll(), dRoll;
 	string name;
 
@@ -129,7 +139,7 @@ void Fighter::attack(Monster* c)
 	}
 }
 
-/*!Function that reduces hitpoints based on damage taken, 
+/*!Function that reduces hitpoints based on damage taken,
 if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats*/
 void Fighter::receiveDamage(int damage)
 {
@@ -141,8 +151,8 @@ void Fighter::receiveDamage(int damage)
 		setIsDead(true);
 	}
 	currentState();
-	
-	
+
+
 }
 
 //!Function to recalculate hitpoints when leveling up but adding a roll of hitDice and dexterity modifier
@@ -151,7 +161,7 @@ void Fighter::recalcHitPoints()
 	hitPoints += this->rollDice(HIT_DIE) + this->getScores(1, 2);
 }
 
-/*!Function to increase experience when monster is defeated. 
+/*!Function to increase experience when monster is defeated.
 Calls parent gainExperience(int) function. Notifies change in character state*/
 void Fighter::gainExperience(int gain)
 {
@@ -177,10 +187,6 @@ void Fighter::currentState()
 	Notify();
 }
 
-
-
-
-
 //TEST
 
 bool Fighter::validateHitPoints()
@@ -189,7 +195,7 @@ bool Fighter::validateHitPoints()
 	int validHit = 10 + this->getScores(1, 2);
 	if (level == 1 && hitPoints != validHit)
 		return false;
-	else if (level > 1 && ((hitPoints < (validHit + (this->getScores(1, 2) + 1) * level) || hitPoints >(validHit + (this->getScores(1, 2)+10) * level))))
+	else if (level > 1 && ((hitPoints < (validHit + (this->getScores(1, 2) + 1) * level) || hitPoints >(validHit + (this->getScores(1, 2) + 10) * level))))
 		return false;
 	return true;
 }
@@ -205,4 +211,8 @@ bool Fighter::validateGainExperience(int exp)
 	if (currentExp += exp)
 		return true;
 	return false;
+}
+
+// Method for serialization - to be implemented
+void Fighter::Serialize(CArchive &ar){
 }

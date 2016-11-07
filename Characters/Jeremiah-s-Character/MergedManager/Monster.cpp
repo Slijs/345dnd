@@ -1,8 +1,17 @@
 #include "Monster.h"
 
+//!Default constructor - for making dummy monsters
+Monster::Monster() : Character() {
+	this->name = "dummy";
+	this->type = Beast;
+	this->size = Medium;
+	this->speed = 20;
+	detHitDie();
+	detHitPoints();
+}
 
 //!Parameterized Constructor that sets name, type, size, level, speed , ability scores and armor class
-Monster::Monster(string name, Type type, Size size, int level,int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level,STR,DEX, CON, INT, WIS, CHA, armorClass)
+Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
 {
 	this->name = name;
 	this->type = type;
@@ -79,7 +88,7 @@ void Monster::attack(Fighter* c)
 
 	if (aRoll < c->getArmorClass())
 	{
-		cout << "Attack missed!" << "\n"<< endl;
+		cout << "Attack missed!" << "\n" << endl;
 	}
 	else
 	{
@@ -90,7 +99,7 @@ void Monster::attack(Fighter* c)
 	}
 }
 
-/*!Function that reduces hitpoints based on damage taken, 
+/*!Function that reduces hitpoints based on damage taken,
 if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats*/
 void Monster::receiveDamage(int damage)
 {

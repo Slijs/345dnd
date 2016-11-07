@@ -1,4 +1,3 @@
-
 #include "Characters.h"
 #include "Fighter.h"
 #include "Monster.h"
@@ -9,15 +8,41 @@ using namespace std;
 IMPLEMENT_SERIAL(Characters, CObject, 1);
 
 int experience[3][20] = {
-	{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 },
-	{ 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 },
-	{ 50, 100, 200, 450, 700, 1100, 1800, 2300, 2900, 3900, 5000, 5900, 7200, 8400, 10000, 11500, 13000, 15000, 18000, 20000}
+		{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 },
+		{ 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 },
+		{ 50, 100, 200, 450, 700, 1100, 1800, 2300, 2900, 3900, 5000, 5900, 7200, 8400, 10000, 11500, 13000, 15000, 18000, 20000 }
 };
 
 /*CONSTRUCTOR*/
-//!Default Constructor
+//!Default Constructor - Creates a dummy Lvl 1 Character
 Characters::Characters()
 {
+	this->level = 1;
+	isDead = false;
+	armorClass = 0;
+	inBattle = false;
+	//call to set proficiencyBonus and exp
+	detExperience();
+	detProficiencyBonus();
+
+	srand(time(NULL));
+
+	//call to set abilityScore and modifiers
+	generateAbility();
+	if (level == 1)
+	{
+		armor = new Armor();
+		weapon = new Weapon("Longsword", "1d8", "melee");
+	}
+	else
+	{
+		armor = new Armor("Padded Armor", 11);
+		weapon = new Weapon("Light Crossbow", "1d8", "ranged");
+	}
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring();
+	helmet = new Helmet();
 }
 
 //!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
@@ -49,15 +74,15 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 }
 
 //!Parameterized Constructor for Fighter class, sets level.
-Characters::Characters(int level) 
+Characters::Characters(int level)
 {
 	this->level = level;
 	isDead = false;
 	armorClass = 0;
 	inBattle = false;
 	//call to set proficiencyBonus and exp
-	detExperience();  
-	detProficiencyBonus(); 
+	detExperience();
+	detProficiencyBonus();
 
 	srand(time(NULL));
 
@@ -66,7 +91,7 @@ Characters::Characters(int level)
 	if (level == 1)
 	{
 		armor = new Armor();
-		weapon = new Weapon("Longsword", "1d8","melee");
+		weapon = new Weapon("Longsword", "1d8", "melee");
 	}
 	else
 	{
@@ -83,8 +108,6 @@ Characters::Characters(int level)
 	//calculate attackBonus and DamageBonus
 	calcAttackBonus();
 	calcDamageBonus();
-
-
 }
 
 //!Auxiliary function used to destroy all equipment objects
@@ -175,9 +198,9 @@ void Characters::generateAbility()
 	{
 		abscor[i] = roll4D6();
 	}
-	
+
 	orderArray(abscor);
-	
+
 	scores[0][0] = abscor[0];
 	scores[0][2] = abscor[1];
 	scores[0][1] = abscor[2];
@@ -213,7 +236,7 @@ void Characters::abilityScoreMod()
 {
 	//TO BE DEFINED
 	//MODIFIER = (ABILITY SCORE - 10)/2
-	
+
 	double modifier;
 	for (int i = 0; i < MAX_NUM_SCORES; i++)
 	{
@@ -266,14 +289,14 @@ void Characters::calcArmorClass()
 	armorClass += scores[1][1];
 }
 
-/*!Function to calculate attack bonus by adding proficiency bonus and 
+/*!Function to calculate attack bonus by adding proficiency bonus and
 DEX mod if ranged weapon or STR mod if melee weapon*/
 void Characters::calcAttackBonus()
 {
 	attackBonus = proficiencyBonus;
 	if (weapon->compareType("ranged"))
 		attackBonus += scores[1][1];  //add dex mod if ranged weapon
-	else 
+	else
 		attackBonus += scores[1][0]; //add str mod if melee or no weapon
 }
 
@@ -295,11 +318,11 @@ void Characters::displayStats()
 	cout << "\nCON: " << scores[0][2] << "(" << scores[1][2] << ")";
 	cout << "\nINT: " << scores[0][3] << "(" << scores[1][3] << ")";
 	cout << "\nWIS: " << scores[0][4] << "(" << scores[1][4] << ")";
-	cout << "\nCHA: " << scores[0][5] << "(" << scores[1][5] << ")"<< endl;
+	cout << "\nCHA: " << scores[0][5] << "(" << scores[1][5] << ")" << endl;
 	cout << "Proficiency Bonus: +" << proficiencyBonus;
 	cout << "\nArmor Class: " << armorClass;
 	cout << "\nEquipment:" << endl;
-	
+
 	displayEquip();
 
 	cout << "Attack Bonus: " << attackBonus << endl;
@@ -312,7 +335,7 @@ void Characters::displayEquip()
 	printf("%-10s%-15s  %-10s%-15s\n", "Armor: ", armor->getName().c_str(), "Weapon: ", weapon->getName().c_str());
 
 	printf("%-10s%-15s  %-10s%-15s\n", "Shield: ", shield->getName().c_str(), "Helmet: ", helmet->getName().c_str());
-	
+
 	printf("%-10s%-15s  %-10s%-15s \n", "Ring: ", ring->getName().c_str(), "Boots: ", boots->getName().c_str());
 }
 
@@ -343,7 +366,7 @@ void Characters::displayLevelUp()
 	cout << "\nCHA: " << scores[0][5] << "(" << scores[1][5] << ")" << endl;
 }
 
-/*EQUIP FUNCTIONS: 
+/*EQUIP FUNCTIONS:
 Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 //If wish to de-equip use default constructor of these Classes
 */
@@ -385,7 +408,7 @@ void Characters::equip(Helmet* h)
 		updateStatsDQ(4, bonus);
 	else if (helmet->getBonusType() == 3)  //AC
 		armorClass -= bonus;
-	
+
 	helmet = h;
 	bonus = helmet->getBonus();
 	if (helmet->getBonusType() == 1) //INT
@@ -431,7 +454,7 @@ void Characters::equip(Ring* r)
 		updateStatsDQ(5, bonus);
 	else if (ring->getBonusType() == 4) //AC
 		armorClass -= bonus;
-	
+
 	ring = r;
 
 	bonus = ring->getBonus();
@@ -458,7 +481,7 @@ void Characters::equip(Shield* s)
 		armorClass -= shield->getACBonus();
 
 	shield = s;
-	
+
 	armorClass += shield->getACBonus();
 
 	currentState();
@@ -510,7 +533,7 @@ string Characters::currentRing()
 }
 
 /*
-	FOR BATTLE
+FOR BATTLE
 */
 //!Function to set inBattle to true and initiate battle state
 void Characters::startBattle(Characters* c)
@@ -527,9 +550,9 @@ void Characters::endBattle()
 int Characters::processWeaponDice()
 {
 	string dice = weapon->getDice();
-	
+
 	int numFace = dice.at(2) - '0';
-	int numDice = dice.at(0)-'0';
+	int numDice = dice.at(0) - '0';
 	int damage = 0;
 	for (int i = 0; i < numDice; i++)
 	{
@@ -582,13 +605,13 @@ void Characters::scoreIncrease(int index, int value)
 	if (index == 6)
 	{
 		for (int i = 0; i < MAX_NUM_SCORES; i++)
-			scores[0][i]+=value;
+			scores[0][i] += value;
 	}
 	else
 	{
-		scores[0][index]+= value;
+		scores[0][index] += value;
 	}
-	abilityScoreMod();	
+	abilityScoreMod();
 }
 
 
@@ -601,7 +624,7 @@ void Characters::setPosition(int y, int x)
 
 
 /*
-	FOR SUBJECT
+FOR SUBJECT
 
 */
 
@@ -613,7 +636,7 @@ void Characters::currentState()
 
 
 /*
-	FOR UNIT TEST
+FOR UNIT TEST
 */
 
 ///Check to see if score values are valid (3 to 18)
@@ -626,7 +649,7 @@ bool Characters::validateNewCharacter()
 		//if (scores[1][i] != (int)floor(((double)scores[0][i] - 10) / 2))
 		//	return false;
 	}
-	
+
 	return true;
 }
 

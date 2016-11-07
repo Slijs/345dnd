@@ -22,8 +22,8 @@ enum Type{
 	Undead
 };
 //!Array for Monster Type string conversion
-static const char* typeString[] = { "Aberration", "Beast", "Celestial", "Construct","Dragon",
-"Elemental","Fey","Fiend", "Giant", "Humanoid", "Monstrosity","Ooze","Plant", "Undead" };
+static const char* typeString[] = { "Aberration", "Beast", "Celestial", "Construct", "Dragon",
+"Elemental", "Fey", "Fiend", "Giant", "Humanoid", "Monstrosity", "Ooze", "Plant", "Undead" };
 
 //!Enumeration for Fighter Race 
 enum Race {  //this is useful to check if the user inputted a valid entry
@@ -37,12 +37,12 @@ static const char* raceString[] = { "Dwarf", "Elf", "Halfling", "Human" };
 
 //!Enumaration for Character Size 
 enum Size{
-	Tiny, Small, Medium, Large,Huge, Gargantuan
+	Tiny, Small, Medium, Large, Huge, Gargantuan
 
 }; // add more later
 
 class Entity
-{		
+{
 	/*!Entity class that includes all entities like monsters, fighters, etc
 	Not yet in use*/
 
