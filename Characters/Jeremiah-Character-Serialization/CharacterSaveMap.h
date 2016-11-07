@@ -1,3 +1,8 @@
+/**
+*@file CharacterSaveMap.h
+*@brief Declaration of CharacterSaveMap class
+*<p> Allows storage in memory of Character Save files, with (name, path) pairs being saved
+*
 #pragma once
 #ifndef CHARACTERSAVEMAP_H
 #define CHARACTERSAVEMAP_H
