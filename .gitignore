@@ -311,3 +311,6 @@ __pycache__/
 # tools/
 
 ############################## END VISUAL STUDIO IGNORE SECTION ###########
+
+## Mac garbage ignores ##
+.DS_Store
