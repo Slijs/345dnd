@@ -1,3 +1,7 @@
+/**
+*@file CharacterObserver.h
+*@brief Declaration of the CharacterObserver class
+*
 #pragma once
 #include "Observer.h"
 #include "Characters.h"
