@@ -1,21 +1,11 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+
 
 # Precompiled Headers
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
 
-# Fortran module files
-*.mod
-*.smod
+
 
 
 # Executables
@@ -27,8 +17,6 @@
 *~
 *.swp
 
-# IDE project files
-*.cbp
 
 #################### BEGIN VISUAL STUDIO IGNORE SECTION ###################
 
@@ -306,3 +294,7 @@ __pycache__/
 # tools/
 
 ############################## END VISUAL STUDIO IGNORE SECTION ###########
+
+#.machiddenfiles
+.DS_Store
+*.DS_Store
