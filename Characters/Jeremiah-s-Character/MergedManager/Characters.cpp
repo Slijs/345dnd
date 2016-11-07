@@ -715,25 +715,25 @@ void Characters::Serialize(CArchive &ar) {
 Characters& Characters::operator =(const Characters *otherChar) {
 	this->level = otherChar->level;
 	this->exp = otherChar->exp;
-	this->level >> otherChar->level;
-	this->proficiencyBonus >> otherChar->proficiencyBonus;
-	this->armorClass >> otherChar->armorClass;
+	this->level = otherChar->level;
+	this->proficiencyBonus = otherChar->proficiencyBonus;
+	this->armorClass = otherChar->armorClass;
 
 	for (int i = 0; i < 2; ++i) {
 		for (int j = 0; j < 6; ++j) {
-			this->scores[i][j] >> otherChar->scores[i][j];
+			this->scores[i][j] = otherChar->scores[i][j];
 		}
 	}
 
 	this->size = otherChar->size;
-	this->inBattle >> otherChar->inBattle;
-	this->isDead >> otherChar->isDead;
-	this->isLevelUp >> otherChar->isLevelUp;
-	this->equiped >> otherChar->equiped;
-	this->attackBonus >> otherChar->attackBonus;
-	this->damageBonus >> otherChar->damageBonus;
-	this->position.at(0) >> otherChar->position.at(0);
-	this->position.at(1) >> otherChar->position.at(1);
+	this->inBattle = otherChar->inBattle;
+	this->isDead = otherChar->isDead;
+	this->isLevelUp = otherChar->isLevelUp;
+	this->equiped = otherChar->equiped;
+	this->attackBonus = otherChar->attackBonus;
+	this->damageBonus = otherChar->damageBonus;
+	this->position.at(0) = otherChar->position.at(0);
+	this->position.at(1) = otherChar->position.at(1);
 	this->armor-> = otherChar->armor;
 	this->weapon = otherChar->weapon;
 	this->shield = otherChar->shield;
