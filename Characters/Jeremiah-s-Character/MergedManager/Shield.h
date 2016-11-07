@@ -19,7 +19,7 @@ class Shield: public Item {
 		int damage;
 		int defense;
 		int range;
-		DECLARE_SERIAL(Shield);
+		DECLARE_SERIAL(Shield); // Allows Shield to be Serialized
 		// Constructors
 	public:
 		Shield();
@@ -36,7 +36,7 @@ class Shield: public Item {
 		void incrementRange();
 		void decrementRange();
 		std::string toString();
-		virtual void Serialize(CArchive &ar);
+		virtual void Serialize(CArchive &ar); // Will be used to Serialize Shields
 };
 
 #endif // Include guard
