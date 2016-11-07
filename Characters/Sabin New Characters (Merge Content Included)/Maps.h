@@ -42,14 +42,8 @@ public:
 
 	bool getCleared(){ return cleared; };
 
-	void moveUp();
-	void moveUpLeft();
-	void moveDownLeft();
-	void moveLeft();
-	void moveUpRight();
-	void moveDownRight();
-	void moveRight();
-	void moveDown();
+	void move(int, int);
+
 
 	void detectKey(int);
 

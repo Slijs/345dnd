@@ -35,36 +35,35 @@ void Maps::detectKey(int input)
 	{
 	case KEY_UP:
 		if (validatePlayerMove(X, Y - 1))
-			moveUp();
+			move(X, Y - 1);
 		break;
 	case KEY_DOWN:
 		if (validatePlayerMove(X, Y + 1))
-			moveDown();
+			move(X, Y + 1);
 		break;
 	case KEY_UP_LEFT:
 		if (validatePlayerMove(X - 1, Y - 1))
-			moveUpLeft();
+			move(X - 1, Y - 1);
 		break;
 	case KEY_DOWN_LEFT:
 		if (validatePlayerMove(X - 1, Y + 1))
-			moveDownLeft();
+			move(X - 1, Y + 1);
 		break;
 	case KEY_LEFT:
 		if (validatePlayerMove(X-1, Y)) 
-			moveLeft();
+			move(X - 1, Y);
 		break;
 	case KEY_UP_RIGHT:
 		if (validatePlayerMove(X + 1, Y - 1))
-			moveUpRight();
+			move(X + 1, Y - 1);
 		break;
 	case KEY_DOWN_RIGHT:
 		if (validatePlayerMove(X + 1, Y + 1))
-			moveUpRight();
+			move(X + 1, Y + 1);
 		break;
 	case KEY_RIGHT:
 		if (validatePlayerMove(X + 1, Y))
-
-			moveRight();
+			move(X + 1, Y);
 		break;
 	default:
 		cout << input << endl;
@@ -75,127 +74,19 @@ void Maps::detectKey(int input)
 
 }
 
-//!Function that moves postion of character up if there is no obstruction
-void Maps::moveUp()
+void Maps::move(int x, int y)
 {
-		player->setPosition(Y - 1, X);
-		replacePwithDot();
-
-		char* next = &map[Y - 1].at(X);
-		if (*next == 'e')
-			cleared = true;
-	
-		*next = 'p';
-		
-		Y--;
-}
-
-void Maps::moveUpLeft()
-{
-	player->setPosition(Y - 1, X-1);
+	player->setPosition(y, x);
 	replacePwithDot();
 
-	char* next = &map[Y - 1].at(X-1);
-	if (*next == 'e')
-		cleared = true;
-
-	*next = 'p';
-	X--;
-	Y--;
-}
-
-void Maps::moveDownLeft()
-{
-	player->setPosition(Y + 1, X - 1);
-	replacePwithDot();
-
-	char* next = &map[Y + 1].at(X - 1);
-	if (*next == 'e')
-		cleared = true;
-
-	*next = 'p';
-	X--;
-	Y++;
-
-}
-
-//!Function that moves postion of character left if there is no obstruction
-void Maps::moveLeft()
-{
-	player->setPosition(Y, X - 1);
-	replacePwithDot();
-
-	char* next = &map[Y].at(X - 1);
+	char* next = &map[y].at(x);
 	if (*next == 'e')
 		cleared = true;
 
 	*next = 'p';
 
-	X--;
-	
-}
-
-void Maps::moveUpRight()
-{
-	player->setPosition(Y-1, X + 1);
-	replacePwithDot();
-
-	char* next = &map[Y-1].at(X + 1);
-	if (*next == 'e')
-		cleared = true;
-
-
-	*next = 'p';
-
-	X++;
-	Y--;
-
-}
-
-void Maps::moveDownRight()
-{
-	player->setPosition(Y + 1, X + 1);
-	replacePwithDot();
-
-	char* next = &map[Y + 1].at(X + 1);
-	if (*next == 'e')
-		cleared = true;
-
-
-	*next = 'p';
-
-	X++;
-	Y++;
-}
-
-//!Function that moves postion of character right if there is no obstruction
-void Maps::moveRight()
-{
-	player->setPosition(Y, X + 1);
-	replacePwithDot();
-
-	char* next = &map[Y].at(X + 1);
-	if (*next == 'e')
-		cleared = true;
-
-	*next = 'p';
-
-	X++;
-
-}
-
-//!Function that moves postion of character down if there is no obstruction
-void Maps::moveDown()
-{
-	player->setPosition(Y + 1, X);
-	replacePwithDot();
-
-	char* next = &map[Y + 1].at(X);
-	if (*next == 'e')
-		cleared = true;
-	*next = 'p';
-
-	Y++;
+	Y = y;
+	X = x;
 }
 
 //!Function that changes previous positon to freepath
