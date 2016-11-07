@@ -19,7 +19,7 @@ class Weapon: public Item {
 		int damage;
 		int defense;
 		int range;
-		DECLARE_SERIAL(Weapon);
+		DECLARE_SERIAL(Weapon); // Allows Weapon to be Serialized
 		// Constructors
 	public:
 		Weapon();
@@ -36,7 +36,7 @@ class Weapon: public Item {
 		void incrementRange();
 		void decrementRange();
 		std::string toString();
-		virtual void Serialize(CArchive &ar);
+		virtual void Serialize(CArchive &ar); // Allows Serialization of Weapon
 };
 
 #endif // Include guard
