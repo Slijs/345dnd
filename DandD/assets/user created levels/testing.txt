@@ -1,0 +1,9 @@
+CCCCCCCC
+ABDGDCCC
+BBBDDDDC
+BEDBBDDC
+BDDDBBDC
+BDDDDBBC
+BBBBFBBp
+BBBBBBBB
+assets/environment component themes/test theme2/

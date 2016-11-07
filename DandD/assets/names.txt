@@ -1,0 +1,14 @@
+exit false exit.png
+map exit door
+floor false floors.png
+grass
+wall true wall.png
+wall
+water true water.png
+lake
+treasure true treasure.png
+treasure
+sword true sword.jpg
+sword
+enemy true enemy.jpg
+enemy

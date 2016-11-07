@@ -1,0 +1,6 @@
+CECCF
+CCGCC
+ADDCD
+BDDDp
+BBBBB
+assets/environment component themes/test theme2/

@@ -1,0 +1,24 @@
+door false door.png
+asdfdfasdfas
+door false door2.png
+asdfadsfdfas
+entrence false entrence.png
+asdfdasffdsa
+floor false floors.png
+asdfdfasdfas
+wall true wall.png
+adfsdfasfdas
+water true water.png
+asdfdfasdfas
+floor false floor2.png
+aksjdhksadjh
+floor false floor3.png
+askjhkasjdh
+floor false floor4.png
+sdakjhskajdh
+wall true wall2.png
+asdasdasddas
+swamp true swamp.png
+sadlkjaslkj
+water true water2.png
+asdlkjads

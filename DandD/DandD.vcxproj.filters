@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Windows">
+      <UniqueIdentifier>{4c798e5e-07a5-409d-8610-567a13122ba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows">
+      <UniqueIdentifier>{ac902919-9264-406b-85a1-0ca5f543ce30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Components">
+      <UniqueIdentifier>{bbf1465e-fcaa-43b6-9319-f473d9f3b158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Components">
+      <UniqueIdentifier>{b10d079f-f4cb-4e47-9cf6-42f5d3516195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Levels">
+      <UniqueIdentifier>{0ef6cbd5-ee30-4273-8209-e65588613d4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Levels">
+      <UniqueIdentifier>{4ba0d8a8-c55f-4179-8bac-da4e198afea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Loops">
+      <UniqueIdentifier>{a03e8654-950d-4df3-9426-7ae8bffad27d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Loops">
+      <UniqueIdentifier>{c2ec6f93-26d7-4280-a2b5-6fb5aae218be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SDL Manager">
+      <UniqueIdentifier>{b2bdbf6a-1d7d-40e9-b77b-8b41ad54f130}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SDL Manager">
+      <UniqueIdentifier>{ceb18d78-c127-443d-ae22-0b983b0b442c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Misc Functionalities">
+      <UniqueIdentifier>{6477a7b1-67f1-47e9-9c92-589900cf3691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misc Functionalites">
+      <UniqueIdentifier>{8545b1b6-552c-4645-84eb-ad86f17d167d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Levels\Level Editor">
+      <UniqueIdentifier>{95c4082c-deb5-415a-a3c6-e8abd7f10661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Levels\Level Editor">
+      <UniqueIdentifier>{6beea533-81ff-4be1-bb5d-339cfc343127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menus">
+      <UniqueIdentifier>{88d6d95b-1b7d-4e70-8553-02c97e61e608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menus">
+      <UniqueIdentifier>{658d001b-471a-4d04-bc33-a3cc9c405af8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Levels\Prebuil Level">
+      <UniqueIdentifier>{ecb35f7e-442c-4258-aaae-873229220894}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Components\Environment">
+      <UniqueIdentifier>{2b580e29-6f3b-457d-844d-16b045c40e12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Windows\Text Based Window">
+      <UniqueIdentifier>{e1a08ff7-f601-402c-980f-e8d755c5ad5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Windows\Text Based Window\Level Window">
+      <UniqueIdentifier>{10eb8476-dfe4-4a81-adee-a557b8230dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Components\Environment">
+      <UniqueIdentifier>{62b4e2bc-0058-497f-ae4b-6b6dd0cb2d42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Levels\Prebuilt Level">
+      <UniqueIdentifier>{69bef2ba-f2a1-4a35-b234-d5787b378763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\Text Based Window">
+      <UniqueIdentifier>{72a4338f-0a64-4dcd-a1c7-438809816d6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Windows\Text Based Window\Level Window">
+      <UniqueIdentifier>{8741a2ed-b326-4406-bb48-515dc471e219}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Loops\Loop Engines">
+      <UniqueIdentifier>{2146fd11-eab7-4461-a207-45532e87f365}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Loops\Loop Engines">
+      <UniqueIdentifier>{e2c5caf2-030c-4750-a161-3ea497b6cc27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menus\Main Menu">
+      <UniqueIdentifier>{8a286308-4e88-40aa-8d30-e2bab2e90cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menus\Main Menu">
+      <UniqueIdentifier>{d8849d30-d7db-498d-bdc9-4fd2896ed405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Components\Container">
+      <UniqueIdentifier>{4cdfe4c8-2f24-469f-9856-9bfc3bf7e49a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Components\Container">
+      <UniqueIdentifier>{e4b880e4-c885-4409-b364-cd3f6f2277b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Enhancement">
+      <UniqueIdentifier>{0818d685-2338-47ad-883d-c99db1ef8d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enhancement">
+      <UniqueIdentifier>{b2a83de9-b277-4415-bcdd-5e53449b69d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cpp Test Units">
+      <UniqueIdentifier>{cfa9e127-ab4e-4925-b9c6-7020969ad579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items">
+      <UniqueIdentifier>{5a8cfe63-e4c8-4fce-8705-7270ad38397a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Armor">
+      <UniqueIdentifier>{dc5d45e8-c48b-4d08-b185-ab374217d93a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Belt">
+      <UniqueIdentifier>{36e80a08-0e03-4bde-a1d4-faba9f619bc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Boots">
+      <UniqueIdentifier>{050b3b6b-319e-4687-bea1-9b05a052ea32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Helmet">
+      <UniqueIdentifier>{6cbcf014-ca90-4845-a761-29bce5eadc5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Ring">
+      <UniqueIdentifier>{4dd52130-3ac4-45fb-bd8c-f8d823ee8bbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Sheild">
+      <UniqueIdentifier>{7eb03e48-e88c-4165-a472-1876ead1497c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Weapon">
+      <UniqueIdentifier>{1d3f0918-01bb-4585-8936-f494050f2d61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items">
+      <UniqueIdentifier>{21619c2a-9473-45a8-a14d-80720f070857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Armor">
+      <UniqueIdentifier>{a908dbf4-4408-40fc-83d7-15b473a0cf28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Belt">
+      <UniqueIdentifier>{51d48493-0f51-4c8d-8d10-a5b6136efac7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Boots">
+      <UniqueIdentifier>{aabcae45-e642-4adb-bfba-3649913b5b06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Helmet">
+      <UniqueIdentifier>{349d20e8-fefe-458a-a8c9-01dc565bbd50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Ring">
+      <UniqueIdentifier>{ccfff03e-93ba-47e8-911a-2c1b32b83cd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Sheild">
+      <UniqueIdentifier>{e3b02ea3-04f1-498b-bd6a-7cb44033394a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Weapon">
+      <UniqueIdentifier>{4afada73-bac1-4914-9e49-0df7c630609e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menus\Campaign Select">
+      <UniqueIdentifier>{e9569508-e1eb-4b5a-a002-6005eff2b57a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menus\Campaign Editing">
+      <UniqueIdentifier>{4be37db0-c751-430b-a138-fcee5440e39a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menus\Campaign Editing\Campaign Manager">
+      <UniqueIdentifier>{d61f381e-e548-4aa2-bdc8-45bf75d0787b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menus\Campaign Editing\Campaign Manager\Campaign Map Manager">
+      <UniqueIdentifier>{6a4df256-0f5d-430e-9d75-9985bb3e92b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menus\Campaign Editing\Default Maps">
+      <UniqueIdentifier>{7e748cc1-5dbf-472e-997b-c1b2577c1433}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menus\Campaign Editing">
+      <UniqueIdentifier>{bd8f831f-221d-4615-923e-51345eec3c56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menus\Campaign Editing\Campaign Map Manager">
+      <UniqueIdentifier>{8b442ce5-d774-4157-b54a-bea7e6642868}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menus\Campaign Editing\Default Maps">
+      <UniqueIdentifier>{1da3bc3f-b122-4c25-81e7-06cd5262c4e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menus\Campaign Select">
+      <UniqueIdentifier>{626b9193-0a77-47cd-b44e-b7f8261577eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="windows.cpp">
+      <Filter>Source Files\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="game_components.cpp">
+      <Filter>Source Files\Game Components</Filter>
+    </ClCompile>
+    <ClCompile Include="levels.cpp">
+      <Filter>Source Files\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="game_loops.cpp">
+      <Filter>Source Files\Game Loops</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>Source Files\SDL Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="sdl_initialize.cpp">
+      <Filter>Source Files\SDL Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="text.cpp">
+      <Filter>Source Files\SDL Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="routing.cpp">
+      <Filter>Source Files\Misc Functionalites</Filter>
+    </ClCompile>
+    <ClCompile Include="mapeditorengine.cpp">
+      <Filter>Source Files\Game Loops\Loop Engines</Filter>
+    </ClCompile>
+    <ClCompile Include="leveleditor.cpp">
+      <Filter>Source Files\Levels\Level Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="menus.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="environment.cpp">
+      <Filter>Source Files\Game Components\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="prebuiltlevel.cpp">
+      <Filter>Source Files\Levels\Prebuilt Level</Filter>
+    </ClCompile>
+    <ClCompile Include="textbasedwindow.cpp">
+      <Filter>Source Files\Windows\Text Based Window</Filter>
+    </ClCompile>
+    <ClCompile Include="levelwindow.cpp">
+      <Filter>Source Files\Windows\Text Based Window\Level Window</Filter>
+    </ClCompile>
+    <ClCompile Include="menuengine.cpp">
+      <Filter>Source Files\Game Loops\Loop Engines</Filter>
+    </ClCompile>
+    <ClCompile Include="campaignmanager.cpp">
+      <Filter>Source Files\Menus\Campaign Editing</Filter>
+    </ClCompile>
+    <ClCompile Include="campaignMAPmanager.cpp">
+      <Filter>Source Files\Menus\Campaign Editing\Campaign Map Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="defaultmaps.cpp">
+      <Filter>Source Files\Menus\Campaign Editing\Default Maps</Filter>
+    </ClCompile>
+    <ClCompile Include="filepathandfoldermanager.cpp">
+      <Filter>Source Files\Misc Functionalites</Filter>
+    </ClCompile>
+    <ClCompile Include="userinputandstringmanager.cpp">
+      <Filter>Source Files\Misc Functionalites</Filter>
+    </ClCompile>
+    <ClCompile Include="fileIOmanager.cpp">
+      <Filter>Source Files\Misc Functionalites</Filter>
+    </ClCompile>
+    <ClCompile Include="mainmenu.cpp">
+      <Filter>Source Files\Menus\Main Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Container.cpp">
+      <Filter>Source Files\Game Components\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Armor.cpp">
+      <Filter>Source Files\Items\Armor</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Belt.cpp">
+      <Filter>Source Files\Items\Belt</Filter>
+    </ClCompile>
+    <ClCompile Include="Boots.cpp">
+      <Filter>Source Files\Items\Boots</Filter>
+    </ClCompile>
+    <ClCompile Include="Enhancement.cpp">
+      <Filter>Source Files\Enhancement</Filter>
+    </ClCompile>
+    <ClCompile Include="Helmet.cpp">
+      <Filter>Source Files\Items\Helmet</Filter>
+    </ClCompile>
+    <ClCompile Include="Ring.cpp">
+      <Filter>Source Files\Items\Ring</Filter>
+    </ClCompile>
+    <ClCompile Include="Shield.cpp">
+      <Filter>Source Files\Items\Sheild</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files\Items\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTest.cpp">
+      <Filter>Source Files\Cpp Test Units</Filter>
+    </ClCompile>
+    <ClCompile Include="TestContainer.cpp">
+      <Filter>Source Files\Cpp Test Units</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItem.cpp">
+      <Filter>Source Files\Cpp Test Units</Filter>
+    </ClCompile>
+    <ClCompile Include="campaignselect.cpp">
+      <Filter>Source Files\Menus\Campaign Select</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="windows.h">
+      <Filter>Header Files\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="levels.h">
+      <Filter>Header Files\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="game_loops.h">
+      <Filter>Header Files\Game Loops</Filter>
+    </ClInclude>
+    <ClInclude Include="sdl_initialize.h">
+      <Filter>Header Files\SDL Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>Header Files\SDL Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="text.h">
+      <Filter>Header Files\SDL Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="routing.h">
+      <Filter>Header Files\Misc Functionalities</Filter>
+    </ClInclude>
+    <ClInclude Include="mapeditorengine.h">
+      <Filter>Header Files\Game Loops\Loop Engines</Filter>
+    </ClInclude>
+    <ClInclude Include="leveleditor.h">
+      <Filter>Header Files\Levels\Level Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="namespaces.h">
+      <Filter>Header Files\Misc Functionalities</Filter>
+    </ClInclude>
+    <ClInclude Include="menus.h">
+      <Filter>Header Files\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="red_green_blue.h">
+      <Filter>Header Files\Misc Functionalities</Filter>
+    </ClInclude>
+    <ClInclude Include="prebuiltlevel.h">
+      <Filter>Header Files\Levels\Prebuil Level</Filter>
+    </ClInclude>
+    <ClInclude Include="textbasedwindow.h">
+      <Filter>Header Files\Windows\Text Based Window</Filter>
+    </ClInclude>
+    <ClInclude Include="levelwindow.h">
+      <Filter>Header Files\Windows\Text Based Window\Level Window</Filter>
+    </ClInclude>
+    <ClInclude Include="menuengine.h">
+      <Filter>Header Files\Game Loops\Loop Engines</Filter>
+    </ClInclude>
+    <ClInclude Include="campaignmanager.h">
+      <Filter>Header Files\Menus\Campaign Editing\Campaign Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="campaignMAPmanagers.h">
+      <Filter>Header Files\Menus\Campaign Editing\Campaign Manager\Campaign Map Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="campaignmenus.h">
+      <Filter>Header Files\Menus\Campaign Editing</Filter>
+    </ClInclude>
+    <ClInclude Include="defaultmaps.h">
+      <Filter>Header Files\Menus\Campaign Editing\Default Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="environment.h">
+      <Filter>Header Files\Game Components\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="game_components.h">
+      <Filter>Header Files\Game Components</Filter>
+    </ClInclude>
+    <ClInclude Include="filepathandfoldermanager.h">
+      <Filter>Header Files\Misc Functionalities</Filter>
+    </ClInclude>
+    <ClInclude Include="userinputandstringmanager.h">
+      <Filter>Header Files\Misc Functionalities</Filter>
+    </ClInclude>
+    <ClInclude Include="fileIOmanager.h">
+      <Filter>Header Files\Misc Functionalities</Filter>
+    </ClInclude>
+    <ClInclude Include="mainmenu.h">
+      <Filter>Header Files\Menus\Main Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Header Files\Game Components\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Armor.h">
+      <Filter>Header Files\Items\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Belt.h">
+      <Filter>Header Files\Items\Belt</Filter>
+    </ClInclude>
+    <ClInclude Include="Boots.h">
+      <Filter>Header Files\Items\Boots</Filter>
+    </ClInclude>
+    <ClInclude Include="Enhancement.h">
+      <Filter>Header Files\Enhancement</Filter>
+    </ClInclude>
+    <ClInclude Include="Helmet.h">
+      <Filter>Header Files\Items\Helmet</Filter>
+    </ClInclude>
+    <ClInclude Include="Ring.h">
+      <Filter>Header Files\Items\Ring</Filter>
+    </ClInclude>
+    <ClInclude Include="Shield.h">
+      <Filter>Header Files\Items\Sheild</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files\Items\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="campaignselect.h">
+      <Filter>Header Files\Menus\Campaign Select</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
