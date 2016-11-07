@@ -20,7 +20,6 @@ CharacterSaveMap::CharacterSaveMap() {
 *@param charPath CString of the path where the Character is to be saved
 */
 void CharacterSaveMap::put(const CString &charName, const CString &charPath) {
-	cout << "I'm inside here!" << endl;
 	if (_size == _MAX_SIZE) { // Means Character DB is full
 		cout << "Cannot save more Characters. Please delete one." << endl;
 		return;
@@ -73,7 +72,7 @@ CString CharacterSaveMap::remove(const CString &charName) {
 	CString thePath = "";
 	// Checks to see if Character w/ same name has already been saved
 	for (i = 0; i < _size; i++) {
-		if (_charMap[i][0].Compare(charName)) {
+		if (_charMap[i][0].Compare(charName) == 0) {
 			thePath = _charMap[i][1];
 			break;
 		}

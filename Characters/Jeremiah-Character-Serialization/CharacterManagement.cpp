@@ -24,16 +24,17 @@ static void equipItem(Character *theChar, CharacterView* theView); // Will be us
 static void removeItem(Character *theChar, CharacterView* theView); // Will be used to remove an item from a Character
 static void saveChar(Character *theChar);
 static void loadChar(Character *theChar, CharacterView* theView);
+static void removeCharacter();
 
 int main() {
 	char conf = 'X';	// Used to confirm choices
 	Character *toLoad = NULL;
 	Character *myChar = NULL;
 	CharacterView *myView = NULL;
-	displayMainMenu();
 
 	bool cont = false;
 	do {
+		displayMainMenu();
 		cin >> conf;
 		switch (conf) {
 		case '1': // User wants to create a new Character
@@ -48,11 +49,17 @@ int main() {
 			break;
 		case '2': // User wants to load a character
 			myChar = CharacterSaveManager::loadCharacter();
+			if (myChar == NULL) {
+				return 0;
+			}
 			myView = new CharacterView(myChar);
 			myChar->attach(myView);
 			myView->display();
 			myView->displayInventory();
 			cont = true;
+			break;
+		case '3': // User wants to remove a Character
+			removeCharacter();
 			break;
 		case 'e':
 		case 'E':
@@ -86,6 +93,8 @@ int main() {
 			myView->display();
 			myView->displayInventory();
 			break;
+		case '6':
+			removeCharacter();
 		case 'e':
 		case 'E':
 			break;
@@ -108,6 +117,7 @@ static void displayMenu() {
 	cout << "   [3] - Do damage to your character." << endl;
 	cout << "   [4] - Save Character." << endl;
 	cout << "   [5] - Load Character." << endl;
+	cout << "   [6] - Remove Character." << endl;
 	cout << "Enter 'E' to exit." << endl;
 	cout << "Enter your option here: ";
 }
@@ -264,6 +274,7 @@ static void displayMainMenu() {
 	cout << "Please enter what you would like to do: " << endl;
 	cout << "   [1] - Create a character" << endl;
 	cout << "   [2] - Load a character" << endl;
+	cout << "   [3] - Remove a character" << endl;
 	cout << "Enter 'E' to exit." << endl;
 	cout << "Enter your option here: ";
 }
@@ -384,4 +395,8 @@ static Character* createNewCharacter() {
 	// The Character will now be created, and a view will be attached to it
 	Character *myChar = CharacterBuilder::create(name, ClassType(selectedClass), RaceType(selectedRace), selectedLevel);
 	return myChar;
+}
+
+static void removeCharacter() {
+	CharacterSaveManager::removeCharacter();
 }
