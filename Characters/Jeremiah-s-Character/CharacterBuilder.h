@@ -6,8 +6,8 @@
 #ifndef CHARACTERBUILDER_H
 #define CHARACTERBUILDER_H
 #include "Character.h"
-#include "Classes.h"
-#include "Race.h"
+#include "Entity.h"
+#include "Fighter.h"
 #include "Dice.h"
 #include <iostream> // Allows the CharacterBuilder to print out
 
@@ -18,6 +18,6 @@
 */
 class CharacterBuilder {
 public:
-	static Character* create(string name, ClassType theClass, RaceType theRace, int level);
+	static Character* create(int level, Race race, string name, int X, int X, int X, int X, int X, int X);
 };
 #endif
