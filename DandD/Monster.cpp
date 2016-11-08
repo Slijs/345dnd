@@ -1,7 +1,7 @@
 #include "Monster.h"
 
 //!Default constructor - for making dummy monsters
-Monster::Monster() : Character() {
+Monster::Monster() : Characters() {
 	this->name = "dummy";
 	this->type = Beast;
 	this->size = Medium;
@@ -10,6 +10,7 @@ Monster::Monster() : Character() {
 	detHitPoints();
 }
 
+/* Commented out as it is causing errors
 //!Parameterized Constructor that sets name, type, size, level, speed , ability scores and armor class
 Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
 {
@@ -21,6 +22,7 @@ Monster::Monster(string name, Type type, Size size, int level, int speed, int ST
 	detHitPoints();
 	equipWeapon(weapon);
 }
+*/
 
 //!Destructor
 Monster::~Monster()

@@ -27,7 +27,8 @@ private:
 	void detHitPoints();
 
 public:
-	Monster(string, Type, Size, int, int, int, int, int, int, int, int, int, Weapon*);
+	//Commented out constructor b/c returning errors
+	//Monster(string, Type, Size, int, int, int, int, int, int, int, int, int, Weapon*);
 	Monster();
 	~Monster();
 
