@@ -5,10 +5,11 @@
 */
 struct RGB
 {
+public:
 	int red;
 	int green;
 	int blue;
-	RGB() {};
+
 	RGB(const int r, const int g, const int b){
 		this->red = r;
 		this->green = g;
