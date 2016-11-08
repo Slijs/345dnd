@@ -1,6 +1,6 @@
 #include "Fighter.h"
 
-IMPLEMENT_SERIAL(Fighter, Character, 1);
+IMPLEMENT_SERIAL(Fighter, Characters, 1);
 
 /*
 CONSTRUCTOR
@@ -9,7 +9,7 @@ CONSTRUCTOR
 Fighter::Fighter(int level, Race race, string name) : Characters(level)
 {
 	Fighter::name = name;
-	detRaceTraits();
+	detRaceTraits(race);
 	initHitPoints();
 }
 
@@ -29,7 +29,7 @@ Fighter::~Fighter()
 
 }
 
-void Fighter::detRaceTraits()
+void Fighter::detRaceTraits(Race race)
 {
 	switch (race)
 	{
@@ -68,8 +68,9 @@ void Fighter::initHitPoints()
 	//For every level: HP = HP + roll_HitDie + CON_mod
 	for (int i = 2; i <= level; i++)
 	{
-		hitPoints += this->rollDice(HIT_DIE) + this->getScores(1, 2);
+		hitPoints += _die.roll("1d" + HIT_DIE) + this->getScores(1, 2);
 	}
+	maxHitPoints = hitPoints;
 }
 
 //!Function to displays the fighter stats, calls parent displayStats()
@@ -79,7 +80,7 @@ void Fighter::displayStats()
 	cout << "Name: " << name << endl;
 	if (race == 0)
 		cout << "Class: Fighter" << " Race: Dwarf" << endl;
-	cout << "Hit Points: " << hitPoints << endl;
+	cout << "Hit Points: " << hitPoints << "/" << maxHitPoints << endl;
 	this->Characters::displayStats();
 
 }
@@ -158,7 +159,7 @@ void Fighter::receiveDamage(int damage)
 //!Function to recalculate hitpoints when leveling up but adding a roll of hitDice and dexterity modifier
 void Fighter::recalcHitPoints()
 {
-	hitPoints += this->rollDice(HIT_DIE) + this->getScores(1, 2);
+	hitPoints += _die.roll("1d" + HIT_DIE) + this->getScores(1, 2);
 }
 
 /*!Function to increase experience when monster is defeated.
@@ -213,6 +214,156 @@ bool Fighter::validateGainExperience(int exp)
 	return false;
 }
 
-// Method for serialization - to be implemented
+/**
+* Implementation of Serialization to allow Fighter to be Serialized to file
+*/
 void Fighter::Serialize(CArchive &ar){
+	Characters::Serialize(ar);
+	if(ar.IsStoring()) {
+		ar << hitPoints;
+		ar << race;
+		ar << size;
+		CString c_name(name.c_str());
+		ar << c_name;
+		ar << speed;
+	}
+	else {
+		ar >> hitPoints;
+		int temp = 0;
+		ar >> temp;
+		race = Race(temp);
+		ar >> temp;
+		size = Size(temp);
+		CString c_name = "";
+		ar >> c_name;
+		name = "";
+		int strlen = c_name.GetLength();
+		for (int i = 0; i < strlen; ++i) {
+			name += c_name.GetAt(i);
+		}
+		ar >> speed;
+	}
+}
+
+bool Fighter::validatePlayerMove(int x, int y) {
+	char posInQuestion = 'c';
+	// Will user super validatePlayerMove to determine if movement on map is valid.
+	if (!this->Characters::validatePlayerMove(x, y))
+		return false;
+	
+	// Moving less than or equal to range up
+	if (position[0] - x <= speed && position[1] - y == 0) {
+		for (int i = position[0] - 1; i > x; --i) {
+			// Will determine if each square the character is trying to move to can be landed on.
+			// Destination does not have to be verified, as this is done by Characters
+			posInQuestion = _map->at(i).at(y);
+			if (!_validPosition(posInQuestion)) {
+				return false;
+			}
+		}
+		return true;
+
+	// Moving less than or equal to range down
+	}
+	else if (x - position[0] <= speed && position[1] - y == 0) {
+		for (int i = position[0] + 1; i < x; ++i) {
+			// Will determine if each square the character is trying to move to can be landed on
+			// Destination does not have to be verified, as this is done by Characters
+			posInQuestion = _map->at(i).at(y);
+			if (!_validPosition(posInQuestion)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// Moving less than or equal to range left
+	else if (x - position[0] == 0 && position[1] - y <= speed) {
+		for (int i = position[1] - 1; i > x; --i) {
+			// Will determine if each square the character is trying to move to can be landed on
+			// Destination does not have to be verified, as this is done by Characters
+			posInQuestion = _map->at(x).at(i);
+			if (!_validPosition(posInQuestion)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// Moving less than or equal to range right
+	else if (x - position[0] == 0 && y - position[1] <= speed) {
+		for (int i = position[1] + 1; i < x; ++i) {
+			// Will determine if each square the character is trying to move to can be landed on
+			// Destination does not have to be verified, as this is done by Characters
+			posInQuestion = _map->at(x).at(i);
+			if (!_validPosition(posInQuestion)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	// Moving up and left less than or equal to range squares (2squares NorthWest)
+	else if (position[0] - x <= speed && position[1] - y <= speed && position[0] - x == position[1] - y) {
+		for (vector<int> pos = {position[0] - 1, position[1] - 1}; pos[0] > x; pos[0] -= 1) {
+			// Will determine if each square the character is trying to move to can be landed on
+			// Destination does not have to be verified, as this is done by Characters
+			
+			posInQuestion = _map->at(pos[0]).at(pos[1]);
+			if (!_validPosition(posInQuestion)) {
+				return false;
+			}
+			// Decrements the y value of the position being tested
+			pos[1] -= 1;
+		}
+		return true;
+	}
+
+	// Moving up and right less than or equal to range squares (2squares NorthWest)
+	else if (position[0] - x <= speed && y - position[1] <= speed && position[0] - x == position[1] - y) {
+		for (vector<int> pos = { position[0] - 1, position[1] + 1 }; pos[0] > x; pos[0] -= 1) {
+			// Will determine if each square the character is trying to move to can be landed on
+			// Destination does not have to be verified, as this is done by Characters
+
+			posInQuestion = _map->at(pos[0]).at(pos[1]);
+			if (!_validPosition(posInQuestion)) {
+				return false;
+			}
+			// Increments the y value of the position being tested
+			pos[1] += 1;
+		}
+		return true;
+	}
+	// Moving down and left less than or equal to range squares (2squares NorthWest)
+	else if (x - position[0] <= speed && position[1] - y <= speed && position[0] - x == position[1] - y) {
+		for (vector<int> pos = { position[0] + 1, position[1] - 1 }; pos[0] < x; pos[0] += 1) {
+			// Will determine if each square the character is trying to move to can be landed on
+			// Destination does not have to be verified, as this is done by Characters
+
+			posInQuestion = _map->at(pos[0]).at(pos[1]);
+			if (!_validPosition(posInQuestion)) {
+				return false;
+			}
+			// Decrements the y value of the position being tested
+			pos[1] -= 1;
+		}
+		return true;
+	}
+	// Moving down and right less than or equal to range squares (2squares NorthWest)
+	else if (x - position[0] <= speed && y - position[1] <= speed && position[0] - x == position[1] - y) {
+		for (vector<int> pos = { position[0] + 1, position[1] + 1 }; pos[0] < x; pos[0] += 1) {
+			// Will determine if each square the character is trying to move to can be landed on
+			// Destination does not have to be verified, as this is done by Characters
+
+			posInQuestion = _map->at(pos[0]).at(pos[1]);
+			if (!_validPosition(posInQuestion)) {
+				return false;
+			}
+			// Increments the y value of the position being tested
+			pos[1] += 1;
+		}
+		return true;
+	}
+
+	// If this point has been reached, then the Character is not moving in a vector that is allowed, so false will be returned
+	return false;
 }

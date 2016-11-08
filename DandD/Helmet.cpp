@@ -12,6 +12,8 @@
 // Windows
 //#include "stdafx.h"
 
+IMPLEMENT_SERIAL(Helmet, Item, 1);
+
 // Default constructor, useless item as is
 Helmet::Helmet() 
 	//KHATIBS TEST
@@ -21,6 +23,11 @@ Helmet::Helmet()
 {
 
 }
+
+/**
+* Copy-constructor - initializes a new helmet to have the same values as another helmet
+*/
+Helmet::Helmet(const Helmet* otherHelmet) : Item::Item(otherHelmet), defense(otherHelmet->defense) {};
 
 // Constructor where all attributes EXCEPT the enchantmentsPossible
 // will be set.
@@ -58,4 +65,17 @@ std::string Helmet::toString() {
 	//tempString += "\tDefense: " + std::to_string(getDefense()) + "\n";
 	//END TEST
 	return tempString;
+}
+
+/**
+*Serialization method to allow saving of helmets
+*/
+void Helmet::Serialize(CArchive &ar) {
+	Item::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << defense;
+	}
+	else {
+		ar >> defense;
+	}
 }

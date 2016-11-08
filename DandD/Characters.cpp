@@ -146,31 +146,11 @@ bool Characters::getInBattle()
 //!Function to simulate dice roll of i faces 
 int Characters::rollDice(int i)
 {
-	return rand() % i + 1;
-}
-
-//!Rolls 4 dice and returns sum of 3 largest values (used for ability scores)
-int Characters::roll4D6()
-{
-	int temp;
-	int rolls[4];
-	for (int i = 0; i <= 3; i++)
-	{
-		rolls[i] = rollDice(6);
-
+	int x = _die.roll("1d" + i);
+	if (x == -1) {
+		return 0;
 	}
-
-	for (int i = 1; i <= 3; i++)
-	{
-		if (rolls[i] > rolls[i - 1])
-		{
-			temp = rolls[i];
-			rolls[i] = rolls[i - 1];
-			rolls[i - 1] = temp;
-		}
-	}
-
-	return rolls[0] + rolls[1] + rolls[2];
+	return x;
 }
 
 //!Function that rolls 4D6 for each ability score and sets two largest values to STR and CON
@@ -180,7 +160,7 @@ void Characters::generateAbility()
 	int abscor[6];
 	for (int i = 0; i < MAX_NUM_SCORES; i++)
 	{
-		abscor[i] = roll4D6();
+		abscor[i] = _die.roll("4d6");
 	}
 
 	orderArray(abscor);
@@ -534,21 +514,14 @@ void Characters::endBattle()
 int Characters::processWeaponDice()
 {
 	string dice = weapon->getDice();
-
-	int numFace = dice.at(2) - '0';
-	int numDice = dice.at(0) - '0';
-	int damage = 0;
-	for (int i = 0; i < numDice; i++)
-	{
-		damage += rollDice(numFace);
-	}
+	int damage = _die.roll(dice);
 	return damage;
 }
 
 //!Function to calculate attack roll with: d20 + attack bonus
 int Characters::attackRoll()
 {
-	return rollDice(20) + attackBonus;
+	return _die.roll("1d20") + attackBonus;
 }
 
 //!Function to calculate damage roll with: weaponDice + damage bonus (if this yields value less than zero, damageRoll = 0)
@@ -800,13 +773,15 @@ bool Characters::validatePlayerMove(int x, int y){
 	if (y < 0 || y >= _map->at(0).size())
 		return false;
 	char posInQuestion = _map->at(x).at(y);
+	return _validPosition(posInQuestion);
+}
+
+bool Characters::_validPosition(char posInQuestion) {
 	if (posInQuestion == SimplifiedMapSymbols::_Obstruction_)
 		return false;
 	if (posInQuestion == SimplifiedMapSymbols::_BasicContainer_)
 		return false;
 	if (posInQuestion == SimplifiedMapSymbols::_Enemies_)
 		return false;
-
-	// If this point has been reached, then the player is able to move to the requested square
 	return true;
 }

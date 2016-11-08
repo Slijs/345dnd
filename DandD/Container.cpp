@@ -13,6 +13,8 @@
 using std::string;
 using std::vector;
 
+IMPLEMENT_SERIAL(Container, CObject, 1);
+
 // Constructors
 /**
  * @brief 
@@ -158,4 +160,54 @@ string Container::contentsToString() {
 		itemList += contents.at(i)->toString() + "\n";
 	}
 	return itemList;
+}
+
+/**
+* Allows a Container to be serialized.
+*/
+void Container::Serialize(CArchive &ar) {
+	CObject::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << maxContents;
+		ar << numContents;
+		for (int i = 0; i < numContents; i++) {
+
+			// Will Serialize for EACH item the type of the item, so that deserialization will work properly
+			if (typeid(*(contents.at(i))) == typeid(ItemTypes::Armor))
+				ar << ItemTypes::Armor;
+			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Boots))
+				ar << ItemTypes::Boots;
+			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Helmet))
+				ar << ItemTypes::Helmet;
+			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Ring))
+				ar << ItemTypes::Ring;
+			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Shield))
+				ar << ItemTypes::Shield;
+			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Weapon))
+				ar << ItemTypes::Weapon;
+			else
+				ar << ItemTypes::Item;
+			contents.at(i)->Serialize(ar);
+		}
+		CString c_name(image.c_str());
+		ar << c_name;	// Archive's Character's Name
+	}
+	else {
+		ar >> maxContents;
+		ar >> numContents;
+		for (int i = 0; i < numContents; i++) {
+			int tempf = 0;
+			ar >> tempf;
+			Item *temp = ItemFactory::create(ItemTypes::ItemType(tempf));
+			temp->Serialize(ar);
+			contents.push_back(temp);
+		}
+		CString c_name = "";
+		ar >> c_name;
+		image = "";
+		int strlen = c_name.GetLength();
+		for (int i = 0; i < strlen; ++i) {
+			image += c_name.GetAt(i);
+		}
+	}
 }

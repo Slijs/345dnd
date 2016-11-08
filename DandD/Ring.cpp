@@ -12,6 +12,8 @@
 // Windows
 //#include "stdafx.h"
 
+IMPLEMENT_SERIAL(Ring, Item, 1);
+
 // Default constructor, useless item as is
 Ring::Ring() 
 	//KHATIBS TEST
@@ -19,6 +21,13 @@ Ring::Ring()
 	//Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {1,0,1,0,1,1,1,0,0}) 
 	//END TEST
 {
+
+}
+
+/**
+* Copy Constructor - runs the Item copy constructor on the other ring object
+*/
+Ring::Ring(const Ring* otherRing) : Item::Item(otherRing) {
 
 }
 
@@ -31,4 +40,8 @@ Ring::Ring(std::string name, int weight, int value, std::string image,
 	//END TEST
 {
 
+}
+
+void Ring::Serialize(CArchive &ar) {
+	Item::Serialize(ar);
 }

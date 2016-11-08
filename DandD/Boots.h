@@ -21,6 +21,7 @@ class Boots: public Item {
 		// Constructors
 	public:
 		Boots();
+		Boots(const Boots* otherBoots);
 		Boots(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues, int defense);
 		int getDefense();

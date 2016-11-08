@@ -19,9 +19,11 @@ class Weapon: public Item {
 		int damage;
 		int defense;
 		int range;
+		DECLARE_SERIAL(Weapon);
 		// Constructors
 	public:
 		Weapon();
+		Weapon(const Weapon* otherWeapon);
 		Weapon(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues, int damage, int defense, 
 				int range);
@@ -35,6 +37,7 @@ class Weapon: public Item {
 		void incrementRange();
 		void decrementRange();
 		std::string toString();
+		virtual void Serialize(CArchive &ar); // Allows Serialization of Weapon
 };
 
 #endif // Include guard

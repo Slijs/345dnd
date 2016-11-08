@@ -11,19 +11,23 @@
 
 #include <string>
 #include <vector>
+#include <afx.h>
 #include "Item.h"
 #include "game_components.h"
+#include "namespaces.h"
+#include "ItemFactory.h"
 
 using std::string;
 using std::vector;
 
-class Container : public GameComponent{
+class Container : public GameComponent, public CObject{
 	protected:
 		// Attributes common to all containers
 		int maxContents;
 		int numContents;
 		vector<Item*> contents;
 		string image;
+		DECLARE_SERIAL(Container);
 	public:
 		// Constructors
 		Container();
@@ -44,6 +48,7 @@ class Container : public GameComponent{
 
 		//Included by Khatib
 		Item* getItem(string name);
+		virtual void Serialize(CArchive &ar);
 };
 
 #endif // Include guard

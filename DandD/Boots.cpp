@@ -24,6 +24,11 @@ Boots::Boots()
 
 }
 
+/**
+* Copy-constructor - initializes a new pair of boots with the same values as another pair of boots
+*/
+Boots::Boots(const Boots* otherBoots) : Item::Item(otherBoots), defense(otherBoots->defense) {};
+
 // Constructor where all attributes EXCEPT the enchantmentsPossible
 // will be set.
 Boots::Boots(std::string name, int weight, int value, std::string image,

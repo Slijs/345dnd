@@ -12,6 +12,8 @@
 // Windows
 //#include "stdafx.h"
 
+IMPLEMENT_SERIAL(Shield, Item, 1);
+
 // Default constructor, useless item as is
 Shield::Shield() 
 	//KHATIBS TEST
@@ -19,6 +21,13 @@ Shield::Shield()
 	//Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,1,0,0}) 
 	//END TEST
 {
+
+}
+
+Shield::Shield(const Shield* otherShield) : Item::Item(otherShield){
+	this->damage = otherShield->damage;
+	this->defense = otherShield->defense;
+	this->range = otherShield->range;
 
 }
 
@@ -86,4 +95,18 @@ std::string Shield::toString() {
 	//END TEST
 
 	return tempString;
+}
+
+void Shield::Serialize(CArchive &ar) {
+	Item::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << damage;
+		ar << defense;
+		ar << range;
+	}
+	else {
+		ar >> damage;
+		ar >> defense;
+		ar >> range;
+	}
 }

@@ -90,3 +90,8 @@ namespace Others
 	char* const _DefaultMapSelectionAbort_ = "No Default Map Selected";
 	char* const _DefaultMapSelectionButton_ = "Choose map from   default  List";
 }
+
+namespace ItemTypes {
+
+	enum ItemType { Armor, Belt, Boots, Helmet, Ring, Shield, Weapon, Item };
+}

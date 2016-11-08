@@ -11,6 +11,7 @@
  
 // Windows
 //#include "stdafx.h"
+IMPLEMENT_SERIAL(Weapon, Item, 1);
 
 // Default constructor, useless item as is
 Weapon::Weapon()
@@ -20,6 +21,12 @@ Weapon::Weapon()
 	//END TEST
 {
 
+}
+
+Weapon::Weapon(const Weapon* otherWeapon) : Item::Item(otherWeapon) {
+	this->damage = otherWeapon->damage;
+	this->defense = otherWeapon->defense;
+	this->range = otherWeapon->range;
 }
 
 // Constructor where all attributes EXCEPT the enchantmentsPossible
@@ -92,4 +99,18 @@ std::string Weapon::toString() {
 	//END TEST
 
 	return tempString;
+}
+
+void Weapon::Serialize(CArchive &ar) {
+	Item::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << damage;
+		ar << defense;
+		ar << range;
+	}
+	else {
+		ar >> damage;
+		ar >> defense;
+		ar >> range;
+	}
 }

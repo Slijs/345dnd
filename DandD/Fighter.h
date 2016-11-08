@@ -28,11 +28,12 @@ protected:
 private:
 	const int HIT_DIE = 10; //d10
 	int hitPoints;
+	int maxHitPoints;
 	Race race;
 	Size size;
 	string name;
 	int speed;
-	void detRaceTraits();
+	void detRaceTraits(Race race);
 
 public:
 	Fighter(int, Race, string);
@@ -63,6 +64,8 @@ public:
 	bool validateHitPoints();
 	bool validateDeath();
 	bool validateGainExperience(int);
+
+	bool validatePlayerMove(int x, int y);
 
 	virtual void Serialize(CArchive &ar);
 };

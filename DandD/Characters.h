@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Equipment.h"
 #include "Subject.h"
+#include "Dice.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
@@ -52,8 +53,11 @@ class Characters : public Subject, public CObject
 {
 protected:
 	DECLARE_SERIAL(Characters);
+	static bool _validPosition(char posInQuestion);
+	vector<int> position;
+	vector<string> *_map;
+	Dice _die;
 private:
-
 	int const MAX_NUM_SCORES = 6;
 	//int* diceThrows; only a temporary thing to be used during randomizing with dice
 	int scores[2][6]; //will include Ability Scores and Modifiers in 6 by 2 array
@@ -76,10 +80,7 @@ private:
 	int attackBonus;
 	int damageBonus;
 
-	vector<int> position;
-	vector<string> *_map;
-
-	/*
+		/*
 	EQUIPMENT
 	*/
 	Armor* armor;
@@ -93,7 +94,6 @@ private:
 	HELPER FUNCTIONS ONLY USED IN CHARACTERS CPP
 	*/
 	//for the random Ability Scores
-	int roll4D6();
 	//void reOrder();
 
 	void generateAbility();
@@ -184,15 +184,13 @@ public:
 	//For fighter race
 	void scoreIncrease(int, int);
 
-	//For map
-	void setPosition(int, int);
-
 	//For Subject
 	void currentState();
 
-	//
-	bool validatePlayerMove(int x, int y);
+	// For the map
+	virtual bool validatePlayerMove(int x, int y);
 	void setMap(vector<string> *newMap);
+	void setPosition(int, int);
 
 
 	///FOR UNIT TEST
