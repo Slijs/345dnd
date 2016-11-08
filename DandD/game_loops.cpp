@@ -28,6 +28,14 @@ void GameLoops::loopManager()
 			destination = mainMenuLoop(mappath, campaignname);
 			break;
 
+		case _CreateEditItems_:
+			destination = createEditItems();
+			break;
+
+		case _CreateEditPlayer_:
+			destination = createEditPlayer();
+			break;
+
 		case _PlayCampaign_:
 			destination = playCampaignLoop(mappath, campaignname);
 			break;

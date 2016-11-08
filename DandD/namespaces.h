@@ -66,6 +66,7 @@ namespace DestinationFromMenus
 	const int _EditExistingCampaign_ = 6;
 	const int _CampaignManagerMenu_ = 7;
 	const int _CreateEditItems_ = 8;
+	const int _CreateEditPlayer_ = 9;
 	const int _ExitToCommandPrompt_ = 100;
 }
 
