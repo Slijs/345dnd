@@ -2,6 +2,7 @@
 #include "Fighter.h"
 #include "Monster.h"
 #include "Equipment.h"
+#include "namespaces.h"
 #include <iomanip>
 using namespace std;
 

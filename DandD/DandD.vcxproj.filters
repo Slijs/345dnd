@@ -273,9 +273,6 @@
     <ClCompile Include="Armor.cpp">
       <Filter>Source Files\Items\Armor</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Belt.cpp">
       <Filter>Source Files\Items\Belt</Filter>
     </ClCompile>
@@ -318,7 +315,7 @@
     <ClCompile Include="Observer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Maps.cpp">
+    <ClCompile Include="Characters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -410,9 +407,6 @@
     <ClInclude Include="Armor.h">
       <Filter>Header Files\Items\Armor</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -458,8 +452,10 @@
     <ClInclude Include="Observer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Maps.h">
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="afx.inl">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </None>
   </ItemGroup>
 </Project>
