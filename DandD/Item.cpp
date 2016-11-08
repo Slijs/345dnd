@@ -13,6 +13,8 @@
 using std::string;
 using std::array;
 
+IMPLEMENT_SERIAL(Item, CObject, 1);
+
 /**
 * @brief Default constructor, useless as is. All data is set to 0 or placeholder.
 */
@@ -148,3 +150,67 @@ string Item::toString() {
 	//END TEST
 	return tempString;
 }
+
+/**
+* Allows an item to be serialized
+*/
+void Item::Serialize(CArchive &ar) {
+	CObject::Serialize(ar);
+	if (ar.IsStoring()) {
+		CString c_name(name.c_str());
+		ar << c_name;
+		ar << weight;
+		ar << value;
+
+		CString c_image(image.c_str());
+		ar << c_image;
+
+		for (int i = 0; i < 9; i++)
+			ar << enchantmentValues[i];
+
+		for (int i = 0; i < 9; i++)
+			ar << enchantmentsPossible[i];
+	}
+	else {
+		CString c_name = "";
+		ar >> c_name;
+		name = "";
+		int strlen = c_name.GetLength();
+		for (int i = 0; i < strlen; ++i) {
+			name += c_name.GetAt(i);
+		}
+		ar >> weight;
+		ar >> value;
+
+		CString c_image = "";
+		ar >> c_image;
+		image = "";
+		strlen = c_image.GetLength();
+		for (int i = 0; i < strlen; ++i) {
+			image += c_image.GetAt(i);
+		}
+
+		for (int i = 0; i < 9; i++)
+			ar >> enchantmentValues[i];
+
+		for (int i = 0; i < 9; i++)
+			ar >> enchantmentsPossible[i];
+	}
+}
+
+/**
+*Item copy Constructor
+*/
+Item::Item(const Item *otherItem) {
+	this->name = otherItem->name;
+	this->weight = otherItem->weight;
+	this->value = otherItem->value;
+	this->image = otherItem->image;
+	for (int i = 0; i < 9; i++) {
+		this->enchantmentValues[i] = otherItem->enchantmentValues[i];
+	}
+	for (int i = 0; i < 9; i++) {
+		this->enchantmentsPossible[i] = otherItem->enchantmentsPossible[i];
+	}
+}
+	

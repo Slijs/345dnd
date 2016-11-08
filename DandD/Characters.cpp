@@ -746,6 +746,7 @@ Characters& Characters::operator =(const Characters *otherChar) {
 	this->shield = otherChar->shield;
 	this->boots = otherChar->boots;
 	this->ring = otherChar->ring;
+	return *this;
 }
 
 /**

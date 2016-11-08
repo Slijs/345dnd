@@ -10,7 +10,9 @@
 #include "Armor.h"
 
 // Windows
-#include "stdafx.h"
+//#include "stdafx.h"
+
+IMPLEMENT_SERIAL(Armor, Item, 1);
 
 // Default constructor, useless item as is
 Armor::Armor() //dont forget the colon here
@@ -69,4 +71,30 @@ std::string Armor::toString() {
 	//tempString += "Defense: " + std::to_string(getDefense()) + "\n";
 	//END TEST
 	return tempString;
+}
+
+void Armor::Serialize(CArchive &ar) {
+	Item::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << defense;
+	}
+	else {
+		ar >> defense;
+	}
+}
+
+/**
+* Copy Constructor - Uses another Armor to initialize this one
+*/
+Armor::Armor(Armor *otherArmor) : Item::Item(otherArmor) {
+	this->defense = otherArmor->defense;
+}
+
+/**
+*Operator overload - allows for a piece of Armor to be assigned the same
+* values as another piece of armor
+*/
+Armor& Armor::operator= (const Armor* otherArmor) {
+	this->defense = otherArmor->defense;
+	return *this;
 }

@@ -10,8 +10,9 @@
 #include "Belt.h"
 
  // Windows
-#include "stdafx.h"
+//#include "stdafx.h"
 
+IMPLEMENT_SERIAL(Belt, Item, 1);
 // Default constructor, useless item as is
 Belt::Belt()
 	//KHATIBS TEST
@@ -65,4 +66,14 @@ std::string Belt::toString() {
 	//END TEST
 
 	return tempString;
+}
+
+void Belt::Serialize(CArchive &ar) {
+	Item::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << defense;
+	}
+	else {
+		ar >> defense;
+	}
 }

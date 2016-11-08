@@ -17,6 +17,7 @@ class Boots: public Item {
 	protected:
 		// Boots Attributes
 		int defense;
+		DECLARE_SERIAL(Boots);
 		// Constructors
 	public:
 		Boots();
@@ -26,6 +27,7 @@ class Boots: public Item {
 		void incrementDefense();
 		void decrementDefense();
 		std::string toString();
+		virtual void Serialize(CArchive &ar);
 };
 
 #endif // Include guard

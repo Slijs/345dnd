@@ -10,7 +10,9 @@
 #include "Boots.h"
  
 // Windows
-#include "stdafx.h"
+//#include "stdafx.h"
+
+IMPLEMENT_SERIAL(Boots, Item, 1);
 
 // Default constructor, useless item as is
 Boots::Boots() 
@@ -58,4 +60,14 @@ std::string Boots::toString() {
 	//tempString += "\tDefense: " + std::to_string(getDefense()) + "\n";
 	//END TEST
 	return tempString;
+}
+
+void Boots::Serialize(CArchive &ar) {
+	Item::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << defense;
+	}
+	else {
+		ar >> defense;
+	}
 }

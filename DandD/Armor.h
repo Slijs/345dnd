@@ -11,12 +11,14 @@
 
 
 #include <string>
+#include <afx.h>
 #include "Item.h"
 
 class Armor: public Item {
 	protected:
 		// Armor Attributes
 		int defense;
+		DECLARE_SERIAL(Armor);
 		// Constructors
 	public:
 		Armor();
@@ -26,6 +28,9 @@ class Armor: public Item {
 		void incrementDefense();
 		void decrementDefense();
 		std::string toString();
+		virtual void Serialize(CArchive &ar);
+		Armor& operator= (const Armor* otherArmor); // Operator overload
+		Armor(Armor* otherArmor); // Copy constructor
 };
 
 #endif // Include guard

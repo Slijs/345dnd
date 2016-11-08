@@ -17,15 +17,19 @@ class Belt: public Item {
 	protected:
 		// Belt Attributes
 		int defense;
+		DECLARE_SERIAL(Belt);
 		// Constructors
 	public:
 		Belt();
+		// Belt(Belt* otherBelt); Needs to be implemented later
 		Belt(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues, int defense);
 		int getDefense();
 		void incrementDefense();
 		void decrementDefense();
 		std::string toString();
+		virtual void Serialize(CArchive &ar);
+		// Belt* operator =(const Belt *otherBelt); Needs to be implemented later
 };
 
 #endif // Include guard

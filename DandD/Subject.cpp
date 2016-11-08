@@ -32,13 +32,12 @@ void Subject::detach(Observer * obs)
 
 /**
 * Will notify all attached Observers that a state change has occured.
-*@param flag integer representing the flag of the update that has occured
 */
-void Subject::notify(int flag)
+void Subject::Notify()
 {
 	list<Observer*>::iterator i = _observers->begin();
 	for (; i != _observers->end(); ++i) {
-		(*i)->update(flag);
+		(*i)->Update();
 	}
 }
 

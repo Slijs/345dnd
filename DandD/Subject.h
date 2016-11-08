@@ -26,7 +26,7 @@ class Subject {
 public:
 	virtual void attach(Observer* obs);
 	virtual void detach(Observer* obs);
-	virtual void notify(int flag);
+	virtual void Notify();
 
 	Subject();
 	~Subject();

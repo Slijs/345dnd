@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
+//#include "stdafx.h"
+#include <afx.h>
 using namespace std;
 
 /*!
@@ -12,11 +14,13 @@ All weapons inherit from Equipment and have a dieroll and a type (melee or range
 All boots inherit from Equipment and have a bonustype and a bonus value. Bonustypes are as follows: 0 = NONE, 1 = DEX, 2 = AC
 All helmets inherit from Boots and also have a bonustype and bonus value. Bonustypes are as follows: 0 = NONE, 1 = INT, 2 = WIS, 3 = AC
 All rings inherit from Boots and also have a bonustype and bonus value. Bonustypes are as follows: 0 = NONE, 1= STR, 2 = CON, 3 = WIS, 4 = CHA, 5 = AC
-NOTE: name is set to "NONE" when using the default constructor. Therefore, to de-equip, simply call the default constructor of any equipment type. This will set all values to 0 or empty string. 
+NOTE: name is set to "NONE" when using the default constructor. Therefore, to de-equip, simply call the default constructor of any equipment type. This will set all values to 0 or empty string.
 */
 
-class Equipment
+class Equipment : public CObject
 {
+protected:
+	DECLARE_SERIAL(Equipment);
 private:
 	string equipName;
 
@@ -28,10 +32,13 @@ public:
 
 	string getName();
 	bool compareName(string name);
+	virtual void Serialize(CArchive &ar);
 };
 
 class Armor :public Equipment
 {
+protected:
+	DECLARE_SERIAL(Armor);
 private:
 	int ACBonus;
 
@@ -40,20 +47,25 @@ public:
 	Armor(string name, int ACBonus);
 	~Armor();
 	int getACBonus();
+	virtual void Serialize(CArchive &ar);
 };
 
 class Shield : public Armor
 {
+protected:
+	DECLARE_SERIAL(Shield);
 private:
 public:
 	Shield();
 	Shield(string name, int ACBonus);
 	~Shield();
-
+	virtual void Serialize(CArchive &ar);
 };
 
 class Weapon : public Equipment
 {
+protected:
+	DECLARE_SERIAL(Weapon);
 private:
 	string dice;
 	string weaponType;
@@ -64,12 +76,14 @@ public:
 	string getDice();
 	string getWeaponType();
 	bool compareType(string name);
-
+	virtual void Serialize(CArchive &ar);
 };
 
 
 class Boots : public Equipment
 {
+protected:
+	DECLARE_SERIAL(Boots);
 private:
 	int bonusType; ///0 = NONE, 1 = DEX, 2 = AC
 	int bonus;
@@ -79,11 +93,13 @@ public:
 	~Boots();
 	int getBonusType();
 	int getBonus();
-
+	virtual void Serialize(CArchive &ar);
 };
 
 class Helmet : public Boots
 {
+protected:
+	DECLARE_SERIAL(Helmet);
 private:
 	//Bonus Types
 	//0 = NONE, 1 = INT, 2 = WIS, 3 = AC
@@ -91,17 +107,20 @@ public:
 	Helmet();
 	Helmet(string name, int bonusType, int bonus);
 	~Helmet();
+	virtual void Serialize(CArchive &ar);
 
 };
 
 class Ring : public Boots
 {
+protected:
+	DECLARE_SERIAL(Ring);
 private:
 	//Bonus Types
 	//0 = NONE, 1= STR, 2 = CON, 3 = WIS, 4 = CHA, 5 = AC
 public:
 	Ring();
-	Ring(string name, int bonusType,int bonus);
+	Ring(string name, int bonusType, int bonus);
 	~Ring();
-
+	virtual void Serialize(CArchive &ar);
 };

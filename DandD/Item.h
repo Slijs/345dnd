@@ -11,11 +11,12 @@
 
 #include <string>
 #include <array>
+#include <afx.h>
 
 using std::string;
 using std::array;
 
-class Item {
+class Item : public CObject {
 	protected:
 		// Attributes common to all items
 		string name;
@@ -37,6 +38,7 @@ class Item {
 		 * Attack Bonus, Damage Bonus.
 		 */
 		array<bool, 9> enchantmentsPossible;
+		DECLARE_SERIAL(Item);
 	public:
 		// Constructors
 		Item();
@@ -49,6 +51,8 @@ class Item {
 		Item(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues, 
 				array<bool, 9> enchantmentsPossible);
+
+		Item(const Item *otherItem); // copy constructor
 		// Accessors and Mutators
 		string getName();
 		int getWeight();
@@ -58,6 +62,7 @@ class Item {
 		array<bool, 9> getEnchantmentsPossible();
 		// Misc methods
 		virtual string toString();
+		virtual void Serialize(CArchive &ar);
 };
 
 #endif // Include guard
