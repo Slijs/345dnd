@@ -136,10 +136,37 @@ void CharacterManager::_createNewCharacter(){
 
 void CharacterManager::_editCharacter(){
 	Fighter *theChar = CharacterSaveManager::loadCharacter();
+	char conf = 'X'; // char that will be used to get user input
+	bool cont = true;
 	
 	// If no character was loaded, then the method will just return without doing anything
 	if (theChar == NULL)
 		return;
+
+	// Displays menu to user so they can select what they want to do
+	_displayEditMenu();
+	// Ask if user wants to CREATE or EDIT the character
+	do{
+		_displayCreateEditMenu;
+		cin >> conf;
+		switch (conf){
+		case '1': // User wants to edit Character name
+			_editName(theChar);
+			cont = false;
+			break;
+		case '2': // User wants to edit a Character race
+			_editRace(theChar);
+			cont = false;
+			break;
+		case 'e':
+		case 'E': // UPDATE THIS!!! need to delete Fighter* reference
+			return;
+		default:
+			cout << "Sorry, I think you entered an option that isn't allowed. Please try again." << endl;
+		}
+	} while (cont);
+	return;
+	
 }
 
 /**
@@ -159,4 +186,29 @@ void CharacterManager::_displayCreateEditMenu(){
 	cout << "     [3] - Delete a saved character" << endl;
 	cout << "Enter 'M' to return to main menu." << endl;
 	cout << "Enter your option here: ";
+}
+
+void CharacterManager::_displayEditMenu(){
+	cout << "Please enter what you would like to do: " << endl;
+	cout << "     [1] - Edit name" << endl;
+	cout << "     [2] - Edit race" << endl;
+	cout << "Enter 'E' to return to main menu." << endl;
+	cout << "Enter your option here: ";
+}
+
+void CharacterManager::_editName(Fighter *theFighter){
+	cout << theFighter->getName() << " is the current name." << endl;
+	string name = "";
+	char conf = 'X';
+	
+	// Get name of Character
+	do {
+		cout << "Please enter the name you would like to have for your character: ";
+		cin >> name;
+		cout << "You entered " << name << ". Are you happy with this? (Y/N) ";
+		cin >> conf;
+		if (!(conf == 'Y' || conf == 'y' || conf == 'N' || conf == 'n'))
+			cout << "Sorry, I didn't understand your confirmation. Please try again." << endl;
+	} while (!(conf == 'Y' || conf == 'y'));
+	conf = 'X';
 }
