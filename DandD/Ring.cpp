@@ -27,7 +27,7 @@ Ring::Ring()
 /**
 * Copy Constructor - runs the Item copy constructor on the other ring object
 */
-Ring::Ring(const Ring* otherRing) : Item::Item(otherRing) {
+Ring::Ring(const Ring* otherRing) : Item(otherRing) {
 
 }
 

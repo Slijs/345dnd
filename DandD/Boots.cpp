@@ -27,7 +27,7 @@ Boots::Boots()
 /**
 * Copy-constructor - initializes a new pair of boots with the same values as another pair of boots
 */
-Boots::Boots(const Boots* otherBoots) : Item::Item(otherBoots), defense(otherBoots->defense) {};
+Boots::Boots(const Boots* otherBoots) : Item(otherBoots), defense(otherBoots->defense) {};
 
 // Constructor where all attributes EXCEPT the enchantmentsPossible
 // will be set.

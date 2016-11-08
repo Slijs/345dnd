@@ -24,7 +24,7 @@ Shield::Shield()
 
 }
 
-Shield::Shield(const Shield* otherShield) : Item::Item(otherShield){
+Shield::Shield(const Shield* otherShield) : Item(otherShield){
 	this->damage = otherShield->damage;
 	this->defense = otherShield->defense;
 	this->range = otherShield->range;

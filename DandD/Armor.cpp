@@ -86,7 +86,7 @@ void Armor::Serialize(CArchive &ar) {
 /**
 * Copy Constructor - Uses another Armor to initialize this one
 */
-Armor::Armor(Armor *otherArmor) : Item::Item(otherArmor) {
+Armor::Armor(Armor *otherArmor) : Item(otherArmor) {
 	this->defense = otherArmor->defense;
 }
 

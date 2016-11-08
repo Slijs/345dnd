@@ -23,7 +23,7 @@ Weapon::Weapon()
 
 }
 
-Weapon::Weapon(const Weapon* otherWeapon) : Item::Item(otherWeapon) {
+Weapon::Weapon(const Weapon* otherWeapon) : Item(otherWeapon) {
 	this->damage = otherWeapon->damage;
 	this->defense = otherWeapon->defense;
 	this->range = otherWeapon->range;

@@ -27,7 +27,7 @@ Helmet::Helmet()
 /**
 * Copy-constructor - initializes a new helmet to have the same values as another helmet
 */
-Helmet::Helmet(const Helmet* otherHelmet) : Item::Item(otherHelmet), defense(otherHelmet->defense) {};
+Helmet::Helmet(const Helmet* otherHelmet) : Item(otherHelmet), defense(otherHelmet->defense) {};
 
 // Constructor where all attributes EXCEPT the enchantmentsPossible
 // will be set.
