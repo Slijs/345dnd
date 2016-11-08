@@ -199,6 +199,12 @@
     <Filter Include="Source Files\Game Components\Character">
       <UniqueIdentifier>{c4c8cfe3-7ed3-418e-9f4e-1f61068f5e43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game Components\Character\Character Management">
+      <UniqueIdentifier>{09b3f89f-1728-4506-9c13-1623c117d04a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Components\Character\Character Management">
+      <UniqueIdentifier>{9319f620-aaff-470e-9a8e-6b1767e5e5bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -337,6 +343,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CharacterSaveManager.cpp">
+<<<<<<< HEAD
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CharacterSaveMap.cpp">
@@ -347,6 +354,15 @@
     </ClCompile>
     <ClCompile Include="red_green_blue.cpp">
       <Filter>Source Files\Misc Functionalites</Filter>
+=======
+      <Filter>Source Files\Game Components\Character\Character Management</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterSaveMap.cpp">
+      <Filter>Source Files\Game Components\Character\Character Management</Filter>
+    </ClCompile>
+    <ClCompile Include="CharBuilder.cpp">
+      <Filter>Source Files\Game Components\Character\Character Management</Filter>
+>>>>>>> origin/Interim-Build
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -489,6 +505,7 @@
       <Filter>Header Files\Game Components</Filter>
     </ClInclude>
     <ClInclude Include="CharacterSaveMap.h">
+<<<<<<< HEAD
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CharBuilder.h">
@@ -496,6 +513,15 @@
     </ClInclude>
     <ClInclude Include="CharSaveManager.h">
       <Filter>Header Files</Filter>
+=======
+      <Filter>Header Files\Game Components\Character\Character Management</Filter>
+    </ClInclude>
+    <ClInclude Include="CharBuilder.h">
+      <Filter>Header Files\Game Components\Character\Character Management</Filter>
+    </ClInclude>
+    <ClInclude Include="CharSaveManager.h">
+      <Filter>Header Files\Game Components\Character\Character Management</Filter>
+>>>>>>> origin/Interim-Build
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
