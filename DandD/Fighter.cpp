@@ -2,9 +2,15 @@
 
 IMPLEMENT_SERIAL(Fighter, Characters, 1);
 
-/*
-CONSTRUCTOR
-*/
+/* CONSTRUCTOR */
+
+//!Parameterized constructor to set all att of Fighter
+Fighter::Fighter(int level, Race race, string name, int STR, int DEX, int CON, int INT, int WIS, int CHA) : Characters(level, STR, DEX, CON, INT, WIS, CHA){
+	Fighter::name = name;
+	detRaceTraits(race);
+	initHitPoints();
+}
+
 //!Parameterized Constructor to set level, race and name. 
 Fighter::Fighter(int level, Race race, string name) : Characters(level)
 {

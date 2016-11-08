@@ -119,7 +119,7 @@ private:
 
 public:
 	Characters();
-	Characters(int, int, int, int, int, int, int, int);
+	Characters(int, int, int, int, int, int, int);
 	Characters(int);
 
 	void destroyObject();

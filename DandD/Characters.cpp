@@ -27,7 +27,7 @@ Characters::Characters()
 }
 
 //!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
-Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass)
+Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
 {
 	this->level = level;
 	inBattle = false;
@@ -52,6 +52,7 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	detProficiencyBonus();
 	detExp();
 	abilityScoreMod();
+	calcArmorClass();
 	_map = NULL;
 }
 

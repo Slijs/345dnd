@@ -37,6 +37,7 @@ private:
 
 public:
 	Fighter(int, Race, string);
+	Fighter(int level, Race race, string name, int STR, int DEX, int CON, int INT, int WIS, int CHA);
 	Fighter(); // Default constructor for Dummy Fighter
 	~Fighter();
 
