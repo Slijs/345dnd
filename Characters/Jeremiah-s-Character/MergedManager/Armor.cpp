@@ -87,6 +87,10 @@ Armor(Armor *otherArmor) : Item::Item(otherArmor){
 	this->defense = otherArmor->defense;
 }
 
+/**
+*Operator overload - allows for a piece of Armor to be assigned the same
+* values as another piece of armor
+*/
 Armor& Armor::operator= (const Armor* otherArmor){
 	this->defense = otherArmor->defense;
 }

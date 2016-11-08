@@ -1,25 +1,37 @@
+#pragma once
 /**
 *@file Subject.h
-@brief Declaration of the Subject class for the MVC pattern
+*@brief Definition of Subject abstract class.
 *
+*<p>A subject is the abstract version of a Model in the MVC pattern. A subject has specific state data,
+*   in addition to an Observer associated with it. When a Subject updates its state, it notifies its
+*	Observer that a change has been made.
+*/
 #pragma once
-
-#include "Observer.h"
+#ifndef SUBJECT_H
+#define SUBJECT_H
 #include <list>
+#include "Observer.h"
 using namespace std;
 
-//!Abstract Class for Subject in Observer Pattern. Creates a list of observers and calls update of observer class when notify is called.
+/**
+*@class Subject
+*@brief Abstract implementation of Model in the MVC pattern.
+*<p>Subject allows an Object to associate Observers with itself. It then can notify its observers of any updates
+*	that have been made to it, allowing the Observers to carry out the necessary actions.
+*/
 
-class Subject
-{
-private:
-	list<Observer*> *_obs;
+enum SubjectUpdateFlags { CharPos };
+class Subject {
 public:
+	virtual void attach(Observer* obs);
+	virtual void detach(Observer* obs);
+	virtual void notify(int flag);
+
 	Subject();
 	~Subject();
+private:
+	list<Observer*> *_observers;
 
-	virtual void Attach(Observer* o);
-	virtual void Dettach(Observer* o);
-	virtual void Notify();
-	virtual void currentState() = 0;
 };
+#endif

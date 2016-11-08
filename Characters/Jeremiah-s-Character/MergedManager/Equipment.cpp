@@ -1,7 +1,5 @@
 #include "Equipment.h"
 
-
-
 /*EQUIPMENT
 */
 //!Default Constructor, sets name to "NONE"
@@ -152,7 +150,7 @@ Helmet::Helmet() : Boots()
 
 }
 //!Parameterized Constructor to set name, bonus type and bonus value
-Helmet::Helmet(string name, int bonusType, int bonus) : Boots(name,bonusType, bonus)
+Helmet::Helmet(string name, int bonusType, int bonus) : Boots(name, bonusType, bonus)
 {
 }
 //!Destructor

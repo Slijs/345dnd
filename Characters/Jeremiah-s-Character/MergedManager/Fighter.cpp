@@ -9,7 +9,7 @@ CONSTRUCTOR
 Fighter::Fighter(int level, Race race, string name) : Characters(level)
 {
 	Fighter::name = name;
-	detRaceTraits();
+	detRaceTraits(race);
 	initHitPoints();
 }
 
@@ -29,7 +29,7 @@ Fighter::~Fighter()
 
 }
 
-void Fighter::detRaceTraits()
+void Fighter::detRaceTraits(Race race)
 {
 	switch (race)
 	{
@@ -215,4 +215,12 @@ bool Fighter::validateGainExperience(int exp)
 
 // Method for serialization - to be implemented
 void Fighter::Serialize(CArchive &ar){
+}
+
+bool Fighter::validatePlayerMove(int x, int y){
+	// Will user super validatePlayerMove to determine if movement on map is valid.
+	if(!this->Characters::validatePlayerMove(x, y))
+		return false;
+
+	// Will now determine if player is moving within their range
 }

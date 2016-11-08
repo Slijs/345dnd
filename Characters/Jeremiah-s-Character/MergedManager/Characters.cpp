@@ -21,28 +21,8 @@ Characters::Characters()
 	isDead = false;
 	armorClass = 0;
 	inBattle = false;
-	//call to set proficiencyBonus and exp
-	detExperience();
-	detProficiencyBonus();
+	_map = NULL;
 
-	srand(time(NULL));
-
-	//call to set abilityScore and modifiers
-	generateAbility();
-	if (level == 1)
-	{
-		armor = new Armor();
-		weapon = new Weapon("Longsword", "1d8", "melee");
-	}
-	else
-	{
-		armor = new Armor("Padded Armor", 11);
-		weapon = new Weapon("Light Crossbow", "1d8", "ranged");
-	}
-	shield = new Shield();
-	boots = new Boots();
-	ring = new Ring();
-	helmet = new Helmet();
 }
 
 //!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
@@ -71,6 +51,7 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	detProficiencyBonus();
 	detExp();
 	abilityScoreMod();
+	_map = NULL;
 }
 
 //!Parameterized Constructor for Fighter class, sets level.
@@ -108,6 +89,7 @@ Characters::Characters(int level)
 	//calculate attackBonus and DamageBonus
 	calcAttackBonus();
 	calcDamageBonus();
+	_map = NULL;
 }
 
 //!Auxiliary function used to destroy all equipment objects
@@ -137,6 +119,7 @@ void Characters::destroyObject()
 Characters::~Characters()
 {
 	destroyObject();
+	delete _map;
 }
 
 //!Accessor to level
@@ -757,11 +740,11 @@ Characters& Characters::operator =(const Characters *otherChar) {
 	this->damageBonus = otherChar->damageBonus;
 	this->position.at(0) = otherChar->position.at(0);
 	this->position.at(1) = otherChar->position.at(1);
-	this->armor-> = otherChar->armor;
+	this->armor = otherChar->armor;
 	this->weapon = otherChar->weapon;
 	this->shield = otherChar->shield;
-	this->boots = otherChar->shield;
-	this->ring-> = otherChar->ring;
+	this->boots = otherChar->boots;
+	this->ring = otherChar->ring;
 }
 
 /**
@@ -790,9 +773,38 @@ Characters::Characters(Characters* otherChar) {
 	this->damageBonus >> otherChar->damageBonus;
 	this->position.at(0) >> otherChar->position.at(0);
 	this->position.at(1) >> otherChar->position.at(1);
-	this->armor-> = otherChar->armor;
+	this->armor = otherChar->armor;
 	this->weapon = otherChar->weapon;
 	this->shield = otherChar->shield;
-	this->boots = otherChar->shield;
-	this->ring-> = otherChar->ring;
+	this->boots = otherChar->boots;
+	this->ring = otherChar->ring;
+}
+
+/**
+* Sets the Character's map data to a new map, deleting the old map data in the process
+*@param newMap vector<string>, where each string represents one line of the map
+*/
+void Characters::setMap(std::vector<std::string> *newMap){
+	if (_map != NULL){
+		delete _map; // To prevent memory leaks
+	}
+	_map = newMap;
+}
+
+bool Characters::validatePlayerMove(int x, int y){
+// Determine valid square
+	if (x < 0 || x >= _map->size())
+		return false;
+	if (y < 0 || y >= _map->at(0).size())
+		return false;
+	char posInQuestion = _map->at(x).at(y);
+	if (posInQuestion == SimplifiedMapSymbols::_Obstruction_)
+		return false;
+	if (posInQuestion == SimplifiedMapSymbols::_BasicContainer_)
+		return false;
+	if (posInQuestion == SimplifiedMapSymbols::_Enemies_)
+		return false;
+
+	// If this point has been reached, then the player is able to move to the requested square
+	return true;
 }

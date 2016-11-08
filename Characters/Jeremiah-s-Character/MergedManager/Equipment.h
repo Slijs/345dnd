@@ -14,7 +14,7 @@ All weapons inherit from Equipment and have a dieroll and a type (melee or range
 All boots inherit from Equipment and have a bonustype and a bonus value. Bonustypes are as follows: 0 = NONE, 1 = DEX, 2 = AC
 All helmets inherit from Boots and also have a bonustype and bonus value. Bonustypes are as follows: 0 = NONE, 1 = INT, 2 = WIS, 3 = AC
 All rings inherit from Boots and also have a bonustype and bonus value. Bonustypes are as follows: 0 = NONE, 1= STR, 2 = CON, 3 = WIS, 4 = CHA, 5 = AC
-NOTE: name is set to "NONE" when using the default constructor. Therefore, to de-equip, simply call the default constructor of any equipment type. This will set all values to 0 or empty string. 
+NOTE: name is set to "NONE" when using the default constructor. Therefore, to de-equip, simply call the default constructor of any equipment type. This will set all values to 0 or empty string.
 */
 
 class Equipment : public CObject
@@ -120,7 +120,7 @@ private:
 	//0 = NONE, 1= STR, 2 = CON, 3 = WIS, 4 = CHA, 5 = AC
 public:
 	Ring();
-	Ring(string name, int bonusType,int bonus);
+	Ring(string name, int bonusType, int bonus);
 	~Ring();
 	virtual void Serialize(CArchive &ar);
 };

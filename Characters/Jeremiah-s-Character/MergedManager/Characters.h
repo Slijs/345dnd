@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "Equipment.h"
 #include "Subject.h"
+#include "namespace.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
@@ -51,6 +52,8 @@ class Characters : public Subject, public CObject
 {
 protected:
 	DECLARE_SERIAL(Characters);
+	vector<int> position;
+	vector<string> *_map;
 private:
 
 	int const MAX_NUM_SCORES = 6;
@@ -74,8 +77,6 @@ private:
 
 	int attackBonus;
 	int damageBonus;
-
-	vector<int> position;
 
 	/*
 	EQUIPMENT
@@ -184,6 +185,8 @@ public:
 
 	//For map
 	void setPosition(int, int);
+	void setMap(std::vector<std::string> *newMap);
+	virtual bool validatePlayerMove(int x, int y);
 
 	//For Subject
 	void currentState();
