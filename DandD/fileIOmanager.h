@@ -29,3 +29,14 @@ public:
 	~SingletonInputOutputManager();
 };
 
+
+class RGB
+{
+public:
+	int red;
+	int green;
+	int blue;
+	RGB();
+	RGB(const int r, const int g, const int b);
+};
+

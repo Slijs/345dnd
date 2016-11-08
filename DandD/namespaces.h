@@ -91,7 +91,7 @@ namespace Others
 	char* const _DefaultMapSelectionButton_ = "Choose map from   default  List";
 }
 
-namespace ItemTypes {
-
+namespace ItemTypes 
+{
 	enum ItemType { Armor, Belt, Boots, Helmet, Ring, Shield, Weapon, Item };
 }

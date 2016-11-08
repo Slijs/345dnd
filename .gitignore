@@ -295,3 +295,7 @@ __pycache__/
 #.machiddenfiles
 .DS_Store
 *.DS_Store
+
+*.tlog
+*.lastbuildstate
+*.idb

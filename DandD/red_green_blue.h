@@ -1,14 +1,17 @@
-#pragma once
+//#pragma once
+#if !defined (RGB_H)
+#define RGB_H
 /*!
 *a structure just designed to have three attributes of red green blue,
 *this is to facilitate color management in the project
 */
-struct RGB
+/*class RGB
 {
 public:
 	int red;
 	int green;
 	int blue;
+<<<<<<< HEAD
 
 	RGB(const int r, const int g, const int b){
 		this->red = r;
@@ -16,3 +19,10 @@ public:
 		this->blue = b;
 	};
 };
+=======
+	RGB();
+	RGB(const int r, const int g, const int b);
+};*/
+
+#endif
+>>>>>>> origin/Interim-Build
