@@ -4,4 +4,5 @@
 */
 #include "CharacterManager.h"
 
-Fighter* CharacterManager::getCharacter(){}
+Fighter* CharacterManager::getCharacter(){};
+void CharacterManager::createOrEditCharacter(){};
