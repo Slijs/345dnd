@@ -252,7 +252,7 @@ void Characters::calcAttackBonus()
 	attackBonus = proficiencyBonus;
 	if (weapon == nullptr)
 		attackBonus += scores[1][0];  //add str mod if no weapon
-	else if (weapon->getRange == 1)
+	else if (weapon->getRange() == 1)
 		attackBonus += scores[1][0];  //add str mod if melee 
 	else
 		attackBonus += scores[1][1]; //add str mod if ranged
@@ -263,7 +263,7 @@ void Characters::calcDamageBonus()
 {
 	if (weapon == nullptr)
 		damageBonus += scores[1][0];  //add str mod if no weapon
-	else if (weapon->getRange == 1)
+	else if (weapon->getRange() == 1)
 		damageBonus += scores[1][0];  //add str mod if melee 
 	else
 		damageBonus += scores[1][1]; //add str mod if ranged
