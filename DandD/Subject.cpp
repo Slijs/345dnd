@@ -8,7 +8,7 @@
 #include "Subject.h"
 #include "Observer.h"
 
-class Observer;
+//class Observer;
 
 /**
 * Attaches a new Observer to the Subject.
