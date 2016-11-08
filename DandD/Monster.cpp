@@ -65,7 +65,7 @@ void Monster::detHitPoints()
 //!Function to equip weapon and calculate Attack and Damage Bonuses
 void Monster::equipWeapon(Weapon* w)
 {
-	equip(w);
+	//equip(w);
 	calcAttackBonus();
 	calcDamageBonus();
 }
