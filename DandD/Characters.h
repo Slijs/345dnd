@@ -77,6 +77,7 @@ private:
 	int damageBonus;
 
 	vector<int> position;
+	vector<string> *_map;
 
 	/*
 	EQUIPMENT
@@ -189,6 +190,9 @@ public:
 	//For Subject
 	void currentState();
 
+	//
+	bool validatePlayerMove(int x, int y);
+	void setMap(vector<string> *newMap);
 
 
 	///FOR UNIT TEST
