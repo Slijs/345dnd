@@ -123,8 +123,8 @@ private:
 	void gainLevel();
 
 	//for equip and dequip stat update
-	void updateStatsDQ(int scoreIndex, int removeBonus);	    //should be used when equiping and unequiping 
-	void updateStatsEQ(int scoreIndex, int addBonus);
+	void updateStatsDQ(Item*);	    //should be used when equiping and unequiping 
+	void updateStatsEQ(Item*);
 
 
 
@@ -189,6 +189,7 @@ public:
 	string currentHelmet();
 	string currentBoots();
 	string currentRing();
+
 
 
 
