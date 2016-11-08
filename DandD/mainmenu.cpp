@@ -57,6 +57,13 @@ void MainMenu::setupMenu()
 	menucomponent.y = menucomponent.y + (menucomponent.h * 6);
 	this->_menuWindow->addButton("Play Campaign", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
+	//create / edit item
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.30);
+	menucomponent.x = (this->_menuWindow->getWindowWidth() / 2) - (menucomponent.w / 2);
+	menucomponent.y = menucomponent.y + (menucomponent.h * 2);
+	this->_menuWindow->addButton("Create / Edit Item", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
+
+
 	//create / edit player
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.30);
 	menucomponent.x = (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
@@ -95,6 +102,9 @@ int MainMenu::destinationMap(int index)
 		return _MainMenu_;
 
 	case 2:
+		return _MainMenu_;
+
+	case 3:
 		return _CampaignManagerMenu_;
 	}
 	return _ExitToCommandPrompt_;

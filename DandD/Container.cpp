@@ -154,6 +154,7 @@ string Container::contentsToString() {
 		//KHATIBS TEST
 		//itemList += "\t\t\tITEM " + std::to_string(i+1) + "\n";
 		//END TEST
+		itemList += (i + 1) + ") ";
 		itemList += contents.at(i)->toString() + "\n";
 	}
 	return itemList;

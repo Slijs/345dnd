@@ -46,6 +46,9 @@ public:
 	int editExistingMap(char* path, char* campaign);
 	int editExistingCampaignLoop(char* path, char* campaign);
 	int campaignManagerLoop(char* path, char* campaign);
+	int createEditItems();
+	int createEditPlayer();
+
 };
 
 #endif

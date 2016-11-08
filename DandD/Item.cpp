@@ -19,10 +19,10 @@ using std::array;
 Item::Item() : name("Name Unset"),
 weight(0),
 value(0),
-image("Image Unset") //dont forget to add comma here
+image("Image Unset"), //dont forget to add comma here
 //KHATIBS TEST
-//enchantmentValues({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }),
-//enchantmentsPossible({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }) 
+enchantmentValues({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }),
+enchantmentsPossible({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }) 
 //END TEST
 {}
 
@@ -134,7 +134,7 @@ array<bool, 9> Item::getEnchantmentsPossible() {
 string Item::toString() {
 	string tempString;
 	//KHATIBS TEST
-	/*tempString += "------------------ " + getName() + " ---------------\n";
+	tempString += "------------------ " + getName() + " ---------------\n";
 	tempString += "Weight: " + std::to_string(getWeight()) + "\tValue: "
 		+ std::to_string(getValue()) +
 		"\tImage: " + getImage() + "\n";
@@ -144,7 +144,7 @@ string Item::toString() {
 	for (int i = 0; i < 9; i++) {
 		tempString += std::to_string(tempEnchantmentValues[i]) + "\t";
 	}
-	tempString += "\n";*/
+	tempString += "\n";
 	//END TEST
 	return tempString;
 }

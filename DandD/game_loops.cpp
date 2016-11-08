@@ -343,6 +343,7 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 				//validate map
 				case 2:
 					if(m->validateMap() == true)
+
 						m->setQuit(true);
 					else
 					{
@@ -430,6 +431,18 @@ int GameLoops::campaignManagerLoop(char* path, char* campaign)
 	delete manager;
 	manager = nullptr;
 	return destination;
+}
+
+int GameLoops::createEditItems()
+{
+	// ADD ITEM CREATION HERE
+	return _MainMenu_;
+}
+
+int GameLoops::createEditPlayer()
+{
+	//Create Edit Function call here
+	return _MainMenu_;
 }
 
 //!once a campaign is selected, this function facilitates editing

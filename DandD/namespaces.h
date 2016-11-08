@@ -12,6 +12,8 @@ namespace SimplifiedMapSymbols
 	const char _FreePath_ = '.';
 	const char _ExitDoor_ = 'e';
 	const char _Player_ = 'p';
+	const char _BasicContainer_ = '@';
+	const char _Enemies_ = 'x';
 }
 
 /*!
@@ -63,6 +65,7 @@ namespace DestinationFromMenus
 	const int _CreateNewCampaign_ = 5;
 	const int _EditExistingCampaign_ = 6;
 	const int _CampaignManagerMenu_ = 7;
+	const int _CreateEditItems_ = 8;
 	const int _ExitToCommandPrompt_ = 100;
 }
 
