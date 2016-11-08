@@ -1,12 +1,13 @@
 #pragma once
-//#include "Entity.h"
+#include "Entity.h"
 #include "Equipment.h"
 #include "Subject.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
 #include <vector>
-//#include <afx.h>
+#include <afx.h>
+#include <afxver_.h>
 
 /*!
 Some changes were made from previous implementation of Characters Class
@@ -92,7 +93,7 @@ private:
 	*/
 	//for the random Ability Scores
 	int roll4D6();
-	void reOrder();
+	//void reOrder();
 
 	void generateAbility();
 	void orderArray(int a[]);

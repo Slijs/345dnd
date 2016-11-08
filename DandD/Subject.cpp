@@ -4,7 +4,7 @@
 *<p>Subject is the abstract version of the Model in the MVC Pattern. A Subject is able to attach Observers to itself,
 * and will notify these observers when any updates have been made.
 */
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "Subject.h"
 #include "Observer.h"
 

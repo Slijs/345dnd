@@ -19,8 +19,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -74,6 +74,7 @@
     <ClCompile Include="Belt.cpp" />
     <ClCompile Include="Boots.cpp" />
     <ClCompile Include="campaignselect.cpp" />
+    <ClCompile Include="Characters.cpp" />
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Equipment.cpp" />
@@ -101,7 +102,6 @@
     <ClCompile Include="Ring.cpp" />
     <ClCompile Include="routing.cpp" />
     <ClCompile Include="Shield.cpp" />
-    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="TestContainer.cpp" />
     <ClCompile Include="TestItem.cpp" />
@@ -150,7 +150,6 @@
     <ClInclude Include="Ring.h" />
     <ClInclude Include="routing.h" />
     <ClInclude Include="Shield.h" />
-    <ClInclude Include="stdafx.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="userinputandstringmanager.h" />
@@ -168,6 +167,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="afx.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

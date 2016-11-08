@@ -10,7 +10,7 @@
 #include "Helmet.h"
  
 // Windows
-#include "stdafx.h"
+//#include "stdafx.h"
 
 // Default constructor, useless item as is
 Helmet::Helmet() 
