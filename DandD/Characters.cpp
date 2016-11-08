@@ -27,6 +27,31 @@ Characters::Characters()
 
 }
 
+Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
+{
+	this->level = level;
+	inBattle = false;
+	isDead = false;
+	isLevelUp = false;
+	this->armorClass = armorClass;
+	scores[0][0] = STR;
+	scores[0][1] = DEX;
+	scores[0][2] = CON;
+	scores[0][3] = INT;
+	scores[0][4] = WIS;
+	scores[0][5] = CHA;
+
+	srand(time(NULL));
+
+	detProficiencyBonus();
+	detExp();
+	abilityScoreMod();
+	calcArmorClass();
+	_map = NULL;
+
+	backpack = new Container();
+}
+
 //!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass)
 {
@@ -50,7 +75,6 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	calcArmorClass();
 	_map = NULL;
 
-	backpack = new Container();
 }
 
 //!Parameterized Constructor for Fighter class, sets level.
@@ -83,6 +107,8 @@ Characters::Characters(int level)
 	calcAttackBonus();
 	calcDamageBonus();
 	_map = NULL;
+
+	backpack = new Container();
 }
 
 //!Auxiliary function used to destroy all equipment objects
@@ -240,7 +266,7 @@ void Characters::calcArmorClass()
 		armorClass = 10 + scores[1][1];
 	else
 	{
-		armorClass = armor->getEnchantmentValues[7] + scores[1][1];
+		armorClass = armor->getEnchantmentValues()[7] + scores[1][1];
 	}
 		
 }
@@ -545,10 +571,10 @@ int Characters::attackRoll()
 //!Function to calculate damage roll with: weaponDice + damage bonus (if this yields value less than zero, damageRoll = 0)
 int Characters::damageRoll()
 {
-	int damage = processWeaponDice() + damageBonus;
-	if (damage < 0)
+//	int damage = processWeaponDice() + damageBonus;
+//	if (damage < 0)
 		return 0;
-	return damage;
+//	return damage;
 }
 
 //!Function that increases experience based on specified amount gained and if experience exceeds lower limit of next level it will trigger level up.
