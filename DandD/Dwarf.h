@@ -10,49 +10,31 @@ namespace Dwarfs
 	static const int typeScore = 2; //CON score increase
     static const int ScoreIncrease = 2; 
 	static const Size size = Medium; // declaring that the dwarf size is Medium
-<<<<<<< HEAD
 	static const int speed = 2; //each grid block is worth 5 ft. Dwarf speed is 25 ft (i.e. 5 blocks)
 };
-=======
-	static const int speed = 5; //each grid block is worth 5 ft. Dwarf speed is 25 ft (i.e. 5 blocks)
-}
->>>>>>> origin/Interim-Build
+
 
 namespace Elves
 {
 	static const int typeScore = 1; //DEX score increase
 	static const int ScoreIncrease = 2;
 	static const Size size = Medium; //Elf is Medium size
-<<<<<<< HEAD
 	static const int speed = 3;  //Elf Speed is 30 ft, 6 block
 };
-=======
-	static const int speed = 6;  //Elf Speed is 30 ft, 6 block
-}
->>>>>>> origin/Interim-Build
+
 
 namespace  Halflings
 {
 	static const int typeScore = 1; //DEX score increase
 	static const int ScoreIncrease = 2;
 	static const Size size = Small; //Halflings are set to small size
-<<<<<<< HEAD
 	static const int speed = 2; //Speed is 25 ft, 5 block
 };
-=======
-	static const int speed = 5; //Speed is 25 ft, 5 block
-}
->>>>>>> origin/Interim-Build
 
 namespace  Humans
 {
 	static const int typeScore = 6; //Increase all six scores
 	static const int ScoreIncrease = 1;
 	static const Size size = Medium; //Human size set to medium
-<<<<<<< HEAD
 	static const int speed = 3;  //Elf Speed is 30 ft, 6 block
 };
-=======
-	static const int speed = 6;  //Elf Speed is 30 ft, 6 block
-}
->>>>>>> origin/Interim-Build
