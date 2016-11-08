@@ -1,5 +1,7 @@
 #include "Equipment.h"
 
+
+
 /*EQUIPMENT
 */
 //!Default Constructor, sets name to "NONE"
@@ -26,24 +28,6 @@ bool Equipment::compareName(string name)
 {
 	bool ans = equipName.compare(name) == 0;
 	return ans;
-}
-
-void Equipment::Serialize(CArchive & ar)
-{
-	CObject::Serialize(ar);
-	if (ar.isStoring()) {
-		CString c_name(equipName.c_str());
-		ar << c_name;
-	}
-	else {
-		CString c_name = "";
-		ar >> c_name;
-		equipName = "";
-		int strlen = c_name.GetLength();
-		for (int i = 0; i < strlen; ++i) {
-			equipName += c_name.GetAt(i);
-		}
-	}
 }
 
 /*ARMOR
@@ -150,7 +134,7 @@ Helmet::Helmet() : Boots()
 
 }
 //!Parameterized Constructor to set name, bonus type and bonus value
-Helmet::Helmet(string name, int bonusType, int bonus) : Boots(name, bonusType, bonus)
+Helmet::Helmet(string name, int bonusType, int bonus) : Boots(name,bonusType, bonus)
 {
 }
 //!Destructor
