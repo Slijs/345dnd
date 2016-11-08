@@ -324,7 +324,7 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 //!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
 
 
-
+/*
 void Characters::equip(Armor* a)
 {
 
@@ -332,10 +332,10 @@ void Characters::equip(Armor* a)
 	if (armor == nullptr)
 		armorClass -= 10;
 	else
-		armorClass -= armor->getEnchantmentValues[7];
+		armorClass -= armor->getEnchantmentValues()[7];
 	armor = a;
 	//Add Bonus
-	armorClass += armor->getEnchantmentValues[7];
+	armorClass += armor->getEnchantmentValues()[7];
 
 	currentState();
 }
@@ -352,7 +352,7 @@ void Characters::equip(Weapon* w)
 //!Function to equip helmet. Previous bonus is removed and recalculate the bonus based on new helmet. Triggers redisplay of stats.
 void Characters::equip(Helmet* h)
 {
-	int bonus = helmet->getBonus();
+	
 	if (helmet->getBonusType() == 1) //INT
 		updateStatsDQ(3, bonus);
 	else if (helmet->getBonusType() == 2) //WIS
@@ -437,7 +437,7 @@ void Characters::equip(Shield* s)
 
 	currentState();
 }
-
+*/
 
 
 //!Helper function to update stats when de-equipping an equipment
