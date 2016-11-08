@@ -352,41 +352,22 @@ void Characters::equip(Weapon* w)
 //!Function to equip helmet. Previous bonus is removed and recalculate the bonus based on new helmet. Triggers redisplay of stats.
 void Characters::equip(Helmet* h)
 {
-	
-	if (helmet->getBonusType() == 1) //INT
-		updateStatsDQ(3, bonus);
-	else if (helmet->getBonusType() == 2) //WIS
-		updateStatsDQ(4, bonus);
-	else if (helmet->getBonusType() == 3)  //AC
-		armorClass -= bonus;
+	updateStatsDQ(helmet);
 
 	helmet = h;
-	bonus = helmet->getBonus();
-	if (helmet->getBonusType() == 1) //INT
-		updateStatsEQ(3, bonus);
-	else if (helmet->getBonusType() == 2) //WIS
-		updateStatsEQ(4, bonus);
-	else if (helmet->getBonusType() == 3)  //AC
-		armorClass += bonus;
+
+	updateStatsEQ(helmet);
 
 	currentState();
 }
 //!Function to equip boots. Previous bonus is removed and recalculate the bonus based on new boots. Triggers redisplay of stats.
 void Characters::equip(Boots* b)
 {
-	int bonus = boots->getBonus();
-	if (boots->getBonusType() == 1) //DEX
-		updateStatsEQ(1, bonus);
-	if (boots->getBonusType() == 2) //AC
-		armorClass -= bonus;
+	updateStatsDQ(boots);
 
 	boots = b;
-	bonus = boots->getBonus();
 
-	if (boots->getBonusType() == 1) //DEX
-		updateStatsEQ(1, bonus);
-	if (boots->getBonusType() == 2) //AC
-		armorClass += bonus;
+	updateStatsEQ(boots);
 
 	currentState();
 }
@@ -394,33 +375,11 @@ void Characters::equip(Boots* b)
 //!Function to equip ring. Previous bonus is removed and recalculate the bonus based on new ring. Triggers redisplay of stats.
 void Characters::equip(Ring* r)
 {
-	int bonus = ring->getBonus();
-	if (ring->getBonusType() == 1) //STR
-		updateStatsDQ(0, bonus);
-	else if (ring->getBonusType() == 2) //CON
-		updateStatsDQ(2, bonus);
-	else if (ring->getBonusType() == 3) //WIS
-		updateStatsDQ(4, bonus);
-	else if (ring->getBonusType() == 3) //CHA
-		updateStatsDQ(5, bonus);
-	else if (ring->getBonusType() == 4) //AC
-		armorClass -= bonus;
+	updateStatsDQ(ring);
 
 	ring = r;
 
-	bonus = ring->getBonus();
-	if (ring->getBonusType() == 1) //STR
-	{
-		updateStatsEQ(0, bonus);
-	}
-	else if (ring->getBonusType() == 2) //CON
-		updateStatsEQ(2, bonus);
-	else if (ring->getBonusType() == 3) //WIS
-		updateStatsEQ(4, bonus);
-	else if (ring->getBonusType() == 3) //CHA
-		updateStatsEQ(5, bonus);
-	else if (ring->getBonusType() == 4) //AC
-		armorClass += bonus;
+	updateStatsDQ(ring);
 
 	currentState();
 }
@@ -428,8 +387,7 @@ void Characters::equip(Ring* r)
 //!Function to equip shield. Previous AC bonus is removed and recalculate the AC based on new shield. Triggers redisplay of stats
 void Characters::equip(Shield* s)
 {
-	if (!shield->compareName("NONE"))
-		armorClass -= shield->getACBonus();
+	updateStatsDQ(shield);
 
 	shield = s;
 
@@ -437,19 +395,25 @@ void Characters::equip(Shield* s)
 
 	currentState();
 }
+
+void Characters::equip(Belt* s)
+{
+	
+}
+
 */
 
 
 //!Helper function to update stats when de-equipping an equipment
-void Characters::updateStatsDQ(int scoreIndex, int removeBonus)
+void Characters::updateStatsDQ(Item* i)
 {
-	scores[0][scoreIndex] -= removeBonus;
+	
 }
 
 //!Helper function to update stats when equipping an equipment
-void Characters::updateStatsEQ(int scoreIndex, int addBonus)
+void Characters::updateStatsEQ(Item* i)
 {
-	scores[0][scoreIndex] += addBonus;
+	
 }
 
 //!Function to return armor's name
