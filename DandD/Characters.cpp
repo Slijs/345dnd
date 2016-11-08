@@ -28,7 +28,7 @@ Characters::Characters()
 }
 
 //!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
-Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
+Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass)
 {
 	this->level = level;
 	inBattle = false;
@@ -237,10 +237,10 @@ void Characters::detProficiencyBonus()
 void Characters::calcArmorClass()
 {
 	if (armor == nullptr)
-		armorClass = 10 + scores[1][2];
+		armorClass = 10 + scores[1][1];
 	else
 	{
-		armorClass = armor->getEnchantmentValues[7] + scores[1][2];
+		armorClass = armor->getEnchantmentValues[7] + scores[1][1];
 	}
 		
 }
@@ -413,6 +413,44 @@ void Characters::equip(Belt* b)
 	belt = b;
 
 	updateStatsEQ(shield);
+	currentState();
+}
+
+void Characters::deequipArmor()
+{
+	updateStatsDQ(armor);
+	armor = new Armor();//using phil's default constructor for armor etc
+}
+void Characters::dequipWeapon()
+{
+	updateStatsDQ(weapon);
+	weapon = new Weapon();
+}
+void Characters::deequipHelmet()
+{
+	updateStatsDQ(helmet);
+	helmet = new Helmet();
+}
+void Characters::deequipBoots()
+{
+	updateStatsDQ(boots);
+	boots = new Boots();
+
+}
+void Characters::deequipRing()
+{
+	updateStatsDQ(ring);
+	ring = new Ring();
+}
+void Characters::deequipShield()
+{
+	updateStatsDQ(shield);
+	shield = new Shield();
+}
+void Characters::deequipBelt()
+{
+	updateStatsDQ(belt);
+	belt = new Belt();
 }
 
 
