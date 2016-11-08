@@ -43,6 +43,15 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 
 	srand(time(NULL));
 
+	armor = new Armor();
+	belt = new Belt();
+	weapon = new Weapon();
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring();
+	helmet = new Helmet();
+
+
 	detProficiencyBonus();
 	detExp();
 	abilityScoreMod();
