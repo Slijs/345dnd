@@ -190,6 +190,8 @@ public:
 	string currentBoots();
 	string currentRing();
 
+
+
 	//For battle
 	void startBattle(Characters* c);
 	void endBattle();
