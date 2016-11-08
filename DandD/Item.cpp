@@ -23,8 +23,8 @@ weight(0),
 value(0),
 image("Image Unset"), //dont forget to add comma here
 //KHATIBS TEST
-enchantmentValues({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }),
-enchantmentsPossible({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }) 
+enchantmentValues({{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }}),
+enchantmentsPossible({ { 0, 0, 0, 0, 0, 0, 0, 0, 0 } })
 //END TEST
 {}
 

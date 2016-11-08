@@ -5,3 +5,5 @@ new
 assets/Campaigns/MapsForCampaigns/new
 Default7
 assets/Campaigns/MapsForCampaigns/Default7
+Default1
+assets/Campaigns/MapsForCampaigns/Default1

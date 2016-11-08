@@ -30,7 +30,7 @@ public:
 };
 
 
-class RGB
+struct RGB
 {
 public:
 	int red;

@@ -105,6 +105,7 @@
     <ClCompile Include="menus.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Observer.cpp" />
+    <ClCompile Include="red_green_blue.cpp" />
     <ClCompile Include="Ring.cpp" />
     <ClCompile Include="routing.cpp" />
     <ClCompile Include="Shield.cpp" />

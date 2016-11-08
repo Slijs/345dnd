@@ -5,6 +5,7 @@
 
 namespace MonsterCreator
 {
+	/*
 	//Challenge Level 1 (1/4 in rulebook):
 	Monster* GoblinSoldier = new Monster("Goblin Soldier", Humanoid, Small, 1, 6, 8, 14, 10, 10, 8, 8, 15, new Weapon("Scimitar", "1d6", "Melee"));
 	Monster* GoblinArcher = new Monster("Goblin Archer", Humanoid, Small, 1, 6, 8, 14, 10, 10, 8, 8, 15, new Weapon("Shortbow", "1d6", "Ranged"));
@@ -21,5 +22,5 @@ namespace MonsterCreator
 	//Challenge Level 2 (1/2 in rulebook)
 	Monster* BlackBear = new Monster("Black Bear", Beast, Medium, 3, 8, 15, 10, 14, 2, 12, 7, 11, new Weapon("Claws", "2d4", "Melee"));
 
-
+	*/
 }
