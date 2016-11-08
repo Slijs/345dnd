@@ -99,10 +99,10 @@ int MainMenu::destinationMap(int index)
 		return _PlayCampaign_;
 
 	case 1:
-		return _MainMenu_;
+		return _CreateEditItems_;
 
 	case 2:
-		return _MainMenu_;
+		return _CreateEditPlayer_;
 
 	case 3:
 		return _CampaignManagerMenu_;

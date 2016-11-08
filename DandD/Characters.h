@@ -1,12 +1,12 @@
 #pragma once
-#include "Entity.h"
+//#include "Entity.h"
 #include "Equipment.h"
 #include "Subject.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
 #include <vector>
-#include <afx.h>
+//#include <afx.h>
 
 /*!
 Some changes were made from previous implementation of Characters Class

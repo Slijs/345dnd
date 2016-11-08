@@ -187,6 +187,9 @@
     <Filter Include="Source Files\Menus\Campaign Select">
       <UniqueIdentifier>{626b9193-0a77-47cd-b44e-b7f8261577eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game Components\Character">
+      <UniqueIdentifier>{6cd40aa8-0331-404c-bd1b-a3c6fe721005}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -306,6 +309,12 @@
     <ClCompile Include="campaignselect.cpp">
       <Filter>Source Files\Menus\Campaign Select</Filter>
     </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="windows.h">
@@ -424,6 +433,15 @@
     </ClInclude>
     <ClInclude Include="campaignselect.h">
       <Filter>Header Files\Menus\Campaign Select</Filter>
+    </ClInclude>
+    <ClInclude Include="Characters.h">
+      <Filter>Header Files\Game Components\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
