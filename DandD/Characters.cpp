@@ -69,6 +69,14 @@ Characters::Characters(int level)
 	//call to set abilityScore and modifiers
 	generateAbility();
 	
+	armor = new Armor();
+	belt = new Belt();
+	weapon = new Weapon();
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring(); 
+	helmet = new Helmet();
+
 	calcArmorClass();
 
 	//calculate attackBonus and DamageBonus
@@ -98,6 +106,9 @@ void Characters::destroyObject()
 	if (helmet != nullptr)
 		delete helmet;
 	helmet = nullptr;
+	if (belt != nullptr)
+		delete belt;
+	belt = nullptr;
 
 }
 //!Destructor
@@ -324,12 +335,11 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 //!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
 
 
-/*
+
 void Characters::equip(Armor* a)
 {
-
 	//Remove bonus
-	if (armor == nullptr)
+	if (armor->getEnchantmentValues()[7] == 0)
 		armorClass -= 10;
 	else
 		armorClass -= armor->getEnchantmentValues()[7];
@@ -379,7 +389,7 @@ void Characters::equip(Ring* r)
 
 	ring = r;
 
-	updateStatsDQ(ring);
+	updateStatsEQ(ring);
 
 	currentState();
 }
@@ -391,29 +401,48 @@ void Characters::equip(Shield* s)
 
 	shield = s;
 
-	armorClass += shield->getACBonus();
+	updateStatsEQ(shield);
 
 	currentState();
 }
 
-void Characters::equip(Belt* s)
+void Characters::equip(Belt* b)
 {
-	
+	updateStatsDQ(belt);
+
+	belt = b;
+
+	updateStatsEQ(shield);
 }
 
-*/
 
 
 //!Helper function to update stats when de-equipping an equipment
 void Characters::updateStatsDQ(Item* i)
 {
+	array<int, 9> ench = i->getEnchantmentValues();
+
+	for (int j = 0; j < 6; j++)
+	scores[0][j] -= ench[j];
+
+	armorClass -= ench[6];
+	attackBonus -= ench[7];
+	damageBonus -= ench[8];
 	
+
 }
 
 //!Helper function to update stats when equipping an equipment
 void Characters::updateStatsEQ(Item* i)
 {
-	
+	array<int, 9> ench = i->getEnchantmentValues();
+
+	for (int j = 0; j < 6; j++)
+		scores[0][j] += ench[j];
+
+	armorClass += ench[6];
+	attackBonus += ench[7];
+	damageBonus += ench[8];
 }
 
 //!Function to return armor's name
@@ -461,13 +490,13 @@ void Characters::endBattle()
 {
 	inBattle = false;
 }
-//!Helper function for conversion of weapon dice of format #d# and roll dice to get dice roll value
+/*//!Helper function for conversion of weapon dice of format #d# and roll dice to get dice roll value
 int Characters::processWeaponDice()
 {
 	string dice = weapon->getDice();
 	int damage = _die.roll(dice);
 	return damage;
-}
+}*/
 
 //!Function to calculate attack roll with: d20 + attack bonus
 int Characters::attackRoll()
