@@ -1,6 +1,14 @@
 #pragma once
 #include "Entity.h"
-#include "Equipment.h"
+#include "Item.h"
+#include "Belt.h"
+#include "Armor.h"
+#include "Boots.h"
+#include "Helmet.h"
+#include "Weapon.h"
+#include "Container.h"
+#include "Shield.h"
+#include "Ring.h"
 #include "Subject.h"
 #include "Dice.h"
 #include <cstdlib>
@@ -88,7 +96,10 @@ private:
 	Helmet* helmet;
 	Shield* shield;
 	Boots* boots;
+	Belt* belt;
 	Ring* ring;
+
+	Container* backpack;
 
 	/*
 	HELPER FUNCTIONS ONLY USED IN CHARACTERS CPP
@@ -137,6 +148,7 @@ public:
 	void setIsDead(bool isDead) { this->isDead = isDead; }
 	bool getIsLevelUp() { return isLevelUp; }
 	void setIsLevelUp(bool isLevelUp) { this->isLevelUp = isLevelUp; }
+
 	vector<int> getPosition() { return position; }
 
 	void calcAttackBonus();		//from STR/DEX mod & proficiency level and base attack bonus
@@ -160,9 +172,17 @@ public:
 	void equip(Boots*);
 	void equip(Ring*);
 	void equip(Shield*);
+	void equip(Belt*);
 
+	void deequipArmor();
+	void dequipWeapon();
+	void deequipHelmet();
+	void deequipBoots();
+	void deequipRing();
+	void deequipShield();
+	void deequipBelt();
 
-
+	string currentBelt();
 	string currentArmor();
 	string currentWeapon();
 	string currentShield();

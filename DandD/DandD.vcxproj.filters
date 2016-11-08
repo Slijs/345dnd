@@ -315,9 +315,6 @@
     <ClCompile Include="campaignselect.cpp">
       <Filter>Source Files\Menus\Campaign Select</Filter>
     </ClCompile>
-    <ClCompile Include="Equipment.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Subject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -335,6 +332,9 @@
     </ClCompile>
     <ClCompile Include="Dice.cpp">
       <Filter>Source Files\Game Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -456,9 +456,6 @@
       <Filter>Header Files\Game Components\Character</Filter>
     </ClInclude>
     <ClInclude Include="Subject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Equipment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dwarf.h">

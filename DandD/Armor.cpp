@@ -8,6 +8,7 @@
 #include <string>
 #include <stdexcept>
 #include "Armor.h"
+#include "Item.h"
 
 // Windows
 //#include "stdafx.h"
@@ -15,9 +16,7 @@
 IMPLEMENT_SERIAL(Armor, Item, 1);
 
 // Default constructor, useless item as is
-Armor::Armor() //dont forget the colon here
-//KHATIBS TEST
-	//Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,1,0,0}) 
+Armor::Armor() : Item("No name set", 0, 0, "No Image Set", { { 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, { { 0, 0, 0, 0, 0, 0, 1, 0, 0 } })
 //END TEST
 {
 
@@ -37,7 +36,7 @@ Armor::Armor() //dont forget the colon here
  * @param defense
  */
 Armor::Armor(std::string name, int weight, int value, std::string image,
-		std::array<int, 9> enchantmentValues, int defense) : Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,1,0,0}), defense(defense)
+	std::array<int, 9> enchantmentValues, int defense) : Item(name, weight, value, image, enchantmentValues, { { 0, 0, 0, 0, 0, 0, 1, 0, 0 } }), defense(defense)
 {
 
 }

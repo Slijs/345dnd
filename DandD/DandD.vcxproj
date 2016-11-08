@@ -78,7 +78,6 @@
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Enhancement.cpp" />
-    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="Helmet.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -100,6 +99,7 @@
     <ClCompile Include="MapTest.cpp" />
     <ClCompile Include="menuengine.cpp" />
     <ClCompile Include="menus.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Ring.cpp" />
     <ClCompile Include="routing.cpp" />
@@ -126,7 +126,6 @@
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="Enhancement.h" />
-    <ClInclude Include="Equipment.h" />
     <ClInclude Include="Fighter.h" />
     <ClInclude Include="Helmet.h" />
     <ClInclude Include="Item.h" />
