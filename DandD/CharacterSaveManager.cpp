@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-void CharacterSaveManager::saveCharacter(Characters *theChar) {
+void CharacterSaveManager::saveCharacter(Fighter *theChar) {
 	CFile mapFile; // Map of all Character saves
 	string input = "";
 	//FIX THISCString charName = theChar->getName().c_str();
@@ -88,7 +88,7 @@ void CharacterSaveManager::saveCharacter(Characters *theChar) {
 	return;
 }
 
-Characters* CharacterSaveManager::loadCharacter() {
+Fighter* CharacterSaveManager::loadCharacter() {
 	CFile mapFile; // Map of all Character saves
 	string input = "";
 
@@ -109,14 +109,14 @@ Characters* CharacterSaveManager::loadCharacter() {
 	mapFile.Close();
 	// If the charMap is empty at this point, it means that there are no Characters to load
 	if (charMap->isEmpty()) {
-		cout << "There are no Characters to load." << endl;
+		cout << "There are no characters available." << endl;
 		return NULL;
 	}
-	cout << "The following Characters are available: " << endl;
+	cout << "The following characters are available: " << endl;
 	charMap->printNames();
 	// Will try to get proper selection from user
 	while (true) {
-		cout << "Which character would you like to load? (-1 to return)" << endl;
+		cout << "Which character would you like to access? (-1 to return)" << endl;
 		cin >> input;
 		if (input == "-1") {
 			cout << "Quitting load attempt at your request." << endl;
@@ -131,7 +131,7 @@ Characters* CharacterSaveManager::loadCharacter() {
 		}
 	}
 	CString path = charMap->getPath(input.c_str()); // Gets path from map
-	Characters *loadedChar = new Characters();
+	Fighter *loadedChar = new Fighter();
 
 	// Now, the Character themself will be Serialized
 	CFile charFile;
@@ -146,7 +146,7 @@ Characters* CharacterSaveManager::loadCharacter() {
 	loadedChar->Serialize(charArchive);
 	charArchive.Close();
 	charFile.Close();
-	// MUST FIX THIS!!!! cout << loadedChar->getName() << " has been loaded!" << endl;
+	cout << loadedChar->getName() << " has been loaded!" << endl;
 	delete charMap;
 	return loadedChar;
 }

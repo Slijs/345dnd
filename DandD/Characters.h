@@ -118,7 +118,7 @@ private:
 
 	void calcArmorClass();      //from equipement
 
-	int processWeaponDice();
+	//int processWeaponDice();
 
 	void gainLevel();
 
@@ -131,11 +131,11 @@ private:
 public:
 	Characters();
 	Characters(int, int, int, int, int, int, int);
+	Characters(int, int, int, int, int, int, int,int);
 	Characters(int);
 
 	void destroyObject();
 	~Characters();
-
 
 	int getLevel();
 	int getExp() { return exp; }

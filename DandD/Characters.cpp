@@ -27,8 +27,42 @@ Characters::Characters()
 
 }
 
-//!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
+{
+	this->level = level;
+	inBattle = false;
+	isDead = false;
+	isLevelUp = false;
+	this->armorClass = armorClass;
+	scores[0][0] = STR;
+	scores[0][1] = DEX;
+	scores[0][2] = CON;
+	scores[0][3] = INT;
+	scores[0][4] = WIS;
+	scores[0][5] = CHA;
+
+	srand(time(NULL));
+
+	armor = new Armor();
+	belt = new Belt();
+	weapon = new Weapon();
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring();
+	helmet = new Helmet();
+
+
+	detProficiencyBonus();
+	detExp();
+	abilityScoreMod();
+	calcArmorClass();
+	_map = NULL;
+
+	backpack = new Container();
+}
+
+//!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
+Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass)
 {
 	this->level = level;
 	inBattle = false;
@@ -50,7 +84,6 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	calcArmorClass();
 	_map = NULL;
 
-	backpack = new Container();
 }
 
 //!Parameterized Constructor for Fighter class, sets level.
@@ -83,6 +116,8 @@ Characters::Characters(int level)
 	calcAttackBonus();
 	calcDamageBonus();
 	_map = NULL;
+
+	backpack = new Container();
 }
 
 //!Auxiliary function used to destroy all equipment objects
@@ -237,10 +272,10 @@ void Characters::detProficiencyBonus()
 void Characters::calcArmorClass()
 {
 	if (armor == nullptr)
-		armorClass = 10 + scores[1][2];
+		armorClass = 10 + scores[1][1];
 	else
 	{
-		armorClass = armor->getEnchantmentValues[7] + scores[1][2];
+		armorClass = armor->getEnchantmentValues()[7] + scores[1][1];
 	}
 		
 }
@@ -252,7 +287,7 @@ void Characters::calcAttackBonus()
 	attackBonus = proficiencyBonus;
 	if (weapon == nullptr)
 		attackBonus += scores[1][0];  //add str mod if no weapon
-	else if (weapon->getRange == 1)
+	else if (weapon->getRange() == 1)
 		attackBonus += scores[1][0];  //add str mod if melee 
 	else
 		attackBonus += scores[1][1]; //add str mod if ranged
@@ -263,7 +298,7 @@ void Characters::calcDamageBonus()
 {
 	if (weapon == nullptr)
 		damageBonus += scores[1][0];  //add str mod if no weapon
-	else if (weapon->getRange == 1)
+	else if (weapon->getRange() == 1)
 		damageBonus += scores[1][0];  //add str mod if melee 
 	else
 		damageBonus += scores[1][1]; //add str mod if ranged
@@ -413,6 +448,44 @@ void Characters::equip(Belt* b)
 	belt = b;
 
 	updateStatsEQ(shield);
+	currentState();
+}
+
+void Characters::deequipArmor()
+{
+	updateStatsDQ(armor);
+	armor = new Armor();//using phil's default constructor for armor etc
+}
+void Characters::dequipWeapon()
+{
+	updateStatsDQ(weapon);
+	weapon = new Weapon();
+}
+void Characters::deequipHelmet()
+{
+	updateStatsDQ(helmet);
+	helmet = new Helmet();
+}
+void Characters::deequipBoots()
+{
+	updateStatsDQ(boots);
+	boots = new Boots();
+
+}
+void Characters::deequipRing()
+{
+	updateStatsDQ(ring);
+	ring = new Ring();
+}
+void Characters::deequipShield()
+{
+	updateStatsDQ(shield);
+	shield = new Shield();
+}
+void Characters::deequipBelt()
+{
+	updateStatsDQ(belt);
+	belt = new Belt();
 }
 
 
@@ -507,10 +580,10 @@ int Characters::attackRoll()
 //!Function to calculate damage roll with: weaponDice + damage bonus (if this yields value less than zero, damageRoll = 0)
 int Characters::damageRoll()
 {
-	int damage = processWeaponDice() + damageBonus;
-	if (damage < 0)
+//	int damage = processWeaponDice() + damageBonus;
+//	if (damage < 0)
 		return 0;
-	return damage;
+//	return damage;
 }
 
 //!Function that increases experience based on specified amount gained and if experience exceeds lower limit of next level it will trigger level up.

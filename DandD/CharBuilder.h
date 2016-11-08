@@ -19,6 +19,6 @@
 class CharacterBuilder {
 public:
 
-	static Characters* create(int level, Race race, string name);
+	static Fighter* create(int level, Race race, string name);
 };
 #endif

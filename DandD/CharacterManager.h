@@ -6,6 +6,8 @@
 #ifndef CHARACTERMANAGER_H
 #define CHARACTERMANAGER_H
 #include "Fighter.h"
+#include "CharSaveManager.h"
+#include "CharBuilder.h"
 
 /**
 *@class CharacterManager
@@ -14,6 +16,14 @@
 *	 be saved to file
 */
 class CharacterManager {
+private:
+	static void _displayCreateEditMenu();
+	static void _displayEditMenu();
+	static void _createNewCharacter();
+	static void _editCharacter();
+	static void _deleteCharacter();
+	static void _editName(Fighter* theFighter);
+	static void _editRace(Fighter* theFighter) { return; };
 public:
 	static Fighter* getCharacter(); // Allows user to load Fighter from file to play game
 	static void createOrEditCharacter(); // Allows user to create a new Character, or edit a pre-existing one
