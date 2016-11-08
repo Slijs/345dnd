@@ -351,6 +351,9 @@
     <ClCompile Include="CharBuilder.cpp">
       <Filter>Source Files\Game Components\Character\Character Management</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterManager.cpp">
+      <Filter>Source Files\Game Components\Character\Character Management</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="windows.h">
@@ -498,6 +501,9 @@
       <Filter>Header Files\Game Components\Character\Character Management</Filter>
     </ClInclude>
     <ClInclude Include="CharSaveManager.h">
+      <Filter>Header Files\Game Components\Character\Character Management</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterManager.h">
       <Filter>Header Files\Game Components\Character\Character Management</Filter>
     </ClInclude>
   </ItemGroup>

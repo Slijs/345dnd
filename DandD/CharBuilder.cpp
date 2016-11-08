@@ -17,9 +17,9 @@ using namespace std;
 *@param name The desired name of the Character
 *@return Character* pointing to the new Character
 */
-Characters* CharacterBuilder::create(int level, Race race, string name)
+Fighter* CharacterBuilder::create(int level, Race race, string name)
 {
 	Dice _theDie;
-	Characters *theChar = new Fighter(level, race, name, _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"));
+	Fighter *theChar = new Fighter(level, race, name, _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"));
 	return theChar;
 }
