@@ -299,3 +299,4 @@ __pycache__/
 *.tlog
 *.lastbuildstate
 *.idb
+*.filters

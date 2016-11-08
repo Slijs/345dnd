@@ -1,7 +1,7 @@
 #include "Characters.h"
 #include "Fighter.h"
 #include "Monster.h"
-#include "Equipment.h"
+#include "Item.h"
 #include "namespaces.h"
 #include <iomanip>
 using namespace std;
@@ -22,6 +22,7 @@ Characters::Characters()
 	isDead = false;
 	armorClass = 0;
 	inBattle = false;
+	isLevelUp = false;
 	_map = NULL;
 
 }
@@ -43,17 +44,13 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 
 	srand(time(NULL));
 
-	armor = new Armor();
-	shield = new Shield();
-	boots = new Boots();
-	ring = new Ring();
-	helmet = new Helmet();
-
 	detProficiencyBonus();
 	detExp();
 	abilityScoreMod();
 	calcArmorClass();
 	_map = NULL;
+
+	backpack = new Container();
 }
 
 //!Parameterized Constructor for Fighter class, sets level.
@@ -71,21 +68,7 @@ Characters::Characters(int level)
 
 	//call to set abilityScore and modifiers
 	generateAbility();
-	if (level == 1)
-	{
-		armor = new Armor();
-		weapon = new Weapon("Longsword", "1d8", "melee");
-	}
-	else
-	{
-		armor = new Armor("Padded Armor", 11);
-		weapon = new Weapon("Light Crossbow", "1d8", "ranged");
-	}
-	shield = new Shield();
-	boots = new Boots();
-	ring = new Ring();
-	helmet = new Helmet();
-
+	
 	calcArmorClass();
 
 	//calculate attackBonus and DamageBonus
@@ -242,16 +225,13 @@ void Characters::detProficiencyBonus()
 //!Calculates the armorclass based if armor is equipped or not (for initialialization purposes) 
 void Characters::calcArmorClass()
 {
-
-	//If no equipment with ACBonus is equipped 
-	if (armor->compareName("NONE"))
-		armorClass = 10;
+	if (armor == nullptr)
+		armorClass = 10 + scores[1][2];
 	else
 	{
-		armorClass = armor->getACBonus();
+		armorClass = armor->getEnchantmentValues[7] + scores[1][2];
 	}
-
-	armorClass += scores[1][1];
+		
 }
 
 /*!Function to calculate attack bonus by adding proficiency bonus and
@@ -259,19 +239,24 @@ DEX mod if ranged weapon or STR mod if melee weapon*/
 void Characters::calcAttackBonus()
 {
 	attackBonus = proficiencyBonus;
-	if (weapon->compareType("ranged"))
-		attackBonus += scores[1][1];  //add dex mod if ranged weapon
+	if (weapon == nullptr)
+		attackBonus += scores[1][0];  //add str mod if no weapon
+	else if (weapon->getRange == 1)
+		attackBonus += scores[1][0];  //add str mod if melee 
 	else
-		attackBonus += scores[1][0]; //add str mod if melee or no weapon
+		attackBonus += scores[1][1]; //add str mod if ranged
 }
 
 /*!Function to calculate damage bonus which is DEX mod if ranged weapon or STR mod if melee weapon*/
 void Characters::calcDamageBonus()
 {
-	if (weapon->compareType("ranged"))
-		damageBonus = scores[1][1];
+	if (weapon == nullptr)
+		damageBonus += scores[1][0];  //add str mod if no weapon
+	else if (weapon->getRange == 1)
+		damageBonus += scores[1][0];  //add str mod if melee 
 	else
-		damageBonus = scores[1][0];
+		damageBonus += scores[1][1]; //add str mod if ranged
+	
 }
 
 //!Function for generic display of character's stats (shows all information)
@@ -337,19 +322,20 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 */
 
 //!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
+
+
+
 void Characters::equip(Armor* a)
 {
+
 	//Remove bonus
-	if (armor->compareName("NONE"))
+	if (armor == nullptr)
 		armorClass -= 10;
 	else
-		armorClass -= armor->getACBonus();
+		armorClass -= armor->getEnchantmentValues[7];
 	armor = a;
 	//Add Bonus
-	if (armor->compareName("NONE"))
-		armorClass += 10;
-	else
-		armorClass += armor->getACBonus();
+	armorClass += armor->getEnchantmentValues[7];
 
 	currentState();
 }
