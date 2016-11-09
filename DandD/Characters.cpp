@@ -25,13 +25,13 @@ Characters::Characters()
 	isLevelUp = false;
 	_map = NULL;
 
-	armor = new Armor();
-	belt = new Belt();
-	weapon = new Weapon();
-	shield = new Shield();
-	boots = new Boots();
-	ring = new Ring();
-	helmet = new Helmet();
+	armor = nullptr;
+	belt = nullptr;
+	weapon = nullptr;
+	shield = nullptr;
+	boots = nullptr;
+	ring = nullptr;
+	helmet = nullptr;
 	backpack = new Container();
 }
 
@@ -51,12 +51,13 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 
 	srand(time(NULL));
 
-	armor = new Armor();
-	belt = new Belt();
-	weapon = new Weapon();
-	shield = new Shield();
-	boots = new Boots();
-	ring = new Ring();
+	armor = nullptr;
+	belt = nullptr;
+	weapon = nullptr;
+	shield = nullptr;
+	boots = nullptr;
+	ring = nullptr;
+	helmet = nullptr;
 	helmet = new Helmet();
 
 
@@ -728,14 +729,29 @@ void Characters::Serialize(CArchive &ar) {
 			ar << (int)position[0];
 			ar << (int)position[1];
 		}
-
-		armor->Serialize(ar);
-		weapon->Serialize(ar);
-		helmet->Serialize(ar);
-		shield->Serialize(ar);
-		boots->Serialize(ar);
-		belt->Serialize(ar);
-		ring->Serialize(ar);
+		
+		// Will save several bools used to determine if items are equipped
+		ar << (armor != NULL);
+		ar << (weapon != NULL);
+		ar << (helmet != NULL);
+		ar << (shield != NULL);
+		ar << (boots != NULL);
+		ar << (belt != NULL);
+		ar << (ring != NULL);
+		if (armor != NULL)
+			armor->Serialize(ar);
+		if (weapon != NULL)
+			weapon->Serialize(ar);
+		if (helmet != NULL)
+			helmet->Serialize(ar);
+		if (shield != NULL)
+			shield->Serialize(ar);
+		if (boots != NULL)
+			boots->Serialize(ar);
+		if (belt != NULL)
+			belt->Serialize(ar);
+		if (ring != NULL)
+			ring->Serialize(ar);
 		backpack->Serialize(ar);
 	}
 	else {
@@ -772,13 +788,38 @@ void Characters::Serialize(CArchive &ar) {
 			ar >> position[1];
 		}
 	
-		armor->Serialize(ar);
-		weapon->Serialize(ar);
-		helmet->Serialize(ar);
-		shield->Serialize(ar);
-		boots->Serialize(ar);
-		belt->Serialize(ar);
-		ring->Serialize(ar);
+		bool armorEquipped, weaponEquipped, helmetEquipped, shieldEquipped, bootsEquipped, beltEquipped, ringEquipped;
+		ar >> armorEquipped;
+		ar >> weaponEquipped;
+		ar >> helmetEquipped;
+		ar >> shieldEquipped;
+		ar >> bootsEquipped;
+		ar >> beltEquipped;
+		ar >> ringEquipped;
+		if (armorEquipped){
+			armor = new Armor();
+			armor->Serialize(ar);
+		}
+		if (weaponEquipped){
+			weapon = new Weapon();
+			weapon->Serialize(ar);
+		}
+		if (helmetEquipped){
+			shield = new Shield();
+			shield->Serialize(ar);
+		}
+		if (bootsEquipped){
+			boots = new Boots();
+			boots->Serialize(ar);
+		}
+		if (beltEquipped){
+			belt = new Belt();
+			belt->Serialize(ar);
+		}
+		if (ringEquipped){
+			ring = new Ring();
+			ring->Serialize(ar);
+		}
 		backpack->Serialize(ar);
 	}
 }
