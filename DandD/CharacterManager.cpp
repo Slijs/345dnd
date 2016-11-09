@@ -5,7 +5,7 @@
 #include "CharacterManager.h"
 
 /**
-* Allows the user to select a Character from a list of saved Characters
+* Allows the user to select a Character from a list of saved Characters, returns the pointer
 */
 Fighter* CharacterManager::getCharacter(){
 	Fighter* loadedFighter = CharacterSaveManager::loadCharacter();
@@ -136,14 +136,13 @@ void CharacterManager::_createNewCharacter(){
 
 void CharacterManager::_editCharacter(){
 	Fighter *theChar = CharacterSaveManager::loadCharacter();
+	// If no character was loaded, then the method will just return without doing anything
+	if (theChar == NULL)
+		return;
 	theChar->displayStats();
 	char conf = 'X'; // char that will be used to get user input
 	bool cont = true;
 	
-	// If no character was loaded, then the method will just return without doing anything
-	if (theChar == NULL)
-		return;
-
 	// Displays menu to user so they can select what they want to do
 	_displayEditMenu();
 	// Ask if user wants to CREATE or EDIT the character

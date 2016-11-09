@@ -124,7 +124,8 @@ void Fighter::initHitPoints()
 	//For every level: HP = HP + roll_HitDie + CON_mod
 	for (int i = 2; i <= level; i++)
 	{
-		hitPoints += _die.roll("1d" + HIT_DIE) + this->getScores(1, 2);
+		string toRoll = "1d" + HIT_DIE;
+		hitPoints += _die.roll(toRoll) + this->getScores(1, 2);
 	}
 	maxHitPoints = hitPoints;
 }

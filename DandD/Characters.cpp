@@ -331,10 +331,6 @@ void Characters::displayStats()
 
 	displayEquip();
 
-	// Ensures that these two values are updated to reflect the proper value
-	calcAttackBonus();
-	calcDamageBonus();
-
 	cout << "Attack Bonus: " << attackBonus << endl;
 	cout << "Damage Bonus: " << damageBonus << endl;
 }

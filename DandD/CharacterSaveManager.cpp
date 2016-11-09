@@ -46,8 +46,6 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 			}
 		}
 	}
-	// UPDATE THIS Will create save path string
-	//CString path = "/Character Saves/" + charName + "StateFile.dat";
 	CString path = charName + "StateFile.txt";
 	charMap->put(charName, path); // Puts the entry in the Character Map
 	// Now, the Character themself will be Serialized
