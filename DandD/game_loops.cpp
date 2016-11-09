@@ -146,6 +146,9 @@ int GameLoops::gameLevelLoop(std::string mappath)
 
 	Fighter* f = new Fighter();
 	PreBuiltLevel* l = new PreBuiltLevel("Test", f);
+	GamePlayEngine* engine = new GamePlayEngine();
+	engine->attachLevel(l, &this->_event);
+
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
 	l->renderAndDisplayLevel();
@@ -159,14 +162,16 @@ int GameLoops::gameLevelLoop(std::string mappath)
 			{
 				quit = true;
 			}
-			if((_event.type == SDL_MOUSEBUTTONUP)&&(_event.button.button == SDL_BUTTON_LEFT))
-			{
-				quit = true;
-			}
+			engine->runEngine();
+			quit = true;
 		}
 	}
 
+
 	l->getLevelWindow()->hideWindow();
+	engine->detachLevel();
+	delete engine;
+	engine = nullptr;
 	delete f;
 	f = nullptr;
 	delete l;

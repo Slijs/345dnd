@@ -31,6 +31,9 @@ void GamePlayEngine::detachLevel()
 	this->_buttons.clear();
 }
 
+//index 0 is inventory
+//index 1 is move
+//index 2 is exit play
 int GamePlayEngine::runEngine()
 {
 	bool exit = false;
@@ -60,6 +63,8 @@ int GamePlayEngine::runEngine()
 			else
 			{
 				buttonindex = onRIghtHandMenu();
+				if (buttonindex == 2)
+					exit = true;
 			}
 		}
 	}
