@@ -16,7 +16,11 @@
 #include "CharacterManager.h"
 #include "defaultmaps.h"
 #include "campaignselect.h"
+<<<<<<< HEAD
 #include "ItemCreator.h"
+=======
+#include "gameplayengine.h"
+>>>>>>> e9a97cfeb9cc3e56c67937f5a6c074cf05effaa3
 #include <conio.h>
 #include <vector>
 

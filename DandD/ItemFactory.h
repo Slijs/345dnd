@@ -1,4 +1,10 @@
+/**
+*@file ItemFactory.h
+*@brief Provides ItemFactory class, used to create blank prototype item of any time.
+*/
 #pragma once
+#ifndef ITEMFACTORY_H
+#define ITEMFACTORY_H
 #include "Item.h"
 #include "Armor.h"
 #include "Belt.h"
@@ -17,3 +23,5 @@ class ItemFactory {
 public:
 	static Item* create(int flag);
 };
+
+#endif

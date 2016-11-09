@@ -5,7 +5,9 @@
 #include "CharacterManager.h"
 
 /**
-* Allows the user to select a Character from a list of saved Characters
+* Allows the user to select a Character from a list of saved Characters, returns the pointer
+* so that the Character can be used.
+*@return Fighter pointer, pointing to a loaded Fighter
 */
 Fighter* CharacterManager::getCharacter(){
 	Fighter* loadedFighter = CharacterSaveManager::loadCharacter();
@@ -21,22 +23,20 @@ void CharacterManager::createOrEditCharacter(){
 	char conf = 'X'; // char that will be used to get user input
 	bool cont = true;
 
-	// Ask if user wants to CREATE or EDIT the character
+	// Ask if user wants to CREATE, EDIT or REMOVE a character
 	do{
+		system("CLS");
 		_displayCreateEditMenu();
 		cin >> conf;
 		switch (conf){
 		case '1': // User wants to create a new character
 			_createNewCharacter();
-			//cont = false;
 			break;
 		case '2': // User wants to edit a saved character
 			_editCharacter();
-			cont = false;
 			break;
 		case '3': // User wants to delete a character
 			_deleteCharacter();
-			cont = false;
 			break;
 		case 'm':
 		case 'M':
@@ -57,7 +57,10 @@ void CharacterManager::_createNewCharacter(){
 	int selectedRace = 0; // Will be used to get Character's race
 	int selectedLevel = 0;	// Will be used to get Character's level
 	char conf = 'X';	// Used to confirm choices
+	system("CLS");
+	cout << "*****************************" << endl;
 	cout << "***** CHARACTER CREATER *****" << endl;
+	cout << "*****************************" << endl << endl;
 
 	// Get name of Character
 	do {
@@ -86,16 +89,10 @@ void CharacterManager::_createNewCharacter(){
 		// Will confirm the race for the user
 		switch (selectedRace) {
 		case 0:
-			cout << "You selected Dwarf. Are you happy with this? (Y/N) ";
-			break;
 		case 1:
-			cout << "You selected Elf. Are you happy with this? (Y/N) ";
-			break;
 		case 2:
-			cout << "You selected Halfling. Are you happy with this? (Y/N) ";
-			break;
 		case 3:
-			cout << "You selected Human. Are you happy with this? (Y/N) ";
+			cout << "You selected " << raceString[selectedRace] << ". Are you happy with this? (Y/N) ";
 			break;
 		default:
 			cout << "You selected an invalid option. Please try again." << endl;
@@ -131,53 +128,70 @@ void CharacterManager::_createNewCharacter(){
 	CharacterSaveManager::saveCharacter(myChar);
 	myChar->displayStats();
 	delete myChar;
+	myChar = NULL;
+	cout << endl << "Press any key to return to character management menu." << endl;
+	system("PAUSE");
 	return;
 }
 
+/**
+* Allows the user to edit a Character of their choice, which has been saved to disk.
+*/
 void CharacterManager::_editCharacter(){
+	system("CLS");
+	cout << "****************************" << endl;
+	cout << "****** EDIT CHARACTER ******" << endl;
+	cout << "****************************" << endl << endl;
 	Fighter *theChar = CharacterSaveManager::loadCharacter();
-	theChar->displayStats();
+	system("PAUSE");
+	// If no character was loaded, then the method will just return without doing anything
+	if (theChar == NULL){
+		return;
+	}
 	char conf = 'X'; // char that will be used to get user input
 	bool cont = true;
 	
-	// If no character was loaded, then the method will just return without doing anything
-	if (theChar == NULL)
-		return;
-
-	// Displays menu to user so they can select what they want to do
-	_displayEditMenu();
-	// Ask if user wants to CREATE or EDIT the character
 	do{
-		_displayCreateEditMenu;
+		system("CLS");
+		theChar->displayStats();
+		// Displays menu to user so they can select what they want to do
+		_displayEditMenu();
+		// Ask if user wants to CREATE or EDIT the character
 		cin >> conf;
 		switch (conf){
 		case '1': // User wants to edit Character name
 			_editName(theChar);
-			cont = false;
 			break;
 		case '2': // User wants to edit a Character race
 			_editRace(theChar);
-			cont = false;
 			break;
 		case 'e':
-		case 'E': // UPDATE THIS!!! need to delete Fighter* reference
+		case 'E':
+			delete theChar;
 			return;
 		default:
 			cout << "Sorry, I think you entered an option that isn't allowed. Please try again." << endl;
+			system("PAUSE");
 		}
 	} while (cont);
+	delete theChar;
 	return;
 	
 }
 
+/**
+* Allows the user to edit the race of a Fighter
+*@param theFighter Fighter* to the fighter that will be edited
+*/
 void CharacterManager::_editRace(Fighter* theFighter){
+	// Will display the Fighter's current race
 	string name = theFighter->getName();
 	cout << name << " is currently a " << raceString[theFighter->getRace()] << "." << endl;
 	char conf = 'X';
 	string input = "";
 	int selectedRace = -1;
 
-	// Now the program will get the Character's Race
+	// Now the program will get the race the user wants to change it to
 	do {
 		cout << "Please select the Class that you want for " << name << ":" << endl;
 		cout << "[0 = Dwarf][1 = Elf][2 = Halfling][3 = Human]" << endl;
@@ -195,16 +209,10 @@ void CharacterManager::_editRace(Fighter* theFighter){
 		// Will confirm the race for the user
 		switch (selectedRace) {
 		case 0:
-			cout << "You selected Dwarf. Are you happy with this? (Y/N) ";
-			break;
 		case 1:
-			cout << "You selected Elf. Are you happy with this? (Y/N) ";
-			break;
 		case 2:
-			cout << "You selected Halfling. Are you happy with this? (Y/N) ";
-			break;
 		case 3:
-			cout << "You selected Human. Are you happy with this? (Y/N) ";
+			cout << "You selected " << raceString[selectedRace] << ". Are you happy with this? (Y/N) ";
 			break;
 		default:
 			cout << "You selected an invalid option. Please try again." << endl;
@@ -240,6 +248,9 @@ void CharacterManager::_displayCreateEditMenu(){
 	cout << "Enter your option here: ";
 }
 
+/**
+* Prints the Edit Menu to screen
+*/
 void CharacterManager::_displayEditMenu(){
 	cout << "Please enter what you would like to do: " << endl;
 	cout << "     [1] - Edit name" << endl;
@@ -248,7 +259,12 @@ void CharacterManager::_displayEditMenu(){
 	cout << "Enter your option here: ";
 }
 
+/**
+* Allows the user to edit the name of a Character
+*@param theFighter Fighter* to the fighter which will be edited
+*/
 void CharacterManager::_editName(Fighter *theFighter){
+	// Displays to the user the current name of the Character
 	string prevName = theFighter->getName();
 	cout << prevName << " is the current name." << endl;
 	string name = "";
@@ -274,8 +290,7 @@ void CharacterManager::_editName(Fighter *theFighter){
 		// Deletes the entry corresponding to the old name
 		CharacterSaveManager::removeCharacter(prevName);
 		return;
-	// Means that saving returned false and no updates were saved
-	} else {
+	} else { // Means that saving returned false and no updates were saved
 		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName<< "." << endl;
 		theFighter->setName(prevName);
 		return;

@@ -38,9 +38,8 @@ int Dice::roll(std::string exp) {
 	int *diceName = new int{ 0 };	// Value of die to be rolled
 	int *multiplier = new int{ 0 };	// Number of die to roll
 
-									// If the string is not in the proper format, -1 will be returned
+	// If the string is not in the proper format, -1 will be returned
 	if (!_matchesRegEx(exp)) {
-		std::cout << "The string you provided is not in the proper format." << std::endl;
 		delete multiplier, diceName, modifier;
 		return -1;
 	}
@@ -50,13 +49,11 @@ int Dice::roll(std::string exp) {
 
 	// Will determine if the dice name is valid
 	if (!_validDie(*diceName)) {
-		std::cout << "The dice you requested is not valid." << std::endl;
 		delete multiplier, diceName, modifier;
 		return -1;
 	}
 
 	if (modifier <= 0) {
-		std::cout << "You must roll at least 1 die." << std::endl;
 		delete multiplier, diceName, modifier;
 		return -1;
 	}

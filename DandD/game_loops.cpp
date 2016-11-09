@@ -107,8 +107,11 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 			}
 
 			//now play the maps one by one
-			for(int x=0; x< mappaths.size(); x++)
+			c_menu->getMenuWindow()->hideWindow();
+			for (int x = 0; x < mappaths.size(); x++)
+			{
 				gameLevelLoop(mappaths[x]);
+			}
 		}
 		else
 		{
@@ -146,9 +149,14 @@ int GameLoops::gameLevelLoop(std::string mappath)
 
 	Fighter* f = new Fighter();
 	PreBuiltLevel* l = new PreBuiltLevel("Test", f);
+	GamePlayEngine* engine = new GamePlayEngine();
+	engine->attachLevel(l, &this->_event);
+
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
 	l->renderAndDisplayLevel();
+
+	f->setMap(&l->getMapStringVersiion());
 	destinationInt = -1;
 
 	while(quit==false)
@@ -159,14 +167,16 @@ int GameLoops::gameLevelLoop(std::string mappath)
 			{
 				quit = true;
 			}
-			if((_event.type == SDL_MOUSEBUTTONUP)&&(_event.button.button == SDL_BUTTON_LEFT))
-			{
-				quit = true;
-			}
+			engine->runEngine();
+			quit = true;
 		}
 	}
 
+
 	l->getLevelWindow()->hideWindow();
+	engine->detachLevel();
+	delete engine;
+	engine = nullptr;
 	delete f;
 	f = nullptr;
 	delete l;
@@ -384,7 +394,6 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 		level->setEnvironmentTextVector(templevel);
 		level->saveLevel(SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(path));
 
-		//InputOutput inop;
 
 		delete level;
 		level = nullptr;

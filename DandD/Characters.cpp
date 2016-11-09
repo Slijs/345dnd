@@ -24,6 +24,10 @@ Characters::Characters()
 	inBattle = false;
 	isLevelUp = false;
 	_map = NULL;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e9a97cfeb9cc3e56c67937f5a6c074cf05effaa3
 	armor = new Armor();
 	belt = new Belt();
 	weapon = new Weapon();
@@ -31,6 +35,7 @@ Characters::Characters()
 	boots = new Boots();
 	ring = new Ring();
 	helmet = new Helmet();
+<<<<<<< HEAD
 	backpack = new Container();
 	armor = nullptr;
 	belt = nullptr;
@@ -39,6 +44,8 @@ Characters::Characters()
 	boots = nullptr;
 	ring = nullptr;
 	helmet = nullptr;
+=======
+>>>>>>> e9a97cfeb9cc3e56c67937f5a6c074cf05effaa3
 }
 
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
@@ -65,14 +72,12 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	ring = new Ring();
 	helmet = new Helmet();
 
-
 	detProficiencyBonus();
 	detExp();
 	abilityScoreMod();
 	calcArmorClass();
 	_map = NULL;
 
-	backpack = new Container();
 
 	// Sets dummy values to position so that its size is initialized
 	position.push_back(-1);
@@ -135,7 +140,7 @@ Characters::Characters(int level)
 	calcDamageBonus();
 	_map = NULL;
 
-	backpack = new Container();
+	
 }
 
 //!Auxiliary function used to destroy all equipment objects
@@ -338,12 +343,10 @@ void Characters::displayStats()
 
 	displayEquip();
 
-	// Ensures that these two values are updated to reflect the proper value
-	calcAttackBonus();
-	calcDamageBonus();
-
 	cout << "Attack Bonus: " << attackBonus << endl;
 	cout << "Damage Bonus: " << damageBonus << endl;
+
+	
 }
 
 //!Helper Function for equipment display
@@ -383,131 +386,6 @@ void Characters::displayLevelUp()
 	cout << "\nCHA: " << scores[0][5] << "(" << scores[1][5] << ")" << endl;
 }
 
-/*EQUIP FUNCTIONS:
-Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
-//If wish to de-equip use default constructor of these Classes
-*/
-
-//!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
-
-
-
-void Characters::equip(Armor* a)
-{
-	//Remove bonus
-	if (armor->getEnchantmentValues()[7] == 0)
-		armorClass -= 10;
-	else
-		armorClass -= armor->getEnchantmentValues()[7];
-	armor = a;
-	//Add Bonus
-	armorClass += armor->getEnchantmentValues()[7];
-
-	currentState();
-}
-
-//!Function to equip weapon. Recalculates damage bonus and attack bonus based on weapon equipped. Triggers redisplay of stats
-void Characters::equip(Weapon* w)
-{
-	weapon = w;
-	calcDamageBonus();
-	calcAttackBonus();
-	currentState();
-}
-
-//!Function to equip helmet. Previous bonus is removed and recalculate the bonus based on new helmet. Triggers redisplay of stats.
-void Characters::equip(Helmet* h)
-{
-	updateStatsDQ(helmet);
-
-	helmet = h;
-
-	updateStatsEQ(helmet);
-
-	currentState();
-}
-//!Function to equip boots. Previous bonus is removed and recalculate the bonus based on new boots. Triggers redisplay of stats.
-void Characters::equip(Boots* b)
-{
-	updateStatsDQ(boots);
-
-	boots = b;
-
-	updateStatsEQ(boots);
-
-	currentState();
-}
-
-//!Function to equip ring. Previous bonus is removed and recalculate the bonus based on new ring. Triggers redisplay of stats.
-void Characters::equip(Ring* r)
-{
-	updateStatsDQ(ring);
-
-	ring = r;
-
-	updateStatsEQ(ring);
-
-	currentState();
-}
-
-//!Function to equip shield. Previous AC bonus is removed and recalculate the AC based on new shield. Triggers redisplay of stats
-void Characters::equip(Shield* s)
-{
-	updateStatsDQ(shield);
-
-	shield = s;
-
-	updateStatsEQ(shield);
-
-	currentState();
-}
-
-void Characters::equip(Belt* b)
-{
-	updateStatsDQ(belt);
-
-	belt = b;
-
-	updateStatsEQ(shield);
-	currentState();
-}
-
-void Characters::deequipArmor()
-{
-	updateStatsDQ(armor);
-	armor = new Armor();//using phil's default constructor for armor etc
-}
-void Characters::dequipWeapon()
-{
-	updateStatsDQ(weapon);
-	weapon = new Weapon();
-}
-void Characters::deequipHelmet()
-{
-	updateStatsDQ(helmet);
-	helmet = new Helmet();
-}
-void Characters::deequipBoots()
-{
-	updateStatsDQ(boots);
-	boots = new Boots();
-
-}
-void Characters::deequipRing()
-{
-	updateStatsDQ(ring);
-	ring = new Ring();
-}
-void Characters::deequipShield()
-{
-	updateStatsDQ(shield);
-	shield = new Shield();
-}
-void Characters::deequipBelt()
-{
-	updateStatsDQ(belt);
-	belt = new Belt();
-}
 
 
 
@@ -522,8 +400,6 @@ void Characters::updateStatsDQ(Item* i)
 	armorClass -= ench[6];
 	attackBonus -= ench[7];
 	damageBonus -= ench[8];
-
-
 }
 
 //!Helper function to update stats when equipping an equipment
@@ -537,6 +413,8 @@ void Characters::updateStatsEQ(Item* i)
 	armorClass += ench[6];
 	attackBonus += ench[7];
 	damageBonus += ench[8];
+
+	
 }
 
 //!Function to return armor's name
@@ -734,7 +612,7 @@ void Characters::Serialize(CArchive &ar) {
 			ar << (int)position[0];
 			ar << (int)position[1];
 		}
-
+		
 		// Will save several bools used to determine if items are equipped
 		/*
 		ar << (armor != NULL);
@@ -754,20 +632,20 @@ void Characters::Serialize(CArchive &ar) {
 		ring->Serialize(ar);
 		/*
 		if (armor != NULL)
-			armor->Serialize(ar);
+		armor->Serialize(ar);
 		if (weapon != NULL)
-			weapon->Serialize(ar);
+		weapon->Serialize(ar);
 		if (helmet != NULL)
-			helmet->Serialize(ar);
+		helmet->Serialize(ar);
 		if (shield != NULL)
-			shield->Serialize(ar);
+		shield->Serialize(ar);
 		if (boots != NULL)
-			boots->Serialize(ar);
+		boots->Serialize(ar);
 		if (belt != NULL)
-			belt->Serialize(ar);
+		belt->Serialize(ar);
 		if (ring != NULL)
-			ring->Serialize(ar); */
-		backpack->Serialize(ar);
+		ring->Serialize(ar); */
+		//backpack->Serialize(ar);
 	}
 	else {
 		ar >> exp;
@@ -824,25 +702,25 @@ void Characters::Serialize(CArchive &ar) {
 		shield = new Shield();
 		boots = new Boots();
 		if (armorEquipped){
-			armor->Serialize(ar);
+		armor->Serialize(ar);
 		}
 		if (weaponEquipped){
-			weapon->Serialize(ar);
+		weapon->Serialize(ar);
 		}
 		if (helmetEquipped){
-			shield->Serialize(ar);
+		shield->Serialize(ar);
 		}
 		if (bootsEquipped){
-			boots->Serialize(ar);
+		boots->Serialize(ar);
 		}
 		if (beltEquipped){
-			belt->Serialize(ar);
+		belt->Serialize(ar);
 		}
 		if (ringEquipped){
-			ring = new Ring();
-			ring->Serialize(ar);
+		ring = new Ring();
+		ring->Serialize(ar);
 		} */
-		backpack->Serialize(ar);
+		//backpack->Serialize(ar);
 	}
 }
 

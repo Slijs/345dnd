@@ -8,6 +8,8 @@ private:
 	PreBuiltLevel* _level;
 	SDL_Event* _event;
 	bool _moveSelect;
+	bool _moveValidityTracker;
+	bool _firstTimeGridTarget;
 	SDL_Rect _currentGrid;
 	SDL_Rect _lastGrid;
 	int _gridIndex;
@@ -21,6 +23,7 @@ public:
 	int runEngine();
 	void onGameplayGrids();
 	int onRIghtHandMenu();
+	void movePlayer();
 	SDL_Rect checkMousePosition(std::vector<SDL_Rect> components, int* targetIndex);
 };
 

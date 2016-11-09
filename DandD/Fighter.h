@@ -4,6 +4,8 @@
 */
 #pragma once
 #include "Characters.h"
+#include "Item.h"
+#include "Container.h"
 #include "Entity.h"
 #include "Dwarf.h"
 #include "Monster.h"
@@ -27,6 +29,7 @@ protected:
 	DECLARE_SERIAL(Fighter);
 private:
 	const int HIT_DIE = 10; //d10
+	const string _HIT_DIE_STRING = "1d10";
 	int hitPoints;
 	int maxHitPoints;
 	Race race;
@@ -34,6 +37,8 @@ private:
 	string name;
 	int speed;
 	void detRaceTraits(Race race);
+
+	Container* backpack;
 
 public:
 	Fighter(int, Race, string);
@@ -61,8 +66,27 @@ public:
 	void gainExperience(int);
 	void dead();
 
-
 	void currentState();
+
+	//For equip
+	void equipOptions();
+
+
+	void equip(Armor*);			//allows for equiping
+	void equip(Weapon*);
+	void equip(Helmet*);
+	void equip(Boots*);
+	void equip(Ring*);
+	void equip(Shield*);
+	void equip(Belt*);
+
+	void deequipArmor();
+	void dequipWeapon();
+	void deequipHelmet();
+	void deequipBoots();
+	void deequipRing();
+	void deequipShield();
+	void deequipBelt();
 
 	//TEST
 	bool validateHitPoints();

@@ -16,7 +16,7 @@ IMPLEMENT_SERIAL(Weapon, Item, 1);
 Weapon::Weapon() :
 	Item("No name set", 0, 0, "assets/defaultWeapon.jpg", { { 0,0,0,0,0,0,0,0,0 } }, { { 0,0,0,0,0,0,0,1,1 } })
 {
-	setAttackDice(attackDice);
+	setAttackDice("1d4"); // Sets a default attack die
 	setRange(0);
 }
 

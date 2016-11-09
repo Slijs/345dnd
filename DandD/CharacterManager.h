@@ -1,6 +1,6 @@
 /**
 *@file CharacterManager.h
-*@brief File allowing for creating, loading, editing and deleting saved characters
+*@brief CharacterManager allows for creating, loading, editing and deleting saved characters
 */
 #pragma once
 #ifndef CHARACTERMANAGER_H
@@ -14,7 +14,9 @@
 *@class CharacterManager
 *@brief Provides static methods to allow for management of saved characters.
 *<p> Provides the user with the ability to either getCharacter() from file, or to createOrEditCharacter(), which will then
-*	 be saved to file
+*	 be saved to file.
+*<p> To prevent changes from completely undoing d20 regulations regarding character stats, the user is only able to edit
+*	 a Character's name and race. Further modification of Characters would have too many ripple-down effects
 */
 class CharacterManager {
 private:

@@ -1,9 +1,14 @@
+/**
+*@file CharacterSaveManager.cpp
+*@brief Provides implementation of the methods in the CharacterSaveManager class
+*/
 #include "CharSaveManager.h"
-#include "CharacterSaveMap.h"
-#include <string>
-#include <iostream>
 using namespace std;
 
+/**
+* Attempts to save a Character to disk. If the Character is already saved, the user will be asked if they want to replace the file.
+*@param theChar Fighter* to the Fighter being saved
+*/
 bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 	CFile mapFile; // Map of all Character saves
 	string input = "";
@@ -46,8 +51,6 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 			}
 		}
 	}
-	// UPDATE THIS Will create save path string
-	//CString path = "/Character Saves/" + charName + "StateFile.dat";
 	CString path = charName + "StateFile.txt";
 	charMap->put(charName, path); // Puts the entry in the Character Map
 	// Now, the Character themself will be Serialized
@@ -87,6 +90,10 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 	return true;
 }
 
+/**
+* Will load a Character from disk based on user selection, and returns a pointer to that Character
+*@param Fighter*, pointing to the loaded Character
+*/
 Fighter* CharacterSaveManager::loadCharacter() {
 	CFile mapFile; // Map of all Character saves
 	string input = "";
@@ -192,6 +199,116 @@ void CharacterSaveManager::removeCharacter() {
 			continue;
 		}
 	}
+	delete charMap; // Removes pointer to the map
+	removeCharacter(input); // Will use method that takes a name to complete the removal of the character
+}
+
+/**
+* Will allow a specific Character to be deleted based on the name provided
+*@param name string representing the name of the Character to be removed
+*/
+void CharacterSaveManager::removeCharacter(string name) {
+	CFile mapFile; // Map of all Character saves
+
+	// Will create charMap that will contain all Character save locations
+	CharacterSaveMap* charMap = new CharacterSaveMap();
+
+	// If the CharMap file can be opened successfully, charMap will be serialized to load the data
+	try {
+		mapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeRead);
+	}
+	catch (CFileException *e) {
+		cout << "There was an error accessing Character save files. Attempt aborted." << endl;
+		return;
+	}
+	CArchive mapArchive(&mapFile, CArchive::load);
+	charMap->Serialize(mapArchive);
+	mapArchive.Close();
+	mapFile.Close();
+	// If the charMap is empty at this point, it means that there are no Characters to remove
+	if (charMap->isEmpty()) {
+		cout << "There are no Characters to remove." << endl;
+		return;
+	}
+
+	CString toRemove = name.c_str();
+	// Will get the path so that we can delete the file from disk
+	CString path = charMap->getPath(name.c_str());
+	charMap->remove(toRemove);
+
+	CFile anotherMapFile;
+	// Now, the updated CharacterSaveMap will be serialized and saved
+	try {
+		anotherMapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeCreate | CFile::modeWrite);
+	}
+	catch (CFileException &exp) {
+		std::cout << "There was an error trying to record efforts. Aborting attempt." << endl;
+		return;
+	}
+	CArchive anotherMapArchive(&anotherMapFile, CArchive::store);
+	charMap->Serialize(anotherMapArchive);
+	anotherMapArchive.Close();
+	try {
+		anotherMapFile.Close();
+	}
+	catch (CFileException &exp) {
+		std::cout << "There was an error closing out the remove operation. Aborting attempt." << endl;
+		return;
+	}
+	try{
+		CFile::Remove(path);
+	}
+	catch (CFileException* pEx){
+		std::cout << "There was an error closing out remove operation." << endl;
+	}
+
+	delete charMap;
+	return;
+}
+
+/*
+void CharacterSaveManager::removeCharacter() {
+	CFile mapFile; // Map of all Character saves
+	string input = "";
+
+	// Will create charMap that will contain all Character save locations
+	CharacterSaveMap* charMap = new CharacterSaveMap();
+
+	// If the CharMap file can be opened successfully, charMap will be serialized to load the data
+	try {
+		mapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeRead);
+	}
+	catch (CFileException *e) {
+		cout << "There was an error accessing Character save files. Attempt aborted." << endl;
+		return;
+	}
+	CArchive mapArchive(&mapFile, CArchive::load);
+	charMap->Serialize(mapArchive);
+	mapArchive.Close();
+	mapFile.Close();
+	// If the charMap is empty at this point, it means that there are no Characters to remove
+	if (charMap->isEmpty()) {
+		cout << "There are no Characters to remove." << endl;
+		return;
+	}
+	cout << "The following Characters are available: " << endl;
+	charMap->printNames();
+	// Will try to get proper selection from user
+	while (true) {
+		cout << "Which character would you like to remove? (-1 to return)" << endl;
+		cin >> input;
+		if (input == "-1") {
+			cout << "Quitting remove attempt at your request." << endl;
+			return;
+		}
+		else if (charMap->contains(input.c_str())) {
+			break;
+		}
+		else {
+			cout << "Hmmm... it seems that character isn't available." << endl;
+			continue;
+		}
+	}
 	CString toRemove = input.c_str();
 	charMap->remove(toRemove);
 
@@ -231,6 +348,7 @@ void CharacterSaveManager::removeCharacter() {
 * Will allow a specific Character to be deleted based on the name provided
 *@param name string representing the name of the Character to be removed
 */
+/*
 void CharacterSaveManager::removeCharacter(string name) {
 	CFile mapFile; // Map of all Character saves
 
@@ -280,7 +398,7 @@ void CharacterSaveManager::removeCharacter(string name) {
 
 	delete charMap;
 	return;
-}
+} */
 
 
 string CharacterSaveManager::cstrTostr(CString &cstr) {
