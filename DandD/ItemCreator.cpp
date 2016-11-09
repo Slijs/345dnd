@@ -406,7 +406,7 @@ void ItemCreator::createItems()
 
 				// serialize 
 				CFile fileS;
-				if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite | CFile::modeCreate))
+				if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite))
 				{
 					std::cout << "Unable to open output file" << std::endl;
 					break;

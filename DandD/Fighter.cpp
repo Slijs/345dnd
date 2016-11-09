@@ -290,9 +290,17 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 //!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
 
 
-
-void Fighter::equip(Armor* a)
+/**
+* Allows the Fighter to equip piece of armor at index 'i' in the backpack. If no armor is equipped, then nothing special happens.
+* If the Fighter already has armor equipped, then it is returned to the backpack.
+*@param i 
+*/
+void Fighter::equipArmor(int i)
 {
+	// Checks to see if 'no' Armor has been equipped
+	if (_isNullItem(armor)){
+		Armor toEquip = backpack->removeItem(i)
+	}
 	//Remove bonus
 	if (armor->getEnchantmentValues()[7] == 0)
 		armorClass -= 10;
@@ -580,4 +588,16 @@ bool Fighter::validatePlayerMove(int x, int y) {
 */
 void Fighter::setName(string name) {
 	this->name = name;
+}
+
+/**
+*Checks if the item passed to it is a "null" item, AKA its name is set to none
+*@param theItem Item* to item in question
+*@return bool, True if Item is "null" False otherwise
+*/
+bool Fighter::_isNullItem(Item *theItem){
+	if (theItem->getName().compare("None") == 0){
+		return true;
+	}
+	else return false;
 }

@@ -37,6 +37,7 @@ private:
 	string name;
 	int speed;
 	void detRaceTraits(Race race);
+	bool _isNullItem(Item* theItem);
 
 	Container* backpack;
 
@@ -72,13 +73,13 @@ public:
 	void equipOptions();
 
 
-	void equip(Armor*);			//allows for equiping
-	void equip(Weapon*);
-	void equip(Helmet*);
-	void equip(Boots*);
-	void equip(Ring*);
-	void equip(Shield*);
-	void equip(Belt*);
+	void equipArmor(int i);			//allows for equiping
+	void equipWeapon(int i);
+	void equipHelmet(int i);
+	void equipBoots(int i);
+	void equipRing(int i);
+	void equipShield(int i);
+	void equipBelt(int i);
 
 	void deequipArmor();
 	void dequipWeapon();
