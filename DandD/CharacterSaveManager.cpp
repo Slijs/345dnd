@@ -1,9 +1,14 @@
+/**
+*@file CharacterSaveManager.cpp
+*@brief Provides implementation of the methods in the CharacterSaveManager class
+*/
 #include "CharSaveManager.h"
-#include "CharacterSaveMap.h"
-#include <string>
-#include <iostream>
 using namespace std;
 
+/**
+* Attempts to save a Character to disk. If the Character is already saved, the user will be asked if they want to replace the file.
+*@param theChar Fighter* to the Fighter being saved
+*/
 bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 	CFile mapFile; // Map of all Character saves
 	string input = "";
@@ -85,6 +90,10 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 	return true;
 }
 
+/**
+* Will load a Character from disk based on user selection, and returns a pointer to that Character
+*@param Fighter*, pointing to the loaded Character
+*/
 Fighter* CharacterSaveManager::loadCharacter() {
 	CFile mapFile; // Map of all Character saves
 	string input = "";
