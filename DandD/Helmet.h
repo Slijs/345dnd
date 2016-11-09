@@ -15,19 +15,13 @@
 
 class Helmet: public Item {
 	protected:
-		// Helmet Attributes
-		int defense;
 		DECLARE_SERIAL(Helmet);
 		// Constructors
 	public:
 		Helmet();
 		Helmet(const Helmet* otherHelmet);
 		Helmet(string name, int weight, int value, string image, 
-				array<int, 9> enchantmentValues, int defense);
-		int getDefense();
-		void incrementDefense();
-		void decrementDefense();
-		std::string toString();
+				array<int, 9> enchantmentValues);
 		virtual void Serialize(CArchive &ar);
 };
 

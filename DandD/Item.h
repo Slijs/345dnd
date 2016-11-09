@@ -17,52 +17,51 @@ using std::string;
 using std::array;
 
 class Item : public CObject {
-	protected:
-		// Attributes common to all items
-		string name;
-		int weight;
-		int value;
-		/**
-		 * @brief This should be a relative path to the image.
-		 */
-		string image;
-		/**
-		 * @brief The sequence for this array of booleans is Strength,
-		 * Dexterity, Constitution, Intelligence, Wisdom, Charisma, Armor Class,
-		 * Attack Bonus, Damage Bonus.
-		 */
-		array<int, 9> enchantmentValues;
-		/**
-		 * @brief The sequence for this array of booleans is Strength,
-		 * Dexterity, Constitution, Intelligence, Wisdom, Charisma, Armor Class,
-		 * Attack Bonus, Damage Bonus.
-		 */
-		array<bool, 9> enchantmentsPossible;
-		DECLARE_SERIAL(Item);
-	public:
-		// Constructors
-		Item();
-
-
-		Item(string name, int weight, int value, string image, 
-				array<int, 9> enchantmentValues);
-		
-
-		Item(string name, int weight, int value, string image, 
-				array<int, 9> enchantmentValues, 
-				array<bool, 9> enchantmentsPossible);
-
-		Item(const Item *otherItem); // copy constructor
-		// Accessors and Mutators
-		string getName();
-		int getWeight();
-		int getValue();
-		string getImage();
-		array<int, 9> getEnchantmentValues();
-		array<bool, 9> getEnchantmentsPossible();
-		// Misc methods
-		virtual string toString();
-		virtual void Serialize(CArchive &ar);
+protected:
+	// Attributes common to all items
+	string name;
+	int weight;
+	int value;
+	/**
+	* @brief This should be a relative path to the image.
+	*/
+	string image;
+	/**
+	* @brief The sequence for this array of booleans is Strength,
+	* Dexterity, Constitution, Intelligence, Wisdom, Charisma, Armor Class,
+	* Attack Bonus, Damage Bonus.
+	*/
+	array<int, 9> enchantmentValues;
+	/**
+	* @brief The sequence for this array of booleans is Strength,
+	* Dexterity, Constitution, Intelligence, Wisdom, Charisma, Armor Class,
+	* Attack Bonus, Damage Bonus.
+	*/
+	array<bool, 9> enchantmentsPossible;
+	DECLARE_SERIAL(Item);
+public:
+	// Constructors
+	Item();
+	Item(string name, int weight, int value, string image,
+		array<int, 9> enchantmentValues);
+	Item(string name, int weight, int value, string image,
+		array<int, 9> enchantmentValues,
+		array<bool, 9> enchantmentsPossible);
+	Item(const Item * otherItem);
+	// Accessors and Mutators
+	string getName();
+	void setName(string name);
+	int getWeight();
+	void setWeight(int weight);
+	int getValue();
+	void setValue(int value);
+	string getImage();
+	void setImage(string path);
+	array<int, 9> getEnchantmentValues();
+	array<bool, 9> getEnchantmentsPossible();
+	// Misc methods
+	virtual string toString();
+	virtual void Serialize(CArchive &ar);
 };
 
 #endif // Include guard

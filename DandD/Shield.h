@@ -12,12 +12,13 @@
 
 #include <string>
 #include "Item.h"
+#include "Dice.h"
 
 class Shield: public Item {
 	protected:
 		// Shield Attributes
-		int damage;
 		int defense;
+		std::string attackDice;
 		int range;
 		DECLARE_SERIAL(Shield);
 		// Constructors
@@ -25,17 +26,17 @@ class Shield: public Item {
 		Shield();
 		Shield(const Shield* otherShield);
 		Shield(string name, int weight, int value, string image, 
-				array<int, 9> enchantmentValues, int damage, int defense, 
-				int range);
-		int getDamage();
+				array<int, 9> enchantmentValues, int defense, std::string attackDice, int range);
 		int getDefense();
-		int getRange();
-		void incrementDamage();
-		void decrementDamage();
+		void setDefense(int defense);
 		void incrementDefense();
 		void decrementDefense();
 		void incrementRange();
 		void decrementRange();
+		std::string getAttackDice();
+		void setAttackDice(std::string attackDice);
+		int getRange();
+		void setRange(int range);
 		std::string toString();
 		virtual void Serialize(CArchive &ar); // Will be used to Serialize Shields
 };

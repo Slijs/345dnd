@@ -8,18 +8,12 @@
 #include <string>
 #include <stdexcept>
 #include "Ring.h"
- 
-// Windows
-//#include "stdafx.h"
 
 IMPLEMENT_SERIAL(Ring, Item, 1);
 
 // Default constructor, useless item as is
-Ring::Ring() 
-	//KHATIBS TEST
-	//: 	
-	//Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {1,0,1,0,1,1,1,0,0}) 
-	//END TEST
+Ring::Ring() : 	
+	Item("No name set", 0, 0, "assets/defaultRing.jpg", {0,0,0,0,0,0,0,0,0}, {1,0,1,0,1,1,1,0,0}) 
 {
 
 }
@@ -35,9 +29,7 @@ Ring::Ring(const Ring* otherRing) : Item(otherRing) {
 // will be set.
 Ring::Ring(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues) 
-	//KHATIBS TEST
-	//: Item(name, weight, value, image, enchantmentValues, {1,0,1,0,1,1,1,0,0})
-	//END TEST
+	: Item(name, weight, value, image, enchantmentValues, {1,0,1,0,1,1,1,0,0})
 {
 
 }

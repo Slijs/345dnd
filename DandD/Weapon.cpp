@@ -8,75 +8,50 @@
 #include <string>
 #include <stdexcept>
 #include "Weapon.h"
- 
-// Windows
-//#include "stdafx.h"
+#include "Dice.h"
+
 IMPLEMENT_SERIAL(Weapon, Item, 1);
 
 // Default constructor, useless item as is
-Weapon::Weapon()
-	//KHATIBS TEST
-	//: 	
-	//Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,0,1,1}) 
-	//END TEST
+Weapon::Weapon() :
+	Item("No name set", 0, 0, "assets/defaultWeapon.jpg", { 0,0,0,0,0,0,0,0,0 }, { 0,0,0,0,0,0,0,1,1 })
 {
-
+	setAttackDice(attackDice);
+	setRange(0);
 }
 
 Weapon::Weapon(const Weapon* otherWeapon) : Item(otherWeapon) {
-	this->damage = otherWeapon->damage;
-	this->defense = otherWeapon->defense;
-	this->range = otherWeapon->range;
+	this->attackDice = otherWeapon->attackDice;
 }
 
 // Constructor where all attributes EXCEPT the enchantmentsPossible
 // will be set.
 Weapon::Weapon(std::string name, int weight, int value, std::string image,
-		std::array<int, 9> enchantmentValues, int damage, int defense, int range) 
-	//KHATIBS TEST
-	//: Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,0,1,1}),
-	//damage(damage), defense(defense), range(range)
-	//END TEST
+		std::array<int, 9> enchantmentValues, string attackDice, int range) 
+	: Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,0,1,1})
 {
-
+	setAttackDice(attackDice);
+	setRange(range);
 }
 
 // Getters/Setters
-
-int Weapon::getDamage() {
-	return damage;
-}
-
-int Weapon::getDefense() {
-	return defense;
-}
 
 int Weapon::getRange() {
 	return range;
 }
 
-void Weapon::incrementDamage() {
-	damage++;
-}
-
-void Weapon::decrementDamage() {
-	if (damage >= 1) {
-		damage--;
+void Weapon::setRange(int newRange)
+{
+	if (newRange < 0 || newRange > 10) {
+		throw "Range must be between 0 and 10.\n";
 	}
-}
-
-void Weapon::incrementDefense() {
-	defense++;
-}
-
-void Weapon::decrementDefense() {
-	if (defense >= 1) {
-		defense--;
+	else {
+		range = newRange;
 	}
 }
 
 void Weapon::incrementRange() {
-	range++;
+	if (range < 25) { range++; }
 }
 
 void Weapon::decrementRange() {
@@ -87,16 +62,30 @@ void Weapon::decrementRange() {
 
 // Misc methods
 
+string Weapon::getAttackDice()
+{
+	return attackDice;
+}
+
+void Weapon::setAttackDice(string attackDice)
+{
+	// check to make sure that the dice string is valid
+	Dice tempDice = Dice();
+	if (tempDice.roll(attackDice) < 0) {
+		throw "Dice string is invalid.";
+	}
+	else {
+		this->attackDice = attackDice;
+	}
+}
+
 std::string Weapon::toString() {
 	std::string tempString;
 
 	tempString = Item::toString();
 	
-	//KHATIBS TEST
-	//tempString += "Damage: " + std::to_string(getDamage()) +
-	//	"\tDefense: " + std::to_string(getDamage()) +
-	//	"\tRange: " + std::to_string(getRange()) + "\n";
-	//END TEST
+	tempString += "Attack Dice: " + getAttackDice() +
+		"\tRange: " + std::to_string(getRange()) + "\n";
 
 	return tempString;
 }
@@ -104,13 +93,18 @@ std::string Weapon::toString() {
 void Weapon::Serialize(CArchive &ar) {
 	Item::Serialize(ar);
 	if (ar.IsStoring()) {
-		ar << damage;
-		ar << defense;
+		CString c_attackDice(attackDice.c_str());
+		ar << c_attackDice;
 		ar << range;
 	}
 	else {
-		ar >> damage;
-		ar >> defense;
+		CString c_attackDice = "";
+		ar >> c_attackDice;
+		attackDice = "";
+		int strlen = c_attackDice.GetLength();
+		for (int i = 0; i < strlen; ++i) {
+			attackDice += c_attackDice.GetAt(i);
+		}
 		ar >> range;
 	}
 }
