@@ -10,11 +10,13 @@ GamePlayEngine::GamePlayEngine()
 	this->_lastGrid.x = -1;
 	this->_lastGrid.y = -1;
 	this->_gridIndex = -1;
+	this->_lastButtonIndex = -1;
 }
 void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 {
 	this->_level = level;
 	this->_event = event_;
+	this->_buttons = this->_level->getAllButtonDestinations();
 }
 void GamePlayEngine::detachLevel()
 {
@@ -26,6 +28,7 @@ void GamePlayEngine::detachLevel()
 	this->_lastGrid.x = -1;
 	this->_lastGrid.y = -1;
 	this->_gridIndex = -1;
+	this->_buttons.clear();
 }
 
 int GamePlayEngine::runEngine()
@@ -33,6 +36,7 @@ int GamePlayEngine::runEngine()
 	bool exit = false;
 	int mouse_X;
 	int mouse_Y;
+	int buttonindex;
 
 	while (exit == false)
 	{
@@ -49,13 +53,13 @@ int GamePlayEngine::runEngine()
 			if ((mouse_X < (this->_level->getLevelWindow()->getGamePlay_X_Grids() * this->_level->getLevelWindow()->getGridX_Length())) &&
 				(mouse_Y < (this->_level->getLevelWindow()->getGamePlay_Y_Grids() * this->_level->getLevelWindow()->getGridY_Length())))
 			{
-				onGameplayGrids();
+				//onGameplayGrids();
 			}
 
 			//other wise prolly on right hand menu
 			else
 			{
-				onRIghtHandMenu();
+				buttonindex = onRIghtHandMenu();
 			}
 		}
 	}
@@ -75,9 +79,35 @@ void GamePlayEngine::onGameplayGrids()
 	this->_level->getPlayer()->validatePlayerMove(on_Gameplay_Grids.x, on_Gameplay_Grids.y);
 	
 }
-void GamePlayEngine::onRIghtHandMenu()
+int GamePlayEngine::onRIghtHandMenu()
 {
+	//first check which button I am on
+	int x_cor, y_cor;
+	SDL_GetMouseState(&x_cor, &y_cor);
+	int index = _level->getLevelWindow()->getButtonIndexThatMouseIsOn(x_cor, y_cor);
 
+	if (index < 0)
+	{
+		if (_lastButtonIndex != -1)
+			_level->getLevelWindow()->changeButtonColor(_lastButtonIndex, 255, 0, 0);
+		_lastButtonIndex = index;
+	}
+	//now if on a valid new button render new color and check for input and return corresponding index
+	else
+	{
+		if (index != _lastButtonIndex)
+		{
+			_level->getLevelWindow()->changeButtonColor(index, 0, 255, 0);
+
+			if (_lastButtonIndex != -1)
+				_level->getLevelWindow()->changeButtonColor(_lastButtonIndex, 255, 0, 0);
+			_lastButtonIndex = index;
+		}
+	}
+
+	if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_LEFT) && (index >= 0))
+		return index;
+	return -1;
 }
 
 SDL_Rect GamePlayEngine::checkMousePosition(std::vector<SDL_Rect> components, int* targetIndex)

@@ -144,7 +144,8 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	int destinationInt;
 	bool quit = false;
 
-	PreBuiltLevel* l = new PreBuiltLevel();
+	Fighter* f = new Fighter();
+	PreBuiltLevel* l = new PreBuiltLevel("Test", f);
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
 	l->renderAndDisplayLevel();
@@ -166,6 +167,8 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	}
 
 	l->getLevelWindow()->hideWindow();
+	delete f;
+	f = nullptr;
 	delete l;
 	l=nullptr;
 	return 0;

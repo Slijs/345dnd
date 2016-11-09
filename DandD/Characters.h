@@ -11,6 +11,9 @@
 #include "Ring.h"
 #include "Subject.h"
 #include "Dice.h"
+#include "filepathandfoldermanager.h"
+#include "game_components.h"
+#include "namespaces.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
@@ -57,7 +60,8 @@ The functions for battle are namely for the calculation of the attack and damage
 attackRoll = d20 + attackBonus ,and damageRoll = weaponDice + damageBonus.
 */
 
-class Characters : public Subject, public CObject
+class Characters : public Subject, public CObject,
+	public GameComponent
 {
 protected:
 	DECLARE_SERIAL(Characters);

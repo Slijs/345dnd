@@ -11,6 +11,8 @@ private:
 	SDL_Rect _currentGrid;
 	SDL_Rect _lastGrid;
 	int _gridIndex;
+	int _lastButtonIndex;
+	std::vector<SDL_Rect> _buttons;
 
 public:
 	GamePlayEngine();
@@ -18,7 +20,7 @@ public:
 	void detachLevel();
 	int runEngine();
 	void onGameplayGrids();
-	void onRIghtHandMenu();
+	int onRIghtHandMenu();
 	SDL_Rect checkMousePosition(std::vector<SDL_Rect> components, int* targetIndex);
 };
 

@@ -229,3 +229,12 @@ void CharacterManager::_editName(Fighter *theFighter){
 		return;
 	}
 }
+
+void CharacterManager::_editRace(Fighter* theFighter)
+{
+
+}
+
+
+
+

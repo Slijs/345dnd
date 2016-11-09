@@ -24,6 +24,13 @@ Characters::Characters()
 	inBattle = false;
 	isLevelUp = false;
 	_map = NULL;
+	armor = nullptr;
+	belt = nullptr;
+	weapon = nullptr;
+	shield = nullptr;
+	boots = nullptr;
+	ring = nullptr;
+	helmet = nullptr;
 
 }
 

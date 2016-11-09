@@ -30,13 +30,13 @@ public:
 };
 
 
-struct RGB
+struct RGB_C
 {
 public:
 	int red;
 	int green;
 	int blue;
-	RGB();
-	RGB(const int r, const int g, const int b);
+	RGB_C();
+	RGB_C(const int r, const int g, const int b);
 };
 

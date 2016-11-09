@@ -106,9 +106,4 @@ std::vector<SDL_Rect> PreBuiltLevel::getAllButtonDestinations()
 
 PreBuiltLevel::~PreBuiltLevel()
 {
-	if (this->_player != nullptr)
-	{
-		delete this->_player;
-	}
-	this->_player = nullptr;
 }
