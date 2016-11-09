@@ -31,6 +31,9 @@ void GamePlayEngine::detachLevel()
 	this->_buttons.clear();
 }
 
+//index 0 is inventory
+//index 1 is move
+//index 2 is exit play
 int GamePlayEngine::runEngine()
 {
 	bool exit = false;
@@ -60,6 +63,18 @@ int GamePlayEngine::runEngine()
 			else
 			{
 				buttonindex = onRIghtHandMenu();
+				if (buttonindex == 2)
+					exit = true;
+
+				if (buttonindex == 0)
+				{
+					system("cls");
+					this->_level->getLevelWindow()->hideWindow();
+					std::cout << "inventory pane logic will be here.\npress any key to continue.\n";
+					getch();
+					system("cls");
+					this->_level->getLevelWindow()->unHideWindow();
+				}
 			}
 		}
 	}
