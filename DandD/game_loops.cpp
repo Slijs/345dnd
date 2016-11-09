@@ -107,8 +107,11 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 			}
 
 			//now play the maps one by one
-			for(int x=0; x< mappaths.size(); x++)
+			c_menu->getMenuWindow()->hideWindow();
+			for (int x = 0; x < mappaths.size(); x++)
+			{
 				gameLevelLoop(mappaths[x]);
+			}
 		}
 		else
 		{

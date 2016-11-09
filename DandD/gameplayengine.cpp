@@ -65,6 +65,16 @@ int GamePlayEngine::runEngine()
 				buttonindex = onRIghtHandMenu();
 				if (buttonindex == 2)
 					exit = true;
+
+				if (buttonindex == 0)
+				{
+					system("cls");
+					this->_level->getLevelWindow()->hideWindow();
+					std::cout << "inventory pane logic will be here.\npress any key to continue.\n";
+					getch();
+					system("cls");
+					this->_level->getLevelWindow()->unHideWindow();
+				}
 			}
 		}
 	}
