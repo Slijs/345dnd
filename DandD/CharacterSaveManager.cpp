@@ -7,8 +7,7 @@ using namespace std;
 bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 	CFile mapFile; // Map of all Character saves
 	string input = "";
-	//FIX THISCString charName = theChar->getName().c_str();
-	CString charName = "test";
+	CString charName = theChar->getName().c_str();
 
 	// Will create charMap that will contain all Character save locations
 	CharacterSaveMap* charMap = new CharacterSaveMap();

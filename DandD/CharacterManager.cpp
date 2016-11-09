@@ -23,12 +23,12 @@ void CharacterManager::createOrEditCharacter(){
 
 	// Ask if user wants to CREATE or EDIT the character
 	do{
-		_displayCreateEditMenu;
+		_displayCreateEditMenu();
 		cin >> conf;
 		switch (conf){
 		case '1': // User wants to create a new character
 			_createNewCharacter();
-			cont = false;
+			//cont = false;
 			break;
 		case '2': // User wants to edit a saved character
 			_editCharacter();
@@ -70,7 +70,7 @@ void CharacterManager::_createNewCharacter(){
 
 	// Now the program will get the Character's Race
 	do {
-		cout << "Please select the Class that you want for your character: " << endl;
+		cout << "Please select the race that you want for your character: " << endl;
 		cout << "[0 = Dwarf][1 = Elf][2 = Halfling][3 = Human]" << endl;
 
 		// Will get the integer representing the race the user wants, and will ensure that it is correct
@@ -129,13 +129,14 @@ void CharacterManager::_createNewCharacter(){
 	// The Character will now be created and it will be saved to file
 	Fighter *myChar = CharacterBuilder::create(selectedLevel, Race(selectedRace), name);
 	CharacterSaveManager::saveCharacter(myChar);
-	cout << myChar->getName() << " has been saved!";
+	myChar->displayStats();
 	delete myChar;
 	return;
 }
 
 void CharacterManager::_editCharacter(){
 	Fighter *theChar = CharacterSaveManager::loadCharacter();
+	theChar->displayStats();
 	char conf = 'X'; // char that will be used to get user input
 	bool cont = true;
 	
@@ -217,6 +218,7 @@ void CharacterManager::_editRace(Fighter* theFighter){
 	theFighter->setRace(Race(selectedRace));
 	cout << "Changes will now be saved." << endl;
 	CharacterSaveManager::saveCharacter(theFighter);
+	system("PAUSE");
 	return;
 }
 
@@ -225,6 +227,7 @@ void CharacterManager::_editRace(Fighter* theFighter){
 */
 void CharacterManager::_deleteCharacter(){
 	CharacterSaveManager::removeCharacter();
+	system("PAUSE");
 }
 
 /**

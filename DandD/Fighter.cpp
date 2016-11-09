@@ -9,6 +9,7 @@ Fighter::Fighter(int level, Race race, string name, int STR, int DEX, int CON, i
 	Fighter::name = name;
 	detRaceTraits(race);
 	initHitPoints();
+	this->race = race;
 }
 
 //!Parameterized Constructor to set level, race and name. 
@@ -17,6 +18,7 @@ Fighter::Fighter(int level, Race race, string name) : Characters(level)
 	Fighter::name = name;
 	detRaceTraits(race);
 	initHitPoints();
+	this->race = race;
 }
 
 Fighter::Fighter() : Characters(){
@@ -25,6 +27,7 @@ Fighter::Fighter() : Characters(){
 	speed = Dwarfs::speed;
 	scoreIncrease(Dwarfs::typeScore, Dwarfs::ScoreIncrease);
 	initHitPoints();
+	this->race = Dwarf;
 }
 
 /*
@@ -86,8 +89,6 @@ void Fighter::detRaceTraits(Race race)
 		scoreIncrease(Humans::typeScore, Humans::ScoreIncrease);
 		break;
 	}
-
-
 }
 
 
@@ -110,8 +111,7 @@ void Fighter::displayStats()
 {
 	string raceName;
 	cout << "Name: " << name << endl;
-	if (race == 0)
-		cout << "Class: Fighter" << " Race: Dwarf" << endl;
+	cout << "Class: Fighter" << " Race: " << raceString[race] << endl;
 	cout << "Hit Points: " << hitPoints << "/" << maxHitPoints << endl;
 	this->Characters::displayStats();
 
@@ -253,6 +253,7 @@ void Fighter::Serialize(CArchive &ar){
 	Characters::Serialize(ar);
 	if(ar.IsStoring()) {
 		ar << hitPoints;
+		ar << maxHitPoints;
 		ar << race;
 		ar << size;
 		CString c_name(name.c_str());
@@ -261,6 +262,7 @@ void Fighter::Serialize(CArchive &ar){
 	}
 	else {
 		ar >> hitPoints;
+		ar >> maxHitPoints;
 		int temp = 0;
 		ar >> temp;
 		race = Race(temp);

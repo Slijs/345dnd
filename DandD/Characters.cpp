@@ -24,6 +24,14 @@ Characters::Characters()
 	inBattle = false;
 	isLevelUp = false;
 	_map = NULL;
+	armor = new Armor();
+	belt = new Belt();
+	weapon = new Weapon();
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring();
+	helmet = new Helmet();
+	backpack = new Container();
 
 }
 
@@ -59,6 +67,10 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	_map = NULL;
 
 	backpack = new Container();
+
+	// Sets dummy values to position so that its size is initialized
+	position.push_back(-1);
+	position.push_back(-1);
 }
 
 //!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
@@ -302,7 +314,6 @@ void Characters::calcDamageBonus()
 		damageBonus += scores[1][0];  //add str mod if melee 
 	else
 		damageBonus += scores[1][1]; //add str mod if ranged
-
 }
 
 //!Function for generic display of character's stats (shows all information)
@@ -320,6 +331,10 @@ void Characters::displayStats()
 	cout << "\nEquipment:" << endl;
 
 	displayEquip();
+
+	// Ensures that these two values are updated to reflect the proper value
+	calcAttackBonus();
+	calcDamageBonus();
 
 	cout << "Attack Bonus: " << attackBonus << endl;
 	cout << "Damage Bonus: " << damageBonus << endl;
@@ -684,6 +699,8 @@ bool Characters::validateProficiency()
 void Characters::Serialize(CArchive &ar) {
 	CObject::Serialize(ar);
 	if (ar.IsStoring()) {
+		calcAttackBonus();
+		calcDamageBonus();
 		ar << exp;
 		ar << level;
 		ar << proficiencyBonus;
@@ -702,13 +719,49 @@ void Characters::Serialize(CArchive &ar) {
 		ar << equiped;
 		ar << attackBonus;
 		ar << damageBonus;
-		ar << position.at(0);
-		ar << position.at(1);
+		// If player position hasn't been set, then dummy values will be serialized
+		if (position.size() == 0){
+			ar << -1;
+			ar << -1;
+		}
+		else {
+			ar << (int)position[0];
+			ar << (int)position[1];
+		}
+
+		// Will save several bools used to determine if items are equipped
+		/*
+		ar << (armor != NULL);
+		ar << (weapon != NULL);
+		ar << (helmet != NULL);
+		ar << (shield != NULL);
+		ar << (boots != NULL);
+		ar << (belt != NULL);
+		ar << (ring != NULL); */
+
 		armor->Serialize(ar);
 		weapon->Serialize(ar);
+		helmet->Serialize(ar);
 		shield->Serialize(ar);
 		boots->Serialize(ar);
+		belt->Serialize(ar);
 		ring->Serialize(ar);
+		/*
+		if (armor != NULL)
+			armor->Serialize(ar);
+		if (weapon != NULL)
+			weapon->Serialize(ar);
+		if (helmet != NULL)
+			helmet->Serialize(ar);
+		if (shield != NULL)
+			shield->Serialize(ar);
+		if (boots != NULL)
+			boots->Serialize(ar);
+		if (belt != NULL)
+			belt->Serialize(ar);
+		if (ring != NULL)
+			ring->Serialize(ar); */
+		backpack->Serialize(ar);
 	}
 	else {
 		ar >> exp;
@@ -731,13 +784,59 @@ void Characters::Serialize(CArchive &ar) {
 		ar >> equiped;
 		ar >> attackBonus;
 		ar >> damageBonus;
-		ar >> position.at(0);
-		ar >> position.at(1);
+		if (position.size() == 0){
+			int tempX = 0;
+			ar >> tempX;
+			position.push_back(0);
+			int tempY = 0;
+			ar >> tempY;
+			position.push_back(0);
+		}
+		else {
+			ar >> position[0];
+			ar >> position[1];
+		}
+	
 		armor->Serialize(ar);
 		weapon->Serialize(ar);
+		helmet->Serialize(ar);
 		shield->Serialize(ar);
 		boots->Serialize(ar);
+		belt->Serialize(ar);
 		ring->Serialize(ar);
+		/*
+		bool armorEquipped, weaponEquipped, helmetEquipped, shieldEquipped, bootsEquipped, beltEquipped, ringEquipped;
+		ar >> armorEquipped;
+		ar >> weaponEquipped;
+		ar >> helmetEquipped;
+		ar >> shieldEquipped;
+		ar >> bootsEquipped;
+		ar >> beltEquipped;
+		ar >> ringEquipped;
+		armor = new Armor();
+		weapon = new Weapon();
+		shield = new Shield();
+		boots = new Boots();
+		if (armorEquipped){
+			armor->Serialize(ar);
+		}
+		if (weaponEquipped){
+			weapon->Serialize(ar);
+		}
+		if (helmetEquipped){
+			shield->Serialize(ar);
+		}
+		if (bootsEquipped){
+			boots->Serialize(ar);
+		}
+		if (beltEquipped){
+			belt->Serialize(ar);
+		}
+		if (ringEquipped){
+			ring = new Ring();
+			ring->Serialize(ar);
+		} */
+		backpack->Serialize(ar);
 	}
 }
 

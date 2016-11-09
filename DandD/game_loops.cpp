@@ -449,6 +449,9 @@ int GameLoops::createEditItems()
 
 int GameLoops::createEditPlayer()
 {
+	system("CLS");
+	CharacterManager::createOrEditCharacter();
+	system("CLS");
 	//Create Edit Function call here
 	return _MainMenu_;
 }

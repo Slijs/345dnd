@@ -13,6 +13,7 @@
 #include "mainmenu.h"
 #include "campaignmanager.h"
 #include "campaignMAPmanagers.h"
+#include "CharacterManager.h"
 #include "defaultmaps.h"
 #include "campaignselect.h"
 #include <conio.h>
