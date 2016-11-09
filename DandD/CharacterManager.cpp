@@ -170,7 +170,6 @@ void CharacterManager::_editCharacter(){
 	
 }
 
-<<<<<<< HEAD
 void CharacterManager::_editRace(Fighter* theFighter){
 	string name = theFighter->getName();
 	cout << name << " is currently a " << raceString[theFighter->getRace()] << "." << endl;
@@ -221,8 +220,6 @@ void CharacterManager::_editRace(Fighter* theFighter){
 	return;
 }
 
-=======
->>>>>>> origin/Interim-Build
 /**
 * Allows the user to delete a saved Character
 */
@@ -284,12 +281,6 @@ void CharacterManager::_editName(Fighter *theFighter){
 		return;
 	}
 }
-
-void CharacterManager::_editRace(Fighter* theFighter)
-{
-
-}
-
 
 
 
