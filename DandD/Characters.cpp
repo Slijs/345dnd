@@ -25,13 +25,13 @@ Characters::Characters()
 	isLevelUp = false;
 	_map = NULL;
 
-	armor = nullptr;
-	belt = nullptr;
-	weapon = nullptr;
-	shield = nullptr;
-	boots = nullptr;
-	ring = nullptr;
-	helmet = nullptr;
+	armor = new Armor();
+	belt = new Belt();
+	weapon = new Weapon();
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring();
+	helmet = new Helmet();
 	backpack = new Container();
 }
 
@@ -51,15 +51,13 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 
 	srand(time(NULL));
 
-	armor = nullptr;
-	belt = nullptr;
-	weapon = nullptr;
-	shield = nullptr;
-	boots = nullptr;
-	ring = nullptr;
-	helmet = nullptr;
+	armor = new Armor();
+	belt = new Belt();
+	weapon = new Weapon();
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring();
 	helmet = new Helmet();
-
 
 	detProficiencyBonus();
 	detExp();
