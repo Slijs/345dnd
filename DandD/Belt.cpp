@@ -20,7 +20,7 @@ Belt::Belt() :
 /**
 * Copy Constructor - initializes a new belt with the same values as another belt
 */
-Belt::Belt(const Belt* otherBelt) : Belt(otherBelt) {}
+Belt::Belt(const Belt* otherBelt) : Item(otherBelt) {}
 
 // Constructor where all attributes EXCEPT the enchantmentsPossible
 // will be set.

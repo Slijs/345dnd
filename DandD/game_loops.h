@@ -16,6 +16,7 @@
 #include "CharacterManager.h"
 #include "defaultmaps.h"
 #include "campaignselect.h"
+#include "ItemCreator.h"
 #include <conio.h>
 #include <vector>
 

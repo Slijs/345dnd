@@ -24,9 +24,9 @@ class Shield: public Item {
 		// Constructors
 	public:
 		Shield();
-		Shield(const Shield* otherShield);
 		Shield(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues, int defense, std::string attackDice, int range);
+		Shield(const Shield* otherShield); // Copy Constructor
 		int getDefense();
 		void setDefense(int defense);
 		void incrementDefense();
