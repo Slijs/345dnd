@@ -49,7 +49,9 @@ public:
 	void displayLevelUp();
 	void displayDeath();
 	string getName() { return name; }
+	Race getRace() { return race; };
 	void setName(string name);
+	void setRace(Race nRace);
 
 	//For battle
 	void attack(Monster* c);
@@ -68,6 +70,7 @@ public:
 	bool validateGainExperience(int);
 
 	bool validatePlayerMove(int x, int y);
+	bool validateChestWithinRange(int x, int y);
 
 	virtual void Serialize(CArchive &ar);
 };

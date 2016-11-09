@@ -159,14 +159,65 @@ void CharacterManager::_editCharacter(){
 			cont = false;
 			break;
 		case 'e':
-		case 'E': // UPDATE THIS!!! need to delete Fighter* reference
+		case 'E':
+			delete theChar;
 			return;
 		default:
 			cout << "Sorry, I think you entered an option that isn't allowed. Please try again." << endl;
 		}
 	} while (cont);
+	delete theChar;
 	return;
 	
+}
+
+void CharacterManager::_editRace(Fighter* theFighter){
+	string name = theFighter->getName();
+	cout << name << " is currently a " << raceString[theFighter->getRace()] << "." << endl;
+	char conf = 'X';
+	string input = "";
+	int selectedRace = -1;
+
+	// Now the program will get the Character's Race
+	do {
+		cout << "Please select the Class that you want for " << name << ":" << endl;
+		cout << "[0 = Dwarf][1 = Elf][2 = Halfling][3 = Human]" << endl;
+
+		// Will get the integer representing the race the user wants, and will ensure that it is correct
+		cin >> input;
+		try {
+			selectedRace = stoi(input);
+		}
+		catch (invalid_argument) {
+			cout << "You entered an invalid argument. Please try again." << endl;
+			continue;
+		}
+
+		// Will confirm the race for the user
+		switch (selectedRace) {
+		case 0:
+			cout << "You selected Dwarf. Are you happy with this? (Y/N) ";
+			break;
+		case 1:
+			cout << "You selected Elf. Are you happy with this? (Y/N) ";
+			break;
+		case 2:
+			cout << "You selected Halfling. Are you happy with this? (Y/N) ";
+			break;
+		case 3:
+			cout << "You selected Human. Are you happy with this? (Y/N) ";
+			break;
+		default:
+			cout << "You selected an invalid option. Please try again." << endl;
+			continue;
+		}
+		cin >> conf;
+	} while (!(conf == 'Y' || conf == 'y'));
+	conf = 'x';
+	theFighter->setRace(Race(selectedRace));
+	cout << "Changes will now be saved." << endl;
+	CharacterSaveManager::saveCharacter(theFighter);
+	return;
 }
 
 /**
@@ -224,7 +275,7 @@ void CharacterManager::_editName(Fighter *theFighter){
 		return;
 	// Means that saving returned false and no updates were saved
 	} else {
-		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName "." << endl;
+		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName << "." << endl;
 		theFighter->setName(prevName);
 		return;
 	}

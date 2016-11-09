@@ -35,6 +35,32 @@ Fighter::~Fighter()
 
 }
 
+/**
+*Will allow a Fighter's race to change. Will undo current Race stats and update them with the stats of the new race
+*/
+void Fighter::setRace(Race nRace){
+	// First, will change Fighter's stats to remove ScoreIncrease from current race
+	switch (race)
+	{
+	case Dwarf:
+		scoreIncrease(Dwarfs::typeScore, -(Dwarfs::ScoreIncrease));
+		break;
+	case Elf:
+		scoreIncrease(Elves::typeScore, -(Elves::ScoreIncrease));
+		break;
+	case Halfling:
+		scoreIncrease(Halflings::typeScore, -(Halflings::ScoreIncrease));
+		break;
+	case Human:
+		scoreIncrease(Humans::typeScore, -(Humans::ScoreIncrease));
+		break;
+	}
+	// Will change the current race
+	race = nRace;
+	// Then will determine race traits based on the Character's new race
+	detRaceTraits(nRace);
+}
+
 void Fighter::detRaceTraits(Race race)
 {
 	switch (race)
@@ -249,6 +275,16 @@ void Fighter::Serialize(CArchive &ar){
 		}
 		ar >> speed;
 	}
+}
+
+bool Fighter::validateChestWithinRange(int x, int y){
+	// Will calculate the x and y distance
+	int xDiff = abs(x - this->position[0]);
+	int yDiff = abs(y - this->position[1]);
+	// If either the xDiff or yDiff is greater than speed, then chest is out of range - returns false
+	if (xDiff > speed || yDiff > speed)
+		return false;
+	return true;
 }
 
 bool Fighter::validatePlayerMove(int x, int y) {
