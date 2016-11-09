@@ -49,6 +49,7 @@ public:
 	void displayLevelUp();
 	void displayDeath();
 	string getName() { return name; }
+	void setName(string name);
 
 	//For battle
 	void attack(Monster* c);

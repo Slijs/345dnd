@@ -197,7 +197,8 @@ void CharacterManager::_displayEditMenu(){
 }
 
 void CharacterManager::_editName(Fighter *theFighter){
-	cout << theFighter->getName() << " is the current name." << endl;
+	string prevName = theFighter->getName();
+	cout << prevName << " is the current name." << endl;
 	string name = "";
 	char conf = 'X';
 	
@@ -211,4 +212,20 @@ void CharacterManager::_editName(Fighter *theFighter){
 			cout << "Sorry, I didn't understand your confirmation. Please try again." << endl;
 	} while (!(conf == 'Y' || conf == 'y'));
 	conf = 'X';
+
+	// Changes the name
+	theFighter->setName(name);
+
+	// Saves the Fighter using new name
+	if (CharacterSaveManager::saveCharacter(theFighter)) {
+		cout << theFighter->getName() << " has been updated!" << endl;
+		// Deletes the entry corresponding to the old name
+		CharacterSaveManager::removeCharacter(prevName);
+		return;
+	// Means that saving returned false and no updates were saved
+	} else {
+		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName "." << endl;
+		theFighter->setName(prevName);
+		return;
+	}
 }
