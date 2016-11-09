@@ -32,7 +32,18 @@ Characters::Characters()
 	boots = new Boots();
 	ring = new Ring();
 	helmet = new Helmet();
+<<<<<<< HEAD
 
+=======
+	backpack = new Container();
+	armor = nullptr;
+	belt = nullptr;
+	weapon = nullptr;
+	shield = nullptr;
+	boots = nullptr;
+	ring = nullptr;
+	helmet = nullptr;
+>>>>>>> origin/Interim-Build
 }
 
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)

@@ -77,6 +77,7 @@ protected:
 	Boots* boots;
 	Belt* belt;
 	Ring* ring;
+	Container* backpack;
 
 private:
 	int const MAX_NUM_SCORES = 6;

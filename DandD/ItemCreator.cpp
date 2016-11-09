@@ -406,16 +406,39 @@ void ItemCreator::createItems()
 
 				// serialize 
 				CFile fileS;
+<<<<<<< HEAD
 				if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite))
 				{
 					std::cout << "Unable to open output file" << std::endl;
 					break;
+=======
+
+				if (FILE *file = fopen("serializedItems.dat", "r")) {
+					fclose(file);
+					if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite))
+					{
+						std::cout << "Unable to open output file" << std::endl;
+						break;
+					}
+					cout << "Saving items...\n";
+					CArchive arStore(&fileS, CArchive::store);
+					userContainer->Serialize(arStore);
+					arStore.Close();
+					fileS.Close();
 				}
-				cout << "Saving items...\n";
-				CArchive arStore(&fileS, CArchive::store);
-				userContainer->Serialize(arStore);
-				arStore.Close();
-				fileS.Close();
+				else {
+					if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite | CFile::modeCreate))
+					{
+						std::cout << "Unable to open output file" << std::endl;
+						break;
+					}
+					cout << "Saving items...\n";
+					CArchive arStore(&fileS, CArchive::store);
+					userContainer->Serialize(arStore);
+					arStore.Close();
+					fileS.Close();
+>>>>>>> origin/Interim-Build
+				}
 
 			}
 			else if (number == 10) {
@@ -437,7 +460,6 @@ void ItemCreator::createItems()
 				userContainer->Serialize(arLoad);
 				arLoad.Close();
 				fileL.Close();
-
 			}
 			else if (number == 11) {
 				continuing = false;
