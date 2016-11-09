@@ -18,6 +18,8 @@ Fighter::Fighter(int level, Race race, string name, int STR, int DEX, int CON, i
 	this->_componentType = gameplayGridComponentTypes::character;
 	this->_componentChar = SimplifiedMapSymbols::_Player_;
 	this->_obstructionToPlayer = false;
+
+	backpack = new Container();
 }
 
 //!Parameterized Constructor to set level, race and name. 
@@ -138,6 +140,10 @@ void Fighter::displayStats()
 	cout << "Class: Fighter" << " Race: " << raceString[race] << endl;
 	cout << "Hit Points: " << hitPoints << "/" << maxHitPoints << endl;
 	this->Characters::displayStats();
+
+	for (int i = 0; i < backpack->getNumContents(); i++)
+		cout << backpack->getContents()[i]->getName() << " ";
+	cout << endl;
 
 }
 
@@ -269,6 +275,139 @@ bool Fighter::validateGainExperience(int exp)
 		return true;
 	return false;
 }
+
+
+void Fighter::equipOptions()
+{
+
+}
+
+/*EQUIP FUNCTIONS:
+Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
+//If wish to de-equip use default constructor of these Classes
+*/
+
+//!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
+
+
+
+void Fighter::equip(Armor* a)
+{
+	//Remove bonus
+	if (armor->getEnchantmentValues()[7] == 0)
+		armorClass -= 10;
+	else
+		armorClass -= armor->getEnchantmentValues()[7];
+	armor = a;
+	//Add Bonus
+	armorClass += armor->getEnchantmentValues()[7];
+
+	currentState();
+}
+
+//!Function to equip weapon. Recalculates damage bonus and attack bonus based on weapon equipped. Triggers redisplay of stats
+void Fighter::equip(Weapon* w)
+{
+	weapon = w;
+	calcDamageBonus();
+	calcAttackBonus();
+	currentState();
+}
+
+//!Function to equip helmet. Previous bonus is removed and recalculate the bonus based on new helmet. Triggers redisplay of stats.
+void Fighter::equip(Helmet* h)
+{
+	updateStatsDQ(helmet);
+
+	helmet = h;
+
+	updateStatsEQ(helmet);
+
+	currentState();
+}
+//!Function to equip boots. Previous bonus is removed and recalculate the bonus based on new boots. Triggers redisplay of stats.
+void Fighter::equip(Boots* b)
+{
+	updateStatsDQ(boots);
+
+	boots = b;
+
+	updateStatsEQ(boots);
+
+	currentState();
+}
+
+//!Function to equip ring. Previous bonus is removed and recalculate the bonus based on new ring. Triggers redisplay of stats.
+void Fighter::equip(Ring* r)
+{
+	updateStatsDQ(ring);
+
+	ring = r;
+
+	updateStatsEQ(ring);
+
+	currentState();
+}
+
+//!Function to equip shield. Previous AC bonus is removed and recalculate the AC based on new shield. Triggers redisplay of stats
+void Fighter::equip(Shield* s)
+{
+	updateStatsDQ(shield);
+
+	shield = s;
+
+	updateStatsEQ(shield);
+
+	currentState();
+}
+
+void Fighter::equip(Belt* b)
+{
+	updateStatsDQ(belt);
+
+	belt = b;
+
+	updateStatsEQ(shield);
+	currentState();
+}
+
+void Fighter::deequipArmor()
+{
+	updateStatsDQ(armor);
+	armor = new Armor();//using phil's default constructor for armor etc
+}
+void Fighter::dequipWeapon()
+{
+	updateStatsDQ(weapon);
+	weapon = new Weapon();
+}
+void Fighter::deequipHelmet()
+{
+	updateStatsDQ(helmet);
+	helmet = new Helmet();
+}
+void Fighter::deequipBoots()
+{
+	updateStatsDQ(boots);
+	boots = new Boots();
+
+}
+void Fighter::deequipRing()
+{
+	updateStatsDQ(ring);
+	ring = new Ring();
+}
+void Fighter::deequipShield()
+{
+	updateStatsDQ(shield);
+	shield = new Shield();
+}
+void Fighter::deequipBelt()
+{
+	updateStatsDQ(belt);
+	belt = new Belt();
+}
+
 
 /**
 * Implementation of Serialization to allow Fighter to be Serialized to file

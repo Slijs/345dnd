@@ -69,6 +69,15 @@ protected:
 	vector<int> position;
 	vector<string> *_map;
 	Dice _die;
+	int armorClass;
+	Armor* armor;
+	Weapon* weapon;
+	Helmet* helmet;
+	Shield* shield;
+	Boots* boots;
+	Belt* belt;
+	Ring* ring;
+
 private:
 	int const MAX_NUM_SCORES = 6;
 	//int* diceThrows; only a temporary thing to be used during randomizing with dice
@@ -78,7 +87,7 @@ private:
 	int exp;
 	int level;
 	int proficiencyBonus;
-	int armorClass; //can update when equip armor, shield, helmet, boots &/or ring
+	 //can update when equip armor, shield, helmet, boots &/or ring
 	//or when dex goes up
 
 	Size size;
@@ -95,15 +104,9 @@ private:
 	/*
 	EQUIPMENT
 	*/
-	Armor* armor;
-	Weapon* weapon;
-	Helmet* helmet;
-	Shield* shield;
-	Boots* boots;
-	Belt* belt;
-	Ring* ring;
 
-	Container* backpack;
+
+	
 
 	/*
 	HELPER FUNCTIONS ONLY USED IN CHARACTERS CPP
@@ -126,9 +129,6 @@ private:
 
 	void gainLevel();
 
-	//for equip and dequip stat update
-	void updateStatsDQ(Item*);	    //should be used when equiping and unequiping 
-	void updateStatsEQ(Item*);
 
 
 
@@ -153,6 +153,41 @@ public:
 	bool getIsLevelUp() { return isLevelUp; }
 	void setIsLevelUp(bool isLevelUp) { this->isLevelUp = isLevelUp; }
 
+
+	//setters for items 
+	void setArmor(Armor* a){ armor = a; }
+	void setWeapon(Weapon* w){ weapon = w; }
+	void setHelmet(Helmet* h){ helmet = h; }
+	void setBoots(Boots* b){ boots = b; }
+	void setRing(Ring* r){ ring = r; }
+	void setShield(Shield* s){ shield = s; }
+	void setBelt(Belt* b){ belt = b; }
+
+
+	//getters for items 
+	Armor* getArmor(){
+		return armor;
+	}
+
+	Weapon* getWeapon(){
+		return weapon;
+	}
+	Helmet* getHelmet(){
+		return helmet;
+	}
+	Boots* getBoots(){
+		return boots;
+	}
+	Ring* getRing(){
+		return ring;
+	}
+	Shield* getShield(){
+		return shield;
+	}
+	Belt* getBelt(){
+		return belt;
+	}
+
 	vector<int> getPosition() { return position; }
 
 	void calcAttackBonus();		//from STR/DEX mod & proficiency level and base attack bonus
@@ -170,21 +205,7 @@ public:
 	int rollDice(int);
 
 	//for the equipment
-	void equip(Armor*);			//allows for equiping
-	void equip(Weapon*);
-	void equip(Helmet*);
-	void equip(Boots*);
-	void equip(Ring*);
-	void equip(Shield*);
-	void equip(Belt*);
-
-	void deequipArmor();
-	void dequipWeapon();
-	void deequipHelmet();
-	void deequipBoots();
-	void deequipRing();
-	void deequipShield();
-	void deequipBelt();
+	
 
 	string currentBelt();
 	string currentArmor();
@@ -194,7 +215,9 @@ public:
 	string currentBoots();
 	string currentRing();
 
-
+	//for equip and dequip stat update
+	void updateStatsDQ(Item*);	    //should be used when equiping and unequiping 
+	void updateStatsEQ(Item*);
 
 
 	//For battle
