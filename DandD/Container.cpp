@@ -77,7 +77,8 @@ vector<Item*> Container::getContents() {
 
 /**
  * @brief This method will take the name of an object, and return a pointer
- * to the first object in the container that matches that name.
+ * to the first object in the container that matches that name. It will NOT
+ * remove the item from the container!!!
  * @param name The name of the desired object
  */
 Item* Container::getItem(string name) {
@@ -103,6 +104,7 @@ Item* Container::removeItem(int m_contentsIndex) {
 	} else {
 		Item* removedItem = contents.at(m_contentsIndex);
 		contents.erase(contents.begin() + m_contentsIndex);
+		numContents--;
 		return removedItem;
 	}
 }
@@ -119,6 +121,7 @@ Item* Container::removeItem(int m_contentsIndex) {
 bool Container::insertItem(Item *m_item) {
 	if (numContents < maxContents) {
 		contents.push_back(m_item);
+		numContents++;
 		return 1;
 	} else {
 		return 0;
