@@ -10,14 +10,11 @@
 #include "Armor.h"
 #include "Item.h"
 
-// Windows
-//#include "stdafx.h"
-
 IMPLEMENT_SERIAL(Armor, Item, 1);
 
 // Default constructor, useless item as is
-Armor::Armor() : Item("No name set", 0, 0, "No Image Set", { { 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, { { 0, 0, 0, 0, 0, 0, 1, 0, 0 } })
-//END TEST
+Armor::Armor() : 	
+	Item("No name set", 0, 0, "assets/defaultArmor.jpg", {0,0,0,0,0,0,0,0,0}, {0,0,0,0,0,0,1,0,0}), defense(0)
 {
 
 }
@@ -36,15 +33,26 @@ Armor::Armor() : Item("No name set", 0, 0, "No Image Set", { { 0, 0, 0, 0, 0, 0,
  * @param defense
  */
 Armor::Armor(std::string name, int weight, int value, std::string image,
-	std::array<int, 9> enchantmentValues, int defense) : Item(name, weight, value, image, enchantmentValues, { { 0, 0, 0, 0, 0, 0, 1, 0, 0 } }), defense(defense)
+		std::array<int, 9> enchantmentValues, int defense) 
+	: Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,1,0,0})
 {
-
+	setDefense(defense);
 }
 
 // Getters/Setters
 
 int Armor::getDefense() {
 	return defense;
+}
+
+void Armor::setDefense(int defense)
+{
+	if (defense < 0 || defense > 25) {
+		throw "Defense must be between 0 and 25";
+	}
+	else {
+		this->defense = defense;
+	}
 }
 
 void Armor::incrementDefense() {
@@ -66,9 +74,8 @@ std::string Armor::toString() {
 	std::string tempString;
 
 	tempString = Item::toString();
-	//KHATIBS TEST
-	//tempString += "Defense: " + std::to_string(getDefense()) + "\n";
-	//END TEST
+	
+	tempString += "Defense: " + std::to_string(getDefense()) + "\n";
 	return tempString;
 }
 
@@ -85,7 +92,7 @@ void Armor::Serialize(CArchive &ar) {
 /**
 * Copy Constructor - Uses another Armor to initialize this one
 */
-Armor::Armor(Armor *otherArmor) : Item(otherArmor) {
+Armor::Armor(Armor *otherArmor) : Armor(otherArmor) {
 	this->defense = otherArmor->defense;
 }
 

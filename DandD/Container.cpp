@@ -19,7 +19,7 @@ IMPLEMENT_SERIAL(Container, CObject, 1);
 /**
  * @brief 
  */
-Container::Container() : maxContents(5), numContents(0) {}
+Container::Container() : maxContents(15), numContents(0) {}
 
 /**
  * @brief 

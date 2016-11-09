@@ -16,8 +16,7 @@
 class Weapon: public Item {
 	protected:
 		// Weapon Attributes
-		int damage;
-		int defense;
+		string attackDice;
 		int range;
 		DECLARE_SERIAL(Weapon);
 		// Constructors
@@ -25,15 +24,11 @@ class Weapon: public Item {
 		Weapon();
 		Weapon(const Weapon* otherWeapon);
 		Weapon(string name, int weight, int value, string image, 
-				array<int, 9> enchantmentValues, int damage, int defense, 
-				int range);
-		int getDamage();
-		int getDefense();
+				array<int, 9> enchantmentValues, string attackDice, int range);
+		string getAttackDice();
+		void setAttackDice(string attackDice);
 		int getRange();
-		void incrementDamage();
-		void decrementDamage();
-		void incrementDefense();
-		void decrementDefense();
+		void setRange(int range);
 		void incrementRange();
 		void decrementRange();
 		std::string toString();

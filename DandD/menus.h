@@ -14,7 +14,7 @@ class Menus
 protected:
 	TextBasedWindow* _menuWindow;
 	std::string _menuName;
-	std::vector<RGB*> _baseMenuColors; 
+	std::vector<RGB_C*> _baseMenuColors; 
 
 public:
 	Menus();
@@ -24,7 +24,7 @@ public:
 	void displayMenu() const;
 	void hideMenu() const;
 	TextBasedWindow* getMenuWindow() const;
-	RGB* getAMenuComponentColor(int index) const;
+	RGB_C* getAMenuComponentColor(int index) const;
 	void setAMenuComponentColor(const int r, const int g, const int b, const int index);
 	int textWidthCalculator(std::string subject, std::string base, int basewidth);
 	~Menus();

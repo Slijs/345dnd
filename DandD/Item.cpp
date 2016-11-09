@@ -21,12 +21,9 @@ IMPLEMENT_SERIAL(Item, CObject, 1);
 Item::Item() : name("Name Unset"),
 weight(0),
 value(0),
-image("Image Unset"), //dont forget to add comma here
-//KHATIBS TEST
-enchantmentValues({{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }}),
-enchantmentsPossible({ { 0, 0, 0, 0, 0, 0, 0, 0, 0 } })
-//END TEST
-{}
+image("assets/defaultItem.jpg"),
+enchantmentValues({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }),
+enchantmentsPossible({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }) {}
 
 /**
 * @brief This will be the standard constructor to be used for the
@@ -44,12 +41,12 @@ enchantmentsPossible({ { 0, 0, 0, 0, 0, 0, 0, 0, 0 } })
 * 			an enchantment will be allowed if it is > 0 in this list.
 */
 Item::Item(string name, int weight, int value, string image,
-	std::array<int, 9> enchantmentValues) :
-	name(name),
-	weight(weight),
-	value(value),
-	image(image)
+	std::array<int, 9> enchantmentValues)
 {
+	setName(name);
+	setWeight(weight);
+	setValue(value);
+	setImage(image);
 	// Initialize the enchantmentsPossible based off of the array of
 	// enchantmentValues.
 	for (int i = 0; i < 9; i++) {
@@ -82,12 +79,12 @@ Item::Item(string name, int weight, int value, string image,
 Item::Item(string name, int weight, int value, string image,
 	std::array<int, 9> enchantmentValues,
 	std::array<bool, 9> enchantmentsPossible) :
-	name(name),
-	weight(weight),
-	value(value),
-	image(image),
 	enchantmentsPossible(enchantmentsPossible)
 {
+	setName(name);
+	setImage(image);
+	setWeight(weight);
+	setValue(value);
 	// Check to make sure that all of the values present in enchantmentValues
 	// are allowed according to enchantmentsPossible.
 	for (int i = 0; i < 9; i++) {
@@ -111,16 +108,51 @@ string Item::getName() {
 	return name;
 }
 
+void Item::setName(string name)
+{
+	if (name.size() < 1 || name.size() > 20) {
+		throw "Name too long.";
+	}
+	else {
+		this->name = name;
+	}
+}
+
 int Item::getWeight() {
 	return weight;
+}
+
+void Item::setWeight(int weight)
+{
+	if (weight < 0 || weight > 25) {
+		throw "Weight must be between 0 and 25";
+	}
+	else {
+		this->weight = weight;
+	}
 }
 
 int Item::getValue() {
 	return value;
 }
 
+void Item::setValue(int value)
+{
+	if (value < 0 || value > 999) {
+		throw "Value must be between 0 and 999.";
+	}
+	else {
+		this->value = value;
+	}
+}
+
 string Item::getImage() {
 	return image;
+}
+
+void Item::setImage(string path)
+{
+	this->image = path;
 }
 
 array<int, 9> Item::getEnchantmentValues() {
@@ -135,8 +167,7 @@ array<bool, 9> Item::getEnchantmentsPossible() {
 
 string Item::toString() {
 	string tempString;
-	//KHATIBS TEST
-	tempString += "------------------ " + getName() + " ---------------\n";
+	tempString += getName() + "\n";
 	tempString += "Weight: " + std::to_string(getWeight()) + "\tValue: "
 		+ std::to_string(getValue()) +
 		"\tImage: " + getImage() + "\n";
@@ -147,7 +178,6 @@ string Item::toString() {
 		tempString += std::to_string(tempEnchantmentValues[i]) + "\t";
 	}
 	tempString += "\n";
-	//END TEST
 	return tempString;
 }
 

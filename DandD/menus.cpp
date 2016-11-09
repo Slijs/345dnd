@@ -30,19 +30,19 @@ Menus::Menus(std::string title)
 	const int _OtherText = 4;*/
 
 	//background at index 0
-	this->_baseMenuColors.push_back(new RGB(100,35,45));
+	this->_baseMenuColors.push_back(new RGB_C(100,35,45));
 
 	//yes button at index 1
-	this->_baseMenuColors.push_back(new RGB(0,0,255));
+	this->_baseMenuColors.push_back(new RGB_C(0,0,255));
 
 	//no button at index 2
-	this->_baseMenuColors.push_back(new RGB(0,255,0));
+	this->_baseMenuColors.push_back(new RGB_C(0,255,0));
 
 	//title at index 3
-	this->_baseMenuColors.push_back(new RGB(255,255,255));
+	this->_baseMenuColors.push_back(new RGB_C(255,255,255));
 
 	//other text at index 4
-	this->_baseMenuColors.push_back(new RGB(255,200,0));
+	this->_baseMenuColors.push_back(new RGB_C(255,200,0));
 }
 
 //!menu window accessor
@@ -52,7 +52,7 @@ TextBasedWindow* Menus::getMenuWindow() const
 }
 
 //!a menu component color accessor
-RGB* Menus::getAMenuComponentColor(int index) const
+RGB_C* Menus::getAMenuComponentColor(int index) const
 {
 	if(index<0 || index> this->_baseMenuColors.size())
 		return nullptr;

@@ -9,17 +9,11 @@
 #include <stdexcept>
 #include "Boots.h"
  
-// Windows
-//#include "stdafx.h"
-
 IMPLEMENT_SERIAL(Boots, Item, 1);
 
 // Default constructor, useless item as is
-Boots::Boots() 
-	//KHATIBS TEST
-	//: 	
-	//Item("No name set", 0, 0, "No Image Set", {0,0,0,0,0,0,0,0,0}, {0,1,0,0,0,0,1,0,0}) 
-	//END TEST
+Boots::Boots() : 	
+	Item("No name set", 0, 0, "assets/defaultBoots.jpg", {0,0,0,0,0,0,0,0,0}, {0,1,0,0,0,0,1,0,0}) 
 {
 
 }
@@ -27,52 +21,13 @@ Boots::Boots()
 /**
 * Copy-constructor - initializes a new pair of boots with the same values as another pair of boots
 */
-Boots::Boots(const Boots* otherBoots) : Item(otherBoots), defense(otherBoots->defense) {};
+Boots::Boots(const Boots* otherBoots) : Item(otherBoots) {};
 
 // Constructor where all attributes EXCEPT the enchantmentsPossible
 // will be set.
 Boots::Boots(std::string name, int weight, int value, std::string image,
-		std::array<int, 9> enchantmentValues, int defense) 
-	//KHATIBS TEST
-	//: Item(name, weight, value, image, enchantmentValues, {0,1,0,0,0,0,1,0,0}),
-	//defense(defense)
-	//END TEST
+		std::array<int, 9> enchantmentValues) 
+	: Item(name, weight, value, image, enchantmentValues, {0,1,0,0,0,0,1,0,0})
 {
 
-}
-
-// Getters/Setters
-
-int Boots::getDefense() {
-	return defense;
-}
-
-void Boots::incrementDefense() {
-	defense++;
-}
-
-void Boots::decrementDefense() {
-	defense--;
-}
-
-// Misc methods
-
-std::string Boots::toString() {
-	std::string tempString;
-
-	tempString = Item::toString();
-	//KHATIBS TEST
-	//tempString += "\tDefense: " + std::to_string(getDefense()) + "\n";
-	//END TEST
-	return tempString;
-}
-
-void Boots::Serialize(CArchive &ar) {
-	Item::Serialize(ar);
-	if (ar.IsStoring()) {
-		ar << defense;
-	}
-	else {
-		ar >> defense;
-	}
 }

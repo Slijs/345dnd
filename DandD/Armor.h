@@ -25,6 +25,7 @@ class Armor: public Item {
 		Armor(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues, int defense);
 		int getDefense();
+		void setDefense(int defense);
 		void incrementDefense();
 		void decrementDefense();
 		std::string toString();

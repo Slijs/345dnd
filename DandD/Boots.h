@@ -15,20 +15,13 @@
 
 class Boots: public Item {
 	protected:
-		// Boots Attributes
-		int defense;
 		DECLARE_SERIAL(Boots);
 		// Constructors
 	public:
 		Boots();
 		Boots(const Boots* otherBoots);
 		Boots(string name, int weight, int value, string image, 
-				array<int, 9> enchantmentValues, int defense);
-		int getDefense();
-		void incrementDefense();
-		void decrementDefense();
-		std::string toString();
-		virtual void Serialize(CArchive &ar);
+				array<int, 9> enchantmentValues);
 };
 
 #endif // Include guard

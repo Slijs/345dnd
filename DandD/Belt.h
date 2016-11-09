@@ -9,25 +9,20 @@
 #ifndef Belt_H
 #define Belt_H
 
-
+#include <afx.h>
 #include <string>
 #include "Item.h"
 
 class Belt: public Item {
 	protected:
 		// Belt Attributes
-		int defense;
 		DECLARE_SERIAL(Belt);
 		// Constructors
 	public:
 		Belt();
 		Belt(const Belt* otherBelt); 
 		Belt(string name, int weight, int value, string image, 
-				array<int, 9> enchantmentValues, int defense);
-		int getDefense();
-		void incrementDefense();
-		void decrementDefense();
-		std::string toString();
+				array<int, 9> enchantmentValues);
 		virtual void Serialize(CArchive &ar);
 };
 

@@ -9,7 +9,18 @@ Fighter::Fighter(int level, Race race, string name, int STR, int DEX, int CON, i
 	Fighter::name = name;
 	detRaceTraits(race);
 	initHitPoints();
+<<<<<<< HEAD
 	this->race = race;
+=======
+
+	//gamecomponent attributes
+	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_player_image_path;
+	this->_componentName = "Player";
+	this->_componentImage = nullptr;
+	this->_componentType = gameplayGridComponentTypes::character;
+	this->_componentChar = SimplifiedMapSymbols::_Player_;
+	this->_obstructionToPlayer = false;
+>>>>>>> origin/Interim-Build
 }
 
 //!Parameterized Constructor to set level, race and name. 
@@ -18,7 +29,18 @@ Fighter::Fighter(int level, Race race, string name) : Characters(level)
 	Fighter::name = name;
 	detRaceTraits(race);
 	initHitPoints();
+<<<<<<< HEAD
 	this->race = race;
+=======
+
+	//gamecomponent attributes
+	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_player_image_path;
+	this->_componentName = "Player";
+	this->_componentImage = nullptr;
+	this->_componentType = gameplayGridComponentTypes::character;
+	this->_componentChar = SimplifiedMapSymbols::_Player_;
+	this->_obstructionToPlayer = false;
+>>>>>>> origin/Interim-Build
 }
 
 Fighter::Fighter() : Characters(){
@@ -27,7 +49,18 @@ Fighter::Fighter() : Characters(){
 	speed = Dwarfs::speed;
 	scoreIncrease(Dwarfs::typeScore, Dwarfs::ScoreIncrease);
 	initHitPoints();
+<<<<<<< HEAD
 	this->race = Dwarf;
+=======
+
+	//gamecomponent attributes
+	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_player_image_path;
+	this->_componentName = "Player";
+	this->_componentImage = nullptr;
+	this->_componentType = gameplayGridComponentTypes::character;
+	this->_componentChar = SimplifiedMapSymbols::_Player_;
+	this->_obstructionToPlayer = false;
+>>>>>>> origin/Interim-Build
 }
 
 /*

@@ -160,18 +160,17 @@ void CharacterManager::_editCharacter(){
 			cont = false;
 			break;
 		case 'e':
-		case 'E':
-			delete theChar;
+		case 'E': // UPDATE THIS!!! need to delete Fighter* reference
 			return;
 		default:
 			cout << "Sorry, I think you entered an option that isn't allowed. Please try again." << endl;
 		}
 	} while (cont);
-	delete theChar;
 	return;
 	
 }
 
+<<<<<<< HEAD
 void CharacterManager::_editRace(Fighter* theFighter){
 	string name = theFighter->getName();
 	cout << name << " is currently a " << raceString[theFighter->getRace()] << "." << endl;
@@ -222,6 +221,8 @@ void CharacterManager::_editRace(Fighter* theFighter){
 	return;
 }
 
+=======
+>>>>>>> origin/Interim-Build
 /**
 * Allows the user to delete a saved Character
 */
@@ -278,8 +279,17 @@ void CharacterManager::_editName(Fighter *theFighter){
 		return;
 	// Means that saving returned false and no updates were saved
 	} else {
-		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName << "." << endl;
+		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName<< "." << endl;
 		theFighter->setName(prevName);
 		return;
 	}
 }
+
+void CharacterManager::_editRace(Fighter* theFighter)
+{
+
+}
+
+
+
+

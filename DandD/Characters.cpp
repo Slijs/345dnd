@@ -24,6 +24,7 @@ Characters::Characters()
 	inBattle = false;
 	isLevelUp = false;
 	_map = NULL;
+<<<<<<< HEAD
 	armor = new Armor();
 	belt = new Belt();
 	weapon = new Weapon();
@@ -32,6 +33,15 @@ Characters::Characters()
 	ring = new Ring();
 	helmet = new Helmet();
 	backpack = new Container();
+=======
+	armor = nullptr;
+	belt = nullptr;
+	weapon = nullptr;
+	shield = nullptr;
+	boots = nullptr;
+	ring = nullptr;
+	helmet = nullptr;
+>>>>>>> origin/Interim-Build
 
 }
 
