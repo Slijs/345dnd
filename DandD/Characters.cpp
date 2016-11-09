@@ -24,10 +24,7 @@ Characters::Characters()
 	inBattle = false;
 	isLevelUp = false;
 	_map = NULL;
-<<<<<<< HEAD
-=======
 
->>>>>>> e9a97cfeb9cc3e56c67937f5a6c074cf05effaa3
 	armor = new Armor();
 	belt = new Belt();
 	weapon = new Weapon();
@@ -35,7 +32,6 @@ Characters::Characters()
 	boots = new Boots();
 	ring = new Ring();
 	helmet = new Helmet();
-<<<<<<< HEAD
 	backpack = new Container();
 	armor = nullptr;
 	belt = nullptr;
@@ -44,8 +40,6 @@ Characters::Characters()
 	boots = nullptr;
 	ring = nullptr;
 	helmet = nullptr;
-=======
->>>>>>> e9a97cfeb9cc3e56c67937f5a6c074cf05effaa3
 }
 
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
