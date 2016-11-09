@@ -6,10 +6,15 @@ class GamePlayEngine
 {
 private:
 	PreBuiltLevel* _level;
+	SDL_Event* _event;
+	bool _moveSelect;
+	SDL_Rect _currentGrid;
+	SDL_Rect _lastGrid;
+	int _gridIndex;
 
 public:
 	GamePlayEngine();
-	void attachLevel(PreBuiltLevel* level);
+	void attachLevel(PreBuiltLevel* level, SDL_Event* event_);
 	void detachLevel();
 	int runEngine();
 	void onGameplayGrids();
