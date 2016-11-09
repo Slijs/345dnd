@@ -124,8 +124,8 @@ void Fighter::initHitPoints()
 	//For every level: HP = HP + roll_HitDie + CON_mod
 	for (int i = 2; i <= level; i++)
 	{
-		string toRoll = "1d" + HIT_DIE;
-		hitPoints += _die.roll(toRoll) + this->getScores(1, 2);
+		//string toRoll = "1d" + HIT_DIE;
+		hitPoints += _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
 	}
 	maxHitPoints = hitPoints;
 }
@@ -215,7 +215,7 @@ void Fighter::receiveDamage(int damage)
 //!Function to recalculate hitpoints when leveling up but adding a roll of hitDice and dexterity modifier
 void Fighter::recalcHitPoints()
 {
-	hitPoints += _die.roll("1d" + HIT_DIE) + this->getScores(1, 2);
+	hitPoints += _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
 }
 
 /*!Function to increase experience when monster is defeated.

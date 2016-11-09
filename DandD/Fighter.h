@@ -27,6 +27,7 @@ protected:
 	DECLARE_SERIAL(Fighter);
 private:
 	const int HIT_DIE = 10; //d10
+	const string _HIT_DIE_STRING = "1d10";
 	int hitPoints;
 	int maxHitPoints;
 	Race race;

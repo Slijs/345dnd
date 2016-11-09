@@ -18,7 +18,8 @@ using namespace std;
 *@class CharacterSaveMap
 *@brief A Map for keeping track of the save locations of Characters
 *<p>A CharacterSaveMap is a map with max size 20. It stores the save location
-*	of Characters in {name, path} pairs.
+*	of Characters in {name, path} pairs. No gaps between entries are permited within the map.
+*<p>Extends CObject in order to allow for Serialization of the map
 */
 class CharacterSaveMap : public CObject {
 protected:
@@ -36,8 +37,8 @@ public:
 	void Serialize(CArchive &ar); // Saves to file
 	~CharacterSaveMap() {}; // Default destructor
 private:
-	static const int _MAX_SIZE = 20;
-	CString _charMap[_MAX_SIZE][2]; // Multidimensional array containing [charName][charPath] pairs
-	int _size; // # Characters saved so far
+	static const int _MAX_SIZE = 20; //! Max # of entries in the map = 20
+	CString _charMap[_MAX_SIZE][2]; //! Multidimensional array containing [charName][charPath] pairs
+	int _size; //! # Characters saved so far
 };
 #endif
