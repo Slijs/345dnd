@@ -26,7 +26,7 @@ void GamePlayEngine::onGameplayGrids()
 	SDL_Rect on_Gameplay_Grids;
 	int mouseIndex = 0;
 	on_Gameplay_Grids = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
-	this->_level->getPlayer()->validatePlayerMove(on_Gameplay_Grids.x, on_Gameplay_Grids.y);
+	//this->_level->getPlayer()->validatePlayerMove(on_Gameplay_Grids.x, on_Gameplay_Grids.y);
 }
 void GamePlayEngine::onRIghtHandMenu()
 {

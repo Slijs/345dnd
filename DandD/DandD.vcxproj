@@ -83,6 +83,7 @@
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="gameplayengine.cpp" />
     <ClCompile Include="Helmet.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="Enhancement.h" />
     <ClInclude Include="Fighter.h" />
+    <ClInclude Include="gameplayengine.h" />
     <ClInclude Include="Helmet.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemFactory.h" />

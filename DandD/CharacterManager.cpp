@@ -224,7 +224,7 @@ void CharacterManager::_editName(Fighter *theFighter){
 		return;
 	// Means that saving returned false and no updates were saved
 	} else {
-		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName "." << endl;
+		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName<< "." << endl;
 		theFighter->setName(prevName);
 		return;
 	}
