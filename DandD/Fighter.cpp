@@ -373,3 +373,10 @@ bool Fighter::validatePlayerMove(int x, int y) {
 	// If this point has been reached, then the Character is not moving in a vector that is allowed, so false will be returned
 	return false;
 }
+
+/**
+* Allows the name of the Fighter to be changed
+*/
+void Fighter::setName(string name) {
+	this->name = name;
+}

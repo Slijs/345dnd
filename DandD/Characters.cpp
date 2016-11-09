@@ -9,9 +9,9 @@ using namespace std;
 IMPLEMENT_SERIAL(Characters, CObject, 1);
 
 int experience[3][20] = {
-		{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 },
-		{ 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 },
-		{ 50, 100, 200, 450, 700, 1100, 1800, 2300, 2900, 3900, 5000, 5900, 7200, 8400, 10000, 11500, 13000, 15000, 18000, 20000 }
+	{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 },
+	{ 0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000, 165000, 195000, 225000, 265000, 305000, 355000 },
+	{ 50, 100, 200, 450, 700, 1100, 1800, 2300, 2900, 3900, 5000, 5900, 7200, 8400, 10000, 11500, 13000, 15000, 18000, 20000 }
 };
 
 /*CONSTRUCTOR*/
@@ -101,13 +101,13 @@ Characters::Characters(int level)
 
 	//call to set abilityScore and modifiers
 	generateAbility();
-	
+
 	armor = new Armor();
 	belt = new Belt();
 	weapon = new Weapon();
 	shield = new Shield();
 	boots = new Boots();
-	ring = new Ring(); 
+	ring = new Ring();
 	helmet = new Helmet();
 
 	calcArmorClass();
@@ -277,7 +277,7 @@ void Characters::calcArmorClass()
 	{
 		armorClass = armor->getEnchantmentValues()[7] + scores[1][1];
 	}
-		
+
 }
 
 /*!Function to calculate attack bonus by adding proficiency bonus and
@@ -302,7 +302,7 @@ void Characters::calcDamageBonus()
 		damageBonus += scores[1][0];  //add str mod if melee 
 	else
 		damageBonus += scores[1][1]; //add str mod if ranged
-	
+
 }
 
 //!Function for generic display of character's stats (shows all information)
@@ -496,12 +496,12 @@ void Characters::updateStatsDQ(Item* i)
 	array<int, 9> ench = i->getEnchantmentValues();
 
 	for (int j = 0; j < 6; j++)
-	scores[0][j] -= ench[j];
+		scores[0][j] -= ench[j];
 
 	armorClass -= ench[6];
 	attackBonus -= ench[7];
 	damageBonus -= ench[8];
-	
+
 
 }
 
@@ -566,9 +566,9 @@ void Characters::endBattle()
 /*//!Helper function for conversion of weapon dice of format #d# and roll dice to get dice roll value
 int Characters::processWeaponDice()
 {
-	string dice = weapon->getDice();
-	int damage = _die.roll(dice);
-	return damage;
+string dice = weapon->getDice();
+int damage = _die.roll(dice);
+return damage;
 }*/
 
 //!Function to calculate attack roll with: d20 + attack bonus
@@ -580,10 +580,10 @@ int Characters::attackRoll()
 //!Function to calculate damage roll with: weaponDice + damage bonus (if this yields value less than zero, damageRoll = 0)
 int Characters::damageRoll()
 {
-//	int damage = processWeaponDice() + damageBonus;
-//	if (damage < 0)
-		return 0;
-//	return damage;
+	//	int damage = processWeaponDice() + damageBonus;
+	//	if (damage < 0)
+	return 0;
+	//	return damage;
 }
 
 //!Function that increases experience based on specified amount gained and if experience exceeds lower limit of next level it will trigger level up.
@@ -820,7 +820,7 @@ void Characters::setMap(std::vector<std::string> *newMap){
 }
 
 bool Characters::validatePlayerMove(int x, int y){
-// Determine valid square
+	// Determine valid square
 	if (x < 0 || x >= _map->size())
 		return false;
 	if (y < 0 || y >= _map->at(0).size())
