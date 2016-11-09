@@ -13,7 +13,7 @@ IMPLEMENT_SERIAL(Boots, Item, 1);
 
 // Default constructor, useless item as is
 Boots::Boots() : 	
-	Item("No name set", 0, 0, "assets/defaultBoots.jpg", {0,0,0,0,0,0,0,0,0}, {0,1,0,0,0,0,1,0,0}) 
+	Item("No name set", 0, 0, "assets/defaultBoots.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,1,0,0,0,0,1,0,0 } })
 {
 
 }

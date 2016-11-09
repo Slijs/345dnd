@@ -13,7 +13,7 @@ IMPLEMENT_SERIAL(Helmet, Item, 1);
 
 // Default constructor, useless item as is
 Helmet::Helmet() : 	
-	Item("No name set", 0, 0, "assets/defaultHelmet.jpg", {0,0,0,0,0,0,0,0,0}, {0,0,0,1,1,0,1,0,0}) 
+	Item("No name set", 0, 0, "assets/defaultHelmet.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,0,0,1,1,0,1,0,0 } })
 {
 
 }
