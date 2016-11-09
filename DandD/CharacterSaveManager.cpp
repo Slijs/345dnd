@@ -232,7 +232,7 @@ void CharacterSaveManager::removeCharacter() {
 * Will allow a specific Character to be deleted based on the name provided
 *@param name string representing the name of the Character to be removed
 */
-static void CharacterSaveManager::removeCharacter(string name) {
+void CharacterSaveManager::removeCharacter(string name) {
 	CFile mapFile; // Map of all Character saves
 
 	// Will create charMap that will contain all Character save locations
