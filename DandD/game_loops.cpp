@@ -155,6 +155,8 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
 	l->renderAndDisplayLevel();
+
+	f->setMap(&l->getMapStringVersiion());
 	destinationInt = -1;
 
 	while(quit==false)
@@ -392,7 +394,6 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 		level->setEnvironmentTextVector(templevel);
 		level->saveLevel(SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(path));
 
-		//InputOutput inop;
 
 		delete level;
 		level = nullptr;

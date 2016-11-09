@@ -13,6 +13,11 @@ Level::Level()
 {
 }
 
+std::vector<std::string> Level::getMapStringVersiion()
+{
+	return this->_level;
+}
+
 //!this function loads the artwork and assigns them to approprate vectors
 void Level::createLevelForTargetWindow()
 {

@@ -5,6 +5,7 @@ GamePlayEngine::GamePlayEngine()
 	this->_level = nullptr;
 	this->_event = nullptr;
 	this->_moveSelect = false;
+	this->_moveValidityTracker = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
@@ -23,6 +24,7 @@ void GamePlayEngine::detachLevel()
 	this->_level = nullptr;
 	this->_event = nullptr;
 	this->_moveSelect = false;
+	this->_moveValidityTracker = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
@@ -75,6 +77,11 @@ int GamePlayEngine::runEngine()
 					system("cls");
 					this->_level->getLevelWindow()->unHideWindow();
 				}
+
+				if (buttonindex == 1)
+				{
+					this->_moveSelect = true;
+				}
 			}
 		}
 	}
@@ -85,14 +92,76 @@ int GamePlayEngine::runEngine()
 	return 0;
 }
 
-void GamePlayEngine::onGameplayGrids()
+void GamePlayEngine::movePlayer()
 {
-	SDL_Rect on_Gameplay_Grids;
 	int mouseIndex = 0;
 
-	on_Gameplay_Grids = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
-	this->_level->getPlayer()->validatePlayerMove(on_Gameplay_Grids.x, on_Gameplay_Grids.y);
-	
+	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
+	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(this->_currentGrid.x, this->_currentGrid.y);
+
+	//if validity tracker is true then look for a left mouse click
+	if (this->_moveValidityTracker == true)
+	{
+		if ((_event->type == SDL_MOUSEBUTTONDOWN) && (_event->button.button == SDL_BUTTON_LEFT))
+		{
+			//first render player to floor
+			//loop till find player
+			for (int y = 0; y < this->_level->getMapStringVersiion().size(); y++)
+			{
+				for (int x = 0; x < this->_level->getMapStringVersiion()[y].length(); x++)
+				{
+					//check if player then render floor
+					if (this->_level->getMapStringVersiion()[y].at(x) == SimplifiedMapSymbols::_Player_)
+					{
+						this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
+						for (int k = 0; k < this->_level->getEnvironmentComponents().size(); k++)
+						{
+							if (this->_level->getEnvironmentComponents()[k]->getComponentName() == "floor")
+							{
+								SDL_Rect dest;
+								dest.x = x;
+								dest.y = y;
+								dest.h = this->_level->getLevelWindow()->getGridY_Length();
+								dest.w = this->_level->getLevelWindow()->getGridX_Length();
+								//now render with the image details
+								SDL_RenderCopy(this->_level->getLevelWindow()->getRenderer(), this->_level->getEnvironmentComponents()[k]->getImageDetails()->getImageTexture(), nullptr, &dest);
+							}
+						}
+					}
+				}
+			}//done rendering player to floor
+
+			//now render floor of current grid to player
+			SDL_RenderCopy(this->_level->getLevelWindow()->getRenderer(), this->_level->getPlayerComponent()->getImageDetails()->getImageTexture(), nullptr, &this->_currentGrid);
+
+			//now update the level vector
+			this->_level->getMapStringVersiion()[this->_currentGrid.y].at(this->_currentGrid.x) = SimplifiedMapSymbols::_Player_;
+
+			//finally update the players vector
+			this->_level->getPlayer()->setMap(&this->_level->getMapStringVersiion());
+		}
+	}
+}
+
+void GamePlayEngine::onGameplayGrids()
+{
+	int mouseIndex = 0;
+
+	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
+	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(this->_currentGrid.x, this->_currentGrid.y);
+
+	//if at valid index then alphablend the grid to green
+
+	//if at same grid dont do anything
+	/*if ((_currentGrid.x == _lastGrid.x) && (_currentGrid.x == _lastGrid.y))
+	{
+
+	}
+	//otherwise if last grid was valid remove the alphablend from last grid and alphablend current grid
+	else
+	{
+
+	}*/
 }
 int GamePlayEngine::onRIghtHandMenu()
 {
