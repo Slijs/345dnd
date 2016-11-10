@@ -36,6 +36,7 @@ public:
 	const std::string _path_to_default_maps_list;
 	const std::string _path_to_default_maps;
 	const std::string _path_to_basic_container;
+	const std::string _path_to_basic_enemy;
 	std::string getComponentPathForIndex(int index);
 	void saveUserCreatedLevel(std::vector<std::string> leveltosave, std::string componentspath, std::string nameoffile);
 	std::vector<std::string> loadUserGeneratedLevel(std::string name, std::string* componentspath);

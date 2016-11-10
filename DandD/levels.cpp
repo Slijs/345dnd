@@ -51,6 +51,9 @@ void Level::createLevelForTargetWindow()
 	//characters loading
 	this->_player = new GameComponent("player", _Player_, character, this->_playerPath);
 
+	//enemis loading
+	this->_enemy = new Monster();
+
 	//now check if theme is valid
 	//rule 1: 1 component that is named floor and that is not an obstruction to player
 	//rule 2: 1 and 1 component only that is named exit which is not an obstruction to player
@@ -100,6 +103,9 @@ void Level::createLevelForTargetWindow()
 
 	//setup container image
 	this->_container->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
+
+	//setup enemy image
+	this->_enemy->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
 
 	//draw the vertical and horzontal lines for the level
 	SDL_SetRenderDrawColor(this->_level_window->getRenderer(), 0, 255, 0, 0);
@@ -253,6 +259,12 @@ void Level::destroyLevel()
 		_container->destroyComponent();
 		delete this->_container;
 		this->_container = nullptr;
+	}
+	if (this->_enemy != nullptr)
+	{
+		this->_enemy->destroyComponent();
+		delete this->_enemy;
+		this->_enemy = nullptr;
 	}
 	if(this->_level_window!=nullptr)
 	{

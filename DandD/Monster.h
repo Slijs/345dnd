@@ -1,6 +1,7 @@
 #pragma once
 #include "Characters.h"
 #include "Fighter.h"
+#include "filepathandfoldermanager.h"
 
 /*!
 Class that inherits from Characters and each Monster has a Type, Size, name, hitDie, hitPoints and a speed
