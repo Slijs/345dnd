@@ -1,5 +1,6 @@
 #include <ctime>
 #include <cmath>
+#include <random>
 #include "ContainerGenerator.h"
 
 using std::string;
@@ -18,7 +19,8 @@ ContainerGenerator::~ContainerGenerator()
 Container * ContainerGenerator::generateContainer(Fighter * fighter)
 {
 	// seed random
-	srand(static_cast <unsigned> (time(0)));
+	//srand(static_cast <unsigned> (time(0)));
+	srand(time(NULL));
 
 	// level to base off of
 	// LOW: 1-5		LOWMID: 6-10	MID: 11-15		HIGH: 16-20
@@ -31,30 +33,38 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 	// loop through creating random items
 	for (int i = 0; i < numElementsToCreate; i++) {
 		// randomly decide what type of item to make
-		int itemTypeToCreate = rand() % 8 + 1;
+		std::mt19937 rng1(std::random_device{}());
+		std::uniform_int_distribution<> dist1(1, 8);
+		auto rnd1 = dist1(rng1);
+		int itemTypeToCreate = rnd1;// rand() % 8 + 1;
 		// create a melee weapon
 		if (itemTypeToCreate == 1) {
 			// generate the random attributes in a suitable range
 			// any name is fine
-			string name = MELEE_WEAPON_NAMES[rand() % (MELEE_WEAPON_NAMES.size())];
+			// having trouble with the standard rand() for weapons... using a real rng
+			std::mt19937 rng(std::random_device{}());
+			std::uniform_int_distribution<> dist(0, MELEE_WEAPON_NAMES.size() - 1);
+			auto rnd = dist(rng);
+
+			string name = MELEE_WEAPON_NAMES[rnd];
 			// weight is between 0 and 25, so adjust according to level
-			int weight = 5 + floor(pow((1 + (3/0.5*level)), 0.5*level)) + (rand() % 5 - 2);
+			int weight = 5 + floor(9*atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
 			string image = "assets/defaultWeapon.jpg";
-			array<int, 9> enchantments;
+			array<int, 9> enchantments = { 0,0,0,0,0,0,0,0,0 };
 			if (level < 5) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 2),(rand() % 2) } };
+				enchantments = { { 0,0,0,0,0,0,0,(rand() % 2),(rand() % 2) } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 3),(rand() % 3) } };
+				enchantments = { { 0,0,0,0,0,0,0,(rand() % 3),(rand() % 3) } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 4 + 1),(rand() % 4 + 1) } };
+				enchantments = { { 0,0,0,0,0,0,0,(rand() % 4 + 1),(rand() % 4 + 1) } };
 			}
 			else {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 2 + 3),(rand() % 2 + 3) } };
+				enchantments = { { 0,0,0,0,0,0,0,(rand() % 3 + 3),(rand() % 3 + 3) } };
 			}
-			string attackDice;
+			string attackDice = "1d4";
 			if (level < 5) {
 				attackDice = ATTACK_DICE[rand() % 2];
 			}
@@ -77,23 +87,23 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 			// any name is fine
 			string name = RANGED_WEAPON_NAMES[rand() % (RANGED_WEAPON_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
-			int weight = 5 + floor(pow((1 + (3 / 0.5*level)), 0.5*level)) + (rand() % 5 - 2);
+			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
 			string image = "assets/defaultWeapon.jpg";
-			array<int, 9> enchantments;
+			array<int, 9> enchantments = { 0,0,0,0,0,0,0,0,0 };
 			if (level < 5) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 2),(rand() % 2) } };
+				enchantments = { { 0,0,0,0,0,0,0,(rand() % 2),(rand() % 2) } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 3),(rand() % 3) } };
+				enchantments = { { 0,0,0,0,0,0,0,(rand() % 3),(rand() % 3) } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 4 + 1),(rand() % 4 + 1) } };
+				enchantments = { { 0,0,0,0,0,0,0,(rand() % 4 + 1),(rand() % 4 + 1) } };
 			}
 			else {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 2 + 3),(rand() % 2 + 3) } };
+				enchantments = { { 0,0,0,0,0,0,0,(rand() % 2 + 3),(rand() % 2 + 3) } };
 			}
-			string attackDice;
+			string attackDice = "1d4";
 			if (level < 5) {
 				attackDice = ATTACK_DICE[rand() % 2];
 			}
@@ -116,23 +126,23 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 			// any name is fine
 			string name = ARMOR_NAMES[rand() % (ARMOR_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
-			int weight = 5 + floor(pow((1 + (3 / 0.5*level)), 0.5*level)) + (rand() % 5 - 2);
+			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
 			string image = "assets/defaultArmor.jpg";
-			array<int, 9> enchantments;
+			array<int, 9> enchantments = { 0,0,0,0,0,0,0,0,0 };
 			if (level < 5) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,(rand() % 2),0,0 } };
+				enchantments = { { 0,0,0,0,0,0,(rand() % 2),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,(rand() % 3),0,0 } };
+				enchantments = { { 0,0,0,0,0,0,(rand() % 3),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,(rand() % 4 + 1),0,0 } };
+				enchantments = { { 0,0,0,0,0,0,(rand() % 4 + 1),0,0 } };
 			}
 			else {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,(rand() % 2 + 3),0,0 } };
+				enchantments = { { 0,0,0,0,0,0,(rand() % 2 + 3),0,0 } };
 			}
-			int defense;
+			int defense = 1;
 			if (level < 5) {
 				defense = rand() % 5 + 2;
 			}
@@ -154,21 +164,21 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 			// any name is fine
 			string name = BELT_NAMES[rand() % (BELT_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
-			int weight = 5 + floor(pow((1 + (3 / 0.5*level)), 0.5*level)) + (rand() % 5 - 2);
+			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
 			string image = "assets/defaultBelt.jpg";
-			array<int, 9> enchantments;
+			array<int, 9> enchantments = {0,0,0,0,0,0,0,0,0};
 			if (level < 5) {
-				array<int, 9> enchantments = { { (rand() % 2),0,(rand() % 2),0,0,0,0,0,0 } };
+				enchantments = { { (rand() % 2),0,(rand() % 2),0,0,0,0,0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { (rand() % 3),0,(rand() % 3),0,0,0,0,0,0 } };
+				enchantments = { { (rand() % 3),0,(rand() % 3),0,0,0,0,0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { (rand() % 4 + 1),0,(rand() % 4 + 1),0,0,0,0,0,0 } };
+				enchantments = { { (rand() % 4 + 1),0,(rand() % 4 + 1),0,0,0,0,0,0 } };
 			}
 			else {
-				array<int, 9> enchantments = { { (rand() % 2 + 3),0,(rand() % 2 + 3),0,0,0,0,0,0 } };
+				enchantments = { { (rand() % 2 + 3),0,(rand() % 2 + 3),0,0,0,0,0,0 } };
 			}
 			Belt * newBelt = new Belt(name, weight, value, image, enchantments);
 			container->insertItem(newBelt);
@@ -179,21 +189,21 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 			// any name is fine
 			string name = BELT_NAMES[rand() % (BELT_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
-			int weight = 5 + floor(pow((1 + (3 / 0.5*level)), 0.5*level)) + (rand() % 5 - 2);
+			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
 			string image = "assets/defaultBoots.jpg";
-			array<int, 9> enchantments;
+			array<int, 9> enchantments = { 0,0,0,0,0,0,0,0,0 };
 			if (level < 5) {
-				array<int, 9> enchantments = { { 0,(rand() % 2),0,0,0,0,(rand() % 2),0,0 } };
+				enchantments = { { 0,(rand() % 2),0,0,0,0,(rand() % 2),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,(rand() % 3),0,0,0,0,(rand() % 3),0,0 } };
+				enchantments = { { 0,(rand() % 3),0,0,0,0,(rand() % 3),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,(rand() % 4 + 1),0,0,0,0,(rand() % 4+1),0,0 } };
+				enchantments = { { 0,(rand() % 4 + 1),0,0,0,0,(rand() % 4+1),0,0 } };
 			}
 			else {
-				array<int, 9> enchantments = { { 0,(rand() % 3 + 2),0,0,0,0,(rand() % 3 + 2),0,0 } };
+				enchantments = { { 0,(rand() % 3 + 2),0,0,0,0,(rand() % 3 + 2),0,0 } };
 			}
 			Boots * newBoots = new Boots(name, weight, value, image, enchantments);
 			container->insertItem(newBoots);
@@ -204,21 +214,21 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 			// any name is fine
 			string name = ARMOR_NAMES[rand() % (ARMOR_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
-			int weight = 5 + floor(pow((1 + (3 / 0.5*level)), 0.5*level)) + (rand() % 5 - 2);
+			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
 			string image = "assets/defaultHelmet.jpg";
-			array<int, 9> enchantments;
+			array<int, 9> enchantments = { 0,0,0,0,0,0,0,0,0 };
 			if (level < 5) {
-				array<int, 9> enchantments = { { 0,0,0,(rand() % 2),(rand() % 2),0,(rand() % 2),0,0 } };
+				enchantments = { { 0,0,0,(rand() % 2),(rand() % 2),0,(rand() % 2),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,(rand() % 3),(rand() % 3),0,(rand() % 3),0,0 } };
+				enchantments = { { 0,0,0,(rand() % 3),(rand() % 3),0,(rand() % 3),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,(rand() % 4 + 1),(rand() % 4 + 1),0,(rand() % 4 + 1),0,0 } };
+				enchantments = { { 0,0,0,(rand() % 4 + 1),(rand() % 4 + 1),0,(rand() % 4 + 1),0,0 } };
 			}
 			else {
-				array<int, 9> enchantments = { { 0,0,0,(rand() % 2 + 3),(rand() % 2 + 3),0,(rand() % 2 + 3),0,0 } };
+				enchantments = { { 0,0,0,(rand() % 2 + 3),(rand() % 2 + 3),0,(rand() % 2 + 3),0,0 } };
 			}
 			Helmet * newHelmet = new Helmet(name, weight, value, image, enchantments);
 			container->insertItem(newHelmet);
@@ -229,21 +239,21 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 			// any name is fine
 			string name = RING_NAMES[rand() % (RING_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
-			int weight = 5 + floor(pow((1 + (3 / 0.5*level)), 0.5*level)) + (rand() % 5 - 2);
+			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
 			string image = "assets/defaultRing.jpg";
-			array<int, 9> enchantments;
+			array<int, 9> enchantments = { 0,0,0,0,0,0,0,0,0 };
 			if (level < 5) {
-				array<int, 9> enchantments = { { (rand() % 2),0,(rand() % 2),0,(rand() % 2),(rand() % 2),(rand() % 2),0,0 } };
+				enchantments = { { (rand() % 2),0,(rand() % 2),0,(rand() % 2),(rand() % 2),(rand() % 2),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { (rand() % 3),0,(rand() % 3),0,(rand() % 3),(rand() % 3),(rand() % 3),0,0 } };
+				enchantments = { { (rand() % 3),0,(rand() % 3),0,(rand() % 3),(rand() % 3),(rand() % 3),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { (rand() % 4),0,(rand() % 4),0,(rand() % 4),(rand() % 4),(rand() % 4),0,0 } };
+				enchantments = { { (rand() % 4),0,(rand() % 4),0,(rand() % 4),(rand() % 4),(rand() % 4),0,0 } };
 			}
 			else {
-				array<int, 9> enchantments = { { (rand() % 5),0,(rand() % 5),0,(rand() % 52),(rand() % 5),(rand() % 5),0,0 } };
+				enchantments = { { (rand() % 6),0,(rand() % 6),0,(rand() % 6),(rand() % 6),(rand() % 6),0,0 } };
 			}
 			Ring * newRing = new Ring(name, weight, value, image, enchantments);
 			container->insertItem(newRing);
@@ -252,25 +262,25 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 		if (itemTypeToCreate == 8) {
 			// generate the random attributes in a suitable range
 			// any name is fine
-			string name = MELEE_WEAPON_NAMES[rand() % (MELEE_WEAPON_NAMES.size())];
+			string name = SHIELD_NAMES[rand() % (SHIELD_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
-			int weight = 5 + floor(pow((1 + (3 / 0.5*level)), 0.5*level)) + (rand() % 5 - 2);
+			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
-			string image = "assets/defaultWeapon.jpg";
-			array<int, 9> enchantments;
+			string image = "assets/defaultShield.jpg";
+			array<int, 9> enchantments = { 0,0,0,0,0,0,0,0,0 };
 			if (level < 5) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 2),(rand() % 2) } };
+				enchantments = { { 0,0,0,0,0,0,(rand() % 2),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 3),(rand() % 3) } };
+				enchantments = { { 0,0,0,0,0,0,(rand() % 3),0,0 } };
 			}
 			else if (level < 10) {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 4 + 1),(rand() % 4 + 1) } };
+				enchantments = { { 0,0,0,0,0,0,(rand() % 4 + 1),0,0 } };
 			}
 			else {
-				array<int, 9> enchantments = { { 0,0,0,0,0,0,0,(rand() % 2 + 3),(rand() % 2 + 3) } };
+				enchantments = { { 0,0,0,0,0,0,(rand() % 2 + 3),0,0 } };
 			}
-			int defense;
+			int defense = 1;
 			if (level < 5) {
 				defense = rand() % 5 + 2;
 			}
@@ -283,7 +293,7 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 			else {
 				defense = rand() % 15 + 10;
 			}
-			string attackDice;
+			string attackDice = "1d4";
 			if (level < 5) {
 				attackDice = ATTACK_DICE[rand() % 2];
 			}
@@ -299,10 +309,6 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 			int range = 1;
 			Shield * newShield = new Shield(name, weight, value, image, enchantments, defense, attackDice, range);
 			container->insertItem(newShield);
-		}
-		// oops wut?!
-		else {
-			throw "Item generation failed for random reason.";
 		}
 	}
 

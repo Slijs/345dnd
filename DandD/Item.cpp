@@ -110,7 +110,7 @@ string Item::getName() {
 
 void Item::setName(string name)
 {
-	if (name.size() < 1 || name.size() > 20) {
+	if (name.size() < 1 || name.size() > 50) {
 		throw "Name too long.";
 	}
 	else {

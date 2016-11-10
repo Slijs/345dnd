@@ -1,5 +1,9 @@
 #include "ItemCreator.h"
 
+// TEST ITEM CREATOR
+#include "Fighter.h"
+#include "ContainerGenerator.h"
+
 using std::cout;
 using std::endl;
 using std::vector;
@@ -457,6 +461,14 @@ void ItemCreator::createItems()
 				continuing = false;
 				break;
 			}
+			// TEST ITEM CREATOR
+			else if (number == 12) {
+				Race race = Human;
+				Fighter * player = new Fighter(20, race, "Name");
+				Container * anotherContainer = ContainerGenerator::generateContainer(player);
+				std::cout << anotherContainer->contentsToString();
+			}
+			// END TEST ITEM CREATOR
 			else {
 				cout << "Invalid choice.\n";
 			}
