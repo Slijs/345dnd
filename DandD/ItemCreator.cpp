@@ -406,45 +406,43 @@ void ItemCreator::createItems()
 
 				// serialize 
 				CFile fileS;
-<<<<<<< HEAD
 				if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite))
 				{
 					std::cout << "Unable to open output file" << std::endl;
 					break;
-=======
 
-				if (FILE *file = fopen("serializedItems.dat", "r")) {
-					fclose(file);
-					if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite))
-					{
-						std::cout << "Unable to open output file" << std::endl;
-						break;
+					if (FILE *file = fopen("serializedItems.dat", "r")) {
+						fclose(file);
+						if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite))
+						{
+							std::cout << "Unable to open output file" << std::endl;
+							break;
+						}
+						cout << "Saving items...\n";
+						CArchive arStore(&fileS, CArchive::store);
+						userContainer->Serialize(arStore);
+						arStore.Close();
+						fileS.Close();
 					}
-					cout << "Saving items...\n";
-					CArchive arStore(&fileS, CArchive::store);
-					userContainer->Serialize(arStore);
-					arStore.Close();
-					fileS.Close();
-				}
-				else {
-					if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite | CFile::modeCreate))
-					{
-						std::cout << "Unable to open output file" << std::endl;
-						break;
+					else {
+						if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite | CFile::modeCreate))
+						{
+							std::cout << "Unable to open output file" << std::endl;
+							break;
+						}
+						cout << "Saving items...\n";
+						CArchive arStore(&fileS, CArchive::store);
+						userContainer->Serialize(arStore);
+						arStore.Close();
+						fileS.Close();
 					}
-					cout << "Saving items...\n";
-					CArchive arStore(&fileS, CArchive::store);
-					userContainer->Serialize(arStore);
-					arStore.Close();
-					fileS.Close();
->>>>>>> origin/Interim-Build
-				}
 
-			}
+				}
+			} 
 			else if (number == 10) {
 				/* TODO -- make user be able to define path. At this time,
-				 * this isn't possible, because can't convert to type of
-				 * string that CFile.open will accept...
+					* this isn't possible, because can't convert to type of
+					* string that CFile.open will accept...
 				cout << "Enter file name: ";
 				string Lpath;
 				std::getline(std::cin, Lpath);
@@ -463,6 +461,7 @@ void ItemCreator::createItems()
 			}
 			else if (number == 11) {
 				continuing = false;
+				break;
 			}
 			else {
 				cout << "Invalid choice.\n";
