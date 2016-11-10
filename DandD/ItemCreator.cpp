@@ -10,7 +10,8 @@ using std::vector;
 
 void ItemCreator::createItems()
 {
-	Container * userContainer = new Container();
+	// automatically load pre-saved items
+	Container * userContainer = loadItemsFromFile();
 	bool continuing = true;
 	// create item loop
 	while (continuing && userContainer->getNumContents() < userContainer->getMaxContents()) {
@@ -27,7 +28,7 @@ void ItemCreator::createItems()
 
 		// check what type of item the user would like to create
 		cout << "What do you want to do?\n";
-		cout << "1) Create Weapon\n2) Create Armour\n3) Create Helmet\n4) Create Shield\n5) Create Belt\n6) Create Ring\n7) Create Boots\n8) Print created items\n9) Save Items to File\n10) Load Items from File\n11) Back to Menu\nEnter Choice: ";
+		cout << "1) Create Weapon\n2) Create Armour\n3) Create Helmet\n4) Create Shield\n5) Create Belt\n6) Create Ring\n7) Create Boots\n8) Print created items\n9) Save Items to File\n10) Load Items from File\n11) Back to Menu\n12) Randomly Generate Items\nEnter Choice: ";
 		//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		string line;
 		std::getline(std::cin, line);
@@ -402,60 +403,10 @@ void ItemCreator::createItems()
 				cout << userContainer->contentsToString();
 			}
 			else if (number == 9) {
-				/* TODO LET USER DEFINE PATH
-				cout << "Enter file name: ";
-				string path;
-				std::getline(std::cin, path);
-				*/
-
-				// serialize 
-				CFile fileS;
-
-				if (FILE *file = fopen("serializedItems.dat", "r")) {
-					fclose(file);
-					if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite))
-					{
-						std::cout << "Unable to open output file" << std::endl;
-						break;
-					}
-					cout << "Saving items...\n";
-					CArchive arStore(&fileS, CArchive::store);
-					userContainer->Serialize(arStore);
-					arStore.Close();
-					fileS.Close();
-				}
-				else {
-					if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite | CFile::modeCreate))
-					{
-						std::cout << "Unable to open output file" << std::endl;
-						break;
-					}
-					cout << "Saving items...\n";
-					CArchive arStore(&fileS, CArchive::store);
-					userContainer->Serialize(arStore);
-					arStore.Close();
-					fileS.Close();
-				}
+				saveItemsToFile(userContainer);
 			} 
 			else if (number == 10) {
-				/* TODO -- make user be able to define path. At this time,
-					* this isn't possible, because can't convert to type of
-					* string that CFile.open will accept...
-				cout << "Enter file name: ";
-				string Lpath;
-				std::getline(std::cin, Lpath);
-				*/
-				CFile fileL;
-				if (!fileL.Open(_T("serializedItems.dat"), CFile::modeRead))
-				{
-					std::cout << "Unable to open input file" << std::endl;
-					break;
-				}
-				cout << "Loading items...\n";
-				CArchive arLoad(&fileL, CArchive::load);
-				userContainer->Serialize(arLoad);
-				arLoad.Close();
-				fileL.Close();
+				userContainer = loadItemsFromFile();
 			}
 			else if (number == 11) {
 				continuing = false;
@@ -464,9 +415,10 @@ void ItemCreator::createItems()
 			// TEST ITEM CREATOR
 			else if (number == 12) {
 				Race race = Human;
-				Fighter * player = new Fighter(20, race, "Name");
+				Fighter * player = new Fighter(1, race, "Name");
 				Container * anotherContainer = ContainerGenerator::generateContainer(player);
 				std::cout << anotherContainer->contentsToString();
+				userContainer = anotherContainer;
 			}
 			// END TEST ITEM CREATOR
 			else {
@@ -477,5 +429,67 @@ void ItemCreator::createItems()
 		{
 			cout << "input does not start with a number or is too big for an int\n";
 		}
+	}
+}
+
+Container * ItemCreator::loadItemsFromFile()
+{
+	/* TODO -- make user be able to define path. At this time,
+	* this isn't possible, because can't convert to type of
+	* string that CFile.open will accept...
+	cout << "Enter file name: ";
+	string Lpath;
+	std::getline(std::cin, Lpath);
+	*/
+	Container * userContainer = new Container();
+	CFile fileL;
+	if (!fileL.Open(_T("serializedItems.dat"), CFile::modeRead))
+	{
+		std::cout << "Unable to open input file" << std::endl;
+		return NULL;
+	}
+	cout << "Loading items...\n";
+	CArchive arLoad(&fileL, CArchive::load);
+	userContainer->Serialize(arLoad);
+	arLoad.Close();
+	fileL.Close();
+	return userContainer;
+}
+
+void ItemCreator::saveItemsToFile(Container * userContainer)
+{
+	/* TODO LET USER DEFINE PATH
+	cout << "Enter file name: ";
+	string path;
+	std::getline(std::cin, path);
+	*/
+
+	// serialize 
+	CFile fileS;
+
+	if (FILE *file = fopen("serializedItems.dat", "r")) {
+		fclose(file);
+		if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite))
+		{
+			std::cout << "Unable to open output file" << std::endl;
+			return;
+		}
+		cout << "Saving items...\n";
+		CArchive arStore(&fileS, CArchive::store);
+		userContainer->Serialize(arStore);
+		arStore.Close();
+		fileS.Close();
+	}
+	else {
+		if (!fileS.Open(_T("serializedItems.dat"), CFile::modeWrite | CFile::modeCreate))
+		{
+			std::cout << "Unable to open output file" << std::endl;
+			return;
+		}
+		cout << "Saving items...\n";
+		CArchive arStore(&fileS, CArchive::store);
+		userContainer->Serialize(arStore);
+		arStore.Close();
+		fileS.Close();
 	}
 }

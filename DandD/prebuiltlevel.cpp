@@ -65,6 +65,52 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_level_window->setMenuOnRenderer();
 }
 
+void PreBuiltLevel::setupContainersOnMap()
+{
+	ContainerOnMap* temp;
+	//first find howmany an get there coordinates
+	for (int y = 0; y < this->_level.size(); y++)
+	{
+		for (int x = 0; x < this->_level[y].size(); x++)
+		{
+			if (_level[y].at(x) == SimplifiedMapSymbols::_BasicContainer_)
+			{
+				temp = new ContainerOnMap();
+				temp->stringIndex = y;
+				temp->charIndex = x;
+				temp->container = ContainerGenerator::generateContainer(this->_player);
+				this->_containersOnMap.push_back(temp);
+			}
+		}
+	}
+
+	//testing if the container generation is happening properly.
+	system("cls");
+	std::cout << std::endl << std::endl;
+	std::vector<std::string> maptemp = this->getMapSimpleVersion();
+	for (int x = 0; x < maptemp.size(); x++)
+	{
+		std::cout << maptemp[x] << std::endl;
+	}
+	std::cout << std::endl;
+
+	//now display containers details and coordinates
+	for (int x = 0; x < this->_containersOnMap.size(); x++)
+	{
+		std::cout<<this->_containersOnMap[x]->container->contentsToString();
+		std::cout << "Vector index: " << this->_containersOnMap[x]->stringIndex << std::endl;
+		std::cout << "Character index: " << this->_containersOnMap[x]->charIndex << std::endl;
+		std::cout << std::endl;
+	}
+
+	std::cout << "Press any key to continue\n";
+	//getch();
+}
+std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
+{
+	return this->_containersOnMap;
+}
+
 //!environment component path accessor
 std::string PreBuiltLevel::getEnvironmentComponentsPath() const
 {

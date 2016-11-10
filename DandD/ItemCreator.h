@@ -22,6 +22,8 @@
 class ItemCreator {
 public:
 	static void createItems();
+	static Container * loadItemsFromFile();
+	static void saveItemsToFile(Container * myContainer);
 };
 
 #endif
