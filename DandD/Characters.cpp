@@ -91,6 +91,14 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 
 	srand(time(NULL));
 
+	armor = new Armor();
+	belt = new Belt();
+	weapon = new Weapon();
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring();
+	helmet = new Helmet();
+
 	detProficiencyBonus();
 	detExp();
 	abilityScoreMod();
@@ -163,7 +171,7 @@ void Characters::destroyObject()
 Characters::~Characters()
 {
 	destroyObject();
-	delete _map;
+	//delete _map;
 }
 
 //!Accessor to level
@@ -729,7 +737,7 @@ Characters::Characters(Characters* otherChar) {
 */
 void Characters::setMap(std::vector<std::string> *newMap){
 	if (_map != NULL){
-		delete _map; // To prevent memory leaks
+		//delete _map; // To prevent memory leaks
 	}
 	_map = newMap;
 	for (int i = 0; i < _map->size(); i++){

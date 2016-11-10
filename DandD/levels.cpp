@@ -18,6 +18,11 @@ std::vector<std::string> Level::getMapStringVersiion()
 	return this->_level;
 }
 
+void Level::setMainMapVector(std::vector<std::string> newmap)
+{
+	this->_level = newmap;
+}
+
 std::vector<std::string> Level::getMapSimpleVersion()
 {
 	std::vector<std::string> temp;

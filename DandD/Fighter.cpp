@@ -826,6 +826,7 @@ bool Fighter::validateChestWithinRange(int x, int y){
 
 bool Fighter::validatePlayerMove(int x, int y) {
 
+	std::cout << "In Jeremiahs functions: \n" << "X: " << x << "Y: " << y << endl;
 	//testing
 	return true;
 	//testing end

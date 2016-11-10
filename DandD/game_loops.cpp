@@ -157,6 +157,7 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	l->renderAndDisplayLevel();
 	f->setMap(&l->getMapSimpleVersion());
 
+
 	//first test the original MAP
 	/*std::cout << std::endl;
 	for (int y = 0; y < l->getMapStringVersiion().size(); y++)
