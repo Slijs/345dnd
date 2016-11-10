@@ -834,7 +834,7 @@ bool Fighter::validatePlayerMove(int x, int y) {
 	if (!this->Characters::validatePlayerMove(x, y))
 		return false;
 	
-	// Moving less than or equal to range up
+	// Moving less than or equal to range up, absolutely no change in horizontal position
 	if (position[0] - x <= speed && position[1] - y == 0) {
 		for (int i = position[0] - 1; i > x; --i) {
 			// Will determine if each square the character is trying to move to can be landed on.
