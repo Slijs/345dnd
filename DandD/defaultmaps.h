@@ -8,6 +8,7 @@
 #include "menuengine.h"
 #include "userinputandstringmanager.h"
 /*!
+*@class SingletonDefaultMapsMenu
 *singleton class that inherits from campaign menus. this is the menu
 *for selecting a default map that could be added into a user created campaign
 */

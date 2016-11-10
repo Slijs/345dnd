@@ -10,6 +10,7 @@
 #include <list>
 using namespace Others;
 /*!
+*@class CampaignMapManagers
 *instances of this class would be a menu for a specific campaign. this class inherits from the campaign manager, the intention being polymorphic usage of the menu engine.
 */
 class CampaignMapManagers : public CampaignManager

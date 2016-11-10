@@ -741,7 +741,7 @@ void Fighter::equipHelmet(int i){
 	updateStatsDQ(helmet);
 	// Checks to see if 'no' helmet has been equipped
 	if (_isNullItem(helmet)){
-		delete weapon; // Removes the null item
+		delete helmet; // Removes the null item
 	}
 	else { // If a non-null helmet has been equipped, it'll be returned to the backpack
 		backpack->insertItem(helmet);
@@ -761,7 +761,7 @@ void Fighter::equipBoots(int i){
 	updateStatsDQ(boots);
 	// Checks to see if 'no' boots has been equipped
 	if (_isNullItem(boots)){
-		delete weapon; // Removes the null item
+		delete boots; // Removes the null item
 	}
 	else { // If a non-null boots has been equipped, it'll be returned to the backpack
 		backpack->insertItem(boots);
@@ -779,7 +779,7 @@ void Fighter::equipRing(int i){
 	updateStatsDQ(ring);
 	// Checks to see if 'no' ring has been equipped
 	if (_isNullItem(ring)){
-		delete weapon; // Removes the null item
+		delete ring; // Removes the null item
 	}
 	else { // If a non-null ring has been equipped, it'll be returned to the backpack
 		backpack->insertItem(ring);
@@ -797,7 +797,7 @@ void Fighter::equipShield(int i){
 	updateStatsDQ(shield);
 	// Checks to see if 'no' shield has been equipped
 	if (_isNullItem(shield)){
-		delete weapon; // Removes the null item
+		delete shield; // Removes the null item
 	}
 	else { // If a non-null shield has been equipped, it'll be returned to the backpack
 		backpack->insertItem(shield);
@@ -815,7 +815,7 @@ void Fighter::equipBelt(int i){
 	updateStatsDQ(belt);
 	// Checks to see if 'no' belt has been equipped
 	if (_isNullItem(belt)){
-		delete weapon; // Removes the null item
+		delete belt; // Removes the null item
 	}
 	else { // If a non-null belt has been equipped, it'll be returned to the backpack
 		backpack->insertItem(belt);
