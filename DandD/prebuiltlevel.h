@@ -15,6 +15,7 @@ protected:
 	SDL_Rect _inventoryPaneDest;
 	SDL_Rect _movePlayerDest;
 	SDL_Rect _exitPlay;
+	SDL_Rect _interact;
 	Fighter* _player;
 	std::vector<ContainerOnMap*> _containersOnMap;
 

@@ -55,10 +55,16 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_movePlayerDest.y = this->_inventoryPaneDest.y + this->_inventoryPaneDest.h * 2;
 	this->_level_window->addButton("Move Player", 255, 0, 0, this->_movePlayerDest);
 
+	this->_interact.x = this->_inventoryPaneDest.x;
+	this->_interact.w = this->_inventoryPaneDest.w;
+	this->_interact.h = this->_inventoryPaneDest.h;
+	this->_interact.y = this->_movePlayerDest.y + this->_inventoryPaneDest.h * 2;
+	this->_level_window->addButton("Interact", 255, 0, 0, this->_interact);
+
 	this->_exitPlay.x = this->_inventoryPaneDest.x;
 	this->_exitPlay.w = this->_inventoryPaneDest.w * 0.8;
 	this->_exitPlay.h = this->_inventoryPaneDest.h;
-	this->_exitPlay.y = this->_movePlayerDest.y + this->_inventoryPaneDest.h * 2;
+	this->_exitPlay.y = this->_interact.y + this->_inventoryPaneDest.h * 2;
 	this->_level_window->addButton("Exit play", 255, 0, 0, this->_exitPlay);
 
 	//setup the menu component

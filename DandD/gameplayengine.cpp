@@ -6,6 +6,7 @@ GamePlayEngine::GamePlayEngine()
 	this->_event = nullptr;
 	this->_moveSelect = false;
 	this->_moveValidityTracker = false;
+	this->_interactSelect = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
@@ -25,6 +26,7 @@ void GamePlayEngine::detachLevel()
 	this->_event = nullptr;
 	this->_moveSelect = false;
 	this->_moveValidityTracker = false;
+	this->_interactSelect = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
@@ -33,9 +35,10 @@ void GamePlayEngine::detachLevel()
 	this->_buttons.clear();
 }
 
-//index 0 is inventory
+//index 0 is player status
 //index 1 is move
-//index 2 is exit play
+//index 2 is interact
+//index 3 is exit play
 int GamePlayEngine::runEngine()
 {
 	bool exit = false;
@@ -49,12 +52,18 @@ int GamePlayEngine::runEngine()
 		{
 			//first check for a right button if so ensure that player select becomes false.
 			if ((_event->type == SDL_MOUSEBUTTONDOWN) && (_event->button.button == SDL_BUTTON_RIGHT))
+			{
 				this->_moveSelect = false;
+				this->_interactSelect = false;
+			}
 
 			//if move select is true all move function
 			if (this->_moveSelect == true)
 				movePlayer();
 
+			//if interact select is true and run container interact logic
+			if (this->_interactSelect == true)
+				interactEnvironment();
 
 			//get current mouse coordinates
 			SDL_GetMouseState(&mouse_X, &mouse_Y);
@@ -70,7 +79,8 @@ int GamePlayEngine::runEngine()
 			else
 			{
 				buttonindex = onRIghtHandMenu();
-				if (buttonindex == 2)
+				//first check for exit
+				if (buttonindex == 3)
 					exit = true;
 
 				if (buttonindex == 0)
@@ -90,6 +100,11 @@ int GamePlayEngine::runEngine()
 				{
 					this->_moveSelect = true;
 				}
+
+				if (buttonindex == 2)
+				{
+					this->_interactSelect = true;
+				}
 			}
 		}
 	}
@@ -98,6 +113,18 @@ int GamePlayEngine::runEngine()
 
 	//check mouse position on right hand menu
 	return 0;
+}
+
+void GamePlayEngine::interactEnvironment()
+{
+	system("cls");
+	this->_level->getLevelWindow()->hideWindow();
+	std::cout << "Working on container interact logic.\nPress key to continue";
+	this->_interactSelect = false;
+	getch();
+	system("cls");
+	this->_level->getLevelWindow()->unHideWindow();
+	
 }
 
 void GamePlayEngine::movePlayer()
