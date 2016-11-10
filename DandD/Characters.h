@@ -102,18 +102,8 @@ private:
 	int attackBonus;
 	int damageBonus;
 
-	/*
-	EQUIPMENT
-	*/
-
-
-	
-
-	/*
-	HELPER FUNCTIONS ONLY USED IN CHARACTERS CPP
-	*/
-	//for the random Ability Scores
-	//void reOrder();
+	/* HELPER FUNCTIONS ONLY USED IN CHARACTERS CPP */
+	//for the random Ability Score
 
 	void generateAbility();
 	void orderArray(int a[]);
@@ -206,8 +196,6 @@ public:
 	int rollDice(int);
 
 	//for the equipment
-	
-
 	string currentBelt();
 	string currentArmor();
 	string currentWeapon();
@@ -227,8 +215,6 @@ public:
 	int attackRoll();
 	int damageRoll();
 
-
-
 	void gainExperience(int);
 	void updateAbilityScore(int);
 
@@ -242,7 +228,6 @@ public:
 	virtual bool validatePlayerMove(int x, int y);
 	void setMap(vector<string> *newMap);
 	void setPosition(int, int);
-
 
 	///FOR UNIT TEST
 	bool validateNewCharacter();

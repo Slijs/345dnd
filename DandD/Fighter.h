@@ -4,9 +4,6 @@
 */
 #pragma once
 #include "Characters.h"
-#include "Item.h"
-#include "Container.h"
-#include "Entity.h"
 #include "Dwarf.h"
 #include "Monster.h"
 

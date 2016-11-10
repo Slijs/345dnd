@@ -1,4 +1,7 @@
-
+/**
+*@file game_components.h
+*@brief Used to initialize game components used to manage assets
+*/
 #pragma once
 #include "image.h"
 #include <vector>

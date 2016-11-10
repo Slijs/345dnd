@@ -608,8 +608,14 @@ bool Fighter::fillBackpack(Container *otherContainer){
 		if (!pickupItem(otherContainer->removeItem(0)))
 			return false;
 	}
+	return true;
 }
 
+/**
+* Allows the user to interact with a Container, and retrieve the items from it if they wish to do so
+*@param theContainer Container* to the container the character wants to interact with
+*@return bool, True if all items have been removed from the container, False otherwise
+*/
 bool Fighter::interactWithContainer(Container *theContainer){
 	char conf = 'x';
 	system("CLS");
@@ -621,7 +627,6 @@ bool Fighter::interactWithContainer(Container *theContainer){
 		cout << "Would you like to retrieve items from this container? (Y/N)" << endl;
 		cin >> conf;
 	} while (!(conf == 'Y' || conf == 'y' || conf == 'N' || conf == 'n'));
-	
 	switch (conf){
 	case 'Y':
 	case 'y': // User wants to get item, will try to fillBackpack
@@ -634,6 +639,7 @@ bool Fighter::interactWithContainer(Container *theContainer){
 	case 'n': // user does not want to fillBackpack, will return false
 		return false;
 	}
+	return true;
 }
 
 /**

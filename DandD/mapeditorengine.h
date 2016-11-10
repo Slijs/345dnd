@@ -1,4 +1,7 @@
-
+/**
+*@file mapeditorengine.h
+*@brief Provides declaration of MapEditorEngine class, used to edit maps
+*/
 
 #if !defined( MAPENGINE_H )
 #define MAPENGINE_H
