@@ -825,6 +825,10 @@ bool Fighter::validateChestWithinRange(int x, int y){
 }
 
 bool Fighter::validatePlayerMove(int x, int y) {
+
+	//testing
+	return true;
+	//testing end
 	char posInQuestion = 'c';
 	// Will user super validatePlayerMove to determine if movement on map is valid.
 	if (!this->Characters::validatePlayerMove(x, y))

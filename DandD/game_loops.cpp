@@ -172,7 +172,7 @@ int GameLoops::gameLevelLoop(std::string mappath)
 		std::cout<<std::endl;
 	}
 	std::cout << "testing maps, press any key to continue\n";
-	getch();
+	getch();*/
 
 	
 	destinationInt = -1;
@@ -188,7 +188,7 @@ int GameLoops::gameLevelLoop(std::string mappath)
 			engine->runEngine();
 			quit = true;
 		}
-	}*/
+	}
 
 
 	l->getLevelWindow()->hideWindow();
