@@ -299,20 +299,21 @@ void Fighter::equipArmor(int i)
 {
 	// Checks to see if 'no' Armor has been equipped
 	if (_isNullItem(armor)){
-		Armor toEquip = backpack->removeItem(i)
+		//Armor *toEquip = backpack->removeItem(i);
 	}
 	//Remove bonus
 	if (armor->getEnchantmentValues()[7] == 0)
 		armorClass -= 10;
 	else
 		armorClass -= armor->getEnchantmentValues()[7];
-	armor = a;
+	//armor = a;
 	//Add Bonus
 	armorClass += armor->getEnchantmentValues()[7];
 
 	currentState();
 }
 
+/*
 //!Function to equip weapon. Recalculates damage bonus and attack bonus based on weapon equipped. Triggers redisplay of stats
 void Fighter::equip(Weapon* w)
 {
@@ -378,7 +379,7 @@ void Fighter::equip(Belt* b)
 	updateStatsEQ(shield);
 	currentState();
 }
-
+*/
 void Fighter::deequipArmor()
 {
 	updateStatsDQ(armor);
