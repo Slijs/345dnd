@@ -135,7 +135,7 @@ void LevelEditor::createLevelForTargetWindow()
 	//character rectangle for text
 	this->_characterTextDestination.y = this->_environmentTextDestination.y;
 	this->_characterTextDestination.h = this->_environmentTextDestination.h;
-	this->_characterTextDestination.w = (this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart) * 0.35;
+	this->_characterTextDestination.w = (this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart) * 0.7;
 	this->_characterTextDestination.x = this->_X_Cor_ItemPortionEnd_CharacterPortionStart + (((this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)/2) - (this->_characterTextDestination.w / 2));
 
 	//destination for back to main menu button
@@ -165,6 +165,11 @@ void LevelEditor::createLevelForTargetWindow()
 
 	this->getLevelWindow()->setTitleFontSize(72);
 	this->getLevelWindow()->setMenuOnRenderer();
+}
+
+SDL_Rect LevelEditor::getEnemyDestinationAtBottomRect()
+{
+	return this->_enemyDestinationAtBottom;
 }
 
 //!function renders the environment components portions
@@ -225,16 +230,24 @@ void LevelEditor::renderEnvironmentAtBottom()
 	//render player image
 	dest.y = _y_init;
 	dest.h = (this->_level_window->getWindowHeight() - dest.y ) * 0.7;
-	dest.w = (this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)* 0.45;
-	dest.x = this->_X_Cor_ItemPortionEnd_CharacterPortionStart + ((this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)/2) - dest.w/2;
+	dest.w = (this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)* 0.35;
+	//dest.x = this->_X_Cor_ItemPortionEnd_CharacterPortionStart + ((this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)/2) - dest.w/2;
+	dest.x = this->_X_Cor_ItemPortionEnd_CharacterPortionStart + ((this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart) * 0.15);
 	this->_level_window->loadTextureOnRenderer(this->_player->getImageDetails()->getImageTexture(), nullptr, &dest);
 	this->_playerDestinationAtBottom = dest;
+
+	//redner enemy
+	dest.x = dest.x + dest.w + dest.w * 0.1;
+	this->_level_window->loadTextureOnRenderer(this->_enemy->getImageDetails()->getImageTexture(), nullptr, &dest);
+	this->_enemyDestinationAtBottom = dest;
 
 	//render basic container
 	dest.w = (this->_X_Cor_ItemPortionEnd_CharacterPortionStart - this->_X_Cor_EnvironmentPortionEnd_ItemPortionStart) * 0.8;
 	dest.x = this->_X_Cor_EnvironmentPortionEnd_ItemPortionStart + ((this->_X_Cor_ItemPortionEnd_CharacterPortionStart - this->_X_Cor_EnvironmentPortionEnd_ItemPortionStart)/2) - dest.w/2;
 	this->_level_window->loadTextureOnRenderer(this->_container->getImageDetails()->getImageTexture(), nullptr, &dest);
 	this->_basicContainerAtBottom = dest;
+
+
 
 	//now use y and x to render the environment text
 	this->getLevelWindow()->setFontType(9);
@@ -262,7 +275,12 @@ void LevelEditor::renderCharactersAtBottom()
 	this->getLevelWindow()->addTextLabel("Characters", 255,0,0, this->_characterTextDestination);
 	this->getLevelWindow()->setTitleFontSize(72);
 	this->getLevelWindow()->setMenuOnRenderer();
+
+	//render player
 	this->_level_window->loadTextureOnRenderer(this->_player->getImageDetails()->getImageTexture(), nullptr, &this->_playerDestinationAtBottom);
+
+	//redner enemy
+	this->_level_window->loadTextureOnRenderer(this->_enemy->getImageDetails()->getImageTexture(), nullptr, &this->_enemyDestinationAtBottom);
 }
 
 //!function renders the description of the gamecomponent parameter on the bottom right

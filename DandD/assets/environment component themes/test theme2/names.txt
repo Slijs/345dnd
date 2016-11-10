@@ -8,5 +8,3 @@ water true water.png
 lake
 sword true sword.jpg
 sword
-enemy true enemy.jpg
-enemy

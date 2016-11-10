@@ -39,7 +39,9 @@ MapEditorEngine::MapEditorEngine(LevelEditor* level_)
 	this->components = this->level->getGameplayGridsRects();
 	this->characterTarget.push_back(this->level->getPlayerDestinationAtBottomRect());
 	this->containerTarget.push_back(this->level->getContainerDestinationAtBottomRect());
+	this->enemytarget.push_back(this->level->getEnemyDestinationAtBottomRect());
 	this->player = this->level->getPlayerComponent();
+	this->enemy = this->level->getEnemy();
 	this->container = this->level->getContainerComponent();
 	this->envcomponents = this->level->getEnvironmentComponents();
 
@@ -308,6 +310,7 @@ void MapEditorEngine::onCharacterGrid(SDL_Event* _event)
 
 	if (targetselected == false)
 	{
+		//FOLLOWING IS FOR PLAYER
 		//check on which rect
 		target = checkMousePosition(characterTarget, &targetIndex);
 		//if mouse is on character target check to see for a click event
@@ -333,6 +336,37 @@ void MapEditorEngine::onCharacterGrid(SDL_Event* _event)
 		}
 		//if mouse is not selected by character targer and not on character rectangle then render the bottom fresh
 		else if(targetselected == false && ontargetfirsttime == false)
+		{
+			this->level->renderDescriptionAtBottomRIght(nullptr);
+			ontargetfirsttime = false;
+			level->renderCharactersAtBottom();
+			this->level->getLevelWindow()->displayWindow();
+		}
+
+		//FOLLOWING IS FOR ENEMY
+		target = checkMousePosition(this->enemytarget, &targetIndex);
+		//if mouse is on character target check to see for a click event
+		if (target.x >= 0)
+		{
+			if (ontargetfirsttime == false)
+			{
+				this->level->renderDescriptionAtBottomRIght(this->level->getEnemy());
+				ontargetfirsttime = true;
+				SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 255, 0, 75);
+				SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
+				this->level->getLevelWindow()->displayWindow();
+			}
+
+			//lookout for a click event for target
+			if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_LEFT))
+			{
+				targetselected = true;
+				canDelete = false;
+				targetTexture = enemy->getImageDetails()->getImageTexture();
+			}
+		}
+		//if mouse is not selected by character targer and not on character rectangle then render the bottom fresh
+		else if (targetselected == false && ontargetfirsttime == false)
 		{
 			this->level->renderDescriptionAtBottomRIght(nullptr);
 			ontargetfirsttime = false;

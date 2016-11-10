@@ -41,6 +41,7 @@ protected:
 	std::vector<SDL_Rect> _bottomMenuRects;
 	std::vector<SDL_Rect> _sideMenuRects;
 	SDL_Rect _playerDestinationAtBottom;
+	SDL_Rect _enemyDestinationAtBottom;
 	SDL_Rect _basicContainerAtBottom;
 public:
 	LevelEditor(LevelWindow* window, int themIndex);
@@ -60,6 +61,7 @@ public:
 	std::vector<SDL_Rect> getLevelComponentRects();
 	SDL_Rect getPlayerDestinationAtBottomRect();
 	SDL_Rect getContainerDestinationAtBottomRect();
+	SDL_Rect getEnemyDestinationAtBottomRect();
 	int get_Y_start();
 	int getThemeIndex() const;
 	std::vector<std::string> getLevelMapVector() const;
