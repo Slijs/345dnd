@@ -139,6 +139,7 @@
     <ClInclude Include="CharSaveManager.h" />
     <ClInclude Include="Container.h" />
     <ClInclude Include="ContainerGenerator.h" />
+    <ClInclude Include="containerOnMap.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="Enhancement.h" />

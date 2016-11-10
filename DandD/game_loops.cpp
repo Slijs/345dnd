@@ -149,16 +149,19 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	int destinationInt;
 	bool quit = false;
 
-	Fighter* f = new Fighter();
+	//Fighter* f = new Fighter();
+	
 	PreBuiltLevel* l = new PreBuiltLevel("Test", this->_currentFighterTracker);
 	GamePlayEngine* engine = new GamePlayEngine();
 	engine->attachLevel(l, &this->_event);
 
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
+	l->setupContainersOnMap();
 	l->renderAndDisplayLevel();
 	this->_currentFighterTracker->setMap(&l->getMapSimpleVersion());
-	f->setMap(&l->getMapSimpleVersion());
+
+	//f->setMap(&l->getMapSimpleVersion());
 
 
 	//first test the original MAP
@@ -199,8 +202,8 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	engine->detachLevel();
 	delete engine;
 	engine = nullptr;
-	delete f;
-	f = nullptr;
+	//delete f;
+	//f = nullptr;
 	delete l;
 	l=nullptr;
 	return 0;

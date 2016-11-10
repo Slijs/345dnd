@@ -1,6 +1,8 @@
 #pragma once
 #include "levels.h"
 #include "Fighter.h"
+#include "containerOnMap.h"
+#include "ContainerGenerator.h"
 /*!
 * Inherits from levels, not much specific functionalities added except
 * for just loading a text file from a path and creating a graphical
@@ -14,6 +16,7 @@ protected:
 	SDL_Rect _movePlayerDest;
 	SDL_Rect _exitPlay;
 	Fighter* _player;
+	std::vector<ContainerOnMap*> _containersOnMap;
 
 public:
 	PreBuiltLevel();
@@ -28,6 +31,8 @@ public:
 	std::string getEnemyPath() const;
 	std::vector<std::string> getBuiltLevelFile() const;
 	Fighter* getPlayer();
+	void setupContainersOnMap();
+	std::vector<ContainerOnMap*> getContainersOnMap();
 	std::vector<SDL_Rect> getAllButtonDestinations();
 	~PreBuiltLevel();
 };
