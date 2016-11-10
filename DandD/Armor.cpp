@@ -14,7 +14,7 @@ IMPLEMENT_SERIAL(Armor, Item, 1);
 
 // Default constructor, useless item as is
 Armor::Armor() : 	
-	Item("No name set", 0, 0, "assets/defaultArmor.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,0,0,0,0,0,1,0,0 } }), defense(0)
+	Item("None", 0, 0, "assets/defaultArmor.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,0,0,0,0,0,1,0,0 } }), defense(0)
 {
 
 }

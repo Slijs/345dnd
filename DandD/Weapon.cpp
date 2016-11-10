@@ -14,7 +14,7 @@ IMPLEMENT_SERIAL(Weapon, Item, 1);
 
 // Default constructor, useless item as is
 Weapon::Weapon() :
-	Item("No name set", 0, 0, "assets/defaultWeapon.jpg", { { 0,0,0,0,0,0,0,0,0 } }, { { 0,0,0,0,0,0,0,1,1 } })
+	Item("None", 0, 0, "assets/defaultWeapon.jpg", { { 0,0,0,0,0,0,0,0,0 } }, { { 0,0,0,0,0,0,0,1,1 } })
 {
 	setAttackDice("1d4"); // Sets a default attack die
 	setRange(0);

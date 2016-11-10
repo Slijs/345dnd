@@ -586,11 +586,15 @@ bool Fighter::pickupItem(Item* i){
 /**
 * Removes the contents of a container and inserts all of the items into the Character's backpack.
 *@param otherContainer the container to be emptied
+*@return bool True if the container gets emptied completely, false otherwise
 */
-void Fighter::fillBackpack(Container *otherContainer){
+bool Fighter::fillBackpack(Container *otherContainer){
 	int numItems = otherContainer->getNumContents();
 	for (int i = 0; i < numItems; i++){
-		pickupItem(otherContainer->removeItem(0));
+		// Will try to remove all items from container. If it can't remove an item, it means the backpack is full, thus will
+		// return false
+		if (!pickupItem(otherContainer->removeItem(0)))
+			return false;
 	}
 }
 

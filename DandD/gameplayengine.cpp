@@ -77,7 +77,9 @@ int GamePlayEngine::runEngine()
 				{
 					system("cls");
 					this->_level->getLevelWindow()->hideWindow();
-					//std::cout << "inventory pane logic will be here.\npress any key to continue.\n";
+					//!!!!!!!!!!!!!!!!!!!!
+					// DISPLAY CHARACTER STATS AND INVENTORY HERE
+					//!!!!!!!!!!!!!!!!!!!!
 					this->_level->getPlayer()->displayStats();
 					getch();
 					system("cls");

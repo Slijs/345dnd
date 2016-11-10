@@ -12,7 +12,7 @@
 IMPLEMENT_SERIAL(Belt, Item, 1);
 // Default constructor, useless item as is
 Belt::Belt() : 	
-	Item("No name set", 0, 0, "assets/defaultBelt.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 1,0,1,0,0,0,0,0,0 } })
+	Item("None", 0, 0, "assets/defaultBelt.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 1,0,1,0,0,0,0,0,0 } })
 {
 
 }

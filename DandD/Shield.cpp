@@ -13,7 +13,7 @@ IMPLEMENT_SERIAL(Shield, Item, 1);
 
 // Default constructor, useless item as is
 Shield::Shield() : 	
-	Item("No name set", 0, 0, "assets/defaultShield.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,0,0,0,0,0,1,0,0 } }), defense(0), attackDice("1d4"), range(0)
+	Item("None", 0, 0, "assets/defaultShield.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,0,0,0,0,0,1,0,0 } }), defense(0), attackDice("1d4"), range(0)
 {
 
 }
