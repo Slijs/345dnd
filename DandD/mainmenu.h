@@ -1,3 +1,7 @@
+/**
+*@file mainmenu.h
+*@brief Provides access to MainMenu
+*/
 #if !defined ( MAINMENU_H )
 #define MAINMENU_H
 #include "menus.h"
