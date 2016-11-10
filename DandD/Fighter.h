@@ -95,6 +95,7 @@ public:
 
 	void displayEquiped();
 	void displayBackpack();
+	void displayOnlyStats();
 
 	//TEST
 	bool validateHitPoints();

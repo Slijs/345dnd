@@ -99,6 +99,7 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 */
 Fighter* CharacterSaveManager::loadCharacter() {
 	system("CLS");
+	cin.clear();
 	CFile mapFile; // Map of all Character saves
 	string input = "";
 
@@ -126,8 +127,6 @@ Fighter* CharacterSaveManager::loadCharacter() {
 	charMap->printNames();
 	// Will try to get proper selection from user
 	while (true) {
-		cin.clear();
-		cin.ignore(10000, '\n');
 		cout << "Which character would you like to access? (-1 to return)" << endl;
 		cin >> input;
 		if (input == "-1") {
@@ -273,140 +272,6 @@ void CharacterSaveManager::removeCharacter(string name) {
 	delete charMap;
 	return;
 }
-
-/*
-void CharacterSaveManager::removeCharacter() {
-	CFile mapFile; // Map of all Character saves
-	string input = "";
-
-	// Will create charMap that will contain all Character save locations
-	CharacterSaveMap* charMap = new CharacterSaveMap();
-
-	// If the CharMap file can be opened successfully, charMap will be serialized to load the data
-	try {
-		mapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeRead);
-	}
-	catch (CFileException *e) {
-		cout << "There was an error accessing Character save files. Attempt aborted." << endl;
-		return;
-	}
-	CArchive mapArchive(&mapFile, CArchive::load);
-	charMap->Serialize(mapArchive);
-	mapArchive.Close();
-	mapFile.Close();
-	// If the charMap is empty at this point, it means that there are no Characters to remove
-	if (charMap->isEmpty()) {
-		cout << "There are no Characters to remove." << endl;
-		return;
-	}
-	cout << "The following Characters are available: " << endl;
-	charMap->printNames();
-	// Will try to get proper selection from user
-	while (true) {
-		cout << "Which character would you like to remove? (-1 to return)" << endl;
-		cin >> input;
-		if (input == "-1") {
-			cout << "Quitting remove attempt at your request." << endl;
-			return;
-		}
-		else if (charMap->contains(input.c_str())) {
-			break;
-		}
-		else {
-			cout << "Hmmm... it seems that character isn't available." << endl;
-			continue;
-		}
-	}
-	CString toRemove = input.c_str();
-	charMap->remove(toRemove);
-
-	CFile anotherMapFile;
-	// Now, the updated CharacterSaveMap will be serialized and saved
-	try {
-		anotherMapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeCreate | CFile::modeWrite);
-	}
-	catch (CFileException &exp) {
-		std::cout << "There was an error trying to record efforts. Aborting attempt." << endl;
-		return;
-	}
-	CArchive anotherMapArchive(&anotherMapFile, CArchive::store);
-	charMap->Serialize(anotherMapArchive);
-	anotherMapArchive.Close();
-	try {
-		anotherMapFile.Close();
-	}
-	catch (CFileException &exp) {
-		std::cout << "There was an error closing out the remove operation. Aborting attempt." << endl;
-		return;
-	}
-
-	if (!charMap->contains(toRemove)) {
-		cout << cstrTostr(toRemove) << " has been removed!" << endl;
-		delete charMap;
-		return;
-	}
-	else {
-		cout << "There was an error removing " << cstrTostr(toRemove) << "." << endl;
-		delete charMap;
-		return;
-	}
-}
-
-/**
-* Will allow a specific Character to be deleted based on the name provided
-*@param name string representing the name of the Character to be removed
-*/
-/*
-void CharacterSaveManager::removeCharacter(string name) {
-	CFile mapFile; // Map of all Character saves
-
-	// Will create charMap that will contain all Character save locations
-	CharacterSaveMap* charMap = new CharacterSaveMap();
-
-	// If the CharMap file can be opened successfully, charMap will be serialized to load the data
-	try {
-		mapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeRead);
-	}
-	catch (CFileException *e) {
-		cout << "There was an error accessing Character save files. Attempt aborted." << endl;
-		return;
-	}
-	CArchive mapArchive(&mapFile, CArchive::load);
-	charMap->Serialize(mapArchive);
-	mapArchive.Close();
-	mapFile.Close();
-	// If the charMap is empty at this point, it means that there are no Characters to remove
-	if (charMap->isEmpty()) {
-		cout << "There are no Characters to remove." << endl;
-		return;
-	}
-	
-	CString toRemove = name.c_str();
-	charMap->remove(toRemove);
-
-	CFile anotherMapFile;
-	// Now, the updated CharacterSaveMap will be serialized and saved
-	try {
-		anotherMapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeCreate | CFile::modeWrite);
-	}
-	catch (CFileException &exp) {
-		std::cout << "There was an error trying to record efforts. Aborting attempt." << endl;
-		return;
-	}
-	CArchive anotherMapArchive(&anotherMapFile, CArchive::store);
-	charMap->Serialize(anotherMapArchive);
-	anotherMapArchive.Close();
-	try {
-		anotherMapFile.Close();
-	}
-	catch (CFileException &exp) {
-		std::cout << "There was an error closing out the remove operation. Aborting attempt." << endl;
-		return;
-	}
-
-	delete charMap;
-	return;
-} */
 
 
 string CharacterSaveManager::cstrTostr(CString &cstr) {

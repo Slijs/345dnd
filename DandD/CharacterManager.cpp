@@ -4,6 +4,7 @@
 */
 #include "CharacterManager.h"
 #include "ContainerGenerator.h"
+#include "ItemCreator.h"
 
 /**
 * Allows the user to select a Character from a list of saved Characters, returns the pointer
@@ -27,6 +28,7 @@ void CharacterManager::createOrEditCharacter(){
 	Container *testbackpack;
 
 	// Ask if user wants to CREATE, EDIT or REMOVE a character
+	cin.clear();
 	do{
 		system("CLS");
 		_displayCreateEditMenu();
@@ -132,11 +134,19 @@ void CharacterManager::_createNewCharacter(){
 			cin >> conf;
 		}
 	} while (!(conf == 'Y' || conf == 'y'));
+	conf = 'x';
 
 	// The Character will now be created and it will be saved to file
 	Fighter *myChar = CharacterBuilder::create(selectedLevel, Race(selectedRace), name);
+	do {
+		std::cout << endl << "Would you like to add user-created items to your character? (Y/N)" << endl;
+		cin >> conf;
+	} while (!(conf == 'Y' || conf == 'y' || conf == 'N' || conf == 'n'));
+
+	if (conf == 'Y' || conf == 'y')
+		myChar->fillBackpack(ItemCreator::loadItemsFromFile());
 	CharacterSaveManager::saveCharacter(myChar);
-	myChar->displayStats();
+	myChar->displayOnlyStats();
 	delete myChar;
 	myChar = NULL;
 	cout << endl << "Press any key to return to character management menu." << endl;
@@ -163,7 +173,7 @@ void CharacterManager::_editCharacter(){
 	
 	do{
 		system("CLS");
-		theChar->displayStats();
+		theChar->displayOnlyStats();
 		// Displays menu to user so they can select what they want to do
 		_displayEditMenu();
 		// Ask if user wants to CREATE or EDIT the character

@@ -136,6 +136,29 @@ void Fighter::initHitPoints()
 	maxHitPoints = hitPoints;
 }
 
+/**
+* Displays only the stats of the Fighter, does not provide ability to edit inventory
+*/
+void Fighter::displayOnlyStats(){
+	system("CLS");
+	string raceName;
+	cout << "Name: " << name << endl;
+	cout << "Class: Fighter" << " Race: " << raceString[race] << endl;
+	cout << "Hit Points: " << hitPoints << "/" << maxHitPoints << endl;
+	this->Characters::displayStats();
+
+	cout << "--------Backpack Content--------\n";
+	if (backpack->getNumContents() == 0)
+		cout << "EMPTY\n";
+	else
+	{
+		for (int i = 0; i < backpack->getNumContents(); i++)
+			cout << backpack->getContents()[i]->getName() << ", ";
+	}
+
+	cout << "\n" << endl;
+}
+
 //!Function to displays the fighter stats, calls parent displayStats()
 void Fighter::displayStats()
 {

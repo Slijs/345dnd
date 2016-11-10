@@ -43,5 +43,6 @@ public:
 	void attack(Fighter* c);
 	void receiveDamage(int);
 	void currentState();
+	virtual void displayStats();
 
 };

@@ -145,3 +145,10 @@ void Monster::currentState()
 {
 	Notify();
 }
+
+void Monster::displayStats(){
+	system("CLS");
+	cout << "Name: " << name << endl;
+	cout << "Hit Points: " << hitPoints << endl;
+	this->Characters::displayStats();
+}
