@@ -610,6 +610,32 @@ bool Fighter::fillBackpack(Container *otherContainer){
 	}
 }
 
+bool Fighter::interactWithContainer(Container *theContainer){
+	char conf = 'x';
+	system("CLS");
+	//display container contents
+	cout << theContainer->contentsToString() << endl;
+	
+	//ask user if they want to get container
+	do {
+		cout << "Would you like to retrieve items from this container? (Y/N)" << endl;
+		cin >> conf;
+	} while (!(conf == 'Y' || conf == 'y' || conf == 'N' || conf == 'n'));
+	
+	switch (conf){
+	case 'Y':
+	case 'y': // User wants to get item, will try to fillBackpack
+		if (!fillBackpack(theContainer)){
+			cout << "Your backpack is full! You couldn't pick up everything." << endl;
+			return false;
+		}
+		return true;
+	case 'N':
+	case 'n': // user does not want to fillBackpack, will return false
+		return false;
+	}
+}
+
 /**
 * Allows the Fighter to equip piece of armor at index 'i' in the backpack. If no armor is equipped, then nothing special happens.
 * If the Fighter already has armor equipped, then it is returned to the backpack.

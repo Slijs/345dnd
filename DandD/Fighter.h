@@ -82,6 +82,7 @@ public:
 	void equipBelt(int i);
 	bool pickupItem(Item* i);
 	bool fillBackpack(Container *otherContainer);
+	bool interactWithContainer(Container *theContainer);
 
 	void deequipArmor();
 	void dequipWeapon();

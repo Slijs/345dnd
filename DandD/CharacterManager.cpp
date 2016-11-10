@@ -3,6 +3,7 @@
 *@brief Provides implementation of methods for management of Characters
 */
 #include "CharacterManager.h"
+#include "ContainerGenerator.h"
 
 /**
 * Allows the user to select a Character from a list of saved Characters, returns the pointer
@@ -23,19 +24,7 @@ void CharacterManager::createOrEditCharacter(){
 	char conf = 'X'; // char that will be used to get user input
 	bool cont = true;
 	Fighter *test;
-	Container *testbackpack = new Container();
-	CFile fileL;
-	int numItems;
-	if (!fileL.Open(_T("serializedItems.dat"), CFile::modeRead))
-	{
-		std::cout << "Unable to open input file" << std::endl;
-		return;
-	}
-	std::cout << "Loading items...\n";
-	CArchive arLoad(&fileL, CArchive::load);
-	testbackpack->Serialize(arLoad);
-	arLoad.Close();
-	fileL.Close();
+	Container *testbackpack;
 
 	// Ask if user wants to CREATE, EDIT or REMOVE a character
 	do{
@@ -52,6 +41,13 @@ void CharacterManager::createOrEditCharacter(){
 		case '3': // User wants to delete a character
 			_deleteCharacter();
 			break;
+		case '4': // DELETE123
+			test = CharacterSaveManager::loadCharacter();
+			testbackpack = ContainerGenerator::generateContainer(test);
+			test->interactWithContainer(testbackpack);
+			test->displayBackpack();
+			CharacterSaveManager::saveCharacter(test);
+			system("PAUSE");
 		case 'm':
 		case 'M':
 			return;

@@ -10,6 +10,7 @@ using namespace std;
 *@param theChar Fighter* to the Fighter being saved
 */
 bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
+	system("CLS");
 	CFile mapFile; // Map of all Character saves
 	string input = "";
 	CString charName = theChar->getName().c_str();
@@ -95,6 +96,7 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 *@param Fighter*, pointing to the loaded Character
 */
 Fighter* CharacterSaveManager::loadCharacter() {
+	system("CLS");
 	CFile mapFile; // Map of all Character saves
 	string input = "";
 
@@ -201,6 +203,7 @@ void CharacterSaveManager::removeCharacter() {
 	}
 	delete charMap; // Removes pointer to the map
 	removeCharacter(input); // Will use method that takes a name to complete the removal of the character
+	std::cout << input << " has been removed!" << endl;
 }
 
 /**
@@ -261,7 +264,6 @@ void CharacterSaveManager::removeCharacter(string name) {
 	catch (CFileException* pEx){
 		std::cout << "There was an error closing out remove operation." << endl;
 	}
-
 	delete charMap;
 	return;
 }
