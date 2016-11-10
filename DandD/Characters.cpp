@@ -778,3 +778,8 @@ bool Characters::_validPosition(char posInQuestion) {
 		return false;
 	return true;
 }
+
+bool Characters::_validComponentPosition(char posInQuestion){
+	if (posInQuestion == SimplifiedMapSymbols::_Obstruction_)
+		return false;
+}

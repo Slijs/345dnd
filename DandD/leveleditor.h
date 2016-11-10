@@ -1,3 +1,8 @@
+/**
+*@file leveleditor.h
+*@brief Provides declaration of LevelEditor class, used to edit levels
+*/
+
 #if !defined( LEVEL_EDITOR_H )
 #define LEVEL_EDITOR_H
 

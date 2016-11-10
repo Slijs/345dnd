@@ -1,3 +1,7 @@
+/**
+*@file campaignmanager.h
+*@brief Provides CampaignManager class, used to manage campaigns in the CampaignMenu
+*/
 #if !defined ( CAMPAIGN_MANAGER_H )
 #define CAMPAIGN_MANAGER_H
 #include "menus.h"

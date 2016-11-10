@@ -1,3 +1,7 @@
+/**
+*@file menuengine.h
+*@brief Provides implementation of MenuEngine class, used to manage engine display
+*/
 #if !defined ( MENU_ENGINE )
 #define MENU_ENGINE
 #include "game_loops.h"

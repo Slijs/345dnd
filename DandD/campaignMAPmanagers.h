@@ -1,3 +1,8 @@
+/**
+*@file campaignMAPmanagers.h
+*@brief Provides declaration of class used to manage campaign maps
+*/
+
 #if !defined ( CAMPAIGN_MAP_MANAGER_H )
 #define CAMPAIGN_MAP_MANAGER_H
 #include "campaignmanager.h"

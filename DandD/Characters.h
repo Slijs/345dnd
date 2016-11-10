@@ -66,6 +66,7 @@ class Characters : public Subject, public CObject,
 protected:
 	DECLARE_SERIAL(Characters);
 	static bool _validPosition(char posInQuestion);
+	static bool _validComponentPosition(char posInQuestion);
 	vector<int> position;
 	vector<string> *_map;
 	Dice _die;

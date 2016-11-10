@@ -1,3 +1,8 @@
+/**
+*@file levels.h
+*@brief Allows functionalities to manage components in the LevelWindow
+*/
+
 #if !defined (LEVEL_H)
 #define LEVEL_H
 

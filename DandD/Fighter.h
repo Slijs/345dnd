@@ -98,7 +98,7 @@ public:
 	bool validateGainExperience(int);
 
 	bool validatePlayerMove(int x, int y);
-	bool validateChestWithinRange(int x, int y);
+	bool validateMapComponentWithinRange(int x, int y);
 
 	virtual void Serialize(CArchive &ar);
 };
