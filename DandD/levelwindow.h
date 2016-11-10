@@ -1,4 +1,7 @@
-
+/**
+*@file levelwindow.h
+*@brief  Provides ability to acces LevelWindow class
+*/
 
 #pragma once
 #include "windows.h"
@@ -7,6 +10,7 @@
 using namespace WindowHeightWidthDivideAspect;
 
 /*!
+*@class LevelWindow
 *Derives further from textbased window class and adds in grid like functionalities
 */
 class LevelWindow : public TextBasedWindow

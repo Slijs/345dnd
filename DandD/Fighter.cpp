@@ -952,7 +952,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 	char posInQuestion = 'c';
 
 	// Moving less than or equal to range up, absolutely no change in horizontal position
-	if (abs(position[0] - x) <= speed && position[1] - y == 0) {
+	if (abs(position[0] - x) <= speed && (position[0] - x >= 0) && position[1] - y == 0) {
 		for (int i = position[0] - 1; i > x; --i) {
 			// Will determine if each square the character is trying to move to can be landed on.
 			// Destination does not have to be verified, as this is done by Characters
@@ -965,11 +965,12 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 
 		// Moving less than or equal to range down
 	}
-	else if (abs(x - position[0]) <= speed && position[1] - y == 0) {
+	else if (abs(x - position[0]) <= speed && (x - position[0] >= 0) && position[1] - y == 0) {
 		for (int i = position[0] + 1; i < x; ++i) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 			posInQuestion = _map->at(i).at(y);
+			cout << posInQuestion << "could be the culprit" << endl;
 			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
@@ -1081,7 +1082,7 @@ bool Fighter::validatePlayerMove(int x, int y) {
 		return false;
 
 	// Moving less than or equal to range up, absolutely no change in horizontal position
-	if (abs(position[0] - x) <= speed && position[1] - y == 0) {
+	if (abs(position[0] - x) <= speed && (position[0] - x >=0) && position[1] - y == 0) {
 		for (int i = position[0] - 1; i > x; --i) {
 			// Will determine if each square the character is trying to move to can be landed on.
 			// Destination does not have to be verified, as this is done by Characters
@@ -1094,11 +1095,12 @@ bool Fighter::validatePlayerMove(int x, int y) {
 
 	// Moving less than or equal to range down
 	}
-	else if (abs(x - position[0]) <= speed && position[1] - y == 0) {
+	else if (abs(x - position[0]) <= speed && (x - position[0] >=0) && position[1] - y == 0) {
 		for (int i = position[0] + 1; i < x; ++i) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 			posInQuestion = _map->at(i).at(y);
+			cout << posInQuestion << "could be the culprit" << endl;
 			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
