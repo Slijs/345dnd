@@ -5,6 +5,7 @@
 #pragma once
 #include <string>
 /*!
+*@class SimplifiedMapSymbols
 *namspace that has map symbols simplifeid,
 *reason for simplification is that, during the purpose
 *of routing, a wal, water or enemies are all obstruction
