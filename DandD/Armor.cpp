@@ -34,7 +34,7 @@ Armor::Armor() :
  */
 Armor::Armor(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues, int defense) 
-	: Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,1,0,0})
+		: Item(name, weight, value, image, enchantmentValues, { { 0, 0, 0, 0, 0, 0, 1, 0, 0 } })
 {
 	setDefense(defense);
 }

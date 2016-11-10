@@ -88,6 +88,9 @@ public:
 	void deequipShield();
 	void deequipBelt();
 
+	void displayEquiped();
+	void displayBackpack();
+
 	//TEST
 	bool validateHitPoints();
 	bool validateDeath();

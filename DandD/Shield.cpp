@@ -28,7 +28,7 @@ Shield::Shield(const Shield* otherShield) : Item(otherShield){
 // will be set.
 Shield::Shield(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues, int defense, std::string attackDice, int range)
-	: Item(name, weight, value, image, enchantmentValues, {0,0,0,0,0,0,1,0,0})
+		: Item(name, weight, value, image, enchantmentValues, { { 0, 0, 0, 0, 0, 0, 1, 0, 0 } })
 {
 	setDefense(defense);
 	setAttackDice(attackDice);
