@@ -8,6 +8,7 @@
 #include "containerOnMap.h"
 #include "ContainerGenerator.h"
 /*!
+*@class PreBuiltLevel
 * Inherits from levels, not much specific functionalities added except
 * for just loading a text file from a path and creating a graphical
 * level out of it on the LevelWindow instance that it would contain

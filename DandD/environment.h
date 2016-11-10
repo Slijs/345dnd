@@ -1,6 +1,7 @@
 #pragma once
 #include "game_components.h"
 /*!
+*@class Environment
 * derived class of game component.
 * two attributes added, one is if the environment component
 * is obstruction to player or not

@@ -13,6 +13,10 @@
 #include <string>
 #include "Item.h"
 
+/**
+*@class Weapon
+*@brief Subclass of Item, allows character to equip a Weapon
+*/
 class Weapon: public Item {
 	protected:
 		// Weapon Attributes

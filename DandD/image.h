@@ -1,5 +1,7 @@
-
-
+/**
+*@file image.h
+*@brief Provides access to SDL_Image class, used for loading images and making textures out of them
+*/
 #pragma once
 
 #include <SDL.h>

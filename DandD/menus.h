@@ -1,3 +1,7 @@
+/**
+*@file menus.h
+*@brief  Provides abstract class for building windows that are ONLY menus
+*/
 #if !defined ( MENUS_H )
 #define MENUS_H
 #include "textbasedwindow.h"

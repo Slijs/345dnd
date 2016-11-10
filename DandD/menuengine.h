@@ -11,6 +11,7 @@
 #include "campaignmenus.h"
 #include "campaignMAPmanagers.h"
 /*!
+*@class MenuEngine
 *this class was designed to run the menus for the assignment
 *the three overloaded functions are used to run different types of menus
 */

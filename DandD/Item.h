@@ -16,6 +16,10 @@
 using std::string;
 using std::array;
 
+/**
+*@class Item 
+*@brief Item superclass, provides the Item object which can be manipulated by Characters
+*/
 class Item : public CObject {
 protected:
 	// Attributes common to all items

@@ -20,6 +20,10 @@
 using std::string;
 using std::vector;
 
+/**
+*@class Container
+*@brief Provides ability to manage an inventory
+*/
 class Container : public GameComponent, public CObject{
 	protected:
 		// Attributes common to all containers

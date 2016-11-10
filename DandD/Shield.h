@@ -14,6 +14,10 @@
 #include "Item.h"
 #include "Dice.h"
 
+/**
+*@class Shield
+*@brief Subclass of Item, allows character to equip a Shield
+*/
 class Shield: public Item {
 	protected:
 		// Shield Attributes

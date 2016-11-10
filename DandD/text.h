@@ -1,4 +1,7 @@
-
+/**
+*@file text.h
+*@brief Provides access to Text class, used for management of rendering text to screen
+*/
 
 #pragma once
 
@@ -9,7 +12,8 @@
 #include "windows.h"
 #include "filepathandfoldermanager.h"
 /*!
-*this class is designed to abstract the process of detailing the text funtionalities of sdl.
+*@class Text
+*This class is designed to abstract the process of detailing the text funtionalities of sdl.
 *primary responsibility is to create a text based texture for a target window renderer, based
 *on a specific true type font
 */

@@ -13,7 +13,10 @@
 #include <string>
 #include <afx.h>
 #include "Item.h"
-
+/**
+*@class Armor
+*@brief Subclass of Item, allows Character to equip armor
+*/
 class Armor: public Item {
 	protected:
 		// Armor Attributes

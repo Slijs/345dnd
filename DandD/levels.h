@@ -19,6 +19,7 @@
 #include "Monster.h"
 using namespace SimplifiedMapSymbols;
 /*!
+*@class Level
 * Levels class has a LevelWindow as attributes, and adds functionalities to add
 * manage and operate,
 * actual environment and player components on the LevelWindow instance.

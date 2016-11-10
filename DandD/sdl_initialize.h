@@ -1,4 +1,7 @@
-
+/**
+*@file sdl_initialize.h
+*@brief Provides access to SDLSetup class
+*/
 #pragma once
 
 #include <SDL.h>
@@ -7,7 +10,8 @@
 #include <SDL_image.h>
 #include <iostream>
 /*!
-*this class is designed to abstract the process of initializing
+*@class SDLSetup
+*This class is designed to abstract the process of initializing
 *sdl functionalities for the game
 */
 class SDLSetup

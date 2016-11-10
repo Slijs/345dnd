@@ -906,7 +906,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 			// Will determine if each square the character is trying to move to can be landed on.
 			// Destination does not have to be verified, as this is done by Characters
 			posInQuestion = _map->at(i).at(y);
-			if (!_validComponentPosition(posInQuestion)) {
+			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
 		}
@@ -919,7 +919,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 			posInQuestion = _map->at(i).at(y);
-			if (!_validComponentPosition(posInQuestion)) {
+			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
 		}
@@ -932,7 +932,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 			posInQuestion = _map->at(x).at(i);
-			if (!_validComponentPosition(posInQuestion)) {
+			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
 		}
@@ -945,7 +945,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 			posInQuestion = _map->at(x).at(i);
-			if (!_validComponentPosition(posInQuestion)) {
+			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
 		}
@@ -961,7 +961,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 			// Destination does not have to be verified, as this is done by Characters
 
 			posInQuestion = _map->at(pos[0]).at(pos[1]);
-			if (!_validComponentPosition(posInQuestion)) {
+			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
 			// Decrements the y value of the position being tested
@@ -976,7 +976,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 			// Destination does not have to be verified, as this is done by Characters
 
 			posInQuestion = _map->at(pos[0]).at(pos[1]);
-			if (!_validComponentPosition(posInQuestion)) {
+			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
 			// Increments the y value of the position being tested
@@ -992,7 +992,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 			// Destination does not have to be verified, as this is done by Characters
 
 			posInQuestion = _map->at(pos[0]).at(pos[1]);
-			if (!_validComponentPosition(posInQuestion)) {
+			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
 			// Decrements the y value of the position being tested
@@ -1010,7 +1010,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 			// Destination does not have to be verified, as this is done by Characters
 
 			posInQuestion = _map->at(pos[0]).at(pos[1]);
-			if (!_validComponentPosition(posInQuestion)) {
+			if (!_validPosition(posInQuestion)) {
 				return false;
 			}
 			// Increments the y value of the position being tested

@@ -1,4 +1,7 @@
-
+/**
+*@file filepathandfoldermanager.h
+*@brief Provides ability to manage files and folders for campaigns
+*/
 #pragma once
 #include <string>
 #include <vector>

@@ -9,6 +9,7 @@
 #include "levels.h"
 #include "prebuiltlevel.h"
 /*!
+*@class LevelEditor
 * This class inherits from level, the main spesific functionalities of
 * this class include attributes and behaviours that would facilitate the mangement
 * of portions beyond the main gameplay grid.

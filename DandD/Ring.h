@@ -13,6 +13,10 @@
 #include <string>
 #include "Item.h"
 
+/**
+*@class Ring
+*@brief Subclass of Item, allows Character to equip a Ring
+*/
 class Ring: public Item {
 	protected:
 		DECLARE_SERIAL(Ring);

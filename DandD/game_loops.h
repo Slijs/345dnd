@@ -23,6 +23,7 @@
 
 //enum destination {mainmenu, gamelevel, leveleditor};
 /*!
+*@class GameLoops
 * Main driver class for the game.
 * There is one loop manager that handles the
 * direction of what part of the program needs to

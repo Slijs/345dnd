@@ -1,3 +1,7 @@
+/**
+*@file namespaces.h
+*@brief Provides namespaces which are used to retrieve various constants or enums
+*/
 #pragma once
 #include <string>
 /*!

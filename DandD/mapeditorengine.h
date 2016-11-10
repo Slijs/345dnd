@@ -12,6 +12,7 @@
 #include "Monster.h"
 using namespace SimplifiedMapSymbols;
 /*!
+*@class MapEditorEngine
 * The main map editor class for this assignment.
 * manages all functionalities of map creation.
 * Primarily handles user inputs based on where the mouse cursor is on window

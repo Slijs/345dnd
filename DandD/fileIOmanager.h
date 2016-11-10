@@ -1,3 +1,7 @@
+/**
+*@file IOmanager.h
+*@brief Provides the ability to manage files for the campaign assets
+*/
 #pragma once
 #include <iostream>
 #include <string>

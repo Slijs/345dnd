@@ -8,6 +8,7 @@
 #include<vector>
 using namespace std;
 
+//!@class Enhancement
 //! class for the implementation of an enhancement, i.e. a stat influenced by an item, as well as the bonus it gives
 class Enhancement
 {

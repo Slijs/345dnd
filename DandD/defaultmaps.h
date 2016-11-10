@@ -1,3 +1,7 @@
+/**
+*@file defaultmaps.h
+*@brief Provides Singleton Class for managing default maps
+*/
 #if !defined (DEFAULT_MAPS_MENU_H)
 #define DEFAULT_MAPS_MENU_H
 #include "campaignmenus.h"

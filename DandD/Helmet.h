@@ -13,6 +13,10 @@
 #include <string>
 #include "Item.h"
 
+/**
+*@class Helmet
+*@brief Subclass of Item, allows Character to equip a helmet
+*/
 class Helmet: public Item {
 	protected:
 		DECLARE_SERIAL(Helmet);

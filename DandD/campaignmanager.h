@@ -14,6 +14,7 @@ using namespace BaseMenuColorIndex;
 using namespace DestinationFromMenus;
 using namespace CampaignMaximums;
 /*!
+*@class CampaignManager
 *the instances of this class will be the main menu for campaign management.
 *inherits from abstract class campaign menus and fully implements all functions
 */

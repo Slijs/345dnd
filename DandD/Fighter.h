@@ -17,9 +17,13 @@ Namely functions to attack a monster, to receive damage which may result in char
 will trigger level up when applicable
 */
 
-
+// Forward declaration of Monster class
 class Monster;
 
+/**
+*@class Fighter
+*Subclass of Characters, 'Fighter' character class implementation
+*/
 class Fighter : public Characters
 {
 protected:

@@ -1,4 +1,7 @@
-
+/**
+*@file routing.h
+*@brief Provides class used to manage routing of map
+*/
 #pragma once
 #include <vector>
 #include <iostream>

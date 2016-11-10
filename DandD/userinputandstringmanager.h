@@ -1,3 +1,7 @@
+/**
+*@file userinputandstringmanager.h
+*@brief Provides access to SingletonInputsAndStringManager class, used to manage input from the user
+*/
 #if !defined (USER_INPUT_AND_STRING_MANAGER_H)
 #define USER_INPUT_AND_STRING_MANAGER_H
 #include <iostream>
