@@ -4,13 +4,13 @@
 CharacterObserver::CharacterObserver(Characters* s) 
 {
 	_sub = s;
-	_sub->Attach(this);
+	_sub->attach(this);
 };
 
 //!Destructor that dettaches the Character object 
 CharacterObserver::~CharacterObserver()
 {
-	_sub->Dettach(this);
+	_sub->detach(this);
 }
 
 //!Function that triggers redisplay when changes occur to character stats

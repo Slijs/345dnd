@@ -47,7 +47,7 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_inventoryPaneDest.y = this->_level_window->getWindowHeight() * 0.05;
 	this->_inventoryPaneDest.w = (this->_level_window->getWindowWidth() - (this->_level_window->getGamePlay_X_Grids() * this->_level_window->getGridX_Length())) * 0.8;
 	this->_inventoryPaneDest.h = this->_level_window->getWindowHeight() * 0.05;
-	this->_level_window->addButton("Inventory Pane", 255, 0, 0, this->_inventoryPaneDest);
+	this->_level_window->addButton("Player Status", 255, 0, 0, this->_inventoryPaneDest);
 
 	this->_movePlayerDest.x = this->_inventoryPaneDest.x;
 	this->_movePlayerDest.w = this->_inventoryPaneDest.w;

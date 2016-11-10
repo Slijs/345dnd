@@ -279,6 +279,10 @@ bool Fighter::validateGainExperience(int exp)
 
 void Fighter::equipOptions()
 {
+	
+	printf("%-10s%-15s  %-10s%-15s\n", "Armor: ", armor->getName().c_str(), "Weapon: ", weapon->getName().c_str());
+	printf("%-10s%-15s  %-10s%-15s\n", "", armor->getName().c_str(), "", weapon->getName().c_str());
+
 
 }
 
@@ -289,6 +293,40 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 
 //!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
 
+void Fighter::displayEquiped()
+{
+	printf("%-10s%-20s  %-10s%-20s\n", "Armor: ", armor->getName(), "Weapon: ", weapon->getName());
+	printf("%-8s%-5s %-8s%-9s %-8s%-5s %-8s%-9s\n", "Weight:", armor->getWeight() , "Value:", armor->getValue(), "Weight:", weapon->getWeight(), "Value:", weapon->getValue());
+	printf("%-30s  %-30s\n", "Enchantment:", "Enchantment:");
+	printf("%-10s%-20s  %-8s%-5s %-8s%-9s\n", "AC:", armor->getEnchantmentValues()[6], "ATT:", "+2", "DAM:", "0");
+	cout << "\n";
+
+	printf("%-10s%-20s  %-10s%-20s\n", "Shield: ", "Round Shield", "Helmet: ", "Smart Cap");
+	printf("%-8s%-5s %-8s%-9s %-8s%-5s %-8s%-9s\n", "Weight:", "15 lb", "Value:", "15 G", "Weight:", "5 lb", "Value:", "6 G");
+	printf("%-30s  %-30s\n", "Enchantment:", "Enchantment:");
+	printf("%-10s%-20s  %-5s%-3s %-5s%-3s%-5s%-3s\n", "AC:", "3", "INT:", "2", "WIS:", "1", "AC:", "0");
+	cout << "\n";
+
+	printf("%-10s%-20s  %-10s%-20s\n", "Ring: ", "Ultra Ring", "Boots: ", "Light Boots");
+	printf("%-8s%-5s %-8s%-9s %-8s%-5s %-8s%-9s\n", "Weight:", "15 lb", "Value:", "15 G", "Weight:", "5 lb", "Value:", "6 G");
+	printf("%-30s  %-30s\n", "Enchantment:", "Enchantment:");
+	printf("%-5s%-3s %-5s%-3s%-5s%-8s  %-8s%-5s %-8s%-9s\n", "STR:", "1", "CON:", "1", "WIS:", "1", "INT:", "2", "DEX:", "1", "AC:", "0");
+	printf("%-5s%-2s %-5s%-2s", "CHA:", "1", "AC:", "3");
+	cout << "\n\n";
+
+	printf("%-10s%-20s", "Belt: ", "Belt");
+	cout << "\n";
+	printf("%-8s%-5s %-8s%-9s", "Weight:", "15 lb", "Value:", "15 G");
+	cout << "\n";
+	printf("%-30s\n", "Enchantment:");
+	printf("%-5s%-2s %-5s%-2s", "DEX:", "1", "AC:", "1");
+
+	cout << "\n";
+}
+void Fighter::displayBackpack()
+{
+
+}
 
 /**
 * Allows the Fighter to equip piece of armor at index 'i' in the backpack. If no armor is equipped, then nothing special happens.

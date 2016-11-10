@@ -1,5 +1,6 @@
 #pragma once
 #include "Observer.h"
+#include "Subject.h"
 #include "Characters.h"
 
 /*!

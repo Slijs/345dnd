@@ -281,11 +281,11 @@ void Characters::detProficiencyBonus()
 //!Calculates the armorclass based if armor is equipped or not (for initialialization purposes) 
 void Characters::calcArmorClass()
 {
-	if (armor == nullptr)
+	if (armor->getDefense() == 0)
 		armorClass = 10 + scores[1][1];
 	else
 	{
-		armorClass = armor->getEnchantmentValues()[7] + scores[1][1];
+		armorClass = armor->getDefense()+armor->getEnchantmentValues()[6] + scores[1][1];
 	}
 
 }
@@ -295,7 +295,7 @@ DEX mod if ranged weapon or STR mod if melee weapon*/
 void Characters::calcAttackBonus()
 {
 	attackBonus = proficiencyBonus;
-	if (weapon == nullptr)
+	if (weapon->getWeight() ==0)
 		attackBonus += scores[1][0];  //add str mod if no weapon
 	else if (weapon->getRange() == 1)
 		attackBonus += scores[1][0];  //add str mod if melee 
@@ -306,7 +306,7 @@ void Characters::calcAttackBonus()
 /*!Function to calculate damage bonus which is DEX mod if ranged weapon or STR mod if melee weapon*/
 void Characters::calcDamageBonus()
 {
-	if (weapon == nullptr)
+	if (weapon->getWeight() == 0)
 		damageBonus += scores[1][0];  //add str mod if no weapon
 	else if (weapon->getRange() == 1)
 		damageBonus += scores[1][0];  //add str mod if melee 
@@ -344,6 +344,8 @@ void Characters::displayEquip()
 	printf("%-10s%-15s  %-10s%-15s\n", "Shield: ", shield->getName().c_str(), "Helmet: ", helmet->getName().c_str());
 
 	printf("%-10s%-15s  %-10s%-15s \n", "Ring: ", ring->getName().c_str(), "Boots: ", boots->getName().c_str());
+	
+	printf("%-10s%-15s\n", "Belt: ", belt->getName().c_str());
 }
 
 //!Function for display of character's stats during battle (shows level, armor class, attack bonus and damage bonus)

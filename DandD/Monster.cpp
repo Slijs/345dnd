@@ -8,19 +8,33 @@ Monster::Monster() : Characters() {
 	this->speed = 20;
 	detHitDie();
 	detHitPoints();
+
+	this->_componentChar = SimplifiedMapSymbols::_Enemies_;
+	this->_componentName = "enemy";
+	this->_componentType = gameplayGridComponentTypes::enemy;
+	this->_componentImage = nullptr;
+	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
+	this->_obstructionToPlayer = true;
 }
-/*
-//!Parameterized Constructor that sets name, type, size, level, speed , ability scores and armor class
-Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
-{
-	this->name = name;
-	this->type = type;
-	this->size = size;
-	this->speed = speed;
-	detHitDie();
-	detHitPoints();
-	equipWeapon(weapon);
-}*/
+
+////!Parameterized Constructor that sets name, type, size, level, speed , ability scores and armor class
+//Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
+//{
+//	this->name = name;
+//	this->type = type;
+//	this->size = size;
+//	this->speed = speed;
+//	detHitDie();
+//	detHitPoints();
+//	equipWeapon(weapon);
+//
+//	this->_componentChar = SimplifiedMapSymbols::_Enemies_;
+//	this->_componentName = "enemy";
+//	this->_componentType = gameplayGridComponentTypes::enemy;
+//	this->_componentImage = nullptr;
+//	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
+//	this->_obstructionToPlayer = true;
+//}
 
 
 //!Destructor

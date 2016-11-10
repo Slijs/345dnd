@@ -22,8 +22,8 @@ Item::Item() : name("None"),
 weight(0),
 value(0),
 image("assets/defaultItem.jpg"),
-enchantmentValues({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }),
-enchantmentsPossible({ 0, 0, 0, 0, 0, 0, 0, 0, 0 }) {}
+enchantmentValues({ { 0, 0, 0, 0, 0, 0, 0, 0, 0 } }),
+enchantmentsPossible({ { 0, 0, 0, 0, 0, 0, 0, 0, 0 } }) {}
 
 /**
 * @brief This will be the standard constructor to be used for the
@@ -169,8 +169,7 @@ string Item::toString() {
 	string tempString;
 	tempString += getName() + "\n";
 	tempString += "Weight: " + std::to_string(getWeight()) + "\tValue: "
-		+ std::to_string(getValue()) +
-		"\tImage: " + getImage() + "\n";
+		+ std::to_string(getValue())+"\n";
 	tempString += "Enchantments:\n";
 	tempString += "STR\tDEX\tCON\tINT\tWIS\tCHA\tARM\tATT\tDAM\n";
 	array<int, 9> tempEnchantmentValues = getEnchantmentValues();

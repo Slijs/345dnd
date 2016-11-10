@@ -75,6 +75,7 @@
     <ClCompile Include="Boots.cpp" />
     <ClCompile Include="campaignselect.cpp" />
     <ClCompile Include="CharacterManager.cpp" />
+    <ClCompile Include="CharacterObserver.cpp" />
     <ClCompile Include="Characters.cpp" />
     <ClCompile Include="CharacterSaveManager.cpp" />
     <ClCompile Include="CharacterSaveMap.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="Boots.h" />
     <ClInclude Include="campaignselect.h" />
     <ClInclude Include="CharacterManager.h" />
+    <ClInclude Include="CharacterObserver.h" />
     <ClInclude Include="Characters.h" />
     <ClInclude Include="CharacterSaveMap.h" />
     <ClInclude Include="CharBuilder.h" />
