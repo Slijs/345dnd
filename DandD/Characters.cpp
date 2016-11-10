@@ -32,6 +32,7 @@ Characters::Characters()
 	boots = new Boots();
 	ring = new Ring();
 	helmet = new Helmet();
+	backpack = new Container();
 }
 
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)

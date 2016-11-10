@@ -135,7 +135,7 @@ void LevelEditor::createLevelForTargetWindow()
 	//character rectangle for text
 	this->_characterTextDestination.y = this->_environmentTextDestination.y;
 	this->_characterTextDestination.h = this->_environmentTextDestination.h;
-	this->_characterTextDestination.w = (this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart) * 0.7;
+	this->_characterTextDestination.w = (this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart) * 0.35;
 	this->_characterTextDestination.x = this->_X_Cor_ItemPortionEnd_CharacterPortionStart + (((this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)/2) - (this->_characterTextDestination.w / 2));
 
 	//destination for back to main menu button

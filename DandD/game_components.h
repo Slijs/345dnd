@@ -3,7 +3,7 @@
 #include "image.h"
 #include <vector>
 enum environment                {door, wall, floors, water, entrence, door2};
-enum gameplayGridComponentTypes {environment, character, items, container};
+enum gameplayGridComponentTypes {environment, character, items, container, enemy};
 /*!
 * A game component class that sets attributes for all game components there will be in game.
 * primary attributes include an image component along with the path for the image file,

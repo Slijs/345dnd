@@ -455,7 +455,7 @@ int GameLoops::campaignManagerLoop(char* path, char* campaign)
 
 int GameLoops::createEditItems()
 {
-	// ADD ITEM CREATION HERE
+	ItemCreator::createItems();
 	return _MainMenu_;
 }
 

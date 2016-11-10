@@ -18,7 +18,7 @@ IMPLEMENT_SERIAL(Item, CObject, 1);
 /**
 * @brief Default constructor, useless as is. All data is set to 0 or placeholder.
 */
-Item::Item() : name("Name Unset"),
+Item::Item() : name("None"),
 weight(0),
 value(0),
 image("assets/defaultItem.jpg"),

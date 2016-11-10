@@ -7,6 +7,8 @@
 #define CHARSAVEMANAGER_H
 #include "CharacterSaveMap.h" // Provides data structure for keeping track of save paths
 #include "Fighter.h"
+#include <string>
+#include <iostream>
 
 /**
 *@class CharacterSaveManager

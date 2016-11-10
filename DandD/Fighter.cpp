@@ -314,6 +314,7 @@ void Fighter::displayEquiped()
 	printf("%-5s%-2s %-5s%-2s", "CHA:", "1", "AC:", "3");
 	cout << "\n\n";
 
+<<<<<<< HEAD
 	printf("%-10s%-20s", "Belt: ", "Belt");
 	cout << "\n";
 	printf("%-8s%-5s %-8s%-9s", "Weight:", "15 lb", "Value:", "15 G");
@@ -329,19 +330,32 @@ void Fighter::displayBackpack()
 }
 
 void Fighter::equip(Armor* a)
+=======
+/**
+* Allows the Fighter to equip piece of armor at index 'i' in the backpack. If no armor is equipped, then nothing special happens.
+* If the Fighter already has armor equipped, then it is returned to the backpack.
+*@param i 
+*/
+void Fighter::equipArmor(int i)
+>>>>>>> origin/Interim-Build
 {
+	// Checks to see if 'no' Armor has been equipped
+	if (_isNullItem(armor)){
+		//Armor *toEquip = backpack->removeItem(i);
+	}
 	//Remove bonus
 	if (armor->getEnchantmentValues()[7] == 0)
 		armorClass -= 10;
 	else
 		armorClass -= armor->getEnchantmentValues()[7];
-	armor = a;
+	//armor = a;
 	//Add Bonus
 	armorClass += armor->getEnchantmentValues()[7];
 
 	currentState();
 }
 
+/*
 //!Function to equip weapon. Recalculates damage bonus and attack bonus based on weapon equipped. Triggers redisplay of stats
 void Fighter::equip(Weapon* w)
 {
@@ -407,7 +421,7 @@ void Fighter::equip(Belt* b)
 	updateStatsEQ(shield);
 	currentState();
 }
-
+*/
 void Fighter::deequipArmor()
 {
 	updateStatsDQ(armor);
@@ -617,4 +631,16 @@ bool Fighter::validatePlayerMove(int x, int y) {
 */
 void Fighter::setName(string name) {
 	this->name = name;
+}
+
+/**
+*Checks if the item passed to it is a "null" item, AKA its name is set to none
+*@param theItem Item* to item in question
+*@return bool, True if Item is "null" False otherwise
+*/
+bool Fighter::_isNullItem(Item *theItem){
+	if (theItem->getName().compare("None") == 0){
+		return true;
+	}
+	else return false;
 }

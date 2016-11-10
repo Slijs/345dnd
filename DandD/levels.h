@@ -11,6 +11,7 @@
 #include "namespaces.h"
 #include "Container.h"
 #include "Item.h"
+#include "Monster.h"
 using namespace SimplifiedMapSymbols;
 /*!
 * Levels class has a LevelWindow as attributes, and adds functionalities to add
@@ -31,6 +32,7 @@ protected:
 	std::vector<SDL_Rect> _gameplayGrids;
 	std::vector<Environment*> _environment_components;
 	GameComponent* _player;
+	Monster* _enemy;
 	Container* _container;
 
 public:

@@ -20,7 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -87,6 +87,7 @@
     <ClCompile Include="gameplayengine.cpp" />
     <ClCompile Include="Helmet.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemCreator.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="mainmenu.cpp" />
     <ClCompile Include="campaignmanager.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="gameplayengine.h" />
     <ClInclude Include="Helmet.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemCreator.h" />
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="mainmenu.h" />
     <ClInclude Include="campaignmanager.h" />
