@@ -38,6 +38,7 @@ private:
 	int mouse_X_cor;
 	int mouse_Y_cor;
 	std::string _currentCampaignTracker;
+	Fighter* _currentFighterTracker;
 
 public:
 	void loopManager();
