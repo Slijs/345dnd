@@ -44,7 +44,7 @@ Fighter::Fighter(int level, Race race, string name) : Characters(level)
 Fighter::Fighter() : Characters(){
 	Fighter::name = "Dummy";
 	size = Dwarfs::size;
-	speed = Dwarfs::speed;
+	speed = Humans::speed;
 	scoreIncrease(Dwarfs::typeScore, Dwarfs::ScoreIncrease);
 	initHitPoints();
 	this->race = Dwarf;
@@ -567,6 +567,32 @@ void Fighter::displayEquiped()
 	cout << "\n";
 }
 
+void Fighter::displayBackpack(){
+	cout << backpack->contentsToString() << endl;
+}
+
+/**
+*Allows the Fighter to add an item to its backpack
+*@parma i Item* to the Item to be picked up
+*@return bool, representing whether or not picking up the Item was successful
+*/
+bool Fighter::pickupItem(Item* i){
+	if (!backpack->insertItem(i)){
+		cout << "Sorry, but your backpack is full!" << endl;
+		return false;
+	} return true;
+}
+
+/**
+* Removes the contents of a container and inserts all of the items into the Character's backpack.
+*@param otherContainer the container to be emptied
+*/
+void Fighter::fillBackpack(Container *otherContainer){
+	int numItems = otherContainer->getNumContents();
+	for (int i = 0; i < numItems; i++){
+		pickupItem(otherContainer->removeItem(0));
+	}
+}
 
 /**
 * Allows the Fighter to equip piece of armor at index 'i' in the backpack. If no armor is equipped, then nothing special happens.

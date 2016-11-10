@@ -80,6 +80,8 @@ public:
 	void equipRing(int i);
 	void equipShield(int i);
 	void equipBelt(int i);
+	bool pickupItem(Item* i);
+	void fillBackpack(Container *otherContainer);
 
 	void deequipArmor();
 	void dequipWeapon();

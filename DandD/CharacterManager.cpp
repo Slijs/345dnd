@@ -22,6 +22,20 @@ Fighter* CharacterManager::getCharacter(){
 void CharacterManager::createOrEditCharacter(){
 	char conf = 'X'; // char that will be used to get user input
 	bool cont = true;
+	Fighter *test;
+	Container *testbackpack = new Container();
+	CFile fileL;
+	int numItems;
+	if (!fileL.Open(_T("serializedItems.dat"), CFile::modeRead))
+	{
+		std::cout << "Unable to open input file" << std::endl;
+		return;
+	}
+	std::cout << "Loading items...\n";
+	CArchive arLoad(&fileL, CArchive::load);
+	testbackpack->Serialize(arLoad);
+	arLoad.Close();
+	fileL.Close();
 
 	// Ask if user wants to CREATE, EDIT or REMOVE a character
 	do{
@@ -42,7 +56,7 @@ void CharacterManager::createOrEditCharacter(){
 		case 'M':
 			return;
 		default:
-			cout << "Sorry, I think you entered an option that isn't allowed. Please try again." << endl;
+			std::cout << "Sorry, I think you entered an option that isn't allowed. Please try again." << endl;
 		}
 	} while (cont);
 	return;
