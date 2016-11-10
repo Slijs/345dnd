@@ -1,0 +1,128 @@
+\hypertarget{class_level}{}\section{Level Class Reference}
+\label{class_level}\index{Level@{Level}}
+
+
+{\ttfamily \#include $<$levels.\+h$>$}
+
+Inheritance diagram for Level\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_level}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_level_aba4f031f3752773a8a04bf58997776b9}{Level} (std\+::string path, \hyperlink{class_level_window}{Level\+Window} $\ast$window)
+\item 
+\hypertarget{class_level_ab0ed136431f5f1b92ec834d5c90c3ba9}{}\label{class_level_ab0ed136431f5f1b92ec834d5c90c3ba9} 
+\hyperlink{class_level_window}{Level\+Window} $\ast$ \hyperlink{class_level_ab0ed136431f5f1b92ec834d5c90c3ba9}{get\+Level\+Window} ()
+\begin{DoxyCompactList}\small\item\em the level window accessor \end{DoxyCompactList}\item 
+\hypertarget{class_level_abe1e2e7c89fef892c4620d1a41e5ac22}{}\label{class_level_abe1e2e7c89fef892c4620d1a41e5ac22} 
+virtual void \hyperlink{class_level_abe1e2e7c89fef892c4620d1a41e5ac22}{create\+Level\+For\+Target\+Window} ()
+\begin{DoxyCompactList}\small\item\em this function loads the artwork and assigns them to approprate vectors \end{DoxyCompactList}\item 
+\hypertarget{class_level_a994a0ef12d416e1e808c99cf9aea277f}{}\label{class_level_a994a0ef12d416e1e808c99cf9aea277f} 
+void \hyperlink{class_level_a994a0ef12d416e1e808c99cf9aea277f}{render\+And\+Display\+Level} ()
+\begin{DoxyCompactList}\small\item\em this function uses the text level vector and the art vectors to render the level on the target window \end{DoxyCompactList}\item 
+\hypertarget{class_level_a0ea9e8fdd3f01f14199ec70f2213f558}{}\label{class_level_a0ea9e8fdd3f01f14199ec70f2213f558} 
+void \hyperlink{class_level_a0ea9e8fdd3f01f14199ec70f2213f558}{destroy\+Level} ()
+\begin{DoxyCompactList}\small\item\em function destroy dynamically allocated memory for level \end{DoxyCompactList}\item 
+\hypertarget{class_level_a040994ac065280b1d52524bbcba2bbaa}{}\label{class_level_a040994ac065280b1d52524bbcba2bbaa} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ \hyperlink{class_level_a040994ac065280b1d52524bbcba2bbaa}{get\+Gameplay\+Grids\+Rects} ()
+\begin{DoxyCompactList}\small\item\em access grid coorinates that are used in gameplay \end{DoxyCompactList}\item 
+\hypertarget{class_level_ae3f60439fa36c03b1dfcf1d3e6594b23}{}\label{class_level_ae3f60439fa36c03b1dfcf1d3e6594b23} 
+std\+::vector$<$ \hyperlink{class_environment}{Environment} $\ast$ $>$ \hyperlink{class_level_ae3f60439fa36c03b1dfcf1d3e6594b23}{get\+Environment\+Components} ()
+\begin{DoxyCompactList}\small\item\em environment components accessor \end{DoxyCompactList}\item 
+\hypertarget{class_level_a190ab96a4270516c4f89e356231ef243}{}\label{class_level_a190ab96a4270516c4f89e356231ef243} 
+\hyperlink{class_game_component}{Game\+Component} $\ast$ \hyperlink{class_level_a190ab96a4270516c4f89e356231ef243}{get\+Player\+Component} ()
+\begin{DoxyCompactList}\small\item\em player component accessor \end{DoxyCompactList}\item 
+\hypertarget{class_level_a8ff05204c68c313eb656cd2897842721}{}\label{class_level_a8ff05204c68c313eb656cd2897842721} 
+\hyperlink{class_container}{Container} $\ast$ {\bfseries get\+Container\+Component} ()
+\item 
+\hypertarget{class_level_a0c2bba08da53fd7894c80c4e6ecd402c}{}\label{class_level_a0c2bba08da53fd7894c80c4e6ecd402c} 
+\hyperlink{class_monster}{Monster} $\ast$ {\bfseries get\+Enemy} ()
+\item 
+\hypertarget{class_level_ac5fecd0532486e19176f0ca3dced9c23}{}\label{class_level_ac5fecd0532486e19176f0ca3dced9c23} 
+void \hyperlink{class_level_ac5fecd0532486e19176f0ca3dced9c23}{add\+Rect\+To\+Game\+Play\+Grids} (S\+D\+L\+\_\+\+Rect dest)
+\begin{DoxyCompactList}\small\item\em adds a recangle to the grids for gameplay \end{DoxyCompactList}\item 
+\hypertarget{class_level_a419a998f8496fb65d593eea06b454f18}{}\label{class_level_a419a998f8496fb65d593eea06b454f18} 
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{class_level_a419a998f8496fb65d593eea06b454f18}{get\+Environment\+Texture} (int index)
+\begin{DoxyCompactList}\small\item\em access texture for a specific environment \end{DoxyCompactList}\item 
+\hypertarget{class_level_a3ca47ac48d1454c5f68a3c61b8073ce1}{}\label{class_level_a3ca47ac48d1454c5f68a3c61b8073ce1} 
+std\+::vector$<$ std\+::string $>$ {\bfseries get\+Map\+String\+Versiion} ()
+\item 
+\hypertarget{class_level_a36e2b0bc3c817fa70eb4b618edcb6d70}{}\label{class_level_a36e2b0bc3c817fa70eb4b618edcb6d70} 
+std\+::vector$<$ std\+::string $>$ {\bfseries get\+Map\+Simple\+Version} ()
+\item 
+\hypertarget{class_level_a5087842ccd1a2b5f1e4dc0bab6d6823c}{}\label{class_level_a5087842ccd1a2b5f1e4dc0bab6d6823c} 
+void {\bfseries set\+Main\+Map\+Vector} (std\+::vector$<$ std\+::string $>$ newmap)
+\item 
+\hypertarget{class_level_a249eac1e8f19ff44134efa5e986feaca}{}\label{class_level_a249eac1e8f19ff44134efa5e986feaca} 
+\hyperlink{class_level_a249eac1e8f19ff44134efa5e986feaca}{$\sim$\+Level} ()
+\begin{DoxyCompactList}\small\item\em destructor just calls the destroy level method \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_level_a7a696c928ca5d5354db6e50e46d0f67d}{}\label{class_level_a7a696c928ca5d5354db6e50e46d0f67d} 
+\hyperlink{class_level_a7a696c928ca5d5354db6e50e46d0f67d}{Level} ()
+\begin{DoxyCompactList}\small\item\em default constructor for testing purposes only \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_level_aa13108f91760be62ede356de5d672053}{}\label{class_level_aa13108f91760be62ede356de5d672053} 
+\hyperlink{class_level_window}{Level\+Window} $\ast$ {\bfseries \+\_\+level\+\_\+window}
+\item 
+\hypertarget{class_level_aada31895cc425712ed153b27149a4a3e}{}\label{class_level_aada31895cc425712ed153b27149a4a3e} 
+std\+::string {\bfseries \+\_\+environment\+Component\+Path}
+\item 
+\hypertarget{class_level_aea358fcbb8843324015450d6d64c3fca}{}\label{class_level_aea358fcbb8843324015450d6d64c3fca} 
+std\+::vector$<$ std\+::string $>$ {\bfseries \+\_\+environment\+Component\+Names}
+\item 
+\hypertarget{class_level_a8d2f34dc13ca40b4afb67a54dfe8847e}{}\label{class_level_a8d2f34dc13ca40b4afb67a54dfe8847e} 
+std\+::string {\bfseries \+\_\+player\+Path}
+\item 
+\hypertarget{class_level_a2c08183be323a0c31f7d02b93d68e098}{}\label{class_level_a2c08183be323a0c31f7d02b93d68e098} 
+std\+::string {\bfseries \+\_\+basic\+Container\+Path}
+\item 
+\hypertarget{class_level_a78e37613bc65b80bc5cf71dc652b259f}{}\label{class_level_a78e37613bc65b80bc5cf71dc652b259f} 
+std\+::string {\bfseries \+\_\+enemy\+Path}
+\item 
+\hypertarget{class_level_a68a007eb38444afd0536f038f85df306}{}\label{class_level_a68a007eb38444afd0536f038f85df306} 
+std\+::string {\bfseries \+\_\+directory\+\_\+path\+\_\+for\+\_\+level\+\_\+file\+\_\+text\+\_\+file}
+\item 
+\hypertarget{class_level_a78c0252d860e02697e3c417e1ca173c6}{}\label{class_level_a78c0252d860e02697e3c417e1ca173c6} 
+std\+::vector$<$ std\+::string $>$ {\bfseries \+\_\+level}
+\item 
+\hypertarget{class_level_a03f66ffad65acc6c5d46b654f27e7c81}{}\label{class_level_a03f66ffad65acc6c5d46b654f27e7c81} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ {\bfseries \+\_\+gameplay\+Grids}
+\item 
+\hypertarget{class_level_a1af5cc7db2c573b6f14d36f5ba19d609}{}\label{class_level_a1af5cc7db2c573b6f14d36f5ba19d609} 
+std\+::vector$<$ \hyperlink{class_environment}{Environment} $\ast$ $>$ {\bfseries \+\_\+environment\+\_\+components}
+\item 
+\hypertarget{class_level_a0dd008af41c9a3ca0779bbaf3856e5e5}{}\label{class_level_a0dd008af41c9a3ca0779bbaf3856e5e5} 
+\hyperlink{class_game_component}{Game\+Component} $\ast$ {\bfseries \+\_\+player}
+\item 
+\hypertarget{class_level_ad7db6f5c2cb8559da37f567219e8e22b}{}\label{class_level_ad7db6f5c2cb8559da37f567219e8e22b} 
+\hyperlink{class_monster}{Monster} $\ast$ {\bfseries \+\_\+enemy}
+\item 
+\hypertarget{class_level_a04250fd0b458eef2ea45fffc03c26455}{}\label{class_level_a04250fd0b458eef2ea45fffc03c26455} 
+\hyperlink{class_container}{Container} $\ast$ {\bfseries \+\_\+container}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Levels class has a \hyperlink{class_level_window}{Level\+Window} as attributes, and adds functionalities to add manage and operate, actual environment and player components on the \hyperlink{class_level_window}{Level\+Window} instance. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_level_aba4f031f3752773a8a04bf58997776b9}{}\label{class_level_aba4f031f3752773a8a04bf58997776b9} 
+\index{Level@{Level}!Level@{Level}}
+\index{Level@{Level}!Level@{Level}}
+\subsubsection{\texorpdfstring{Level()}{Level()}}
+{\footnotesize\ttfamily Level\+::\+Level (\begin{DoxyParamCaption}\item[{std\+::string}]{path,  }\item[{\hyperlink{class_level_window}{Level\+Window} $\ast$}]{window }\end{DoxyParamCaption})}
+
+parameterized constructor initializes the path from which the level needs to be loaded from also sets the window for the level 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{levels_8h}{levels.\+h}\item 
+levels.\+cpp\end{DoxyCompactItemize}

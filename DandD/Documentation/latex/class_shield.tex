@@ -1,0 +1,112 @@
+\hypertarget{class_shield}{}\section{Shield Class Reference}
+\label{class_shield}\index{Shield@{Shield}}
+
+
+Class for shields.  
+
+
+
+
+{\ttfamily \#include $<$Shield.\+h$>$}
+
+Inheritance diagram for Shield\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_shield}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_shield_ae3dbea08547d4547faa441e5169605ba}{}\label{class_shield_ae3dbea08547d4547faa441e5169605ba} 
+{\bfseries Shield} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values}, int defense, std\+::string attack\+Dice, int range)
+\item 
+\hypertarget{class_shield_a8c77767b623247b3ce1d42cbe3d3da05}{}\label{class_shield_a8c77767b623247b3ce1d42cbe3d3da05} 
+{\bfseries Shield} (const \hyperlink{class_shield}{Shield} $\ast$other\+Shield)
+\item 
+\hypertarget{class_shield_a92fae272ca41b96a9f38770de4ed6180}{}\label{class_shield_a92fae272ca41b96a9f38770de4ed6180} 
+int {\bfseries get\+Defense} ()
+\item 
+\hypertarget{class_shield_a3e421a1c80aae934300dadf6db390bf1}{}\label{class_shield_a3e421a1c80aae934300dadf6db390bf1} 
+void {\bfseries set\+Defense} (int defense)
+\item 
+\hypertarget{class_shield_a4031510f895e4163ee2b447d7992e08b}{}\label{class_shield_a4031510f895e4163ee2b447d7992e08b} 
+void {\bfseries increment\+Defense} ()
+\item 
+\hypertarget{class_shield_a90fe2bbca5c029c88715490c5525e1a6}{}\label{class_shield_a90fe2bbca5c029c88715490c5525e1a6} 
+void {\bfseries decrement\+Defense} ()
+\item 
+\hypertarget{class_shield_a2e36b34d593ce4de9066c206c3528846}{}\label{class_shield_a2e36b34d593ce4de9066c206c3528846} 
+void {\bfseries increment\+Range} ()
+\item 
+\hypertarget{class_shield_afeb7f31a542d80ededa37980f13df576}{}\label{class_shield_afeb7f31a542d80ededa37980f13df576} 
+void {\bfseries decrement\+Range} ()
+\item 
+\hypertarget{class_shield_adca98dd6afb94104adbdadde591ae1e2}{}\label{class_shield_adca98dd6afb94104adbdadde591ae1e2} 
+std\+::string {\bfseries get\+Attack\+Dice} ()
+\item 
+\hypertarget{class_shield_a69ddf60fb2bfe723051f535b8f1f5cd6}{}\label{class_shield_a69ddf60fb2bfe723051f535b8f1f5cd6} 
+void {\bfseries set\+Attack\+Dice} (std\+::string attack\+Dice)
+\item 
+\hypertarget{class_shield_af8b6fccff0ddb7851440da08b4c76c8f}{}\label{class_shield_af8b6fccff0ddb7851440da08b4c76c8f} 
+int {\bfseries get\+Range} ()
+\item 
+\hypertarget{class_shield_a7e0638047be589b3ab2ca0c1349f3409}{}\label{class_shield_a7e0638047be589b3ab2ca0c1349f3409} 
+void {\bfseries set\+Range} (int range)
+\item 
+\hypertarget{class_shield_a524d5884f91f2539db047cecd09d6bc8}{}\label{class_shield_a524d5884f91f2539db047cecd09d6bc8} 
+std\+::string {\bfseries to\+String} ()
+\item 
+virtual void \hyperlink{class_shield_a8d045c43b16aab5fc474e696cb8a7f1f}{Serialize} (C\+Archive \&ar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_shield_a0bc1e651aeb25fcecd483c76a847bb61}{}\label{class_shield_a0bc1e651aeb25fcecd483c76a847bb61} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_shield}{Shield})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_shield_af22e87b1ecaf100736797e30df248a8e}{}\label{class_shield_af22e87b1ecaf100736797e30df248a8e} 
+int {\bfseries defense}
+\item 
+\hypertarget{class_shield_a4bcf1d65dc7b666ffc5ca465c37d98b9}{}\label{class_shield_a4bcf1d65dc7b666ffc5ca465c37d98b9} 
+std\+::string {\bfseries attack\+Dice}
+\item 
+\hypertarget{class_shield_ad5c23fb3c974dd066b089a2841c4e2dd}{}\label{class_shield_ad5c23fb3c974dd066b089a2841c4e2dd} 
+int {\bfseries range}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for shields. 
+
+\begin{DoxyAuthor}{Author}
+Philip Brink 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/10-\/20
+\end{DoxyDate}
+Subclass of \hyperlink{class_item}{Item}, allows character to equip a \hyperlink{class_shield}{Shield} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_shield_a8d045c43b16aab5fc474e696cb8a7f1f}{}\label{class_shield_a8d045c43b16aab5fc474e696cb8a7f1f} 
+\index{Shield@{Shield}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Shield@{Shield}}
+\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Shield\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Allows an item to be serialized 
+
+Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Shield.\+h\item 
+Shield.\+cpp\end{DoxyCompactItemize}

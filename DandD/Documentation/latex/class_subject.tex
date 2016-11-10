@@ -1,0 +1,91 @@
+\hypertarget{class_subject}{}\section{Subject Class Reference}
+\label{class_subject}\index{Subject@{Subject}}
+
+
+Abstract implementation of Model in the M\+VC pattern.  
+
+
+
+
+{\ttfamily \#include $<$Subject.\+h$>$}
+
+Inheritance diagram for Subject\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_subject}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_subject_aec0d2f94b266d79c426b0ac454d823a5}{attach} (\hyperlink{class_observer}{Observer} $\ast$obs)
+\item 
+virtual void \hyperlink{class_subject_ad101324d66ad30b943e4fdc31dc16d14}{detach} (\hyperlink{class_observer}{Observer} $\ast$obs)
+\item 
+virtual void \hyperlink{class_subject_afdf01736ff099d286543b450d96215f1}{Notify} ()
+\item 
+\hyperlink{class_subject_ab468044832c824c6d6c2f46272655207}{Subject} ()
+\item 
+\hyperlink{class_subject_a7c4f522850f718466e5be7eb55ba1969}{$\sim$\+Subject} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract implementation of Model in the M\+VC pattern. 
+
+\hyperlink{class_subject}{Subject} allows an Object to associate Observers with itself. It then can notify its observers of any updates that have been made to it, allowing the Observers to carry out the necessary actions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_subject_ab468044832c824c6d6c2f46272655207}{}\label{class_subject_ab468044832c824c6d6c2f46272655207} 
+\index{Subject@{Subject}!Subject@{Subject}}
+\index{Subject@{Subject}!Subject@{Subject}}
+\subsubsection{\texorpdfstring{Subject()}{Subject()}}
+{\footnotesize\ttfamily Subject\+::\+Subject (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default \hyperlink{class_subject}{Subject} constructor. Initializes \+\_\+observers as a new list. \hypertarget{class_subject_a7c4f522850f718466e5be7eb55ba1969}{}\label{class_subject_a7c4f522850f718466e5be7eb55ba1969} 
+\index{Subject@{Subject}!````~Subject@{$\sim$\+Subject}}
+\index{````~Subject@{$\sim$\+Subject}!Subject@{Subject}}
+\subsubsection{\texorpdfstring{$\sim$\+Subject()}{~Subject()}}
+{\footnotesize\ttfamily Subject\+::$\sim$\+Subject (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor. Delets the \+\_\+observers list 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_subject_aec0d2f94b266d79c426b0ac454d823a5}{}\label{class_subject_aec0d2f94b266d79c426b0ac454d823a5} 
+\index{Subject@{Subject}!attach@{attach}}
+\index{attach@{attach}!Subject@{Subject}}
+\subsubsection{\texorpdfstring{attach()}{attach()}}
+{\footnotesize\ttfamily void Subject\+::attach (\begin{DoxyParamCaption}\item[{\hyperlink{class_observer}{Observer} $\ast$}]{obs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Attaches a new \hyperlink{class_observer}{Observer} to the \hyperlink{class_subject}{Subject}. 
+
+Adds the \hyperlink{class_observer}{Observer} to the end of the \+\_\+observers list. 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_observer}{Observer}} & pointer, pointing to the \hyperlink{class_observer}{Observer} to be attached \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_subject_ad101324d66ad30b943e4fdc31dc16d14}{}\label{class_subject_ad101324d66ad30b943e4fdc31dc16d14} 
+\index{Subject@{Subject}!detach@{detach}}
+\index{detach@{detach}!Subject@{Subject}}
+\subsubsection{\texorpdfstring{detach()}{detach()}}
+{\footnotesize\ttfamily void Subject\+::detach (\begin{DoxyParamCaption}\item[{\hyperlink{class_observer}{Observer} $\ast$}]{obs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Detaches the desired \hyperlink{class_observer}{Observer} from the subject. 
+
+Removes the \hyperlink{class_observer}{Observer} from the \+\_\+observers list, if it is present. 
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{class_observer}{Observer}} & pointer, pointing to the desired \hyperlink{class_observer}{Observer} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_subject_afdf01736ff099d286543b450d96215f1}{}\label{class_subject_afdf01736ff099d286543b450d96215f1} 
+\index{Subject@{Subject}!Notify@{Notify}}
+\index{Notify@{Notify}!Subject@{Subject}}
+\subsubsection{\texorpdfstring{Notify()}{Notify()}}
+{\footnotesize\ttfamily void Subject\+::\+Notify (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Will notify all attached Observers that a state change has occured. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_subject_8h}{Subject.\+h}\item 
+\hyperlink{_subject_8cpp}{Subject.\+cpp}\end{DoxyCompactItemize}

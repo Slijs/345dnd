@@ -1,0 +1,93 @@
+\hypertarget{class_s_d_l_window}{}\section{S\+D\+L\+Window Class Reference}
+\label{class_s_d_l_window}\index{S\+D\+L\+Window@{S\+D\+L\+Window}}
+
+
+{\ttfamily \#include $<$windows.\+h$>$}
+
+Inheritance diagram for S\+D\+L\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_s_d_l_window}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_s_d_l_window_a76e381a841732cff7df123f8794327a8}{}\label{class_s_d_l_window_a76e381a841732cff7df123f8794327a8} 
+\hyperlink{class_s_d_l_window_a76e381a841732cff7df123f8794327a8}{S\+D\+L\+Window} (const char $\ast$title, int window\+Height, int window\+Width)
+\begin{DoxyCompactList}\small\item\em constructor creates the window \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_a0770d83515721758000ad53f8d507989}{}\label{class_s_d_l_window_a0770d83515721758000ad53f8d507989} 
+unsigned int \hyperlink{class_s_d_l_window_a0770d83515721758000ad53f8d507989}{get\+Window\+Height} ()
+\begin{DoxyCompactList}\small\item\em access window height \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_a71ba67ab21ab430834daedb2a0104d3e}{}\label{class_s_d_l_window_a71ba67ab21ab430834daedb2a0104d3e} 
+unsigned int \hyperlink{class_s_d_l_window_a71ba67ab21ab430834daedb2a0104d3e}{get\+Window\+Width} ()
+\begin{DoxyCompactList}\small\item\em access window width \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_a9a6d80f754ee6209be95d6c964dea85e}{}\label{class_s_d_l_window_a9a6d80f754ee6209be95d6c964dea85e} 
+S\+D\+L\+\_\+\+Renderer $\ast$ \hyperlink{class_s_d_l_window_a9a6d80f754ee6209be95d6c964dea85e}{get\+Renderer} ()
+\begin{DoxyCompactList}\small\item\em access window renderer \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_ac1781feda310df19446cf82376f9887d}{}\label{class_s_d_l_window_ac1781feda310df19446cf82376f9887d} 
+void \hyperlink{class_s_d_l_window_ac1781feda310df19446cf82376f9887d}{set\+Draw\+Color} (int r, int g, int b)
+\begin{DoxyCompactList}\small\item\em set the current drawing color on renderer \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_abfcc4c32669c62201c875e00f2552ce4}{}\label{class_s_d_l_window_abfcc4c32669c62201c875e00f2552ce4} 
+void \hyperlink{class_s_d_l_window_abfcc4c32669c62201c875e00f2552ce4}{load\+Texture\+On\+Renderer} (S\+D\+L\+\_\+\+Texture $\ast$texture, S\+D\+L\+\_\+\+Rect $\ast$source, S\+D\+L\+\_\+\+Rect $\ast$destination, double angle, S\+D\+L\+\_\+\+Point $\ast$center, S\+D\+L\+\_\+\+Renderer\+Flip flip)
+\begin{DoxyCompactList}\small\item\em load a texture on the renderer with additinal angle point and flip parameters \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_adc5af8f98141f2bf9902fe3a65e84eec}{}\label{class_s_d_l_window_adc5af8f98141f2bf9902fe3a65e84eec} 
+void \hyperlink{class_s_d_l_window_adc5af8f98141f2bf9902fe3a65e84eec}{load\+Texture\+On\+Renderer} (S\+D\+L\+\_\+\+Texture $\ast$texture, S\+D\+L\+\_\+\+Rect $\ast$source, S\+D\+L\+\_\+\+Rect $\ast$destination)
+\begin{DoxyCompactList}\small\item\em load a simple texture on the renderer \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_a3790dc5cfd442ca4f72d1f2e0229c99c}{}\label{class_s_d_l_window_a3790dc5cfd442ca4f72d1f2e0229c99c} 
+void \hyperlink{class_s_d_l_window_a3790dc5cfd442ca4f72d1f2e0229c99c}{clear\+Window\+Renderer} ()
+\begin{DoxyCompactList}\small\item\em clear the window renderer \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_afb40da63752fa21cefcde9a235e7bb3e}{}\label{class_s_d_l_window_afb40da63752fa21cefcde9a235e7bb3e} 
+void \hyperlink{class_s_d_l_window_afb40da63752fa21cefcde9a235e7bb3e}{display\+Window} ()
+\begin{DoxyCompactList}\small\item\em re rendering window \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_a654dd50a126bbdf4da9c3bc4b60ec949}{}\label{class_s_d_l_window_a654dd50a126bbdf4da9c3bc4b60ec949} 
+void \hyperlink{class_s_d_l_window_a654dd50a126bbdf4da9c3bc4b60ec949}{hide\+Window} ()
+\begin{DoxyCompactList}\small\item\em hide the window \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_af12e8b4f385d2f61b6c4927d41b3ea61}{}\label{class_s_d_l_window_af12e8b4f385d2f61b6c4927d41b3ea61} 
+void \hyperlink{class_s_d_l_window_af12e8b4f385d2f61b6c4927d41b3ea61}{un\+Hide\+Window} ()
+\begin{DoxyCompactList}\small\item\em display window and then re render \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_a6a98d03847e6e4db857658a1160fb28b}{}\label{class_s_d_l_window_a6a98d03847e6e4db857658a1160fb28b} 
+virtual void \hyperlink{class_s_d_l_window_a6a98d03847e6e4db857658a1160fb28b}{destroy\+Window} ()
+\begin{DoxyCompactList}\small\item\em destroy window \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_a92792feb7a5cfb70d62867ccf7c941eb}{}\label{class_s_d_l_window_a92792feb7a5cfb70d62867ccf7c941eb} 
+const char $\ast$ \hyperlink{class_s_d_l_window_a92792feb7a5cfb70d62867ccf7c941eb}{get\+Window\+Title} ()
+\begin{DoxyCompactList}\small\item\em access window title \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l_window_a7a0af0daec54970ff2262b67a6ece281}{}\label{class_s_d_l_window_a7a0af0daec54970ff2262b67a6ece281} 
+\hyperlink{class_s_d_l_window_a7a0af0daec54970ff2262b67a6ece281}{$\sim$\+S\+D\+L\+Window} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_s_d_l_window_acc157932676ffcb867e6a310d0dbf69b}{}\label{class_s_d_l_window_acc157932676ffcb867e6a310d0dbf69b} 
+unsigned int {\bfseries \+\_\+window\+\_\+height}
+\item 
+\hypertarget{class_s_d_l_window_acd0639d5ba847c6fdffa9670678e0b4f}{}\label{class_s_d_l_window_acd0639d5ba847c6fdffa9670678e0b4f} 
+unsigned int {\bfseries \+\_\+window\+\_\+width}
+\item 
+\hypertarget{class_s_d_l_window_a56b01157b3545f359a0beff63d5d404c}{}\label{class_s_d_l_window_a56b01157b3545f359a0beff63d5d404c} 
+int {\bfseries \+\_\+red}
+\item 
+\hypertarget{class_s_d_l_window_a8290094b34e41442814cdde78f8be0d8}{}\label{class_s_d_l_window_a8290094b34e41442814cdde78f8be0d8} 
+int {\bfseries \+\_\+green}
+\item 
+\hypertarget{class_s_d_l_window_a137c54559f64208948d607d915e3b3ef}{}\label{class_s_d_l_window_a137c54559f64208948d607d915e3b3ef} 
+int {\bfseries \+\_\+blue}
+\item 
+\hypertarget{class_s_d_l_window_ad56f59226f814417588bd183b3d95ec7}{}\label{class_s_d_l_window_ad56f59226f814417588bd183b3d95ec7} 
+const char $\ast$ {\bfseries \+\_\+window\+\_\+title}
+\item 
+\hypertarget{class_s_d_l_window_a5d019d10d5b118d1436601d28648395a}{}\label{class_s_d_l_window_a5d019d10d5b118d1436601d28648395a} 
+S\+D\+L\+\_\+\+Renderer $\ast$ {\bfseries \+\_\+renderer}
+\item 
+\hypertarget{class_s_d_l_window_a9837fbcefc8e6fc41b11d44964c79cf2}{}\label{class_s_d_l_window_a9837fbcefc8e6fc41b11d44964c79cf2} 
+S\+D\+L\+\_\+\+Window $\ast$ {\bfseries \+\_\+window}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the primary base class of generating S\+DL windows and setting up renderers also consists of basic functions such as hide and display window, setting renderer colors and loading texture on the window renderers 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{windows_8h}{windows.\+h}\item 
+windows.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+\hypertarget{_dice_8h}{}\section{Dice.\+h File Reference}
+\label{_dice_8h}\index{Dice.\+h@{Dice.\+h}}
+
+
+Provides the class definition for a \hyperlink{class_dice}{Dice} object.  
+
+
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_dice}{Dice}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides the class definition for a \hyperlink{class_dice}{Dice} object. 
+
+Given that my assignment is implementing a dice roller, there are few rules upon which my assignment depends upon. \hyperlink{class_dice}{Dice} available in the d20 rules include d4, d6, d8, d10, d12, d20 and d100 (page 3, D\&D Basic Rules vs 0.\+3); these are all available within my solution. These dice all roll between 1 and their maximum number (ie 1 to 4 for d6, 1 to 10 for d10, etc). Multiple of a die can be rolled at the same time; for example, 3d6 means that three d6 dice are rolled at the same time, and the resulting value is returned (with possible values 3 to 18). Modifiers can then be applied, either positive or negative, to the value.
+
+The design is rather simple. A \hyperlink{class_dice}{Dice} has one public method, being roll(), which returns a random number based on the string provided to it. The \hyperlink{class_dice}{Dice} uses several private regular expressions, a private array of integers, and several private methods to determine if the string is valid. If it is, then the desired random number is generated and returned. If the string is not valid, then -\/1 is returned.
+
+L\+I\+B\+R\+A\+R\+I\+ES U\+S\+ED\+: 
+
+$<$regex$>$ 
+
+This library was used to make use of regular expressions. It allows the program to parse the string passed to roll() and to make sure it is in the proper format. 
+
+$<$string$>$ 
+
+This library was used to facilitate the use of strings. 
+
+$<$iostream$>$ 
+
+Allows the program to provide output to the user, and for the driver to retrieve input from the user. 
+
+$<$stdlib$>$ 
+
+Allows for the use of rand() and srand() to generate random numbers. 

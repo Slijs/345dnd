@@ -1,0 +1,45 @@
+\hypertarget{class_environment}{}\section{Environment Class Reference}
+\label{class_environment}\index{Environment@{Environment}}
+
+
+{\ttfamily \#include $<$environment.\+h$>$}
+
+Inheritance diagram for Environment\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_environment}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_environment_aa8343da91ebb48313d00baefe2c993a4}{}\label{class_environment_aa8343da91ebb48313d00baefe2c993a4} 
+\hyperlink{class_environment_aa8343da91ebb48313d00baefe2c993a4}{Environment} (std\+::string componentname, std\+::string description, char componentchar, gameplay\+Grid\+Component\+Types componenttype, bool obstructiontoplayer, std\+::string imagepath)
+\begin{DoxyCompactList}\small\item\em parameterized constructor, first calls parent constructor and initializes the added features \end{DoxyCompactList}\item 
+\hypertarget{class_environment_a01c5f648a057546973596b9e5336bf86}{}\label{class_environment_a01c5f648a057546973596b9e5336bf86} 
+void \hyperlink{class_environment_a01c5f648a057546973596b9e5336bf86}{set\+Obstruction\+To\+Player} (bool isobstructiontoplayer)
+\begin{DoxyCompactList}\small\item\em sets the obstruction boolean \end{DoxyCompactList}\item 
+\hypertarget{class_environment_a930634cbf36d2840f74d025253722dbf}{}\label{class_environment_a930634cbf36d2840f74d025253722dbf} 
+std\+::string \hyperlink{class_environment_a930634cbf36d2840f74d025253722dbf}{get\+Environment\+Description} ()
+\begin{DoxyCompactList}\small\item\em returns the details of the environment as a string \end{DoxyCompactList}\item 
+\hypertarget{class_environment_a7427445e57ccdb66b13ede6ed151263c}{}\label{class_environment_a7427445e57ccdb66b13ede6ed151263c} 
+bool \hyperlink{class_environment_a7427445e57ccdb66b13ede6ed151263c}{is\+Component\+Obstruction\+To\+Player} ()
+\begin{DoxyCompactList}\small\item\em returns if the component is obstruction to player or not \end{DoxyCompactList}\item 
+\hypertarget{class_environment_a8e294735187880dd3d59be10c425b29d}{}\label{class_environment_a8e294735187880dd3d59be10c425b29d} 
+\hyperlink{class_environment_a8e294735187880dd3d59be10c425b29d}{$\sim$\+Environment} ()
+\begin{DoxyCompactList}\small\item\em calls the destroy component of parent class \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_environment_ab34a6cfaa80a2799a23916b7cab95cb5}{}\label{class_environment_ab34a6cfaa80a2799a23916b7cab95cb5} 
+std\+::string {\bfseries \+\_\+description}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+derived class of game component. two attributes added, one is if the environment component is obstruction to player or not and the description of the environment 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+environment.\+h\item 
+environment.\+cpp\end{DoxyCompactItemize}

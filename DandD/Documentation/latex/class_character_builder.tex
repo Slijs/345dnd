@@ -1,0 +1,48 @@
+\hypertarget{class_character_builder}{}\section{Character\+Builder Class Reference}
+\label{class_character_builder}\index{Character\+Builder@{Character\+Builder}}
+
+
+Allows initialization of a Character with random ability scores. Will return a pointer to the initialized Character.  
+
+
+
+
+{\ttfamily \#include $<$Char\+Builder.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_fighter}{Fighter} $\ast$ \hyperlink{class_character_builder_aeb0a9728d5d20ea56efca5e9f633516f}{create} (int level, \hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race} race, string name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Allows initialization of a Character with random ability scores. Will return a pointer to the initialized Character. 
+
+Given that \hyperlink{class_fighter}{Fighter} is the only playable \textquotesingle{}character class\textquotesingle{} within the game, the \hyperlink{class_character_builder}{Character\+Builder} will O\+N\+LY return a Character of type \hyperlink{class_fighter}{Fighter} (aka the \hyperlink{class_fighter}{Fighter} subclass). 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_character_builder_aeb0a9728d5d20ea56efca5e9f633516f}{}\label{class_character_builder_aeb0a9728d5d20ea56efca5e9f633516f} 
+\index{Character\+Builder@{Character\+Builder}!create@{create}}
+\index{create@{create}!Character\+Builder@{Character\+Builder}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \hyperlink{class_fighter}{Fighter} $\ast$ Character\+Builder\+::create (\begin{DoxyParamCaption}\item[{int}]{level,  }\item[{\hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race}}]{race,  }\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates a new Character of \hyperlink{class_fighter}{Fighter} class with randomized ability scores and the requested parameters 
+\begin{DoxyParams}{Parameters}
+{\em level} & The desired starting level of the character \\
+\hline
+{\em race} & The desired Race of the Character \\
+\hline
+{\em name} & The desired name of the Character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Character$\ast$ pointing to the new Character 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Char\+Builder.\+h\item 
+Char\+Builder.\+cpp\end{DoxyCompactItemize}

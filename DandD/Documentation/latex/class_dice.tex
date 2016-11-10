@@ -1,0 +1,53 @@
+\hypertarget{class_dice}{}\section{Dice Class Reference}
+\label{class_dice}\index{Dice@{Dice}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_dice_a0bc8f4b697804af0785f34b801cd6feb}{roll} (std\+::string exp)
+\item 
+\hyperlink{class_dice_a6b9eadd945ad8fd3840379c8824e5d48}{Dice} ()
+\item 
+\hyperlink{class_dice_a48e90392d2ff1e6736c88f22e8a87751}{$\sim$\+Dice} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_dice_a6b9eadd945ad8fd3840379c8824e5d48}{}\label{class_dice_a6b9eadd945ad8fd3840379c8824e5d48} 
+\index{Dice@{Dice}!Dice@{Dice}}
+\index{Dice@{Dice}!Dice@{Dice}}
+\subsubsection{\texorpdfstring{Dice()}{Dice()}}
+{\footnotesize\ttfamily Dice\+::\+Dice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor for a \hyperlink{class_dice}{Dice} object. Takes no parameters. \hypertarget{class_dice_a48e90392d2ff1e6736c88f22e8a87751}{}\label{class_dice_a48e90392d2ff1e6736c88f22e8a87751} 
+\index{Dice@{Dice}!````~Dice@{$\sim$\+Dice}}
+\index{````~Dice@{$\sim$\+Dice}!Dice@{Dice}}
+\subsubsection{\texorpdfstring{$\sim$\+Dice()}{~Dice()}}
+{\footnotesize\ttfamily Dice\+::$\sim$\+Dice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor for a \hyperlink{class_dice}{Dice} object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_dice_a0bc8f4b697804af0785f34b801cd6feb}{}\label{class_dice_a0bc8f4b697804af0785f34b801cd6feb} 
+\index{Dice@{Dice}!roll@{roll}}
+\index{roll@{roll}!Dice@{Dice}}
+\subsubsection{\texorpdfstring{roll()}{roll()}}
+{\footnotesize\ttfamily int Dice\+::roll (\begin{DoxyParamCaption}\item[{std\+::string}]{exp }\end{DoxyParamCaption})}
+
+Will \textquotesingle{}roll\textquotesingle{} a die using the string expression that is passed to it. String must be in the format \char`\"{}x\+Dy\char`\"{} with option modifier at the end \char`\"{}x\+Dy\mbox{[}+z\mbox{]}\char`\"{}. x and y M\+U\+ST be positive integers. z can be positive or negative, as per modifiers in the d20 rules. y must be one of \mbox{[}4, 6, 8, 10, 12, 20, 100\mbox{]}.
+
+{\bfseries Returns -\/1 if invalid string is provided.}
+
+{\bfseries 
+\begin{DoxyParams}{Parameters}
+{\em string} & exp, the string representing the dice roll to perform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer, a random number conforming to the requested dice roll 
+\end{DoxyReturn}
+}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_dice_8h}{Dice.\+h}\item 
+Dice.\+cpp\end{DoxyCompactItemize}

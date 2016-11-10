@@ -39,6 +39,8 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 
 		// Will continue to ask for user input until they provide something valid
 		while (true) {
+			cin.clear();
+			cin.ignore(10000, '\n');
 			cin >> input;
 			if (input.at(0) == 'Y' || input.at(0) == 'y')
 				break; // Breaks the loops to continue
@@ -124,6 +126,8 @@ Fighter* CharacterSaveManager::loadCharacter() {
 	charMap->printNames();
 	// Will try to get proper selection from user
 	while (true) {
+		cin.clear();
+		cin.ignore(10000, '\n');
 		cout << "Which character would you like to access? (-1 to return)" << endl;
 		cin >> input;
 		if (input == "-1") {
@@ -187,6 +191,8 @@ void CharacterSaveManager::removeCharacter() {
 	charMap->printNames();
 	// Will try to get proper selection from user
 	while (true) {
+		cin.clear();
+		cin.ignore(10000, '\n');
 		cout << "Which character would you like to remove? (-1 to return)" << endl;
 		cin >> input;
 		if (input == "-1") {

@@ -1,0 +1,76 @@
+\hypertarget{class_ring}{}\section{Ring Class Reference}
+\label{class_ring}\index{Ring@{Ring}}
+
+
+Class for rings.  
+
+
+
+
+{\ttfamily \#include $<$Ring.\+h$>$}
+
+Inheritance diagram for Ring\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_ring}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_ring_ab65389fd4a0837c0f82a1b9207ba8330}{Ring} (const \hyperlink{class_ring}{Ring} $\ast$other\+Ring)
+\item 
+\hypertarget{class_ring_a0baf0ece716fa58742a031579310834b}{}\label{class_ring_a0baf0ece716fa58742a031579310834b} 
+{\bfseries Ring} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values})
+\item 
+virtual void \hyperlink{class_ring_a123e40607e2aa46b27da2228af73eb4a}{Serialize} (C\+Archive \&ar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ring_a46159bcedc7cf0fc72eec5d75784bed9}{}\label{class_ring_a46159bcedc7cf0fc72eec5d75784bed9} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_ring}{Ring})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class for rings. 
+
+\begin{DoxyAuthor}{Author}
+Philip Brink 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/10-\/20
+\end{DoxyDate}
+Subclass of \hyperlink{class_item}{Item}, allows Character to equip a \hyperlink{class_ring}{Ring} 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_ring_ab65389fd4a0837c0f82a1b9207ba8330}{}\label{class_ring_ab65389fd4a0837c0f82a1b9207ba8330} 
+\index{Ring@{Ring}!Ring@{Ring}}
+\index{Ring@{Ring}!Ring@{Ring}}
+\subsubsection{\texorpdfstring{Ring()}{Ring()}}
+{\footnotesize\ttfamily Ring\+::\+Ring (\begin{DoxyParamCaption}\item[{const \hyperlink{class_ring}{Ring} $\ast$}]{other\+Ring }\end{DoxyParamCaption})}
+
+Copy Constructor -\/ runs the \hyperlink{class_item}{Item} copy constructor on the other ring object 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_ring_a123e40607e2aa46b27da2228af73eb4a}{}\label{class_ring_a123e40607e2aa46b27da2228af73eb4a} 
+\index{Ring@{Ring}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Ring@{Ring}}
+\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Ring\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Allows an item to be serialized 
+
+Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ring.\+h\item 
+Ring.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,104 @@
+\hypertarget{class_armor}{}\section{Armor Class Reference}
+\label{class_armor}\index{Armor@{Armor}}
+
+
+Class for all armor.  
+
+
+
+
+{\ttfamily \#include $<$Armor.\+h$>$}
+
+Inheritance diagram for Armor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_armor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_armor_a8f822e9ef6cda3ef8625967682580f11}{}\label{class_armor_a8f822e9ef6cda3ef8625967682580f11} 
+{\bfseries Armor} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values}, int defense)
+\item 
+\hypertarget{class_armor_a9ac9bec755b04172edeb6762db1012d6}{}\label{class_armor_a9ac9bec755b04172edeb6762db1012d6} 
+int {\bfseries get\+Defense} ()
+\item 
+\hypertarget{class_armor_a4d5cc8d20c5fff714925a061ee8ba349}{}\label{class_armor_a4d5cc8d20c5fff714925a061ee8ba349} 
+void {\bfseries set\+Defense} (int defense)
+\item 
+\hypertarget{class_armor_a2acffb5e791465d3c6bef5bfa86e8926}{}\label{class_armor_a2acffb5e791465d3c6bef5bfa86e8926} 
+void {\bfseries increment\+Defense} ()
+\item 
+\hypertarget{class_armor_a18ec027984c729af8580c79b050d57b8}{}\label{class_armor_a18ec027984c729af8580c79b050d57b8} 
+void \hyperlink{class_armor_a18ec027984c729af8580c79b050d57b8}{decrement\+Defense} ()
+\begin{DoxyCompactList}\small\item\em This will only decrement if the defense will remain $>$= 0. \end{DoxyCompactList}\item 
+\hypertarget{class_armor_a37ca0ee6bfab3321d7d5532d61aace2f}{}\label{class_armor_a37ca0ee6bfab3321d7d5532d61aace2f} 
+std\+::string {\bfseries to\+String} ()
+\item 
+virtual void \hyperlink{class_armor_a49d9af5d1a2d02e9dbf05d023f4a6515}{Serialize} (C\+Archive \&ar)
+\item 
+\hyperlink{class_armor}{Armor} \& \hyperlink{class_armor_a167690954e4ccd6c4fd9adfed24bc132}{operator=} (const \hyperlink{class_armor}{Armor} $\ast$other\+Armor)
+\item 
+\hyperlink{class_armor_abee983c0e4e8fd5a5d3fccebc6d079dc}{Armor} (\hyperlink{class_armor}{Armor} $\ast$other\+Armor)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_armor_a3a34973e61986f0d0623f5e80f8277df}{}\label{class_armor_a3a34973e61986f0d0623f5e80f8277df} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_armor}{Armor})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_armor_a15c6514c68303d572a71bf516cd1690b}{}\label{class_armor_a15c6514c68303d572a71bf516cd1690b} 
+int {\bfseries defense}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for all armor. 
+
+\begin{DoxyAuthor}{Author}
+Philip Brink 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/10-\/20
+\end{DoxyDate}
+Subclass of \hyperlink{class_item}{Item}, allows Character to equip armor 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_armor_abee983c0e4e8fd5a5d3fccebc6d079dc}{}\label{class_armor_abee983c0e4e8fd5a5d3fccebc6d079dc} 
+\index{Armor@{Armor}!Armor@{Armor}}
+\index{Armor@{Armor}!Armor@{Armor}}
+\subsubsection{\texorpdfstring{Armor()}{Armor()}}
+{\footnotesize\ttfamily Armor\+::\+Armor (\begin{DoxyParamCaption}\item[{\hyperlink{class_armor}{Armor} $\ast$}]{other\+Armor }\end{DoxyParamCaption})}
+
+Copy Constructor -\/ Uses another \hyperlink{class_armor}{Armor} to initialize this one 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_armor_a167690954e4ccd6c4fd9adfed24bc132}{}\label{class_armor_a167690954e4ccd6c4fd9adfed24bc132} 
+\index{Armor@{Armor}!operator=@{operator=}}
+\index{operator=@{operator=}!Armor@{Armor}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{class_armor}{Armor} \& Armor\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_armor}{Armor} $\ast$}]{other\+Armor }\end{DoxyParamCaption})}
+
+Operator overload -\/ allows for a piece of \hyperlink{class_armor}{Armor} to be assigned the same values as another piece of armor \hypertarget{class_armor_a49d9af5d1a2d02e9dbf05d023f4a6515}{}\label{class_armor_a49d9af5d1a2d02e9dbf05d023f4a6515} 
+\index{Armor@{Armor}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Armor@{Armor}}
+\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Armor\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Allows an item to be serialized 
+
+Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Armor.\+h\item 
+Armor.\+cpp\end{DoxyCompactItemize}

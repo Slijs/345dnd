@@ -1,0 +1,67 @@
+\hypertarget{class_campaign_manager}{}\section{Campaign\+Manager Class Reference}
+\label{class_campaign_manager}\index{Campaign\+Manager@{Campaign\+Manager}}
+
+
+{\ttfamily \#include $<$campaignmanager.\+h$>$}
+
+Inheritance diagram for Campaign\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_campaign_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_campaign_manager_ae7104fc8759da102cfcb9cf2ab37304b}{}\label{class_campaign_manager_ae7104fc8759da102cfcb9cf2ab37304b} 
+\hyperlink{class_campaign_manager_ae7104fc8759da102cfcb9cf2ab37304b}{Campaign\+Manager} ()
+\begin{DoxyCompactList}\small\item\em default constructor for test purposes only \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_manager_aa40b9cbb3806338f2e595f9c2ec8f40e}{}\label{class_campaign_manager_aa40b9cbb3806338f2e595f9c2ec8f40e} 
+\hyperlink{class_campaign_manager_aa40b9cbb3806338f2e595f9c2ec8f40e}{Campaign\+Manager} (std\+::string title)
+\begin{DoxyCompactList}\small\item\em parameterized constructor sets up the window and loads the saved campaigns list \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_manager_ada53db03822cc081fd2e82a82edcafe8}{}\label{class_campaign_manager_ada53db03822cc081fd2e82a82edcafe8} 
+int \hyperlink{class_campaign_manager_ada53db03822cc081fd2e82a82edcafe8}{destination\+Map} (int index)
+\begin{DoxyCompactList}\small\item\em overloaded destination map button, this was implemented only becuase I did not want this class to remain abstract. \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_manager_aaa641bbb75b65d6c74c4f9d196bcdbc8}{}\label{class_campaign_manager_aaa641bbb75b65d6c74c4f9d196bcdbc8} 
+void \hyperlink{class_campaign_manager_aaa641bbb75b65d6c74c4f9d196bcdbc8}{setup\+Menu} ()
+\begin{DoxyCompactList}\small\item\em sets up the campaign list on the window renderer \end{DoxyCompactList}\item 
+int \hyperlink{class_campaign_manager_af4ec02e5399f2a7bea50454eedd4ea62}{destination\+Map} (int index, char $\ast$componentname)
+\item 
+\hypertarget{class_campaign_manager_af9bb0ad7faea22b9f3a04ea5d1c78f9b}{}\label{class_campaign_manager_af9bb0ad7faea22b9f3a04ea5d1c78f9b} 
+std\+::string \hyperlink{class_campaign_manager_af9bb0ad7faea22b9f3a04ea5d1c78f9b}{get\+Name\+Of\+Button\+From\+Index} (int index)
+\begin{DoxyCompactList}\small\item\em returns the name of a specific button from the private vector based on the index passed \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_manager_abeb07b6ab983afec3273240134a928b2}{}\label{class_campaign_manager_abeb07b6ab983afec3273240134a928b2} 
+void \hyperlink{class_campaign_manager_abeb07b6ab983afec3273240134a928b2}{check\+Existing\+Components\+Index\+Range} (int $\ast$lowerindex, int $\ast$upperindex)
+\begin{DoxyCompactList}\small\item\em changes the parameters based on the range of indices for which a campaign deletion would be valid \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_campaign_manager_aeb7ea1188d597534f0da5f4a9e3eca16}{}\label{class_campaign_manager_aeb7ea1188d597534f0da5f4a9e3eca16} 
+std\+::vector$<$ std\+::string $>$ {\bfseries \+\_\+campaign\+Names}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+the instances of this class will be the main menu for campaign management. inherits from abstract class campaign menus and fully implements all functions 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_campaign_manager_af4ec02e5399f2a7bea50454eedd4ea62}{}\label{class_campaign_manager_af4ec02e5399f2a7bea50454eedd4ea62} 
+\index{Campaign\+Manager@{Campaign\+Manager}!destination\+Map@{destination\+Map}}
+\index{destination\+Map@{destination\+Map}!Campaign\+Manager@{Campaign\+Manager}}
+\subsubsection{\texorpdfstring{destination\+Map()}{destinationMap()}}
+{\footnotesize\ttfamily int Campaign\+Manager\+::destination\+Map (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{char $\ast$}]{componentname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+this function returns an integer value that corresponds to the next destination from this menu the function decides the next destination based on the index of the button that was clicked. the char pointer is to track deletion of a campaign if the index was to delete 
+
+Implements \hyperlink{class_campaign_menus}{Campaign\+Menus}.
+
+
+
+Reimplemented in \hyperlink{class_campaign_map_managers_a7136317d7a94280b0a0b2a3f69b18182}{Campaign\+Map\+Managers}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{campaignmanager_8h}{campaignmanager.\+h}\item 
+campaignmanager.\+cpp\end{DoxyCompactItemize}

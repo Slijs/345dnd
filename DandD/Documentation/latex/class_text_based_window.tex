@@ -1,0 +1,108 @@
+\hypertarget{class_text_based_window}{}\section{Text\+Based\+Window Class Reference}
+\label{class_text_based_window}\index{Text\+Based\+Window@{Text\+Based\+Window}}
+
+
+{\ttfamily \#include $<$textbasedwindow.\+h$>$}
+
+Inheritance diagram for Text\+Based\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_text_based_window}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_text_based_window_ac30a7e5e30df6c83b726b88e5617d8b9}{}\label{class_text_based_window_ac30a7e5e30df6c83b726b88e5617d8b9} 
+\hyperlink{class_text_based_window_ac30a7e5e30df6c83b726b88e5617d8b9}{Text\+Based\+Window} ()
+\begin{DoxyCompactList}\small\item\em default constructor loads all ttf assests \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a9aa6b4d0324f25f6fb0d6d63e42baee1}{}\label{class_text_based_window_a9aa6b4d0324f25f6fb0d6d63e42baee1} 
+\hyperlink{class_text_based_window_a9aa6b4d0324f25f6fb0d6d63e42baee1}{Text\+Based\+Window} (std\+::string title, int height, int width)
+\begin{DoxyCompactList}\small\item\em parameterized constructor, loads all ttf assets and then calls super class constructor to generate the window \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a757a07c1bcf51645a861bf8f648d1a30}{}\label{class_text_based_window_a757a07c1bcf51645a861bf8f648d1a30} 
+void \hyperlink{class_text_based_window_a757a07c1bcf51645a861bf8f648d1a30}{set\+Backgroud\+Color} (unsigned int r, unsigned int g, unsigned int b)
+\begin{DoxyCompactList}\small\item\em sets background color of window based on parameters \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a3ee58753154ed16c97779f02df490eda}{}\label{class_text_based_window_a3ee58753154ed16c97779f02df490eda} 
+void \hyperlink{class_text_based_window_a3ee58753154ed16c97779f02df490eda}{set\+Font\+Type} (int index)
+\begin{DoxyCompactList}\small\item\em sets the font type for all text that is related to the window \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a2b043b3eb12b21948d1135ade9162c5e}{}\label{class_text_based_window_a2b043b3eb12b21948d1135ade9162c5e} 
+void \hyperlink{class_text_based_window_a2b043b3eb12b21948d1135ade9162c5e}{set\+Title} (std\+::string text, unsigned int r, unsigned int g, unsigned int b, S\+D\+L\+\_\+\+Rect destination)
+\begin{DoxyCompactList}\small\item\em sets the title text of the window on a specified destination rectangle \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a40ea95073627594dd9960a1389bd1737}{}\label{class_text_based_window_a40ea95073627594dd9960a1389bd1737} 
+void \hyperlink{class_text_based_window_a40ea95073627594dd9960a1389bd1737}{set\+Title} (std\+::string text, unsigned int r, unsigned int g, unsigned int b, int xpos, int ypos)
+\begin{DoxyCompactList}\small\item\em sets the title text on the window, based on an x and y position, where as height an width is calculate optimally \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_aaf5e0e7833f1ac447db95cf7a9a6b688}{}\label{class_text_based_window_aaf5e0e7833f1ac447db95cf7a9a6b688} 
+void \hyperlink{class_text_based_window_aaf5e0e7833f1ac447db95cf7a9a6b688}{add\+Button} (std\+::string text, unsigned int r, unsigned int g, unsigned int b, S\+D\+L\+\_\+\+Rect destination)
+\begin{DoxyCompactList}\small\item\em adds a button to the window based on destination rectangle \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a1e280d42658ca5e0b4ae47d771e9b67a}{}\label{class_text_based_window_a1e280d42658ca5e0b4ae47d771e9b67a} 
+void \hyperlink{class_text_based_window_a1e280d42658ca5e0b4ae47d771e9b67a}{add\+Button} (std\+::string text, unsigned int r, unsigned int g, unsigned int b, int xpos, int ypos)
+\begin{DoxyCompactList}\small\item\em adds a button to the window based on x and y position, heigh and width is calucalted optimally \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a9ccde2617fc92f028471b60ff6284eb3}{}\label{class_text_based_window_a9ccde2617fc92f028471b60ff6284eb3} 
+void \hyperlink{class_text_based_window_a9ccde2617fc92f028471b60ff6284eb3}{add\+Text\+Label} (std\+::string text, unsigned int r, unsigned int g, unsigned int b, S\+D\+L\+\_\+\+Rect destination)
+\begin{DoxyCompactList}\small\item\em adds a text label to the window based on destination rectangle \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a5cb46bf75bed08606abbb70a0b2f4264}{}\label{class_text_based_window_a5cb46bf75bed08606abbb70a0b2f4264} 
+void \hyperlink{class_text_based_window_a5cb46bf75bed08606abbb70a0b2f4264}{add\+Text\+Label} (std\+::string text, unsigned int r, unsigned int g, unsigned int b, int xpos, int ypos)
+\begin{DoxyCompactList}\small\item\em adds a text label to the window based on x and y position, heigh and width is calucalted optimally \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a089c5c1f5090c9ad71421cdad3286723}{}\label{class_text_based_window_a089c5c1f5090c9ad71421cdad3286723} 
+void \hyperlink{class_text_based_window_a089c5c1f5090c9ad71421cdad3286723}{set\+Title\+Font\+Size} (int size)
+\begin{DoxyCompactList}\small\item\em sets the font size that is related to the window titles \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a0c50e613daa00b4fe99ef1f290006038}{}\label{class_text_based_window_a0c50e613daa00b4fe99ef1f290006038} 
+void \hyperlink{class_text_based_window_a0c50e613daa00b4fe99ef1f290006038}{set\+Button\+Font\+Size} (int size)
+\begin{DoxyCompactList}\small\item\em sets the font size to the buttons that is related to the window \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a9a63ff592b3a31e6cf5db15b0e10656c}{}\label{class_text_based_window_a9a63ff592b3a31e6cf5db15b0e10656c} 
+void \hyperlink{class_text_based_window_a9a63ff592b3a31e6cf5db15b0e10656c}{change\+Button\+Color} (int index, int r, int g, int b)
+\begin{DoxyCompactList}\small\item\em changes a specific window button color \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a7354bc5aca3bd79777421ebe413c16b0}{}\label{class_text_based_window_a7354bc5aca3bd79777421ebe413c16b0} 
+void \hyperlink{class_text_based_window_a7354bc5aca3bd79777421ebe413c16b0}{set\+Text\+Label\+Font\+Size} (int size)
+\begin{DoxyCompactList}\small\item\em sets the fontsize for all text labels related to the window \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_ab65f222dce6fdaba84e1e43499ef30c6}{}\label{class_text_based_window_ab65f222dce6fdaba84e1e43499ef30c6} 
+\hyperlink{class_text}{Text} $\ast$ \hyperlink{class_text_based_window_ab65f222dce6fdaba84e1e43499ef30c6}{get\+Title\+Text} ()
+\begin{DoxyCompactList}\small\item\em returns the \hyperlink{class_text}{Text} pointer of title \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a8461c4109986c5dd0f162b9c68f0ba11}{}\label{class_text_based_window_a8461c4109986c5dd0f162b9c68f0ba11} 
+std\+::vector$<$ \hyperlink{class_text}{Text} $\ast$ $>$ {\bfseries get\+Text\+Labels\+Vector} ()
+\item 
+\hypertarget{class_text_based_window_a635b57792c403406ab4b9237e14efa47}{}\label{class_text_based_window_a635b57792c403406ab4b9237e14efa47} 
+std\+::vector$<$ \hyperlink{class_text}{Text} $\ast$ $>$ {\bfseries get\+Text\+Buttons\+Vector} ()
+\item 
+\hypertarget{class_text_based_window_a8e1efbb01b046b4fa93afe796aefc86b}{}\label{class_text_based_window_a8e1efbb01b046b4fa93afe796aefc86b} 
+int \hyperlink{class_text_based_window_a8e1efbb01b046b4fa93afe796aefc86b}{get\+Button\+Index\+That\+Mouse\+Is\+On} (int x, int y)
+\begin{DoxyCompactList}\small\item\em returns index of the button based on button poisiton on window and the x and y coordinates pased \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a3e5f231c415cbe72cc5dca78376f0455}{}\label{class_text_based_window_a3e5f231c415cbe72cc5dca78376f0455} 
+std\+::string \hyperlink{class_text_based_window_a3e5f231c415cbe72cc5dca78376f0455}{get\+Current\+Font\+Type\+Path} ()
+\begin{DoxyCompactList}\small\item\em sets a string for the path of the font type being used \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_ae7fbedb72a6073234ef2da5697d4bbb6}{}\label{class_text_based_window_ae7fbedb72a6073234ef2da5697d4bbb6} 
+void \hyperlink{class_text_based_window_ae7fbedb72a6073234ef2da5697d4bbb6}{set\+Menu\+On\+Renderer} ()
+\begin{DoxyCompactList}\small\item\em sets all the text options in the window on the window renderer \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_a977eef5200047927a40c51b20e1b129f}{}\label{class_text_based_window_a977eef5200047927a40c51b20e1b129f} 
+void \hyperlink{class_text_based_window_a977eef5200047927a40c51b20e1b129f}{destroy\+Menu} ()
+\begin{DoxyCompactList}\small\item\em destroy the text based window \end{DoxyCompactList}\item 
+\hypertarget{class_text_based_window_ac704b70a18c11eb3133e7e5dfe5780d9}{}\label{class_text_based_window_ac704b70a18c11eb3133e7e5dfe5780d9} 
+\hyperlink{class_text_based_window_ac704b70a18c11eb3133e7e5dfe5780d9}{$\sim$\+Text\+Based\+Window} ()
+\begin{DoxyCompactList}\small\item\em destructor just invokes the destroy menu method \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_text_based_window_ac0481be18d53f3e04124dd899b1253da}{}\label{class_text_based_window_ac0481be18d53f3e04124dd899b1253da} 
+\hyperlink{class_text}{Text} $\ast$ {\bfseries \+\_\+title}
+\item 
+\hypertarget{class_text_based_window_adc84d743428eefd63fe4245297593f4a}{}\label{class_text_based_window_adc84d743428eefd63fe4245297593f4a} 
+int {\bfseries \+\_\+font\+Index}
+\item 
+\hypertarget{class_text_based_window_a0eb57b99b6b2cde43ae330d20e205e95}{}\label{class_text_based_window_a0eb57b99b6b2cde43ae330d20e205e95} 
+std\+::vector$<$ \hyperlink{class_text}{Text} $\ast$ $>$ {\bfseries \+\_\+text\+Label}
+\item 
+\hypertarget{class_text_based_window_abafdebbba55dd593df5ee69d76583bd9}{}\label{class_text_based_window_abafdebbba55dd593df5ee69d76583bd9} 
+std\+::vector$<$ \hyperlink{class_text}{Text} $\ast$ $>$ {\bfseries \+\_\+buttons}
+\item 
+\hypertarget{class_text_based_window_a5a02547162c9a19f6b7d94ae4eac84ee}{}\label{class_text_based_window_a5a02547162c9a19f6b7d94ae4eac84ee} 
+std\+::vector$<$ std\+::string $>$ {\bfseries \+\_\+font\+\_\+types}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Child class of windows, adds in text functionalities to the window primarily added features include ability to load titles buttons and other text lables on window. Also manipulate the new added features. This class has been vigourously used in the project for generating windows that are purely menus. But its menu like functionalites has also been used in windows that are not completely menus 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{textbasedwindow_8h}{textbasedwindow.\+h}\item 
+textbasedwindow.\+cpp\end{DoxyCompactItemize}

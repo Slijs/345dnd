@@ -1,0 +1,37 @@
+\hypertarget{class_item_factory}{}\section{Item\+Factory Class Reference}
+\label{class_item_factory}\index{Item\+Factory@{Item\+Factory}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_item_factory_1_1h}{h}
+\begin{DoxyCompactList}\small\item\em Used to create blank prototype items that will be filled in during serialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_item}{Item} $\ast$ \hyperlink{class_item_factory_a97812df3aa81f4bc31c0150b5dc0bd11}{create} (int flag)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_item_factory_a97812df3aa81f4bc31c0150b5dc0bd11}{}\label{class_item_factory_a97812df3aa81f4bc31c0150b5dc0bd11} 
+\index{Item\+Factory@{Item\+Factory}!create@{create}}
+\index{create@{create}!Item\+Factory@{Item\+Factory}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \hyperlink{class_item}{Item} $\ast$ Item\+Factory\+::create (\begin{DoxyParamCaption}\item[{int}]{flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates a blank item of a specific type, depending on the flag provided. 
+
+This is especially useful in the deserialization of a container, as the serialization process retrieves the type of item that is required, then will create the appropriate prototype item, and then will deserialize into this prototype item so that it is of the right subclass and has the proper values. 
+\begin{DoxyParams}{Parameters}
+{\em flag} & integer representing the Item\+Type of the \hyperlink{class_item}{Item} to be created \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Item$\ast$ pointing to the new \hyperlink{class_item}{Item} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_item_factory_8h}{Item\+Factory.\+h}\item 
+\hyperlink{_item_factory_8cpp}{Item\+Factory.\+cpp}\end{DoxyCompactItemize}

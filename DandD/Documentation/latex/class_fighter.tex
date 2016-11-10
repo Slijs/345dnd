@@ -1,0 +1,264 @@
+\hypertarget{class_fighter}{}\section{Fighter Class Reference}
+\label{class_fighter}\index{Fighter@{Fighter}}
+
+
+{\ttfamily \#include $<$Fighter.\+h$>$}
+
+Inheritance diagram for Fighter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_fighter}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_fighter_ad1fcbd2f4c389221611e379f3df46ca8}{}\label{class_fighter_ad1fcbd2f4c389221611e379f3df46ca8} 
+\hyperlink{class_fighter_ad1fcbd2f4c389221611e379f3df46ca8}{Fighter} (int, \hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race}, string)
+\begin{DoxyCompactList}\small\item\em Parameterized Constructor to set level, race and name. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a601ebcca9ea2287c54a0995dc11a117c}{}\label{class_fighter_a601ebcca9ea2287c54a0995dc11a117c} 
+\hyperlink{class_fighter_a601ebcca9ea2287c54a0995dc11a117c}{Fighter} (int level, \hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race} race, string name, int S\+TR, int D\+EX, int C\+ON, int I\+NT, int W\+IS, int C\+HA)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor to set all att of \hyperlink{class_fighter}{Fighter}. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a5bfd7630b47d4bf3b7b1288195bbad07}{}\label{class_fighter_a5bfd7630b47d4bf3b7b1288195bbad07} 
+void \hyperlink{class_fighter_a5bfd7630b47d4bf3b7b1288195bbad07}{init\+Hit\+Points} ()
+\begin{DoxyCompactList}\small\item\em Function that calculates the initial hitpoints of the character based on the level. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a82d21934022da1ffe16396e5fb407897}{}\label{class_fighter_a82d21934022da1ffe16396e5fb407897} 
+void \hyperlink{class_fighter_a82d21934022da1ffe16396e5fb407897}{recalc\+Hit\+Points} ()
+\begin{DoxyCompactList}\small\item\em Function to recalculate hitpoints when leveling up but adding a roll of hit\+Dice and dexterity modifier. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a9e63e29c35aaca0bc60ee46efe00cc62}{}\label{class_fighter_a9e63e29c35aaca0bc60ee46efe00cc62} 
+void \hyperlink{class_fighter_a9e63e29c35aaca0bc60ee46efe00cc62}{display\+Stats} ()
+\begin{DoxyCompactList}\small\item\em Function to displays the fighter stats, calls parent \hyperlink{class_fighter_a9e63e29c35aaca0bc60ee46efe00cc62}{display\+Stats()} \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_ad519375531d2f4ae2bc8896e3595d5f4}{}\label{class_fighter_ad519375531d2f4ae2bc8896e3595d5f4} 
+void \hyperlink{class_fighter_ad519375531d2f4ae2bc8896e3595d5f4}{display\+Battle} ()
+\begin{DoxyCompactList}\small\item\em Function to display fighter battle stats, calls parent \hyperlink{class_fighter_ad519375531d2f4ae2bc8896e3595d5f4}{display\+Battle()} \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_afa53e25a50772d86c5e929c6df1354ad}{}\label{class_fighter_afa53e25a50772d86c5e929c6df1354ad} 
+void \hyperlink{class_fighter_afa53e25a50772d86c5e929c6df1354ad}{display\+Level\+Up} ()
+\begin{DoxyCompactList}\small\item\em Function to display fighter stats when leveling up, calls parent \hyperlink{class_fighter_afa53e25a50772d86c5e929c6df1354ad}{display\+Level\+Up()} \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a6a050f0b907517b09627fe16cea6e341}{}\label{class_fighter_a6a050f0b907517b09627fe16cea6e341} 
+void \hyperlink{class_fighter_a6a050f0b907517b09627fe16cea6e341}{display\+Death} ()
+\begin{DoxyCompactList}\small\item\em Function to display fighter\textquotesingle{}s death, calls parent \hyperlink{class_fighter_afa53e25a50772d86c5e929c6df1354ad}{display\+Level\+Up()} and terminates the program. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_abf4d82d4a17d37d3b5ca4084debabde4}{}\label{class_fighter_abf4d82d4a17d37d3b5ca4084debabde4} 
+string {\bfseries get\+Name} ()
+\item 
+\hypertarget{class_fighter_a2a733caf375a8d2e1c514418267e5017}{}\label{class_fighter_a2a733caf375a8d2e1c514418267e5017} 
+\hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race} {\bfseries get\+Race} ()
+\item 
+void \hyperlink{class_fighter_af692d6c9b24f902c13bb8b7f3350631e}{set\+Name} (string name)
+\item 
+void \hyperlink{class_fighter_abd0aa443cda40a70c7df3bf1949a9e79}{set\+Race} (\hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race} n\+Race)
+\item 
+void \hyperlink{class_fighter_ac1a886e2f60333e38e90fff2a0f6107b}{attack} (\hyperlink{class_monster}{Monster} $\ast$c)
+\item 
+void \hyperlink{class_fighter_afe019dbd9ed0f0d10e047127dc478a63}{receive\+Damage} (int)
+\item 
+\hypertarget{class_fighter_a886a5fe6b7579951e64e68b76482b29c}{}\label{class_fighter_a886a5fe6b7579951e64e68b76482b29c} 
+void \hyperlink{class_fighter_a886a5fe6b7579951e64e68b76482b29c}{level\+Up} (int)
+\begin{DoxyCompactList}\small\item\em Function for level up processing to increment chosen ability score and recalculates hitpoints. \end{DoxyCompactList}\item 
+void \hyperlink{class_fighter_af411947929c37ef0a0eab87b0c45f4f3}{gain\+Experience} (int)
+\item 
+\hypertarget{class_fighter_af690e4afec50a9c446120db47b463d84}{}\label{class_fighter_af690e4afec50a9c446120db47b463d84} 
+void {\bfseries dead} ()
+\item 
+\hypertarget{class_fighter_ae888de59ae299553890387c58d774bda}{}\label{class_fighter_ae888de59ae299553890387c58d774bda} 
+void {\bfseries current\+State} ()
+\item 
+\hypertarget{class_fighter_a60976eb2c11504befe0aff8522339636}{}\label{class_fighter_a60976eb2c11504befe0aff8522339636} 
+void \hyperlink{class_fighter_a60976eb2c11504befe0aff8522339636}{equip\+Options} ()
+\begin{DoxyCompactList}\small\item\em Function to display when player will equip-\/dequip equipment. \end{DoxyCompactList}\item 
+void \hyperlink{class_fighter_acabd4955401ddf3ddc0be5f28fa64267}{equip\+Armor} (int i)
+\item 
+void \hyperlink{class_fighter_a4d88916d33514e2c7e5aaaef8916f93c}{equip\+Weapon} (int i)
+\item 
+void \hyperlink{class_fighter_ae90d7de8a4d6b61b35f43cefe7ec940c}{equip\+Helmet} (int i)
+\item 
+\hypertarget{class_fighter_aabfc72ac049b808fabbb77aa9fdfcba4}{}\label{class_fighter_aabfc72ac049b808fabbb77aa9fdfcba4} 
+void \hyperlink{class_fighter_aabfc72ac049b808fabbb77aa9fdfcba4}{equip\+Boots} (int i)
+\begin{DoxyCompactList}\small\item\em Function to equip boots. Previous bonus is removed and recalculate the bonus based on new boots. Triggers redisplay of stats. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a51cff2d6b9af41b0f6a2ca3a26b6eb42}{}\label{class_fighter_a51cff2d6b9af41b0f6a2ca3a26b6eb42} 
+void \hyperlink{class_fighter_a51cff2d6b9af41b0f6a2ca3a26b6eb42}{equip\+Ring} (int i)
+\begin{DoxyCompactList}\small\item\em Function to equip ring. Previous bonus is removed and recalculate the bonus based on new ring. Triggers redisplay of stats. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_af314de4ade8520638065735f2ebd3fc8}{}\label{class_fighter_af314de4ade8520638065735f2ebd3fc8} 
+void \hyperlink{class_fighter_af314de4ade8520638065735f2ebd3fc8}{equip\+Shield} (int i)
+\begin{DoxyCompactList}\small\item\em Function to equip shield. Previous AC bonus is removed and recalculate the AC based on new shield. Triggers redisplay of stats. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_aed08492ff6120638f476309a50887841}{}\label{class_fighter_aed08492ff6120638f476309a50887841} 
+void \hyperlink{class_fighter_aed08492ff6120638f476309a50887841}{equip\+Belt} (int i)
+\begin{DoxyCompactList}\small\item\em Function to equip belt. Previous bonuses are removed. Triggers redisplay of stats. \end{DoxyCompactList}\item 
+bool \hyperlink{class_fighter_a69dccfbc61abf5720e8a329203158d1e}{pickup\+Item} (\hyperlink{class_item}{Item} $\ast$i)
+\item 
+bool \hyperlink{class_fighter_a572fb61d329f4993701900ff3a1db5f8}{fill\+Backpack} (\hyperlink{class_container}{Container} $\ast$other\+Container)
+\item 
+bool \hyperlink{class_fighter_a66c0adfa4979fa3ac994359a188121a8}{interact\+With\+Container} (\hyperlink{class_container}{Container} $\ast$the\+Container)
+\item 
+\hypertarget{class_fighter_ac7a95f5d4b59bca227f847924625ffc2}{}\label{class_fighter_ac7a95f5d4b59bca227f847924625ffc2} 
+void \hyperlink{class_fighter_ac7a95f5d4b59bca227f847924625ffc2}{deequip\+Armor} ()
+\begin{DoxyCompactList}\small\item\em Function to de-\/equip Armor(). Resets stats and puts armor in backpack, as long as there is space. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a277fd0526a0318923f2775356f30972f}{}\label{class_fighter_a277fd0526a0318923f2775356f30972f} 
+void \hyperlink{class_fighter_a277fd0526a0318923f2775356f30972f}{dequip\+Weapon} ()
+\begin{DoxyCompactList}\small\item\em Function to de-\/equip \hyperlink{class_weapon}{Weapon}. Resets stats and puts weapon in backpack, as long as there is space. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a9e6f83324d66e6467d8af19e91c13781}{}\label{class_fighter_a9e6f83324d66e6467d8af19e91c13781} 
+void \hyperlink{class_fighter_a9e6f83324d66e6467d8af19e91c13781}{deequip\+Helmet} ()
+\begin{DoxyCompactList}\small\item\em Function to de-\/equip \hyperlink{class_helmet}{Helmet}. Resets stats and puts helmet in backpack, as long as there is space. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_add80df04f0659d37c0e30e91314e3d5e}{}\label{class_fighter_add80df04f0659d37c0e30e91314e3d5e} 
+void \hyperlink{class_fighter_add80df04f0659d37c0e30e91314e3d5e}{deequip\+Boots} ()
+\begin{DoxyCompactList}\small\item\em Function to de-\/equip \hyperlink{class_boots}{Boots}. Resets stats and puts boots in backpack, as long as there is space. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a1b64aab99d09a1d9a31b8674b4d0176c}{}\label{class_fighter_a1b64aab99d09a1d9a31b8674b4d0176c} 
+void \hyperlink{class_fighter_a1b64aab99d09a1d9a31b8674b4d0176c}{deequip\+Ring} ()
+\begin{DoxyCompactList}\small\item\em Function to de-\/equip \hyperlink{class_ring}{Ring}. Resets stats and puts ring in backpack, as long as there is space. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a313e661908412be41e7f3f67c3c050f4}{}\label{class_fighter_a313e661908412be41e7f3f67c3c050f4} 
+void \hyperlink{class_fighter_a313e661908412be41e7f3f67c3c050f4}{deequip\+Shield} ()
+\begin{DoxyCompactList}\small\item\em Function to de-\/equip \hyperlink{class_shield}{Shield}. Resets stats and puts shield in backpack, as long as there is space. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a529fdd57ee79c761a7601356f861d7fb}{}\label{class_fighter_a529fdd57ee79c761a7601356f861d7fb} 
+void \hyperlink{class_fighter_a529fdd57ee79c761a7601356f861d7fb}{deequip\+Belt} ()
+\begin{DoxyCompactList}\small\item\em Function to de-\/equip belt. Resets stats and puts belt in backpack, as long as there is space. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a30734efb2140029276fd7528d28685fc}{}\label{class_fighter_a30734efb2140029276fd7528d28685fc} 
+void \hyperlink{class_fighter_a30734efb2140029276fd7528d28685fc}{display\+Equiped} ()
+\begin{DoxyCompactList}\small\item\em Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a1f026b1314d058a8033a19328a40e4cb}{}\label{class_fighter_a1f026b1314d058a8033a19328a40e4cb} 
+void {\bfseries display\+Backpack} ()
+\item 
+\hypertarget{class_fighter_a235df759d42bb20bd6314abe806dd6ce}{}\label{class_fighter_a235df759d42bb20bd6314abe806dd6ce} 
+bool {\bfseries validate\+Hit\+Points} ()
+\item 
+\hypertarget{class_fighter_a7372ff74df453241ee2d990a265fd71c}{}\label{class_fighter_a7372ff74df453241ee2d990a265fd71c} 
+bool \hyperlink{class_fighter_a7372ff74df453241ee2d990a265fd71c}{validate\+Death} ()
+\begin{DoxyCompactList}\small\item\em test function to validate character death \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_a05f927eea7af56811cce5a8ba2c8a349}{}\label{class_fighter_a05f927eea7af56811cce5a8ba2c8a349} 
+bool {\bfseries validate\+Gain\+Experience} (int)
+\item 
+\hypertarget{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41}{}\label{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41} 
+bool {\bfseries validate\+Player\+Move} (int x, int y)
+\item 
+\hypertarget{class_fighter_a66d147cbc9c3690009cad90a6ee35f42}{}\label{class_fighter_a66d147cbc9c3690009cad90a6ee35f42} 
+bool {\bfseries validate\+Map\+Component\+Within\+Range} (int x, int y)
+\item 
+virtual void \hyperlink{class_fighter_a44b8e8e71e55b645c4fe7f67ef844e87}{Serialize} (C\+Archive \&ar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_fighter_a349455a2930ba35778477b876c5ea0eb}{}\label{class_fighter_a349455a2930ba35778477b876c5ea0eb} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_fighter}{Fighter})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Subclass of \hyperlink{class_characters}{Characters}, \textquotesingle{}\hyperlink{class_fighter}{Fighter}\textquotesingle{} character class implementation 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_fighter_ac1a886e2f60333e38e90fff2a0f6107b}{}\label{class_fighter_ac1a886e2f60333e38e90fff2a0f6107b} 
+\index{Fighter@{Fighter}!attack@{attack}}
+\index{attack@{attack}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Fighter\+::attack (\begin{DoxyParamCaption}\item[{\hyperlink{class_monster}{Monster} $\ast$}]{c }\end{DoxyParamCaption})}
+
+Function for attacking a \hyperlink{class_monster}{Monster}, generates attack roll and checks it agains \hyperlink{class_monster}{Monster}\textquotesingle{}s AC If larger than AC, damage roll is calculated and inflicted on \hyperlink{class_monster}{Monster}, otherwise attack fails \hypertarget{class_fighter_acabd4955401ddf3ddc0be5f28fa64267}{}\label{class_fighter_acabd4955401ddf3ddc0be5f28fa64267} 
+\index{Fighter@{Fighter}!equip\+Armor@{equip\+Armor}}
+\index{equip\+Armor@{equip\+Armor}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{equip\+Armor()}{equipArmor()}}
+{\footnotesize\ttfamily void Fighter\+::equip\+Armor (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+Allows the \hyperlink{class_fighter}{Fighter} to equip piece of armor at index \textquotesingle{}i\textquotesingle{} in the backpack. If no armor is equipped, then nothing special happens. If the \hyperlink{class_fighter}{Fighter} already has armor equipped, then it is returned to the backpack. 
+\begin{DoxyParams}{Parameters}
+{\em i} & index of armor in background \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_fighter_ae90d7de8a4d6b61b35f43cefe7ec940c}{}\label{class_fighter_ae90d7de8a4d6b61b35f43cefe7ec940c} 
+\index{Fighter@{Fighter}!equip\+Helmet@{equip\+Helmet}}
+\index{equip\+Helmet@{equip\+Helmet}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{equip\+Helmet()}{equipHelmet()}}
+{\footnotesize\ttfamily void Fighter\+::equip\+Helmet (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+Function to equip helmet. Previous bonus is removed and recalculate the bonus based on new helmet. Triggers redisplay of stats. 
+\begin{DoxyParams}{Parameters}
+{\em i} & index of helmet in backpack \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_fighter_a4d88916d33514e2c7e5aaaef8916f93c}{}\label{class_fighter_a4d88916d33514e2c7e5aaaef8916f93c} 
+\index{Fighter@{Fighter}!equip\+Weapon@{equip\+Weapon}}
+\index{equip\+Weapon@{equip\+Weapon}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{equip\+Weapon()}{equipWeapon()}}
+{\footnotesize\ttfamily void Fighter\+::equip\+Weapon (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+Allows the \hyperlink{class_fighter}{Fighter} to equip a weapon at index \textquotesingle{}i\textquotesingle{} in the backpack. If no weapon was previously equipped, then nothing special happens. If the \hyperlink{class_fighter}{Fighter} already has weapon equipped, then it is returned to the backpack. 
+\begin{DoxyParams}{Parameters}
+{\em i} & index in backpack of weapon \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_fighter_a572fb61d329f4993701900ff3a1db5f8}{}\label{class_fighter_a572fb61d329f4993701900ff3a1db5f8} 
+\index{Fighter@{Fighter}!fill\+Backpack@{fill\+Backpack}}
+\index{fill\+Backpack@{fill\+Backpack}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{fill\+Backpack()}{fillBackpack()}}
+{\footnotesize\ttfamily bool Fighter\+::fill\+Backpack (\begin{DoxyParamCaption}\item[{\hyperlink{class_container}{Container} $\ast$}]{other\+Container }\end{DoxyParamCaption})}
+
+Removes the contents of a container and inserts all of the items into the Character\textquotesingle{}s backpack. 
+\begin{DoxyParams}{Parameters}
+{\em other\+Container} & the container to be emptied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if the container gets emptied completely, false otherwise 
+\end{DoxyReturn}
+\hypertarget{class_fighter_af411947929c37ef0a0eab87b0c45f4f3}{}\label{class_fighter_af411947929c37ef0a0eab87b0c45f4f3} 
+\index{Fighter@{Fighter}!gain\+Experience@{gain\+Experience}}
+\index{gain\+Experience@{gain\+Experience}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{gain\+Experience()}{gainExperience()}}
+{\footnotesize\ttfamily void Fighter\+::gain\+Experience (\begin{DoxyParamCaption}\item[{int}]{gain }\end{DoxyParamCaption})}
+
+Function to increase experience when monster is defeated. Calls parent \hyperlink{class_fighter_af411947929c37ef0a0eab87b0c45f4f3}{gain\+Experience(int)} function. Notifies change in character state \hypertarget{class_fighter_a66c0adfa4979fa3ac994359a188121a8}{}\label{class_fighter_a66c0adfa4979fa3ac994359a188121a8} 
+\index{Fighter@{Fighter}!interact\+With\+Container@{interact\+With\+Container}}
+\index{interact\+With\+Container@{interact\+With\+Container}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{interact\+With\+Container()}{interactWithContainer()}}
+{\footnotesize\ttfamily bool Fighter\+::interact\+With\+Container (\begin{DoxyParamCaption}\item[{\hyperlink{class_container}{Container} $\ast$}]{the\+Container }\end{DoxyParamCaption})}
+
+Allows the user to interact with a \hyperlink{class_container}{Container}, and retrieve the items from it if they wish to do so 
+\begin{DoxyParams}{Parameters}
+{\em the\+Container} & Container$\ast$ to the container the character wants to interact with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, True if all items have been removed from the container, False otherwise 
+\end{DoxyReturn}
+\hypertarget{class_fighter_a69dccfbc61abf5720e8a329203158d1e}{}\label{class_fighter_a69dccfbc61abf5720e8a329203158d1e} 
+\index{Fighter@{Fighter}!pickup\+Item@{pickup\+Item}}
+\index{pickup\+Item@{pickup\+Item}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{pickup\+Item()}{pickupItem()}}
+{\footnotesize\ttfamily bool Fighter\+::pickup\+Item (\begin{DoxyParamCaption}\item[{\hyperlink{class_item}{Item} $\ast$}]{i }\end{DoxyParamCaption})}
+
+Allows the \hyperlink{class_fighter}{Fighter} to add an item to its backpack  i Item$\ast$ to the \hyperlink{class_item}{Item} to be picked up \begin{DoxyReturn}{Returns}
+bool, representing whether or not picking up the \hyperlink{class_item}{Item} was successful 
+\end{DoxyReturn}
+\hypertarget{class_fighter_afe019dbd9ed0f0d10e047127dc478a63}{}\label{class_fighter_afe019dbd9ed0f0d10e047127dc478a63} 
+\index{Fighter@{Fighter}!receive\+Damage@{receive\+Damage}}
+\index{receive\+Damage@{receive\+Damage}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{receive\+Damage()}{receiveDamage()}}
+{\footnotesize\ttfamily void Fighter\+::receive\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})}
+
+Function that reduces hitpoints based on damage taken, if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats \hypertarget{class_fighter_a44b8e8e71e55b645c4fe7f67ef844e87}{}\label{class_fighter_a44b8e8e71e55b645c4fe7f67ef844e87} 
+\index{Fighter@{Fighter}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Fighter\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Implementation of Serialization to allow \hyperlink{class_fighter}{Fighter} to be Serialized to file 
+
+Reimplemented from \hyperlink{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434}{Characters}.
+
+\hypertarget{class_fighter_af692d6c9b24f902c13bb8b7f3350631e}{}\label{class_fighter_af692d6c9b24f902c13bb8b7f3350631e} 
+\index{Fighter@{Fighter}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{set\+Name()}{setName()}}
+{\footnotesize\ttfamily void Fighter\+::set\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+Allows the name of the \hyperlink{class_fighter}{Fighter} to be changed \hypertarget{class_fighter_abd0aa443cda40a70c7df3bf1949a9e79}{}\label{class_fighter_abd0aa443cda40a70c7df3bf1949a9e79} 
+\index{Fighter@{Fighter}!set\+Race@{set\+Race}}
+\index{set\+Race@{set\+Race}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{set\+Race()}{setRace()}}
+{\footnotesize\ttfamily void Fighter\+::set\+Race (\begin{DoxyParamCaption}\item[{\hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race}}]{n\+Race }\end{DoxyParamCaption})}
+
+Will allow a \hyperlink{class_fighter}{Fighter}\textquotesingle{}s race to change. Will undo current Race stats and update them with the stats of the new race 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_fighter_8h}{Fighter.\+h}\item 
+Fighter.\+cpp\end{DoxyCompactItemize}

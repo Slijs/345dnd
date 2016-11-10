@@ -1,0 +1,138 @@
+\hypertarget{class_character_save_map}{}\section{Character\+Save\+Map Class Reference}
+\label{class_character_save_map}\index{Character\+Save\+Map@{Character\+Save\+Map}}
+
+
+A Map for keeping track of the save locations of \hyperlink{class_characters}{Characters}.  
+
+
+
+
+{\ttfamily \#include $<$Character\+Save\+Map.\+h$>$}
+
+Inheritance diagram for Character\+Save\+Map\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_character_save_map}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_character_save_map_aa08505fbf7f84288fd9c21da0326bf49}{size} ()
+\item 
+bool \hyperlink{class_character_save_map_ab184ee82d93d3e907a582f1924f05990}{is\+Empty} ()
+\item 
+bool \hyperlink{class_character_save_map_ab139cd8a2bfb27da4a557689f32715b5}{contains} (const C\+String \&char\+Name)
+\item 
+C\+String \hyperlink{class_character_save_map_ae522be138bfeab45d12a255020150110}{get\+Path} (const C\+String \&char\+Name)
+\item 
+void \hyperlink{class_character_save_map_a1b0d8a748f717733e02ca01d2492fc80}{put} (const C\+String \&char\+Name, const C\+String \&char\+Path)
+\item 
+C\+String \hyperlink{class_character_save_map_a1daaac33e4d3550c29f6dd087d460209}{remove} (const C\+String \&char\+Name)
+\item 
+void \hyperlink{class_character_save_map_a4e62aa81be98017382c268a2e1165f09}{print\+Names} ()
+\item 
+\hypertarget{class_character_save_map_a8470b5c25754acc6eb4761bedaed55d8}{}\label{class_character_save_map_a8470b5c25754acc6eb4761bedaed55d8} 
+void {\bfseries Serialize} (C\+Archive \&ar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_character_save_map_ae2e1fdded520c188c335b8f1d7c65d71}{}\label{class_character_save_map_ae2e1fdded520c188c335b8f1d7c65d71} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_character_save_map}{Character\+Save\+Map})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Map for keeping track of the save locations of \hyperlink{class_characters}{Characters}. 
+
+A \hyperlink{class_character_save_map}{Character\+Save\+Map} is a map with max size 20. It stores the save location of \hyperlink{class_characters}{Characters} in \{name, path\} pairs. No gaps between entries are permited within the map. 
+
+Extends C\+Object in order to allow for Serialization of the map 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_character_save_map_ab139cd8a2bfb27da4a557689f32715b5}{}\label{class_character_save_map_ab139cd8a2bfb27da4a557689f32715b5} 
+\index{Character\+Save\+Map@{Character\+Save\+Map}!contains@{contains}}
+\index{contains@{contains}!Character\+Save\+Map@{Character\+Save\+Map}}
+\subsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily bool Character\+Save\+Map\+::contains (\begin{DoxyParamCaption}\item[{const C\+String \&}]{char\+Name }\end{DoxyParamCaption})}
+
+Used to determine if an entry has the same name as char\+Name 
+\begin{DoxyParams}{Parameters}
+{\em char\+Name} & C\+String representing the name to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, True if char\+Name is in the char\+Map, false otherwise 
+\end{DoxyReturn}
+\hypertarget{class_character_save_map_ae522be138bfeab45d12a255020150110}{}\label{class_character_save_map_ae522be138bfeab45d12a255020150110} 
+\index{Character\+Save\+Map@{Character\+Save\+Map}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!Character\+Save\+Map@{Character\+Save\+Map}}
+\subsubsection{\texorpdfstring{get\+Path()}{getPath()}}
+{\footnotesize\ttfamily C\+String Character\+Save\+Map\+::get\+Path (\begin{DoxyParamCaption}\item[{const C\+String \&}]{char\+Name }\end{DoxyParamCaption})}
+
+Used to return the path of the desired character 
+\begin{DoxyParams}{Parameters}
+{\em char\+Name} & C\+String of the name of the desired character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+String, path of the desired Character 
+\end{DoxyReturn}
+\hypertarget{class_character_save_map_ab184ee82d93d3e907a582f1924f05990}{}\label{class_character_save_map_ab184ee82d93d3e907a582f1924f05990} 
+\index{Character\+Save\+Map@{Character\+Save\+Map}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Character\+Save\+Map@{Character\+Save\+Map}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily bool Character\+Save\+Map\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+bool, True if \+\_\+size is 0, False otherwise 
+\end{DoxyReturn}
+\hypertarget{class_character_save_map_a4e62aa81be98017382c268a2e1165f09}{}\label{class_character_save_map_a4e62aa81be98017382c268a2e1165f09} 
+\index{Character\+Save\+Map@{Character\+Save\+Map}!print\+Names@{print\+Names}}
+\index{print\+Names@{print\+Names}!Character\+Save\+Map@{Character\+Save\+Map}}
+\subsubsection{\texorpdfstring{print\+Names()}{printNames()}}
+{\footnotesize\ttfamily void Character\+Save\+Map\+::print\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Will print the names of all \hyperlink{class_characters}{Characters} which have been saved \hypertarget{class_character_save_map_a1b0d8a748f717733e02ca01d2492fc80}{}\label{class_character_save_map_a1b0d8a748f717733e02ca01d2492fc80} 
+\index{Character\+Save\+Map@{Character\+Save\+Map}!put@{put}}
+\index{put@{put}!Character\+Save\+Map@{Character\+Save\+Map}}
+\subsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily void Character\+Save\+Map\+::put (\begin{DoxyParamCaption}\item[{const C\+String \&}]{char\+Name,  }\item[{const C\+String \&}]{char\+Path }\end{DoxyParamCaption})}
+
+Used to insert a character\textquotesingle{}s save path into the \+\_\+char\+Map. 
+\begin{DoxyParams}{Parameters}
+{\em char\+Name} & C\+String of the name of the Character to be saved \\
+\hline
+{\em char\+Path} & C\+String of the path where the Character is to be saved \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_save_map_a1daaac33e4d3550c29f6dd087d460209}{}\label{class_character_save_map_a1daaac33e4d3550c29f6dd087d460209} 
+\index{Character\+Save\+Map@{Character\+Save\+Map}!remove@{remove}}
+\index{remove@{remove}!Character\+Save\+Map@{Character\+Save\+Map}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily C\+String Character\+Save\+Map\+::remove (\begin{DoxyParamCaption}\item[{const C\+String \&}]{char\+Name }\end{DoxyParamCaption})}
+
+Will remove the entry with the desired char\+Name 
+\begin{DoxyParams}{Parameters}
+{\em char\+Name} & C\+String of character to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+C\+String path of removed Character 
+\end{DoxyReturn}
+\hypertarget{class_character_save_map_aa08505fbf7f84288fd9c21da0326bf49}{}\label{class_character_save_map_aa08505fbf7f84288fd9c21da0326bf49} 
+\index{Character\+Save\+Map@{Character\+Save\+Map}!size@{size}}
+\index{size@{size}!Character\+Save\+Map@{Character\+Save\+Map}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int Character\+Save\+Map\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+integer \+\_\+size, representing \# of entries in the map 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_character_save_map_8h}{Character\+Save\+Map.\+h}\item 
+Character\+Save\+Map.\+cpp\end{DoxyCompactItemize}

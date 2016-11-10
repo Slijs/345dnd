@@ -1,0 +1,54 @@
+\hypertarget{class_menu_engine}{}\section{Menu\+Engine Class Reference}
+\label{class_menu_engine}\index{Menu\+Engine@{Menu\+Engine}}
+
+
+{\ttfamily \#include $<$menuengine.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_menu_engine_a73e9b1c7c061c19862853069466c5f28}{Menu\+Engine} (\hyperlink{class_menus}{Menus} $\ast$menu, S\+D\+L\+\_\+\+Event event\+\_\+)
+\item 
+\hypertarget{class_menu_engine_a1e08c450b6d65f1259f43247d40aab7c}{}\label{class_menu_engine_a1e08c450b6d65f1259f43247d40aab7c} 
+int \hyperlink{class_menu_engine_a1e08c450b6d65f1259f43247d40aab7c}{run\+Engine} ()
+\begin{DoxyCompactList}\small\item\em primary run engine method runs a menu for which only functions are taking a button input and mapping a destination \end{DoxyCompactList}\item 
+int \hyperlink{class_menu_engine_a3451ff9a6fd653ac8c14bdb243fb4dbd}{run\+Engine} (char $\ast$buttontracker)
+\item 
+int \hyperlink{class_menu_engine_a3892d4815765b63648789bcfe28ca729}{run\+Engine} (int ignore\+Render1, int ignore\+Render2, char $\ast$buttontracker)
+\item 
+\hypertarget{class_menu_engine_abf59152c4258e0199e89fab2979fb09e}{}\label{class_menu_engine_abf59152c4258e0199e89fab2979fb09e} 
+\hyperlink{class_menu_engine_abf59152c4258e0199e89fab2979fb09e}{$\sim$\+Menu\+Engine} ()
+\begin{DoxyCompactList}\small\item\em destructor does not destroy anything, just sets the menu to nullptr since it will be destroyed from the main game loop \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this class was designed to run the menus for the assignment the three overloaded functions are used to run different types of menus 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_menu_engine_a73e9b1c7c061c19862853069466c5f28}{}\label{class_menu_engine_a73e9b1c7c061c19862853069466c5f28} 
+\index{Menu\+Engine@{Menu\+Engine}!Menu\+Engine@{Menu\+Engine}}
+\index{Menu\+Engine@{Menu\+Engine}!Menu\+Engine@{Menu\+Engine}}
+\subsubsection{\texorpdfstring{Menu\+Engine()}{MenuEngine()}}
+{\footnotesize\ttfamily Menu\+Engine\+::\+Menu\+Engine (\begin{DoxyParamCaption}\item[{\hyperlink{class_menus}{Menus} $\ast$}]{menu,  }\item[{S\+D\+L\+\_\+\+Event}]{event\+\_\+ }\end{DoxyParamCaption})}
+
+parameterized constructor needs to set the menu that the engine needs to run also the S\+DL event handler that is associated with the main game loop 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_menu_engine_a3451ff9a6fd653ac8c14bdb243fb4dbd}{}\label{class_menu_engine_a3451ff9a6fd653ac8c14bdb243fb4dbd} 
+\index{Menu\+Engine@{Menu\+Engine}!run\+Engine@{run\+Engine}}
+\index{run\+Engine@{run\+Engine}!Menu\+Engine@{Menu\+Engine}}
+\subsubsection{\texorpdfstring{run\+Engine()}{runEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Menu\+Engine\+::run\+Engine (\begin{DoxyParamCaption}\item[{char $\ast$}]{buttontracker }\end{DoxyParamCaption})}
+
+this method was primarily for campaign editor menu added functionality, keeping track of right button click on existing campaigns for deletenig we have to give the name of corresponding button index, otherwise a nullptr has to be returned \hypertarget{class_menu_engine_a3892d4815765b63648789bcfe28ca729}{}\label{class_menu_engine_a3892d4815765b63648789bcfe28ca729} 
+\index{Menu\+Engine@{Menu\+Engine}!run\+Engine@{run\+Engine}}
+\index{run\+Engine@{run\+Engine}!Menu\+Engine@{Menu\+Engine}}
+\subsubsection{\texorpdfstring{run\+Engine()}{runEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Menu\+Engine\+::run\+Engine (\begin{DoxyParamCaption}\item[{int}]{ignore\+Render1,  }\item[{int}]{ignore\+Render2,  }\item[{char $\ast$}]{buttontracker }\end{DoxyParamCaption})}
+
+this function specially designed for sequence change purpose only the ingore renders are the button indices for which rendering will be ignored and also input will be ignored 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{menuengine_8h}{menuengine.\+h}\item 
+menuengine.\+cpp\end{DoxyCompactItemize}

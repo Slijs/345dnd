@@ -1,0 +1,177 @@
+\hypertarget{class_container}{}\section{Container Class Reference}
+\label{class_container}\index{Container@{Container}}
+
+
+Provides ability to manage an inventory.  
+
+
+
+
+{\ttfamily \#include $<$Container.\+h$>$}
+
+Inheritance diagram for Container\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_container}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_container_adf46b339e71f73d1b29ba0ba628477d9}{Container} (int m\+\_\+max\+Contents, vector$<$ \hyperlink{class_item}{Item} $\ast$$>$ m\+\_\+contents)
+\item 
+\hyperlink{class_container_ab7f8067097f7f58cb1b251069af3c8ad}{Container} (int m\+\_\+max\+Contents, vector$<$ \hyperlink{class_item}{Item} $\ast$$>$ m\+\_\+contents, std\+::string componentname, char componentchar, gameplay\+Grid\+Component\+Types componenttype, std\+::string imagepath)
+\item 
+\hypertarget{class_container_a3edf03e1eca2c48a22bc6073efb6ab5c}{}\label{class_container_a3edf03e1eca2c48a22bc6073efb6ab5c} 
+int {\bfseries get\+Max\+Contents} ()
+\item 
+\hypertarget{class_container_a9f10a0e0db5965080c21f290faee29b0}{}\label{class_container_a9f10a0e0db5965080c21f290faee29b0} 
+int {\bfseries get\+Num\+Contents} ()
+\item 
+\hypertarget{class_container_a31016cf32f3c5cee711504ccc461b336}{}\label{class_container_a31016cf32f3c5cee711504ccc461b336} 
+string {\bfseries get\+Image} ()
+\item 
+\hypertarget{class_container_a2215a87d003e88bab9a86a97a69448ac}{}\label{class_container_a2215a87d003e88bab9a86a97a69448ac} 
+vector$<$ \hyperlink{class_item}{Item} $\ast$ $>$ {\bfseries get\+Contents} ()
+\item 
+\hyperlink{class_item}{Item} $\ast$ \hyperlink{class_container_a8b203900fe9babebd7e744e34321962c}{remove\+Item} (int m\+\_\+contents\+Index)
+\item 
+bool \hyperlink{class_container_a512e6e65360249dc2fcd1aa5f466a01e}{insert\+Item} (\hyperlink{class_item}{Item} $\ast$m\+\_\+item)
+\item 
+string \hyperlink{class_container_a2bedbb656854553ca7d22e9212a628fc}{to\+String} ()
+\item 
+string \hyperlink{class_container_ab00aa23e1f650444e153301a7a247116}{contents\+To\+String} ()
+\item 
+\hyperlink{class_item}{Item} $\ast$ \hyperlink{class_container_a0a7c5bb0533b6a28ae6b5f0736d75d30}{get\+Item} (string name)
+\begin{DoxyCompactList}\small\item\em This method will take the name of an object, and return a pointer to the first object in the container that matches that name. It will N\+OT remove the item from the container!!! \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_container_ac274312989a3c896c3d764e2d315dfb7}{Serialize} (C\+Archive \&ar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_container_a7b52c4e148c15a81d2190467a13d3caa}{}\label{class_container_a7b52c4e148c15a81d2190467a13d3caa} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_container}{Container})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_container_a3fe28bc57e6f01a6a9bccfba763048d1}{}\label{class_container_a3fe28bc57e6f01a6a9bccfba763048d1} 
+int {\bfseries max\+Contents}
+\item 
+\hypertarget{class_container_a1f3d185e09c7c2123b4fb47ab1abf4a7}{}\label{class_container_a1f3d185e09c7c2123b4fb47ab1abf4a7} 
+int {\bfseries num\+Contents}
+\item 
+\hypertarget{class_container_acbee1b88bfda463e1857b924da41e9b9}{}\label{class_container_acbee1b88bfda463e1857b924da41e9b9} 
+vector$<$ \hyperlink{class_item}{Item} $\ast$ $>$ {\bfseries contents}
+\item 
+\hypertarget{class_container_a61889476a53e34d1659111cd5273232c}{}\label{class_container_a61889476a53e34d1659111cd5273232c} 
+string {\bfseries image}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides ability to manage an inventory. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_container_adf46b339e71f73d1b29ba0ba628477d9}{}\label{class_container_adf46b339e71f73d1b29ba0ba628477d9} 
+\index{Container@{Container}!Container@{Container}}
+\index{Container@{Container}!Container@{Container}}
+\subsubsection{\texorpdfstring{Container()}{Container()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Container\+::\+Container (\begin{DoxyParamCaption}\item[{int}]{m\+\_\+max\+Contents,  }\item[{vector$<$ \hyperlink{class_item}{Item} $\ast$$>$}]{m\+\_\+contents }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+max\+Contents} & \\
+\hline
+{\em m\+\_\+contents} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_container_ab7f8067097f7f58cb1b251069af3c8ad}{}\label{class_container_ab7f8067097f7f58cb1b251069af3c8ad} 
+\index{Container@{Container}!Container@{Container}}
+\index{Container@{Container}!Container@{Container}}
+\subsubsection{\texorpdfstring{Container()}{Container()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Container\+::\+Container (\begin{DoxyParamCaption}\item[{int}]{m\+\_\+max\+Contents,  }\item[{vector$<$ \hyperlink{class_item}{Item} $\ast$$>$}]{m\+\_\+contents,  }\item[{std\+::string}]{componentname,  }\item[{char}]{componentchar,  }\item[{gameplay\+Grid\+Component\+Types}]{componenttype,  }\item[{std\+::string}]{imagepath }\end{DoxyParamCaption})}
+
+Included by Khatib 
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+max\+Contents} & \\
+\hline
+{\em m\+\_\+contents} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_container_ab00aa23e1f650444e153301a7a247116}{}\label{class_container_ab00aa23e1f650444e153301a7a247116} 
+\index{Container@{Container}!contents\+To\+String@{contents\+To\+String}}
+\index{contents\+To\+String@{contents\+To\+String}!Container@{Container}}
+\subsubsection{\texorpdfstring{contents\+To\+String()}{contentsToString()}}
+{\footnotesize\ttfamily string Container\+::contents\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_container_a0a7c5bb0533b6a28ae6b5f0736d75d30}{}\label{class_container_a0a7c5bb0533b6a28ae6b5f0736d75d30} 
+\index{Container@{Container}!get\+Item@{get\+Item}}
+\index{get\+Item@{get\+Item}!Container@{Container}}
+\subsubsection{\texorpdfstring{get\+Item()}{getItem()}}
+{\footnotesize\ttfamily \hyperlink{class_item}{Item} $\ast$ Container\+::get\+Item (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+This method will take the name of an object, and return a pointer to the first object in the container that matches that name. It will N\+OT remove the item from the container!!! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the desired object \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_container_a512e6e65360249dc2fcd1aa5f466a01e}{}\label{class_container_a512e6e65360249dc2fcd1aa5f466a01e} 
+\index{Container@{Container}!insert\+Item@{insert\+Item}}
+\index{insert\+Item@{insert\+Item}!Container@{Container}}
+\subsubsection{\texorpdfstring{insert\+Item()}{insertItem()}}
+{\footnotesize\ttfamily bool Container\+::insert\+Item (\begin{DoxyParamCaption}\item[{\hyperlink{class_item}{Item} $\ast$}]{m\+\_\+item }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_container_a8b203900fe9babebd7e744e34321962c}{}\label{class_container_a8b203900fe9babebd7e744e34321962c} 
+\index{Container@{Container}!remove\+Item@{remove\+Item}}
+\index{remove\+Item@{remove\+Item}!Container@{Container}}
+\subsubsection{\texorpdfstring{remove\+Item()}{removeItem()}}
+{\footnotesize\ttfamily \hyperlink{class_item}{Item} $\ast$ Container\+::remove\+Item (\begin{DoxyParamCaption}\item[{int}]{m\+\_\+contents\+Index }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+contents\+Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{class_container_ac274312989a3c896c3d764e2d315dfb7}{}\label{class_container_ac274312989a3c896c3d764e2d315dfb7} 
+\index{Container@{Container}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Container@{Container}}
+\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Container\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Allows a \hyperlink{class_container}{Container} to be serialized. \hypertarget{class_container_a2bedbb656854553ca7d22e9212a628fc}{}\label{class_container_a2bedbb656854553ca7d22e9212a628fc} 
+\index{Container@{Container}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Container@{Container}}
+\subsubsection{\texorpdfstring{to\+String()}{toString()}}
+{\footnotesize\ttfamily string Container\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Container.\+h\item 
+Container.\+cpp\end{DoxyCompactItemize}

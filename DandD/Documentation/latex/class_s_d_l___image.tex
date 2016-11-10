@@ -1,0 +1,39 @@
+\hypertarget{class_s_d_l___image}{}\section{S\+D\+L\+\_\+\+Image Class Reference}
+\label{class_s_d_l___image}\index{S\+D\+L\+\_\+\+Image@{S\+D\+L\+\_\+\+Image}}
+
+
+{\ttfamily \#include $<$image.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_s_d_l___image_a521735d1041fa2595a206f5d7c072d8b}{}\label{class_s_d_l___image_a521735d1041fa2595a206f5d7c072d8b} 
+\hyperlink{class_s_d_l___image_a521735d1041fa2595a206f5d7c072d8b}{S\+D\+L\+\_\+\+Image} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em constructor loads image from path and creates the texture for the reference window \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l___image_accc2a78b16d0f975d792cbde109774af}{}\label{class_s_d_l___image_accc2a78b16d0f975d792cbde109774af} 
+void \hyperlink{class_s_d_l___image_accc2a78b16d0f975d792cbde109774af}{setup\+Image\+On\+Target\+Window\+Renderer} (S\+D\+L\+\_\+\+Renderer $\ast$window\+\_\+renderer)
+\begin{DoxyCompactList}\small\item\em sets a texture on a target window renderer \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l___image_a1592b3eabac8027430d08ecba955692d}{}\label{class_s_d_l___image_a1592b3eabac8027430d08ecba955692d} 
+int \hyperlink{class_s_d_l___image_a1592b3eabac8027430d08ecba955692d}{get\+Image\+Height} ()
+\begin{DoxyCompactList}\small\item\em access image height \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l___image_a7d527cce7d8c0f4940df4965772e79af}{}\label{class_s_d_l___image_a7d527cce7d8c0f4940df4965772e79af} 
+int \hyperlink{class_s_d_l___image_a7d527cce7d8c0f4940df4965772e79af}{get\+Image\+Width} ()
+\begin{DoxyCompactList}\small\item\em access image width \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l___image_a57ef1d2f72419dcd3a84ab8059fadf46}{}\label{class_s_d_l___image_a57ef1d2f72419dcd3a84ab8059fadf46} 
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{class_s_d_l___image_a57ef1d2f72419dcd3a84ab8059fadf46}{get\+Image\+Texture} ()
+\begin{DoxyCompactList}\small\item\em access image texture \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l___image_a8ca33a51cf09e6c6299aac9e81d46c2f}{}\label{class_s_d_l___image_a8ca33a51cf09e6c6299aac9e81d46c2f} 
+void \hyperlink{class_s_d_l___image_a8ca33a51cf09e6c6299aac9e81d46c2f}{destroy\+Image} ()
+\begin{DoxyCompactList}\small\item\em destroy the image setup \end{DoxyCompactList}\item 
+\hypertarget{class_s_d_l___image_acaf74b72cd075afe6b60a2ac359836e7}{}\label{class_s_d_l___image_acaf74b72cd075afe6b60a2ac359836e7} 
+\hyperlink{class_s_d_l___image_acaf74b72cd075afe6b60a2ac359836e7}{$\sim$\+S\+D\+L\+\_\+\+Image} ()
+\begin{DoxyCompactList}\small\item\em destructor simply invokes the destryo image function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this class is designed to abstract the process of loading and image and making a texture out of it for a window renderer 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{image_8h}{image.\+h}\item 
+image.\+cpp\end{DoxyCompactItemize}

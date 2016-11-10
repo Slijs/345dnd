@@ -1,3 +1,7 @@
+/**
+*@file ContainerGenerator.h
+*@brief Allows random generation of containers based on player level
+*/
 #ifndef CONTAINER_GENERATOR_H
 #define CONTAINER_GENERATOR_H
 
@@ -13,6 +17,10 @@
 #include "Ring.h"
 #include "Shield.h"
 
+/**
+*@class ContainerGenerator
+*@brief Allows you to randomly generate containers
+*/
 class ContainerGenerator :
 	public Container
 {

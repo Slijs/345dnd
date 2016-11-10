@@ -1,0 +1,38 @@
+\hypertarget{class_singleton_routing}{}\section{Singleton\+Routing Class Reference}
+\label{class_singleton_routing}\index{Singleton\+Routing@{Singleton\+Routing}}
+
+
+{\ttfamily \#include $<$routing.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_singleton_routing_a2d5ddb26bf336e4877344353170bab61}{route\+Validity} (std\+::vector$<$ std\+::string $>$ map)
+\item 
+\hypertarget{class_singleton_routing_ad97e4a54e47729251e5d576655824405}{}\label{class_singleton_routing_ad97e4a54e47729251e5d576655824405} 
+\hyperlink{class_singleton_routing_ad97e4a54e47729251e5d576655824405}{$\sim$\+Singleton\+Routing} ()
+\begin{DoxyCompactList}\small\item\em destructor destroys the singleton instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_singleton_routing_aa56625d13e947f92f0e92b16b2aa15ea}{}\label{class_singleton_routing_aa56625d13e947f92f0e92b16b2aa15ea} 
+static \hyperlink{class_singleton_routing}{Singleton\+Routing} $\ast$ \hyperlink{class_singleton_routing_aa56625d13e947f92f0e92b16b2aa15ea}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em returns singleton instance, creates new only if instance has not been created before \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this singleton class is used for the routing part of map validation 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_singleton_routing_a2d5ddb26bf336e4877344353170bab61}{}\label{class_singleton_routing_a2d5ddb26bf336e4877344353170bab61} 
+\index{Singleton\+Routing@{Singleton\+Routing}!route\+Validity@{route\+Validity}}
+\index{route\+Validity@{route\+Validity}!Singleton\+Routing@{Singleton\+Routing}}
+\subsubsection{\texorpdfstring{route\+Validity()}{routeValidity()}}
+{\footnotesize\ttfamily bool Singleton\+Routing\+::route\+Validity (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{map }\end{DoxyParamCaption})}
+
+receives a vector of strings and returns true if there is a direct route from player to exit returns false otherwise 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{routing_8h}{routing.\+h}\item 
+routing.\+cpp\end{DoxyCompactItemize}

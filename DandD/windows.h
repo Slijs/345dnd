@@ -1,4 +1,7 @@
-
+/**
+*@file windows.h
+*@brief Provides access to SDLWindow class
+*/
 #pragma once
 
 #include <SDL.h>
@@ -6,6 +9,7 @@
 #include <cstring>
 #include <vector>
 /*!
+*@class SDLWindow
 * This is the primary base class of generating SDL windows and setting up renderers
 * also consists of basic functions such as hide and display window, setting renderer
 * colors and loading texture on the window renderers

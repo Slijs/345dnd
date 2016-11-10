@@ -1,0 +1,76 @@
+\hypertarget{class_helmet}{}\section{Helmet Class Reference}
+\label{class_helmet}\index{Helmet@{Helmet}}
+
+
+Class for helmets.  
+
+
+
+
+{\ttfamily \#include $<$Helmet.\+h$>$}
+
+Inheritance diagram for Helmet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_helmet}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_helmet_a27eceb089c04d2dcab69d49d30d7b92c}{Helmet} (const \hyperlink{class_helmet}{Helmet} $\ast$other\+Helmet)
+\item 
+\hypertarget{class_helmet_a53c7728aebd2aadb37082834cbec4968}{}\label{class_helmet_a53c7728aebd2aadb37082834cbec4968} 
+{\bfseries Helmet} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values})
+\item 
+virtual void \hyperlink{class_helmet_abb01d02590723236e9cf9e260824e712}{Serialize} (C\+Archive \&ar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_helmet_a4d6756de7cf75e7cf04548c74d045ae2}{}\label{class_helmet_a4d6756de7cf75e7cf04548c74d045ae2} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_helmet}{Helmet})
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class for helmets. 
+
+\begin{DoxyAuthor}{Author}
+Philip Brink 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/10-\/20
+\end{DoxyDate}
+Subclass of \hyperlink{class_item}{Item}, allows Character to equip a helmet 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_helmet_a27eceb089c04d2dcab69d49d30d7b92c}{}\label{class_helmet_a27eceb089c04d2dcab69d49d30d7b92c} 
+\index{Helmet@{Helmet}!Helmet@{Helmet}}
+\index{Helmet@{Helmet}!Helmet@{Helmet}}
+\subsubsection{\texorpdfstring{Helmet()}{Helmet()}}
+{\footnotesize\ttfamily Helmet\+::\+Helmet (\begin{DoxyParamCaption}\item[{const \hyperlink{class_helmet}{Helmet} $\ast$}]{other\+Helmet }\end{DoxyParamCaption})}
+
+Copy-\/constructor -\/ initializes a new helmet to have the same values as another helmet 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_helmet_abb01d02590723236e9cf9e260824e712}{}\label{class_helmet_abb01d02590723236e9cf9e260824e712} 
+\index{Helmet@{Helmet}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Helmet@{Helmet}}
+\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Helmet\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Allows an item to be serialized 
+
+Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Helmet.\+h\item 
+Helmet.\+cpp\end{DoxyCompactItemize}

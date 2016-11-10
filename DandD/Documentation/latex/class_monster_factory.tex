@@ -1,0 +1,42 @@
+\hypertarget{class_monster_factory}{}\section{Monster\+Factory Class Reference}
+\label{class_monster_factory}\index{Monster\+Factory@{Monster\+Factory}}
+
+
+allows for the creation of a random monster, based on the level of the Character provided to it  
+
+
+
+
+{\ttfamily \#include $<$Monster\+Factory.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_monster}{Monster} $\ast$ \hyperlink{class_monster_factory_a7d532f0754e191b1f281c18e0c8fe8bf}{create\+Monster} (\hyperlink{class_fighter}{Fighter} $\ast$the\+Char)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+allows for the creation of a random monster, based on the level of the Character provided to it 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_monster_factory_a7d532f0754e191b1f281c18e0c8fe8bf}{}\label{class_monster_factory_a7d532f0754e191b1f281c18e0c8fe8bf} 
+\index{Monster\+Factory@{Monster\+Factory}!create\+Monster@{create\+Monster}}
+\index{create\+Monster@{create\+Monster}!Monster\+Factory@{Monster\+Factory}}
+\subsubsection{\texorpdfstring{create\+Monster()}{createMonster()}}
+{\footnotesize\ttfamily \hyperlink{class_monster}{Monster} $\ast$ Monster\+Factory\+::create\+Monster (\begin{DoxyParamCaption}\item[{\hyperlink{class_fighter}{Fighter} $\ast$}]{the\+Char }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Takes a playable Character\textquotesingle{}s level and randomly generates one of 10 Monsters with the same level as the player. Returns a pointer to the newly generated \hyperlink{class_monster}{Monster} 
+\begin{DoxyParams}{Parameters}
+{\em the\+Char} & Fighter$\ast$ to the \hyperlink{class_fighter}{Fighter} that will be used as reference \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Monster$\ast$ to a randomly generated \hyperlink{class_monster}{Monster} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_monster_factory_8h}{Monster\+Factory.\+h}\item 
+\hyperlink{_monster_factory_8cpp}{Monster\+Factory.\+cpp}\end{DoxyCompactItemize}

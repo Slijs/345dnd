@@ -1,0 +1,73 @@
+\hypertarget{class_campaign_map_managers}{}\section{Campaign\+Map\+Managers Class Reference}
+\label{class_campaign_map_managers}\index{Campaign\+Map\+Managers@{Campaign\+Map\+Managers}}
+
+
+{\ttfamily \#include $<$campaign\+M\+A\+Pmanagers.\+h$>$}
+
+Inheritance diagram for Campaign\+Map\+Managers\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_campaign_map_managers}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_campaign_map_managers_abcb404e7ba4f8725c73c6ec2f3d3c5a6}{}\label{class_campaign_map_managers_abcb404e7ba4f8725c73c6ec2f3d3c5a6} 
+\hyperlink{class_campaign_map_managers_abcb404e7ba4f8725c73c6ec2f3d3c5a6}{Campaign\+Map\+Managers} ()
+\begin{DoxyCompactList}\small\item\em default constructor for testing purpose only \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_a28a0d28e3fd4813738cf3a366c25bd16}{}\label{class_campaign_map_managers_a28a0d28e3fd4813738cf3a366c25bd16} 
+\hyperlink{class_campaign_map_managers_a28a0d28e3fd4813738cf3a366c25bd16}{Campaign\+Map\+Managers} (std\+::string title, std\+::string componentname)
+\begin{DoxyCompactList}\small\item\em parameterized constructor sets up the window and also loads the map names and the maps for this campaign into private vectors \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_a2884212b091c5827c7bfe808fafb63a6}{}\label{class_campaign_map_managers_a2884212b091c5827c7bfe808fafb63a6} 
+void \hyperlink{class_campaign_map_managers_a2884212b091c5827c7bfe808fafb63a6}{setup\+Menu} ()
+\begin{DoxyCompactList}\small\item\em sets up the menu on window renderer \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_a535719f15d56b38ccc5a944232b712ba}{}\label{class_campaign_map_managers_a535719f15d56b38ccc5a944232b712ba} 
+bool \hyperlink{class_campaign_map_managers_a535719f15d56b38ccc5a944232b712ba}{set\+Map\+Names} (std\+::vector$<$ std\+::string $>$ names)
+\begin{DoxyCompactList}\small\item\em cpp test unit funtion \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_a6e04b8ac8bbc2872bb0441428e0042b3}{}\label{class_campaign_map_managers_a6e04b8ac8bbc2872bb0441428e0042b3} 
+bool \hyperlink{class_campaign_map_managers_a6e04b8ac8bbc2872bb0441428e0042b3}{check\+If\+Proposed\+Map\+Name\+In\+Database} (std\+::string newmap)
+\begin{DoxyCompactList}\small\item\em cpp test unit function to check if a new proposed mapname is unique or not \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_ab68ada5bdef5137358cb80c0ad732b79}{}\label{class_campaign_map_managers_ab68ada5bdef5137358cb80c0ad732b79} 
+bool \hyperlink{class_campaign_map_managers_ab68ada5bdef5137358cb80c0ad732b79}{check\+If\+Mapdatabase\+Is\+Less\+Than\+Max} ()
+\begin{DoxyCompactList}\small\item\em cpp test unit function to check is a campaigns map database is at maximum \end{DoxyCompactList}\item 
+int \hyperlink{class_campaign_map_managers_a7136317d7a94280b0a0b2a3f69b18182}{destination\+Map} (int index, char $\ast$campaignname)
+\item 
+\hypertarget{class_campaign_map_managers_a0692f4fc3daa9afa3e7ea5739f49a1a5}{}\label{class_campaign_map_managers_a0692f4fc3daa9afa3e7ea5739f49a1a5} 
+std\+::string \hyperlink{class_campaign_map_managers_a0692f4fc3daa9afa3e7ea5739f49a1a5}{get\+Name\+Of\+Button\+From\+Index} (int index)
+\begin{DoxyCompactList}\small\item\em depending upon the vector index passed, this function will return the button name \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_a259ac66906b4c869bcf16c8d57b50633}{}\label{class_campaign_map_managers_a259ac66906b4c869bcf16c8d57b50633} 
+std\+::string \hyperlink{class_campaign_map_managers_a259ac66906b4c869bcf16c8d57b50633}{get\+Campaign\+Name\+Of\+Map} ()
+\begin{DoxyCompactList}\small\item\em access name of campign of instance \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_a27f019f8d7ee28286325ffca16cd0ce6}{}\label{class_campaign_map_managers_a27f019f8d7ee28286325ffca16cd0ce6} 
+void \hyperlink{class_campaign_map_managers_a27f019f8d7ee28286325ffca16cd0ce6}{sucessfull\+Map\+Created} (bool success)
+\begin{DoxyCompactList}\small\item\em this function is primarily used to ensure campaign database is clean if a new map creation procedure was aborted \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_a16313d7f353d1925c3341201b9600846}{}\label{class_campaign_map_managers_a16313d7f353d1925c3341201b9600846} 
+void \hyperlink{class_campaign_map_managers_a16313d7f353d1925c3341201b9600846}{check\+Existing\+Components\+Index\+Range} (int $\ast$lowerindex, int $\ast$upperindex)
+\begin{DoxyCompactList}\small\item\em used for deletion in the menu engine, returns the lower and upper index based on the map names. \end{DoxyCompactList}\item 
+\hypertarget{class_campaign_map_managers_a5935b7ed9d63ff44d748f7860c3eceb1}{}\label{class_campaign_map_managers_a5935b7ed9d63ff44d748f7860c3eceb1} 
+void \hyperlink{class_campaign_map_managers_a5935b7ed9d63ff44d748f7860c3eceb1}{change\+Sequence} (int index1, int index2)
+\begin{DoxyCompactList}\small\item\em this function changes sequence, index1 is the map that would need to move to index2 and based on that all other maps will be shifted \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+instances of this class would be a menu for a specific campaign. this class inherits from the campaign manager, the intention being polymorphic usage of the menu engine. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_campaign_map_managers_a7136317d7a94280b0a0b2a3f69b18182}{}\label{class_campaign_map_managers_a7136317d7a94280b0a0b2a3f69b18182} 
+\index{Campaign\+Map\+Managers@{Campaign\+Map\+Managers}!destination\+Map@{destination\+Map}}
+\index{destination\+Map@{destination\+Map}!Campaign\+Map\+Managers@{Campaign\+Map\+Managers}}
+\subsubsection{\texorpdfstring{destination\+Map()}{destinationMap()}}
+{\footnotesize\ttfamily int Campaign\+Map\+Managers\+::destination\+Map (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{char $\ast$}]{componentname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+maps destination similar to the parent class \hyperlink{class_campaign_manager}{Campaign\+Manager}. the componentname pointer apart from being used as a tracker from outside of the class, it also is used to abort the default map selction procedure, if that button was clicked in running of the menu engine 
+
+Reimplemented from \hyperlink{class_campaign_manager_af4ec02e5399f2a7bea50454eedd4ea62}{Campaign\+Manager}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{campaign_m_a_pmanagers_8h}{campaign\+M\+A\+Pmanagers.\+h}\item 
+campaign\+M\+A\+Pmanager.\+cpp\end{DoxyCompactItemize}

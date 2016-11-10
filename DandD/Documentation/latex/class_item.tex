@@ -1,0 +1,124 @@
+\hypertarget{class_item}{}\section{Item Class Reference}
+\label{class_item}\index{Item@{Item}}
+
+
+\hyperlink{class_item}{Item} superclass, provides the \hyperlink{class_item}{Item} object which can be manipulated by \hyperlink{class_characters}{Characters}.  
+
+
+
+
+{\ttfamily \#include $<$Item.\+h$>$}
+
+Inheritance diagram for Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_item}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_item_a297720c02984eab37332ae795d22189d}{}\label{class_item_a297720c02984eab37332ae795d22189d} 
+\hyperlink{class_item_a297720c02984eab37332ae795d22189d}{Item} ()
+\begin{DoxyCompactList}\small\item\em Default constructor, useless as is. All data is set to 0 or placeholder. \end{DoxyCompactList}\item 
+\hypertarget{class_item_a2df43264bafca3a31662a163cf2b5a3d}{}\label{class_item_a2df43264bafca3a31662a163cf2b5a3d} 
+{\bfseries Item} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values})
+\item 
+\hypertarget{class_item_a96a72e69b788044a98b5f675ae5cfb7c}{}\label{class_item_a96a72e69b788044a98b5f675ae5cfb7c} 
+{\bfseries Item} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values}, array$<$ bool, 9 $>$ \hyperlink{class_item_a02a91e8112849f4e2fde342b0c9a0d47}{enchantments\+Possible})
+\item 
+\hyperlink{class_item_a2f0671713504024a4b63cd63c835f759}{Item} (const \hyperlink{class_item}{Item} $\ast$other\+Item)
+\item 
+\hypertarget{class_item_a63d7f2148b699e539aae354b01559811}{}\label{class_item_a63d7f2148b699e539aae354b01559811} 
+string {\bfseries get\+Name} ()
+\item 
+\hypertarget{class_item_a5dcdff1db4c66ca22bd6a3f826c69644}{}\label{class_item_a5dcdff1db4c66ca22bd6a3f826c69644} 
+void {\bfseries set\+Name} (string name)
+\item 
+\hypertarget{class_item_a56817af92c3db19016949b3277c83dca}{}\label{class_item_a56817af92c3db19016949b3277c83dca} 
+int {\bfseries get\+Weight} ()
+\item 
+\hypertarget{class_item_a00bbb472ea4fd7faeafc2a3e07729bab}{}\label{class_item_a00bbb472ea4fd7faeafc2a3e07729bab} 
+void {\bfseries set\+Weight} (int weight)
+\item 
+\hypertarget{class_item_a9ceb9a0df0efe18d23e347471f908be7}{}\label{class_item_a9ceb9a0df0efe18d23e347471f908be7} 
+int {\bfseries get\+Value} ()
+\item 
+\hypertarget{class_item_adaa9513af7a2f17488c5e7317d2b8e08}{}\label{class_item_adaa9513af7a2f17488c5e7317d2b8e08} 
+void {\bfseries set\+Value} (int value)
+\item 
+\hypertarget{class_item_abafe93fe7bf198b5c208e095fca704b4}{}\label{class_item_abafe93fe7bf198b5c208e095fca704b4} 
+string {\bfseries get\+Image} ()
+\item 
+\hypertarget{class_item_ab2e28b59d2374b114cd4baa60fb9dd2a}{}\label{class_item_ab2e28b59d2374b114cd4baa60fb9dd2a} 
+void {\bfseries set\+Image} (string path)
+\item 
+\hypertarget{class_item_aeb68ae1ad1733a66ca3fc85b13a86f82}{}\label{class_item_aeb68ae1ad1733a66ca3fc85b13a86f82} 
+array$<$ int, 9 $>$ {\bfseries get\+Enchantment\+Values} ()
+\item 
+\hypertarget{class_item_af4bea219b51babc0cee62a949a79a46d}{}\label{class_item_af4bea219b51babc0cee62a949a79a46d} 
+array$<$ bool, 9 $>$ {\bfseries get\+Enchantments\+Possible} ()
+\item 
+\hypertarget{class_item_a916034b979ec9c4356a062a197fc2af7}{}\label{class_item_a916034b979ec9c4356a062a197fc2af7} 
+virtual string {\bfseries to\+String} ()
+\item 
+virtual void \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Serialize} (C\+Archive \&ar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_item_aceed71a49985945d19f9a11380f27036}{}\label{class_item_aceed71a49985945d19f9a11380f27036} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_item}{Item})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_item_a406cde7962a6b42a66b4a53c9a26db2c}{}\label{class_item_a406cde7962a6b42a66b4a53c9a26db2c} 
+string {\bfseries name}
+\item 
+\hypertarget{class_item_a05e743552459fc8c2abdc80a0f4f0b0a}{}\label{class_item_a05e743552459fc8c2abdc80a0f4f0b0a} 
+int {\bfseries weight}
+\item 
+\hypertarget{class_item_abee19400000e69cbd7aecadb6e93fa7b}{}\label{class_item_abee19400000e69cbd7aecadb6e93fa7b} 
+int {\bfseries value}
+\item 
+\hypertarget{class_item_add84a42b692ee5d580a92ae4a922f784}{}\label{class_item_add84a42b692ee5d580a92ae4a922f784} 
+string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}
+\begin{DoxyCompactList}\small\item\em This should be a relative path to the image. \end{DoxyCompactList}\item 
+\hypertarget{class_item_a8532d8729f9433f41b7fc18b20d83236}{}\label{class_item_a8532d8729f9433f41b7fc18b20d83236} 
+array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values}
+\begin{DoxyCompactList}\small\item\em The sequence for this array of booleans is Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, \hyperlink{class_armor}{Armor} Class, Attack Bonus, Damage Bonus. \end{DoxyCompactList}\item 
+\hypertarget{class_item_a02a91e8112849f4e2fde342b0c9a0d47}{}\label{class_item_a02a91e8112849f4e2fde342b0c9a0d47} 
+array$<$ bool, 9 $>$ \hyperlink{class_item_a02a91e8112849f4e2fde342b0c9a0d47}{enchantments\+Possible}
+\begin{DoxyCompactList}\small\item\em The sequence for this array of booleans is Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma, \hyperlink{class_armor}{Armor} Class, Attack Bonus, Damage Bonus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_item}{Item} superclass, provides the \hyperlink{class_item}{Item} object which can be manipulated by \hyperlink{class_characters}{Characters}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_item_a2f0671713504024a4b63cd63c835f759}{}\label{class_item_a2f0671713504024a4b63cd63c835f759} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{const \hyperlink{class_item}{Item} $\ast$}]{other\+Item }\end{DoxyParamCaption})}
+
+\hyperlink{class_item}{Item} copy Constructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{}\label{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8} 
+\index{Item@{Item}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Item@{Item}}
+\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Item\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Allows an item to be serialized 
+
+Reimplemented in \hyperlink{class_shield_a8d045c43b16aab5fc474e696cb8a7f1f}{Shield}, \hyperlink{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728}{Weapon}, \hyperlink{class_armor_a49d9af5d1a2d02e9dbf05d023f4a6515}{Armor}, \hyperlink{class_belt_a39c1f664a2f79f5dedac37546563f493}{Belt}, \hyperlink{class_helmet_abb01d02590723236e9cf9e260824e712}{Helmet}, and \hyperlink{class_ring_a123e40607e2aa46b27da2228af73eb4a}{Ring}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Item.\+h\item 
+Item.\+cpp\end{DoxyCompactItemize}

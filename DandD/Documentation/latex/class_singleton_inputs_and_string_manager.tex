@@ -1,0 +1,42 @@
+\hypertarget{class_singleton_inputs_and_string_manager}{}\section{Singleton\+Inputs\+And\+String\+Manager Class Reference}
+\label{class_singleton_inputs_and_string_manager}\index{Singleton\+Inputs\+And\+String\+Manager@{Singleton\+Inputs\+And\+String\+Manager}}
+
+
+{\ttfamily \#include $<$userinputandstringmanager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_singleton_inputs_and_string_manager_adafcb280bc2f799f4e3bf1021140e999}{}\label{class_singleton_inputs_and_string_manager_adafcb280bc2f799f4e3bf1021140e999} 
+int \hyperlink{class_singleton_inputs_and_string_manager_adafcb280bc2f799f4e3bf1021140e999}{take\+Int\+Input} (std\+::string message, int min, int max)
+\begin{DoxyCompactList}\small\item\em take an integer input within given range \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_inputs_and_string_manager_a8e0fe268b8ef24591d7dad4dbf26115d}{}\label{class_singleton_inputs_and_string_manager_a8e0fe268b8ef24591d7dad4dbf26115d} 
+string \hyperlink{class_singleton_inputs_and_string_manager_a8e0fe268b8ef24591d7dad4dbf26115d}{take\+String\+Input} (std\+::string message, int max\+Length)
+\begin{DoxyCompactList}\small\item\em take string input of a maximum length \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_inputs_and_string_manager_af1d0e4d486469f7f85d8e0e592345977}{}\label{class_singleton_inputs_and_string_manager_af1d0e4d486469f7f85d8e0e592345977} 
+string \hyperlink{class_singleton_inputs_and_string_manager_af1d0e4d486469f7f85d8e0e592345977}{take\+Unique\+String\+Input} (std\+::string message, std\+::vector$<$ std\+::string $>$ already\+In)
+\begin{DoxyCompactList}\small\item\em take a string input that is unique, or that is not already in based on the vector of strings already passed \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_inputs_and_string_manager_a89c5aee7afb7dc00c8d6f5347d401dd4}{}\label{class_singleton_inputs_and_string_manager_a89c5aee7afb7dc00c8d6f5347d401dd4} 
+void \hyperlink{class_singleton_inputs_and_string_manager_a89c5aee7afb7dc00c8d6f5347d401dd4}{assign\+String\+To\+Char\+Pointer} (char $\ast$ptr, std\+::string thestring)
+\begin{DoxyCompactList}\small\item\em assigns a string passed to the char pointer passed \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_inputs_and_string_manager_aee142d4de840261517ffa0e9ef07ee91}{}\label{class_singleton_inputs_and_string_manager_aee142d4de840261517ffa0e9ef07ee91} 
+string \hyperlink{class_singleton_inputs_and_string_manager_aee142d4de840261517ffa0e9ef07ee91}{convert\+Char\+Pointer\+To\+String} (char $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em converts the chars in the in char pointer, creates a string and returns it \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_inputs_and_string_manager_acb31dc8e0340913eb2287a3fde20344f}{}\label{class_singleton_inputs_and_string_manager_acb31dc8e0340913eb2287a3fde20344f} 
+\hyperlink{class_singleton_inputs_and_string_manager_acb31dc8e0340913eb2287a3fde20344f}{$\sim$\+Singleton\+Inputs\+And\+String\+Manager} ()
+\begin{DoxyCompactList}\small\item\em destructor just destroys the singleton instance \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_singleton_inputs_and_string_manager_a8c802a3e22965effe1131370dc044f5a}{}\label{class_singleton_inputs_and_string_manager_a8c802a3e22965effe1131370dc044f5a} 
+static \hyperlink{class_singleton_inputs_and_string_manager}{Singleton\+Inputs\+And\+String\+Manager} $\ast$ \hyperlink{class_singleton_inputs_and_string_manager_a8c802a3e22965effe1131370dc044f5a}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em returns singleton instance, creates new already not already created \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+singleton class designed to manages User Inputs and also manage string to char pointer and vice versa manipulation. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{userinputandstringmanager_8h}{userinputandstringmanager.\+h}\item 
+userinputandstringmanager.\+cpp\end{DoxyCompactItemize}

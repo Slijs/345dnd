@@ -1,0 +1,49 @@
+\hypertarget{class_character_manager}{}\section{Character\+Manager Class Reference}
+\label{class_character_manager}\index{Character\+Manager@{Character\+Manager}}
+
+
+Provides static methods to allow for management of saved characters.  
+
+
+
+
+{\ttfamily \#include $<$Character\+Manager.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_fighter}{Fighter} $\ast$ \hyperlink{class_character_manager_a2b13fedd6c3913ae52a9be8051300276}{get\+Character} ()
+\item 
+static void \hyperlink{class_character_manager_adec8bcfbce9bbb46052655e75d8f496f}{create\+Or\+Edit\+Character} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides static methods to allow for management of saved characters. 
+
+Provides the user with the ability to either \hyperlink{class_character_manager_a2b13fedd6c3913ae52a9be8051300276}{get\+Character()} from file, or to \hyperlink{class_character_manager_adec8bcfbce9bbb46052655e75d8f496f}{create\+Or\+Edit\+Character()}, which will then be saved to file. 
+
+To prevent changes from completely undoing d20 regulations regarding character stats, the user is only able to edit a Character\textquotesingle{}s name and race. Further modification of \hyperlink{class_characters}{Characters} would have too many ripple-\/down effects 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_character_manager_adec8bcfbce9bbb46052655e75d8f496f}{}\label{class_character_manager_adec8bcfbce9bbb46052655e75d8f496f} 
+\index{Character\+Manager@{Character\+Manager}!create\+Or\+Edit\+Character@{create\+Or\+Edit\+Character}}
+\index{create\+Or\+Edit\+Character@{create\+Or\+Edit\+Character}!Character\+Manager@{Character\+Manager}}
+\subsubsection{\texorpdfstring{create\+Or\+Edit\+Character()}{createOrEditCharacter()}}
+{\footnotesize\ttfamily void Character\+Manager\+::create\+Or\+Edit\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Provides a menu to allow the user to either create a new Character, edit a Character, or delete a Character \hypertarget{class_character_manager_a2b13fedd6c3913ae52a9be8051300276}{}\label{class_character_manager_a2b13fedd6c3913ae52a9be8051300276} 
+\index{Character\+Manager@{Character\+Manager}!get\+Character@{get\+Character}}
+\index{get\+Character@{get\+Character}!Character\+Manager@{Character\+Manager}}
+\subsubsection{\texorpdfstring{get\+Character()}{getCharacter()}}
+{\footnotesize\ttfamily \hyperlink{class_fighter}{Fighter} $\ast$ Character\+Manager\+::get\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Allows the user to select a Character from a list of saved \hyperlink{class_characters}{Characters}, returns the pointer so that the Character can be used. \begin{DoxyReturn}{Returns}
+\hyperlink{class_fighter}{Fighter} pointer, pointing to a loaded \hyperlink{class_fighter}{Fighter} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_character_manager_8h}{Character\+Manager.\+h}\item 
+\hyperlink{_character_manager_8cpp}{Character\+Manager.\+cpp}\end{DoxyCompactItemize}

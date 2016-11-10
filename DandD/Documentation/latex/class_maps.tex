@@ -1,0 +1,56 @@
+\hypertarget{class_maps}{}\section{Maps Class Reference}
+\label{class_maps}\index{Maps@{Maps}}
+
+
+{\ttfamily \#include $<$Maps.\+h$>$}
+
+Inheritance diagram for Maps\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_maps}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_maps_a7396b48b15d3044eaba86e0d6c6bce11}{Maps} (\hyperlink{class_characters}{Characters} $\ast$)
+\item 
+\hypertarget{class_maps_aa3fbced631bfb5f4d1fe541a8a29384f}{}\label{class_maps_aa3fbced631bfb5f4d1fe541a8a29384f} 
+\hyperlink{class_maps_aa3fbced631bfb5f4d1fe541a8a29384f}{$\sim$\+Maps} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_maps_a1916437763c9bd725260cf0b642d3d7f}{}\label{class_maps_a1916437763c9bd725260cf0b642d3d7f} 
+bool {\bfseries get\+Cleared} ()
+\item 
+\hypertarget{class_maps_af218b48fb82dc507011a6c3790917774}{}\label{class_maps_af218b48fb82dc507011a6c3790917774} 
+void {\bfseries move} (int, int)
+\item 
+\hypertarget{class_maps_a3cd4fbec4b22b8008860a6c17b4606cb}{}\label{class_maps_a3cd4fbec4b22b8008860a6c17b4606cb} 
+void \hyperlink{class_maps_a3cd4fbec4b22b8008860a6c17b4606cb}{detect\+Key} (int)
+\begin{DoxyCompactList}\small\item\em Function for key detection of Up, down, left, right keys. \end{DoxyCompactList}\item 
+\hypertarget{class_maps_a604a2f2297bb19fcc76ff0d9602fc342}{}\label{class_maps_a604a2f2297bb19fcc76ff0d9602fc342} 
+bool {\bfseries validate\+Player\+Move} (int, int)
+\item 
+\hypertarget{class_maps_a05cfcf1cf32247e6554518c6a49fb9c3}{}\label{class_maps_a05cfcf1cf32247e6554518c6a49fb9c3} 
+void \hyperlink{class_maps_a05cfcf1cf32247e6554518c6a49fb9c3}{display\+Map} ()
+\begin{DoxyCompactList}\small\item\em Displays the map of strings on console. \end{DoxyCompactList}\item 
+\hypertarget{class_maps_af06bd8a4c70f79ae393a3ca22c53e07f}{}\label{class_maps_af06bd8a4c70f79ae393a3ca22c53e07f} 
+void \hyperlink{class_maps_af06bd8a4c70f79ae393a3ca22c53e07f}{current\+State} ()
+\begin{DoxyCompactList}\small\item\em Informs subject of change in map to trigger redisplay in Map \hyperlink{class_observer}{Observer}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Dummy class for maps that has a single hard-\/coded map and allows a player to move through it until exit is reached 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_maps_a7396b48b15d3044eaba86e0d6c6bce11}{}\label{class_maps_a7396b48b15d3044eaba86e0d6c6bce11} 
+\index{Maps@{Maps}!Maps@{Maps}}
+\index{Maps@{Maps}!Maps@{Maps}}
+\subsubsection{\texorpdfstring{Maps()}{Maps()}}
+{\footnotesize\ttfamily Maps\+::\+Maps (\begin{DoxyParamCaption}\item[{\hyperlink{class_characters}{Characters} $\ast$}]{c }\end{DoxyParamCaption})}
+
+Parameterized Constructor that takes a character pointer Hardcoded map for testing purposes, using vector of string pointers. Character now has a vector for his position which are used for X and Y coordinates on map 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Maps.\+h\item 
+Maps.\+cpp\end{DoxyCompactItemize}

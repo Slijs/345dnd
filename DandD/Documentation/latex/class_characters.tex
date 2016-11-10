@@ -1,0 +1,344 @@
+\hypertarget{class_characters}{}\section{Characters Class Reference}
+\label{class_characters}\index{Characters@{Characters}}
+
+
+Provides resource for management of \hyperlink{class_characters}{Characters} within game.  
+
+
+
+
+{\ttfamily \#include $<$Characters.\+h$>$}
+
+Inheritance diagram for Characters\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_characters}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_characters_af131b231e05a7960369289684c89afad}{}\label{class_characters_af131b231e05a7960369289684c89afad} 
+\hyperlink{class_characters_af131b231e05a7960369289684c89afad}{Characters} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor -\/ Creates a dummy Lvl 1 Character. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a06862b46e26e981dad4c1dd3cb286c65}{}\label{class_characters_a06862b46e26e981dad4c1dd3cb286c65} 
+{\bfseries Characters} (int, int, int, int, int, int, int)
+\item 
+\hypertarget{class_characters_aa8fd7da53eaf45404aa9a8e35885da43}{}\label{class_characters_aa8fd7da53eaf45404aa9a8e35885da43} 
+\hyperlink{class_characters_aa8fd7da53eaf45404aa9a8e35885da43}{Characters} (int, int, int, int, int, int, int, int)
+\begin{DoxyCompactList}\small\item\em Parameterized Constructor for \hyperlink{class_monster}{Monster} class, sets level, ability scores and armor class. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a982bd095e88521e33817bc3ac4eb9607}{}\label{class_characters_a982bd095e88521e33817bc3ac4eb9607} 
+\hyperlink{class_characters_a982bd095e88521e33817bc3ac4eb9607}{Characters} (int)
+\begin{DoxyCompactList}\small\item\em Parameterized Constructor for \hyperlink{class_fighter}{Fighter} class, sets level. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a6ec320af5d1526eed47070bca6e4d847}{}\label{class_characters_a6ec320af5d1526eed47070bca6e4d847} 
+void \hyperlink{class_characters_a6ec320af5d1526eed47070bca6e4d847}{destroy\+Object} ()
+\begin{DoxyCompactList}\small\item\em Auxiliary function used to destroy all equipment objects. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a4aea85daea3f08b8b933e82cd42b3109}{}\label{class_characters_a4aea85daea3f08b8b933e82cd42b3109} 
+\hyperlink{class_characters_a4aea85daea3f08b8b933e82cd42b3109}{$\sim$\+Characters} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a4d7ffd0091e9e37d6da1ad0f0ceaa48f}{}\label{class_characters_a4d7ffd0091e9e37d6da1ad0f0ceaa48f} 
+int \hyperlink{class_characters_a4d7ffd0091e9e37d6da1ad0f0ceaa48f}{get\+Level} ()
+\begin{DoxyCompactList}\small\item\em Accessor to level. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a99a23168abd1c344526a719785d7d25c}{}\label{class_characters_a99a23168abd1c344526a719785d7d25c} 
+int {\bfseries get\+Exp} ()
+\item 
+\hypertarget{class_characters_a5651101b826dc12d181dc91fc2830ce9}{}\label{class_characters_a5651101b826dc12d181dc91fc2830ce9} 
+int {\bfseries get\+Armor\+Class} ()
+\item 
+\hypertarget{class_characters_a778d70b709d5a119c2cb7f051fe5f7dc}{}\label{class_characters_a778d70b709d5a119c2cb7f051fe5f7dc} 
+int {\bfseries get\+Attack\+Bonus} ()
+\item 
+\hypertarget{class_characters_a8c6138b3dcb05fc26952f78dad8d6296}{}\label{class_characters_a8c6138b3dcb05fc26952f78dad8d6296} 
+int {\bfseries get\+Damage\+Bonus} ()
+\item 
+int \hyperlink{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c}{get\+Scores} (int, int)
+\item 
+\hypertarget{class_characters_a2d6d1b6c6fbf0af1dabcbfe5a5975153}{}\label{class_characters_a2d6d1b6c6fbf0af1dabcbfe5a5975153} 
+bool {\bfseries get\+In\+Battle} ()
+\item 
+\hypertarget{class_characters_a626a12fc8378550885abce7ebadd9864}{}\label{class_characters_a626a12fc8378550885abce7ebadd9864} 
+bool {\bfseries get\+Is\+Dead} ()
+\item 
+\hypertarget{class_characters_a15c05632c94af80d6edf17dcd044c6f9}{}\label{class_characters_a15c05632c94af80d6edf17dcd044c6f9} 
+void {\bfseries set\+Is\+Dead} (bool is\+Dead)
+\item 
+\hypertarget{class_characters_a8eb0b2d6e53a4b0b56f8afce9a9b9371}{}\label{class_characters_a8eb0b2d6e53a4b0b56f8afce9a9b9371} 
+bool {\bfseries get\+Is\+Level\+Up} ()
+\item 
+\hypertarget{class_characters_aec4cbbc7de57f0cb1f128fbd162b3246}{}\label{class_characters_aec4cbbc7de57f0cb1f128fbd162b3246} 
+void {\bfseries set\+Is\+Level\+Up} (bool is\+Level\+Up)
+\item 
+\hypertarget{class_characters_ad95f204f70f468bb5923f917018d6054}{}\label{class_characters_ad95f204f70f468bb5923f917018d6054} 
+void {\bfseries set\+Armor} (\hyperlink{class_armor}{Armor} $\ast$a)
+\item 
+\hypertarget{class_characters_a93dd948b77ce686a0f8a97fa740584e1}{}\label{class_characters_a93dd948b77ce686a0f8a97fa740584e1} 
+void {\bfseries set\+Weapon} (\hyperlink{class_weapon}{Weapon} $\ast$w)
+\item 
+\hypertarget{class_characters_a8b8b8b7f028b0fc2a04a51587fdab7e2}{}\label{class_characters_a8b8b8b7f028b0fc2a04a51587fdab7e2} 
+void {\bfseries set\+Helmet} (\hyperlink{class_helmet}{Helmet} $\ast$h)
+\item 
+\hypertarget{class_characters_a50f7fb09879ac4264ca72d43514196dd}{}\label{class_characters_a50f7fb09879ac4264ca72d43514196dd} 
+void {\bfseries set\+Boots} (\hyperlink{class_boots}{Boots} $\ast$b)
+\item 
+\hypertarget{class_characters_aacd43f12acda10114e53f7721613bde6}{}\label{class_characters_aacd43f12acda10114e53f7721613bde6} 
+void {\bfseries set\+Ring} (\hyperlink{class_ring}{Ring} $\ast$r)
+\item 
+\hypertarget{class_characters_adfe57d4a87102a0793becc75b86be958}{}\label{class_characters_adfe57d4a87102a0793becc75b86be958} 
+void {\bfseries set\+Shield} (\hyperlink{class_shield}{Shield} $\ast$s)
+\item 
+\hypertarget{class_characters_ac074e48a4a187c6137490f83d159b5a1}{}\label{class_characters_ac074e48a4a187c6137490f83d159b5a1} 
+void {\bfseries set\+Belt} (\hyperlink{class_belt}{Belt} $\ast$b)
+\item 
+\hypertarget{class_characters_ad46ee46179464de4e46c0dd635811f47}{}\label{class_characters_ad46ee46179464de4e46c0dd635811f47} 
+\hyperlink{class_armor}{Armor} $\ast$ {\bfseries get\+Armor} ()
+\item 
+\hypertarget{class_characters_a9008fe044c9ed62fdfdfc08bd09cbc26}{}\label{class_characters_a9008fe044c9ed62fdfdfc08bd09cbc26} 
+\hyperlink{class_weapon}{Weapon} $\ast$ {\bfseries get\+Weapon} ()
+\item 
+\hypertarget{class_characters_a93f2eeae332dfaef92605410fda3c77d}{}\label{class_characters_a93f2eeae332dfaef92605410fda3c77d} 
+\hyperlink{class_helmet}{Helmet} $\ast$ {\bfseries get\+Helmet} ()
+\item 
+\hypertarget{class_characters_a93d02cbc7494a7fe7abe1d3a4fcc9b42}{}\label{class_characters_a93d02cbc7494a7fe7abe1d3a4fcc9b42} 
+\hyperlink{class_boots}{Boots} $\ast$ {\bfseries get\+Boots} ()
+\item 
+\hypertarget{class_characters_ace71da180996d5101a30ebfc2aca8a79}{}\label{class_characters_ace71da180996d5101a30ebfc2aca8a79} 
+\hyperlink{class_ring}{Ring} $\ast$ {\bfseries get\+Ring} ()
+\item 
+\hypertarget{class_characters_a2d01b90239043a157c56e625b78017cd}{}\label{class_characters_a2d01b90239043a157c56e625b78017cd} 
+\hyperlink{class_shield}{Shield} $\ast$ {\bfseries get\+Shield} ()
+\item 
+\hypertarget{class_characters_a0f32959981f93b31889eed35f257f4c6}{}\label{class_characters_a0f32959981f93b31889eed35f257f4c6} 
+\hyperlink{class_belt}{Belt} $\ast$ {\bfseries get\+Belt} ()
+\item 
+\hypertarget{class_characters_aea3ce859280087ef57932ff212d96749}{}\label{class_characters_aea3ce859280087ef57932ff212d96749} 
+vector$<$ int $>$ {\bfseries get\+Position} ()
+\item 
+void \hyperlink{class_characters_aafcca03cc72ce2b389c0412229864c6e}{calc\+Attack\+Bonus} ()
+\item 
+void \hyperlink{class_characters_af750209704e0be8b911cbc29fc1362ee}{calc\+Damage\+Bonus} ()
+\item 
+\hypertarget{class_characters_adc5a2d1c1aabab2b9915f5ce0e2707f9}{}\label{class_characters_adc5a2d1c1aabab2b9915f5ce0e2707f9} 
+virtual void \hyperlink{class_characters_adc5a2d1c1aabab2b9915f5ce0e2707f9}{display\+Stats} ()
+\begin{DoxyCompactList}\small\item\em Function for generic display of character\textquotesingle{}s stats (shows all information) \end{DoxyCompactList}\item 
+\hypertarget{class_characters_acf1c5f4228c0ac33361c0ad5211aa7a9}{}\label{class_characters_acf1c5f4228c0ac33361c0ad5211aa7a9} 
+void \hyperlink{class_characters_acf1c5f4228c0ac33361c0ad5211aa7a9}{display\+Equip} ()
+\begin{DoxyCompactList}\small\item\em Helper Function for equipment display. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_ad40703d40e67cf8d99e4de9624c1ba8a}{}\label{class_characters_ad40703d40e67cf8d99e4de9624c1ba8a} 
+virtual void \hyperlink{class_characters_ad40703d40e67cf8d99e4de9624c1ba8a}{display\+Battle} ()
+\begin{DoxyCompactList}\small\item\em Function for display of character\textquotesingle{}s stats during battle (shows level, armor class, attack bonus and damage bonus) \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a99a811e64beaa78d8d1bd5186199e174}{}\label{class_characters_a99a811e64beaa78d8d1bd5186199e174} 
+virtual void \hyperlink{class_characters_a99a811e64beaa78d8d1bd5186199e174}{display\+Level\+Up} ()
+\begin{DoxyCompactList}\small\item\em Function for display of character\textquotesingle{}s stats when leveling up (shows level, E\+XP, and ability scores and modifiers) \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a021d59a971cf527cb15a3978faa19c63}{}\label{class_characters_a021d59a971cf527cb15a3978faa19c63} 
+virtual void \hyperlink{class_characters_a021d59a971cf527cb15a3978faa19c63}{display\+Death} ()
+\begin{DoxyCompactList}\small\item\em Function for display of character death. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_afa9c56654b160d186ce3fd8259f8f180}{}\label{class_characters_afa9c56654b160d186ce3fd8259f8f180} 
+int \hyperlink{class_characters_afa9c56654b160d186ce3fd8259f8f180}{roll\+Dice} (int)
+\begin{DoxyCompactList}\small\item\em Function to simulate dice roll of i faces. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_ad39fbd976f089a631abc4a7c24de38d6}{}\label{class_characters_ad39fbd976f089a631abc4a7c24de38d6} 
+string {\bfseries current\+Belt} ()
+\item 
+\hypertarget{class_characters_ab2ff7cf1e6a50e005396ac7ff29c6dad}{}\label{class_characters_ab2ff7cf1e6a50e005396ac7ff29c6dad} 
+string \hyperlink{class_characters_ab2ff7cf1e6a50e005396ac7ff29c6dad}{current\+Armor} ()
+\begin{DoxyCompactList}\small\item\em Function to return armor\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_adf56654d23486d7779a006a0b5ed156e}{}\label{class_characters_adf56654d23486d7779a006a0b5ed156e} 
+string \hyperlink{class_characters_adf56654d23486d7779a006a0b5ed156e}{current\+Weapon} ()
+\begin{DoxyCompactList}\small\item\em Function to return weapon\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a1e4c32972619f14dbeae485316f77a5d}{}\label{class_characters_a1e4c32972619f14dbeae485316f77a5d} 
+string \hyperlink{class_characters_a1e4c32972619f14dbeae485316f77a5d}{current\+Shield} ()
+\begin{DoxyCompactList}\small\item\em Function to return shield\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a26db054e9899a900b62d105d5bf2b20c}{}\label{class_characters_a26db054e9899a900b62d105d5bf2b20c} 
+string \hyperlink{class_characters_a26db054e9899a900b62d105d5bf2b20c}{current\+Helmet} ()
+\begin{DoxyCompactList}\small\item\em Function to return helmet\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a9f6a49663aceb01d8a5391d75482a224}{}\label{class_characters_a9f6a49663aceb01d8a5391d75482a224} 
+string \hyperlink{class_characters_a9f6a49663aceb01d8a5391d75482a224}{current\+Boots} ()
+\begin{DoxyCompactList}\small\item\em Function to return boots\textquotesingle{} name. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a02fd5bc3c6122b602d6aaf329a8cdaba}{}\label{class_characters_a02fd5bc3c6122b602d6aaf329a8cdaba} 
+string \hyperlink{class_characters_a02fd5bc3c6122b602d6aaf329a8cdaba}{current\+Ring} ()
+\begin{DoxyCompactList}\small\item\em Function to return ring\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a0c8704124611ae8a358e26b584fede4e}{}\label{class_characters_a0c8704124611ae8a358e26b584fede4e} 
+void \hyperlink{class_characters_a0c8704124611ae8a358e26b584fede4e}{update\+Stats\+DQ} (\hyperlink{class_item}{Item} $\ast$)
+\begin{DoxyCompactList}\small\item\em Helper function to update stats when de-\/equipping an equipment. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a1ba5a872f62151bad5874d6b36b8d141}{}\label{class_characters_a1ba5a872f62151bad5874d6b36b8d141} 
+void \hyperlink{class_characters_a1ba5a872f62151bad5874d6b36b8d141}{update\+Stats\+EQ} (\hyperlink{class_item}{Item} $\ast$)
+\begin{DoxyCompactList}\small\item\em Helper function to update stats when equipping an equipment. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_ac7e98c3ef453dad9f68b180438d27a0f}{}\label{class_characters_ac7e98c3ef453dad9f68b180438d27a0f} 
+void \hyperlink{class_characters_ac7e98c3ef453dad9f68b180438d27a0f}{start\+Battle} (\hyperlink{class_characters}{Characters} $\ast$c)
+\begin{DoxyCompactList}\small\item\em Function to set in\+Battle to true and initiate battle state. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a115192e66e8bd958c49093e76208d17b}{}\label{class_characters_a115192e66e8bd958c49093e76208d17b} 
+void \hyperlink{class_characters_a115192e66e8bd958c49093e76208d17b}{end\+Battle} ()
+\begin{DoxyCompactList}\small\item\em Function to set in\+Battle to false, ending battle state. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a7b8da28aa1fca4191bf181f6f10ddb23}{}\label{class_characters_a7b8da28aa1fca4191bf181f6f10ddb23} 
+int \hyperlink{class_characters_a7b8da28aa1fca4191bf181f6f10ddb23}{attack\+Roll} ()
+\begin{DoxyCompactList}\small\item\em Function to calculate attack roll with\+: d20 + attack bonus. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_acfbeb255a424493efe9224a1d177ea5c}{}\label{class_characters_acfbeb255a424493efe9224a1d177ea5c} 
+int \hyperlink{class_characters_acfbeb255a424493efe9224a1d177ea5c}{damage\+Roll} ()
+\begin{DoxyCompactList}\small\item\em Function to calculate damage roll with\+: weapon\+Dice + damage bonus (if this yields value less than zero, damage\+Roll = 0) \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a77bd85803742621607c58d7c3593d7b0}{}\label{class_characters_a77bd85803742621607c58d7c3593d7b0} 
+void \hyperlink{class_characters_a77bd85803742621607c58d7c3593d7b0}{gain\+Experience} (int)
+\begin{DoxyCompactList}\small\item\em Function that increases experience based on specified amount gained and if experience exceeds lower limit of next level it will trigger level up. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_af3328b1a080cff8bab2af7597f98be6a}{}\label{class_characters_af3328b1a080cff8bab2af7597f98be6a} 
+void \hyperlink{class_characters_af3328b1a080cff8bab2af7597f98be6a}{update\+Ability\+Score} (int)
+\begin{DoxyCompactList}\small\item\em Function used when level up to increment an chosen ability score and end level up process. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_aef5536d88930d9aff77844d9eec7c71c}{}\label{class_characters_aef5536d88930d9aff77844d9eec7c71c} 
+void {\bfseries score\+Increase} (int, int)
+\item 
+\hypertarget{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca}{}\label{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca} 
+void \hyperlink{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca}{current\+State} ()
+\begin{DoxyCompactList}\small\item\em Function used to notify changes in character state and redisplay stats. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a42bbd977aed8772f446510e7fcfd577f}{}\label{class_characters_a42bbd977aed8772f446510e7fcfd577f} 
+virtual bool {\bfseries validate\+Player\+Move} (int x, int y)
+\item 
+void \hyperlink{class_characters_a7ea2bd80b72476d35173691d31e80727}{set\+Map} (vector$<$ string $>$ $\ast$new\+Map)
+\item 
+\hypertarget{class_characters_a9dac165846c7eb9cacb6a2807a75f845}{}\label{class_characters_a9dac165846c7eb9cacb6a2807a75f845} 
+void {\bfseries set\+Position} (int, int)
+\item 
+bool \hyperlink{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7}{validate\+New\+Character} ()
+\begin{DoxyCompactList}\small\item\em F\+OR U\+N\+IT T\+E\+ST. \end{DoxyCompactList}\item 
+\hypertarget{class_characters_a8a13cb967bd25662f86eac505e3e874a}{}\label{class_characters_a8a13cb967bd25662f86eac505e3e874a} 
+bool {\bfseries validate\+Proficiency} ()
+\item 
+\hypertarget{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434}{}\label{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434} 
+virtual void \hyperlink{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434}{Serialize} (C\+Archive \&ar)
+\begin{DoxyCompactList}\small\item\em Allows for \hyperlink{class_characters}{Characters} to be saved to disk. \end{DoxyCompactList}\item 
+\hyperlink{class_characters}{Characters} \& \hyperlink{class_characters_a161bd4230b1ff594c36db697ee2d3707}{operator=} (const \hyperlink{class_characters}{Characters} $\ast$other\+Char)
+\item 
+\hyperlink{class_characters_a695ed5b59463f54d4eb52a551a25949b}{Characters} (\hyperlink{class_characters}{Characters} $\ast$other\+Char)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_characters_ad71f0049d5bcf2d9c67278c237ad441b}{}\label{class_characters_ad71f0049d5bcf2d9c67278c237ad441b} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_characters}{Characters})
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_characters_ab509433a15fb7604b2080e0568e41d0d}{}\label{class_characters_ab509433a15fb7604b2080e0568e41d0d} 
+static bool {\bfseries \+\_\+valid\+Position} (char pos\+In\+Question)
+\item 
+\hypertarget{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52}{}\label{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52} 
+static bool {\bfseries \+\_\+valid\+Component\+Position} (char pos\+In\+Question)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_characters_a4a257d97e159dc2a0045a24996155314}{}\label{class_characters_a4a257d97e159dc2a0045a24996155314} 
+vector$<$ int $>$ {\bfseries position}
+\item 
+\hypertarget{class_characters_a1da634bd68441445cc53f920f59c6a4b}{}\label{class_characters_a1da634bd68441445cc53f920f59c6a4b} 
+vector$<$ string $>$ $\ast$ {\bfseries \+\_\+map}
+\item 
+\hypertarget{class_characters_af86008aff2fe089a3d2fb1a0577a8337}{}\label{class_characters_af86008aff2fe089a3d2fb1a0577a8337} 
+\hyperlink{class_dice}{Dice} {\bfseries \+\_\+die}
+\item 
+\hypertarget{class_characters_a6b25e6b617c51e3ffae2cbb4e164dbe6}{}\label{class_characters_a6b25e6b617c51e3ffae2cbb4e164dbe6} 
+int {\bfseries armor\+Class}
+\item 
+\hypertarget{class_characters_a57e35013d914968e76639ec4dfd67da0}{}\label{class_characters_a57e35013d914968e76639ec4dfd67da0} 
+\hyperlink{class_armor}{Armor} $\ast$ {\bfseries armor}
+\item 
+\hypertarget{class_characters_add8192820b7e7c0b99a65c126134124a}{}\label{class_characters_add8192820b7e7c0b99a65c126134124a} 
+\hyperlink{class_weapon}{Weapon} $\ast$ {\bfseries weapon}
+\item 
+\hypertarget{class_characters_a48d5c58db983ce2f8a4f5dce62f7db2a}{}\label{class_characters_a48d5c58db983ce2f8a4f5dce62f7db2a} 
+\hyperlink{class_helmet}{Helmet} $\ast$ {\bfseries helmet}
+\item 
+\hypertarget{class_characters_a3267107151073593a7ecd0017c277f36}{}\label{class_characters_a3267107151073593a7ecd0017c277f36} 
+\hyperlink{class_shield}{Shield} $\ast$ {\bfseries shield}
+\item 
+\hypertarget{class_characters_abe3abefeac045002ac6b777f3f7878d0}{}\label{class_characters_abe3abefeac045002ac6b777f3f7878d0} 
+\hyperlink{class_boots}{Boots} $\ast$ {\bfseries boots}
+\item 
+\hypertarget{class_characters_a19ed25f4db397055e69ec6a48a6a29a4}{}\label{class_characters_a19ed25f4db397055e69ec6a48a6a29a4} 
+\hyperlink{class_belt}{Belt} $\ast$ {\bfseries belt}
+\item 
+\hypertarget{class_characters_a63fc2f1ee2a9489dbf85ea61ec076d3e}{}\label{class_characters_a63fc2f1ee2a9489dbf85ea61ec076d3e} 
+\hyperlink{class_ring}{Ring} $\ast$ {\bfseries ring}
+\item 
+\hypertarget{class_characters_adf846a705a8a0641248e601c87c25403}{}\label{class_characters_adf846a705a8a0641248e601c87c25403} 
+\hyperlink{class_container}{Container} $\ast$ {\bfseries backpack}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides resource for management of \hyperlink{class_characters}{Characters} within game. 
+
+Some changes were made from previous implementation of \hyperlink{class_characters}{Characters} Class
+
+Fighters have a specific constructor that takes a level. Once this is given, the amount of experience and proficiency bonus are determine by the level.
+
+Monsters on the other hand, have a constructor that takes their level 6 integers for Scores and the armor class. The rest of their attributes are determined in \hyperlink{class_monster}{Monster} Class. In addition, no equipment is equipped upon creation.
+
+For fighters, in their constructor ability scores are randomly generated using a 4\+D6 dice roll and taking the 3 largest values and adding them together. Then the highest is set to S\+TR and the second highest to C\+ON, while all others remain arbitrary.
+
+The armor class is dependent on the equipment of the character. By default, fighters with \hyperlink{class_level}{Level} 1 will only have a \char`\"{}\+Longsword\char`\"{} equipped while all others will be in posession of a \char`\"{}\+Light Crossbow\char`\"{} and \char`\"{}\+Padded Armor\char`\"{} for armor. If no armor is worn, AC = 10 + C\+O\+N\+\_\+\+Mod + A\+C\+\_\+\+Bonuses where A\+C\+\_\+\+Bonuses can be from shield, helmet, boots, and ring. (if the three last ones have a bonus type of AC) If armor is worn, AC = Armor\+\_\+\+Bonus + C\+O\+N\+\_\+\+Mod + A\+C\+\_\+\+Bonuses
+
+In addition all characters may equip an \hyperlink{class_armor}{Armor}, \hyperlink{class_weapon}{Weapon}, \hyperlink{class_boots}{Boots}, \hyperlink{class_ring}{Ring}, \hyperlink{class_helmet}{Helmet} and \hyperlink{class_shield}{Shield}. When equipping new equipment, the character stats are adjusted to remove whatever effect they had if applicable or recalculate AC. M\+O\+RE I\+N\+F\+O\+R\+M\+A\+T\+I\+ON A\+B\+O\+UT T\+H\+IS IN E\+Q\+U\+I\+P\+M\+E\+NT C\+L\+A\+SS While this was implemented in the previous \hyperlink{class_characters}{Characters} Class, each equip function will notify a change so that Character \hyperlink{class_observer}{Observer} will display appropriate character stats
+
+In addition to all this, boolean values were implemented for use in Character \hyperlink{class_observer}{Observer} these are in\+Battle, is\+Dead, and is\+Level\+Up.
+
+New functions were also implemented for leveling up and battle purposes. Namely a function to increase experience when gaining experience and trigger level up if reached the next level lower bound. When leveling up, the character will be allowed to increment an ability score of their choice and their hp increases as well as the proficiency bonus if necessary. The functions for battle are namely for the calculation of the attack and damage roll as follows\+: attack\+Roll = d20 + attack\+Bonus ,and damage\+Roll = weapon\+Dice + damage\+Bonus. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_characters_a695ed5b59463f54d4eb52a551a25949b}{}\label{class_characters_a695ed5b59463f54d4eb52a551a25949b} 
+\index{Characters@{Characters}!Characters@{Characters}}
+\index{Characters@{Characters}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{Characters()}{Characters()}}
+{\footnotesize\ttfamily Characters\+::\+Characters (\begin{DoxyParamCaption}\item[{\hyperlink{class_characters}{Characters} $\ast$}]{other\+Char }\end{DoxyParamCaption})}
+
+Copy Constructor -\/ creates a new Character with the same attributes as another Character object 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_characters_aafcca03cc72ce2b389c0412229864c6e}{}\label{class_characters_aafcca03cc72ce2b389c0412229864c6e} 
+\index{Characters@{Characters}!calc\+Attack\+Bonus@{calc\+Attack\+Bonus}}
+\index{calc\+Attack\+Bonus@{calc\+Attack\+Bonus}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{calc\+Attack\+Bonus()}{calcAttackBonus()}}
+{\footnotesize\ttfamily void Characters\+::calc\+Attack\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function to calculate attack bonus by adding proficiency bonus and D\+EX mod if ranged weapon or S\+TR mod if melee weapon \hypertarget{class_characters_af750209704e0be8b911cbc29fc1362ee}{}\label{class_characters_af750209704e0be8b911cbc29fc1362ee} 
+\index{Characters@{Characters}!calc\+Damage\+Bonus@{calc\+Damage\+Bonus}}
+\index{calc\+Damage\+Bonus@{calc\+Damage\+Bonus}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{calc\+Damage\+Bonus()}{calcDamageBonus()}}
+{\footnotesize\ttfamily void Characters\+::calc\+Damage\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function to calculate damage bonus which is D\+EX mod if ranged weapon or S\+TR mod if melee weapon \hypertarget{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c}{}\label{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c} 
+\index{Characters@{Characters}!get\+Scores@{get\+Scores}}
+\index{get\+Scores@{get\+Scores}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{get\+Scores()}{getScores()}}
+{\footnotesize\ttfamily int Characters\+::get\+Scores (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+Accessor for scores, i\+: 0 for ability scores values, 1 for ability score modifiers and j\+: 0 for S\+TR, 1 for D\+EX, 2 for C\+ON, 3 for I\+NT, 4 for W\+IS, 5 for C\+HA \hypertarget{class_characters_a161bd4230b1ff594c36db697ee2d3707}{}\label{class_characters_a161bd4230b1ff594c36db697ee2d3707} 
+\index{Characters@{Characters}!operator=@{operator=}}
+\index{operator=@{operator=}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{class_characters}{Characters} \& Characters\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_characters}{Characters} $\ast$}]{other\+Char }\end{DoxyParamCaption})}
+
+Operator overload for assignment operator. Allows the Character object to take on copies of the same members of another Character object. \hypertarget{class_characters_a7ea2bd80b72476d35173691d31e80727}{}\label{class_characters_a7ea2bd80b72476d35173691d31e80727} 
+\index{Characters@{Characters}!set\+Map@{set\+Map}}
+\index{set\+Map@{set\+Map}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{set\+Map()}{setMap()}}
+{\footnotesize\ttfamily void Characters\+::set\+Map (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ $\ast$}]{new\+Map }\end{DoxyParamCaption})}
+
+Sets the Character\textquotesingle{}s map data to a new map, deleting the old map data in the process 
+\begin{DoxyParams}{Parameters}
+{\em new\+Map} & vector$<$string$>$, where each string represents one line of the map \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7}{}\label{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7} 
+\index{Characters@{Characters}!validate\+New\+Character@{validate\+New\+Character}}
+\index{validate\+New\+Character@{validate\+New\+Character}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{validate\+New\+Character()}{validateNewCharacter()}}
+{\footnotesize\ttfamily bool Characters\+::validate\+New\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+F\+OR U\+N\+IT T\+E\+ST. 
+
+Check to see if score values are valid (3 to 18) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Characters.\+h\item 
+Characters.\+cpp\end{DoxyCompactItemize}

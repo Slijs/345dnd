@@ -1,0 +1,166 @@
+\hypertarget{class_level_editor}{}\section{Level\+Editor Class Reference}
+\label{class_level_editor}\index{Level\+Editor@{Level\+Editor}}
+
+
+{\ttfamily \#include $<$leveleditor.\+h$>$}
+
+Inheritance diagram for Level\+Editor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_level_editor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_level_editor_a39c09a83873a4f53eef70cd65ff8eb6c}{}\label{class_level_editor_a39c09a83873a4f53eef70cd65ff8eb6c} 
+\hyperlink{class_level_editor_a39c09a83873a4f53eef70cd65ff8eb6c}{Level\+Editor} (\hyperlink{class_level_window}{Level\+Window} $\ast$window, int them\+Index)
+\begin{DoxyCompactList}\small\item\em parameterized constructor that sets the level window and theme for environment components \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_ac8af038d8ef0461ce1988ac7fec6f17c}{}\label{class_level_editor_ac8af038d8ef0461ce1988ac7fec6f17c} 
+void \hyperlink{class_level_editor_ac8af038d8ef0461ce1988ac7fec6f17c}{set\+Environment\+Text\+Vector} (std\+::vector$<$ std\+::string $>$ environment\+Vector)
+\begin{DoxyCompactList}\small\item\em setter for the environment component image paths \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_abe7384b7c3b36b0488353635062a90bd}{}\label{class_level_editor_abe7384b7c3b36b0488353635062a90bd} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_level_editor_abe7384b7c3b36b0488353635062a90bd}{get\+Environment\+Text\+Vector} ()
+\begin{DoxyCompactList}\small\item\em level text vector accessor \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a1a656c098a5bae50f42fccf4f67269ae}{}\label{class_level_editor_a1a656c098a5bae50f42fccf4f67269ae} 
+void \hyperlink{class_level_editor_a1a656c098a5bae50f42fccf4f67269ae}{take\+Components\+From\+Pre\+Built\+Level} (\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$pb\+Level)
+\begin{DoxyCompactList}\small\item\em set components from a prebuilt level \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_af66c9cfd7e8c2da4d1d041e74cf07efa}{}\label{class_level_editor_af66c9cfd7e8c2da4d1d041e74cf07efa} 
+void \hyperlink{class_level_editor_af66c9cfd7e8c2da4d1d041e74cf07efa}{render\+Environment\+At\+Bottom} ()
+\begin{DoxyCompactList}\small\item\em function renders the environment components portions \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_ae762918c5eadd1f7a701e4e80f5e59dc}{}\label{class_level_editor_ae762918c5eadd1f7a701e4e80f5e59dc} 
+void \hyperlink{class_level_editor_ae762918c5eadd1f7a701e4e80f5e59dc}{render\+Items\+At\+Bottom} ()
+\begin{DoxyCompactList}\small\item\em this will be implemented later on in the project \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a1ae72def1752386049f376cf452f3767}{}\label{class_level_editor_a1ae72def1752386049f376cf452f3767} 
+void \hyperlink{class_level_editor_a1ae72def1752386049f376cf452f3767}{render\+Characters\+At\+Bottom} ()
+\begin{DoxyCompactList}\small\item\em function renders the character on the bottom \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a626f320f3ff5db609f4b74b1533ac3f7}{}\label{class_level_editor_a626f320f3ff5db609f4b74b1533ac3f7} 
+void \hyperlink{class_level_editor_a626f320f3ff5db609f4b74b1533ac3f7}{render\+Description\+At\+Bottom\+R\+Ight} (\hyperlink{class_game_component}{Game\+Component} $\ast$component)
+\begin{DoxyCompactList}\small\item\em function renders the description of the gamecomponent parameter on the bottom right \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a380dda58b5831742e4e66c1004d02778}{}\label{class_level_editor_a380dda58b5831742e4e66c1004d02778} 
+void \hyperlink{class_level_editor_a380dda58b5831742e4e66c1004d02778}{render\+All\+Non\+Gameplay\+Grid\+Portions} ()
+\begin{DoxyCompactList}\small\item\em render all portions that are not part of the main gameplay grids \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a663d0553836d7b0d981b6744b7a603d6}{}\label{class_level_editor_a663d0553836d7b0d981b6744b7a603d6} 
+int \hyperlink{class_level_editor_a663d0553836d7b0d981b6744b7a603d6}{get\+Environment\+Portion\+End\+\_\+\+X\+\_\+\+Xor} ()
+\begin{DoxyCompactList}\small\item\em X coordinate accessor for where the environment portion ends. \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a00977108fd267ff731aafb515f0585a7}{}\label{class_level_editor_a00977108fd267ff731aafb515f0585a7} 
+int \hyperlink{class_level_editor_a00977108fd267ff731aafb515f0585a7}{get\+Item\+Portion\+End\+\_\+\+X\+\_\+\+Cor} ()
+\begin{DoxyCompactList}\small\item\em X coordinate accessor for where the items portion end. \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a021510de8965a1174f073e3509b15b7b}{}\label{class_level_editor_a021510de8965a1174f073e3509b15b7b} 
+int \hyperlink{class_level_editor_a021510de8965a1174f073e3509b15b7b}{get\+Character\+Portion\+End\+\_\+\+X\+\_\+\+Cor} ()
+\begin{DoxyCompactList}\small\item\em X coordinate accessor from where the player portion ends. \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a35e76643ca3924aee45b0c1b1551e9cf}{}\label{class_level_editor_a35e76643ca3924aee45b0c1b1551e9cf} 
+void \hyperlink{class_level_editor_a35e76643ca3924aee45b0c1b1551e9cf}{create\+Level\+For\+Target\+Window} ()
+\begin{DoxyCompactList}\small\item\em sets up image an text components for the level on the target window renderer \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a4fe7b1a398c68ca3907eaa3f109d36ef}{}\label{class_level_editor_a4fe7b1a398c68ca3907eaa3f109d36ef} 
+void \hyperlink{class_level_editor_a4fe7b1a398c68ca3907eaa3f109d36ef}{save\+Level} (std\+::string levelname)
+\begin{DoxyCompactList}\small\item\em saves level based on the path passed \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a90c5ea5d07250f1fdaf5a4fec8c63f95}{}\label{class_level_editor_a90c5ea5d07250f1fdaf5a4fec8c63f95} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ \hyperlink{class_level_editor_a90c5ea5d07250f1fdaf5a4fec8c63f95}{get\+Level\+Component\+Rects} ()
+\begin{DoxyCompactList}\small\item\em accessor for the rectangles of the level components \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a7eee89b657a94c1ec527e6cbbcd36c88}{}\label{class_level_editor_a7eee89b657a94c1ec527e6cbbcd36c88} 
+S\+D\+L\+\_\+\+Rect \hyperlink{class_level_editor_a7eee89b657a94c1ec527e6cbbcd36c88}{get\+Player\+Destination\+At\+Bottom\+Rect} ()
+\begin{DoxyCompactList}\small\item\em access the destination rectangle on which player is rendered at the bottom \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_aa903012cca49d6ca806d675f09ab45c7}{}\label{class_level_editor_aa903012cca49d6ca806d675f09ab45c7} 
+S\+D\+L\+\_\+\+Rect {\bfseries get\+Container\+Destination\+At\+Bottom\+Rect} ()
+\item 
+\hypertarget{class_level_editor_aae0552588840ef9557d94c97c7e08124}{}\label{class_level_editor_aae0552588840ef9557d94c97c7e08124} 
+S\+D\+L\+\_\+\+Rect {\bfseries get\+Enemy\+Destination\+At\+Bottom\+Rect} ()
+\item 
+\hypertarget{class_level_editor_aeeee371a1e351af567103e535e4eadf4}{}\label{class_level_editor_aeeee371a1e351af567103e535e4eadf4} 
+int \hyperlink{class_level_editor_aeeee371a1e351af567103e535e4eadf4}{get\+\_\+\+Y\+\_\+start} ()
+\begin{DoxyCompactList}\small\item\em accessor for the Y coordinate from which gameplay grids end \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_aa52b52d95742ff2f9b23bc95482b1336}{}\label{class_level_editor_aa52b52d95742ff2f9b23bc95482b1336} 
+int \hyperlink{class_level_editor_aa52b52d95742ff2f9b23bc95482b1336}{get\+Theme\+Index} () const
+\begin{DoxyCompactList}\small\item\em accessor for theme index \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_ae60797218578c738c78d56d33971f113}{}\label{class_level_editor_ae60797218578c738c78d56d33971f113} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_level_editor_ae60797218578c738c78d56d33971f113}{get\+Level\+Map\+Vector} () const
+\begin{DoxyCompactList}\small\item\em accessor for map text vector \end{DoxyCompactList}\item 
+\hypertarget{class_level_editor_a2fdfaad257e235e2f392b08fabee79ec}{}\label{class_level_editor_a2fdfaad257e235e2f392b08fabee79ec} 
+\hyperlink{class_level_editor_a2fdfaad257e235e2f392b08fabee79ec}{$\sim$\+Level\+Editor} ()
+\begin{DoxyCompactList}\small\item\em destroys all dynamically allocated memory \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_level_editor_a8aab4280653e6d98ca5d6568a36a721e}{}\label{class_level_editor_a8aab4280653e6d98ca5d6568a36a721e} 
+int {\bfseries \+\_\+bottom\+\_\+\+Y\+\_\+start}
+\item 
+\hypertarget{class_level_editor_aabeca8d16c0683c750ac3fad06849db0}{}\label{class_level_editor_aabeca8d16c0683c750ac3fad06849db0} 
+int {\bfseries \+\_\+\+X\+\_\+\+Cor\+\_\+\+Environment\+Portion\+End\+\_\+\+Item\+Portion\+Start}
+\item 
+\hypertarget{class_level_editor_a1035584575c5f75689e677de113c5a2d}{}\label{class_level_editor_a1035584575c5f75689e677de113c5a2d} 
+int {\bfseries \+\_\+\+X\+\_\+\+Cor\+\_\+\+Item\+Portion\+End\+\_\+\+Character\+Portion\+Start}
+\item 
+\hypertarget{class_level_editor_a5d3b9f71b13a0f5125b30edf3831e373}{}\label{class_level_editor_a5d3b9f71b13a0f5125b30edf3831e373} 
+int {\bfseries \+\_\+\+X\+\_\+\+Cor\+\_\+\+Character\+Portion\+End\+\_\+\+Description\+Portion\+Start}
+\item 
+\hypertarget{class_level_editor_af1e8b79e761ba962dcb310ab3c0d400e}{}\label{class_level_editor_af1e8b79e761ba962dcb310ab3c0d400e} 
+std\+::vector$<$ \hyperlink{class_text}{Text} $\ast$ $>$ {\bfseries \+\_\+temp\+Text}
+\item 
+\hypertarget{class_level_editor_aafa138f9c4ffc3d9ac0fb51a882178c6}{}\label{class_level_editor_aafa138f9c4ffc3d9ac0fb51a882178c6} 
+int {\bfseries \+\_\+ypixels}
+\item 
+\hypertarget{class_level_editor_ac2357133222a0175792c142e61b8cef9}{}\label{class_level_editor_ac2357133222a0175792c142e61b8cef9} 
+int {\bfseries \+\_\+yportion}
+\item 
+\hypertarget{class_level_editor_aa4620a93b612f7546564ed69ba243b1f}{}\label{class_level_editor_aa4620a93b612f7546564ed69ba243b1f} 
+int {\bfseries \+\_\+theme\+Index}
+\item 
+\hypertarget{class_level_editor_a61119af877e5381f153a06c0cf8dd838}{}\label{class_level_editor_a61119af877e5381f153a06c0cf8dd838} 
+int {\bfseries \+\_\+y\+\_\+init}
+\item 
+\hypertarget{class_level_editor_a2aa343c80f14b6b2b0aaa2f9368a19e0}{}\label{class_level_editor_a2aa343c80f14b6b2b0aaa2f9368a19e0} 
+int {\bfseries \+\_\+y\+\_\+height}
+\item 
+\hypertarget{class_level_editor_a34112286b5c504f821cd927151ae6650}{}\label{class_level_editor_a34112286b5c504f821cd927151ae6650} 
+int {\bfseries \+\_\+y\+\_\+space}
+\item 
+\hypertarget{class_level_editor_a7ae9e99503c69ff249c819e461a2f32e}{}\label{class_level_editor_a7ae9e99503c69ff249c819e461a2f32e} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+environment\+Text\+Destination}
+\item 
+\hypertarget{class_level_editor_ac35947c5c6b27639072f173a0be18b62}{}\label{class_level_editor_ac35947c5c6b27639072f173a0be18b62} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+items\+Text\+Destination}
+\item 
+\hypertarget{class_level_editor_a49fceaefcc539e091b639d4b6f22cd9c}{}\label{class_level_editor_a49fceaefcc539e091b639d4b6f22cd9c} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+character\+Text\+Destination}
+\item 
+\hypertarget{class_level_editor_a7ae29c1080fbf75227da731d4c8da5b7}{}\label{class_level_editor_a7ae29c1080fbf75227da731d4c8da5b7} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+description\+Rect}
+\item 
+\hypertarget{class_level_editor_a566bbf3a0c17e3a2578cb7a4ac964b0c}{}\label{class_level_editor_a566bbf3a0c17e3a2578cb7a4ac964b0c} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+back\+To\+Main\+Menu}
+\item 
+\hypertarget{class_level_editor_a82113df9c2eb5e96f0c7d045eb030c4e}{}\label{class_level_editor_a82113df9c2eb5e96f0c7d045eb030c4e} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+instructions}
+\item 
+\hypertarget{class_level_editor_a115b776f4ce4629251cef10568f88028}{}\label{class_level_editor_a115b776f4ce4629251cef10568f88028} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+acceptmap}
+\item 
+\hypertarget{class_level_editor_a3a791421beb7e01dd0cf6bcc5aea03eb}{}\label{class_level_editor_a3a791421beb7e01dd0cf6bcc5aea03eb} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ {\bfseries level\+Component\+Rects}
+\item 
+\hypertarget{class_level_editor_aad318011794b09af370630436cf2c7c2}{}\label{class_level_editor_aad318011794b09af370630436cf2c7c2} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ {\bfseries \+\_\+bottom\+Menu\+Rects}
+\item 
+\hypertarget{class_level_editor_ab7042d7db24dbf9a6758741d06c30a70}{}\label{class_level_editor_ab7042d7db24dbf9a6758741d06c30a70} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ {\bfseries \+\_\+side\+Menu\+Rects}
+\item 
+\hypertarget{class_level_editor_a96b67be32e0a946ebca8e97ab508048c}{}\label{class_level_editor_a96b67be32e0a946ebca8e97ab508048c} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+player\+Destination\+At\+Bottom}
+\item 
+\hypertarget{class_level_editor_ae91bdd589e1538b7fc29c3d3392d7630}{}\label{class_level_editor_ae91bdd589e1538b7fc29c3d3392d7630} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+enemy\+Destination\+At\+Bottom}
+\item 
+\hypertarget{class_level_editor_a32538e3d011bb4c9e214113023594b99}{}\label{class_level_editor_a32538e3d011bb4c9e214113023594b99} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+basic\+Container\+At\+Bottom}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class inherits from level, the main spesific functionalities of this class include attributes and behaviours that would facilitate the mangement of portions beyond the main gameplay grid. at the bottom will be gameplay components that user can use to create the map at bottom right will be description of the game components and on the right hand side will be a small menu system 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{leveleditor_8h}{leveleditor.\+h}\item 
+leveleditor.\+cpp\end{DoxyCompactItemize}

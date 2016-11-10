@@ -1,0 +1,106 @@
+\hypertarget{class_pre_built_level}{}\section{Pre\+Built\+Level Class Reference}
+\label{class_pre_built_level}\index{Pre\+Built\+Level@{Pre\+Built\+Level}}
+
+
+{\ttfamily \#include $<$prebuiltlevel.\+h$>$}
+
+Inheritance diagram for Pre\+Built\+Level\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pre_built_level}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_pre_built_level_a86e618ddeb7a0ca8484f268dc927819d}{}\label{class_pre_built_level_a86e618ddeb7a0ca8484f268dc927819d} 
+\hyperlink{class_pre_built_level_a86e618ddeb7a0ca8484f268dc927819d}{Pre\+Built\+Level} ()
+\begin{DoxyCompactList}\small\item\em default constructor for testing purposes only \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_abf37d637c8cea3dfa78adc4ee066a8be}{}\label{class_pre_built_level_abf37d637c8cea3dfa78adc4ee066a8be} 
+\hyperlink{class_pre_built_level_abf37d637c8cea3dfa78adc4ee066a8be}{Pre\+Built\+Level} (std\+::string path, \hyperlink{class_fighter}{Fighter} $\ast$player)
+\begin{DoxyCompactList}\small\item\em parameterized constructor sets the path from which the pre built map needs to be loaded \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_aab6e5f41f2e67cb0c2af129dae067560}{}\label{class_pre_built_level_aab6e5f41f2e67cb0c2af129dae067560} 
+void \hyperlink{class_pre_built_level_aab6e5f41f2e67cb0c2af129dae067560}{load\+User\+Created\+Level} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em loads the user created level in private member variables \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_af3fec0bf964834a5330187d6b5696fee}{}\label{class_pre_built_level_af3fec0bf964834a5330187d6b5696fee} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $\ast$ $>$ {\bfseries get\+Level\+Component\+Rects} ()
+\item 
+\hypertarget{class_pre_built_level_ae3464cc581f730e739cc41ea43ae8e03}{}\label{class_pre_built_level_ae3464cc581f730e739cc41ea43ae8e03} 
+void \hyperlink{class_pre_built_level_ae3464cc581f730e739cc41ea43ae8e03}{set\+Level\+On\+Target\+Window} ()
+\begin{DoxyCompactList}\small\item\em sets the level text vector that would be used to set the level on the target window \end{DoxyCompactList}\item 
+void \hyperlink{class_pre_built_level_ac55f77e0ee464325cdd3ffa91292b0c8}{create\+Level\+For\+Target\+Window} ()
+\item 
+\hypertarget{class_pre_built_level_a9dad873a97adcdaf295fab180e121432}{}\label{class_pre_built_level_a9dad873a97adcdaf295fab180e121432} 
+std\+::string \hyperlink{class_pre_built_level_a9dad873a97adcdaf295fab180e121432}{get\+Environment\+Components\+Path} () const
+\begin{DoxyCompactList}\small\item\em environment component path accessor \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_a71f044fcb4e420d230ec08fb99f052b7}{}\label{class_pre_built_level_a71f044fcb4e420d230ec08fb99f052b7} 
+std\+::string \hyperlink{class_pre_built_level_a71f044fcb4e420d230ec08fb99f052b7}{get\+Directory\+Path\+For\+Level\+Text\+File} () const
+\begin{DoxyCompactList}\small\item\em level text file path accessor \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_a521829d7ce603cca33415de35cf848ea}{}\label{class_pre_built_level_a521829d7ce603cca33415de35cf848ea} 
+std\+::string \hyperlink{class_pre_built_level_a521829d7ce603cca33415de35cf848ea}{get\+Player\+Path} () const
+\begin{DoxyCompactList}\small\item\em path for player image accessor \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_acbde88b4ef5e5c62612baa33d0940aa4}{}\label{class_pre_built_level_acbde88b4ef5e5c62612baa33d0940aa4} 
+std\+::string {\bfseries get\+Enemy\+Path} () const
+\item 
+\hypertarget{class_pre_built_level_a5c7c3ad889ff5eab0cfb367945523d6b}{}\label{class_pre_built_level_a5c7c3ad889ff5eab0cfb367945523d6b} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_pre_built_level_a5c7c3ad889ff5eab0cfb367945523d6b}{get\+Built\+Level\+File} () const
+\begin{DoxyCompactList}\small\item\em level text vector accessor \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_ab00f1496cbd95f85dd9471539a7525a9}{}\label{class_pre_built_level_ab00f1496cbd95f85dd9471539a7525a9} 
+\hyperlink{class_fighter}{Fighter} $\ast$ {\bfseries get\+Player} ()
+\item 
+\hypertarget{class_pre_built_level_ae49e0ab74872be75e2546610607d5868}{}\label{class_pre_built_level_ae49e0ab74872be75e2546610607d5868} 
+void {\bfseries setup\+Containers\+On\+Map} ()
+\item 
+\hypertarget{class_pre_built_level_a0089fb9d42b5ee32e395b7b7c4fd3576}{}\label{class_pre_built_level_a0089fb9d42b5ee32e395b7b7c4fd3576} 
+std\+::vector$<$ \hyperlink{struct_container_on_map}{Container\+On\+Map} $\ast$ $>$ {\bfseries get\+Containers\+On\+Map} ()
+\item 
+\hypertarget{class_pre_built_level_ac03a041e9981a044dceb7aa0b2fa5639}{}\label{class_pre_built_level_ac03a041e9981a044dceb7aa0b2fa5639} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ {\bfseries get\+All\+Button\+Destinations} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_pre_built_level_a0ad1ddb709d1134c31749bdedda1ec4a}{}\label{class_pre_built_level_a0ad1ddb709d1134c31749bdedda1ec4a} 
+std\+::vector$<$ S\+D\+L\+\_\+\+Rect $\ast$ $>$ {\bfseries \+\_\+level\+Component\+Rects}
+\item 
+\hypertarget{class_pre_built_level_ad20d575f1727d070b27b3baf7a0c4706}{}\label{class_pre_built_level_ad20d575f1727d070b27b3baf7a0c4706} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+inventory\+Pane\+Dest}
+\item 
+\hypertarget{class_pre_built_level_a812edb421a0f77672e772a7a6e4e0a09}{}\label{class_pre_built_level_a812edb421a0f77672e772a7a6e4e0a09} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+move\+Player\+Dest}
+\item 
+\hypertarget{class_pre_built_level_a0cbf9d08b7fcba3c500092b71baabdbb}{}\label{class_pre_built_level_a0cbf9d08b7fcba3c500092b71baabdbb} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+exit\+Play}
+\item 
+\hypertarget{class_pre_built_level_a58bfd4f0b1261029643f832486046ee0}{}\label{class_pre_built_level_a58bfd4f0b1261029643f832486046ee0} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+interact}
+\item 
+\hypertarget{class_pre_built_level_a2b17bc23df363f269fedf0aceafc9a02}{}\label{class_pre_built_level_a2b17bc23df363f269fedf0aceafc9a02} 
+\hyperlink{class_fighter}{Fighter} $\ast$ {\bfseries \+\_\+player}
+\item 
+\hypertarget{class_pre_built_level_a757b4089f043d4cef9c24a19b24811fe}{}\label{class_pre_built_level_a757b4089f043d4cef9c24a19b24811fe} 
+std\+::vector$<$ \hyperlink{struct_container_on_map}{Container\+On\+Map} $\ast$ $>$ {\bfseries \+\_\+containers\+On\+Map}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Inherits from levels, not much specific functionalities added except for just loading a text file from a path and creating a graphical level out of it on the \hyperlink{class_level_window}{Level\+Window} instance that it would contain 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_pre_built_level_ac55f77e0ee464325cdd3ffa91292b0c8}{}\label{class_pre_built_level_ac55f77e0ee464325cdd3ffa91292b0c8} 
+\index{Pre\+Built\+Level@{Pre\+Built\+Level}!create\+Level\+For\+Target\+Window@{create\+Level\+For\+Target\+Window}}
+\index{create\+Level\+For\+Target\+Window@{create\+Level\+For\+Target\+Window}!Pre\+Built\+Level@{Pre\+Built\+Level}}
+\subsubsection{\texorpdfstring{create\+Level\+For\+Target\+Window()}{createLevelForTargetWindow()}}
+{\footnotesize\ttfamily void Pre\+Built\+Level\+::create\+Level\+For\+Target\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+first creates a level window based on the level text vector then calls parent function to setup the artwork on the window 
+
+Reimplemented from \hyperlink{class_level_abe1e2e7c89fef892c4620d1a41e5ac22}{Level}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{prebuiltlevel_8h}{prebuiltlevel.\+h}\item 
+prebuiltlevel.\+cpp\end{DoxyCompactItemize}

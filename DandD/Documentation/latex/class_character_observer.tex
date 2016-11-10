@@ -1,0 +1,49 @@
+\hypertarget{class_character_observer}{}\section{Character\+Observer Class Reference}
+\label{class_character_observer}\index{Character\+Observer@{Character\+Observer}}
+
+
+{\ttfamily \#include $<$Character\+Observer.\+h$>$}
+
+Inheritance diagram for Character\+Observer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_character_observer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_character_observer_a787323c17867c2362ebf1b00f6d20a58}{}\label{class_character_observer_a787323c17867c2362ebf1b00f6d20a58} 
+\hyperlink{class_character_observer_a787323c17867c2362ebf1b00f6d20a58}{Character\+Observer} (\hyperlink{class_characters}{Characters} $\ast$s)
+\begin{DoxyCompactList}\small\item\em Constructor that attaches a Character object to the observer. \end{DoxyCompactList}\item 
+\hypertarget{class_character_observer_ac535a0d01c7ab57f41b933a9507116fb}{}\label{class_character_observer_ac535a0d01c7ab57f41b933a9507116fb} 
+\hyperlink{class_character_observer_ac535a0d01c7ab57f41b933a9507116fb}{$\sim$\+Character\+Observer} ()
+\begin{DoxyCompactList}\small\item\em Destructor that dettaches the Character object. \end{DoxyCompactList}\item 
+\hypertarget{class_character_observer_a398d6d784065c7ed36c928d44a574630}{}\label{class_character_observer_a398d6d784065c7ed36c928d44a574630} 
+void \hyperlink{class_character_observer_a398d6d784065c7ed36c928d44a574630}{Update} ()
+\begin{DoxyCompactList}\small\item\em Function that triggers redisplay when changes occur to character stats. \end{DoxyCompactList}\item 
+void \hyperlink{class_character_observer_af255a3fd431b55de8dd2ab9a639e546b}{display} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class that inherits from the \hyperlink{class_observer}{Observer} class and is used to observe the changes in stats of objects of class \hyperlink{class_characters}{Characters} or subclasses of \hyperlink{class_characters}{Characters}.
+
+\hyperlink{class_character_observer_a398d6d784065c7ed36c928d44a574630}{Update()} calls display which will display the character\textquotesingle{}s based on his current status. If the character is in battle, dead or leveling up, a corresponding display function will be called. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_character_observer_af255a3fd431b55de8dd2ab9a639e546b}{}\label{class_character_observer_af255a3fd431b55de8dd2ab9a639e546b} 
+\index{Character\+Observer@{Character\+Observer}!display@{display}}
+\index{display@{display}!Character\+Observer@{Character\+Observer}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Character\+Observer\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Anxiliary Function to choose display function used by character based on the his status\+:
+
+if character is dead\+: display\+Death() called, if character is in battle\+: display\+Battle() called, if character is leveling up\+: display\+Level\+Up() called, otherwise, generic display\+Stats() called 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_character_observer_8h}{Character\+Observer.\+h}\item 
+Character\+Observer.\+cpp\end{DoxyCompactItemize}

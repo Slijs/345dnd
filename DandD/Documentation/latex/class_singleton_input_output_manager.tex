@@ -1,0 +1,45 @@
+\hypertarget{class_singleton_input_output_manager}{}\section{Singleton\+Input\+Output\+Manager Class Reference}
+\label{class_singleton_input_output_manager}\index{Singleton\+Input\+Output\+Manager@{Singleton\+Input\+Output\+Manager}}
+
+
+{\ttfamily \#include $<$file\+I\+Omanager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_singleton_input_output_manager_ae8e0963962610135ff444d05c6350186}{}\label{class_singleton_input_output_manager_ae8e0963962610135ff444d05c6350186} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_singleton_input_output_manager_ae8e0963962610135ff444d05c6350186}{read\+File\+Line\+By\+Line} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em this function reads a file line by line based on the path that is passed \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_input_output_manager_aee120f3719748d91e8cb80de1eeac7e4}{}\label{class_singleton_input_output_manager_aee120f3719748d91e8cb80de1eeac7e4} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_singleton_input_output_manager_aee120f3719748d91e8cb80de1eeac7e4}{read\+File\+Word\+By\+Word} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em this functions reads a file word by word based on the path that is passed \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_input_output_manager_ac04ff26a6a42155739156a9e6f1ec0e2}{}\label{class_singleton_input_output_manager_ac04ff26a6a42155739156a9e6f1ec0e2} 
+void \hyperlink{class_singleton_input_output_manager_ac04ff26a6a42155739156a9e6f1ec0e2}{write\+To\+File} (std\+::string path, std\+::vector$<$ std\+::string $>$ lines)
+\begin{DoxyCompactList}\small\item\em this funtion writes a string vector to a file based on the path that is passed \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_input_output_manager_aadd629b10aed904e41a0bc23fae7d232}{}\label{class_singleton_input_output_manager_aadd629b10aed904e41a0bc23fae7d232} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_singleton_input_output_manager_aadd629b10aed904e41a0bc23fae7d232}{split\+String} (std\+::string to\+Be\+Split)
+\begin{DoxyCompactList}\small\item\em this functions splits a string delimited by space and returns a vector of strings \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_input_output_manager_afaac41ad14f6a7754d33db8b06a46e50}{}\label{class_singleton_input_output_manager_afaac41ad14f6a7754d33db8b06a46e50} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_singleton_input_output_manager_afaac41ad14f6a7754d33db8b06a46e50}{load\+All\+Campaign} ()
+\begin{DoxyCompactList}\small\item\em load the list of all saved campaign names and returns the vector \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_input_output_manager_a7117e0cb3797535748bfb3a508b9d44c}{}\label{class_singleton_input_output_manager_a7117e0cb3797535748bfb3a508b9d44c} 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_singleton_input_output_manager_a7117e0cb3797535748bfb3a508b9d44c}{load\+O\+N\+E\+Campaign} (std\+::string N\+A\+ME)
+\begin{DoxyCompactList}\small\item\em loads the all map names and maps for a specific campaign \end{DoxyCompactList}\item 
+\hypertarget{class_singleton_input_output_manager_ab5fcf578e08c99b964ae784fb4d2dce9}{}\label{class_singleton_input_output_manager_ab5fcf578e08c99b964ae784fb4d2dce9} 
+\hyperlink{class_singleton_input_output_manager_ab5fcf578e08c99b964ae784fb4d2dce9}{$\sim$\+Singleton\+Input\+Output\+Manager} ()
+\begin{DoxyCompactList}\small\item\em destructor destroys the singleton object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_singleton_input_output_manager_ab2dbe239756970b1962fde9aec9b4b14}{}\label{class_singleton_input_output_manager_ab2dbe239756970b1962fde9aec9b4b14} 
+static \hyperlink{class_singleton_input_output_manager}{Singleton\+Input\+Output\+Manager} $\ast$ \hyperlink{class_singleton_input_output_manager_ab2dbe239756970b1962fde9aec9b4b14}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em get instance of the singleton class, the instance is only created if it has not been created \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is a singleton class designed to handle the text input output for the engine this class also complements the singleton class \hyperlink{class_singleton_file_path_and_folder_manager}{Singleton\+File\+Path\+And\+Folder\+Manager} in managing input output to the correct files for campaign editing, which involves creating, editing and deleting campaigns and maps within campaigns, also loading some prebuilt deafult maps if the user wants to. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+file\+I\+Omanager.\+h\item 
+file\+I\+Omanager.\+cpp\end{DoxyCompactItemize}

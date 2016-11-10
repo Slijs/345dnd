@@ -1,9 +1,13 @@
-
+/**
+*@file textbasedwindow.h
+*@brief Provides access to TextBasedWindow class
+*/
 
 #pragma once
 #include "windows.h"
 #include "text.h"
 /*!
+*@class TextBasedWindow
 *Child class of windows, adds in text functionalities to the window
 *primarily added features include ability to load titles buttons and 
 *other text lables on window. Also manipulate the new added features.

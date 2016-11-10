@@ -1,0 +1,79 @@
+\hypertarget{class_singleton_default_maps_menu}{}\section{Singleton\+Default\+Maps\+Menu Class Reference}
+\label{class_singleton_default_maps_menu}\index{Singleton\+Default\+Maps\+Menu@{Singleton\+Default\+Maps\+Menu}}
+
+
+{\ttfamily \#include $<$defaultmaps.\+h$>$}
+
+Inheritance diagram for Singleton\+Default\+Maps\+Menu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_singleton_default_maps_menu}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_singleton_default_maps_menu_a59fde691685554eb029a3271909ca90e}{}\label{class_singleton_default_maps_menu_a59fde691685554eb029a3271909ca90e} 
+void \hyperlink{class_singleton_default_maps_menu_a59fde691685554eb029a3271909ca90e}{setup\+Menu} ()
+\begin{DoxyCompactList}\small\item\em sets up the menu on the window renderer based on the default maps list database that is loaded into the private vector \end{DoxyCompactList}\item 
+int \hyperlink{class_singleton_default_maps_menu_ae1fbaf884313cf1efe755f480c505062}{destination\+Map} (int index)
+\item 
+int \hyperlink{class_singleton_default_maps_menu_ae72d52564efb81a41fe9f2ee648fe691}{destination\+Map} (int index, char $\ast$componentname)
+\item 
+\hypertarget{class_singleton_default_maps_menu_aa022a1b779121764e471c67d9d461d6d}{}\label{class_singleton_default_maps_menu_aa022a1b779121764e471c67d9d461d6d} 
+std\+::string \hyperlink{class_singleton_default_maps_menu_aa022a1b779121764e471c67d9d461d6d}{get\+Name\+Of\+Button\+From\+Index} (int index)
+\begin{DoxyCompactList}\small\item\em returns name of a menu button from the private vector based on the index passed \end{DoxyCompactList}\item 
+void \hyperlink{class_singleton_default_maps_menu_aa8c2183626eac2346c15259a4c9a5093}{check\+Existing\+Components\+Index\+Range} (int $\ast$lowerindex, int $\ast$upperindex)
+\item 
+\hypertarget{class_singleton_default_maps_menu_a468a928711b450b932afc49c3c70239c}{}\label{class_singleton_default_maps_menu_a468a928711b450b932afc49c3c70239c} 
+\hyperlink{class_singleton_default_maps_menu_a468a928711b450b932afc49c3c70239c}{$\sim$\+Singleton\+Default\+Maps\+Menu} ()
+\begin{DoxyCompactList}\small\item\em destroys the singleton instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_singleton_default_maps_menu_a812f7d4f2134b770def8a32b9a67416f}{}\label{class_singleton_default_maps_menu_a812f7d4f2134b770def8a32b9a67416f} 
+static \hyperlink{class_singleton_default_maps_menu}{Singleton\+Default\+Maps\+Menu} $\ast$ \hyperlink{class_singleton_default_maps_menu_a812f7d4f2134b770def8a32b9a67416f}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em returns the singletn instance, cretes new if already not created \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+singleton class that inherits from campaign menus. this is the menu for selecting a default map that could be added into a user created campaign 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_singleton_default_maps_menu_aa8c2183626eac2346c15259a4c9a5093}{}\label{class_singleton_default_maps_menu_aa8c2183626eac2346c15259a4c9a5093} 
+\index{Singleton\+Default\+Maps\+Menu@{Singleton\+Default\+Maps\+Menu}!check\+Existing\+Components\+Index\+Range@{check\+Existing\+Components\+Index\+Range}}
+\index{check\+Existing\+Components\+Index\+Range@{check\+Existing\+Components\+Index\+Range}!Singleton\+Default\+Maps\+Menu@{Singleton\+Default\+Maps\+Menu}}
+\subsubsection{\texorpdfstring{check\+Existing\+Components\+Index\+Range()}{checkExistingComponentsIndexRange()}}
+{\footnotesize\ttfamily void Singleton\+Default\+Maps\+Menu\+::check\+Existing\+Components\+Index\+Range (\begin{DoxyParamCaption}\item[{int $\ast$}]{lowerindex,  }\item[{int $\ast$}]{upperindex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+the lower and upper index are for usage in the menu engine for component deletion purposes, therefore invoking this method for the dafult menu option will change the values to negative, implying none of the default maps can be deleted from the default maps menu 
+
+Implements \hyperlink{class_campaign_menus}{Campaign\+Menus}.
+
+\hypertarget{class_singleton_default_maps_menu_ae1fbaf884313cf1efe755f480c505062}{}\label{class_singleton_default_maps_menu_ae1fbaf884313cf1efe755f480c505062} 
+\index{Singleton\+Default\+Maps\+Menu@{Singleton\+Default\+Maps\+Menu}!destination\+Map@{destination\+Map}}
+\index{destination\+Map@{destination\+Map}!Singleton\+Default\+Maps\+Menu@{Singleton\+Default\+Maps\+Menu}}
+\subsubsection{\texorpdfstring{destination\+Map()}{destinationMap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Singleton\+Default\+Maps\+Menu\+::destination\+Map (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+this function is not of any use, was implemented only becuase I did not want the class to be abstract, but at the same time I had to inherit from campaign menus class for polymorphic usage in the menu engine 
+
+Implements \hyperlink{class_menus}{Menus}.
+
+\hypertarget{class_singleton_default_maps_menu_ae72d52564efb81a41fe9f2ee648fe691}{}\label{class_singleton_default_maps_menu_ae72d52564efb81a41fe9f2ee648fe691} 
+\index{Singleton\+Default\+Maps\+Menu@{Singleton\+Default\+Maps\+Menu}!destination\+Map@{destination\+Map}}
+\index{destination\+Map@{destination\+Map}!Singleton\+Default\+Maps\+Menu@{Singleton\+Default\+Maps\+Menu}}
+\subsubsection{\texorpdfstring{destination\+Map()}{destinationMap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Singleton\+Default\+Maps\+Menu\+::destination\+Map (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{char $\ast$}]{componentname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+this function is not of any use, was implemented only becuase I did not want the class to be abstract, but at the same time I had to inherit from campaign menus class for polymorphic usage in the menu engine 
+
+Implements \hyperlink{class_campaign_menus}{Campaign\+Menus}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{defaultmaps_8h}{defaultmaps.\+h}\item 
+defaultmaps.\+cpp\end{DoxyCompactItemize}

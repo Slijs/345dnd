@@ -1,0 +1,97 @@
+\hypertarget{class_weapon}{}\section{Weapon Class Reference}
+\label{class_weapon}\index{Weapon@{Weapon}}
+
+
+Class for weapons.  
+
+
+
+
+{\ttfamily \#include $<$Weapon.\+h$>$}
+
+Inheritance diagram for Weapon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_weapon}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_weapon_ad948f8cbd8110949240e46c7c72c9556}{}\label{class_weapon_ad948f8cbd8110949240e46c7c72c9556} 
+{\bfseries Weapon} (const \hyperlink{class_weapon}{Weapon} $\ast$other\+Weapon)
+\item 
+\hypertarget{class_weapon_a0fc6a57eb8c887a7e4a9d72dea29755c}{}\label{class_weapon_a0fc6a57eb8c887a7e4a9d72dea29755c} 
+{\bfseries Weapon} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values}, string attack\+Dice, int range)
+\item 
+\hypertarget{class_weapon_ab3452fb4487ff88c46a4586cde0260cb}{}\label{class_weapon_ab3452fb4487ff88c46a4586cde0260cb} 
+string {\bfseries get\+Attack\+Dice} ()
+\item 
+\hypertarget{class_weapon_a17ae76ac029507219ba18f6940b08258}{}\label{class_weapon_a17ae76ac029507219ba18f6940b08258} 
+void {\bfseries set\+Attack\+Dice} (string attack\+Dice)
+\item 
+\hypertarget{class_weapon_af0d86939f16add54fc7ae87fea85ac21}{}\label{class_weapon_af0d86939f16add54fc7ae87fea85ac21} 
+int {\bfseries get\+Range} ()
+\item 
+\hypertarget{class_weapon_a9227da33ba03135c9df353a91a7b0013}{}\label{class_weapon_a9227da33ba03135c9df353a91a7b0013} 
+void {\bfseries set\+Range} (int range)
+\item 
+\hypertarget{class_weapon_a7dd6eff2cc572adb9bef4b985a255920}{}\label{class_weapon_a7dd6eff2cc572adb9bef4b985a255920} 
+void {\bfseries increment\+Range} ()
+\item 
+\hypertarget{class_weapon_a6e28001720b8f43ee74f0ac7d3008ba5}{}\label{class_weapon_a6e28001720b8f43ee74f0ac7d3008ba5} 
+void {\bfseries decrement\+Range} ()
+\item 
+\hypertarget{class_weapon_af1e10f75793cadcaec54a2ff96879312}{}\label{class_weapon_af1e10f75793cadcaec54a2ff96879312} 
+std\+::string {\bfseries to\+String} ()
+\item 
+virtual void \hyperlink{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728}{Serialize} (C\+Archive \&ar)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_weapon_acccf5cf3803e3ab7f63490e0d49c9abe}{}\label{class_weapon_acccf5cf3803e3ab7f63490e0d49c9abe} 
+{\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_weapon}{Weapon})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_weapon_a034430020bc2fefd021253b49014c334}{}\label{class_weapon_a034430020bc2fefd021253b49014c334} 
+string {\bfseries attack\+Dice}
+\item 
+\hypertarget{class_weapon_a13cc71a89d0cf076f58a040767682478}{}\label{class_weapon_a13cc71a89d0cf076f58a040767682478} 
+int {\bfseries range}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for weapons. 
+
+\begin{DoxyAuthor}{Author}
+Philip Brink 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2016-\/10-\/20
+\end{DoxyDate}
+Subclass of \hyperlink{class_item}{Item}, allows character to equip a \hyperlink{class_weapon}{Weapon} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728}{}\label{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728} 
+\index{Weapon@{Weapon}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!Weapon@{Weapon}}
+\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void Weapon\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Allows an item to be serialized 
+
+Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Weapon.\+h\item 
+Weapon.\+cpp\end{DoxyCompactItemize}

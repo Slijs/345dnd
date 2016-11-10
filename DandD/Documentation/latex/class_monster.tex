@@ -1,0 +1,61 @@
+\hypertarget{class_monster}{}\section{Monster Class Reference}
+\label{class_monster}\index{Monster@{Monster}}
+Inheritance diagram for Monster\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_monster}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_monster_ac7222e2f2db276b4772d342361ca7444}{}\label{class_monster_ac7222e2f2db276b4772d342361ca7444} 
+{\bfseries Monster} (string, \hyperlink{_entity_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type}, \hyperlink{_entity_8h_a1c40db1d9b56c27240e420765695f1c4}{Size}, int, int, int, int, int, int, int, int, int, \hyperlink{class_weapon}{Weapon} $\ast$)
+\item 
+\hypertarget{class_monster_a3dfc253fbec8331d42ac13c20bf9425f}{}\label{class_monster_a3dfc253fbec8331d42ac13c20bf9425f} 
+\hyperlink{class_monster_a3dfc253fbec8331d42ac13c20bf9425f}{Monster} ()
+\begin{DoxyCompactList}\small\item\em Default constructor -\/ for making dummy monsters. \end{DoxyCompactList}\item 
+\hypertarget{class_monster_a21619ba1759b910cd2fd50d858aab338}{}\label{class_monster_a21619ba1759b910cd2fd50d858aab338} 
+\hyperlink{class_monster_a21619ba1759b910cd2fd50d858aab338}{$\sim$\+Monster} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_monster_a6147ef9584d386252ec3b8d828701c85}{}\label{class_monster_a6147ef9584d386252ec3b8d828701c85} 
+string {\bfseries get\+Name} ()
+\item 
+\hypertarget{class_monster_a89f0117018eb1fdd71d22fab070030e0}{}\label{class_monster_a89f0117018eb1fdd71d22fab070030e0} 
+void \hyperlink{class_monster_a89f0117018eb1fdd71d22fab070030e0}{equip\+Weapon} (\hyperlink{class_weapon}{Weapon} $\ast$w)
+\begin{DoxyCompactList}\small\item\em Function to equip weapon and calculate Attack and Damage Bonuses. \end{DoxyCompactList}\item 
+\hypertarget{class_monster_a42e4c033144046eebe6cb502566423f7}{}\label{class_monster_a42e4c033144046eebe6cb502566423f7} 
+void \hyperlink{class_monster_a42e4c033144046eebe6cb502566423f7}{display\+Battle} ()
+\begin{DoxyCompactList}\small\item\em Function to display fighter battle stats, calls parent \hyperlink{class_monster_a42e4c033144046eebe6cb502566423f7}{display\+Battle()} \end{DoxyCompactList}\item 
+\hypertarget{class_monster_a9ef924b193478c29baa90b0fa5845711}{}\label{class_monster_a9ef924b193478c29baa90b0fa5845711} 
+void \hyperlink{class_monster_a9ef924b193478c29baa90b0fa5845711}{display\+Death} ()
+\begin{DoxyCompactList}\small\item\em Function to display monster death, calls parent \hyperlink{class_monster_a9ef924b193478c29baa90b0fa5845711}{display\+Death()} \end{DoxyCompactList}\item 
+void \hyperlink{class_monster_ad1805087dbd4472ace66a45f053aa250}{attack} (\hyperlink{class_fighter}{Fighter} $\ast$c)
+\item 
+void \hyperlink{class_monster_a8a0aadbb74bed6181adb79b58d67d0a8}{receive\+Damage} (int)
+\item 
+\hypertarget{class_monster_a2e5fc90efefa02d77c3645f6c7768d88}{}\label{class_monster_a2e5fc90efefa02d77c3645f6c7768d88} 
+void {\bfseries current\+State} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_monster_ad1805087dbd4472ace66a45f053aa250}{}\label{class_monster_ad1805087dbd4472ace66a45f053aa250} 
+\index{Monster@{Monster}!attack@{attack}}
+\index{attack@{attack}!Monster@{Monster}}
+\subsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily void Monster\+::attack (\begin{DoxyParamCaption}\item[{\hyperlink{class_fighter}{Fighter} $\ast$}]{c }\end{DoxyParamCaption})}
+
+Function for attacking a \hyperlink{class_fighter}{Fighter}, generates attack roll and checks it agains \hyperlink{class_fighter}{Fighter}\textquotesingle{}s AC If larger than AC, damage roll is calculated and inflicted on \hyperlink{class_fighter}{Fighter}, otherwise attack fails \hypertarget{class_monster_a8a0aadbb74bed6181adb79b58d67d0a8}{}\label{class_monster_a8a0aadbb74bed6181adb79b58d67d0a8} 
+\index{Monster@{Monster}!receive\+Damage@{receive\+Damage}}
+\index{receive\+Damage@{receive\+Damage}!Monster@{Monster}}
+\subsubsection{\texorpdfstring{receive\+Damage()}{receiveDamage()}}
+{\footnotesize\ttfamily void Monster\+::receive\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})}
+
+Function that reduces hitpoints based on damage taken, if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Monster.\+h\item 
+Monster.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\hypertarget{class_text}{}\section{Text Class Reference}
+\label{class_text}\index{Text@{Text}}
+
+
+{\ttfamily \#include $<$text.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_text_ab3e26143fccc52699bcc5149cae852bc}{}\label{class_text_ab3e26143fccc52699bcc5149cae852bc} 
+\hyperlink{class_text_ab3e26143fccc52699bcc5149cae852bc}{Text} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hypertarget{class_text_a8ef75f69a6e3ea48a56a435e68368815}{}\label{class_text_a8ef75f69a6e3ea48a56a435e68368815} 
+void \hyperlink{class_text_a8ef75f69a6e3ea48a56a435e68368815}{create\+Text\+Texture\+On\+Target\+Window\+Renderer} (S\+D\+L\+\_\+\+Renderer $\ast$target\+Window\+Renderer)
+\begin{DoxyCompactList}\small\item\em creates a text texture for the target window renderer \end{DoxyCompactList}\item 
+\hypertarget{class_text_ae9a6644bd6fff46b4e4fbf909036cc4b}{}\label{class_text_ae9a6644bd6fff46b4e4fbf909036cc4b} 
+void \hyperlink{class_text_ae9a6644bd6fff46b4e4fbf909036cc4b}{set\+Font\+Size} (int size)
+\begin{DoxyCompactList}\small\item\em sets the font size \end{DoxyCompactList}\item 
+\hypertarget{class_text_a1740486bdd9be6e5377e6bb2f579e547}{}\label{class_text_a1740486bdd9be6e5377e6bb2f579e547} 
+void \hyperlink{class_text_a1740486bdd9be6e5377e6bb2f579e547}{set\+Font\+Type} (std\+::string path)
+\begin{DoxyCompactList}\small\item\em sets the ttf type based on a path, from where the .ttf file can be loaded \end{DoxyCompactList}\item 
+void \hyperlink{class_text_aaef691045004d8c9ad3106d43421d46e}{set\+Optimal\+Height\+Width\+Rect} (int xpos, int ypos)
+\item 
+\hypertarget{class_text_a9bfd21da6d85f2f86d2fc991f0fd625f}{}\label{class_text_a9bfd21da6d85f2f86d2fc991f0fd625f} 
+void \hyperlink{class_text_a9bfd21da6d85f2f86d2fc991f0fd625f}{set\+Manual\+Width\+Height} (int width, int height)
+\begin{DoxyCompactList}\small\item\em set the text height and width manually \end{DoxyCompactList}\item 
+\hypertarget{class_text_ae407c3faf10a038714bfc6b481ba208f}{}\label{class_text_ae407c3faf10a038714bfc6b481ba208f} 
+void \hyperlink{class_text_ae407c3faf10a038714bfc6b481ba208f}{set\+Destination\+Rect\+On\+Target\+Window} (S\+D\+L\+\_\+\+Rect target)
+\begin{DoxyCompactList}\small\item\em sets the destination on the window where the text is desired to be rendered \end{DoxyCompactList}\item 
+\hypertarget{class_text_ab2d8c95b3d746ae3e8c0fba8318743c9}{}\label{class_text_ab2d8c95b3d746ae3e8c0fba8318743c9} 
+void \hyperlink{class_text_ab2d8c95b3d746ae3e8c0fba8318743c9}{set\+Text} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em set the actual string for the text \end{DoxyCompactList}\item 
+\hypertarget{class_text_a2ffd90af8ef2d428715437fb1b980bc0}{}\label{class_text_a2ffd90af8ef2d428715437fb1b980bc0} 
+void \hyperlink{class_text_a2ffd90af8ef2d428715437fb1b980bc0}{set\+Text\+Color} (unsigned int r, unsigned int g, unsigned int b)
+\begin{DoxyCompactList}\small\item\em set the text color \end{DoxyCompactList}\item 
+\hypertarget{class_text_abfa39621a11807a010d3878f9e623b8b}{}\label{class_text_abfa39621a11807a010d3878f9e623b8b} 
+S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{class_text_abfa39621a11807a010d3878f9e623b8b}{get\+Text\+Texture} ()
+\begin{DoxyCompactList}\small\item\em access text texture \end{DoxyCompactList}\item 
+\hypertarget{class_text_af1bff0c622ed9e80f80789a069413c61}{}\label{class_text_af1bff0c622ed9e80f80789a069413c61} 
+S\+D\+L\+\_\+\+Rect \hyperlink{class_text_af1bff0c622ed9e80f80789a069413c61}{get\+Target\+On\+Window\+Rectangle} ()
+\begin{DoxyCompactList}\small\item\em access the destination rectangle where the text would lie on the window \end{DoxyCompactList}\item 
+\hypertarget{class_text_aa4d27f2c2e93457c19551e95bd9c76ce}{}\label{class_text_aa4d27f2c2e93457c19551e95bd9c76ce} 
+bool \hyperlink{class_text_aa4d27f2c2e93457c19551e95bd9c76ce}{check\+If\+Mouse\+On\+Text} (int x, int y)
+\begin{DoxyCompactList}\small\item\em checks to see based on position of the text texture on window, is the coordinates passed would lie on the text \end{DoxyCompactList}\item 
+\hypertarget{class_text_a3abfb2a983bca804645361e40ba7c389}{}\label{class_text_a3abfb2a983bca804645361e40ba7c389} 
+void \hyperlink{class_text_a3abfb2a983bca804645361e40ba7c389}{destroy\+Text} ()
+\begin{DoxyCompactList}\small\item\em destroy the text \end{DoxyCompactList}\item 
+\hypertarget{class_text_a2d49e5c280e205125b149f7777ae30c7}{}\label{class_text_a2d49e5c280e205125b149f7777ae30c7} 
+\hyperlink{class_text_a2d49e5c280e205125b149f7777ae30c7}{$\sim$\+Text} ()
+\begin{DoxyCompactList}\small\item\em destructor just calls the destroy text function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is designed to abstract the process of detailing the text funtionalities of sdl. primary responsibility is to create a text based texture for a target window renderer, based on a specific true type font 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_text_aaef691045004d8c9ad3106d43421d46e}{}\label{class_text_aaef691045004d8c9ad3106d43421d46e} 
+\index{Text@{Text}!set\+Optimal\+Height\+Width\+Rect@{set\+Optimal\+Height\+Width\+Rect}}
+\index{set\+Optimal\+Height\+Width\+Rect@{set\+Optimal\+Height\+Width\+Rect}!Text@{Text}}
+\subsubsection{\texorpdfstring{set\+Optimal\+Height\+Width\+Rect()}{setOptimalHeightWidthRect()}}
+{\footnotesize\ttfamily void Text\+::set\+Optimal\+Height\+Width\+Rect (\begin{DoxyParamCaption}\item[{int}]{xpos,  }\item[{int}]{ypos }\end{DoxyParamCaption})}
+
+based on an x and y coordinate, this function calculates height and width that is most optimal for the text 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{text_8h}{text.\+h}\item 
+text.\+cpp\end{DoxyCompactItemize}
