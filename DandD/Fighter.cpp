@@ -303,6 +303,17 @@ void Fighter::equipOptions()
 	do{
 		system("CLS");
 		displayEquiped();
+
+		cout << "--------Backpack Content--------\n";
+		if (backpack->getNumContents() == 0)
+			cout << "EMPTY\n";
+		else
+		{
+			for (int i = 0; i < backpack->getNumContents(); i++)
+				cout << backpack->getContents()[i]->getName() << ", ";
+		}
+
+		cout << "\n" << endl;
 		cout << "\n\nWhat would you like to do? (0:Exit) \n";
 		cout << "1. Equip\n2.De-Equip\n";
 		cin >> in;
@@ -423,7 +434,6 @@ void Fighter::equipOptions()
 						if (in3 >= 0 && in3 < a.size())
 						{
 							equipHelmet(a[in3]);
-							return;
 						}
 						else
 							cout << "Not a valid option.\n";
