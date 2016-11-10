@@ -18,18 +18,19 @@ class Fighter;
 class Monster : public Characters
 {
 private:
+	Dice _theDie;
 	Type type;
 	Size size;
 	string name;
 	int hitDie;
+	string hitDieString;
 	int hitPoints;
 	int speed;
 	void detHitDie();
 	void detHitPoints();
 
 public:
-	//Commented out constructor b/c returning errors
-	//Monster(string, Type, Size, int, int, int, int, int, int, int, int, int, Weapon*);
+	Monster(string, Type, Size, int, int, int, int, int, int, int, int, int, Weapon*);
 	Monster();
 	~Monster();
 

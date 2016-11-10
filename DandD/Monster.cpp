@@ -17,24 +17,23 @@ Monster::Monster() : Characters() {
 	this->_obstructionToPlayer = true;
 }
 
-////!Parameterized Constructor that sets name, type, size, level, speed , ability scores and armor class
-//Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
-//{
-//	this->name = name;
-//	this->type = type;
-//	this->size = size;
-//	this->speed = speed;
-//	detHitDie();
-//	detHitPoints();
-//	equipWeapon(weapon);
-//
-//	this->_componentChar = SimplifiedMapSymbols::_Enemies_;
-//	this->_componentName = "enemy";
-//	this->_componentType = gameplayGridComponentTypes::enemy;
-//	this->_componentImage = nullptr;
-//	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
-//	this->_obstructionToPlayer = true;
-//}
+
+Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
+{
+	this->name = name;
+	this->type = type;
+	this->size = size;
+	this->speed = speed;
+	detHitDie();
+	detHitPoints();
+	equipWeapon(weapon);
+	this->_componentChar = SimplifiedMapSymbols::_Enemies_;
+	this->_componentName = "enemy";
+	this->_componentType = gameplayGridComponentTypes::enemy;
+	this->_componentImage = nullptr;
+	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
+	this->_obstructionToPlayer = true;
+}
 
 
 //!Destructor
@@ -49,16 +48,22 @@ void Monster::detHitDie()
 	{
 	case Tiny:
 		hitDie = 4;
+		hitDieString = "1d4";
 	case Small:
 		hitDie = 6;
+		hitDieString = "1d6";
 	case Medium:
 		hitDie = 8;
+		hitDieString = "1d8";
 	case Large:
 		hitDie = 10;
+		hitDieString = "1d10";
 	case Huge:
 		hitDie = 12;
+		hitDieString = "1d12";
 	case Gargantuan:
 		hitDie = 20;
+		hitDieString = "1d20";
 	}
 }
 
@@ -71,14 +76,15 @@ void Monster::detHitPoints()
 	//For every level: HP = HP + roll_HitDie + CON_mod
 	for (int i = 2; i <= level; i++)
 	{
-		hitPoints += this->rollDice(hitDie) + this->getScores(1, 2);
+		hitPoints += _die.roll(hitDieString) + this->getScores(1, 2);
 	}
 }
 
 //!Function to equip weapon and calculate Attack and Damage Bonuses
 void Monster::equipWeapon(Weapon* w)
 {
-	//equip(w);
+	delete weapon;
+	weapon = w;
 	calcAttackBonus();
 	calcDamageBonus();
 }

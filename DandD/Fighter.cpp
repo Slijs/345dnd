@@ -20,6 +20,8 @@ Fighter::Fighter(int level, Race race, string name, int STR, int DEX, int CON, i
 	this->_obstructionToPlayer = false;
 
 	backpack = new Container();
+	calcDamageBonus();
+	calcAttackBonus();
 }
 
 //!Parameterized Constructor to set level, race and name. 
@@ -576,7 +578,7 @@ void Fighter::equipArmor(int i)
 	if (armor->getDefense() == 0)
 		armorClass -= 10;
 	else{
-		armorClass -= armor->getEnchantmentValues()[7];
+		armorClass -= armor->getEnchantmentValues()[6];
 		armorClass -= armor->getDefense();
 	}
 	// Checks to see if 'no' Armor has been equipped
@@ -590,7 +592,7 @@ void Fighter::equipArmor(int i)
 	armor = dynamic_cast<Armor*>(toEquip);
 
 	//Add Bonus
-	armorClass += armor->getEnchantmentValues()[7];
+	armorClass += armor->getEnchantmentValues()[6];
 	armorClass += armor->getDefense();
 	currentState();
 }
@@ -790,6 +792,7 @@ void Fighter::Serialize(CArchive &ar){
 		CString c_name(name.c_str());
 		ar << c_name;
 		ar << speed;
+		backpack->Serialize(ar);
 	}
 	else {
 		ar >> hitPoints;
@@ -807,6 +810,7 @@ void Fighter::Serialize(CArchive &ar){
 			name += c_name.GetAt(i);
 		}
 		ar >> speed;
+		backpack->Serialize(ar);
 	}
 }
 

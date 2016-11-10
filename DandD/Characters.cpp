@@ -295,7 +295,7 @@ DEX mod if ranged weapon or STR mod if melee weapon*/
 void Characters::calcAttackBonus()
 {
 	attackBonus = proficiencyBonus;
-	if (weapon->getWeight() ==0)
+	if (weapon->getName().compare("None") == 0)
 		attackBonus += scores[1][0];  //add str mod if no weapon
 	else if (weapon->getRange() == 1)
 		attackBonus += scores[1][0];  //add str mod if melee 
@@ -306,12 +306,12 @@ void Characters::calcAttackBonus()
 /*!Function to calculate damage bonus which is DEX mod if ranged weapon or STR mod if melee weapon*/
 void Characters::calcDamageBonus()
 {
-	if (weapon->getWeight() == 0)
-		damageBonus += scores[1][0];  //add str mod if no weapon
+	if (weapon->getName().compare("None") == 0)
+		damageBonus = scores[1][0];  //add str mod if no weapon
 	else if (weapon->getRange() == 1)
-		damageBonus += scores[1][0];  //add str mod if melee 
+		damageBonus = scores[1][0];  //add str mod if melee 
 	else
-		damageBonus += scores[1][1]; //add str mod if ranged
+		damageBonus = scores[1][1]; //add str mod if ranged
 }
 
 //!Function for generic display of character's stats (shows all information)
@@ -601,17 +601,6 @@ void Characters::Serialize(CArchive &ar) {
 			ar << (int)position[0];
 			ar << (int)position[1];
 		}
-		
-		// Will save several bools used to determine if items are equipped
-		/*
-		ar << (armor != NULL);
-		ar << (weapon != NULL);
-		ar << (helmet != NULL);
-		ar << (shield != NULL);
-		ar << (boots != NULL);
-		ar << (belt != NULL);
-		ar << (ring != NULL); */
-
 		armor->Serialize(ar);
 		weapon->Serialize(ar);
 		helmet->Serialize(ar);
@@ -619,22 +608,6 @@ void Characters::Serialize(CArchive &ar) {
 		boots->Serialize(ar);
 		belt->Serialize(ar);
 		ring->Serialize(ar);
-		/*
-		if (armor != NULL)
-		armor->Serialize(ar);
-		if (weapon != NULL)
-		weapon->Serialize(ar);
-		if (helmet != NULL)
-		helmet->Serialize(ar);
-		if (shield != NULL)
-		shield->Serialize(ar);
-		if (boots != NULL)
-		boots->Serialize(ar);
-		if (belt != NULL)
-		belt->Serialize(ar);
-		if (ring != NULL)
-		ring->Serialize(ar); */
-		//backpack->Serialize(ar);
 	}
 	else {
 		ar >> exp;
@@ -677,39 +650,6 @@ void Characters::Serialize(CArchive &ar) {
 		boots->Serialize(ar);
 		belt->Serialize(ar);
 		ring->Serialize(ar);
-		/*
-		bool armorEquipped, weaponEquipped, helmetEquipped, shieldEquipped, bootsEquipped, beltEquipped, ringEquipped;
-		ar >> armorEquipped;
-		ar >> weaponEquipped;
-		ar >> helmetEquipped;
-		ar >> shieldEquipped;
-		ar >> bootsEquipped;
-		ar >> beltEquipped;
-		ar >> ringEquipped;
-		armor = new Armor();
-		weapon = new Weapon();
-		shield = new Shield();
-		boots = new Boots();
-		if (armorEquipped){
-		armor->Serialize(ar);
-		}
-		if (weaponEquipped){
-		weapon->Serialize(ar);
-		}
-		if (helmetEquipped){
-		shield->Serialize(ar);
-		}
-		if (bootsEquipped){
-		boots->Serialize(ar);
-		}
-		if (beltEquipped){
-		belt->Serialize(ar);
-		}
-		if (ringEquipped){
-		ring = new Ring();
-		ring->Serialize(ar);
-		} */
-		//backpack->Serialize(ar);
 	}
 }
 
@@ -754,25 +694,25 @@ Characters& Characters::operator =(const Characters *otherChar) {
 Characters::Characters(Characters* otherChar) {
 	this->level = otherChar->level;
 	this->exp = otherChar->exp;
-	this->level >> otherChar->level;
-	this->proficiencyBonus >> otherChar->proficiencyBonus;
-	this->armorClass >> otherChar->armorClass;
+	this->level = otherChar->level;
+	this->proficiencyBonus = otherChar->proficiencyBonus;
+	this->armorClass = otherChar->armorClass;
 
 	for (int i = 0; i < 2; ++i) {
 		for (int j = 0; j < 6; ++j) {
-			this->scores[i][j] >> otherChar->scores[i][j];
+			this->scores[i][j] = otherChar->scores[i][j];
 		}
 	}
 
 	this->size = otherChar->size;
-	this->inBattle >> otherChar->inBattle;
-	this->isDead >> otherChar->isDead;
-	this->isLevelUp >> otherChar->isLevelUp;
-	this->equiped >> otherChar->equiped;
-	this->attackBonus >> otherChar->attackBonus;
-	this->damageBonus >> otherChar->damageBonus;
-	this->position.at(0) >> otherChar->position.at(0);
-	this->position.at(1) >> otherChar->position.at(1);
+	this->inBattle = otherChar->inBattle;
+	this->isDead = otherChar->isDead;
+	this->isLevelUp = otherChar->isLevelUp;
+	this->equiped = otherChar->equiped;
+	this->attackBonus = otherChar->attackBonus;
+	this->damageBonus = otherChar->damageBonus;
+	this->position.at(0) = otherChar->position.at(0);
+	this->position.at(1) = otherChar->position.at(1);
 	this->armor = otherChar->armor;
 	this->weapon = otherChar->weapon;
 	this->shield = otherChar->shield;
