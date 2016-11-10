@@ -104,7 +104,7 @@ void GamePlayEngine::movePlayer()
 	int mouseIndex = 0;
 
 	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
-	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(_currentGrid.y / this->_level->getLevelWindow()->getGridY_Length(), _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
+	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(_currentGrid.y / this->_level->getLevelWindow()->getGridY_Length(), _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length());
 	std::cout << "testing move function\n" << this->_moveValidityTracker<<"\n";
 	std::cout << "X: " << _currentGrid.x/this->_level->getLevelWindow()->getGridX_Length() << ", Y: " << _currentGrid.y/this->_level->getLevelWindow()->getGridY_Length() << std::endl;
 	//if validity tracker is true then look for a left mouse click
