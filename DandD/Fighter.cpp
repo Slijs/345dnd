@@ -164,7 +164,7 @@ void Fighter::displayStats()
 		cout << "Not a valid option.\n";
 		cin.clear();
 		cin.ignore(256, '\n');
-		return
+		return;
 	}
 	if (in == 1)
 		equipOptions();
