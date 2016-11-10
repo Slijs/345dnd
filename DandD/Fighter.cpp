@@ -156,9 +156,17 @@ void Fighter::displayStats()
 	}
 		
 	cout <<"\n"<< endl;
-	int in;
+	int in = 0;
 	cout << "Would you like to equip/de-equip(1) or exit(any)?\n";
 	cin >> in;
+	while (cin.fail())
+	{
+		cout << "Not a valid option.\n";
+		cin.clear();
+		cin.ignore(256, '\n');
+		cout << "Please try again.\n";
+		cin >> in;
+	}
 	if (in == 1)
 		equipOptions();
 	else
@@ -299,7 +307,7 @@ bool Fighter::validateGainExperience(int exp)
 void Fighter::equipOptions()
 {
 
-	int in;
+	int in=0;
 	do{
 		system("CLS");
 		displayEquiped();
@@ -317,268 +325,322 @@ void Fighter::equipOptions()
 		cout << "\n\nWhat would you like to do? (0:Exit) \n";
 		cout << "1. Equip\n2.De-Equip\n";
 		cin >> in;
-		int in2;
-		if (in == 1){
-			int n = 0;
-			if (backpack->getNumContents() != 0)
-			{
-				cout << "\nWhat would you like to equip?\n";
-				cout << "1. Armor\n";
-				cout << "2. Weapon\n";
-				cout << "3. Shield \n";
-				cout << "4. Helmet \n";
-				cout << "5. Ring \n";
-				cout << "6. Boots \n";
-				cout << "7. Belt \n";
-				cin >> in2;
-				int in3;
-				vector<int> a;
-				switch (in2)
-				{
-				case 1:
-					cout << "\n";
-
-					for (int i = 0; i < backpack->getNumContents(); i++)
-					{
-						vector<Item*> item = backpack->getContents();
-						if (typeid((*item[i])) == typeid(Armor))
-						{
-							cout << n << ". " << item[i]->getName() << " (DEF: " << dynamic_cast<Armor*>(item[i])->getDefense() << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
-							n++;
-							a.push_back(i);
-						}
-					}
-					if (n != 0)
-					{
-						cin >> in3;
-						if (in3 >= 0 && in3 < a.size())
-							equipArmor(a[in3]);
-						else
-							cout << "Not a valid option.\n";
-					}
-					if (n == 0)
-					{ 
-						cout << "There is no armor to equip in inventory.\n";
-						system("PAUSE");
-					}
-					break;
-				case 2:
-					cout << "\n";
-					for (int i = 0; i < backpack->getNumContents(); i++)
-					{
-						vector<Item*> item = backpack->getContents();
-						if (typeid((*item[i])) == typeid(Weapon))
-						{
-							cout << n << ". " << item[i]->getName() << " (ATT: " << item[i]->getEnchantmentValues()[7] << ", DAM:" << item[i]->getEnchantmentValues()[8] << ")" << endl;
-							n++;
-							a.push_back(i);
-						}
-					}
-					if (n != 0)
-					{
-						cin >> in3;
-						if (in3 >= 0 && in3 < a.size())
-							equipWeapon(a[in3]);
-						else
-							cout << "Not a valid option.\n";
-					}
-					if (n == 0)
-					{
-						cout << "There is no weapon to equip in inventory.\n";
-						system("PAUSE");
-					}	
-					break;
-				case 3:
-					cout << "\n";
-					for (int i = 0; i < backpack->getNumContents(); i++)
-					{
-						vector<Item*> item = backpack->getContents();
-						if (typeid((*item[i])) == typeid(Shield))
-						{
-							
-							cout << n << ". " << item[i]->getName() << " (AC: " << item[i]->getEnchantmentValues()[6] << ")" << endl;
-							n++;
-							a.push_back(i);
-						}
-					}
-					if (n != 0)
-					{
-						cin >> in3;
-						if (in3 > 0 && in3 < a.size())
-							equipShield(a[in3]);
-						else
-							cout << "Not a valid option.\n";
-					}
-					if (n == 0)
-					{
-						cout << "There is no shield to equip in inventory.\n";
-						system("PAUSE");
-					}
-					break;
-				case 4:
-					cout << "\n";
-					for (int i = 0; i < backpack->getNumContents(); i++)
-					{
-						vector<Item*> item = backpack->getContents();
-						if (typeid((*item[i])) == typeid(Helmet))
-						{
-							
-							cout << n << ". " << item[i]->getName() << " (INT: " << item[i]->getEnchantmentValues()[3] << ", WIS:" << item[i]->getEnchantmentValues()[4] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
-							n++;
-							a.push_back(i);
-						}
-					}
-					if (n != 0)
-					{
-						cin >> in3;
-						if (in3 >= 0 && in3 < a.size())
-						{
-							equipHelmet(a[in3]);
-						}
-						else
-							cout << "Not a valid option.\n";
-					}
-					if (n == 0)
-					{
-						cout << "There is no helmet to equip in inventory.\n";
-						system("PAUSE");
-					}
-					break;
-				case 5:
-					cout << "\n";
-					for (int i = 0; i < backpack->getNumContents(); i++)
-					{
-						vector<Item*> item = backpack->getContents();
-						if (typeid((*item[i])) == typeid(Ring))
-						{
-							
-							cout << n << ". " << item[i]->getName() << " (STR: " << item[i]->getEnchantmentValues()[0] << ", CON:" << item[i]->getEnchantmentValues()[2] << ", WIS:" << item[i]->getEnchantmentValues()[4] << ", CHA:" << item[i]->getEnchantmentValues()[5] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
-							n++;
-							a.push_back(i);
-						}
-					}
-					if (n != 0)
-					{
-						cin >> in3;
-						if (in3 >= 0 && in3 < a.size())
-							equipRing(a[in3]);
-						else
-							cout << "Not a valid option.\n";
-					}
-					if (n == 0)
-					{
-						cout << "There is no ring to equip in inventory.\n";
-						system("PAUSE");
-					}
-					break;
-				case 6:
-					cout << "\n";
-					for (int i = 0; i < backpack->getNumContents(); i++)
-					{
-						vector<Item*> item = backpack->getContents();
-						if(typeid((*item[i])) == typeid(Boots))
-						{
-							cout << n << ". " << item[i]->getName() << " (DEX: " << item[i]->getEnchantmentValues()[1] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
-							n++;
-							a.push_back(i);
-						}
-					}
-					if (n != 0)
-					{
-						cin >> in3;
-						if (in3 >= 0 && in3 < a.size())
-							equipBoots(a[in3]);
-						else
-							cout << "Not a valid option.\n";
-					}
-					if (n == 0)
-					{
-						cout << "There is no boots to equip in inventory.\n";
-						system("PAUSE");
-					}
-					break;
-				case 7:
-					cout << "\n";
-					for (int i = 0; i < backpack->getNumContents(); i++)
-					{
-						vector<Item*> item = backpack->getContents();
-						if (typeid((*item[i])) == typeid(Belt))
-						{
-							cout << n << ". " << item[i]->getName() << " (STR: " << item[i]->getEnchantmentValues()[0] << ", CON:" << item[i]->getEnchantmentValues()[2] << ")" << endl;
-							n++;
-							a.push_back(i);
-						}
-					}
-					if (n != 0)
-					{
-						cin >> in3;
-						if (in3 >= 0 && in3 < a.size())
-							equipBelt(a[in3]);
-						else
-							cout << "Not a valid option.\n";
-					}
-					if (n == 0)
-					{
-						cout << "There is no belt to equip in inventory.\n";
-						system("PAUSE");
-					}
-					break;
-				default:
-					break;
-				}
-			}
-			else
-			{
-				cout << "There are no items in inventory.\n";
-				system("PAUSE");
-			}
-		}
-		else if (in == 2)
+		while (cin.fail())
 		{
-			if (backpack->getNumContents() == backpack->getMaxContents())
+			cout << "Not a valid option.\n";
+			cin.clear();
+			cin.ignore(256, '\n');
+			cout << "Please try again.\n";
+			cin >> in;
+		}
+		if (in > 0 && in < 3)
+		{
+			int in2=0;
+			if (in == 1)
 			{
-				cout << "There is no space in inventory to de-equip.\n";
-				system("PAUSE");
-			}
-			else
-			{
-				cout << "What would you like to de-equip?\n";
-				cout << "1. Armor\n";
-				cout << "2. Weapon\n";
-				cout << "3. Shield \n";
-				cout << "4. Helmet \n";
-				cout << "5. Ring \n";
-				cout << "6. Boots \n";
-				cout << "7. Belt \n";
-				cin >> in2;
-				switch (in2)
+				int n = 0;
+				if (backpack->getNumContents() != 0)
 				{
-				case 1:
-					deequipArmor();
-					break;
-				case 2:
-					dequipWeapon();
-					break;
-				case 3:
-					deequipShield();
-					break;
-				case 4:
-					deequipHelmet();
-					break;
-				case 5:
-					deequipRing();
-					break;
-				case 6:
-					deequipBoots();
-					break;
-				case 7:
-					deequipBelt();
-					break;
-				default:
-					break;
+					cout << "\nWhat would you like to equip?\n";
+					cout << "1. Armor\n";
+					cout << "2. Weapon\n";
+					cout << "3. Shield \n";
+					cout << "4. Helmet \n";
+					cout << "5. Ring \n";
+					cout << "6. Boots \n";
+					cout << "7. Belt \n";
+					cin >> in2;
+					while (cin.fail())
+					{
+						cout << "Not a valid option.\n";
+						cin.clear();
+						cin.ignore(256, '\n');
+						cout << "Please try again.\n";
+						cin >> in;
+					}
+					if (in2>0 && in2 < 8)
+					{
+						int in3=0;
+						vector<int> a;
+						switch (in2)
+						{
+						case 1:
+							cout << "\n";
+
+							for (int i = 0; i < backpack->getNumContents(); i++)
+							{
+								vector<Item*> item = backpack->getContents();
+								if (typeid((*item[i])) == typeid(Armor))
+								{
+									cout << n+1 << ". " << item[i]->getName() << " (DEF: " << dynamic_cast<Armor*>(item[i])->getDefense() << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
+									n++;
+									a.push_back(i);
+								}
+							}
+							if (n != 0)
+							{
+								cin >> in3;
+								while (cin.fail())
+								{
+									cout << "Not a valid option.\n";
+									cin.clear();
+									cin.ignore(256, '\n');
+									cout << "Please try again.\n";
+									cin >> in;
+								}
+								if (in3 > 0 && in3 < a.size())
+									equipArmor(a[in3-1]);
+								else
+								{
+									cout << "Not a valid option.\n";
+									system("PAUSE");
+								}
+							}
+							if (n == 0)
+							{
+								cout << "There is no armor to equip in inventory.\n";
+								
+							}
+							break;
+						case 2:
+							cout << "\n";
+							for (int i = 0; i < backpack->getNumContents(); i++)
+							{
+								vector<Item*> item = backpack->getContents();
+								if (typeid((*item[i])) == typeid(Weapon))
+								{
+									cout << n << ". " << item[i]->getName() << " (ATT: " << item[i]->getEnchantmentValues()[7] << ", DAM:" << item[i]->getEnchantmentValues()[8] << ")" << endl;
+									n++;
+									a.push_back(i);
+								}
+							}
+							if (n != 0)
+							{
+								cin >> in3;
+								if (in3 >= 0 && in3 < a.size())
+									equipWeapon(a[in3]);
+								else
+								{
+									cout << "Not a valid option.\n";
+									system("PAUSE");
+								}
+							}
+							if (n == 0)
+							{
+								cout << "There is no weapon to equip in inventory.\n";
+								system("PAUSE");
+							}
+							break;
+						case 3:
+							cout << "\n";
+							for (int i = 0; i < backpack->getNumContents(); i++)
+							{
+								vector<Item*> item = backpack->getContents();
+								if (typeid((*item[i])) == typeid(Shield))
+								{
+
+									cout << n << ". " << item[i]->getName() << " (AC: " << item[i]->getEnchantmentValues()[6] << ")" << endl;
+									n++;
+									a.push_back(i);
+								}
+							}
+							if (n != 0)
+							{
+								cin >> in3;
+								if (in3 > 0 && in3 < a.size())
+									equipShield(a[in3]);
+								else
+								{
+									cout << "Not a valid option.\n";
+									system("PAUSE");
+								}
+							}
+							if (n == 0)
+							{
+								cout << "There is no shield to equip in inventory.\n";
+								system("PAUSE");
+							}
+							break;
+						case 4:
+							cout << "\n";
+							for (int i = 0; i < backpack->getNumContents(); i++)
+							{
+								vector<Item*> item = backpack->getContents();
+								if (typeid((*item[i])) == typeid(Helmet))
+								{
+
+									cout << n << ". " << item[i]->getName() << " (INT: " << item[i]->getEnchantmentValues()[3] << ", WIS:" << item[i]->getEnchantmentValues()[4] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
+									n++;
+									a.push_back(i);
+								}
+							}
+							if (n != 0)
+							{
+								cin >> in3;
+								if (in3 >= 0 && in3 < a.size())
+								{
+									equipHelmet(a[in3]);
+								}
+								else
+								{
+									cout << "Not a valid option.\n";
+									system("PAUSE");
+								}
+							}
+							if (n == 0)
+							{
+								cout << "There is no helmet to equip in inventory.\n";
+								system("PAUSE");
+							}
+							break;
+						case 5:
+							cout << "\n";
+							for (int i = 0; i < backpack->getNumContents(); i++)
+							{
+								vector<Item*> item = backpack->getContents();
+								if (typeid((*item[i])) == typeid(Ring))
+								{
+
+									cout << n << ". " << item[i]->getName() << " (STR: " << item[i]->getEnchantmentValues()[0] << ", CON:" << item[i]->getEnchantmentValues()[2] << ", WIS:" << item[i]->getEnchantmentValues()[4] << ", CHA:" << item[i]->getEnchantmentValues()[5] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
+									n++;
+									a.push_back(i);
+								}
+							}
+							if (n != 0)
+							{
+								cin >> in3;
+								if (in3 >= 0 && in3 < a.size())
+									equipRing(a[in3]);
+								else
+								{
+									cout << "Not a valid option.\n";
+									system("PAUSE");
+								}
+							}
+							if (n == 0)
+							{
+								cout << "There is no ring to equip in inventory.\n";
+								system("PAUSE");
+							}
+							break;
+						case 6:
+							cout << "\n";
+							for (int i = 0; i < backpack->getNumContents(); i++)
+							{
+								vector<Item*> item = backpack->getContents();
+								if (typeid((*item[i])) == typeid(Boots))
+								{
+									cout << n << ". " << item[i]->getName() << " (DEX: " << item[i]->getEnchantmentValues()[1] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
+									n++;
+									a.push_back(i);
+								}
+							}
+							if (n != 0)
+							{
+								cin >> in3;
+								if (in3 >= 0 && in3 < a.size())
+									equipBoots(a[in3]);
+								else
+								{
+									cout << "Not a valid option.\n";
+									system("PAUSE");
+								}
+							}
+							if (n == 0)
+							{
+								cout << "There is no boots to equip in inventory.\n";
+								system("PAUSE");
+							}
+							break;
+						case 7:
+							cout << "\n";
+							for (int i = 0; i < backpack->getNumContents(); i++)
+							{
+								vector<Item*> item = backpack->getContents();
+								if (typeid((*item[i])) == typeid(Belt))
+								{
+									cout << n << ". " << item[i]->getName() << " (STR: " << item[i]->getEnchantmentValues()[0] << ", CON:" << item[i]->getEnchantmentValues()[2] << ")" << endl;
+									n++;
+									a.push_back(i);
+								}
+							}
+							if (n != 0)
+							{
+								cin >> in3;
+								if (in3 >= 0 && in3 < a.size())
+									equipBelt(a[in3]);
+								else
+								{
+									cout << "Not a valid option.\n";
+									system("PAUSE");
+								}
+							}
+							if (n == 0)
+							{
+								cout << "There is no belt to equip in inventory.\n";
+								system("PAUSE");
+							}
+							break;
+						default:
+							break;
+						}
+					}
+
+					else
+					{
+						cout << "There are no items in inventory.\n";
+						system("PAUSE");
+					}
+				}
+				else 
+					continue;
+			}
+			else if (in == 2)
+			{
+				if (backpack->getNumContents() == backpack->getMaxContents())
+				{
+					cout << "There is no space in inventory to de-equip.\n";
+					system("PAUSE");
+				}
+				else
+				{
+					cout << "What would you like to de-equip?\n";
+					cout << "1. Armor\n";
+					cout << "2. Weapon\n";
+					cout << "3. Shield \n";
+					cout << "4. Helmet \n";
+					cout << "5. Ring \n";
+					cout << "6. Boots \n";
+					cout << "7. Belt \n";
+					cin >> in2;
+					switch (in2)
+					{
+					case 1:
+						deequipArmor();
+						break;
+					case 2:
+						dequipWeapon();
+						break;
+					case 3:
+						deequipShield();
+						break;
+					case 4:
+						deequipHelmet();
+						break;
+					case 5:
+						deequipRing();
+						break;
+					case 6:
+						deequipBoots();
+						break;
+					case 7:
+						deequipBelt();
+						break;
+					default:
+						break;
+					}
 				}
 			}
-
 		}
 		else
 		{
