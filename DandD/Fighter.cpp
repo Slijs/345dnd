@@ -145,12 +145,18 @@ void Fighter::displayStats()
 	cout << "Hit Points: " << hitPoints << "/" << maxHitPoints << endl;
 	this->Characters::displayStats();
 
-	
-	for (int i = 0; i < backpack->getNumContents(); i++)
-		cout << backpack->getContents()[i]->getName() << " ";
-	cout << endl;
+	cout << "--------Backpack Content--------\n";
+	if (backpack->getNumContents() == 0)
+		cout << "EMPTY\n";
+	else
+	{
+		for (int i = 0; i < backpack->getNumContents(); i++)
+			cout << backpack->getContents()[i]->getName() << ", ";
+	}
+		
+	cout <<"\n"<< endl;
 	int in;
-	cout << "Would you like to equip/de-equip(1) or exit(any)?";
+	cout << "Would you like to equip/de-equip(1) or exit(any)?\n";
 	cin >> in;
 	if (in == 1)
 		equipOptions();
@@ -296,15 +302,15 @@ void Fighter::equipOptions()
 	do{
 		system("CLS");
 		displayEquiped();
-		cout << "What would you like to do? (0:Exit) \n";
-		cout << "1. Equip\n2.De-Equip";
+		cout << "\n\nWhat would you like to do? (0:Exit) \n";
+		cout << "1. Equip\n2.De-Equip\n";
 		cin >> in;
 		int in2;
 		if (in == 1){
-			int n;
+			int n = 0;
 			if (backpack->getNumContents() != 0)
 			{
-				cout << "What would you like to equip?\n";
+				cout << "\nWhat would you like to equip?\n";
 				cout << "1. Armor\n";
 				cout << "2. Weapon\n";
 				cout << "3. Shield \n";
@@ -322,10 +328,9 @@ void Fighter::equipOptions()
 
 					for (int i = 0; i < backpack->getNumContents(); i++)
 					{
-
-						if (typeid(backpack->getContents()[i]) == typeid(Armor))
+						vector<Item*> item = backpack->getContents();
+						if (typeid((*item[i])) == typeid(Armor))
 						{
-							vector<Item*> item = backpack->getContents();
 							cout << n << ". " << item[i]->getName() << " (DEF: " << dynamic_cast<Armor*>(item[i])->getDefense() << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
 							n++;
 							a.push_back(i);
@@ -334,22 +339,24 @@ void Fighter::equipOptions()
 					if (n != 0)
 					{
 						cin >> in3;
-						if (in3 > 0 && in3 < a.size())
-							equipArmor(in3);
+						if (in3 >= 0 && in3 < a.size())
+							equipArmor(a[in3]);
 						else
 							cout << "Not a valid option.\n";
 					}
 					if (n == 0)
+					{ 
 						cout << "There is no armor to equip in inventory.\n";
-
+						system("PAUSE");
+					}
 					break;
 				case 2:
 					cout << "\n";
 					for (int i = 0; i < backpack->getNumContents(); i++)
 					{
-						if (typeid(backpack->getContents()[i]) == typeid(Weapon))
+						vector<Item*> item = backpack->getContents();
+						if (typeid((*item[i])) == typeid(Weapon))
 						{
-							vector<Item*> item = backpack->getContents();
 							cout << n << ". " << item[i]->getName() << " (ATT: " << item[i]->getEnchantmentValues()[7] << ", DAM:" << item[i]->getEnchantmentValues()[8] << ")" << endl;
 							n++;
 							a.push_back(i);
@@ -358,21 +365,25 @@ void Fighter::equipOptions()
 					if (n != 0)
 					{
 						cin >> in3;
-						if (in3 > 0 && in3 < a.size())
-							equipWeapon(in3);
+						if (in3 >= 0 && in3 < a.size())
+							equipWeapon(a[in3]);
 						else
 							cout << "Not a valid option.\n";
 					}
 					if (n == 0)
+					{
 						cout << "There is no weapon to equip in inventory.\n";
+						system("PAUSE");
+					}	
 					break;
 				case 3:
 					cout << "\n";
 					for (int i = 0; i < backpack->getNumContents(); i++)
 					{
-						if (typeid(backpack->getContents()[i]) == typeid(Shield))
+						vector<Item*> item = backpack->getContents();
+						if (typeid((*item[i])) == typeid(Shield))
 						{
-							vector<Item*> item = backpack->getContents();
+							
 							cout << n << ". " << item[i]->getName() << " (AC: " << item[i]->getEnchantmentValues()[6] << ")" << endl;
 							n++;
 							a.push_back(i);
@@ -382,20 +393,24 @@ void Fighter::equipOptions()
 					{
 						cin >> in3;
 						if (in3 > 0 && in3 < a.size())
-							equipShield(in3);
+							equipShield(a[in3]);
 						else
 							cout << "Not a valid option.\n";
 					}
 					if (n == 0)
+					{
 						cout << "There is no shield to equip in inventory.\n";
+						system("PAUSE");
+					}
 					break;
 				case 4:
 					cout << "\n";
 					for (int i = 0; i < backpack->getNumContents(); i++)
 					{
-						if (typeid(backpack->getContents()[i]) == typeid(Helmet))
+						vector<Item*> item = backpack->getContents();
+						if (typeid((*item[i])) == typeid(Helmet))
 						{
-							vector<Item*> item = backpack->getContents();
+							
 							cout << n << ". " << item[i]->getName() << " (INT: " << item[i]->getEnchantmentValues()[3] << ", WIS:" << item[i]->getEnchantmentValues()[4] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
 							n++;
 							a.push_back(i);
@@ -404,21 +419,28 @@ void Fighter::equipOptions()
 					if (n != 0)
 					{
 						cin >> in3;
-						if (in3 > 0 && in3 < a.size())
-							equipHelmet(in3);
+						if (in3 >= 0 && in3 < a.size())
+						{
+							equipHelmet(a[in3]);
+							return;
+						}
 						else
 							cout << "Not a valid option.\n";
 					}
 					if (n == 0)
+					{
 						cout << "There is no helmet to equip in inventory.\n";
+						system("PAUSE");
+					}
 					break;
 				case 5:
 					cout << "\n";
 					for (int i = 0; i < backpack->getNumContents(); i++)
 					{
-						if (typeid(backpack->getContents()[i]) == typeid(Ring))
+						vector<Item*> item = backpack->getContents();
+						if (typeid((*item[i])) == typeid(Ring))
 						{
-							vector<Item*> item = backpack->getContents();
+							
 							cout << n << ". " << item[i]->getName() << " (STR: " << item[i]->getEnchantmentValues()[0] << ", CON:" << item[i]->getEnchantmentValues()[2] << ", WIS:" << item[i]->getEnchantmentValues()[4] << ", CHA:" << item[i]->getEnchantmentValues()[5] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
 							n++;
 							a.push_back(i);
@@ -427,21 +449,24 @@ void Fighter::equipOptions()
 					if (n != 0)
 					{
 						cin >> in3;
-						if (in3 > 0 && in3 < a.size())
-							equipRing(in3);
+						if (in3 >= 0 && in3 < a.size())
+							equipRing(a[in3]);
 						else
 							cout << "Not a valid option.\n";
 					}
 					if (n == 0)
+					{
 						cout << "There is no ring to equip in inventory.\n";
+						system("PAUSE");
+					}
 					break;
 				case 6:
 					cout << "\n";
 					for (int i = 0; i < backpack->getNumContents(); i++)
 					{
-						if (typeid(backpack->getContents()[i]) == typeid(Boots))
+						vector<Item*> item = backpack->getContents();
+						if(typeid((*item[i])) == typeid(Boots))
 						{
-							vector<Item*> item = backpack->getContents();
 							cout << n << ". " << item[i]->getName() << " (DEX: " << item[i]->getEnchantmentValues()[1] << ", AC:" << item[i]->getEnchantmentValues()[6] << ")" << endl;
 							n++;
 							a.push_back(i);
@@ -450,21 +475,24 @@ void Fighter::equipOptions()
 					if (n != 0)
 					{
 						cin >> in3;
-						if (in3 > 0 && in3 < a.size())
-							equipBoots(in3);
+						if (in3 >= 0 && in3 < a.size())
+							equipBoots(a[in3]);
 						else
 							cout << "Not a valid option.\n";
 					}
 					if (n == 0)
+					{
 						cout << "There is no boots to equip in inventory.\n";
+						system("PAUSE");
+					}
 					break;
 				case 7:
 					cout << "\n";
 					for (int i = 0; i < backpack->getNumContents(); i++)
 					{
-						if (typeid(backpack->getContents()[i]) == typeid(Belt))
+						vector<Item*> item = backpack->getContents();
+						if (typeid((*item[i])) == typeid(Belt))
 						{
-							vector<Item*> item = backpack->getContents();
 							cout << n << ". " << item[i]->getName() << " (STR: " << item[i]->getEnchantmentValues()[0] << ", CON:" << item[i]->getEnchantmentValues()[2] << ")" << endl;
 							n++;
 							a.push_back(i);
@@ -473,25 +501,34 @@ void Fighter::equipOptions()
 					if (n != 0)
 					{
 						cin >> in3;
-						if (in3 > 0 && in3 < a.size())
-							equipBelt(in3);
+						if (in3 >= 0 && in3 < a.size())
+							equipBelt(a[in3]);
 						else
 							cout << "Not a valid option.\n";
 					}
 					if (n == 0)
+					{
 						cout << "There is no belt to equip in inventory.\n";
+						system("PAUSE");
+					}
 					break;
 				default:
 					break;
 				}
 			}
 			else
+			{
 				cout << "There are no items in inventory.\n";
+				system("PAUSE");
+			}
 		}
 		else if (in == 2)
 		{
 			if (backpack->getNumContents() == backpack->getMaxContents())
+			{
 				cout << "There is no space in inventory to de-equip.\n";
+				system("PAUSE");
+			}
 			else
 			{
 				cout << "What would you like to de-equip?\n";
@@ -539,6 +576,8 @@ void Fighter::equipOptions()
 
 	} while (in != 0);
 
+	displayStats();
+
 }
 
 /*EQUIP FUNCTIONS:
@@ -550,31 +589,32 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 
 void Fighter::displayEquiped()
 {
+	cout << "CURRENTLY EQUIPPED ITEMS:\n";
 	printf("%-10s%-20s  %-10s%-20s\n", "Armor: ", armor->getName().c_str(), "Weapon: ", weapon->getName().c_str());
-	printf("%-8s%-5s %-8s%-9s %-8s%-5s %-8s%-9s\n", "Weight:", armor->getWeight(), "Value:", armor->getValue(), "Weight:", weapon->getWeight(), "Value:", weapon->getValue());
+	printf("%-8s%-5i %-8s%-9i %-8s%-5i %-8s%-9i\n", "Weight:", armor->getWeight(), "Value:", armor->getValue(), "Weight:", weapon->getWeight(), "Value:", weapon->getValue());
 	printf("%-30s  %-30s\n", "Enchantment:", "Enchantment:");
-	printf("%-8s%-5s %-8s%-9s  %-8s%-5s %-8s%-9s\n", "DEF:", armor->getDefense(), "AC:", armor->getEnchantmentValues()[6], "ATT:", weapon->getEnchantmentValues()[7], "DAM:", weapon->getEnchantmentValues()[8]);
+	printf("%-8s%-5i %-8s%-9i  %-5s%-4s %-5s%-3i%-5s%-3i\n", "DEF:", armor->getDefense(), "AC:", armor->getEnchantmentValues()[6],"DIE:", weapon->getAttackDice().c_str(), "ATT:", weapon->getEnchantmentValues()[7], "DAM:", weapon->getEnchantmentValues()[8]);
 	cout << "\n";
 
 	printf("%-10s%-20s  %-10s%-20s\n", "Shield: ", shield->getName().c_str(), "Helmet: ", helmet->getName().c_str());
-	printf("%-8s%-5s %-8s%-9s %-8s%-5s %-8s%-9s\n", "Weight:", shield->getWeight(), "Value:", shield->getValue(), "Weight:", helmet->getWeight(), "Value:", helmet->getValue());
+	printf("%-8s%-5i %-8s%-9i %-8s%-5i %-8s%-9i\n", "Weight:", shield->getWeight(), "Value:", shield->getValue(), "Weight:", helmet->getWeight(), "Value:", helmet->getValue());
 	printf("%-30s  %-30s\n", "Enchantment:", "Enchantment:");
-	printf("%-10s%-20s  %-5s%-3s %-5s%-3s%-5s%-3s\n", "AC:", shield->getEnchantmentValues()[6], "INT:", helmet->getEnchantmentValues()[3], "WIS:", helmet->getEnchantmentValues()[4], "AC:", helmet->getEnchantmentValues()[6]);
+	printf("%-10s%-20i  %-5s%-3i %-5s%-3i%-5s%-3i\n", "AC:", shield->getEnchantmentValues()[6], "INT:", helmet->getEnchantmentValues()[3], "WIS:", helmet->getEnchantmentValues()[4], "AC:", helmet->getEnchantmentValues()[6]);
 	cout << "\n";
 
 	printf("%-10s%-20s  %-10s%-20s\n", "Ring: ", ring->getName().c_str(), "Boots: ", boots->getName().c_str());
-	printf("%-8s%-5s %-8s%-9s %-8s%-5s %-8s%-9s\n", "Weight:", ring->getWeight(), "Value:", ring->getValue(), "Weight:", boots->getWeight(), "Value:", boots->getValue());
+	printf("%-8s%-5i %-8s%-9i %-8s%-5i %-8s%-9i\n", "Weight:", ring->getWeight(), "Value:", ring->getValue(), "Weight:", boots->getWeight(), "Value:", boots->getValue());
 	printf("%-30s  %-30s\n", "Enchantment:", "Enchantment:");
-	printf("%-5s%-3s %-5s%-3s%-5s%-8s  %-8s%-5s %-8s%-9s\n", "STR:", ring->getEnchantmentValues()[0], "CON:", ring->getEnchantmentValues()[2], "INT:", ring->getEnchantmentValues()[3], "WIS:", ring->getEnchantmentValues()[4], "DEX:", boots->getEnchantmentValues()[1], "AC:", boots->getEnchantmentValues()[6]);
-	printf("%-5s%-2s %-5s%-2s", "CHA:", ring->getEnchantmentValues()[5], "AC:", ring->getEnchantmentValues()[6]);
+	printf("%-5s%-3i %-5s%-3i%-5s%-8i  %-8s%-5i %-8s%-9i\n", "STR:", ring->getEnchantmentValues()[0], "CON:", ring->getEnchantmentValues()[2], "INT:", ring->getEnchantmentValues()[3], "WIS:", ring->getEnchantmentValues()[4], "DEX:", boots->getEnchantmentValues()[1], "AC:", boots->getEnchantmentValues()[6]);
+	printf("%-5s%-2i %-5s%-2i", "CHA:", ring->getEnchantmentValues()[5], "AC:", ring->getEnchantmentValues()[6]);
 	cout << "\n\n";
 
 	printf("%-10s%-20s", "Belt: ", belt->getName().c_str());
 	cout << "\n";
-	printf("%-8s%-5s %-8s%-9s", "Weight:", belt->getWeight(), "Value:", belt->getValue());
+	printf("%-8s%-5i %-8s%-9i", "Weight:", belt->getWeight(), "Value:", belt->getValue());
 	cout << "\n";
 	printf("%-30s\n", "Enchantment:");
-	printf("%-5s%-2s %-5s%-2s", "STR:", belt->getEnchantmentValues()[0], "CON:", belt->getEnchantmentValues()[2]);
+	printf("%-5s%-2i %-5s%-2i", "STR:", belt->getEnchantmentValues()[0], "CON:", belt->getEnchantmentValues()[2]);
 
 	cout << "\n";
 }
