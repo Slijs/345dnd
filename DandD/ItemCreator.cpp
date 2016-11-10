@@ -446,7 +446,7 @@ Container * ItemCreator::loadItemsFromFile()
 	if (!fileL.Open(_T("serializedItems.dat"), CFile::modeRead))
 	{
 		std::cout << "Unable to open input file" << std::endl;
-		return NULL;
+		return userContainer;
 	}
 	cout << "Loading items...\n";
 	CArchive arLoad(&fileL, CArchive::load);
