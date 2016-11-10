@@ -1,0 +1,8 @@
+exit false exit.png
+map exit door
+floor false tiles.jpg
+green tile
+wall true wall.png
+wall
+water true water.png
+lake

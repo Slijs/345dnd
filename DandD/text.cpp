@@ -9,7 +9,7 @@ Text::Text()
 	this->_red = 255;
 	this->_green = 0;
 	this->_blue = 0;
-	this->_font_size = 16;
+	this->_font_size = 64;
 	this->_text = "default";
 }
 
