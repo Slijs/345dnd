@@ -81,6 +81,7 @@
     <ClCompile Include="CharacterSaveMap.cpp" />
     <ClCompile Include="CharBuilder.cpp" />
     <ClCompile Include="Container.cpp" />
+    <ClCompile Include="ContainerGenerator.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="CharBuilder.h" />
     <ClInclude Include="CharSaveManager.h" />
     <ClInclude Include="Container.h" />
+    <ClInclude Include="ContainerGenerator.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="Enhancement.h" />
