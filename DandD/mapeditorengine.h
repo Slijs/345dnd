@@ -6,6 +6,7 @@
 #include "leveleditor.h"
 #include "namespaces.h"
 #include "routing.h"
+#include "Monster.h"
 using namespace SimplifiedMapSymbols;
 /*!
 * The main map editor class for this assignment.
@@ -30,6 +31,7 @@ private:
 	SDL_Rect target;
 	Environment* currentenvcomponent;
 	GameComponent* player;
+	Monster* enemy;
 	Container* container;
 	LevelEditor* level;
 	int lastButtonIndex;
@@ -42,6 +44,7 @@ private:
 	std::vector<SDL_Rect> components;
 	std::vector<SDL_Rect> characterTarget;
 	std::vector<SDL_Rect> containerTarget;
+	std::vector<SDL_Rect> enemytarget;
 	
 
 public:
