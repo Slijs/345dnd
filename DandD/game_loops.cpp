@@ -13,6 +13,7 @@ void GameLoops::loopManager()
 	SingletonDefaultMapsMenu::getInstance()->setupMenu();
 	SingletonDefaultMapsMenu::getInstance()->hideMenu();
 
+	_currentFighterTracker = nullptr;
 	bool quit = false;
 	int destination;
 
@@ -108,6 +109,7 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 
 			//now play the maps one by one
 			c_menu->getMenuWindow()->hideWindow();
+			this->_currentFighterTracker = CharacterManager::getCharacter();
 			for (int x = 0; x < mappaths.size(); x++)
 			{
 				gameLevelLoop(mappaths[x]);
@@ -148,13 +150,14 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	bool quit = false;
 
 	Fighter* f = new Fighter();
-	PreBuiltLevel* l = new PreBuiltLevel("Test", f);
+	PreBuiltLevel* l = new PreBuiltLevel("Test", this->_currentFighterTracker);
 	GamePlayEngine* engine = new GamePlayEngine();
 	engine->attachLevel(l, &this->_event);
 
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
 	l->renderAndDisplayLevel();
+	this->_currentFighterTracker->setMap(&l->getMapSimpleVersion());
 	f->setMap(&l->getMapSimpleVersion());
 
 
