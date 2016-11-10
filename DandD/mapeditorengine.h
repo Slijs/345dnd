@@ -28,6 +28,7 @@ private:
 	bool targetisplayer;
 	bool targetisexit;
 	bool targetiscontainer;
+	bool targetisenemy;
 	SDL_Rect target;
 	Environment* currentenvcomponent;
 	GameComponent* player;
@@ -67,6 +68,7 @@ public:
 	void setTargetIsExit(bool e);
 	bool getTargetIsExit();
 	void setTargetisContainer(bool c);
+	void setTargetisEnemy(bool e);
 	MapEditorEngine();
 	MapEditorEngine(LevelEditor* level_);
 	SDL_Rect checkMousePosition(std::vector<SDL_Rect> components, int* targetIndex);

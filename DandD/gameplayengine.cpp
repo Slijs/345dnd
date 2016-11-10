@@ -51,6 +51,11 @@ int GamePlayEngine::runEngine()
 			if ((_event->type == SDL_MOUSEBUTTONDOWN) && (_event->button.button == SDL_BUTTON_RIGHT))
 				this->_moveSelect = false;
 
+			//if move select is true all move function
+			if (this->_moveSelect == true)
+				movePlayer();
+
+
 			//get current mouse coordinates
 			SDL_GetMouseState(&mouse_X, &mouse_Y);
 
@@ -95,11 +100,12 @@ int GamePlayEngine::runEngine()
 
 void GamePlayEngine::movePlayer()
 {
+	
 	int mouseIndex = 0;
 
 	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
 	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(this->_currentGrid.x, this->_currentGrid.y);
-
+	std::cout << "testing move function\n" << this->_moveValidityTracker<<"\n";
 	//if validity tracker is true then look for a left mouse click
 	if (this->_moveValidityTracker == true)
 	{
@@ -114,9 +120,11 @@ void GamePlayEngine::movePlayer()
 					//check if player then render floor
 					if (this->_level->getMapStringVersiion()[y].at(x) == SimplifiedMapSymbols::_Player_)
 					{
+						//make the coordinate in map a free path
 						this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
 						for (int k = 0; k < this->_level->getEnvironmentComponents().size(); k++)
 						{
+							//render the floor
 							if (this->_level->getEnvironmentComponents()[k]->getComponentName() == "floor")
 							{
 								SDL_Rect dest;
@@ -139,7 +147,7 @@ void GamePlayEngine::movePlayer()
 			this->_level->getMapStringVersiion()[this->_currentGrid.y].at(this->_currentGrid.x) = SimplifiedMapSymbols::_Player_;
 
 			//finally update the players vector
-			this->_level->getPlayer()->setMap(&this->_level->getMapStringVersiion());
+			this->_level->getPlayer()->setMap(&this->_level->getMapSimpleVersion());
 		}
 	}
 }

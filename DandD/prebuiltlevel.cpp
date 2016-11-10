@@ -83,6 +83,11 @@ std::string PreBuiltLevel::getPlayerPath() const
 	return this->_playerPath;
 }
 
+std::string PreBuiltLevel::getEnemyPath() const
+{
+	return this->_enemyPath;
+}
+
 //!level text vector accessor
 std::vector<std::string> PreBuiltLevel::getBuiltLevelFile() const
 {

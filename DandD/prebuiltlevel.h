@@ -25,6 +25,7 @@ public:
 	std::string getEnvironmentComponentsPath() const;
 	std::string getDirectoryPathForLevelTextFile() const;
 	std::string getPlayerPath() const;
+	std::string getEnemyPath() const;
 	std::vector<std::string> getBuiltLevelFile() const;
 	Fighter* getPlayer();
 	std::vector<SDL_Rect> getAllButtonDestinations();

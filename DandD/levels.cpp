@@ -18,6 +18,77 @@ std::vector<std::string> Level::getMapStringVersiion()
 	return this->_level;
 }
 
+std::vector<std::string> Level::getMapSimpleVersion()
+{
+	std::vector<std::string> temp;
+	std::string s = "";
+
+	Environment* floor = nullptr;
+	Environment* exit = nullptr;
+	for (int x = 0; x < this->_environment_components.size(); x++)
+	{
+		if (this->_environment_components[x]->getComponentName() == "floor")
+			floor = this->_environment_components[x];
+		else if (this->_environment_components[x]->getComponentName() == "exit")
+			exit = this->_environment_components[x];
+	}
+
+	for (int y = 0; y < this->_level.size(); y++)
+	{
+		s = "";
+		for (int x = 0; x < this->_level[y].length(); x++)
+		{
+			//first check player
+			if (this->_level[y].at(x) == SimplifiedMapSymbols::_Player_)
+			{
+				s += SimplifiedMapSymbols::_Player_;
+			}
+
+			//check container
+			else if (this->_level[y].at(x) == SimplifiedMapSymbols::_BasicContainer_)
+			{
+				s += SimplifiedMapSymbols::_BasicContainer_;
+			}
+
+			//check enemy
+			else if (this->_level[y].at(x) == SimplifiedMapSymbols::_Enemies_)
+			{
+				s += SimplifiedMapSymbols::_Enemies_;
+			}
+
+			//check free path for env component it should be floor
+			else if (this->_level[y].at(x) == floor->getComponentChar())
+			{
+				s += SimplifiedMapSymbols::_FreePath_;
+			}
+
+			//check for exit door
+			else if (this->_level[y].at(x) == exit->getComponentChar())
+			{
+				s += SimplifiedMapSymbols::_ExitDoor_;
+			}
+
+			//otherwise it is environment
+			else
+			{
+				s += SimplifiedMapSymbols::_Obstruction_;
+			}
+			/*for (int j = 0; j < this->_environment_components.size(); j++)
+			{
+				if (this->_level[y].at(x) == this->_environment_components[j]->getComponentChar())
+				{
+					//s += this->_environment_components[j]->getComponentChar();
+					
+				}
+			}*/
+		}
+		//push the string back
+		temp.push_back(s);
+	}
+
+
+	return temp;
+}
 
 
 //!this function loads the artwork and assigns them to approprate vectors
@@ -30,6 +101,7 @@ void Level::createLevelForTargetWindow()
 	bool obstruction;
 	this->_playerPath = SingletonFilePathAndFolderManager::getInstance()->getPlayerImagePath();
 	this->_basicContainerPath = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_container;
+	this->_enemyPath = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
 	//environment rendering
 	//2 increment because after each line, I have 1 line for descriptions.
 	for(int x=0; x<this->_environmentComponentNames.size(); x+=2)
@@ -169,6 +241,10 @@ void Level::renderAndDisplayLevel()
 			//check if it is container
 			else if(_level[y].at(x) == _container->getComponentChar())
 					this->_level_window->loadTextureOnRenderer(_container->getImageDetails()->getImageTexture(), nullptr, &dest);
+
+			//check if it is enemy
+			else if (_level[y].at(x) == this->_enemy->getComponentChar())
+				this->_level_window->loadTextureOnRenderer(_enemy->getImageDetails()->getImageTexture(), nullptr, &dest);
 
 			//otherwise it is probaly envronment
 			//render the map

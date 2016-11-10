@@ -54,6 +54,7 @@ void LevelEditor::takeComponentsFromPreBuiltLevel(PreBuiltLevel* pbLevel)
 	this->_environmentComponentPath = pbLevel->getEnvironmentComponentsPath();
 	this->_directory_path_for_level_file_text_file = pbLevel->getDirectoryPathForLevelTextFile();
 	this->_playerPath = pbLevel->getPlayerPath();
+	this->_enemyPath = pbLevel->getEnemyPath();
 	this->_basicContainerPath = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_container;
 	this->_level = pbLevel->getBuiltLevelFile();
 }
@@ -403,6 +404,48 @@ void LevelEditor::renderDescriptionAtBottomRIght(GameComponent* component)
 		return;
 	}
 
+
+	//try enemy
+	Monster* mons = dynamic_cast<Monster*>(component);
+	if (mons != nullptr)
+	{
+		//delete all temp text first
+		for (int x = 0; x<_tempText.size(); x++)
+		{
+			if (_tempText[x] != nullptr)
+			{
+				delete _tempText[x];
+				_tempText[x] = nullptr;
+			}
+		}
+		_tempText[0] = new Text();
+		_tempText[0]->setFontType(this->getLevelWindow()->getCurrentFontTypePath());
+		_tempText[0]->setFontSize(250);
+		_tempText[0]->setText(component->getComponentName());
+		_tempText[0]->setDestinationRectOnTargetWindow(_descriptionRect);
+		_tempText[0]->setTextColor(255, 0, 0);
+		_tempText[0]->createTextTextureOnTargetWindowRenderer(this->getLevelWindow()->getRenderer());
+		this->getLevelWindow()->loadTextureOnRenderer(_tempText[0]->getTextTexture(), nullptr, &_tempText[0]->getTargetOnWindowRectangle());
+
+		std::string s = "Obstruction: ";
+		if (mons->isComponentObstructionToPlayer() == true)
+			s = s + "Yes";
+		else
+			s = s + "No";
+
+		_descriptionRect.w = _descriptionRect.w + (_descriptionRect.w * 0.3);
+		_descriptionRect.y = _descriptionRect.y + _descriptionRect.h + 5;
+
+		_tempText[1] = new Text();
+		_tempText[1]->setFontType(this->getLevelWindow()->getCurrentFontTypePath());
+		_tempText[1]->setFontSize(250);
+		_tempText[1]->setText(s);
+		_tempText[1]->setTextColor(255, 0, 0);
+		_tempText[1]->setDestinationRectOnTargetWindow(_descriptionRect);
+		_tempText[1]->createTextTextureOnTargetWindowRenderer(this->getLevelWindow()->getRenderer());
+		this->getLevelWindow()->loadTextureOnRenderer(_tempText[1]->getTextTexture(), nullptr, &_tempText[1]->getTargetOnWindowRectangle());
+		return;
+	}
 
 	//if it is not environment and container then it is parent gamecomponent so player
 	for(int x=0; x<_tempText.size(); x++)

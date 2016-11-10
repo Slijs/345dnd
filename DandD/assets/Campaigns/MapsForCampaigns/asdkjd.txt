@@ -1,7 +1,6 @@
-CCCCCC
-CDDDDC
-CD@@DC
-A@@xxC
-CBCD@C
-CpCCCC
+BBBBB
+BxxBB
+BxxxB
+AxxxB
+BBxpB
 assets/environment component themes/test theme2/

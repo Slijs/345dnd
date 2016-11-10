@@ -155,8 +155,26 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
 	l->renderAndDisplayLevel();
+	f->setMap(&l->getMapSimpleVersion());
 
-	f->setMap(&l->getMapStringVersiion());
+	//first test the original MAP
+	/*std::cout << std::endl;
+	for (int y = 0; y < l->getMapStringVersiion().size(); y++)
+	{
+		std::cout << l->getMapStringVersiion()[y];
+		std::cout<<std::endl;
+	}
+	std::cout << std::endl;
+	//then test simple map
+	for (int y = 0; y < l->getMapSimpleVersion().size(); y++)
+	{
+		std::cout<<l->getMapSimpleVersion()[y];
+		std::cout<<std::endl;
+	}
+	std::cout << "testing maps, press any key to continue\n";
+	getch();
+
+	
 	destinationInt = -1;
 
 	while(quit==false)
@@ -170,7 +188,7 @@ int GameLoops::gameLevelLoop(std::string mappath)
 			engine->runEngine();
 			quit = true;
 		}
-	}
+	}*/
 
 
 	l->getLevelWindow()->hideWindow();
@@ -295,6 +313,7 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 				m->setTargetIsPlayer(false);
 				m->setTargetIsExit(false);
 				m->setTargetisContainer(false);
+				m->setTargetisEnemy(false);
 				m->setTargetTexture(nullptr);
 				m->setOnTargetFirstTime(false);
 				level->renderAllNonGameplayGridPortions();

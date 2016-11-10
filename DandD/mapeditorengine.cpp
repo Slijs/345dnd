@@ -36,6 +36,7 @@ MapEditorEngine::MapEditorEngine(LevelEditor* level_)
 	targetisplayer = false;
 	targetisexit = false;
 	targetiscontainer = false;
+	targetisenemy = false;
 	this->components = this->level->getGameplayGridsRects();
 	this->characterTarget.push_back(this->level->getPlayerDestinationAtBottomRect());
 	this->containerTarget.push_back(this->level->getContainerDestinationAtBottomRect());
@@ -186,8 +187,15 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 					this->level->getLevelWindow()->displayWindow();
 				}
 
+				else if (this->targetisenemy == true)
+				{
+					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
+					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), this->enemy->getComponentChar());
+					this->level->getLevelWindow()->displayWindow();
+				}
+
 				//else if ((targetisplayer == false) && (envcomponents[targetIndex]->getComponentName() != "exit"))
-				else if ((targetisplayer == false) && (targetisexit == false) && (targetiscontainer == false))
+				else if ((targetisplayer == false) && (targetisexit == false) && (targetiscontainer == false) && (targetisenemy==false))
 				{
 					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
 					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), envcomponents[targetIndex]->getComponentChar());
@@ -361,6 +369,7 @@ void MapEditorEngine::onCharacterGrid(SDL_Event* _event)
 			if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_LEFT))
 			{
 				targetselected = true;
+				targetisenemy = true;
 				canDelete = false;
 				targetTexture = enemy->getImageDetails()->getImageTexture();
 			}
@@ -661,6 +670,10 @@ void MapEditorEngine::setTargetIsPlayer(bool s)
 bool MapEditorEngine::setTargetIsPlayer()
 {
 	return this->targetisplayer;
+}
+void MapEditorEngine::setTargetisEnemy(bool e)
+{
+	this->targetisenemy = e;
 }
 void MapEditorEngine::setTargetTexture(SDL_Texture* t)
 {

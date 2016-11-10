@@ -27,6 +27,7 @@ protected:
 	std::vector<std::string> _environmentComponentNames;
 	std::string _playerPath;
 	std::string _basicContainerPath;
+	std::string _enemyPath;
 	std::string _directory_path_for_level_file_text_file;
 	std::vector<std::string> _level;
 	std::vector<SDL_Rect> _gameplayGrids;
@@ -49,6 +50,7 @@ public:
 	void addRectToGamePlayGrids(SDL_Rect dest);
 	SDL_Texture* getEnvironmentTexture(int index);
 	std::vector<std::string> getMapStringVersiion();
+	std::vector<std::string> getMapSimpleVersion();
 	~Level();
 };
 

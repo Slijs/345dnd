@@ -8,10 +8,11 @@ GameComponent::GameComponent()
 //FOLLOWING IS TEMPORAY FOR TEST ONLY
 bool GameComponent::isComponentObstructionToPlayer()
 {
-	return false;
+	return this->_obstructionToPlayer;
 }
 void GameComponent::setObstructionToPlayer(bool isobstructiontoplayer)
 {
+	this->_obstructionToPlayer = isobstructiontoplayer;
 }
 
 //!parameterized constructor sets everything but the component image is only to nullptr, it is setup later on
