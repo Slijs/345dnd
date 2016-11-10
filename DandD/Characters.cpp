@@ -33,6 +33,9 @@ Characters::Characters()
 	ring = new Ring();
 	helmet = new Helmet();
 	backpack = new Container();
+
+	position.push_back(-1);
+	position.push_back(-1);
 }
 
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
@@ -729,6 +732,16 @@ void Characters::setMap(std::vector<std::string> *newMap){
 		delete _map; // To prevent memory leaks
 	}
 	_map = newMap;
+	for (int i = 0; i < _map->size(); i++){
+		for (int j = 0; j < _map->at(i).size(); j++){
+			if (_map->at(i).at(j) == SimplifiedMapSymbols::_Player_){
+				position[0] = i;
+				position[1] = j;
+				return;
+			}
+		}
+	}
+	return;
 }
 
 bool Characters::validatePlayerMove(int x, int y){
