@@ -1,4 +1,5 @@
 #include "Fighter.h"
+using namespace std;
 
 IMPLEMENT_SERIAL(Fighter, Characters, 1);
 
@@ -819,24 +820,19 @@ bool Fighter::validateChestWithinRange(int x, int y){
 	int xDiff = abs(x - this->position[0]);
 	int yDiff = abs(y - this->position[1]);
 	// If either the xDiff or yDiff is greater than speed, then chest is out of range - returns false
-	if (xDiff > speed || yDiff > speed)
+	if (xDiff >= speed || yDiff >= speed)
 		return false;
 	return true;
 }
 
 bool Fighter::validatePlayerMove(int x, int y) {
-
-	std::cout << "In Jeremiahs functions: \n" << "X: " << x << "Y: " << y << endl;
-	//testing
-	return true;
-	//testing end
 	char posInQuestion = 'c';
 	// Will user super validatePlayerMove to determine if movement on map is valid.
 	if (!this->Characters::validatePlayerMove(x, y))
 		return false;
-	
+
 	// Moving less than or equal to range up, absolutely no change in horizontal position
-	if (position[0] - x <= speed && position[1] - y == 0) {
+	if (abs(position[0] - x) <= speed && position[1] - y == 0) {
 		for (int i = position[0] - 1; i > x; --i) {
 			// Will determine if each square the character is trying to move to can be landed on.
 			// Destination does not have to be verified, as this is done by Characters
@@ -849,7 +845,7 @@ bool Fighter::validatePlayerMove(int x, int y) {
 
 	// Moving less than or equal to range down
 	}
-	else if (x - position[0] <= speed && position[1] - y == 0) {
+	else if (abs(x - position[0]) <= speed && position[1] - y == 0) {
 		for (int i = position[0] + 1; i < x; ++i) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
@@ -862,8 +858,8 @@ bool Fighter::validatePlayerMove(int x, int y) {
 	}
 
 	// Moving less than or equal to range left
-	else if (x - position[0] == 0 && position[1] - y <= speed) {
-		for (int i = position[1] - 1; i > x; --i) {
+	else if (x - position[0] == 0 && abs(position[1] - y) <= speed && (position[1] - y >= 0)) {
+		for (int i = position[1] - 1; i > y; --i) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 			posInQuestion = _map->at(x).at(i);
@@ -875,8 +871,8 @@ bool Fighter::validatePlayerMove(int x, int y) {
 	}
 
 	// Moving less than or equal to range right
-	else if (x - position[0] == 0 && y - position[1] <= speed) {
-		for (int i = position[1] + 1; i < x; ++i) {
+	else if (x - position[0] == 0 && abs(y - position[1]) <= speed) {
+		for (int i = position[1] + 1; i < y; ++i) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 			posInQuestion = _map->at(x).at(i);
@@ -887,8 +883,11 @@ bool Fighter::validatePlayerMove(int x, int y) {
 		return true;
 	}
 	// Moving up and left less than or equal to range squares (2squares NorthWest)
-	else if (position[0] - x <= speed && position[1] - y <= speed && position[0] - x == position[1] - y) {
-		for (vector<int> pos = {position[0] - 1, position[1] - 1}; pos[0] > x; pos[0] -= 1) {
+	else if ((position[0] - x) <= speed && (position[1] - y) <= speed && ((position[0] - x) > 0) && (position[1] - y) && (position[0] - x == position[1] - y)) {
+		vector<int> pos;
+		pos.push_back(position[0] - 1);
+		pos.push_back(position[1] - 1);
+		for (; pos[0] > x; pos[0] -= 1) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 			
@@ -901,9 +900,8 @@ bool Fighter::validatePlayerMove(int x, int y) {
 		}
 		return true;
 	}
-
-	// Moving up and right less than or equal to range squares (2squares NorthWest)
-	else if (position[0] - x <= speed && y - position[1] <= speed && position[0] - x == position[1] - y) {
+	// Moving up and right less than or equal to range squares (2squares NorthEast)
+	else if ((position[0] - x <= speed) && (y - position[1] <= speed) && (position[0] - x >= 0) && (y - position[1] >= 0) && position[0] - x == y - position[1]) {
 		for (vector<int> pos = { position[0] - 1, position[1] + 1 }; pos[0] > x; pos[0] -= 1) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
@@ -917,8 +915,9 @@ bool Fighter::validatePlayerMove(int x, int y) {
 		}
 		return true;
 	}
-	// Moving down and left less than or equal to range squares (2squares NorthWest)
-	else if (x - position[0] <= speed && position[1] - y <= speed && position[0] - x == position[1] - y) {
+
+	// Moving down and left less than or equal to range squares (2squares SouthWest)
+	else if ((x - position[0] <= speed) && (position[1] - y <= speed) && (x - position[0] >= 0) && (position[1] - y >= 0) && x - position[0] == position[1] - y) {
 		for (vector<int> pos = { position[0] + 1, position[1] - 1 }; pos[0] < x; pos[0] += 1) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
@@ -932,8 +931,11 @@ bool Fighter::validatePlayerMove(int x, int y) {
 		}
 		return true;
 	}
-	// Moving down and right less than or equal to range squares (2squares NorthWest)
-	else if (x - position[0] <= speed && y - position[1] <= speed && position[0] - x == position[1] - y) {
+	// Moving down and right less than or equal to range squares (2squares SouthEast)
+	else if ((x - position[0] <= speed) && (y - position[1] <= speed) && (x - position[0] >= 0) && (y - position[1] >= 0) && position[0] - x == position[1] - y) {
+		vector<int> pos;
+		pos.push_back(position[0] + 1);
+		pos.push_back(position[1]);
 		for (vector<int> pos = { position[0] + 1, position[1] + 1 }; pos[0] < x; pos[0] += 1) {
 			// Will determine if each square the character is trying to move to can be landed on
 			// Destination does not have to be verified, as this is done by Characters

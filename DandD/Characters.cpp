@@ -736,10 +736,15 @@ Characters::Characters(Characters* otherChar) {
 *@param newMap vector<string>, where each string represents one line of the map
 */
 void Characters::setMap(std::vector<std::string> *newMap){
-	if (_map != NULL){
-		//delete _map; // To prevent memory leaks
+	if (_map == NULL){
+		_map = new vector<string>();
+	} else {
+		delete _map;
+		_map = new vector<string>();
 	}
-	_map = newMap;
+	for (int i = 0; i < newMap->size(); i++){
+		_map->push_back(newMap->at(i));
+	}
 	for (int i = 0; i < _map->size(); i++){
 		for (int j = 0; j < _map->at(i).size(); j++){
 			if (_map->at(i).at(j) == SimplifiedMapSymbols::_Player_){
@@ -754,10 +759,12 @@ void Characters::setMap(std::vector<std::string> *newMap){
 
 bool Characters::validatePlayerMove(int x, int y){
 	// Determine valid square
-	if (x < 0 || x >= _map->size())
+	if (x < 0 || x >= _map->size()){
 		return false;
-	if (y < 0 || y >= _map->at(0).size())
+	}
+	if (y < 0 || y >= _map->at(0).size()){
 		return false;
+	}
 	char posInQuestion = _map->at(x).at(y);
 	return _validPosition(posInQuestion);
 }
