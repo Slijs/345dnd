@@ -7,6 +7,8 @@ Jadefedgah[8002].ttf
 PEPSI_pl.ttf
 POPSTARS.ttf
 Promocyja096.ttf
+ChronoType.ttf
+upheavtt.ttf
 shangri-la.ttf
 STAMPACT.ttf
 XXII ARABIAN-ONENIGHTSTAND.ttf
