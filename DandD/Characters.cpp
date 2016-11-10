@@ -328,7 +328,6 @@ void Characters::calcDamageBonus()
 //!Function for generic display of character's stats (shows all information)
 void Characters::displayStats()
 {
-	system("CLS");
 	cout << "Level: " << level << "	EXP: " << exp << endl;
 	cout << "STR: " << scores[0][0] << "(" << scores[1][0] << ")";
 	cout << "\nDEX: " << scores[0][1] << "(" << scores[1][1] << ")";

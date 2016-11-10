@@ -139,6 +139,7 @@ void Fighter::initHitPoints()
 //!Function to displays the fighter stats, calls parent displayStats()
 void Fighter::displayStats()
 {
+	system("CLS");
 	string raceName;
 	cout << "Name: " << name << endl;
 	cout << "Class: Fighter" << " Race: " << raceString[race] << endl;
