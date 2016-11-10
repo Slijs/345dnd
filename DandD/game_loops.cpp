@@ -153,12 +153,12 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	
 	PreBuiltLevel* l = new PreBuiltLevel("Test", this->_currentFighterTracker);
 	GamePlayEngine* engine = new GamePlayEngine();
-	engine->attachLevel(l, &this->_event);
-
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
 	l->setupContainersOnMap();
 	l->renderAndDisplayLevel();
+
+	engine->attachLevel(l, &this->_event);
 	this->_currentFighterTracker->setMap(&l->getMapSimpleVersion());
 
 	//f->setMap(&l->getMapSimpleVersion());

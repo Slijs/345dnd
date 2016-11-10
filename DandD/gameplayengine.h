@@ -1,6 +1,7 @@
 #if !defined (GAMEPLAY_ENGINE_H)
 #define GAMEPLAY_ENGINE_H
 #include "prebuiltlevel.h"
+#include "containerOnMap.h"
 #include <vector>
 class GamePlayEngine
 {
@@ -16,6 +17,7 @@ private:
 	int _gridIndex;
 	int _lastButtonIndex;
 	std::vector<SDL_Rect> _buttons;
+	std::vector<ContainerOnMap*> _containers;
 
 public:
 	GamePlayEngine();
