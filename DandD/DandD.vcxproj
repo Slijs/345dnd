@@ -164,6 +164,7 @@
     <ClInclude Include="campaignMAPmanagers.h" />
     <ClInclude Include="menuengine.h" />
     <ClInclude Include="menus.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterCreator.h" />
     <ClInclude Include="MonsterFactory.h" />
     <ClInclude Include="namespaces.h" />
