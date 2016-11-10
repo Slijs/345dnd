@@ -129,7 +129,7 @@ void GamePlayEngine::interactEnvironment()
 	for (int x = 0; x < this->_containers.size(); x++)
 	{
 		//std::cout << "vector index: " << this->_containers[x]->stringIndex << "char index: " << this->_containers[x]->charIndex<<std::endl;
-		interact = this->_level->getPlayer()->validateChestWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
+		interact = this->_level->getPlayer()->validateMapComponentWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
 		//std::cout << "validate chest function return: " << interact << std::endl;
 		//std::cout << "X: " << contGridX << "Y: " << contGridY <<"interact return: "<<interact<< std::endl;
 		//if interact is true then lookout for a left button click on that part of the map

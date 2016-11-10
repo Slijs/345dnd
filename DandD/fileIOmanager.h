@@ -11,6 +11,7 @@
 #include <conio.h>
 #include "filepathandfoldermanager.h"
 /*!
+*@class SingletonInputOutputManager
 *This class is a singleton class designed to handle the text input output for the engine
 *this class also complements the singleton class SingletonFilePathAndFolderManager in managing
 *input output to the correct files for campaign editing, which involves

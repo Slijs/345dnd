@@ -10,6 +10,7 @@
 #include "namespaces.h"
 using namespace WindowHeightWidthDivideAspect;
 /*!
+*@class Menus
 *abstract class, desgined for building windows that are solely menus and would not 
 *have image components. The functions are designed to facilitate the usage of the menu engine
 */

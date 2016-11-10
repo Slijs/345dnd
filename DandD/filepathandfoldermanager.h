@@ -10,6 +10,7 @@
 #include "fileIOmanager.h"
 
 /*!
+*@class SingletonFilePathAndFolderManager
 *Singleton class which complements SingletonInputOutputManager, designed for managing
 *loading components for a theme and reads or writes into a corresponding file
 *the motivation for this class is that in the final game there will be multiple themes
