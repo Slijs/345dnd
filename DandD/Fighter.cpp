@@ -672,7 +672,8 @@ bool Fighter::interactWithContainer(Container *theContainer){
 	system("CLS");
 	//display container contents
 	cout << theContainer->contentsToString() << endl;
-	
+	cin.clear();
+	cin.ignore(10000, '\n');
 	//ask user if they want to get container
 	do {
 		cout << "Would you like to retrieve items from this container? (Y/N)" << endl;

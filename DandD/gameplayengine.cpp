@@ -93,7 +93,7 @@ int GamePlayEngine::runEngine()
 					// DISPLAY CHARACTER STATS AND INVENTORY HERE
 					//!!!!!!!!!!!!!!!!!!!!
 					this->_level->getPlayer()->displayStats();
-					getch();
+					//getch();
 					system("cls");
 					this->_level->getLevelWindow()->unHideWindow();
 				}
@@ -123,14 +123,16 @@ void GamePlayEngine::interactEnvironment()
 	int mouseIndex;
 	int contGridX;
 	int contGridY;
+	int mouseX;
+	int mouseY;
 	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
 	int charIndex = _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
 	for (int x = 0; x < this->_containers.size(); x++)
 	{
 		//std::cout << "vector index: " << this->_containers[x]->stringIndex << "char index: " << this->_containers[x]->charIndex<<std::endl;
-		interact = this->_level->getPlayer()->validateChestWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
-		//interact = this->_level->getPlayer()->validateComponent
+		//interact = this->_level->getPlayer()->validateChestWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
+		interact = this->_level->getPlayer()->validateMapComponentWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
 		//std::cout << "validate chest function return: " << interact << std::endl;
 		//std::cout << "X: " << contGridX << "Y: " << contGridY <<"interact return: "<<interact<< std::endl;
 		//if interact is true then lookout for a left button click on that part of the map
@@ -141,16 +143,18 @@ void GamePlayEngine::interactEnvironment()
 			std::cout << "X cont: " << contGridX << "Y cont: " << contGridY << std::endl;
 			std::cout << "X mouse: " << _currentGrid.x << "Y mouse: " << _currentGrid.y << std::endl;
 			//check if mouse is range of this then lookout for a left mousebutton click
-			
-			if ((this->_currentGrid.x >= contGridX) && (this->_currentGrid.x <= contGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
-				(this->_currentGrid.y >= contGridY) && (this->_currentGrid.y <= contGridY + this->_level->getLevelWindow()->getGridY_Length()))
+			SDL_GetMouseState(&mouseX, &mouseY);
+			/*if ((this->_currentGrid.x >= contGridX) && (this->_currentGrid.x <= contGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
+				(this->_currentGrid.y >= contGridY) && (this->_currentGrid.y <= contGridY + this->_level->getLevelWindow()->getGridY_Length()))*/
+			if ((mouseX >= contGridX) && (mouseX <= contGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
+				(mouseY >= contGridY) && (mouseY <= contGridY + this->_level->getLevelWindow()->getGridY_Length()))
 			{
 				if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_LEFT))
 				{
 					this->_level->getLevelWindow()->hideWindow();
 					system("cls");
-					std::cout<<this->_containers[x]->container->contentsToString();
-					getch();
+					//std::cout<<this->_containers[x]->container->contentsToString();
+					this->_level->getPlayer()->interactWithContainer(this->_containers[x]->container);
 					system("cls");
 					this->_level->getLevelWindow()->unHideWindow();
 					return;
