@@ -176,17 +176,17 @@ void Container::Serialize(CArchive &ar) {
 		for (int i = 0; i < numContents; i++) {
 
 			// Will Serialize for EACH item the type of the item, so that deserialization will work properly
-			if (typeid(*(contents.at(i))) == typeid(ItemTypes::Armor))
+			if (typeid(*(contents.at(i))) == typeid(Armor))
 				ar << ItemTypes::Armor;
-			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Boots))
+			else if (typeid(*(contents.at(i))) == typeid(Boots))
 				ar << ItemTypes::Boots;
-			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Helmet))
+			else if (typeid(*(contents.at(i))) == typeid(Helmet))
 				ar << ItemTypes::Helmet;
-			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Ring))
+			else if (typeid(*(contents.at(i))) == typeid(Ring))
 				ar << ItemTypes::Ring;
-			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Shield))
+			else if (typeid(*(contents.at(i))) == typeid(Shield))
 				ar << ItemTypes::Shield;
-			else if (typeid(*(contents.at(i))) == typeid(ItemTypes::Weapon))
+			else if (typeid(*(contents.at(i))) == typeid(Weapon))
 				ar << ItemTypes::Weapon;
 			else
 				ar << ItemTypes::Item;

@@ -293,128 +293,212 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 /**
 * Allows the Fighter to equip piece of armor at index 'i' in the backpack. If no armor is equipped, then nothing special happens.
 * If the Fighter already has armor equipped, then it is returned to the backpack.
-*@param i 
+*@param i index of armor in background
 */
 void Fighter::equipArmor(int i)
 {
+	//Remove bonus
+	if (armor->getDefense() == 0)
+		armorClass -= 10;
+	else{
+		armorClass -= armor->getEnchantmentValues()[7];
+		armorClass -= armor->getDefense();
+	}
 	// Checks to see if 'no' Armor has been equipped
 	if (_isNullItem(armor)){
-		//Armor *toEquip = backpack->removeItem(i);
+		delete armor; // Removes the null item
 	}
-	//Remove bonus
-	if (armor->getEnchantmentValues()[7] == 0)
-		armorClass -= 10;
-	else
-		armorClass -= armor->getEnchantmentValues()[7];
-	//armor = a;
+	else { // If a non-null armor has been equipped, it'll be returned to the backpack
+		backpack->insertItem(armor);
+	}
+	Item* toEquip = backpack->removeItem(i);
+	armor = dynamic_cast<Armor*>(toEquip);
+
 	//Add Bonus
 	armorClass += armor->getEnchantmentValues()[7];
-
+	armorClass += armor->getDefense();
 	currentState();
 }
 
-/*
-//!Function to equip weapon. Recalculates damage bonus and attack bonus based on weapon equipped. Triggers redisplay of stats
-void Fighter::equip(Weapon* w)
-{
-	weapon = w;
+/**
+* Allows the Fighter to equip a weapon at index 'i' in the backpack. If no weapon was previously equipped, then nothing special happens.
+* If the Fighter already has weapon equipped, then it is returned to the backpack.
+*@param i index in backpack of weapon
+*/
+void Fighter::equipWeapon(int i){
+
+	// Checks to see if 'no' weapon has been equipped
+	if (_isNullItem(weapon)){
+		delete weapon; // Removes the null item
+	}
+	else { // If a non-null weapon has been equipped, it'll be returned to the backpack
+		backpack->insertItem(weapon);
+	}
+	Item* toEquip = backpack->removeItem(i);
+	weapon = dynamic_cast<Weapon*>(toEquip);
+
+	//Add Bonus
 	calcDamageBonus();
 	calcAttackBonus();
 	currentState();
-}
+};
 
 //!Function to equip helmet. Previous bonus is removed and recalculate the bonus based on new helmet. Triggers redisplay of stats.
-void Fighter::equip(Helmet* h)
-{
+//!@param i index of helmet in backpack
+void Fighter::equipHelmet(int i){
 	updateStatsDQ(helmet);
+	// Checks to see if 'no' helmet has been equipped
+	if (_isNullItem(helmet)){
+		delete weapon; // Removes the null item
+	}
+	else { // If a non-null helmet has been equipped, it'll be returned to the backpack
+		backpack->insertItem(helmet);
+	}
+	Item* toEquip = backpack->removeItem(i);
+	helmet = dynamic_cast<Helmet*>(toEquip);
 
-	helmet = h;
-
+	//Add Bonus
 	updateStatsEQ(helmet);
 
 	currentState();
+	currentState();
 }
+
 //!Function to equip boots. Previous bonus is removed and recalculate the bonus based on new boots. Triggers redisplay of stats.
-void Fighter::equip(Boots* b)
-{
+void Fighter::equipBoots(int i){
 	updateStatsDQ(boots);
+	// Checks to see if 'no' boots has been equipped
+	if (_isNullItem(boots)){
+		delete weapon; // Removes the null item
+	}
+	else { // If a non-null boots has been equipped, it'll be returned to the backpack
+		backpack->insertItem(boots);
+	}
+	Item* toEquip = backpack->removeItem(i);
+	boots = dynamic_cast<Boots*>(toEquip);
 
-	boots = b;
-
+	//Add Bonus
 	updateStatsEQ(boots);
-
 	currentState();
 }
 
 //!Function to equip ring. Previous bonus is removed and recalculate the bonus based on new ring. Triggers redisplay of stats.
-void Fighter::equip(Ring* r)
-{
+void Fighter::equipRing(int i){
 	updateStatsDQ(ring);
+	// Checks to see if 'no' ring has been equipped
+	if (_isNullItem(ring)){
+		delete weapon; // Removes the null item
+	}
+	else { // If a non-null ring has been equipped, it'll be returned to the backpack
+		backpack->insertItem(ring);
+	}
+	Item* toEquip = backpack->removeItem(i);
+	ring = dynamic_cast<Ring*>(toEquip);
 
-	ring = r;
-
+	//Add Bonus
 	updateStatsEQ(ring);
-
 	currentState();
 }
 
 //!Function to equip shield. Previous AC bonus is removed and recalculate the AC based on new shield. Triggers redisplay of stats
-void Fighter::equip(Shield* s)
-{
+void Fighter::equipShield(int i){
 	updateStatsDQ(shield);
+	// Checks to see if 'no' shield has been equipped
+	if (_isNullItem(shield)){
+		delete weapon; // Removes the null item
+	}
+	else { // If a non-null shield has been equipped, it'll be returned to the backpack
+		backpack->insertItem(shield);
+	}
+	Item* toEquip = backpack->removeItem(i);
+	shield = dynamic_cast<Shield*>(toEquip);
 
-	shield = s;
-
+	//Add Bonus
 	updateStatsEQ(shield);
-
 	currentState();
 }
 
-void Fighter::equip(Belt* b)
-{
+//!Function to equip belt. Previous bonuses are removed. Triggers redisplay of stats
+void Fighter::equipBelt(int i){
 	updateStatsDQ(belt);
+	// Checks to see if 'no' belt has been equipped
+	if (_isNullItem(belt)){
+		delete weapon; // Removes the null item
+	}
+	else { // If a non-null belt has been equipped, it'll be returned to the backpack
+		backpack->insertItem(belt);
+	}
+	Item* toEquip = backpack->removeItem(i);
+	belt = dynamic_cast<Belt*>(toEquip);
 
-	belt = b;
-
-	updateStatsEQ(shield);
+	//Add Bonus
+	updateStatsEQ(belt);
 	currentState();
 }
-*/
+
+//!Function to de-equip Armor(). Resets stats and puts armor in backpack, as long as there is space
 void Fighter::deequipArmor()
 {
 	updateStatsDQ(armor);
-	armor = new Armor();//using phil's default constructor for armor etc
+	if (backpack->insertItem(armor)){
+		updateStatsDQ(armor);
+		armor = new Armor();//using phil's default constructor for armor etc
+	}
 }
+
+//!Function to de-equip Weapon. Resets stats and puts weapon in backpack, as long as there is space
 void Fighter::dequipWeapon()
 {
-	updateStatsDQ(weapon);
-	weapon = new Weapon();
+	if (backpack->insertItem(weapon)){
+		updateStatsDQ(weapon);
+		weapon = new Weapon();
+	}
 }
+
+//!Function to de-equip Helmet. Resets stats and puts helmet in backpack, as long as there is space
 void Fighter::deequipHelmet()
 {
-	updateStatsDQ(helmet);
-	helmet = new Helmet();
+	if (backpack->insertItem(helmet)){
+		updateStatsDQ(helmet);
+		helmet = new Helmet();
+	}
 }
+
+//!Function to de-equip Boots. Resets stats and puts boots in backpack, as long as there is space
 void Fighter::deequipBoots()
 {
-	updateStatsDQ(boots);
-	boots = new Boots();
+	if (backpack->insertItem(boots)){
+		updateStatsDQ(boots);
+		boots = new Boots();
+	}
 
 }
+
+//!Function to de-equip Ring. Resets stats and puts ring in backpack, as long as there is space
 void Fighter::deequipRing()
 {
-	updateStatsDQ(ring);
-	ring = new Ring();
+	if (backpack->insertItem(ring)){
+		updateStatsDQ(ring);
+		ring = new Ring();
+	}
 }
+
+//!Function to de-equip Shield. Resets stats and puts shield in backpack, as long as there is space
 void Fighter::deequipShield()
 {
-	updateStatsDQ(shield);
-	shield = new Shield();
+	if (backpack->insertItem(shield)){
+		updateStatsDQ(shield);
+		shield = new Shield();
+	}
 }
+
+//!Function to de-equip belt. Resets stats and puts belt in backpack, as long as there is space
 void Fighter::deequipBelt()
 {
-	updateStatsDQ(belt);
-	belt = new Belt();
+	if (backpack->insertItem(belt)){
+		updateStatsDQ(belt);
+		belt = new Belt();
+	}
 }
 
 
