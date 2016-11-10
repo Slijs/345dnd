@@ -298,7 +298,7 @@ void Fighter::displayEquiped()
 	printf("%-10s%-20s  %-10s%-20s\n", "Armor: ", armor->getName(), "Weapon: ", weapon->getName());
 	printf("%-8s%-5s %-8s%-9s %-8s%-5s %-8s%-9s\n", "Weight:", armor->getWeight() , "Value:", armor->getValue(), "Weight:", weapon->getWeight(), "Value:", weapon->getValue());
 	printf("%-30s  %-30s\n", "Enchantment:", "Enchantment:");
-	printf("%-10s%-20s  %-8s%-5s %-8s%-9s\n", "AC:", "12", "ATT:", "+2", "DAM:", "0");
+	printf("%-10s%-20s  %-8s%-5s %-8s%-9s\n", "AC:", armor->getEnchantmentValues()[6], "ATT:", "+2", "DAM:", "0");
 	cout << "\n";
 
 	printf("%-10s%-20s  %-10s%-20s\n", "Shield: ", "Round Shield", "Helmet: ", "Smart Cap");
@@ -314,7 +314,6 @@ void Fighter::displayEquiped()
 	printf("%-5s%-2s %-5s%-2s", "CHA:", "1", "AC:", "3");
 	cout << "\n\n";
 
-<<<<<<< HEAD
 	printf("%-10s%-20s", "Belt: ", "Belt");
 	cout << "\n";
 	printf("%-8s%-5s %-8s%-9s", "Weight:", "15 lb", "Value:", "15 G");
@@ -329,15 +328,12 @@ void Fighter::displayBackpack()
 
 }
 
-void Fighter::equip(Armor* a)
-=======
 /**
 * Allows the Fighter to equip piece of armor at index 'i' in the backpack. If no armor is equipped, then nothing special happens.
 * If the Fighter already has armor equipped, then it is returned to the backpack.
 *@param i 
 */
 void Fighter::equipArmor(int i)
->>>>>>> origin/Interim-Build
 {
 	// Checks to see if 'no' Armor has been equipped
 	if (_isNullItem(armor)){

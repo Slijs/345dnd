@@ -285,7 +285,7 @@ void Characters::calcArmorClass()
 		armorClass = 10 + scores[1][1];
 	else
 	{
-		armorClass = armor->getDefense()+armor->getEnchantmentValues()[7] + scores[1][1];
+		armorClass = armor->getDefense()+armor->getEnchantmentValues()[6] + scores[1][1];
 	}
 
 }
