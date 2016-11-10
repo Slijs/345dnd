@@ -13,8 +13,8 @@ void MainMenu::setupMenu()
 	menucomponent.x = 30;
 	menucomponent.y = 30;
 	
-	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.04);
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.65);
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.02);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.23);
 
 	std::cout<<menucomponent.x<<" "<<menucomponent.y<<std::endl;
 
@@ -31,55 +31,68 @@ void MainMenu::setupMenu()
 
 	//setup follow up text
 	menucomponent.y = menucomponent.y + menucomponent.h;
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.8);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.25);
 	this->_menuWindow->addTextLabel("Dungeons & Dragons interim demonstration", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 	menucomponent.y = menucomponent.y + menucomponent.h;
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.65);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.26);
 	this->_menuWindow->addTextLabel("Program submission date: November 10th 2016", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 	menucomponent.y = menucomponent.y + menucomponent.h;
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.7);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.3);
 	this->_menuWindow->addTextLabel("Game developed by: Jeremiah, Sabin, Andres, Phil, Khatib.", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 	/*menucomponent.y = menucomponent.y + menucomponent.h;
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.40);
 	this->_menuWindow->addTextLabel("Student ID: 2 9 2 2 2 8 9 8", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);*/
 
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.45);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.25);
 	menucomponent.y = menucomponent.y + menucomponent.h;
 	this->_menuWindow->addTextLabel("Course Instructor: Dr. Mohammed Taleb", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
+
+	// Add title
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.3);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.9);
+	menucomponent.y = menucomponent.y + (menucomponent.h*0.35);
+	this->_menuWindow->setFontType(10);
+	this->_menuWindow->addTextLabel("DRAGONS", this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
+
+
 	//setup buttons
+	this->_menuWindow->setFontType(9);
 	//play campaign
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.30);
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.24);
 	menucomponent.x = (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
-	menucomponent.y = menucomponent.y + (menucomponent.h * 6);
+	menucomponent.y = menucomponent.y + (menucomponent.h * 5.2);
 	this->_menuWindow->addButton("Play Campaign", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 	//create / edit item
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.30);
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.04);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.23);
 	menucomponent.x = (this->_menuWindow->getWindowWidth() / 2) - (menucomponent.w / 2);
 	menucomponent.y = menucomponent.y + (menucomponent.h * 2);
 	this->_menuWindow->addButton("Create / Edit Item", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 
 	//create / edit player
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.30);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.24);
 	menucomponent.x = (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
 	menucomponent.y = menucomponent.y + (menucomponent.h * 2);
 	this->_menuWindow->addButton("Create / Edit Player", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 	//Open Campaign editor
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.30);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.24);
 	menucomponent.x = (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
 	menucomponent.y = menucomponent.y + (menucomponent.h * 2);
 	this->_menuWindow->addButton("Create / Edit Campaign", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 	
 	//exit engine
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.30);
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.06);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.18);
 	menucomponent.x = (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
-	menucomponent.y = menucomponent.y + (menucomponent.h * 2);
+	menucomponent.y = menucomponent.y + (menucomponent.h * 1.2);
 	this->_menuWindow->addButton("Exit Engine", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 	//setup menu renderer and display
