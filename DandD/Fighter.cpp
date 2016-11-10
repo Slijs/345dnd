@@ -1,6 +1,6 @@
-#include "Fighter.h"
-using namespace std;
 
+using namespace std;
+#include "Fighter.h"
 IMPLEMENT_SERIAL(Fighter, Characters, 1);
 
 /* CONSTRUCTOR */
