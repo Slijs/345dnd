@@ -1,7 +1,7 @@
 var searchData=
 [
   ['incrementdefense',['incrementDefense',['../class_armor.html#a2acffb5e791465d3c6bef5bfa86e8926',1,'Armor::incrementDefense()'],['../class_shield.html#a4031510f895e4163ee2b447d7992e08b',1,'Shield::incrementDefense()']]],
-  ['incrementrange',['incrementRange',['../class_shield.html#a2e36b34d593ce4de9066c206c3528846',1,'Shield']]],
+  ['incrementrange',['incrementRange',['../class_shield.html#a2e36b34d593ce4de9066c206c3528846',1,'Shield::incrementRange()'],['../class_weapon.html#a7dd6eff2cc572adb9bef4b985a255920',1,'Weapon::incrementRange()']]],
   ['inithitpoints',['initHitPoints',['../class_fighter.html#a5bfd7630b47d4bf3b7b1288195bbad07',1,'Fighter']]],
   ['insertitem',['insertItem',['../class_container.html#a512e6e65360249dc2fcd1aa5f466a01e',1,'Container']]],
   ['interactenvironment',['interactEnvironment',['../class_game_play_engine.html#a2a0f5663a43825bbd815d6bfe92bd8fb',1,'GamePlayEngine']]],

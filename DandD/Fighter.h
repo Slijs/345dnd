@@ -48,7 +48,7 @@ public:
 	Fighter(); // Default constructor for Dummy Fighter
 	~Fighter();
 
-
+	virtual void forceLevelIncrease();
 	void initHitPoints();
 	void recalcHitPoints();
 	void displayStats();

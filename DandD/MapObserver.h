@@ -13,6 +13,8 @@
 class MapObserver : public Observer {
 private:
 	PreBuiltLevel* _theMap;
+	SDL_Rect dest1;
+	SDL_Rect dest2;
 public:
 	void Update();
 	~MapObserver();

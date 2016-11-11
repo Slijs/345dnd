@@ -2,7 +2,7 @@ var searchData=
 [
   ['damageroll',['damageRoll',['../class_characters.html#acfbeb255a424493efe9224a1d177ea5c',1,'Characters']]],
   ['decrementdefense',['decrementDefense',['../class_armor.html#a18ec027984c729af8580c79b050d57b8',1,'Armor::decrementDefense()'],['../class_shield.html#a90fe2bbca5c029c88715490c5525e1a6',1,'Shield::decrementDefense()']]],
-  ['decrementrange',['decrementRange',['../class_shield.html#afeb7f31a542d80ededa37980f13df576',1,'Shield']]],
+  ['decrementrange',['decrementRange',['../class_shield.html#afeb7f31a542d80ededa37980f13df576',1,'Shield::decrementRange()'],['../class_weapon.html#a6e28001720b8f43ee74f0ac7d3008ba5',1,'Weapon::decrementRange()']]],
   ['deequiparmor',['deequipArmor',['../class_fighter.html#ac7a95f5d4b59bca227f847924625ffc2',1,'Fighter']]],
   ['deequipbelt',['deequipBelt',['../class_fighter.html#a529fdd57ee79c761a7601356f861d7fb',1,'Fighter']]],
   ['deequipboots',['deequipBoots',['../class_fighter.html#add80df04f0659d37c0e30e91314e3d5e',1,'Fighter']]],

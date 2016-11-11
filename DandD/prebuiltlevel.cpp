@@ -29,6 +29,13 @@ void PreBuiltLevel::setLevelOnTargetWindow()
 	this->_level = SingletonInputOutputManager::getInstance()->readFileLineByLine(_directory_path_for_level_file_text_file);
 }
 
+//!sets the pointer rect to values from current rects in map
+void PreBuiltLevel::getDestRectsForObserver(SDL_Rect* dest1, SDL_Rect* dest2)
+{
+	*dest1 = this->_dest1ForObserver;
+	*dest2 = this->_dest2ForObserver;
+}
+
 //!first creates a level window based on the level text vector
 //!then calls parent function to setup the artwork on the window
 void PreBuiltLevel::createLevelForTargetWindow()
@@ -123,6 +130,13 @@ void PreBuiltLevel::setupEnemiesOnMap()
 			}
 		}
 	}
+}
+
+//!function to update destination rectangles for the observer
+void PreBuiltLevel::setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2)
+{
+	this->_dest1ForObserver = dest1;
+	this->_dest2ForObserver = dest2;
 }
 
 //!container coordinate accessor

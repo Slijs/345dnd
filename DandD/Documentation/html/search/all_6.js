@@ -5,5 +5,5 @@ var searchData=
   ['filepathandfoldermanager_2eh',['filepathandfoldermanager.h',['../filepathandfoldermanager_8h.html',1,'']]],
   ['fillbackpack',['fillBackpack',['../class_fighter.html#a572fb61d329f4993701900ff3a1db5f8',1,'Fighter']]],
   ['fillcell',['fillCell',['../class_map_editor_engine.html#a8e791a3027cb744fe72587f0d2521f97',1,'MapEditorEngine']]],
-  ['forcelevelincrease',['forceLevelIncrease',['../class_characters.html#ac5909582bf15fe17b7a6fa5104c26dd6',1,'Characters']]]
+  ['forcelevelincrease',['forceLevelIncrease',['../class_characters.html#ac5909582bf15fe17b7a6fa5104c26dd6',1,'Characters::forceLevelIncrease()'],['../class_fighter.html#a774a40f8466eec10bee12b02e43e0aad',1,'Fighter::forceLevelIncrease()']]]
 ];

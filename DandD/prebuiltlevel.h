@@ -10,6 +10,7 @@
 #include "enemyonmap.h"
 #include "MonsterFactory.h"
 #include "Subject.h"
+
 /*!
 *@class PreBuiltLevel
 * Inherits from levels, not much specific functionalities added except
@@ -26,6 +27,8 @@ protected:
 	SDL_Rect _interact;
 	SDL_Rect _attack;
 	SDL_Rect _savePlayer;
+	SDL_Rect _dest1ForObserver;
+	SDL_Rect _dest2ForObserver;
 	Fighter* _player;
 	std::vector<ContainerOnMap*> _containersOnMap;
 	std::vector<EnemiesOnMap*> _enemisOnMap;
@@ -34,8 +37,6 @@ public:
 	PreBuiltLevel();
 	PreBuiltLevel(std::string path, Fighter* player);
 	void loadUserCreatedLevel(std::string name);
-	SDL_Rect _dest1ForObserver;
-	SDL_Rect _dest2ForObserver;
 	Environment* _environmentForObserver;
 	std::vector<SDL_Rect*> getLevelComponentRects();
 	void setLevelOnTargetWindow();
@@ -51,5 +52,7 @@ public:
 	std::vector<ContainerOnMap*> getContainersOnMap();
 	std::vector<EnemiesOnMap*> getEnemiesOnMap();
 	std::vector<SDL_Rect> getAllButtonDestinations();
+	void setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2);
+	void getDestRectsForObserver(SDL_Rect* dest1, SDL_Rect* dest2);
 	~PreBuiltLevel();
 };

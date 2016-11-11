@@ -123,8 +123,9 @@ int GamePlayEngine::runEngine()
 			{
 				system("cls");
 				this->_level->getLevelWindow()->hideWindow();
-				std::cout << "CONGRATS!!! Map has been completed.\n\nPlayer has levelled up!!";
-				std::cout << "\n\nPress any key to see players level\n";
+				std::cout << "CONGRATS!!! Map has been completed.\n\n";
+				std::cout << this->_level->getPlayer()->getName() << " has leveled up!!" << endl;
+				std::cout << "\n\nPress any key to see " << this->_level->getPlayer()->getName() << "'s new stats.\n";
 				_getch();
 				this->_level->getPlayer()->forceLevelIncrease();
 				this->_level->getPlayer()->displayOnlyStats();
@@ -297,11 +298,11 @@ void GamePlayEngine::attackEnemy()
 */
 void GamePlayEngine::movePlayer()
 {
-	
+	SDL_Rect dest;
 	int mouseIndex = 0;
 	std::vector<std::string> temp = this->_level->getMapStringVersiion();
 	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
-	this->_level->_dest2ForObserver = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
+	//this->_level->_dest2ForObserver = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
 	int charIndex = _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
 	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(vectorIndex, charIndex);
@@ -337,10 +338,10 @@ void GamePlayEngine::movePlayer()
 							//render the floor
 							if (this->_level->getEnvironmentComponents()[k]->getComponentName() == "floor")
 							{
-								this->_level->_dest1ForObserver.x = x*this->_level->getLevelWindow()->getGridX_Length();
-								this->_level->_dest1ForObserver.y = y*this->_level->getLevelWindow()->getGridY_Length();
-								this->_level->_dest1ForObserver.h = this->_level->getLevelWindow()->getGridY_Length();
-								this->_level->_dest1ForObserver.w = this->_level->getLevelWindow()->getGridX_Length();
+								dest.x = x*this->_level->getLevelWindow()->getGridX_Length();
+								dest.y = y*this->_level->getLevelWindow()->getGridY_Length();
+								dest.h = this->_level->getLevelWindow()->getGridY_Length();
+								dest.w = this->_level->getLevelWindow()->getGridX_Length();
 								
 								//now update the environment for the observer
 								this->_level->_environmentForObserver = this->_level->getEnvironmentComponents()[k];
@@ -377,6 +378,8 @@ void GamePlayEngine::movePlayer()
 			}
 			std::cout << std::endl;
 		
+			//update the two destination rectangles in subject
+			this->_level->setDestRectsForObserver(dest, this->_currentGrid);
 			//call the observer update and render and display
 			this->_level->Notify();
 
