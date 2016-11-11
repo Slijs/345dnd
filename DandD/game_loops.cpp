@@ -70,6 +70,7 @@ void GameLoops::loopManager()
 	campaignname = nullptr;
 }
 
+//!the loop that handles playing of a full campaign
 int GameLoops::playCampaignLoop(char* path, char* campaign)
 {
 	//first load menu to select campaign
