@@ -6,5 +6,21 @@ wall true wall.png
 wall
 water true water.png
 lake
-sword true sword.jpg
-sword
+barrels true barrels.png
+barrels
+rock true rock.png
+rock
+rock2 true rock2.png
+rock2
+tree true tree.png
+tree
+TreeStump true TreeStump.png
+TreeStump 
+HighGrass true HighGrass.png
+HighGrass
+lava true lava.png
+lava
+SinkHole true SinkHole.png
+SinkHole
+DirtHill true DirtHill.png
+DirtHill 
