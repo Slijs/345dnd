@@ -410,7 +410,8 @@ void Fighter::equipOptions()
 									cout << "Please try again.\n";
 									cin >> in;
 								}
-								if (in3 > 0 && in3 < a.size())
+								// Changed to <= b/c we are displaying starting at 1, not 0
+								if (in3 > 0 && in3 <= a.size())
 									equipArmor(a[in3-1]);
 								else
 								{
@@ -927,6 +928,9 @@ void Fighter::equipBelt(int i){
 //!Function to de-equip Armor(). Resets stats and puts armor in backpack, as long as there is space
 void Fighter::deequipArmor()
 {
+	// First checks to make sure that it is not null
+	if (_isNullItem(armor))
+		return;
 	updateStatsDQ(armor);
 	if (backpack->insertItem(armor)){
 		updateStatsDQ(armor);
@@ -937,6 +941,9 @@ void Fighter::deequipArmor()
 //!Function to de-equip Weapon. Resets stats and puts weapon in backpack, as long as there is space
 void Fighter::dequipWeapon()
 {
+	// First checks to make sure that it is not null
+	if (_isNullItem(weapon))
+		return;
 	if (backpack->insertItem(weapon)){
 		updateStatsDQ(weapon);
 		weapon = new Weapon();
@@ -946,6 +953,9 @@ void Fighter::dequipWeapon()
 //!Function to de-equip Helmet. Resets stats and puts helmet in backpack, as long as there is space
 void Fighter::deequipHelmet()
 {
+	// First checks to make sure that it is not null
+	if (_isNullItem(helmet))
+		return;
 	if (backpack->insertItem(helmet)){
 		updateStatsDQ(helmet);
 		helmet = new Helmet();
@@ -955,6 +965,9 @@ void Fighter::deequipHelmet()
 //!Function to de-equip Boots. Resets stats and puts boots in backpack, as long as there is space
 void Fighter::deequipBoots()
 {
+	// First checks to make sure that it is not null
+	if (_isNullItem(boots))
+		return;
 	if (backpack->insertItem(boots)){
 		updateStatsDQ(boots);
 		boots = new Boots();
@@ -965,6 +978,9 @@ void Fighter::deequipBoots()
 //!Function to de-equip Ring. Resets stats and puts ring in backpack, as long as there is space
 void Fighter::deequipRing()
 {
+	// First checks to make sure that it is not null
+	if (_isNullItem(ring))
+		return;
 	if (backpack->insertItem(ring)){
 		updateStatsDQ(ring);
 		ring = new Ring();
@@ -974,6 +990,9 @@ void Fighter::deequipRing()
 //!Function to de-equip Shield. Resets stats and puts shield in backpack, as long as there is space
 void Fighter::deequipShield()
 {
+	// First checks to make sure that it is not null
+	if (_isNullItem(shield))
+		return;
 	if (backpack->insertItem(shield)){
 		updateStatsDQ(shield);
 		shield = new Shield();
@@ -983,6 +1002,9 @@ void Fighter::deequipShield()
 //!Function to de-equip belt. Resets stats and puts belt in backpack, as long as there is space
 void Fighter::deequipBelt()
 {
+	// First checks to make sure that it is not null
+	if (_isNullItem(belt))
+		return;
 	if (backpack->insertItem(belt)){
 		updateStatsDQ(belt);
 		belt = new Belt();

@@ -40,7 +40,6 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 		// Will continue to ask for user input until they provide something valid
 		while (true) {
 			cin.clear();
-			cin.ignore(10000, '\n');
 			cin >> input;
 			if (input.at(0) == 'Y' || input.at(0) == 'y')
 				break; // Breaks the loops to continue
