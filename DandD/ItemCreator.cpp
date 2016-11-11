@@ -1,3 +1,7 @@
+/**
+*@class ItemCreator
+*Implementation of functions that allow user created items
+*/
 #include "ItemCreator.h"
 
 // TEST ITEM CREATOR

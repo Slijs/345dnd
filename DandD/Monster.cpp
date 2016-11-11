@@ -1,3 +1,8 @@
+/**
+*@class Monster
+*Subclass of Characters, 'Monster' class implementation
+*/
+
 #include "Monster.h"
 
 //!Default constructor - for making dummy monsters

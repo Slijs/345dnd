@@ -11,7 +11,7 @@
  
 IMPLEMENT_SERIAL(Boots, Item, 1);
 
-// Default constructor, useless item as is
+//!Default constructor, useless item as is
 Boots::Boots() : 	
 	Item("None", 0, 0, "assets/defaultBoots.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,1,0,0,0,0,1,0,0 } })
 {
@@ -23,8 +23,7 @@ Boots::Boots() :
 */
 Boots::Boots(const Boots* otherBoots) : Item(otherBoots) {};
 
-// Constructor where all attributes EXCEPT the enchantmentsPossible
-// will be set.
+//!Constructor where all attributes EXCEPT the enchantmentsPossible will be set.
 Boots::Boots(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues) 
 	: Item(name, weight, value, image, enchantmentValues, {0,1,0,0,0,0,1,0,0})
@@ -32,6 +31,7 @@ Boots::Boots(std::string name, int weight, int value, std::string image,
 
 }
 
+//!Returns a string with all properties of belt
 string Boots::toString()
 {
 	std::string tempString;

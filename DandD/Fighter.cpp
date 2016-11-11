@@ -1,3 +1,7 @@
+/**
+*@class Fighter
+*@brief Provides resource for management of Fighter within game
+*/
 
 using namespace std;
 #include "Fighter.h"
@@ -93,6 +97,7 @@ void Fighter::setRace(Race nRace){
 	detRaceTraits(nRace);
 }
 
+//!Function to set size, speed and score increases based on race
 void Fighter::detRaceTraits(Race race)
 {
 	switch (race)
@@ -227,7 +232,7 @@ void Fighter::displayDeath()
 	exit(0);
 }
 
-/*!Function for attacking a Monster, generates attack roll and checks it agains Monster's AC
+/**Function for attacking a Monster, generates attack roll and checks it agains Monster's AC
 If larger than AC, damage roll is calculated and inflicted on Monster, otherwise attack fails*/
 void Fighter::attack(Monster* c)
 {
@@ -250,7 +255,7 @@ void Fighter::attack(Monster* c)
 	}
 }
 
-/*!Function that reduces hitpoints based on damage taken,
+/**Function that reduces hitpoints based on damage taken,
 if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats*/
 void Fighter::receiveDamage(int damage)
 {
@@ -272,7 +277,7 @@ void Fighter::recalcHitPoints()
 	hitPoints += _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
 }
 
-/*!Function to increase experience when monster is defeated.
+/**Function to increase experience when monster is defeated.
 Calls parent gainExperience(int) function. Notifies change in character state*/
 void Fighter::gainExperience(int gain)
 {
@@ -281,7 +286,6 @@ void Fighter::gainExperience(int gain)
 }
 
 //!Function for level up processing to increment chosen ability score and recalculates hitpoints
-
 void Fighter::levelUp(int choice)
 {
 	recalcHitPoints();
@@ -310,6 +314,7 @@ bool Fighter::validateHitPoints()
 		return false;
 	return true;
 }
+
 //!test function to validate character death
 bool Fighter::validateDeath()
 {
@@ -682,7 +687,6 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 */
 
 //!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
-
 void Fighter::displayEquiped()
 {
 	cout << "CURRENTLY EQUIPPED ITEMS:\n";

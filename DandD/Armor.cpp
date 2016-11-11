@@ -12,7 +12,7 @@
 
 IMPLEMENT_SERIAL(Armor, Item, 1);
 
-// Default constructor, useless item as is
+//!Default constructor, useless item as is
 Armor::Armor() : 	
 	Item("None", 0, 0, "assets/defaultArmor.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,0,0,0,0,0,1,0,0 } }), defense(0)
 {
@@ -40,11 +40,12 @@ Armor::Armor(std::string name, int weight, int value, std::string image,
 }
 
 // Getters/Setters
-
+//!Returns armor defense
 int Armor::getDefense() {
 	return defense;
 }
 
+//!Sets defense
 void Armor::setDefense(int defense)
 {
 	if (defense < 0 || defense > 25) {
@@ -55,6 +56,7 @@ void Armor::setDefense(int defense)
 	}
 }
 
+//!Increments defense by 1
 void Armor::incrementDefense() {
 	defense++;
 }
@@ -69,7 +71,7 @@ void Armor::decrementDefense() {
 }
 
 // Misc methods
-
+//!Returns a string with all properties of Armor
 std::string Armor::toString() {
 	std::string tempString;
 
@@ -80,6 +82,7 @@ std::string Armor::toString() {
 	return tempString;
 }
 
+//! Allows for Armor items to be saved to disk
 void Armor::Serialize(CArchive &ar) {
 	Item::Serialize(ar);
 	if (ar.IsStoring()) {
