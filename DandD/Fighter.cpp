@@ -470,7 +470,8 @@ void Fighter::equipOptions()
 							if (n != 0)
 							{
 								cin >> in3;
-								if (in3 > 0 && in3 < a.size())
+								// Set to >= 0 b/c starts printing at 0, not 1
+								if (in3 >= 0 && in3 < a.size())
 									equipShield(a[in3]);
 								else
 								{

@@ -63,7 +63,7 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	helmet = new Helmet();
 
 	detProficiencyBonus();
-	detExp();
+	detExperience();
 	abilityScoreMod();
 	calcArmorClass();
 	_map = NULL;
@@ -265,6 +265,14 @@ void Characters::abilityScoreMod()
 void Characters::detExperience()
 {
 	exp = experience[1][level - 1];
+}
+
+/**
+* Function that, when called, automatically increases the Character's level and makes sure that their experience points are now set to the minimum of that level
+*/
+void Characters::forceLevelIncrease(){
+	level++;
+	detExperience();
 }
 
 /*!Function that determines initial experience level of character (namely Monster) based on level
