@@ -73,7 +73,8 @@ void Armor::decrementDefense() {
 std::string Armor::toString() {
 	std::string tempString;
 
-	tempString = Item::toString();
+	tempString = "Armour: ";
+	tempString += Item::toString();
 	
 	tempString += "Defense: " + std::to_string(getDefense()) + "\n";
 	return tempString;

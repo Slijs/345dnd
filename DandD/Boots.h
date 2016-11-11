@@ -26,6 +26,7 @@ class Boots: public Item {
 		Boots(const Boots* otherBoots);
 		Boots(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues);
+		string toString();
 };
 
 #endif // Include guard

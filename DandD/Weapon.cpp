@@ -82,7 +82,8 @@ void Weapon::setAttackDice(string attackDice)
 std::string Weapon::toString() {
 	std::string tempString;
 
-	tempString = Item::toString();
+	tempString = "Weapon: ";
+	tempString += Item::toString();
 	
 	tempString += "Attack Dice: " + getAttackDice() +
 		"\tRange: " + std::to_string(getRange()) + "\n";

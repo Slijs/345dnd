@@ -28,6 +28,7 @@ class Belt: public Item {
 		Belt(string name, int weight, int value, string image, 
 				array<int, 9> enchantmentValues);
 		virtual void Serialize(CArchive &ar);
+		string toString();
 };
 
 #endif // Include guard

@@ -37,3 +37,13 @@ Ring::Ring(std::string name, int weight, int value, std::string image,
 void Ring::Serialize(CArchive &ar) {
 	Item::Serialize(ar);
 }
+
+string Ring::toString()
+{
+	std::string tempString;
+
+	tempString = "Ring: ";
+	tempString += Item::toString();
+
+	return tempString;
+}

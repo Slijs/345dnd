@@ -34,3 +34,13 @@ void Belt::Serialize(CArchive & ar)
 {
 	Item::Serialize(ar);
 }
+
+string Belt::toString()
+{
+	std::string tempString;
+
+	tempString = "Belt: ";
+	tempString += Item::toString();
+
+	return tempString;
+}

@@ -31,3 +31,13 @@ Boots::Boots(std::string name, int weight, int value, std::string image,
 {
 
 }
+
+string Boots::toString()
+{
+	std::string tempString;
+
+	tempString = "Boots: ";
+	tempString += Item::toString();
+
+	return tempString;
+}

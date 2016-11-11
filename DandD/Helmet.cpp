@@ -35,3 +35,13 @@ void Helmet::Serialize(CArchive & ar)
 {
 	Item::Serialize(ar);
 }
+
+string Helmet::toString()
+{
+	std::string tempString;
+
+	tempString = "Helmet: ";
+	tempString += Item::toString();
+
+	return tempString;
+}

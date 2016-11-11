@@ -104,7 +104,8 @@ void Shield::setAttackDice(std::string diceString)
 std::string Shield::toString() {
 	std::string tempString;
 
-	tempString = Item::toString();
+	tempString = "Shield: ";
+	tempString += Item::toString();
 	
 	tempString += "Defense: " + std::to_string(getDefense()) + 
 		"\tAttack dice: " + getAttackDice() + "\n";
