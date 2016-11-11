@@ -5,6 +5,13 @@
 #include "enemyonmap.h"
 #include "CharSaveManager.h"
 #include <vector>
+/*!
+*The engine that drives gameplay. 
+*point to note is that a prebuilt map and an sdl event handler
+*has to be attached before running the engine.
+*engine will return 0 if the user would like to play next map
+*in the campign or 1 if the user just wants to exit to main menu
+*/
 class GamePlayEngine
 {
 private:
@@ -33,7 +40,6 @@ public:
 	void attachLevel(PreBuiltLevel* level, SDL_Event* event_);
 	void detachLevel();
 	int runEngine();
-	void onGameplayGrids();
 	int onRIghtHandMenu();
 	void movePlayer();
 	void interactEnvironment();

@@ -13,16 +13,19 @@ Level::Level()
 {
 }
 
+//!accessor for string version of map that is not simplified
 std::vector<std::string> Level::getMapStringVersiion()
 {
 	return this->_level;
 }
 
+//!setter for main map that is NOT simplified
 void Level::setMainMapVector(std::vector<std::string> newmap)
 {
 	this->_level = newmap;
 }
 
+//!accessor for string version of map that has all environment symbols simplified to just obstruction or free path
 std::vector<std::string> Level::getMapSimpleVersion()
 {
 	std::vector<std::string> temp;
@@ -38,6 +41,7 @@ std::vector<std::string> Level::getMapSimpleVersion()
 			exit = this->_environment_components[x];
 	}
 
+	//first convert to simple map
 	for (int y = 0; y < this->_level.size(); y++)
 	{
 		s = "";
@@ -78,20 +82,12 @@ std::vector<std::string> Level::getMapSimpleVersion()
 			{
 				s += SimplifiedMapSymbols::_Obstruction_;
 			}
-			/*for (int j = 0; j < this->_environment_components.size(); j++)
-			{
-				if (this->_level[y].at(x) == this->_environment_components[j]->getComponentChar())
-				{
-					//s += this->_environment_components[j]->getComponentChar();
-					
-				}
-			}*/
 		}
 		//push the string back
 		temp.push_back(s);
 	}
 
-
+	//return the simple map
 	return temp;
 }
 
@@ -278,7 +274,7 @@ void Level::renderAndDisplayLevel()
 	this->_level_window->displayWindow();
 }
 
-
+//!accessor for dummy container component
 Container* Level::getContainerComponent()
 {
 	return this->_container;
@@ -290,12 +286,13 @@ std::vector<Environment*> Level::getEnvironmentComponents()
 	return _environment_components;
 }
 
-//!player component accessor
+//!accessor for dummy player component
 GameComponent* Level::getPlayerComponent()
 {
 	return this->_player;
 }
 
+//!accessor for dummy enemy
 Monster* Level::getEnemy()
 {
 	return this->_enemy;

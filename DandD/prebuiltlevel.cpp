@@ -83,6 +83,7 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_level_window->setMenuOnRenderer();
 }
 
+//!sets up container coordinates on map
 void PreBuiltLevel::setupContainersOnMap()
 {
 	ContainerOnMap* temp;
@@ -103,6 +104,7 @@ void PreBuiltLevel::setupContainersOnMap()
 	}
 }
 
+//!sets up enemy coordinates on map
 void PreBuiltLevel::setupEnemiesOnMap()
 {
 	EnemiesOnMap* temp;
@@ -123,11 +125,13 @@ void PreBuiltLevel::setupEnemiesOnMap()
 	}
 }
 
+//!container coordinate accessor
 std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
 {
 	return this->_containersOnMap;
 }
 
+//!enemy coordiante accessor
 std::vector<EnemiesOnMap*> PreBuiltLevel::getEnemiesOnMap()
 {
 	return this->_enemisOnMap;
@@ -151,6 +155,7 @@ std::string PreBuiltLevel::getPlayerPath() const
 	return this->_playerPath;
 }
 
+//!enemy file path accessor
 std::string PreBuiltLevel::getEnemyPath() const
 {
 	return this->_enemyPath;
@@ -162,11 +167,13 @@ std::vector<std::string> PreBuiltLevel::getBuiltLevelFile() const
 	return this->_level;
 }
 
+//!fighter accessor
 Fighter* PreBuiltLevel::getPlayer()
 {
 	return this->_player;
 }
 
+//!map menu buttons accessor 
 std::vector<SDL_Rect> PreBuiltLevel::getAllButtonDestinations()
 {
 	std::vector<SDL_Rect> temp;
@@ -176,7 +183,23 @@ std::vector<SDL_Rect> PreBuiltLevel::getAllButtonDestinations()
 	return temp;
 }
 
-
+//!local destructor destroys the positions for enemies and containers
 PreBuiltLevel::~PreBuiltLevel()
 {
+	for (int x = 0; x < this->_containersOnMap.size(); x++)
+	{
+		if (this->_containersOnMap[x] != nullptr)
+		{
+			delete this->_containersOnMap[x];
+			this->_containersOnMap[x] = nullptr;
+		}	
+	}
+	for (int x = 0; x < this->_enemisOnMap.size(); x++)
+	{
+		if (this->_enemisOnMap[x] != nullptr)
+		{
+			delete this->_enemisOnMap[x];
+			_enemisOnMap[x] = nullptr;
+		}
+	}
 }

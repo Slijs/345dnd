@@ -483,6 +483,7 @@ int GameLoops::campaignManagerLoop(char* path, char* campaign)
 	return destination;
 }
 
+//launches create edit items for game
 int GameLoops::createEditItems()
 {
 	system("CLS");
@@ -491,6 +492,7 @@ int GameLoops::createEditItems()
 	return _MainMenu_;
 }
 
+//launches cerate edit player for game
 int GameLoops::createEditPlayer()
 {
 	system("CLS");

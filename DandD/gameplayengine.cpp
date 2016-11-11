@@ -1,5 +1,8 @@
 #include "gameplayengine.h"
 
+/*!
+*default constructor just sets all values to default and false
+*/
 GamePlayEngine::GamePlayEngine()
 {
 	this->_level = nullptr;
@@ -21,6 +24,9 @@ GamePlayEngine::GamePlayEngine()
 	this->_currentButtonIndex = -1;
 }
 
+/*!
+*attaches a level and an sdl event manager to engine
+*/
 void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 {
 	this->_level = level;
@@ -47,6 +53,9 @@ void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 	;
 }
 
+/*!
+*detaches level and sdl manager from engine
+*/
 void GamePlayEngine::detachLevel()
 {
 	this->_level = nullptr;
@@ -74,8 +83,18 @@ void GamePlayEngine::detachLevel()
 //index 3 is attack
 //index 4 is save player
 //index 5 is exit play
+/*!
+*function runs gameplay loop, returns 0 if player prefers going to next map, or 1 if player wants to quit playing campaign
+*/
 int GamePlayEngine::runEngine()
 {
+	//error check for level attachment
+	if (this->_level == nullptr)
+	{
+		std::cout << "Error, attempting run gameplay engine without attaching a map, exting program\n";
+		getch();
+		exit(-1);
+	}
 	bool exit = false;
 	int mouse_X;
 	int mouse_Y;
@@ -185,6 +204,9 @@ int GamePlayEngine::runEngine()
 	return 0;
 }
 
+/*!
+*function used when player wants to interact with container on environment
+*/
 void GamePlayEngine::interactEnvironment()
 {
 	bool interact;
@@ -198,22 +220,12 @@ void GamePlayEngine::interactEnvironment()
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
 	for (int x = 0; x < this->_containers.size(); x++)
 	{
-		//std::cout << "vector index: " << this->_containers[x]->stringIndex << "char index: " << this->_containers[x]->charIndex<<std::endl;
-		//interact = this->_level->getPlayer()->validateChestWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
 		interact = this->_level->getPlayer()->validateMapComponentWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
-		//std::cout << "validate chest function return: " << interact << std::endl;
-		//std::cout << "X: " << contGridX << "Y: " << contGridY <<"interact return: "<<interact<< std::endl;
-		//if interact is true then lookout for a left button click on that part of the map
 		if (interact == true)
 		{
 			contGridX = this->_containers[x]->charIndex * this->_level->getLevelWindow()->getGridX_Length();
 			contGridY = this->_containers[x]->stringIndex * this->_level->getLevelWindow()->getGridY_Length();
-			std::cout << "X cont: " << contGridX << "Y cont: " << contGridY << std::endl;
-			std::cout << "X mouse: " << _currentGrid.x << "Y mouse: " << _currentGrid.y << std::endl;
-			//check if mouse is range of this then lookout for a left mousebutton click
 			SDL_GetMouseState(&mouseX, &mouseY);
-			/*if ((this->_currentGrid.x >= contGridX) && (this->_currentGrid.x <= contGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
-				(this->_currentGrid.y >= contGridY) && (this->_currentGrid.y <= contGridY + this->_level->getLevelWindow()->getGridY_Length()))*/
 			if ((mouseX >= contGridX) && (mouseX <= contGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
 				(mouseY >= contGridY) && (mouseY <= contGridY + this->_level->getLevelWindow()->getGridY_Length()))
 			{
@@ -221,7 +233,6 @@ void GamePlayEngine::interactEnvironment()
 				{
 					this->_level->getLevelWindow()->hideWindow();
 					system("cls");
-					//std::cout<<this->_containers[x]->container->contentsToString();
 					this->_level->getPlayer()->interactWithContainer(this->_containers[x]->container);
 					system("cls");
 					this->_level->getLevelWindow()->unHideWindow();
@@ -232,6 +243,9 @@ void GamePlayEngine::interactEnvironment()
 	}	
 }
 
+/*!
+*funtion used when player wants to engage in combat with an enemy
+*/
 void GamePlayEngine::attackEnemy()
 {
 	bool attack;
@@ -245,22 +259,12 @@ void GamePlayEngine::attackEnemy()
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
 	for (int x = 0; x < this->_enemies.size(); x++)
 	{
-		//std::cout << "vector index: " << this->_containers[x]->stringIndex << "char index: " << this->_containers[x]->charIndex<<std::endl;
-		//interact = this->_level->getPlayer()->validateChestWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
 		attack = this->_level->getPlayer()->validateMapComponentWithinRange(this->_enemies[x]->stringIndex, this->_enemies[x]->charIndex);
-		//std::cout << "validate chest function return: " << interact << std::endl;
-		//std::cout << "X: " << contGridX << "Y: " << contGridY <<"interact return: "<<interact<< std::endl;
-		//if interact is true then lookout for a left button click on that part of the map
 		if (attack == true)
 		{
 			enGridX = this->_enemies[x]->charIndex * this->_level->getLevelWindow()->getGridX_Length();
 			enGridY = this->_enemies[x]->stringIndex * this->_level->getLevelWindow()->getGridY_Length();
-			std::cout << "X cont: " << enGridX << "Y cont: " << enGridY << std::endl;
-			std::cout << "X mouse: " << _currentGrid.x << "Y mouse: " << _currentGrid.y << std::endl;
-			//check if mouse is range of this then lookout for a left mousebutton click
 			SDL_GetMouseState(&mouseX, &mouseY);
-			/*if ((this->_currentGrid.x >= contGridX) && (this->_currentGrid.x <= contGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
-			(this->_currentGrid.y >= contGridY) && (this->_currentGrid.y <= contGridY + this->_level->getLevelWindow()->getGridY_Length()))*/
 			if ((mouseX >= enGridX) && (mouseX <= enGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
 				(mouseY >= enGridY) && (mouseY <= enGridY + this->_level->getLevelWindow()->getGridY_Length()))
 			{
@@ -268,8 +272,6 @@ void GamePlayEngine::attackEnemy()
 				{
 					this->_level->getLevelWindow()->hideWindow();
 					system("cls");
-					//std::cout<<this->_containers[x]->container->contentsToString();
-					///this->_level->getPlayer()->interactWithContainer(this->_containers[x]->container);
 					this->_enemies[x]->monster->displayStats();
 					std::cout << "\nPress any key to continue.\n";
 					getch();
@@ -282,7 +284,9 @@ void GamePlayEngine::attackEnemy()
 	}
 }
 
-
+/*!
+*function used to move player
+*/
 void GamePlayEngine::movePlayer()
 {
 	
@@ -294,7 +298,6 @@ void GamePlayEngine::movePlayer()
 	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(vectorIndex, charIndex);
 	std::cout << "testing move function\n" << this->_moveValidityTracker<<"\n";
 	std::cout << "X: " << _currentGrid.x/this->_level->getLevelWindow()->getGridX_Length() << ", Y: " << _currentGrid.y/this->_level->getLevelWindow()->getGridY_Length() << std::endl;
-	//if validity tracker is true then look for a left mouse click
 	
 	std::cout << std::endl;
 	std::cout << "Before move\n";
@@ -381,26 +384,9 @@ void GamePlayEngine::movePlayer()
 	}
 }
 
-void GamePlayEngine::onGameplayGrids()
-{
-	int mouseIndex = 0;
-
-	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
-	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(this->_currentGrid.x, this->_currentGrid.y);
-
-	//if at valid index then alphablend the grid to green
-
-	//if at same grid dont do anything
-	/*if ((_currentGrid.x == _lastGrid.x) && (_currentGrid.x == _lastGrid.y))
-	{
-
-	}
-	//otherwise if last grid was valid remove the alphablend from last grid and alphablend current grid
-	else
-	{
-
-	}*/
-}
+/*!
+*function used to run the menu on right hand side
+*/
 int GamePlayEngine::onRIghtHandMenu()
 {
 	//first check which button I am on
@@ -436,6 +422,9 @@ int GamePlayEngine::onRIghtHandMenu()
 	return -1;
 }
 
+/*!
+*function returns a rectangle grid on map based on current mouse position on window
+*/
 SDL_Rect GamePlayEngine::checkMousePosition(std::vector<SDL_Rect> components, int* targetIndex)
 {
 	int x, y;
@@ -456,5 +445,3 @@ SDL_Rect GamePlayEngine::checkMousePosition(std::vector<SDL_Rect> components, in
 	d.w = -5;
 	return d;
 }
-
-//Fighter::validatePlayerMove(int x, int y)
