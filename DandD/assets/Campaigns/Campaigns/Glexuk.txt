@@ -1,7 +1,18 @@
 Glexuk
+<<<<<<< HEAD
 Slot9
 assets/Campaigns/MapsForCampaigns/Slot9
 Slot8
 assets/Campaigns/MapsForCampaigns/Slot8
 Slot7
 assets/Campaigns/MapsForCampaigns/Slot7
+=======
+Noezig
+assets/Campaigns/MapsForCampaigns/Noezig
+Vreikig
+assets/Campaigns/MapsForCampaigns/Vreikig
+Yotarot
+assets/Campaigns/MapsForCampaigns/Yotarot
+Barag
+assets/Campaigns/MapsForCampaigns/Barag
+>>>>>>> 1d5f2aa66147f207dfc4ee7d97998bdcdaedf298
