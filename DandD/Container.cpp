@@ -17,12 +17,12 @@ IMPLEMENT_SERIAL(Container, CObject, 1);
 
 // Constructors
 /**
- * @brief 
+ * @brief Default Constructor for containers
  */
 Container::Container() : maxContents(15), numContents(0) {}
 
 /**
- * @brief 
+ * @brief Parameterized constructor for containers, sets w/ max contents and inserts a preset vector of items
  *
  * @param m_maxContents
  * @param m_contents
