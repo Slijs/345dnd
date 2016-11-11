@@ -36,11 +36,11 @@ Weapon::Weapon(std::string name, int weight, int value, std::string image,
 }
 
 // Getters/Setters
-
+//! Get range
 int Weapon::getRange() {
 	return range;
 }
-
+//! Set range between 0 and 25
 void Weapon::setRange(int newRange)
 {
 	if (newRange < 0 || newRange > 10) {
@@ -50,11 +50,11 @@ void Weapon::setRange(int newRange)
 		range = newRange;
 	}
 }
-
+//! Increment range if less than 25
 void Weapon::incrementRange() {
 	if (range < 25) { range++; }
 }
-
+//! Decrements range if greater than 0
 void Weapon::decrementRange() {
 	if (range >= 1) {
 		range--;		
@@ -62,12 +62,12 @@ void Weapon::decrementRange() {
 }
 
 // Misc methods
-
+//! Get the attack dice string 1d4 1d6 1d8 or 1d10
 string Weapon::getAttackDice()
 {
 	return attackDice;
 }
-
+//! Set the attack dice string 1d4 1d6 1d8 or 1d10
 void Weapon::setAttackDice(string attackDice)
 {
 	// check to make sure that the dice string is valid
@@ -79,7 +79,7 @@ void Weapon::setAttackDice(string attackDice)
 		this->attackDice = attackDice;
 	}
 }
-
+//! All elements to string
 std::string Weapon::toString() {
 	std::string tempString;
 
@@ -91,7 +91,7 @@ std::string Weapon::toString() {
 
 	return tempString;
 }
-
+//! Allows serializations
 void Weapon::Serialize(CArchive &ar) {
 	Item::Serialize(ar);
 	if (ar.IsStoring()) {

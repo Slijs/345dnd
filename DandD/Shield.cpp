@@ -19,6 +19,7 @@ Shield::Shield() :
 
 }
 
+//! Copy constructor
 Shield::Shield(const Shield* otherShield) : Item(otherShield){
 	this->defense = otherShield->defense;
 	this->attackDice = otherShield->attackDice;
@@ -46,6 +47,7 @@ int Shield::getRange() {
 	return range;
 }
 //!Sets defense
+//! @param defense Must be between 0 and 25
 void Shield::setDefense(int defense) {
 	if (defense < 0 || defense > 25) {
 		throw "Defense must be between 0 and 25.";
@@ -54,16 +56,20 @@ void Shield::setDefense(int defense) {
 		this->defense = defense;
 	}
 }
-//!Increments defense
+//!Increments defense if less than 25
 void Shield::incrementDefense() {
-	defense++;
+	if (defense < 25) {
+		defense++;
+	}
 }
-//!Decrements defense
+//!Decrements defense if greater than 0
 void Shield::decrementDefense() {
-	defense--;
+	if (defense > 0) {
+		defense--;
+	}
 }
 
-//!Sets range of shield for attack
+//! Sets range of shield for attack, between 0 and 10
 void Shield::setRange(int range)
 {
 	if (range < 0 || range > 10) {
@@ -74,21 +80,25 @@ void Shield::setRange(int range)
 	}
 }
 
-//!Increments range
+//! Increments range if less than 25
 void Shield::incrementRange() {
-	range++;
+	if (range < 25) {
+		range++;
+	}
 }
-//!Decrements range
+//! Increments range if greater than 0
 void Shield::decrementRange() {
-	range--;
+	if (range > 0) {
+		range--;
+	}
 }
 
-//Returns attack dice
+//! Gets attack dice 1d4 1d6 1d8 1d10
 std::string Shield::getAttackDice()
 {
 	return attackDice;
 }
-//Sets attack dice
+//! Sets attack dice 1d4 1d6 1d8 1d10
 void Shield::setAttackDice(std::string diceString)
 {
 	// check to make sure that the dice string is valid
@@ -102,6 +112,7 @@ void Shield::setAttackDice(std::string diceString)
 }
 
 // Misc methods
+//! All elements to string
 std::string Shield::toString() {
 	std::string tempString;
 
@@ -113,7 +124,7 @@ std::string Shield::toString() {
 
 	return tempString;
 }
-
+//! Allows serialization
 void Shield::Serialize(CArchive &ar) {
 	Item::Serialize(ar);
 	if (ar.IsStoring()) {
