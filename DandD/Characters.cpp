@@ -63,7 +63,7 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	helmet = new Helmet();
 
 	detProficiencyBonus();
-	detExp();
+	detExperience();
 	abilityScoreMod();
 	calcArmorClass();
 	_map = NULL;
@@ -265,6 +265,14 @@ void Characters::abilityScoreMod()
 void Characters::detExperience()
 {
 	exp = experience[1][level - 1];
+}
+
+/**
+* Function that, when called, automatically increases the Character's level and makes sure that their experience points are now set to the minimum of that level
+*/
+void Characters::forceLevelIncrease(){
+	level++;
+	detExperience();
 }
 
 /*!Function that determines initial experience level of character (namely Monster) based on level
@@ -523,7 +531,9 @@ void Characters::scoreIncrease(int index, int value)
 	abilityScoreMod();
 }
 
-
+/**
+* Sets the x and y position of the Character
+*/
 void Characters::setPosition(int y, int x)
 {
 	position.clear();
@@ -757,6 +767,9 @@ void Characters::setMap(std::vector<std::string> *newMap){
 	return;
 }
 
+/**
+*Function helps to determine if the requested movement of a character is valid
+*/
 bool Characters::validatePlayerMove(int x, int y){
 	// Determine valid square
 	if (x < 0 || x >= _map->size()){
@@ -769,6 +782,10 @@ bool Characters::validatePlayerMove(int x, int y){
 	return _validPosition(posInQuestion);
 }
 
+/**
+*Function helps to determine if a certain position on the map is a valid position
+*If it is a position the Character should not be landing on, then false is returned
+*/
 bool Characters::_validPosition(char posInQuestion) {
 	if (posInQuestion == SimplifiedMapSymbols::_Obstruction_)
 		return false;
@@ -779,6 +796,9 @@ bool Characters::_validPosition(char posInQuestion) {
 	return true;
 }
 
+/**
+* Function helps to determine if a certain position is not an obstruction
+*/
 bool Characters::_validComponentPosition(char posInQuestion){
 	if (posInQuestion == SimplifiedMapSymbols::_Obstruction_)
 		return false;

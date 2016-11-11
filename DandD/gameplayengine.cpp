@@ -9,14 +9,18 @@ GamePlayEngine::GamePlayEngine()
 	this->_interactSelect = false;
 	this->_attackSelect = false;
 	this->_buttonSelect = false;
+	this->_mapExit = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
 	this->_lastGrid.y = -1;
 	this->_gridIndex = -1;
 	this->_lastButtonIndex = -1;
+	this->_exitCharacterIndex = -1;
+	this->_exitStringIndex = -1;
 	this->_currentButtonIndex = -1;
 }
+
 void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 {
 	this->_level = level;
@@ -24,7 +28,25 @@ void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 	this->_buttons = this->_level->getAllButtonDestinations();
 	this->_containers = this->_level->getContainersOnMap();
 	this->_enemies = this->_level->getEnemiesOnMap();
+
+	std::vector<std::string> temp = this->_level->getMapSimpleVersion();
+	//setup the exit coordinates
+	for (int stringC = 0; stringC < temp.size(); stringC++)
+	{
+		for (int charInd = 0; charInd < temp[stringC].length(); charInd++)
+		{
+			if (temp[stringC].at(charInd) == SimplifiedMapSymbols::_ExitDoor_)
+			{
+				this->_exitStringIndex = stringC;
+				this->_exitCharacterIndex = charInd;
+				goto DONE;
+			}
+		}
+	}
+	DONE:
+	;
 }
+
 void GamePlayEngine::detachLevel()
 {
 	this->_level = nullptr;
@@ -34,6 +56,7 @@ void GamePlayEngine::detachLevel()
 	this->_interactSelect = false;
 	this->_attackSelect = false;
 	this->_buttonSelect = false;
+	this->_mapExit = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
@@ -72,6 +95,17 @@ int GamePlayEngine::runEngine()
 				this->_level->getLevelWindow()->changeButtonColor(this->_currentButtonIndex, 255, 0, 0);
 			}
 
+			//check if end map has been reached
+			if (this->_mapExit == true)
+			{
+				system("cls");
+				this->_level->getLevelWindow()->hideWindow();
+				std::cout << "CONGRATS!!! Map has been completed.\n\nPlayer has levelled up!!\n\nPress any key to continue.\n";
+				//this->_level->getPlayer()->le
+				_getch();
+				return 0;
+			}
+
 			//if move select is true all move function
 			if (this->_moveSelect == true)
 				movePlayer();
@@ -103,7 +137,10 @@ int GamePlayEngine::runEngine()
 					this->_currentButtonIndex = buttonindex;
 					//first check for exit
 					if (buttonindex == 5)
+					{
 						exit = true;
+						return 1;
+					}
 
 					if (buttonindex == 0)
 					{
@@ -145,7 +182,6 @@ int GamePlayEngine::runEngine()
 			}
 		}
 	}
-
 	return 0;
 }
 
@@ -336,6 +372,11 @@ void GamePlayEngine::movePlayer()
 			}
 			std::cout << std::endl;
 		
+			//check for end level
+			if ((vectorIndex == this->_exitStringIndex) && (charIndex == this->_exitCharacterIndex))
+			{
+				this->_mapExit = true;
+			}
 		}
 	}
 }

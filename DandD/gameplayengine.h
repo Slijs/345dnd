@@ -16,7 +16,10 @@ private:
 	bool _moveValidityTracker;
 	bool _firstTimeGridTarget;
 	bool _buttonSelect;
+	bool _mapExit;
 	int _currentButtonIndex;
+	int _exitStringIndex;
+	int _exitCharacterIndex;
 	SDL_Rect _currentGrid;
 	SDL_Rect _lastGrid;
 	int _gridIndex;

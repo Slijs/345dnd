@@ -137,6 +137,7 @@ public:
 	void destroyObject();
 	~Characters();
 
+	virtual void forceLevelIncrease();
 	int getLevel();
 	int getExp() { return exp; }
 	int getArmorClass() { return armorClass; }
