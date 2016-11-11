@@ -38,6 +38,7 @@ Characters::Characters()
 	position.push_back(-1);
 }
 
+//!Parameterized constructor used for creation of dummy characters by setting level and all ability scores
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
 {
 	this->level = level;
@@ -187,7 +188,7 @@ int Characters::getScores(int i, int j)
 	return scores[i][j];
 }
 
-
+//!Returns boolean which represents battle status of character
 bool Characters::getInBattle()
 {
 	return inBattle;
@@ -470,6 +471,7 @@ void Characters::endBattle()
 {
 	inBattle = false;
 }
+
 /*//!Helper function for conversion of weapon dice of format #d# and roll dice to get dice roll value
 int Characters::processWeaponDice()
 {
@@ -517,6 +519,7 @@ void Characters::updateAbilityScore(int scoreIndex)
 	setIsLevelUp(false);
 }
 
+//!Increases score of character based on given index and value
 void Characters::scoreIncrease(int index, int value)
 {
 	if (index == 6)
@@ -558,7 +561,7 @@ void Characters::currentState()
 FOR UNIT TEST
 */
 
-///Check to see if score values are valid (3 to 18)
+//!Check to see if score values are valid (3 to 18)
 bool Characters::validateNewCharacter()
 {
 	for (int i = 0; i < 6; i++)
@@ -572,7 +575,7 @@ bool Characters::validateNewCharacter()
 	return true;
 }
 
-//Check if proficiency bonus is correct
+//!Check if proficiency bonus is correct
 bool Characters::validateProficiency()
 {
 	if (level <= 4 && proficiencyBonus != 2)

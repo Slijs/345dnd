@@ -22,7 +22,7 @@ Monster::Monster() : Characters() {
 	this->_obstructionToPlayer = true;
 }
 
-
+//!Parameterized constructor allowing to set name, type, size, level, speed, scores, armor class and weapon of Monster
 Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
 {
 	this->name = name;
@@ -45,7 +45,7 @@ Monster::Monster(string name, Type type, Size size, int level, int speed, int ST
 Monster::~Monster()
 {}
 
-/*!Function to determine the hitDie of the monster based on the size.
+/**Function to determine the hitDie of the monster based on the size.
 Tiny: d4, Small: d6, Medium: d8, Large: d10, Huge: d12 and Gargantuan: d20*/
 void Monster::detHitDie()
 {
@@ -102,7 +102,7 @@ void Monster::displayBattle()
 	this->Characters::displayBattle();
 }
 
-/*!Function for attacking a Fighter, generates attack roll and checks it agains Fighter's AC
+/**Function for attacking a Fighter, generates attack roll and checks it agains Fighter's AC
 If larger than AC, damage roll is calculated and inflicted on Fighter, otherwise attack fails*/
 void Monster::attack(Fighter* c)
 {
@@ -125,7 +125,7 @@ void Monster::attack(Fighter* c)
 	}
 }
 
-/*!Function that reduces hitpoints based on damage taken,
+/**Function that reduces hitpoints based on damage taken,
 if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats*/
 void Monster::receiveDamage(int damage)
 {
@@ -151,6 +151,7 @@ void Monster::currentState()
 	Notify();
 }
 
+//!Function to display Monster's stats (calls Character's displaystats)
 void Monster::displayStats(){
 	system("CLS");
 	cout << "Name: " << name << endl;

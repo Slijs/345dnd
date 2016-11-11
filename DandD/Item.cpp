@@ -103,11 +103,11 @@ Item::Item(string name, int weight, int value, string image,
 
 
 // Accessor and Mutator implementation
-
+//!Returns item name
 string Item::getName() {
 	return name;
 }
-
+//!Sets name
 void Item::setName(string name)
 {
 	if (name.size() < 1 || name.size() > 50) {
@@ -117,11 +117,11 @@ void Item::setName(string name)
 		this->name = name;
 	}
 }
-
+//!Returns weight
 int Item::getWeight() {
 	return weight;
 }
-
+//!Sets weight 
 void Item::setWeight(int weight)
 {
 	if (weight < 0 || weight > 25) {
@@ -131,11 +131,11 @@ void Item::setWeight(int weight)
 		this->weight = weight;
 	}
 }
-
+//!Returns value of item
 int Item::getValue() {
 	return value;
 }
-
+//!Sets value of item
 void Item::setValue(int value)
 {
 	if (value < 0 || value > 999) {
@@ -145,20 +145,20 @@ void Item::setValue(int value)
 		this->value = value;
 	}
 }
-
+//!Returns image path
 string Item::getImage() {
 	return image;
 }
-
+//!Sets image path
 void Item::setImage(string path)
 {
 	this->image = path;
 }
-
+//!Returns array of 9 int containing enchantment values
 array<int, 9> Item::getEnchantmentValues() {
 	return enchantmentValues;
 }
-
+//!Returns array of 9 int containing possible enchantment 
 array<bool, 9> Item::getEnchantmentsPossible() {
 	return enchantmentsPossible;
 }

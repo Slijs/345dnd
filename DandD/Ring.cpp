@@ -11,7 +11,7 @@
 
 IMPLEMENT_SERIAL(Ring, Item, 1);
 
-// Default constructor, useless item as is
+//!Default constructor, useless item as is
 Ring::Ring() : 	
 	Item("None", 0, 0, "assets/defaultRing.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 1,0,1,0,1,1,1,0,0 } })
 {
@@ -25,8 +25,7 @@ Ring::Ring(const Ring* otherRing) : Item(otherRing) {
 
 }
 
-// Constructor where all attributes EXCEPT the enchantmentsPossible
-// will be set.
+//!Constructor where all attributes EXCEPT the enchantmentsPossible will be set.
 Ring::Ring(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues) 
 	: Item(name, weight, value, image, enchantmentValues, {1,0,1,0,1,1,1,0,0})
