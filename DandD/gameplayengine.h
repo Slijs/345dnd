@@ -4,6 +4,7 @@
 #include "containerOnMap.h"
 #include "enemyonmap.h"
 #include "CharSaveManager.h"
+#include "MapObserver.h"
 #include <vector>
 /*!
 *The engine that drives gameplay. 
@@ -31,6 +32,7 @@ private:
 	SDL_Rect _lastGrid;
 	int _gridIndex;
 	int _lastButtonIndex;
+	MapObserver* _observer;
 	std::vector<SDL_Rect> _buttons;
 	std::vector<ContainerOnMap*> _containers;
 	std::vector<EnemiesOnMap*> _enemies;

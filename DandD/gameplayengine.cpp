@@ -34,6 +34,7 @@ void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 	this->_buttons = this->_level->getAllButtonDestinations();
 	this->_containers = this->_level->getContainersOnMap();
 	this->_enemies = this->_level->getEnemiesOnMap();
+	this->_observer = new MapObserver(level);
 
 	std::vector<std::string> temp = this->_level->getMapSimpleVersion();
 	//setup the exit coordinates
@@ -75,6 +76,8 @@ void GamePlayEngine::detachLevel()
 	this->_buttons.clear();
 	this->_containers.clear();
 	this->_enemies.clear();
+	delete this->_observer;
+	this->_observer = nullptr;
 }
 
 //index 0 is player status
@@ -298,6 +301,7 @@ void GamePlayEngine::movePlayer()
 	int mouseIndex = 0;
 	std::vector<std::string> temp = this->_level->getMapStringVersiion();
 	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
+	this->_level->_dest2ForObserver = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
 	int charIndex = _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
 	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(vectorIndex, charIndex);
@@ -333,17 +337,15 @@ void GamePlayEngine::movePlayer()
 							//render the floor
 							if (this->_level->getEnvironmentComponents()[k]->getComponentName() == "floor")
 							{
-								SDL_Rect dest;
-								dest.x = x*this->_level->getLevelWindow()->getGridX_Length();
-								dest.y = y*this->_level->getLevelWindow()->getGridY_Length();
-								dest.h = this->_level->getLevelWindow()->getGridY_Length();
-								dest.w = this->_level->getLevelWindow()->getGridX_Length();
-								//now render with the image details
-								SDL_RenderCopy(this->_level->getLevelWindow()->getRenderer(), this->_level->getEnvironmentComponents()[k]->getImageDetails()->getImageTexture(), nullptr, &dest);
-								SDL_RenderPresent(this->_level->getLevelWindow()->getRenderer());
+								this->_level->_dest1ForObserver.x = x*this->_level->getLevelWindow()->getGridX_Length();
+								this->_level->_dest1ForObserver.y = y*this->_level->getLevelWindow()->getGridY_Length();
+								this->_level->_dest1ForObserver.h = this->_level->getLevelWindow()->getGridY_Length();
+								this->_level->_dest1ForObserver.w = this->_level->getLevelWindow()->getGridX_Length();
+								
+								//now update the environment for the observer
+								this->_level->_environmentForObserver = this->_level->getEnvironmentComponents()[k];
 
 								//make the x y of loop a free path
-								//this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
 								temp[y].at(x) = this->_level->getEnvironmentComponents()[k]->getComponentChar();
 								this->_level->setMainMapVector(temp);
 								std::cout << std::endl;
@@ -358,18 +360,13 @@ void GamePlayEngine::movePlayer()
 						}
 					}
 				}
-			}//done rendering player to floor
-
-
-			//now render floor of current grid to player
-			SDL_RenderCopy(this->_level->getLevelWindow()->getRenderer(), this->_level->getPlayerComponent()->getImageDetails()->getImageTexture(), nullptr, &this->_currentGrid);
-			SDL_RenderPresent(this->_level->getLevelWindow()->getRenderer());
+			}//done putting player to floor
 
 			temp[vectorIndex].at(charIndex) = SimplifiedMapSymbols::_Player_;
 			this->_level->setMainMapVector(temp);
 
 			//finally update the players vector
-			this->_level->getPlayer()->setMap(&this->_level->getMapSimpleVersion());
+			//this->_level->getPlayer()->setMap(&this->_level->getMapSimpleVersion());
 
 			std::cout << std::endl;
 			std::cout << "After move\n";
@@ -380,6 +377,9 @@ void GamePlayEngine::movePlayer()
 			}
 			std::cout << std::endl;
 		
+			//call the observer update and render and display
+			this->_level->Notify();
+
 			//check for end level
 			if ((vectorIndex == this->_exitStringIndex) && (charIndex == this->_exitCharacterIndex))
 			{

@@ -183,6 +183,7 @@ std::vector<SDL_Rect> PreBuiltLevel::getAllButtonDestinations()
 	return temp;
 }
 
+
 //!local destructor destroys the positions for enemies and containers
 PreBuiltLevel::~PreBuiltLevel()
 {

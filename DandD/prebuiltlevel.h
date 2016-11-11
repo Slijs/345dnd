@@ -9,13 +9,14 @@
 #include "ContainerGenerator.h"
 #include "enemyonmap.h"
 #include "MonsterFactory.h"
+#include "Subject.h"
 /*!
 *@class PreBuiltLevel
 * Inherits from levels, not much specific functionalities added except
 * for just loading a text file from a path and creating a graphical
 * level out of it on the LevelWindow instance that it would contain
 */
-class PreBuiltLevel : public Level
+class PreBuiltLevel : public Level, public Subject
 {
 protected:
 	std::vector<SDL_Rect*> _levelComponentRects;
@@ -33,6 +34,9 @@ public:
 	PreBuiltLevel();
 	PreBuiltLevel(std::string path, Fighter* player);
 	void loadUserCreatedLevel(std::string name);
+	SDL_Rect _dest1ForObserver;
+	SDL_Rect _dest2ForObserver;
+	Environment* _environmentForObserver;
 	std::vector<SDL_Rect*> getLevelComponentRects();
 	void setLevelOnTargetWindow();
 	void createLevelForTargetWindow();
