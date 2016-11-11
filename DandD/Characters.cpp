@@ -39,7 +39,6 @@ Characters::Characters()
 }
 
 //!Parameterized constructor used for creation of dummy characters by setting level and all ability scores
->>>>>>> origin/Interim-Build
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
 {
 	this->level = level;
