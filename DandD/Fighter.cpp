@@ -41,6 +41,7 @@ Fighter::Fighter(int level, Race race, string name) : Characters(level)
 	this->_obstructionToPlayer = false;
 }
 
+//!Default Constructor for Fighter, used upon map initialization
 Fighter::Fighter() : Characters(){
 	Fighter::name = "Dummy";
 	size = Dwarfs::size;
@@ -64,7 +65,7 @@ DESTRUCTOR
 */
 Fighter::~Fighter()
 {
-
+	
 }
 
 /**
@@ -93,6 +94,9 @@ void Fighter::setRace(Race nRace){
 	detRaceTraits(nRace);
 }
 
+/**
+* Will set various race-related traits, depending upon the Race flag that is passed to the function
+*/
 void Fighter::detRaceTraits(Race race)
 {
 	switch (race)
@@ -683,7 +687,6 @@ Allows to equip a new Armor, Weapon, Helmet, Boots, Ring and Shield
 */
 
 //!Function to equip armor. Previous AC bonus is removed and recalculate the AC based on new armor. Triggers redisplay of stats
-
 void Fighter::displayEquiped()
 {
 	cout << "CURRENTLY EQUIPPED ITEMS:\n";
@@ -716,6 +719,9 @@ void Fighter::displayEquiped()
 	cout << "\n";
 }
 
+/**
+* Will allow easy display of ONLY the backpack's contents
+*/
 void Fighter::displayBackpack(){
 	cout << backpack->contentsToString() << endl;
 }
@@ -1048,18 +1054,17 @@ void Fighter::Serialize(CArchive &ar){
 	}
 }
 
+/**
+* Used to determine if the location the Character is trying to access is within range.
+*@param x vector-index
+*@param y character-index
+*@return bool True if within range and in cardinal direction, false otherwise
+*/
 bool Fighter::validateMapComponentWithinRange(int x, int y){
-	/*// Will calculate the x and y distance
-	int xDiff = abs(x - this->position[0]);
-	int yDiff = abs(y - this->position[1]);
-	// If either the xDiff or yDiff is greater than speed, then chest is out of range - returns false
-	if (xDiff >= speed || yDiff >= speed)
-		return false;
-	return true; */
 
 	char posInQuestion = 'c';
 
-	// Moving less than or equal to range up, absolutely no change in horizontal position
+	// Accessing less than or equal to range up, absolutely no change in horizontal position
 	if (abs(position[0] - x) <= speed && (position[0] - x >= 0) && position[1] - y == 0) {
 		for (int i = position[0] - 1; i > x; --i) {
 			// Will determine if each square the character is trying to move to can be landed on.
@@ -1071,7 +1076,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 		}
 		return true;
 
-		// Moving less than or equal to range down
+		// Accessing less than or equal to range down
 	}
 	else if (abs(x - position[0]) <= speed && (x - position[0] >= 0) && position[1] - y == 0) {
 		for (int i = position[0] + 1; i < x; ++i) {
@@ -1086,7 +1091,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 		return true;
 	}
 
-	// Moving less than or equal to range left
+	// Accessing less than or equal to range left
 	else if (x - position[0] == 0 && abs(position[1] - y) <= speed && (position[1] - y >= 0)) {
 		for (int i = position[1] - 1; i > y; --i) {
 			// Will determine if each square the character is trying to move to can be landed on
@@ -1099,7 +1104,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 		return true;
 	}
 
-	// Moving less than or equal to range right
+	// Accessing less than or equal to range right
 	else if (x - position[0] == 0 && abs(y - position[1]) <= speed) {
 		for (int i = position[1] + 1; i < y; ++i) {
 			// Will determine if each square the character is trying to move to can be landed on
@@ -1111,7 +1116,7 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 		}
 		return true;
 	}
-	// Moving up and left less than or equal to range squares (2squares NorthWest)
+	// Accessing up and left less than or equal to range squares (2squares NorthWest)
 	else if ((position[0] - x) <= speed && (position[1] - y) <= speed && ((position[0] - x) > 0) && (position[1] - y) && (position[0] - x == position[1] - y)) {
 		vector<int> pos;
 		pos.push_back(position[0] - 1);
@@ -1129,10 +1134,10 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 		}
 		return true;
 	}
-	// Moving up and right less than or equal to range squares (2squares NorthEast)
+	// Accessing up and right less than or equal to range squares (2squares NorthEast)
 	else if ((position[0] - x <= speed) && (y - position[1] <= speed) && (position[0] - x >= 0) && (y - position[1] >= 0) && position[0] - x == y - position[1]) {
 		for (vector<int> pos = { position[0] - 1, position[1] + 1 }; pos[0] > x; pos[0] -= 1) {
-			// Will determine if each square the character is trying to move to can be landed on
+			// Will determine if each square the character is trying to access to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 
 			posInQuestion = _map->at(pos[0]).at(pos[1]);
@@ -1145,10 +1150,10 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 		return true;
 	}
 
-	// Moving down and left less than or equal to range squares (2squares SouthWest)
+	// Accessing down and left less than or equal to range squares (2squares SouthWest)
 	else if ((x - position[0] <= speed) && (position[1] - y <= speed) && (x - position[0] >= 0) && (position[1] - y >= 0) && x - position[0] == position[1] - y) {
 		for (vector<int> pos = { position[0] + 1, position[1] - 1 }; pos[0] < x; pos[0] += 1) {
-			// Will determine if each square the character is trying to move to can be landed on
+			// Will determine if each square the character is trying to access to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 
 			posInQuestion = _map->at(pos[0]).at(pos[1]);
@@ -1160,13 +1165,13 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 		}
 		return true;
 	}
-	// Moving down and right less than or equal to range squares (2squares SouthEast)
+	// Accessing down and right less than or equal to range squares (2squares SouthEast)
 	else if ((x - position[0] <= speed) && (y - position[1] <= speed) && (x - position[0] >= 0) && (y - position[1] >= 0) && position[0] - x == position[1] - y) {
 		vector<int> pos;
 		pos.push_back(position[0] + 1);
 		pos.push_back(position[1]);
 		for (vector<int> pos = { position[0] + 1, position[1] + 1 }; pos[0] < x; pos[0] += 1) {
-			// Will determine if each square the character is trying to move to can be landed on
+			// Will determine if each square the character is trying to access to can be landed on
 			// Destination does not have to be verified, as this is done by Characters
 
 			posInQuestion = _map->at(pos[0]).at(pos[1]);
@@ -1179,10 +1184,17 @@ bool Fighter::validateMapComponentWithinRange(int x, int y){
 		return true;
 	}
 
-	// If this point has been reached, then the Character is not moving in a vector that is allowed, so false will be returned
+	// If this point has been reached, then the Character is not Accessing in a vector that is allowed, so false will be returned
 	return false;
 }
 
+/**
+* Used to validate whether or not a requested move location is within range of the Character. Uses the speed of the Character to determine range.
+* Ensures that there are no obstructions that the character will have to move through in order to get to the destination
+*@param x vector-index
+*@param y char index
+*@return bool, True if the Character is able to move to the requested destination, False otherwise
+*/
 bool Fighter::validatePlayerMove(int x, int y) {
 	char posInQuestion = 'c';
 	// Will user super validatePlayerMove to determine if movement on map is valid.
