@@ -111,7 +111,8 @@ int GamePlayEngine::runEngine()
 				this->_interactSelect = false;
 				this->_attackSelect = false;
 				this->_buttonSelect = false;
-				this->_level->getLevelWindow()->changeButtonColor(this->_currentButtonIndex, 255, 0, 0);
+				if (this->_currentButtonIndex>=0)
+					this->_level->getLevelWindow()->changeButtonColor(this->_currentButtonIndex, 255, 0, 0);
 			}
 
 			//check if end map has been reached
@@ -119,8 +120,12 @@ int GamePlayEngine::runEngine()
 			{
 				system("cls");
 				this->_level->getLevelWindow()->hideWindow();
-				std::cout << "CONGRATS!!! Map has been completed.\n\nPlayer has levelled up!!\n\nPress any key to continue.\n";
-				//this->_level->getPlayer()->fo
+				std::cout << "CONGRATS!!! Map has been completed.\n\nPlayer has levelled up!!";
+				std::cout << "\n\nPress any key to see players level\n";
+				_getch();
+				this->_level->getPlayer()->forceLevelIncrease();
+				this->_level->getPlayer()->displayOnlyStats();
+				std::cout << "\n\nPress any key to continue\n";
 				_getch();
 				return 0;
 			}
