@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['others',['Others',['../namespace_others.html',1,'']]]
+  ['halflings',['Halflings',['../namespace_halflings.html',1,'']]],
+  ['humans',['Humans',['../namespace_humans.html',1,'']]]
 ];

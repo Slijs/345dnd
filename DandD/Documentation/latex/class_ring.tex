@@ -2,7 +2,7 @@
 \label{class_ring}\index{Ring@{Ring}}
 
 
-Class for rings.  
+Subclass of \hyperlink{class_item}{Item}, allows Character to equip a \hyperlink{class_ring}{Ring}.  
 
 
 
@@ -18,12 +18,18 @@ Inheritance diagram for Ring\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_ring_afc47f40ab072db783126111b70693e49}{}\label{class_ring_afc47f40ab072db783126111b70693e49} 
+\hyperlink{class_ring_afc47f40ab072db783126111b70693e49}{Ring} ()
+\begin{DoxyCompactList}\small\item\em Default constructor, useless item as is. \end{DoxyCompactList}\item 
 \hyperlink{class_ring_ab65389fd4a0837c0f82a1b9207ba8330}{Ring} (const \hyperlink{class_ring}{Ring} $\ast$other\+Ring)
 \item 
 \hypertarget{class_ring_a0baf0ece716fa58742a031579310834b}{}\label{class_ring_a0baf0ece716fa58742a031579310834b} 
 {\bfseries Ring} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values})
 \item 
 virtual void \hyperlink{class_ring_a123e40607e2aa46b27da2228af73eb4a}{Serialize} (C\+Archive \&ar)
+\item 
+\hypertarget{class_ring_a26ce5c958d1e1e150f232317a99069a1}{}\label{class_ring_a26ce5c958d1e1e150f232317a99069a1} 
+string {\bfseries to\+String} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -35,18 +41,7 @@ virtual void \hyperlink{class_ring_a123e40607e2aa46b27da2228af73eb4a}{Serialize}
 
 
 \subsection{Detailed Description}
-Class for rings. 
-
-\begin{DoxyAuthor}{Author}
-Philip Brink 
-\end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
-0.\+0.\+1 
-\end{DoxyVersion}
-\begin{DoxyDate}{Date}
-2016-\/10-\/20
-\end{DoxyDate}
-Subclass of \hyperlink{class_item}{Item}, allows Character to equip a \hyperlink{class_ring}{Ring} 
+Subclass of \hyperlink{class_item}{Item}, allows Character to equip a \hyperlink{class_ring}{Ring}. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_ring_ab65389fd4a0837c0f82a1b9207ba8330}{}\label{class_ring_ab65389fd4a0837c0f82a1b9207ba8330} 
@@ -72,5 +67,5 @@ Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Ring.\+h\item 
-Ring.\+cpp\end{DoxyCompactItemize}
+\hyperlink{_ring_8h}{Ring.\+h}\item 
+\hyperlink{_ring_8cpp}{Ring.\+cpp}\end{DoxyCompactItemize}

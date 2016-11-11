@@ -16,13 +16,11 @@ static bool \hyperlink{class_character_save_manager_a7e4ce04eed479a22b1d3f70c9fe
 \item 
 static \hyperlink{class_fighter}{Fighter} $\ast$ \hyperlink{class_character_save_manager_a44105e8553b29cd7e37f3eec6f1a7ce7}{load\+Character} ()
 \item 
-\hypertarget{class_character_save_manager_af8ee3fecc5c19f1f61f98e9132a26b5f}{}\label{class_character_save_manager_af8ee3fecc5c19f1f61f98e9132a26b5f} 
-static void {\bfseries remove\+Character} ()
+static void \hyperlink{class_character_save_manager_af8ee3fecc5c19f1f61f98e9132a26b5f}{remove\+Character} ()
 \item 
 static void \hyperlink{class_character_save_manager_a49dd1eedbdf0e2b7cedfba64d4fb8d53}{remove\+Character} (string name)
 \item 
-\hypertarget{class_character_save_manager_ad9adf9eda9b89e67a977167c954a8d7c}{}\label{class_character_save_manager_ad9adf9eda9b89e67a977167c954a8d7c} 
-static string {\bfseries cstr\+Tostr} (C\+String \&cstr)
+static string \hyperlink{class_character_save_manager_ad9adf9eda9b89e67a977167c954a8d7c}{cstr\+Tostr} (C\+String \&cstr)
 \end{DoxyCompactItemize}
 
 
@@ -34,6 +32,20 @@ Provides the ability to load a specific character, save a character, and remove 
 Also provides helper method to convert from C\+Strings to strings, which is quite useful for managing strings for C\+File 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_character_save_manager_ad9adf9eda9b89e67a977167c954a8d7c}{}\label{class_character_save_manager_ad9adf9eda9b89e67a977167c954a8d7c} 
+\index{Character\+Save\+Manager@{Character\+Save\+Manager}!cstr\+Tostr@{cstr\+Tostr}}
+\index{cstr\+Tostr@{cstr\+Tostr}!Character\+Save\+Manager@{Character\+Save\+Manager}}
+\subsubsection{\texorpdfstring{cstr\+Tostr()}{cstrTostr()}}
+{\footnotesize\ttfamily string Character\+Save\+Manager\+::cstr\+Tostr (\begin{DoxyParamCaption}\item[{C\+String \&}]{cstr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Helper method to convert C\+Strings back to regular strings 
+\begin{DoxyParams}{Parameters}
+{\em cstr} & C\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string version of the C\+String 
+\end{DoxyReturn}
 \hypertarget{class_character_save_manager_a44105e8553b29cd7e37f3eec6f1a7ce7}{}\label{class_character_save_manager_a44105e8553b29cd7e37f3eec6f1a7ce7} 
 \index{Character\+Save\+Manager@{Character\+Save\+Manager}!load\+Character@{load\+Character}}
 \index{load\+Character@{load\+Character}!Character\+Save\+Manager@{Character\+Save\+Manager}}
@@ -45,10 +57,16 @@ Will load a Character from disk based on user selection, and returns a pointer t
 {\em Fighter$\ast$,pointing} & to the loaded Character \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_character_save_manager_a49dd1eedbdf0e2b7cedfba64d4fb8d53}{}\label{class_character_save_manager_a49dd1eedbdf0e2b7cedfba64d4fb8d53} 
+\hypertarget{class_character_save_manager_af8ee3fecc5c19f1f61f98e9132a26b5f}{}\label{class_character_save_manager_af8ee3fecc5c19f1f61f98e9132a26b5f} 
 \index{Character\+Save\+Manager@{Character\+Save\+Manager}!remove\+Character@{remove\+Character}}
 \index{remove\+Character@{remove\+Character}!Character\+Save\+Manager@{Character\+Save\+Manager}}
-\subsubsection{\texorpdfstring{remove\+Character()}{removeCharacter()}}
+\subsubsection{\texorpdfstring{remove\+Character()}{removeCharacter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Character\+Save\+Manager\+::remove\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Allows the user to remove any of the saved \hyperlink{class_characters}{Characters}. Calls the parameterized method using the name selected in order to complete deletion \hypertarget{class_character_save_manager_a49dd1eedbdf0e2b7cedfba64d4fb8d53}{}\label{class_character_save_manager_a49dd1eedbdf0e2b7cedfba64d4fb8d53} 
+\index{Character\+Save\+Manager@{Character\+Save\+Manager}!remove\+Character@{remove\+Character}}
+\index{remove\+Character@{remove\+Character}!Character\+Save\+Manager@{Character\+Save\+Manager}}
+\subsubsection{\texorpdfstring{remove\+Character()}{removeCharacter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Character\+Save\+Manager\+::remove\+Character (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Will allow a specific Character to be deleted based on the name provided 

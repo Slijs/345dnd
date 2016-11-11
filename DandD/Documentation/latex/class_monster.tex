@@ -10,8 +10,8 @@ Inheritance diagram for Monster\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_monster_ac7222e2f2db276b4772d342361ca7444}{}\label{class_monster_ac7222e2f2db276b4772d342361ca7444} 
-{\bfseries Monster} (string, \hyperlink{_entity_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type}, \hyperlink{_entity_8h_a1c40db1d9b56c27240e420765695f1c4}{Size}, int, int, int, int, int, int, int, int, int, \hyperlink{class_weapon}{Weapon} $\ast$)
-\item 
+\hyperlink{class_monster_ac7222e2f2db276b4772d342361ca7444}{Monster} (string, \hyperlink{_entity_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type}, \hyperlink{_entity_8h_a1c40db1d9b56c27240e420765695f1c4}{Size}, int, int, int, int, int, int, int, int, int, \hyperlink{class_weapon}{Weapon} $\ast$)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor allowing to set name, type, size, level, speed, scores, armor class and weapon of \hyperlink{class_monster}{Monster}. \end{DoxyCompactList}\item 
 \hypertarget{class_monster_a3dfc253fbec8331d42ac13c20bf9425f}{}\label{class_monster_a3dfc253fbec8331d42ac13c20bf9425f} 
 \hyperlink{class_monster_a3dfc253fbec8331d42ac13c20bf9425f}{Monster} ()
 \begin{DoxyCompactList}\small\item\em Default constructor -\/ for making dummy monsters. \end{DoxyCompactList}\item 
@@ -36,9 +36,15 @@ void \hyperlink{class_monster_a8a0aadbb74bed6181adb79b58d67d0a8}{receive\+Damage
 \item 
 \hypertarget{class_monster_a2e5fc90efefa02d77c3645f6c7768d88}{}\label{class_monster_a2e5fc90efefa02d77c3645f6c7768d88} 
 void {\bfseries current\+State} ()
-\end{DoxyCompactItemize}
+\item 
+\hypertarget{class_monster_a7dca19cf268fa2a8602b0ccbfe1eda09}{}\label{class_monster_a7dca19cf268fa2a8602b0ccbfe1eda09} 
+virtual void \hyperlink{class_monster_a7dca19cf268fa2a8602b0ccbfe1eda09}{display\+Stats} ()
+\begin{DoxyCompactList}\small\item\em Function to display \hyperlink{class_monster}{Monster}\textquotesingle{}s stats (calls Character\textquotesingle{}s displaystats) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
+
+\subsection{Detailed Description}
+Subclass of \hyperlink{class_characters}{Characters}, \textquotesingle{}\hyperlink{class_monster}{Monster}\textquotesingle{} class implementation 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_monster_ad1805087dbd4472ace66a45f053aa250}{}\label{class_monster_ad1805087dbd4472ace66a45f053aa250} 

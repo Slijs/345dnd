@@ -2,6 +2,11 @@
 \label{class_fighter}\index{Fighter@{Fighter}}
 
 
+Provides resource for management of \hyperlink{class_fighter}{Fighter} within game.  
+
+
+
+
 {\ttfamily \#include $<$Fighter.\+h$>$}
 
 Inheritance diagram for Fighter\+:\begin{figure}[H]
@@ -38,15 +43,15 @@ void \hyperlink{class_fighter_afa53e25a50772d86c5e929c6df1354ad}{display\+Level\
 void \hyperlink{class_fighter_a6a050f0b907517b09627fe16cea6e341}{display\+Death} ()
 \begin{DoxyCompactList}\small\item\em Function to display fighter\textquotesingle{}s death, calls parent \hyperlink{class_fighter_afa53e25a50772d86c5e929c6df1354ad}{display\+Level\+Up()} and terminates the program. \end{DoxyCompactList}\item 
 \hypertarget{class_fighter_abf4d82d4a17d37d3b5ca4084debabde4}{}\label{class_fighter_abf4d82d4a17d37d3b5ca4084debabde4} 
-string {\bfseries get\+Name} ()
-\item 
+string \hyperlink{class_fighter_abf4d82d4a17d37d3b5ca4084debabde4}{get\+Name} ()
+\begin{DoxyCompactList}\small\item\em Returns name of \hyperlink{class_fighter}{Fighter}. \end{DoxyCompactList}\item 
 \hypertarget{class_fighter_a2a733caf375a8d2e1c514418267e5017}{}\label{class_fighter_a2a733caf375a8d2e1c514418267e5017} 
-\hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race} {\bfseries get\+Race} ()
-\item 
+\hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race} \hyperlink{class_fighter_a2a733caf375a8d2e1c514418267e5017}{get\+Race} ()
+\begin{DoxyCompactList}\small\item\em Returns race. \end{DoxyCompactList}\item 
 void \hyperlink{class_fighter_af692d6c9b24f902c13bb8b7f3350631e}{set\+Name} (string name)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets name. \end{DoxyCompactList}\item 
 void \hyperlink{class_fighter_abd0aa443cda40a70c7df3bf1949a9e79}{set\+Race} (\hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race} n\+Race)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets Race. \end{DoxyCompactList}\item 
 void \hyperlink{class_fighter_ac1a886e2f60333e38e90fff2a0f6107b}{attack} (\hyperlink{class_monster}{Monster} $\ast$c)
 \item 
 void \hyperlink{class_fighter_afe019dbd9ed0f0d10e047127dc478a63}{receive\+Damage} (int)
@@ -116,6 +121,8 @@ void \hyperlink{class_fighter_a30734efb2140029276fd7528d28685fc}{display\+Equipe
 \hypertarget{class_fighter_a1f026b1314d058a8033a19328a40e4cb}{}\label{class_fighter_a1f026b1314d058a8033a19328a40e4cb} 
 void {\bfseries display\+Backpack} ()
 \item 
+void \hyperlink{class_fighter_a5dd8b95b965832bbae65d6285a9bac53}{display\+Only\+Stats} ()
+\item 
 \hypertarget{class_fighter_a235df759d42bb20bd6314abe806dd6ce}{}\label{class_fighter_a235df759d42bb20bd6314abe806dd6ce} 
 bool {\bfseries validate\+Hit\+Points} ()
 \item 
@@ -125,11 +132,10 @@ bool \hyperlink{class_fighter_a7372ff74df453241ee2d990a265fd71c}{validate\+Death
 \hypertarget{class_fighter_a05f927eea7af56811cce5a8ba2c8a349}{}\label{class_fighter_a05f927eea7af56811cce5a8ba2c8a349} 
 bool {\bfseries validate\+Gain\+Experience} (int)
 \item 
-\hypertarget{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41}{}\label{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41} 
-bool {\bfseries validate\+Player\+Move} (int x, int y)
-\item 
 \hypertarget{class_fighter_a66d147cbc9c3690009cad90a6ee35f42}{}\label{class_fighter_a66d147cbc9c3690009cad90a6ee35f42} 
 bool {\bfseries validate\+Map\+Component\+Within\+Range} (int x, int y)
+\item 
+bool \hyperlink{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41}{validate\+Player\+Move} (int x, int y)
 \item 
 virtual void \hyperlink{class_fighter_a44b8e8e71e55b645c4fe7f67ef844e87}{Serialize} (C\+Archive \&ar)
 \end{DoxyCompactItemize}
@@ -143,6 +149,8 @@ virtual void \hyperlink{class_fighter_a44b8e8e71e55b645c4fe7f67ef844e87}{Seriali
 
 
 \subsection{Detailed Description}
+Provides resource for management of \hyperlink{class_fighter}{Fighter} within game. 
+
 Subclass of \hyperlink{class_characters}{Characters}, \textquotesingle{}\hyperlink{class_fighter}{Fighter}\textquotesingle{} character class implementation 
 
 \subsection{Member Function Documentation}
@@ -152,7 +160,13 @@ Subclass of \hyperlink{class_characters}{Characters}, \textquotesingle{}\hyperli
 \subsubsection{\texorpdfstring{attack()}{attack()}}
 {\footnotesize\ttfamily void Fighter\+::attack (\begin{DoxyParamCaption}\item[{\hyperlink{class_monster}{Monster} $\ast$}]{c }\end{DoxyParamCaption})}
 
-Function for attacking a \hyperlink{class_monster}{Monster}, generates attack roll and checks it agains \hyperlink{class_monster}{Monster}\textquotesingle{}s AC If larger than AC, damage roll is calculated and inflicted on \hyperlink{class_monster}{Monster}, otherwise attack fails \hypertarget{class_fighter_acabd4955401ddf3ddc0be5f28fa64267}{}\label{class_fighter_acabd4955401ddf3ddc0be5f28fa64267} 
+Function for attacking a \hyperlink{class_monster}{Monster}, generates attack roll and checks it agains \hyperlink{class_monster}{Monster}\textquotesingle{}s AC If larger than AC, damage roll is calculated and inflicted on \hyperlink{class_monster}{Monster}, otherwise attack fails \hypertarget{class_fighter_a5dd8b95b965832bbae65d6285a9bac53}{}\label{class_fighter_a5dd8b95b965832bbae65d6285a9bac53} 
+\index{Fighter@{Fighter}!display\+Only\+Stats@{display\+Only\+Stats}}
+\index{display\+Only\+Stats@{display\+Only\+Stats}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{display\+Only\+Stats()}{displayOnlyStats()}}
+{\footnotesize\ttfamily void Fighter\+::display\+Only\+Stats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Displays only the stats of the \hyperlink{class_fighter}{Fighter}, does not provide ability to edit inventory \hypertarget{class_fighter_acabd4955401ddf3ddc0be5f28fa64267}{}\label{class_fighter_acabd4955401ddf3ddc0be5f28fa64267} 
 \index{Fighter@{Fighter}!equip\+Armor@{equip\+Armor}}
 \index{equip\+Armor@{equip\+Armor}!Fighter@{Fighter}}
 \subsubsection{\texorpdfstring{equip\+Armor()}{equipArmor()}}
@@ -250,13 +264,31 @@ Reimplemented from \hyperlink{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434
 \subsubsection{\texorpdfstring{set\+Name()}{setName()}}
 {\footnotesize\ttfamily void Fighter\+::set\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
 
+
+
+Sets name. 
+
 Allows the name of the \hyperlink{class_fighter}{Fighter} to be changed \hypertarget{class_fighter_abd0aa443cda40a70c7df3bf1949a9e79}{}\label{class_fighter_abd0aa443cda40a70c7df3bf1949a9e79} 
 \index{Fighter@{Fighter}!set\+Race@{set\+Race}}
 \index{set\+Race@{set\+Race}!Fighter@{Fighter}}
 \subsubsection{\texorpdfstring{set\+Race()}{setRace()}}
 {\footnotesize\ttfamily void Fighter\+::set\+Race (\begin{DoxyParamCaption}\item[{\hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race}}]{n\+Race }\end{DoxyParamCaption})}
 
-Will allow a \hyperlink{class_fighter}{Fighter}\textquotesingle{}s race to change. Will undo current Race stats and update them with the stats of the new race 
+
+
+Sets Race. 
+
+Will allow a \hyperlink{class_fighter}{Fighter}\textquotesingle{}s race to change. Will undo current Race stats and update them with the stats of the new race \hypertarget{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41}{}\label{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41} 
+\index{Fighter@{Fighter}!validate\+Player\+Move@{validate\+Player\+Move}}
+\index{validate\+Player\+Move@{validate\+Player\+Move}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{validate\+Player\+Move()}{validatePlayerMove()}}
+{\footnotesize\ttfamily bool Fighter\+::validate\+Player\+Move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function helps to determine if the requested movement of a character is valid 
+
+Reimplemented from \hyperlink{class_characters_a42bbd977aed8772f446510e7fcfd577f}{Characters}.
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

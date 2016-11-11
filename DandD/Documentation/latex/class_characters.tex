@@ -22,8 +22,8 @@ Inheritance diagram for Characters\+:\begin{figure}[H]
 \hyperlink{class_characters_af131b231e05a7960369289684c89afad}{Characters} ()
 \begin{DoxyCompactList}\small\item\em Default Constructor -\/ Creates a dummy Lvl 1 Character. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_a06862b46e26e981dad4c1dd3cb286c65}{}\label{class_characters_a06862b46e26e981dad4c1dd3cb286c65} 
-{\bfseries Characters} (int, int, int, int, int, int, int)
-\item 
+\hyperlink{class_characters_a06862b46e26e981dad4c1dd3cb286c65}{Characters} (int, int, int, int, int, int, int)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor used for creation of dummy characters by setting level and all ability scores. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_aa8fd7da53eaf45404aa9a8e35885da43}{}\label{class_characters_aa8fd7da53eaf45404aa9a8e35885da43} 
 \hyperlink{class_characters_aa8fd7da53eaf45404aa9a8e35885da43}{Characters} (int, int, int, int, int, int, int, int)
 \begin{DoxyCompactList}\small\item\em Parameterized Constructor for \hyperlink{class_monster}{Monster} class, sets level, ability scores and armor class. \end{DoxyCompactList}\item 
@@ -36,6 +36,8 @@ void \hyperlink{class_characters_a6ec320af5d1526eed47070bca6e4d847}{destroy\+Obj
 \hypertarget{class_characters_a4aea85daea3f08b8b933e82cd42b3109}{}\label{class_characters_a4aea85daea3f08b8b933e82cd42b3109} 
 \hyperlink{class_characters_a4aea85daea3f08b8b933e82cd42b3109}{$\sim$\+Characters} ()
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_characters_ac5909582bf15fe17b7a6fa5104c26dd6}{force\+Level\+Increase} ()
+\item 
 \hypertarget{class_characters_a4d7ffd0091e9e37d6da1ad0f0ceaa48f}{}\label{class_characters_a4d7ffd0091e9e37d6da1ad0f0ceaa48f} 
 int \hyperlink{class_characters_a4d7ffd0091e9e37d6da1ad0f0ceaa48f}{get\+Level} ()
 \begin{DoxyCompactList}\small\item\em Accessor to level. \end{DoxyCompactList}\item 
@@ -54,8 +56,8 @@ int {\bfseries get\+Damage\+Bonus} ()
 int \hyperlink{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c}{get\+Scores} (int, int)
 \item 
 \hypertarget{class_characters_a2d6d1b6c6fbf0af1dabcbfe5a5975153}{}\label{class_characters_a2d6d1b6c6fbf0af1dabcbfe5a5975153} 
-bool {\bfseries get\+In\+Battle} ()
-\item 
+bool \hyperlink{class_characters_a2d6d1b6c6fbf0af1dabcbfe5a5975153}{get\+In\+Battle} ()
+\begin{DoxyCompactList}\small\item\em Returns boolean which represents battle status of character. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_a626a12fc8378550885abce7ebadd9864}{}\label{class_characters_a626a12fc8378550885abce7ebadd9864} 
 bool {\bfseries get\+Is\+Dead} ()
 \item 
@@ -181,24 +183,22 @@ void \hyperlink{class_characters_a77bd85803742621607c58d7c3593d7b0}{gain\+Experi
 void \hyperlink{class_characters_af3328b1a080cff8bab2af7597f98be6a}{update\+Ability\+Score} (int)
 \begin{DoxyCompactList}\small\item\em Function used when level up to increment an chosen ability score and end level up process. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_aef5536d88930d9aff77844d9eec7c71c}{}\label{class_characters_aef5536d88930d9aff77844d9eec7c71c} 
-void {\bfseries score\+Increase} (int, int)
-\item 
+void \hyperlink{class_characters_aef5536d88930d9aff77844d9eec7c71c}{score\+Increase} (int, int)
+\begin{DoxyCompactList}\small\item\em Increases score of character based on given index and value. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca}{}\label{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca} 
 void \hyperlink{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca}{current\+State} ()
 \begin{DoxyCompactList}\small\item\em Function used to notify changes in character state and redisplay stats. \end{DoxyCompactList}\item 
-\hypertarget{class_characters_a42bbd977aed8772f446510e7fcfd577f}{}\label{class_characters_a42bbd977aed8772f446510e7fcfd577f} 
-virtual bool {\bfseries validate\+Player\+Move} (int x, int y)
+virtual bool \hyperlink{class_characters_a42bbd977aed8772f446510e7fcfd577f}{validate\+Player\+Move} (int x, int y)
 \item 
 void \hyperlink{class_characters_a7ea2bd80b72476d35173691d31e80727}{set\+Map} (vector$<$ string $>$ $\ast$new\+Map)
 \item 
-\hypertarget{class_characters_a9dac165846c7eb9cacb6a2807a75f845}{}\label{class_characters_a9dac165846c7eb9cacb6a2807a75f845} 
-void {\bfseries set\+Position} (int, int)
+void \hyperlink{class_characters_a9dac165846c7eb9cacb6a2807a75f845}{set\+Position} (int, int)
 \item 
 bool \hyperlink{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7}{validate\+New\+Character} ()
 \begin{DoxyCompactList}\small\item\em F\+OR U\+N\+IT T\+E\+ST. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_a8a13cb967bd25662f86eac505e3e874a}{}\label{class_characters_a8a13cb967bd25662f86eac505e3e874a} 
-bool {\bfseries validate\+Proficiency} ()
-\item 
+bool \hyperlink{class_characters_a8a13cb967bd25662f86eac505e3e874a}{validate\+Proficiency} ()
+\begin{DoxyCompactList}\small\item\em Check if proficiency bonus is correct. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434}{}\label{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434} 
 virtual void \hyperlink{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434}{Serialize} (C\+Archive \&ar)
 \begin{DoxyCompactList}\small\item\em Allows for \hyperlink{class_characters}{Characters} to be saved to disk. \end{DoxyCompactList}\item 
@@ -215,11 +215,9 @@ virtual void \hyperlink{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434}{Seri
 \subsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_characters_ab509433a15fb7604b2080e0568e41d0d}{}\label{class_characters_ab509433a15fb7604b2080e0568e41d0d} 
-static bool {\bfseries \+\_\+valid\+Position} (char pos\+In\+Question)
+static bool \hyperlink{class_characters_ab509433a15fb7604b2080e0568e41d0d}{\+\_\+valid\+Position} (char pos\+In\+Question)
 \item 
-\hypertarget{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52}{}\label{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52} 
-static bool {\bfseries \+\_\+valid\+Component\+Position} (char pos\+In\+Question)
+static bool \hyperlink{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52}{\+\_\+valid\+Component\+Position} (char pos\+In\+Question)
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -291,7 +289,19 @@ New functions were also implemented for leveling up and battle purposes. Namely 
 Copy Constructor -\/ creates a new Character with the same attributes as another Character object 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_characters_aafcca03cc72ce2b389c0412229864c6e}{}\label{class_characters_aafcca03cc72ce2b389c0412229864c6e} 
+\hypertarget{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52}{}\label{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52} 
+\index{Characters@{Characters}!\+\_\+valid\+Component\+Position@{\+\_\+valid\+Component\+Position}}
+\index{\+\_\+valid\+Component\+Position@{\+\_\+valid\+Component\+Position}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{\+\_\+valid\+Component\+Position()}{\_validComponentPosition()}}
+{\footnotesize\ttfamily bool Characters\+::\+\_\+valid\+Component\+Position (\begin{DoxyParamCaption}\item[{char}]{pos\+In\+Question }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Function helps to determine if a certain position is not an obstruction \hypertarget{class_characters_ab509433a15fb7604b2080e0568e41d0d}{}\label{class_characters_ab509433a15fb7604b2080e0568e41d0d} 
+\index{Characters@{Characters}!\+\_\+valid\+Position@{\+\_\+valid\+Position}}
+\index{\+\_\+valid\+Position@{\+\_\+valid\+Position}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{\+\_\+valid\+Position()}{\_validPosition()}}
+{\footnotesize\ttfamily bool Characters\+::\+\_\+valid\+Position (\begin{DoxyParamCaption}\item[{char}]{pos\+In\+Question }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Function helps to determine if a certain position on the map is a valid position If it is a position the Character should not be landing on, then false is returned \hypertarget{class_characters_aafcca03cc72ce2b389c0412229864c6e}{}\label{class_characters_aafcca03cc72ce2b389c0412229864c6e} 
 \index{Characters@{Characters}!calc\+Attack\+Bonus@{calc\+Attack\+Bonus}}
 \index{calc\+Attack\+Bonus@{calc\+Attack\+Bonus}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{calc\+Attack\+Bonus()}{calcAttackBonus()}}
@@ -303,7 +313,13 @@ Function to calculate attack bonus by adding proficiency bonus and D\+EX mod if 
 \subsubsection{\texorpdfstring{calc\+Damage\+Bonus()}{calcDamageBonus()}}
 {\footnotesize\ttfamily void Characters\+::calc\+Damage\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Function to calculate damage bonus which is D\+EX mod if ranged weapon or S\+TR mod if melee weapon \hypertarget{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c}{}\label{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c} 
+Function to calculate damage bonus which is D\+EX mod if ranged weapon or S\+TR mod if melee weapon \hypertarget{class_characters_ac5909582bf15fe17b7a6fa5104c26dd6}{}\label{class_characters_ac5909582bf15fe17b7a6fa5104c26dd6} 
+\index{Characters@{Characters}!force\+Level\+Increase@{force\+Level\+Increase}}
+\index{force\+Level\+Increase@{force\+Level\+Increase}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{force\+Level\+Increase()}{forceLevelIncrease()}}
+{\footnotesize\ttfamily void Characters\+::force\+Level\+Increase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function that, when called, automatically increases the Character\textquotesingle{}s level and makes sure that their experience points are now set to the minimum of that level \hypertarget{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c}{}\label{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c} 
 \index{Characters@{Characters}!get\+Scores@{get\+Scores}}
 \index{get\+Scores@{get\+Scores}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{get\+Scores()}{getScores()}}
@@ -326,7 +342,13 @@ Sets the Character\textquotesingle{}s map data to a new map, deleting the old ma
 {\em new\+Map} & vector$<$string$>$, where each string represents one line of the map \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7}{}\label{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7} 
+\hypertarget{class_characters_a9dac165846c7eb9cacb6a2807a75f845}{}\label{class_characters_a9dac165846c7eb9cacb6a2807a75f845} 
+\index{Characters@{Characters}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void Characters\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+Sets the x and y position of the Character \hypertarget{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7}{}\label{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7} 
 \index{Characters@{Characters}!validate\+New\+Character@{validate\+New\+Character}}
 \index{validate\+New\+Character@{validate\+New\+Character}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{validate\+New\+Character()}{validateNewCharacter()}}
@@ -336,7 +358,17 @@ Sets the Character\textquotesingle{}s map data to a new map, deleting the old ma
 
 F\+OR U\+N\+IT T\+E\+ST. 
 
-Check to see if score values are valid (3 to 18) 
+Check to see if score values are valid (3 to 18) \hypertarget{class_characters_a42bbd977aed8772f446510e7fcfd577f}{}\label{class_characters_a42bbd977aed8772f446510e7fcfd577f} 
+\index{Characters@{Characters}!validate\+Player\+Move@{validate\+Player\+Move}}
+\index{validate\+Player\+Move@{validate\+Player\+Move}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{validate\+Player\+Move()}{validatePlayerMove()}}
+{\footnotesize\ttfamily bool Characters\+::validate\+Player\+Move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function helps to determine if the requested movement of a character is valid 
+
+Reimplemented in \hyperlink{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41}{Fighter}.
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

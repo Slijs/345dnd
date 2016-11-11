@@ -1,41 +1,94 @@
 \hypertarget{class_game_play_engine}{}\section{Game\+Play\+Engine Class Reference}
 \label{class_game_play_engine}\index{Game\+Play\+Engine@{Game\+Play\+Engine}}
+
+
+{\ttfamily \#include $<$gameplayengine.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_game_play_engine_a300998530f28b86679ced3b42b6ccf62}{}\label{class_game_play_engine_a300998530f28b86679ced3b42b6ccf62} 
-void {\bfseries attach\+Level} (\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$level, S\+D\+L\+\_\+\+Event $\ast$event\+\_\+)
+\hyperlink{class_game_play_engine_af4b9d34e0404f1eadec2de8050b35612}{Game\+Play\+Engine} ()
 \item 
-\hypertarget{class_game_play_engine_a2b5f4dc886288daecaa2be9b9a8ca287}{}\label{class_game_play_engine_a2b5f4dc886288daecaa2be9b9a8ca287} 
-void {\bfseries detach\+Level} ()
+void \hyperlink{class_game_play_engine_a300998530f28b86679ced3b42b6ccf62}{attach\+Level} (\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$level, S\+D\+L\+\_\+\+Event $\ast$event\+\_\+)
+\item 
+void \hyperlink{class_game_play_engine_a2b5f4dc886288daecaa2be9b9a8ca287}{detach\+Level} ()
 \item 
 int \hyperlink{class_game_play_engine_a5c155091580329513e92d395b11d4940}{run\+Engine} ()
 \item 
-\hypertarget{class_game_play_engine_af88c9c9fff562ba552986ab15e6ad8ce}{}\label{class_game_play_engine_af88c9c9fff562ba552986ab15e6ad8ce} 
-void {\bfseries on\+Gameplay\+Grids} ()
+int \hyperlink{class_game_play_engine_a85db5a21ac09903aa84fc35378b273ea}{on\+R\+Ight\+Hand\+Menu} ()
 \item 
-\hypertarget{class_game_play_engine_a85db5a21ac09903aa84fc35378b273ea}{}\label{class_game_play_engine_a85db5a21ac09903aa84fc35378b273ea} 
-int {\bfseries on\+R\+Ight\+Hand\+Menu} ()
+void \hyperlink{class_game_play_engine_a9070c110ca3fb2f66c8fd00aee968b75}{move\+Player} ()
 \item 
-\hypertarget{class_game_play_engine_a9070c110ca3fb2f66c8fd00aee968b75}{}\label{class_game_play_engine_a9070c110ca3fb2f66c8fd00aee968b75} 
-void {\bfseries move\+Player} ()
+void \hyperlink{class_game_play_engine_a2a0f5663a43825bbd815d6bfe92bd8fb}{interact\+Environment} ()
 \item 
-\hypertarget{class_game_play_engine_a2a0f5663a43825bbd815d6bfe92bd8fb}{}\label{class_game_play_engine_a2a0f5663a43825bbd815d6bfe92bd8fb} 
-void {\bfseries interact\+Environment} ()
+void \hyperlink{class_game_play_engine_a07f3fd8aeb418e17dd448c8f663550fc}{attack\+Enemy} ()
 \item 
-\hypertarget{class_game_play_engine_a2cbd6100775c2a55b46c4f3a29d166b1}{}\label{class_game_play_engine_a2cbd6100775c2a55b46c4f3a29d166b1} 
-S\+D\+L\+\_\+\+Rect {\bfseries check\+Mouse\+Position} (std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ components, int $\ast$target\+Index)
+S\+D\+L\+\_\+\+Rect \hyperlink{class_game_play_engine_a2cbd6100775c2a55b46c4f3a29d166b1}{check\+Mouse\+Position} (std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ components, int $\ast$target\+Index)
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+The engine that drives gameplay. point to note is that a prebuilt map and an sdl event handler has to be attached before running the engine. engine will return 0 if the user would like to play next map in the campign or 1 if the user just wants to exit to main menu 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_game_play_engine_af4b9d34e0404f1eadec2de8050b35612}{}\label{class_game_play_engine_af4b9d34e0404f1eadec2de8050b35612} 
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\subsubsection{\texorpdfstring{Game\+Play\+Engine()}{GamePlayEngine()}}
+{\footnotesize\ttfamily Game\+Play\+Engine\+::\+Game\+Play\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+default constructor just sets all values to default and false 
+
 \subsection{Member Function Documentation}
-\hypertarget{class_game_play_engine_a5c155091580329513e92d395b11d4940}{}\label{class_game_play_engine_a5c155091580329513e92d395b11d4940} 
+\hypertarget{class_game_play_engine_a300998530f28b86679ced3b42b6ccf62}{}\label{class_game_play_engine_a300998530f28b86679ced3b42b6ccf62} 
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!attach\+Level@{attach\+Level}}
+\index{attach\+Level@{attach\+Level}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\subsubsection{\texorpdfstring{attach\+Level()}{attachLevel()}}
+{\footnotesize\ttfamily void Game\+Play\+Engine\+::attach\+Level (\begin{DoxyParamCaption}\item[{\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$}]{level,  }\item[{S\+D\+L\+\_\+\+Event $\ast$}]{event\+\_\+ }\end{DoxyParamCaption})}
+
+attaches a level and an sdl event manager to engine \hypertarget{class_game_play_engine_a07f3fd8aeb418e17dd448c8f663550fc}{}\label{class_game_play_engine_a07f3fd8aeb418e17dd448c8f663550fc} 
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!attack\+Enemy@{attack\+Enemy}}
+\index{attack\+Enemy@{attack\+Enemy}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\subsubsection{\texorpdfstring{attack\+Enemy()}{attackEnemy()}}
+{\footnotesize\ttfamily void Game\+Play\+Engine\+::attack\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+funtion used when player wants to engage in combat with an enemy \hypertarget{class_game_play_engine_a2cbd6100775c2a55b46c4f3a29d166b1}{}\label{class_game_play_engine_a2cbd6100775c2a55b46c4f3a29d166b1} 
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!check\+Mouse\+Position@{check\+Mouse\+Position}}
+\index{check\+Mouse\+Position@{check\+Mouse\+Position}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\subsubsection{\texorpdfstring{check\+Mouse\+Position()}{checkMousePosition()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect Game\+Play\+Engine\+::check\+Mouse\+Position (\begin{DoxyParamCaption}\item[{std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$}]{components,  }\item[{int $\ast$}]{target\+Index }\end{DoxyParamCaption})}
+
+function returns a rectangle grid on map based on current mouse position on window \hypertarget{class_game_play_engine_a2b5f4dc886288daecaa2be9b9a8ca287}{}\label{class_game_play_engine_a2b5f4dc886288daecaa2be9b9a8ca287} 
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!detach\+Level@{detach\+Level}}
+\index{detach\+Level@{detach\+Level}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\subsubsection{\texorpdfstring{detach\+Level()}{detachLevel()}}
+{\footnotesize\ttfamily void Game\+Play\+Engine\+::detach\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+detaches level and sdl manager from engine \hypertarget{class_game_play_engine_a2a0f5663a43825bbd815d6bfe92bd8fb}{}\label{class_game_play_engine_a2a0f5663a43825bbd815d6bfe92bd8fb} 
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!interact\+Environment@{interact\+Environment}}
+\index{interact\+Environment@{interact\+Environment}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\subsubsection{\texorpdfstring{interact\+Environment()}{interactEnvironment()}}
+{\footnotesize\ttfamily void Game\+Play\+Engine\+::interact\+Environment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function used when player wants to interact with container on environment \hypertarget{class_game_play_engine_a9070c110ca3fb2f66c8fd00aee968b75}{}\label{class_game_play_engine_a9070c110ca3fb2f66c8fd00aee968b75} 
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!move\+Player@{move\+Player}}
+\index{move\+Player@{move\+Player}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\subsubsection{\texorpdfstring{move\+Player()}{movePlayer()}}
+{\footnotesize\ttfamily void Game\+Play\+Engine\+::move\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function used to move player \hypertarget{class_game_play_engine_a85db5a21ac09903aa84fc35378b273ea}{}\label{class_game_play_engine_a85db5a21ac09903aa84fc35378b273ea} 
+\index{Game\+Play\+Engine@{Game\+Play\+Engine}!on\+R\+Ight\+Hand\+Menu@{on\+R\+Ight\+Hand\+Menu}}
+\index{on\+R\+Ight\+Hand\+Menu@{on\+R\+Ight\+Hand\+Menu}!Game\+Play\+Engine@{Game\+Play\+Engine}}
+\subsubsection{\texorpdfstring{on\+R\+Ight\+Hand\+Menu()}{onRIghtHandMenu()}}
+{\footnotesize\ttfamily int Game\+Play\+Engine\+::on\+R\+Ight\+Hand\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+function used to run the menu on right hand side \hypertarget{class_game_play_engine_a5c155091580329513e92d395b11d4940}{}\label{class_game_play_engine_a5c155091580329513e92d395b11d4940} 
 \index{Game\+Play\+Engine@{Game\+Play\+Engine}!run\+Engine@{run\+Engine}}
 \index{run\+Engine@{run\+Engine}!Game\+Play\+Engine@{Game\+Play\+Engine}}
 \subsubsection{\texorpdfstring{run\+Engine()}{runEngine()}}
 {\footnotesize\ttfamily int Game\+Play\+Engine\+::run\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-!!!!!!!!!!!!!!!!!!!
+function runs gameplay loop, returns 0 if player prefers going to next map, or 1 if player wants to quit playing campaign !!!!!!!!!!!!!!!!!!!
 
 !!!!!!!!!!!!!!!!!!! 
 

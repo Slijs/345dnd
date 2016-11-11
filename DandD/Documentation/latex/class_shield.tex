@@ -2,7 +2,7 @@
 \label{class_shield}\index{Shield@{Shield}}
 
 
-Class for shields.  
+Subclass of \hyperlink{class_item}{Item}, allows character to equip a \hyperlink{class_shield}{Shield}.  
 
 
 
@@ -18,6 +18,9 @@ Inheritance diagram for Shield\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_shield_a8a6e827c94750d8c1a1d523cb1b105de}{}\label{class_shield_a8a6e827c94750d8c1a1d523cb1b105de} 
+\hyperlink{class_shield_a8a6e827c94750d8c1a1d523cb1b105de}{Shield} ()
+\begin{DoxyCompactList}\small\item\em Default constructor, useless item as is. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_ae3dbea08547d4547faa441e5169605ba}{}\label{class_shield_ae3dbea08547d4547faa441e5169605ba} 
 {\bfseries Shield} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values}, int defense, std\+::string attack\+Dice, int range)
 \item 
@@ -25,23 +28,23 @@ Inheritance diagram for Shield\+:\begin{figure}[H]
 {\bfseries Shield} (const \hyperlink{class_shield}{Shield} $\ast$other\+Shield)
 \item 
 \hypertarget{class_shield_a92fae272ca41b96a9f38770de4ed6180}{}\label{class_shield_a92fae272ca41b96a9f38770de4ed6180} 
-int {\bfseries get\+Defense} ()
-\item 
+int \hyperlink{class_shield_a92fae272ca41b96a9f38770de4ed6180}{get\+Defense} ()
+\begin{DoxyCompactList}\small\item\em Gets defense of shield. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_a3e421a1c80aae934300dadf6db390bf1}{}\label{class_shield_a3e421a1c80aae934300dadf6db390bf1} 
-void {\bfseries set\+Defense} (int defense)
-\item 
+void \hyperlink{class_shield_a3e421a1c80aae934300dadf6db390bf1}{set\+Defense} (int defense)
+\begin{DoxyCompactList}\small\item\em Sets defense. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_a4031510f895e4163ee2b447d7992e08b}{}\label{class_shield_a4031510f895e4163ee2b447d7992e08b} 
-void {\bfseries increment\+Defense} ()
-\item 
+void \hyperlink{class_shield_a4031510f895e4163ee2b447d7992e08b}{increment\+Defense} ()
+\begin{DoxyCompactList}\small\item\em Increments defense. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_a90fe2bbca5c029c88715490c5525e1a6}{}\label{class_shield_a90fe2bbca5c029c88715490c5525e1a6} 
-void {\bfseries decrement\+Defense} ()
-\item 
+void \hyperlink{class_shield_a90fe2bbca5c029c88715490c5525e1a6}{decrement\+Defense} ()
+\begin{DoxyCompactList}\small\item\em Decrements defense. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_a2e36b34d593ce4de9066c206c3528846}{}\label{class_shield_a2e36b34d593ce4de9066c206c3528846} 
-void {\bfseries increment\+Range} ()
-\item 
+void \hyperlink{class_shield_a2e36b34d593ce4de9066c206c3528846}{increment\+Range} ()
+\begin{DoxyCompactList}\small\item\em Increments range. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_afeb7f31a542d80ededa37980f13df576}{}\label{class_shield_afeb7f31a542d80ededa37980f13df576} 
-void {\bfseries decrement\+Range} ()
-\item 
+void \hyperlink{class_shield_afeb7f31a542d80ededa37980f13df576}{decrement\+Range} ()
+\begin{DoxyCompactList}\small\item\em Decrements range. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_adca98dd6afb94104adbdadde591ae1e2}{}\label{class_shield_adca98dd6afb94104adbdadde591ae1e2} 
 std\+::string {\bfseries get\+Attack\+Dice} ()
 \item 
@@ -49,11 +52,11 @@ std\+::string {\bfseries get\+Attack\+Dice} ()
 void {\bfseries set\+Attack\+Dice} (std\+::string attack\+Dice)
 \item 
 \hypertarget{class_shield_af8b6fccff0ddb7851440da08b4c76c8f}{}\label{class_shield_af8b6fccff0ddb7851440da08b4c76c8f} 
-int {\bfseries get\+Range} ()
-\item 
+int \hyperlink{class_shield_af8b6fccff0ddb7851440da08b4c76c8f}{get\+Range} ()
+\begin{DoxyCompactList}\small\item\em Gets range of shield. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_a7e0638047be589b3ab2ca0c1349f3409}{}\label{class_shield_a7e0638047be589b3ab2ca0c1349f3409} 
-void {\bfseries set\+Range} (int range)
-\item 
+void \hyperlink{class_shield_a7e0638047be589b3ab2ca0c1349f3409}{set\+Range} (int range)
+\begin{DoxyCompactList}\small\item\em Sets range of shield for attack. \end{DoxyCompactList}\item 
 \hypertarget{class_shield_a524d5884f91f2539db047cecd09d6bc8}{}\label{class_shield_a524d5884f91f2539db047cecd09d6bc8} 
 std\+::string {\bfseries to\+String} ()
 \item 
@@ -80,18 +83,7 @@ int {\bfseries range}
 
 
 \subsection{Detailed Description}
-Class for shields. 
-
-\begin{DoxyAuthor}{Author}
-Philip Brink 
-\end{DoxyAuthor}
-\begin{DoxyVersion}{Version}
-0.\+0.\+1 
-\end{DoxyVersion}
-\begin{DoxyDate}{Date}
-2016-\/10-\/20
-\end{DoxyDate}
-Subclass of \hyperlink{class_item}{Item}, allows character to equip a \hyperlink{class_shield}{Shield} 
+Subclass of \hyperlink{class_item}{Item}, allows character to equip a \hyperlink{class_shield}{Shield}. 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_shield_a8d045c43b16aab5fc474e696cb8a7f1f}{}\label{class_shield_a8d045c43b16aab5fc474e696cb8a7f1f} 
@@ -108,5 +100,5 @@ Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Shield.\+h\item 
-Shield.\+cpp\end{DoxyCompactItemize}
+\hyperlink{_shield_8h}{Shield.\+h}\item 
+\hyperlink{_shield_8cpp}{Shield.\+cpp}\end{DoxyCompactItemize}

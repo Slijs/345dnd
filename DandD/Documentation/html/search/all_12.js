@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['validatedeath',['validateDeath',['../class_fighter.html#a7372ff74df453241ee2d990a265fd71c',1,'Fighter']]],
-  ['validatemap',['validateMap',['../class_map_editor_engine.html#a2c3dc1650663b3fd732204c44a0c6468',1,'MapEditorEngine']]],
-  ['validatenewcharacter',['validateNewCharacter',['../class_characters.html#a1273e2d7fe2e959cd3ed513c5717f6b7',1,'Characters']]]
+  ['unhidewindow',['unHideWindow',['../class_s_d_l_window.html#af12e8b4f385d2f61b6c4927d41b3ea61',1,'SDLWindow']]],
+  ['update',['Update',['../class_character_observer.html#a398d6d784065c7ed36c928d44a574630',1,'CharacterObserver']]],
+  ['updateabilityscore',['updateAbilityScore',['../class_characters.html#af3328b1a080cff8bab2af7597f98be6a',1,'Characters']]],
+  ['updatestatsdq',['updateStatsDQ',['../class_characters.html#a0c8704124611ae8a358e26b584fede4e',1,'Characters']]],
+  ['updatestatseq',['updateStatsEQ',['../class_characters.html#a1ba5a872f62151bad5874d6b36b8d141',1,'Characters']]],
+  ['userinputandstringmanager_2ecpp',['userinputandstringmanager.cpp',['../userinputandstringmanager_8cpp.html',1,'']]],
+  ['userinputandstringmanager_2eh',['userinputandstringmanager.h',['../userinputandstringmanager_8h.html',1,'']]]
 ];

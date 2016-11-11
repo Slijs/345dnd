@@ -77,13 +77,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a7e4ce04eed479a22b1d3f70c9fe06652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44105e8553b29cd7e37f3eec6f1a7ce7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_fighter.html">Fighter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#a44105e8553b29cd7e37f3eec6f1a7ce7">loadCharacter</a> ()</td></tr>
 <tr class="separator:a44105e8553b29cd7e37f3eec6f1a7ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8ee3fecc5c19f1f61f98e9132a26b5f"><td class="memItemLeft" align="right" valign="top"><a id="af8ee3fecc5c19f1f61f98e9132a26b5f"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCharacter</b> ()</td></tr>
+<tr class="memitem:af8ee3fecc5c19f1f61f98e9132a26b5f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#af8ee3fecc5c19f1f61f98e9132a26b5f">removeCharacter</a> ()</td></tr>
 <tr class="separator:af8ee3fecc5c19f1f61f98e9132a26b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49dd1eedbdf0e2b7cedfba64d4fb8d53"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#a49dd1eedbdf0e2b7cedfba64d4fb8d53">removeCharacter</a> (string name)</td></tr>
 <tr class="separator:a49dd1eedbdf0e2b7cedfba64d4fb8d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9adf9eda9b89e67a977167c954a8d7c"><td class="memItemLeft" align="right" valign="top"><a id="ad9adf9eda9b89e67a977167c954a8d7c"></a>
-static string&#160;</td><td class="memItemRight" valign="bottom"><b>cstrTostr</b> (CString &amp;cstr)</td></tr>
+<tr class="memitem:ad9adf9eda9b89e67a977167c954a8d7c"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#ad9adf9eda9b89e67a977167c954a8d7c">cstrTostr</a> (CString &amp;cstr)</td></tr>
 <tr class="separator:ad9adf9eda9b89e67a977167c954a8d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -91,6 +89,39 @@ static string&#160;</td><td class="memItemRight" valign="bottom"><b>cstrTostr</b
 <p>Provides the ability to load a specific character, save a character, and remove a character that has been previously saved. </p>
 <p>Also provides helper method to convert from CStrings to strings, which is quite useful for managing strings for CFile </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad9adf9eda9b89e67a977167c954a8d7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9adf9eda9b89e67a977167c954a8d7c">&sect;&nbsp;</a></span>cstrTostr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CharacterSaveManager::cstrTostr </td>
+          <td>(</td>
+          <td class="paramtype">CString &amp;&#160;</td>
+          <td class="paramname"><em>cstr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Helper method to convert CStrings back to regular strings </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cstr</td><td>CString </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string version of the CString </dd></dl>
+
+</div>
+</div>
 <a id="a44105e8553b29cd7e37f3eec6f1a7ce7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44105e8553b29cd7e37f3eec6f1a7ce7">&sect;&nbsp;</a></span>loadCharacter()</h2>
 
@@ -122,8 +153,34 @@ static string&#160;</td><td class="memItemRight" valign="bottom"><b>cstrTostr</b
 
 </div>
 </div>
+<a id="af8ee3fecc5c19f1f61f98e9132a26b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8ee3fecc5c19f1f61f98e9132a26b5f">&sect;&nbsp;</a></span>removeCharacter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CharacterSaveManager::removeCharacter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Allows the user to remove any of the saved <a class="el" href="class_characters.html" title="Provides resource for management of Characters within game. ">Characters</a>. Calls the parameterized method using the name selected in order to complete deletion </p>
+
+</div>
+</div>
 <a id="a49dd1eedbdf0e2b7cedfba64d4fb8d53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49dd1eedbdf0e2b7cedfba64d4fb8d53">&sect;&nbsp;</a></span>removeCharacter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a49dd1eedbdf0e2b7cedfba64d4fb8d53">&sect;&nbsp;</a></span>removeCharacter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +236,7 @@ static string&#160;</td><td class="memItemRight" valign="bottom"><b>cstrTostr</b
 </div><div class="memdoc">
 <p>Attempts to save a Character to disk. If the Character is already saved, the user will be asked if they want to replace the file. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">theChar</td><td>Fighter* to the <a class="el" href="class_fighter.html">Fighter</a> being saved </td></tr>
+    <tr><td class="paramname">theChar</td><td>Fighter* to the <a class="el" href="class_fighter.html" title="Provides resource for management of Fighter within game. ">Fighter</a> being saved </td></tr>
   </table>
   </dd>
 </dl>

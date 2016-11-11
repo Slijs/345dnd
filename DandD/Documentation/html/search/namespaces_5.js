@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['windowheightwidthdivideaspect',['WindowHeightWidthDivideAspect',['../namespace_window_height_width_divide_aspect.html',1,'']]]
+  ['mapsymbolsdata',['MapSymbolsData',['../namespace_map_symbols_data.html',1,'']]]
 ];

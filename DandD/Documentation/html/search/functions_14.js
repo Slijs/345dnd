@@ -1,27 +1,4 @@
 var searchData=
 [
-  ['_7echaracterobserver',['~CharacterObserver',['../class_character_observer.html#ac535a0d01c7ab57f41b933a9507116fb',1,'CharacterObserver']]],
-  ['_7echaracters',['~Characters',['../class_characters.html#a4aea85daea3f08b8b933e82cd42b3109',1,'Characters']]],
-  ['_7edice',['~Dice',['../class_dice.html#a48e90392d2ff1e6736c88f22e8a87751',1,'Dice']]],
-  ['_7eentity',['~Entity',['../class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae',1,'Entity']]],
-  ['_7eenvironment',['~Environment',['../class_environment.html#a8e294735187880dd3d59be10c425b29d',1,'Environment']]],
-  ['_7egamecomponent',['~GameComponent',['../class_game_component.html#a6d4c3872b9603eb0673655c4b4c0b183',1,'GameComponent']]],
-  ['_7elevel',['~Level',['../class_level.html#a249eac1e8f19ff44134efa5e986feaca',1,'Level']]],
-  ['_7eleveleditor',['~LevelEditor',['../class_level_editor.html#a2fdfaad257e235e2f392b08fabee79ec',1,'LevelEditor']]],
-  ['_7elevelwindow',['~LevelWindow',['../class_level_window.html#a6794f1caeae1b6d7dce7196613fb1f39',1,'LevelWindow']]],
-  ['_7emaps',['~Maps',['../class_maps.html#aa3fbced631bfb5f4d1fe541a8a29384f',1,'Maps']]],
-  ['_7emenuengine',['~MenuEngine',['../class_menu_engine.html#abf59152c4258e0199e89fab2979fb09e',1,'MenuEngine']]],
-  ['_7emenus',['~Menus',['../class_menus.html#aa6cea19ab085cb4d3b4c81220884a42d',1,'Menus']]],
-  ['_7emonster',['~Monster',['../class_monster.html#a21619ba1759b910cd2fd50d858aab338',1,'Monster']]],
-  ['_7eobserver',['~Observer',['../class_observer.html#a450645e61c136826f09940a1334c7f34',1,'Observer']]],
-  ['_7esdl_5fimage',['~SDL_Image',['../class_s_d_l___image.html#acaf74b72cd075afe6b60a2ac359836e7',1,'SDL_Image']]],
-  ['_7esdlwindow',['~SDLWindow',['../class_s_d_l_window.html#a7a0af0daec54970ff2262b67a6ece281',1,'SDLWindow']]],
-  ['_7esingletondefaultmapsmenu',['~SingletonDefaultMapsMenu',['../class_singleton_default_maps_menu.html#a468a928711b450b932afc49c3c70239c',1,'SingletonDefaultMapsMenu']]],
-  ['_7esingletonfilepathandfoldermanager',['~SingletonFilePathAndFolderManager',['../class_singleton_file_path_and_folder_manager.html#a0c8f7a1e563fbcef1516812644740475',1,'SingletonFilePathAndFolderManager']]],
-  ['_7esingletoninputoutputmanager',['~SingletonInputOutputManager',['../class_singleton_input_output_manager.html#ab5fcf578e08c99b964ae784fb4d2dce9',1,'SingletonInputOutputManager']]],
-  ['_7esingletoninputsandstringmanager',['~SingletonInputsAndStringManager',['../class_singleton_inputs_and_string_manager.html#acb31dc8e0340913eb2287a3fde20344f',1,'SingletonInputsAndStringManager']]],
-  ['_7esingletonrouting',['~SingletonRouting',['../class_singleton_routing.html#ad97e4a54e47729251e5d576655824405',1,'SingletonRouting']]],
-  ['_7esubject',['~Subject',['../class_subject.html#a7c4f522850f718466e5be7eb55ba1969',1,'Subject']]],
-  ['_7etext',['~Text',['../class_text.html#a2d49e5c280e205125b149f7777ae30c7',1,'Text']]],
-  ['_7etextbasedwindow',['~TextBasedWindow',['../class_text_based_window.html#ac704b70a18c11eb3133e7e5dfe5780d9',1,'TextBasedWindow']]]
+  ['writetofile',['writeToFile',['../class_singleton_input_output_manager.html#ac04ff26a6a42155739156a9e6f1ec0e2',1,'SingletonInputOutputManager']]]
 ];

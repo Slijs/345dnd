@@ -65,7 +65,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Provides the class definition for a <a class="el" href="class_dice.html">Dice</a> object.  
+<p>Provides the class definition for a <a class="el" href="class_dice.html" title="Provides methods for creating dice specified valid number of faces. ">Dice</a> object.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;regex&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -77,12 +77,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dice.html">Dice</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides methods for creating dice specified valid number of faces.  <a href="class_dice.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides the class definition for a <a class="el" href="class_dice.html">Dice</a> object. </p>
-<p>Given that my assignment is implementing a dice roller, there are few rules upon which my assignment depends upon. <a class="el" href="class_dice.html">Dice</a> available in the d20 rules include d4, d6, d8, d10, d12, d20 and d100 (page 3, D&amp;D Basic Rules vs 0.3); these are all available within my solution. These dice all roll between 1 and their maximum number (ie 1 to 4 for d6, 1 to 10 for d10, etc). Multiple of a die can be rolled at the same time; for example, 3d6 means that three d6 dice are rolled at the same time, and the resulting value is returned (with possible values 3 to 18). Modifiers can then be applied, either positive or negative, to the value.</p>
-<p>The design is rather simple. A <a class="el" href="class_dice.html">Dice</a> has one public method, being roll(), which returns a random number based on the string provided to it. The <a class="el" href="class_dice.html">Dice</a> uses several private regular expressions, a private array of integers, and several private methods to determine if the string is valid. If it is, then the desired random number is generated and returned. If the string is not valid, then -1 is returned.</p>
+<div class="textblock"><p>Provides the class definition for a <a class="el" href="class_dice.html" title="Provides methods for creating dice specified valid number of faces. ">Dice</a> object. </p>
+<p>Given that my assignment is implementing a dice roller, there are few rules upon which my assignment depends upon. <a class="el" href="class_dice.html" title="Provides methods for creating dice specified valid number of faces. ">Dice</a> available in the d20 rules include d4, d6, d8, d10, d12, d20 and d100 (page 3, D&amp;D Basic Rules vs 0.3); these are all available within my solution. These dice all roll between 1 and their maximum number (ie 1 to 4 for d6, 1 to 10 for d10, etc). Multiple of a die can be rolled at the same time; for example, 3d6 means that three d6 dice are rolled at the same time, and the resulting value is returned (with possible values 3 to 18). Modifiers can then be applied, either positive or negative, to the value.</p>
+<p>The design is rather simple. A <a class="el" href="class_dice.html" title="Provides methods for creating dice specified valid number of faces. ">Dice</a> has one public method, being roll(), which returns a random number based on the string provided to it. The <a class="el" href="class_dice.html" title="Provides methods for creating dice specified valid number of faces. ">Dice</a> uses several private regular expressions, a private array of integers, and several private methods to determine if the string is valid. If it is, then the desired random number is generated and returned. If the string is not valid, then -1 is returned.</p>
 <p>LIBRARIES USED: </p>
 <p>&lt;regex&gt; </p>
 <p>This library was used to make use of regular expressions. It allows the program to parse the string passed to roll() and to make sure it is in the proper format. </p>

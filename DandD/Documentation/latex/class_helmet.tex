@@ -18,12 +18,19 @@ Inheritance diagram for Helmet\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_helmet_ae9f39c8ca82962c770f9907123e663f5}{}\label{class_helmet_ae9f39c8ca82962c770f9907123e663f5} 
+\hyperlink{class_helmet_ae9f39c8ca82962c770f9907123e663f5}{Helmet} ()
+\begin{DoxyCompactList}\small\item\em Default constructor, useless item as is. \end{DoxyCompactList}\item 
 \hyperlink{class_helmet_a27eceb089c04d2dcab69d49d30d7b92c}{Helmet} (const \hyperlink{class_helmet}{Helmet} $\ast$other\+Helmet)
 \item 
 \hypertarget{class_helmet_a53c7728aebd2aadb37082834cbec4968}{}\label{class_helmet_a53c7728aebd2aadb37082834cbec4968} 
 {\bfseries Helmet} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values})
 \item 
+\hypertarget{class_helmet_abb01d02590723236e9cf9e260824e712}{}\label{class_helmet_abb01d02590723236e9cf9e260824e712} 
 virtual void \hyperlink{class_helmet_abb01d02590723236e9cf9e260824e712}{Serialize} (C\+Archive \&ar)
+\begin{DoxyCompactList}\small\item\em Allows \hyperlink{class_helmet}{Helmet} to be serialized. \end{DoxyCompactList}\item 
+\hypertarget{class_helmet_afc4c216aed5d9402d9e33b95b1e2f9a3}{}\label{class_helmet_afc4c216aed5d9402d9e33b95b1e2f9a3} 
+string {\bfseries to\+String} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -56,19 +63,6 @@ Subclass of \hyperlink{class_item}{Item}, allows Character to equip a helmet
 {\footnotesize\ttfamily Helmet\+::\+Helmet (\begin{DoxyParamCaption}\item[{const \hyperlink{class_helmet}{Helmet} $\ast$}]{other\+Helmet }\end{DoxyParamCaption})}
 
 Copy-\/constructor -\/ initializes a new helmet to have the same values as another helmet 
-
-\subsection{Member Function Documentation}
-\hypertarget{class_helmet_abb01d02590723236e9cf9e260824e712}{}\label{class_helmet_abb01d02590723236e9cf9e260824e712} 
-\index{Helmet@{Helmet}!Serialize@{Serialize}}
-\index{Serialize@{Serialize}!Helmet@{Helmet}}
-\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
-{\footnotesize\ttfamily void Helmet\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-Allows an item to be serialized 
-
-Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item}.
-
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

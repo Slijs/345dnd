@@ -35,13 +35,13 @@ std\+::vector$<$ \hyperlink{class_environment}{Environment} $\ast$ $>$ \hyperlin
 \begin{DoxyCompactList}\small\item\em environment components accessor \end{DoxyCompactList}\item 
 \hypertarget{class_level_a190ab96a4270516c4f89e356231ef243}{}\label{class_level_a190ab96a4270516c4f89e356231ef243} 
 \hyperlink{class_game_component}{Game\+Component} $\ast$ \hyperlink{class_level_a190ab96a4270516c4f89e356231ef243}{get\+Player\+Component} ()
-\begin{DoxyCompactList}\small\item\em player component accessor \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em accessor for dummy player component \end{DoxyCompactList}\item 
 \hypertarget{class_level_a8ff05204c68c313eb656cd2897842721}{}\label{class_level_a8ff05204c68c313eb656cd2897842721} 
-\hyperlink{class_container}{Container} $\ast$ {\bfseries get\+Container\+Component} ()
-\item 
+\hyperlink{class_container}{Container} $\ast$ \hyperlink{class_level_a8ff05204c68c313eb656cd2897842721}{get\+Container\+Component} ()
+\begin{DoxyCompactList}\small\item\em accessor for dummy container component \end{DoxyCompactList}\item 
 \hypertarget{class_level_a0c2bba08da53fd7894c80c4e6ecd402c}{}\label{class_level_a0c2bba08da53fd7894c80c4e6ecd402c} 
-\hyperlink{class_monster}{Monster} $\ast$ {\bfseries get\+Enemy} ()
-\item 
+\hyperlink{class_monster}{Monster} $\ast$ \hyperlink{class_level_a0c2bba08da53fd7894c80c4e6ecd402c}{get\+Enemy} ()
+\begin{DoxyCompactList}\small\item\em accessor for dummy enemy \end{DoxyCompactList}\item 
 \hypertarget{class_level_ac5fecd0532486e19176f0ca3dced9c23}{}\label{class_level_ac5fecd0532486e19176f0ca3dced9c23} 
 void \hyperlink{class_level_ac5fecd0532486e19176f0ca3dced9c23}{add\+Rect\+To\+Game\+Play\+Grids} (S\+D\+L\+\_\+\+Rect dest)
 \begin{DoxyCompactList}\small\item\em adds a recangle to the grids for gameplay \end{DoxyCompactList}\item 
@@ -49,14 +49,14 @@ void \hyperlink{class_level_ac5fecd0532486e19176f0ca3dced9c23}{add\+Rect\+To\+Ga
 S\+D\+L\+\_\+\+Texture $\ast$ \hyperlink{class_level_a419a998f8496fb65d593eea06b454f18}{get\+Environment\+Texture} (int index)
 \begin{DoxyCompactList}\small\item\em access texture for a specific environment \end{DoxyCompactList}\item 
 \hypertarget{class_level_a3ca47ac48d1454c5f68a3c61b8073ce1}{}\label{class_level_a3ca47ac48d1454c5f68a3c61b8073ce1} 
-std\+::vector$<$ std\+::string $>$ {\bfseries get\+Map\+String\+Versiion} ()
-\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_level_a3ca47ac48d1454c5f68a3c61b8073ce1}{get\+Map\+String\+Versiion} ()
+\begin{DoxyCompactList}\small\item\em accessor for string version of map that is not simplified \end{DoxyCompactList}\item 
 \hypertarget{class_level_a36e2b0bc3c817fa70eb4b618edcb6d70}{}\label{class_level_a36e2b0bc3c817fa70eb4b618edcb6d70} 
-std\+::vector$<$ std\+::string $>$ {\bfseries get\+Map\+Simple\+Version} ()
-\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_level_a36e2b0bc3c817fa70eb4b618edcb6d70}{get\+Map\+Simple\+Version} ()
+\begin{DoxyCompactList}\small\item\em accessor for string version of map that has all environment symbols simplified to just obstruction or free path \end{DoxyCompactList}\item 
 \hypertarget{class_level_a5087842ccd1a2b5f1e4dc0bab6d6823c}{}\label{class_level_a5087842ccd1a2b5f1e4dc0bab6d6823c} 
-void {\bfseries set\+Main\+Map\+Vector} (std\+::vector$<$ std\+::string $>$ newmap)
-\item 
+void \hyperlink{class_level_a5087842ccd1a2b5f1e4dc0bab6d6823c}{set\+Main\+Map\+Vector} (std\+::vector$<$ std\+::string $>$ newmap)
+\begin{DoxyCompactList}\small\item\em setter for main map that is N\+OT simplified \end{DoxyCompactList}\item 
 \hypertarget{class_level_a249eac1e8f19ff44134efa5e986feaca}{}\label{class_level_a249eac1e8f19ff44134efa5e986feaca} 
 \hyperlink{class_level_a249eac1e8f19ff44134efa5e986feaca}{$\sim$\+Level} ()
 \begin{DoxyCompactList}\small\item\em destructor just calls the destroy level method \end{DoxyCompactList}\end{DoxyCompactItemize}

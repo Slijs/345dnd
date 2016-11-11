@@ -18,13 +18,20 @@ Inheritance diagram for Belt\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_belt_a6dc40c21b5a62c71925df189511d7551}{}\label{class_belt_a6dc40c21b5a62c71925df189511d7551} 
+\hyperlink{class_belt_a6dc40c21b5a62c71925df189511d7551}{Belt} ()
+\begin{DoxyCompactList}\small\item\em Default constructor, useless item as is. \end{DoxyCompactList}\item 
 \hyperlink{class_belt_a0fe7148ac3d4fba7953f89cd1ca00443}{Belt} (const \hyperlink{class_belt}{Belt} $\ast$other\+Belt)
 \item 
 \hypertarget{class_belt_a9a71355d55b90024c7d61888c25ff21d}{}\label{class_belt_a9a71355d55b90024c7d61888c25ff21d} 
 {\bfseries Belt} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values})
 \item 
+\hypertarget{class_belt_a39c1f664a2f79f5dedac37546563f493}{}\label{class_belt_a39c1f664a2f79f5dedac37546563f493} 
 virtual void \hyperlink{class_belt_a39c1f664a2f79f5dedac37546563f493}{Serialize} (C\+Archive \&ar)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Allows for \hyperlink{class_belt}{Belt} item to be saved to disk. \end{DoxyCompactList}\item 
+\hypertarget{class_belt_a30ea723df47f4967b771fb3bc5bb98a0}{}\label{class_belt_a30ea723df47f4967b771fb3bc5bb98a0} 
+string \hyperlink{class_belt_a30ea723df47f4967b771fb3bc5bb98a0}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Returns a string with all properties of belt. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,19 +63,6 @@ Subclass of \hyperlink{class_item}{Item}, allows Character to equip a belt
 {\footnotesize\ttfamily Belt\+::\+Belt (\begin{DoxyParamCaption}\item[{const \hyperlink{class_belt}{Belt} $\ast$}]{other\+Belt }\end{DoxyParamCaption})}
 
 Copy Constructor -\/ initializes a new belt with the same values as another belt 
-
-\subsection{Member Function Documentation}
-\hypertarget{class_belt_a39c1f664a2f79f5dedac37546563f493}{}\label{class_belt_a39c1f664a2f79f5dedac37546563f493} 
-\index{Belt@{Belt}!Serialize@{Serialize}}
-\index{Serialize@{Serialize}!Belt@{Belt}}
-\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
-{\footnotesize\ttfamily void Belt\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-Allows an item to be serialized 
-
-Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item}.
-
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
