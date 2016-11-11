@@ -1,1 +1,7 @@
 Glexuk
+Slot9
+assets/Campaigns/MapsForCampaigns/Slot9
+Slot8
+assets/Campaigns/MapsForCampaigns/Slot8
+Slot7
+assets/Campaigns/MapsForCampaigns/Slot7

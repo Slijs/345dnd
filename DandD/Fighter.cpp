@@ -1051,6 +1051,13 @@ void Fighter::Serialize(CArchive &ar){
 	}
 }
 
+void Fighter::forceLevelIncrease(){
+	Characters::forceLevelIncrease();
+	int toAdd = _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
+	hitPoints += toAdd;
+	maxHitPoints += toAdd;
+}
+
 bool Fighter::validateMapComponentWithinRange(int x, int y){
 	/*// Will calculate the x and y distance
 	int xDiff = abs(x - this->position[0]);
