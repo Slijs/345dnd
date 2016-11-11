@@ -1,0 +1,10 @@
+BBBBBBBBBBBBBBB
+BBBBBDDDDDDBDBB
+BBBBBDDxDDDDBBB
+BBBBDxxxxxDDDBB
+BBBBDxxxxxDDDBB
+BBBBDxxxxx@@DBB
+BABBDDxx@@@@CpB
+BBBBDDx@@@@@CBB
+BBBBDBB@BB@BBBB
+assets/environment component themes/test theme2/

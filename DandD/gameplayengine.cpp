@@ -100,7 +100,8 @@ int GamePlayEngine::runEngine()
 			{
 				system("cls");
 				this->_level->getLevelWindow()->hideWindow();
-				std::cout << "CONGRATS!!! Map has been completed\nPress any key to continue.\n";
+				std::cout << "CONGRATS!!! Map has been completed.\n\nPlayer has levelled up!!\n\nPress any key to continue.\n";
+				//this->_level->getPlayer()->le
 				_getch();
 				return 0;
 			}
