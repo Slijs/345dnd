@@ -187,7 +187,7 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 		if (itemTypeToCreate == 5) {
 			// generate the random attributes in a suitable range
 			// any name is fine
-			string name = BELT_NAMES[rand() % (BELT_NAMES.size())];
+			string name = BOOTS_NAMES[rand() % (BOOTS_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
 			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
@@ -212,7 +212,7 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 		if (itemTypeToCreate == 6) {
 			// generate the random attributes in a suitable range
 			// any name is fine
-			string name = ARMOR_NAMES[rand() % (ARMOR_NAMES.size())];
+			string name = HELMET_NAMES[rand() % (HELMET_NAMES.size())];
 			// weight is between 0 and 25, so adjust according to level
 			int weight = 5 + floor(9 * atan(0.1*level)) + (rand() % 9 - 4);
 			int value = 5 + floor(level*(rand() % 20));
