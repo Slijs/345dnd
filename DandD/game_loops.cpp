@@ -112,7 +112,8 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 			this->_currentFighterTracker = CharacterManager::getCharacter();
 			for (int x = 0; x < mappaths.size(); x++)
 			{
-				gameLevelLoop(mappaths[x]);
+				if (gameLevelLoop(mappaths[x]) > 0)
+					break;
 			}
 		}
 		else
@@ -184,9 +185,9 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	getch();*/
 
 	
-	destinationInt = -1;
-
-	while(quit==false)
+	destinationInt = engine->runEngine();
+	
+	/*while(quit==false)
 	{
 		while(SDL_PollEvent(&_event) != 0)
 		{
@@ -197,7 +198,7 @@ int GameLoops::gameLevelLoop(std::string mappath)
 			engine->runEngine();
 			quit = true;
 		}
-	}
+	}*/
 
 
 	l->getLevelWindow()->hideWindow();
@@ -208,7 +209,7 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	//f = nullptr;
 	delete l;
 	l=nullptr;
-	return 0;
+	return destinationInt;
 }
 
 //!used to create a new map
