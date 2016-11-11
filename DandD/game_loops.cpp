@@ -70,6 +70,7 @@ void GameLoops::loopManager()
 	campaignname = nullptr;
 }
 
+//!the loop that handles playing of a full campaign
 int GameLoops::playCampaignLoop(char* path, char* campaign)
 {
 	//first load menu to select campaign
@@ -482,6 +483,7 @@ int GameLoops::campaignManagerLoop(char* path, char* campaign)
 	return destination;
 }
 
+//launches create edit items for game
 int GameLoops::createEditItems()
 {
 	system("CLS");
@@ -490,6 +492,7 @@ int GameLoops::createEditItems()
 	return _MainMenu_;
 }
 
+//launches cerate edit player for game
 int GameLoops::createEditPlayer()
 {
 	system("CLS");

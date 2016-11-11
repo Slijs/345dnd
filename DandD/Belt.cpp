@@ -10,7 +10,7 @@
 #include "Belt.h"
 
 IMPLEMENT_SERIAL(Belt, Item, 1);
-// Default constructor, useless item as is
+//!Default constructor, useless item as is
 Belt::Belt() : 	
 	Item("None", 0, 0, "assets/defaultBelt.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 1,0,1,0,0,0,0,0,0 } })
 {
@@ -22,19 +22,20 @@ Belt::Belt() :
 */
 Belt::Belt(const Belt* otherBelt) : Item(otherBelt) {}
 
-// Constructor where all attributes EXCEPT the enchantmentsPossible
-// will be set.
+//!Constructor where all attributes EXCEPT the enchantmentsPossible will be set.
 Belt::Belt(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues) 
 	: Item(name, weight, value, image, enchantmentValues, {1,0,1,0,0,0,0,0,0})
 {
 }
 
+//! Allows for Belt item to be saved to disk
 void Belt::Serialize(CArchive & ar)
 {
 	Item::Serialize(ar);
 }
 
+//!Returns a string with all properties of belt
 string Belt::toString()
 {
 	std::string tempString;

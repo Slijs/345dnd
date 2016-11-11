@@ -55,9 +55,14 @@ public:
 	void displayBattle();
 	void displayLevelUp();
 	void displayDeath();
+
+	//!Returns name of Fighter
 	string getName() { return name; }
+	//!Returns race
 	Race getRace() { return race; };
+	//!Sets name 
 	void setName(string name);
+	//!Sets Race
 	void setRace(Race nRace);
 
 	//For battle

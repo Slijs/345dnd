@@ -1,3 +1,8 @@
+/**
+*@class Dice
+*@brief Provides methods for creating dice specified valid number of faces
+*/
+
 #include "Dice.h"
 using namespace std;
 

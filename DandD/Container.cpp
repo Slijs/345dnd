@@ -59,18 +59,19 @@ Container::Container(int m_maxContents, vector<Item*> m_contents, std::string co
 }
 
 // Accessors and Mutators
+//!Returns maximum number of content
 int Container::getMaxContents() {
 	return maxContents;
 }
-
+//!Returns current number of content
 int Container::getNumContents() {
 	return numContents;
 }
-
+//Returns image path
 string Container::getImage() {
 	return image;
 }
-
+//Returns content of container as vector of item pointers 
 vector<Item*> Container::getContents() {
 	return contents;
 }

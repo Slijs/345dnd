@@ -12,7 +12,7 @@
 
 IMPLEMENT_SERIAL(Shield, Item, 1);
 
-// Default constructor, useless item as is
+//!Default constructor, useless item as is
 Shield::Shield() : 	
 	Item("None", 0, 0, "assets/defaultShield.jpg", { {0,0,0,0,0,0,0,0,0} }, { { 0,0,0,0,0,0,1,0,0 } }), defense(0), attackDice("1d4"), range(0)
 {
@@ -26,8 +26,7 @@ Shield::Shield(const Shield* otherShield) : Item(otherShield){
 
 }
 
-// Constructor where all attributes EXCEPT the enchantmentsPossible
-// will be set.
+//!Constructor where all attributes EXCEPT the enchantmentsPossible will be set.
 Shield::Shield(std::string name, int weight, int value, std::string image,
 		std::array<int, 9> enchantmentValues, int defense, std::string attackDice, int range)
 		: Item(name, weight, value, image, enchantmentValues, { { 0, 0, 0, 0, 0, 0, 1, 0, 0 } })
@@ -38,15 +37,15 @@ Shield::Shield(std::string name, int weight, int value, std::string image,
 }
 
 // Getters/Setters
-
+//!Gets defense of shield	
 int Shield::getDefense() {
 	return defense;
 }
-
+//!Gets range of shield
 int Shield::getRange() {
 	return range;
 }
-
+//!Sets defense
 void Shield::setDefense(int defense) {
 	if (defense < 0 || defense > 25) {
 		throw "Defense must be between 0 and 25.";
@@ -55,16 +54,16 @@ void Shield::setDefense(int defense) {
 		this->defense = defense;
 	}
 }
-
+//!Increments defense
 void Shield::incrementDefense() {
 	defense++;
 }
-
+//!Decrements defense
 void Shield::decrementDefense() {
 	defense--;
 }
 
-
+//!Sets range of shield for attack
 void Shield::setRange(int range)
 {
 	if (range < 0 || range > 10) {
@@ -75,19 +74,21 @@ void Shield::setRange(int range)
 	}
 }
 
+//!Increments range
 void Shield::incrementRange() {
 	range++;
 }
-
+//!Decrements range
 void Shield::decrementRange() {
 	range--;
 }
 
+//Returns attack dice
 std::string Shield::getAttackDice()
 {
 	return attackDice;
 }
-
+//Sets attack dice
 void Shield::setAttackDice(std::string diceString)
 {
 	// check to make sure that the dice string is valid
@@ -101,7 +102,6 @@ void Shield::setAttackDice(std::string diceString)
 }
 
 // Misc methods
-
 std::string Shield::toString() {
 	std::string tempString;
 

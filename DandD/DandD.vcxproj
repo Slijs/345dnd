@@ -104,7 +104,6 @@
     <ClCompile Include="filepathandfoldermanager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mapeditorengine.cpp" />
-    <ClCompile Include="MapTest.cpp" />
     <ClCompile Include="menuengine.cpp" />
     <ClCompile Include="menus.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -115,7 +114,6 @@
     <ClCompile Include="routing.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Subject.cpp" />
-    <ClCompile Include="TestContainer.cpp" />
     <ClCompile Include="TestItem.cpp" />
     <ClCompile Include="userinputandstringmanager.cpp" />
     <ClCompile Include="textbasedwindow.cpp" />
@@ -171,7 +169,6 @@
     <ClInclude Include="MonsterFactory.h" />
     <ClInclude Include="namespaces.h" />
     <ClInclude Include="Observer.h" />
-    <ClInclude Include="red_green_blue.h" />
     <ClInclude Include="Ring.h" />
     <ClInclude Include="routing.h" />
     <ClInclude Include="Shield.h" />

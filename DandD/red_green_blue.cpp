@@ -1,4 +1,3 @@
-#include "red_green_blue.h"
 #include "fileIOmanager.h"
 
 RGB_C::RGB_C()

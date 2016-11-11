@@ -300,3 +300,4 @@ __pycache__/
 *.lastbuildstate
 *.idb
 *.filters
+DandD/Fighter.cpp

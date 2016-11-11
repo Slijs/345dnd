@@ -5,7 +5,6 @@
 #if !defined ( MENUS_H )
 #define MENUS_H
 #include "textbasedwindow.h"
-#include "red_green_blue.h"
 #include "fileIOmanager.h"
 #include "namespaces.h"
 using namespace WindowHeightWidthDivideAspect;
