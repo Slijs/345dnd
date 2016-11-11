@@ -7,12 +7,15 @@ GamePlayEngine::GamePlayEngine()
 	this->_moveSelect = false;
 	this->_moveValidityTracker = false;
 	this->_interactSelect = false;
+	this->_attackSelect = false;
+	this->_buttonSelect = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
 	this->_lastGrid.y = -1;
 	this->_gridIndex = -1;
 	this->_lastButtonIndex = -1;
+	this->_currentButtonIndex = -1;
 }
 void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 {
@@ -20,6 +23,7 @@ void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 	this->_event = event_;
 	this->_buttons = this->_level->getAllButtonDestinations();
 	this->_containers = this->_level->getContainersOnMap();
+	this->_enemies = this->_level->getEnemiesOnMap();
 }
 void GamePlayEngine::detachLevel()
 {
@@ -28,19 +32,25 @@ void GamePlayEngine::detachLevel()
 	this->_moveSelect = false;
 	this->_moveValidityTracker = false;
 	this->_interactSelect = false;
+	this->_attackSelect = false;
+	this->_buttonSelect = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
 	this->_lastGrid.y = -1;
 	this->_gridIndex = -1;
+	this->_currentButtonIndex = -1;
 	this->_buttons.clear();
 	this->_containers.clear();
+	this->_enemies.clear();
 }
 
 //index 0 is player status
 //index 1 is move
 //index 2 is interact
-//index 3 is exit play
+//index 3 is attack
+//index 4 is save player
+//index 5 is exit play
 int GamePlayEngine::runEngine()
 {
 	bool exit = false;
@@ -57,6 +67,9 @@ int GamePlayEngine::runEngine()
 			{
 				this->_moveSelect = false;
 				this->_interactSelect = false;
+				this->_attackSelect = false;
+				this->_buttonSelect = false;
+				this->_level->getLevelWindow()->changeButtonColor(this->_currentButtonIndex, 255, 0, 0);
 			}
 
 			//if move select is true all move function
@@ -66,6 +79,10 @@ int GamePlayEngine::runEngine()
 			//if interact select is true and run container interact logic
 			if (this->_interactSelect == true)
 				interactEnvironment();
+
+			//if attack select is true then run attack logic
+			if (this->_attackSelect == true)
+				attackEnemy();
 
 			//get current mouse coordinates
 			SDL_GetMouseState(&mouse_X, &mouse_Y);
@@ -80,40 +97,55 @@ int GamePlayEngine::runEngine()
 			//other wise prolly on right hand menu
 			else
 			{
-				buttonindex = onRIghtHandMenu();
-				//first check for exit
-				if (buttonindex == 3)
-					exit = true;
-
-				if (buttonindex == 0)
+				if (this->_buttonSelect == false)
 				{
-					system("cls");
-					this->_level->getLevelWindow()->hideWindow();
-					//!!!!!!!!!!!!!!!!!!!!
-					// DISPLAY CHARACTER STATS AND INVENTORY HERE
-					//!!!!!!!!!!!!!!!!!!!!
-					this->_level->getPlayer()->displayStats();
-					//getch();
-					system("cls");
-					this->_level->getLevelWindow()->unHideWindow();
-				}
+					buttonindex = onRIghtHandMenu();
+					this->_currentButtonIndex = buttonindex;
+					//first check for exit
+					if (buttonindex == 5)
+						exit = true;
 
-				if (buttonindex == 1)
-				{
-					this->_moveSelect = true;
-				}
+					if (buttonindex == 0)
+					{
+						this->_buttonSelect = false;
+						system("cls");
+						this->_level->getLevelWindow()->hideWindow();
+						//!!!!!!!!!!!!!!!!!!!!
+						// DISPLAY CHARACTER STATS AND INVENTORY HERE
+						//!!!!!!!!!!!!!!!!!!!!
+						this->_level->getPlayer()->displayStats();
+						//getch();
+						system("cls");
+						this->_level->getLevelWindow()->unHideWindow();
+					}
 
-				if (buttonindex == 2)
-				{
-					this->_interactSelect = true;
+					if (buttonindex == 1)
+					{
+						this->_moveSelect = true;
+					}
+
+					if (buttonindex == 2)
+					{
+						this->_interactSelect = true;
+					}
+
+					if (buttonindex == 3)
+					{
+						this->_attackSelect = true;
+					}
+
+					if (buttonindex == 4)
+					{
+						this->_buttonSelect = false;
+						this->_level->getLevelWindow()->hideWindow();
+						CharacterSaveManager::saveCharacter(this->_level->getPlayer());
+						this->_level->getLevelWindow()->unHideWindow();
+					}
 				}
 			}
 		}
 	}
-	
-	//check mouse position on gameplaygrids
 
-	//check mouse position on right hand menu
 	return 0;
 }
 
@@ -163,6 +195,57 @@ void GamePlayEngine::interactEnvironment()
 		}
 	}	
 }
+
+void GamePlayEngine::attackEnemy()
+{
+	bool attack;
+	int mouseIndex;
+	int enGridX;
+	int enGridY;
+	int mouseX;
+	int mouseY;
+	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
+	int charIndex = _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
+	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
+	for (int x = 0; x < this->_enemies.size(); x++)
+	{
+		//std::cout << "vector index: " << this->_containers[x]->stringIndex << "char index: " << this->_containers[x]->charIndex<<std::endl;
+		//interact = this->_level->getPlayer()->validateChestWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
+		attack = this->_level->getPlayer()->validateMapComponentWithinRange(this->_enemies[x]->stringIndex, this->_enemies[x]->charIndex);
+		//std::cout << "validate chest function return: " << interact << std::endl;
+		//std::cout << "X: " << contGridX << "Y: " << contGridY <<"interact return: "<<interact<< std::endl;
+		//if interact is true then lookout for a left button click on that part of the map
+		if (attack == true)
+		{
+			enGridX = this->_enemies[x]->charIndex * this->_level->getLevelWindow()->getGridX_Length();
+			enGridY = this->_enemies[x]->stringIndex * this->_level->getLevelWindow()->getGridY_Length();
+			std::cout << "X cont: " << enGridX << "Y cont: " << enGridY << std::endl;
+			std::cout << "X mouse: " << _currentGrid.x << "Y mouse: " << _currentGrid.y << std::endl;
+			//check if mouse is range of this then lookout for a left mousebutton click
+			SDL_GetMouseState(&mouseX, &mouseY);
+			/*if ((this->_currentGrid.x >= contGridX) && (this->_currentGrid.x <= contGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
+			(this->_currentGrid.y >= contGridY) && (this->_currentGrid.y <= contGridY + this->_level->getLevelWindow()->getGridY_Length()))*/
+			if ((mouseX >= enGridX) && (mouseX <= enGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
+				(mouseY >= enGridY) && (mouseY <= enGridY + this->_level->getLevelWindow()->getGridY_Length()))
+			{
+				if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_LEFT))
+				{
+					this->_level->getLevelWindow()->hideWindow();
+					system("cls");
+					//std::cout<<this->_containers[x]->container->contentsToString();
+					///this->_level->getPlayer()->interactWithContainer(this->_containers[x]->container);
+					this->_enemies[x]->monster->displayStats();
+					std::cout << "\nPress any key to continue.\n";
+					getch();
+					system("cls");
+					this->_level->getLevelWindow()->unHideWindow();
+					return;
+				}
+			}
+		}
+	}
+}
+
 
 void GamePlayEngine::movePlayer()
 {
@@ -304,7 +387,11 @@ int GamePlayEngine::onRIghtHandMenu()
 	}
 
 	if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_LEFT) && (index >= 0))
+	{
+		this->_buttonSelect = true;
 		return index;
+	}
+		
 	return -1;
 }
 

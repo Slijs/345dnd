@@ -61,10 +61,22 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_interact.y = this->_movePlayerDest.y + this->_inventoryPaneDest.h * 2;
 	this->_level_window->addButton("Interact", 255, 0, 0, this->_interact);
 
+	this->_attack.x = this->_inventoryPaneDest.x;
+	this->_attack.w = this->_inventoryPaneDest.w;
+	this->_attack.h = this->_inventoryPaneDest.h;
+	this->_attack.y = this->_interact.y + this->_inventoryPaneDest.h * 2;
+	this->_level_window->addButton("Attack", 255, 0, 0, this->_attack);
+
+	this->_savePlayer.x = this->_inventoryPaneDest.x;
+	this->_savePlayer.w = this->_inventoryPaneDest.w;
+	this->_savePlayer.h = this->_inventoryPaneDest.h;
+	this->_savePlayer.y = this->_attack.y + this->_inventoryPaneDest.h * 2;
+	this->_level_window->addButton("Save Player", 255, 0, 0, this->_savePlayer);
+
 	this->_exitPlay.x = this->_inventoryPaneDest.x;
 	this->_exitPlay.w = this->_inventoryPaneDest.w * 0.8;
 	this->_exitPlay.h = this->_inventoryPaneDest.h;
-	this->_exitPlay.y = this->_interact.y + this->_inventoryPaneDest.h * 2;
+	this->_exitPlay.y = this->_savePlayer.y + this->_inventoryPaneDest.h * 2;
 	this->_level_window->addButton("Exit play", 255, 0, 0, this->_exitPlay);
 
 	//setup the menu component
@@ -89,32 +101,36 @@ void PreBuiltLevel::setupContainersOnMap()
 			}
 		}
 	}
-
-	//testing if the container generation is happening properly.
-	system("cls");
-	std::cout << std::endl << std::endl;
-	std::vector<std::string> maptemp = this->getMapSimpleVersion();
-	for (int x = 0; x < maptemp.size(); x++)
-	{
-		std::cout << maptemp[x] << std::endl;
-	}
-	std::cout << std::endl;
-
-	//now display containers details and coordinates
-	for (int x = 0; x < this->_containersOnMap.size(); x++)
-	{
-		std::cout<<this->_containersOnMap[x]->container->contentsToString();
-		std::cout << "Vector index: " << this->_containersOnMap[x]->stringIndex << std::endl;
-		std::cout << "Character index: " << this->_containersOnMap[x]->charIndex << std::endl;
-		std::cout << std::endl;
-	}
-
-	std::cout << "Press any key to continue\n";
-	//getch();
 }
+
+void PreBuiltLevel::setupEnemiesOnMap()
+{
+	EnemiesOnMap* temp;
+	//first find howmany an get there coordinates
+	for (int y = 0; y < this->_level.size(); y++)
+	{
+		for (int x = 0; x < this->_level[y].size(); x++)
+		{
+			if (_level[y].at(x) == SimplifiedMapSymbols::_Enemies_)
+			{
+				temp = new EnemiesOnMap();
+				temp->stringIndex = y;
+				temp->charIndex = x;
+				temp->monster = MonsterFactory::createMonster(this->_player);
+				this->_enemisOnMap.push_back(temp);
+			}
+		}
+	}
+}
+
 std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
 {
 	return this->_containersOnMap;
+}
+
+std::vector<EnemiesOnMap*> PreBuiltLevel::getEnemiesOnMap()
+{
+	return this->_enemisOnMap;
 }
 
 //!environment component path accessor

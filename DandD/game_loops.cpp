@@ -156,7 +156,9 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
 	l->setupContainersOnMap();
+	
 	l->renderAndDisplayLevel();
+	l->setupEnemiesOnMap();
 
 	engine->attachLevel(l, &this->_event);
 	this->_currentFighterTracker->setMap(&l->getMapSimpleVersion());

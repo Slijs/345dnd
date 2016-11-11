@@ -7,6 +7,8 @@
 #include "Fighter.h"
 #include "containerOnMap.h"
 #include "ContainerGenerator.h"
+#include "enemyonmap.h"
+#include "MonsterFactory.h"
 /*!
 *@class PreBuiltLevel
 * Inherits from levels, not much specific functionalities added except
@@ -21,8 +23,11 @@ protected:
 	SDL_Rect _movePlayerDest;
 	SDL_Rect _exitPlay;
 	SDL_Rect _interact;
+	SDL_Rect _attack;
+	SDL_Rect _savePlayer;
 	Fighter* _player;
 	std::vector<ContainerOnMap*> _containersOnMap;
+	std::vector<EnemiesOnMap*> _enemisOnMap;
 
 public:
 	PreBuiltLevel();
@@ -38,7 +43,9 @@ public:
 	std::vector<std::string> getBuiltLevelFile() const;
 	Fighter* getPlayer();
 	void setupContainersOnMap();
+	void setupEnemiesOnMap();
 	std::vector<ContainerOnMap*> getContainersOnMap();
+	std::vector<EnemiesOnMap*> getEnemiesOnMap();
 	std::vector<SDL_Rect> getAllButtonDestinations();
 	~PreBuiltLevel();
 };
