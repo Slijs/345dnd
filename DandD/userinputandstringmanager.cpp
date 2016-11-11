@@ -1,3 +1,5 @@
+//!@file userinputandstringmanager.cpp
+//!@brief Provides implementation of SingletonInputsAndStringManager class
 #include "userinputandstringmanager.h"
 
 //!singleton static instance variable

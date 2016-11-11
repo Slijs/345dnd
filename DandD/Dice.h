@@ -33,6 +33,10 @@
 #ifndef DICE_H
 #define DICE_H
 
+/**
+*@class Dice
+*@brief Allows random number generation using DnD dice types
+*/
 class Dice {
 
 public:

@@ -16,7 +16,6 @@
 	on his current status. If the character is in battle, dead or leveling up,
 	a corresponding display function will be called.  
 */
-
 class CharacterObserver : public Observer
 {
 private:

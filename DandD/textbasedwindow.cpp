@@ -1,3 +1,5 @@
+//!@file textbasedwindow.cpp
+//!@brief Provides implementation of TextBasedWindow class methods
 #include "textbasedwindow.h"
 
 //!default constructor loads all ttf assests

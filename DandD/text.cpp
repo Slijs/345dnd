@@ -1,3 +1,5 @@
+//!@file text.cpp
+//!@brief Provides implementation of Text methods
 #include "text.h"
 
 //!default constructor

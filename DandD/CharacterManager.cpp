@@ -24,8 +24,6 @@ Fighter* CharacterManager::getCharacter(){
 void CharacterManager::createOrEditCharacter(){
 	char conf = 'X'; // char that will be used to get user input
 	bool cont = true;
-	Fighter *test;
-	Container *testbackpack;
 
 	// Ask if user wants to CREATE, EDIT or REMOVE a character
 	cin.clear();
@@ -43,13 +41,6 @@ void CharacterManager::createOrEditCharacter(){
 		case '3': // User wants to delete a character
 			_deleteCharacter();
 			break;
-		case '4': // DELETE123
-			test = CharacterSaveManager::loadCharacter();
-			testbackpack = ContainerGenerator::generateContainer(test);
-			test->interactWithContainer(testbackpack);
-			test->displayBackpack();
-			CharacterSaveManager::saveCharacter(test);
-			system("PAUSE");
 		case 'm':
 		case 'M':
 			return;
@@ -136,7 +127,8 @@ void CharacterManager::_createNewCharacter(){
 	} while (!(conf == 'Y' || conf == 'y'));
 	conf = 'x';
 
-	// The Character will now be created and it will be saved to file
+	// The Character will now be created
+	// The user will be asked if they want to put the user-created items into their Character's backpack
 	Fighter *myChar = CharacterBuilder::create(selectedLevel, Race(selectedRace), name);
 	do {
 		std::cout << endl << "Would you like to add user-created items to your character? (Y/N)" << endl;
@@ -145,6 +137,8 @@ void CharacterManager::_createNewCharacter(){
 
 	if (conf == 'Y' || conf == 'y')
 		myChar->fillBackpack(ItemCreator::loadItemsFromFile());
+
+	// The Character will now be saved to file.
 	CharacterSaveManager::saveCharacter(myChar);
 	myChar->displayOnlyStats();
 	delete myChar;
@@ -307,7 +301,7 @@ void CharacterManager::_editName(Fighter *theFighter){
 	// Saves the Fighter using new name
 	if (CharacterSaveManager::saveCharacter(theFighter)) {
 		cout << theFighter->getName() << " has been updated!" << endl;
-		// Deletes the entry corresponding to the old name
+	// Deletes the entry corresponding to the old name
 		CharacterSaveManager::removeCharacter(prevName);
 		return;
 	} else { // Means that saving returned false and no updates were saved

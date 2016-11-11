@@ -2,6 +2,9 @@
 
 IMPLEMENT_SERIAL(CharacterSaveMap, CObject, 1);
 
+/**
+*Default constructor - creates a new CharacterSaveMap with only blank values
+*/
 CharacterSaveMap::CharacterSaveMap() {
 
 	// Initializes all strings in the _charMap array to null
@@ -126,6 +129,9 @@ void CharacterSaveMap::printNames() {
 	}
 }
 
+/**
+* Allows the CharacterSaveMap to be serialized
+*/
 void CharacterSaveMap::Serialize(CArchive &ar) {
 	try {
 		CObject::Serialize(ar);

@@ -12,6 +12,7 @@
 using namespace CampaignMaximums;
 using namespace std;
 /*!
+*@class SingletonInputsAndStringManager
 *singleton class designed to manages User Inputs and also manage string to char pointer and vice
 *versa manipulation.
 */

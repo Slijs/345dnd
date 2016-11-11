@@ -1,4 +1,5 @@
 /**
+ * @file Weapon.cpp
  * @brief Class for weapons.
  * @author Philip Brink
  * @version 0.0.1

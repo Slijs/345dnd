@@ -1,4 +1,3 @@
-#pragma once
 /**
 *@file Subject.h
 *@brief Definition of Subject abstract class.
@@ -14,14 +13,14 @@
 #include "Observer.h"
 using namespace std;
 
+enum SubjectUpdateFlags { CharPos };
+
 /**
 *@class Subject
 *@brief Abstract implementation of Model in the MVC pattern.
 *<p>Subject allows an Object to associate Observers with itself. It then can notify its observers of any updates
 *	that have been made to it, allowing the Observers to carry out the necessary actions.
 */
-
-enum SubjectUpdateFlags { CharPos };
 class Subject {
 public:
 	virtual void attach(Observer* obs);

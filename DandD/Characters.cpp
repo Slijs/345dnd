@@ -38,6 +38,7 @@ Characters::Characters()
 	position.push_back(-1);
 }
 
+//!Parameterized Constructor - setting 
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA)
 {
 	this->level = level;

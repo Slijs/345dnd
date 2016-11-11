@@ -1,3 +1,5 @@
+//!@file sdl_initialize.cpp
+//!@brief Provides implementation of SDLSetup members
 #include "sdl_initialize.h"
 
 //!initializes general SDL functionalities

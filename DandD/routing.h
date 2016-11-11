@@ -8,6 +8,7 @@
 #include "namespaces.h"
 using namespace SimplifiedMapSymbols;
 /*!
+*@class SingletonRouting
 *this singleton class is used for the routing part of map validation
 */
 class SingletonRouting

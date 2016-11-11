@@ -1,4 +1,5 @@
 /**
+ * @file Ring.h
  * @brief Class for rings.
  * @author Philip Brink
  * @version 0.0.1

@@ -161,6 +161,10 @@ Fighter* CharacterSaveManager::loadCharacter() {
 	return loadedChar;
 }
 
+/**
+* Allows the user to remove any of the saved Characters. Calls the parameterized method using the name selected
+* in order to complete deletion
+*/
 void CharacterSaveManager::removeCharacter() {
 	CFile mapFile; // Map of all Character saves
 	string input = "";
@@ -190,7 +194,6 @@ void CharacterSaveManager::removeCharacter() {
 	// Will try to get proper selection from user
 	while (true) {
 		cin.clear();
-		cin.ignore(10000, '\n');
 		cout << "Which character would you like to remove? (-1 to return)" << endl;
 		cin >> input;
 		if (input == "-1") {
@@ -272,7 +275,11 @@ void CharacterSaveManager::removeCharacter(string name) {
 	return;
 }
 
-
+/**
+* Helper method to convert CStrings back to regular strings
+*@param cstr CString
+*@return string version of the CString
+*/
 string CharacterSaveManager::cstrTostr(CString &cstr) {
 	int strlen = cstr.GetLength();
 	string toRet = "";
