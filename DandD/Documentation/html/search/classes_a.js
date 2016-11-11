@@ -2,6 +2,7 @@ var searchData=
 [
   ['mainmenu',['MainMenu',['../class_main_menu.html',1,'']]],
   ['mapeditorengine',['MapEditorEngine',['../class_map_editor_engine.html',1,'']]],
+  ['mapobserver',['MapObserver',['../class_map_observer.html',1,'']]],
   ['maps',['Maps',['../class_maps.html',1,'']]],
   ['menuengine',['MenuEngine',['../class_menu_engine.html',1,'']]],
   ['menus',['Menus',['../class_menus.html',1,'']]],

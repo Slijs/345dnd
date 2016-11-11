@@ -63,9 +63,21 @@ std\+::vector$<$ \hyperlink{struct_enemies_on_map}{Enemies\+On\+Map} $\ast$ $>$ 
 \hypertarget{class_pre_built_level_ac03a041e9981a044dceb7aa0b2fa5639}{}\label{class_pre_built_level_ac03a041e9981a044dceb7aa0b2fa5639} 
 std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ \hyperlink{class_pre_built_level_ac03a041e9981a044dceb7aa0b2fa5639}{get\+All\+Button\+Destinations} ()
 \begin{DoxyCompactList}\small\item\em map menu buttons accessor \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_a9b04d07e4d36055d676d359f753ea6ae}{}\label{class_pre_built_level_a9b04d07e4d36055d676d359f753ea6ae} 
+void \hyperlink{class_pre_built_level_a9b04d07e4d36055d676d359f753ea6ae}{set\+Dest\+Rects\+For\+Observer} (S\+D\+L\+\_\+\+Rect dest1, S\+D\+L\+\_\+\+Rect dest2)
+\begin{DoxyCompactList}\small\item\em function to update destination rectangles for the observer \end{DoxyCompactList}\item 
+\hypertarget{class_pre_built_level_ab96ad8d821e97b075c0bf616ef8eddd5}{}\label{class_pre_built_level_ab96ad8d821e97b075c0bf616ef8eddd5} 
+void \hyperlink{class_pre_built_level_ab96ad8d821e97b075c0bf616ef8eddd5}{get\+Dest\+Rects\+For\+Observer} (S\+D\+L\+\_\+\+Rect $\ast$dest1, S\+D\+L\+\_\+\+Rect $\ast$dest2)
+\begin{DoxyCompactList}\small\item\em sets the pointer rect to values from current rects in map \end{DoxyCompactList}\item 
 \hypertarget{class_pre_built_level_a06411fd72dc81d3792c3e6e6fe0fc416}{}\label{class_pre_built_level_a06411fd72dc81d3792c3e6e6fe0fc416} 
 \hyperlink{class_pre_built_level_a06411fd72dc81d3792c3e6e6fe0fc416}{$\sim$\+Pre\+Built\+Level} ()
 \begin{DoxyCompactList}\small\item\em local destructor destroys the positions for enemies and containers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_pre_built_level_a318774652d942b3ed8f1d22b3a2e992d}{}\label{class_pre_built_level_a318774652d942b3ed8f1d22b3a2e992d} 
+\hyperlink{class_environment}{Environment} $\ast$ {\bfseries \+\_\+environment\+For\+Observer}
+\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -89,6 +101,12 @@ S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+attack}
 \item 
 \hypertarget{class_pre_built_level_ac548cf0eb963c29aedf7d930a9828e2f}{}\label{class_pre_built_level_ac548cf0eb963c29aedf7d930a9828e2f} 
 S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+save\+Player}
+\item 
+\hypertarget{class_pre_built_level_abd2b8176d4c4d1de51c58d3352492416}{}\label{class_pre_built_level_abd2b8176d4c4d1de51c58d3352492416} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+dest1\+For\+Observer}
+\item 
+\hypertarget{class_pre_built_level_a4ab513978b0fdbacc89d53a1be7b1d20}{}\label{class_pre_built_level_a4ab513978b0fdbacc89d53a1be7b1d20} 
+S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+dest2\+For\+Observer}
 \item 
 \hypertarget{class_pre_built_level_a2b17bc23df363f269fedf0aceafc9a02}{}\label{class_pre_built_level_a2b17bc23df363f269fedf0aceafc9a02} 
 \hyperlink{class_fighter}{Fighter} $\ast$ {\bfseries \+\_\+player}

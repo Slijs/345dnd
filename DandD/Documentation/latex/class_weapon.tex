@@ -25,28 +25,29 @@ Inheritance diagram for Weapon\+:\begin{figure}[H]
 {\bfseries Weapon} (string name, int weight, int value, string \hyperlink{class_item_add84a42b692ee5d580a92ae4a922f784}{image}, array$<$ int, 9 $>$ \hyperlink{class_item_a8532d8729f9433f41b7fc18b20d83236}{enchantment\+Values}, string attack\+Dice, int range)
 \item 
 \hypertarget{class_weapon_ab3452fb4487ff88c46a4586cde0260cb}{}\label{class_weapon_ab3452fb4487ff88c46a4586cde0260cb} 
-string {\bfseries get\+Attack\+Dice} ()
-\item 
+string \hyperlink{class_weapon_ab3452fb4487ff88c46a4586cde0260cb}{get\+Attack\+Dice} ()
+\begin{DoxyCompactList}\small\item\em Get the attack dice string 1d4 1d6 1d8 or 1d10. \end{DoxyCompactList}\item 
 \hypertarget{class_weapon_a17ae76ac029507219ba18f6940b08258}{}\label{class_weapon_a17ae76ac029507219ba18f6940b08258} 
-void {\bfseries set\+Attack\+Dice} (string attack\+Dice)
-\item 
+void \hyperlink{class_weapon_a17ae76ac029507219ba18f6940b08258}{set\+Attack\+Dice} (string attack\+Dice)
+\begin{DoxyCompactList}\small\item\em Set the attack dice string 1d4 1d6 1d8 or 1d10. \end{DoxyCompactList}\item 
 \hypertarget{class_weapon_af0d86939f16add54fc7ae87fea85ac21}{}\label{class_weapon_af0d86939f16add54fc7ae87fea85ac21} 
-int {\bfseries get\+Range} ()
-\item 
+int \hyperlink{class_weapon_af0d86939f16add54fc7ae87fea85ac21}{get\+Range} ()
+\begin{DoxyCompactList}\small\item\em Get range. \end{DoxyCompactList}\item 
 \hypertarget{class_weapon_a9227da33ba03135c9df353a91a7b0013}{}\label{class_weapon_a9227da33ba03135c9df353a91a7b0013} 
-void {\bfseries set\+Range} (int range)
-\item 
+void \hyperlink{class_weapon_a9227da33ba03135c9df353a91a7b0013}{set\+Range} (int range)
+\begin{DoxyCompactList}\small\item\em Set range between 0 and 25. \end{DoxyCompactList}\item 
 \hypertarget{class_weapon_a7dd6eff2cc572adb9bef4b985a255920}{}\label{class_weapon_a7dd6eff2cc572adb9bef4b985a255920} 
-void {\bfseries increment\+Range} ()
-\item 
+void \hyperlink{class_weapon_a7dd6eff2cc572adb9bef4b985a255920}{increment\+Range} ()
+\begin{DoxyCompactList}\small\item\em Increment range if less than 25. \end{DoxyCompactList}\item 
 \hypertarget{class_weapon_a6e28001720b8f43ee74f0ac7d3008ba5}{}\label{class_weapon_a6e28001720b8f43ee74f0ac7d3008ba5} 
-void {\bfseries decrement\+Range} ()
-\item 
+void \hyperlink{class_weapon_a6e28001720b8f43ee74f0ac7d3008ba5}{decrement\+Range} ()
+\begin{DoxyCompactList}\small\item\em Decrements range if greater than 0. \end{DoxyCompactList}\item 
 \hypertarget{class_weapon_af1e10f75793cadcaec54a2ff96879312}{}\label{class_weapon_af1e10f75793cadcaec54a2ff96879312} 
-std\+::string {\bfseries to\+String} ()
-\item 
+std\+::string \hyperlink{class_weapon_af1e10f75793cadcaec54a2ff96879312}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em All elements to string. \end{DoxyCompactList}\item 
+\hypertarget{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728}{}\label{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728} 
 virtual void \hyperlink{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728}{Serialize} (C\+Archive \&ar)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Allows serializations. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -66,19 +67,6 @@ int {\bfseries range}
 
 \subsection{Detailed Description}
 Subclass of \hyperlink{class_item}{Item}, allows character to equip a \hyperlink{class_weapon}{Weapon}. 
-
-\subsection{Member Function Documentation}
-\hypertarget{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728}{}\label{class_weapon_a1c30e8f2add0a1aa8558cfbff13ad728} 
-\index{Weapon@{Weapon}!Serialize@{Serialize}}
-\index{Serialize@{Serialize}!Weapon@{Weapon}}
-\subsubsection{\texorpdfstring{Serialize()}{Serialize()}}
-{\footnotesize\ttfamily void Weapon\+::\+Serialize (\begin{DoxyParamCaption}\item[{C\+Archive \&}]{ar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-Allows an item to be serialized 
-
-Reimplemented from \hyperlink{class_item_ad1eae21e57fc3ce3252080a4efbfb8e8}{Item}.
-
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

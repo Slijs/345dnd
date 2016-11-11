@@ -10,5 +10,6 @@ var searchData=
   ['charactersavemanager_2ecpp',['CharacterSaveManager.cpp',['../_character_save_manager_8cpp.html',1,'']]],
   ['charactersavemap_2eh',['CharacterSaveMap.h',['../_character_save_map_8h.html',1,'']]],
   ['charsavemanager_2eh',['CharSaveManager.h',['../_char_save_manager_8h.html',1,'']]],
-  ['containergenerator_2eh',['ContainerGenerator.h',['../_container_generator_8h.html',1,'']]]
+  ['containergenerator_2eh',['ContainerGenerator.h',['../_container_generator_8h.html',1,'']]],
+  ['containeronmap_2eh',['containerOnMap.h',['../container_on_map_8h.html',1,'']]]
 ];

@@ -24,6 +24,8 @@ Inheritance diagram for Fighter\+:\begin{figure}[H]
 \hypertarget{class_fighter_a601ebcca9ea2287c54a0995dc11a117c}{}\label{class_fighter_a601ebcca9ea2287c54a0995dc11a117c} 
 \hyperlink{class_fighter_a601ebcca9ea2287c54a0995dc11a117c}{Fighter} (int level, \hyperlink{_entity_8h_aa2df4028f474807638d438104900b003}{Race} race, string name, int S\+TR, int D\+EX, int C\+ON, int I\+NT, int W\+IS, int C\+HA)
 \begin{DoxyCompactList}\small\item\em Parameterized constructor to set all att of \hyperlink{class_fighter}{Fighter}. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_fighter_a774a40f8466eec10bee12b02e43e0aad}{force\+Level\+Increase} ()
+\item 
 \hypertarget{class_fighter_a5bfd7630b47d4bf3b7b1288195bbad07}{}\label{class_fighter_a5bfd7630b47d4bf3b7b1288195bbad07} 
 void \hyperlink{class_fighter_a5bfd7630b47d4bf3b7b1288195bbad07}{init\+Hit\+Points} ()
 \begin{DoxyCompactList}\small\item\em Function that calculates the initial hitpoints of the character based on the level. \end{DoxyCompactList}\item 
@@ -213,6 +215,16 @@ Removes the contents of a container and inserts all of the items into the Charac
 \begin{DoxyReturn}{Returns}
 bool True if the container gets emptied completely, false otherwise 
 \end{DoxyReturn}
+\hypertarget{class_fighter_a774a40f8466eec10bee12b02e43e0aad}{}\label{class_fighter_a774a40f8466eec10bee12b02e43e0aad} 
+\index{Fighter@{Fighter}!force\+Level\+Increase@{force\+Level\+Increase}}
+\index{force\+Level\+Increase@{force\+Level\+Increase}!Fighter@{Fighter}}
+\subsubsection{\texorpdfstring{force\+Level\+Increase()}{forceLevelIncrease()}}
+{\footnotesize\ttfamily void Fighter\+::force\+Level\+Increase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function that, when called, automatically increases the Character\textquotesingle{}s level and makes sure that their experience points are now set to the minimum of that level 
+
+Reimplemented from \hyperlink{class_characters_ac5909582bf15fe17b7a6fa5104c26dd6}{Characters}.
+
 \hypertarget{class_fighter_af411947929c37ef0a0eab87b0c45f4f3}{}\label{class_fighter_af411947929c37ef0a0eab87b0c45f4f3} 
 \index{Fighter@{Fighter}!gain\+Experience@{gain\+Experience}}
 \index{gain\+Experience@{gain\+Experience}!Fighter@{Fighter}}
