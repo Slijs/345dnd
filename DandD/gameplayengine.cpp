@@ -123,8 +123,9 @@ int GamePlayEngine::runEngine()
 			{
 				system("cls");
 				this->_level->getLevelWindow()->hideWindow();
-				std::cout << "CONGRATS!!! Map has been completed.\n\nPlayer has levelled up!!";
-				std::cout << "\n\nPress any key to see players level\n";
+				std::cout << "CONGRATS!!! Map has been completed.\n\n";
+				std::cout << this->_level->getPlayer()->getName() << " has leveled up!!" << endl;
+				std::cout << "\n\nPress any key to see " << this->_level->getPlayer()->getName() << "'s new stats.\n";
 				_getch();
 				this->_level->getPlayer()->forceLevelIncrease();
 				this->_level->getPlayer()->displayOnlyStats();
