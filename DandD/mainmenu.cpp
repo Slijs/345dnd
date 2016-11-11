@@ -65,14 +65,14 @@ void MainMenu::setupMenu()
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.24);
 	menucomponent.x = (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
-	menucomponent.y = menucomponent.y + (menucomponent.h * 5.2);
+	menucomponent.y = menucomponent.y + (menucomponent.h * 5);
 	this->_menuWindow->addButton("Play Campaign", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 	//create / edit item
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.04);
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.23);
 	menucomponent.x = (this->_menuWindow->getWindowWidth() / 2) - (menucomponent.w / 2);
-	menucomponent.y = menucomponent.y + (menucomponent.h * 2);
+	menucomponent.y = menucomponent.y + (menucomponent.h * 2.4);
 	this->_menuWindow->addButton("Create / Edit Item", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 
