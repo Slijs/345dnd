@@ -55,6 +55,7 @@ void MainMenu::setupMenu()
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.3);
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.9);
 	menucomponent.y = menucomponent.y + (menucomponent.h*0.35);
+	menucomponent.x = (this->_menuWindow->getWindowWidth() / 2) - (menucomponent.w / 2);
 	this->_menuWindow->setFontType(10);
 	this->_menuWindow->addTextLabel("DRAGONS", this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
 
