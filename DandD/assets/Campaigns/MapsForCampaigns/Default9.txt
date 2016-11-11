@@ -1,8 +1,0 @@
-EDFDFDE
-D@D@D@D
-BBBBBBB
-ACCCCCp
-BBBBBBB
-D@D@D@D
-EDFDFDE
-assets/environment component themes/test theme2/

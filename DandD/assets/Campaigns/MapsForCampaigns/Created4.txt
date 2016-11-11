@@ -1,6 +1,0 @@
-CCCCp
-CDDDB
-CDGDB
-CDDDB
-ABBBB
-assets/environment component themes/test theme2/

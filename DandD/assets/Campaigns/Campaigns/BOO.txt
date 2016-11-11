@@ -1,3 +1,0 @@
-BOO
-test
-assets/Campaigns/MapsForCampaigns/test
