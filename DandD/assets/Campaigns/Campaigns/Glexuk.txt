@@ -1,1 +1,9 @@
 Glexuk
+Noezig
+assets/Campaigns/MapsForCampaigns/Noezig
+Vreikig
+assets/Campaigns/MapsForCampaigns/Vreikig
+Yotarot
+assets/Campaigns/MapsForCampaigns/Yotarot
+Barag
+assets/Campaigns/MapsForCampaigns/Barag
