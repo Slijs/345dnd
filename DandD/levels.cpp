@@ -220,6 +220,14 @@ void Level::renderAndDisplayLevel()
 	dest.x = 0;
 	dest.y = 0;
 
+	// TEMP TEST
+
+	SDL_Surface* bitmap = SDL_LoadBMP("assets/water.png");
+
+	SDL_BlitSurface(bitmap, NULL, nullptr, &dest);
+
+	// END TEMP TEST
+	
 	//creating the gameplay rectangular grids based the _level text file
 	//for(int y=0; y<this->_level_window->getNumberOfGrids_Y(); y++)
 	for(int y=0; y<this->_level_window->getGamePlay_Y_Grids(); y++)
@@ -236,9 +244,10 @@ void Level::renderAndDisplayLevel()
 			dest.x = x * this->_level_window->getGridX_Length();
 
 			//check if it is player
-			if((_level[y].at(x) == _player->getComponentChar()))
-					this->_level_window->loadTextureOnRenderer(_player->getImageDetails()->getImageTexture(), nullptr, &dest);
-
+			if((_level[y].at(x) == _player->getComponentChar())) {
+				this->_level_window->loadTextureOnRenderer(_environment_components[0]->getImageDetails()->getImageTexture(), nullptr, &dest);
+				this->_level_window->loadTextureOnRenderer(_player->getImageDetails()->getImageTexture(), nullptr, &dest);
+			}
 			//check if it is container
 			else if(_level[y].at(x) == _container->getComponentChar())
 					this->_level_window->loadTextureOnRenderer(_container->getImageDetails()->getImageTexture(), nullptr, &dest);

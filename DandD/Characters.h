@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "MovableEntity.h"
 #include "Item.h"
 #include "Belt.h"
 #include "Armor.h"
@@ -65,7 +66,7 @@ attackRoll = d20 + attackBonus ,and damageRoll = weaponDice + damageBonus.
 *@brief Provides resource for management of Characters within game
 */
 class Characters : public Subject, public CObject,
-	public GameComponent
+	public GameComponent, public MovableEntity
 {
 protected:
 	DECLARE_SERIAL(Characters);

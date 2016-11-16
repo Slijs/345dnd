@@ -13,6 +13,7 @@
 #include <vector>
 #include <afx.h>
 #include "Item.h"
+#include "MovableEntity.h"
 #include "game_components.h"
 #include "namespaces.h"
 #include "ItemFactory.h"
@@ -24,7 +25,7 @@ using std::vector;
 *@class Container
 *@brief Provides ability to manage an inventory
 */
-class Container : public GameComponent, public CObject{
+class Container : public GameComponent, public CObject, public MovableEntity {
 	protected:
 		// Attributes common to all containers
 		int maxContents;
