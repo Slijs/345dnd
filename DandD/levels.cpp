@@ -19,10 +19,36 @@ std::vector<std::string> Level::getMapStringVersiion()
 	return this->_level;
 }
 
-//!setter for main map that is NOT simplified
-void Level::setMainMapVector(std::vector<std::string> newmap)
+//! Setter for the map. This will also automatically call mapToLevel to set _level
+void Level::setMap(Map* map)
 {
-	this->_level = newmap;
+	_map = map;
+	mapToLevel();
+}
+
+Map* Level::getMap()
+{
+	return _map;
+}
+
+/**
+ * @brief This is a hack to convert the base map to work with this class,
+ * and allow for decoupling of map and movable entities without redoing
+ * a lot of different classes.
+ * This function will simply convert the base map in Map, and save it as
+ * a vector of strings in _level.
+ */
+void Level::mapToLevel()
+{
+	std::vector<string> tempLevel;
+	for (int j = 0; j < _map->getSizeY(); j++) {
+		string tempString;
+		for (int i = 0; i < _map->getSizeX(); i++) {
+			tempString += _map->getType(i, j);
+		}
+		tempLevel.push_back(tempString);
+	}
+	_level = tempLevel;
 }
 
 //!accessor for string version of map that has all environment symbols simplified to just obstruction or free path
@@ -177,10 +203,10 @@ void Level::createLevelForTargetWindow()
 	this->_player->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
 
 	//setup container image
-	this->_container->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
+	this->_container->GameComponent::setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
 
 	//setup enemy image
-	this->_enemy->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
+	this->_enemy->GameComponent::setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
 
 	//draw the vertical and horzontal lines for the level
 	SDL_SetRenderDrawColor(this->_level_window->getRenderer(), 0, 255, 0, 0);
@@ -219,14 +245,6 @@ void Level::renderAndDisplayLevel()
 	dest.w = this->_level_window->getGridX_Length();
 	dest.x = 0;
 	dest.y = 0;
-
-	// TEMP TEST
-
-	SDL_Surface* bitmap = SDL_LoadBMP("assets/water.png");
-
-	SDL_BlitSurface(bitmap, NULL, nullptr, &dest);
-
-	// END TEMP TEST
 	
 	//creating the gameplay rectangular grids based the _level text file
 	//for(int y=0; y<this->_level_window->getNumberOfGrids_Y(); y++)
@@ -249,12 +267,12 @@ void Level::renderAndDisplayLevel()
 				this->_level_window->loadTextureOnRenderer(_player->getImageDetails()->getImageTexture(), nullptr, &dest);
 			}
 			//check if it is container
-			else if(_level[y].at(x) == _container->getComponentChar())
-					this->_level_window->loadTextureOnRenderer(_container->getImageDetails()->getImageTexture(), nullptr, &dest);
+			else if(_level[y].at(x) == _container->GameComponent::getComponentChar())
+					this->_level_window->loadTextureOnRenderer(_container->GameComponent::getImageDetails()->getImageTexture(), nullptr, &dest);
 
 			//check if it is enemy
-			else if (_level[y].at(x) == this->_enemy->getComponentChar())
-				this->_level_window->loadTextureOnRenderer(_enemy->getImageDetails()->getImageTexture(), nullptr, &dest);
+			else if (_level[y].at(x) == this->_enemy->GameComponent::getComponentChar())
+				this->_level_window->loadTextureOnRenderer(_enemy->GameComponent::getImageDetails()->getImageTexture(), nullptr, &dest);
 
 			//otherwise it is probaly envronment
 			//render the map
@@ -350,13 +368,13 @@ void Level::destroyLevel()
 	}
 	if(this->_container != nullptr)
 	{
-		_container->destroyComponent();
+		_container->GameComponent::destroyComponent();
 		delete this->_container;
 		this->_container = nullptr;
 	}
 	if (this->_enemy != nullptr)
 	{
-		this->_enemy->destroyComponent();
+		this->_enemy->GameComponent::destroyComponent();
 		delete this->_enemy;
 		this->_enemy = nullptr;
 	}

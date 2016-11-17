@@ -324,47 +324,44 @@ void GamePlayEngine::movePlayer()
 		{
 			//first render player to floor
 			//loop till find player
-			for (int y = 0; y < temp.size(); y++)
+			// RENDERING NO LONGER NECESSARY, only need to find if path is valid, and then update player position accordingly
+			// can get the x and y directly from player, no need to search for player
+			int y = _level->getPlayer()->MovableEntity::getPosition().y;
+			int x = _level->getPlayer()->MovableEntity::getPosition().x;
+			//check if player then render floor
+			//make the coordinate in map a free path
+			//this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
+			for (int k = 0; k < this->_level->getEnvironmentComponents().size(); k++)
 			{
-				for (int x = 0; x < temp[y].length(); x++)
+				//render the floor
+				if (this->_level->getEnvironmentComponents()[k]->getComponentName() == "floor")
 				{
-					//check if player then render floor
-					if (temp[y].at(x) == SimplifiedMapSymbols::_Player_)
-					{
-						//make the coordinate in map a free path
-						//this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
-						for (int k = 0; k < this->_level->getEnvironmentComponents().size(); k++)
-						{
-							//render the floor
-							if (this->_level->getEnvironmentComponents()[k]->getComponentName() == "floor")
-							{
-								dest.x = x*this->_level->getLevelWindow()->getGridX_Length();
-								dest.y = y*this->_level->getLevelWindow()->getGridY_Length();
-								dest.h = this->_level->getLevelWindow()->getGridY_Length();
-								dest.w = this->_level->getLevelWindow()->getGridX_Length();
+					dest.x = x*this->_level->getLevelWindow()->getGridX_Length();
+					dest.y = y*this->_level->getLevelWindow()->getGridY_Length();
+					dest.h = this->_level->getLevelWindow()->getGridY_Length();
+					dest.w = this->_level->getLevelWindow()->getGridX_Length();
 								
-								//now update the environment for the observer
-								this->_level->_environmentForObserver = this->_level->getEnvironmentComponents()[k];
+					//now update the environment for the observer
+					this->_level->_environmentForObserver = this->_level->getEnvironmentComponents()[k];
 
-								//make the x y of loop a free path
-								temp[y].at(x) = this->_level->getEnvironmentComponents()[k]->getComponentChar();
-								this->_level->setMainMapVector(temp);
-								std::cout << std::endl;
-								std::cout << "During move\n";
-								for (int x = 0; x < this->_level->getMapSimpleVersion().size(); x++)
-								{
-									std::cout << this->_level->getMapSimpleVersion()[x];
-									std::cout << std::endl;
-								}
-								std::cout << std::endl;
-							}
-						}
+					//make the x y of loop a free path
+					// NOT NECESSARY TO CHANGE MAP ANYMORE
+					//temp[y].at(x) = this->_level->getEnvironmentComponents()[k]->getComponentChar();
+					//this->_level->setMainMapVector(temp);
+					std::cout << std::endl;
+					std::cout << "During move\n";
+					for (int x = 0; x < this->_level->getMapSimpleVersion().size(); x++)
+					{
+						std::cout << this->_level->getMapSimpleVersion()[x];
+						std::cout << std::endl;
 					}
+					std::cout << std::endl;
 				}
-			}//done putting player to floor
-
-			temp[vectorIndex].at(charIndex) = SimplifiedMapSymbols::_Player_;
-			this->_level->setMainMapVector(temp);
+			}
+			// NO LONGER NECESSARY TO CHANGE MAP. Just update player position here:
+			//temp[vectorIndex].at(charIndex) = SimplifiedMapSymbols::_Player_;
+			//this->_level->setMainMapVector(temp);
+			this->_level->getMap()->getPlayer()->setPosition(charIndex, vectorIndex);
 
 			//finally update the players vector
 			//this->_level->getPlayer()->setMap(&this->_level->getMapSimpleVersion());

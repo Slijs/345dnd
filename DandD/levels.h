@@ -17,6 +17,7 @@
 #include "Container.h"
 #include "Item.h"
 #include "Monster.h"
+#include "Map.h"
 using namespace SimplifiedMapSymbols;
 /*!
 *@class Level
@@ -36,6 +37,7 @@ protected:
 	std::string _enemyPath;
 	std::string _directory_path_for_level_file_text_file;
 	std::vector<std::string> _level;
+	Map* _map;
 	std::vector<SDL_Rect> _gameplayGrids;
 	std::vector<Environment*> _environment_components;
 	GameComponent* _player;
@@ -57,7 +59,10 @@ public:
 	SDL_Texture* getEnvironmentTexture(int index);
 	std::vector<std::string> getMapStringVersiion();
 	std::vector<std::string> getMapSimpleVersion();
-	void setMainMapVector(std::vector<std::string> newmap);
+	//void setMainMapVector(std::vector<std::string> newmap);
+	void setMap(Map* map);
+	Map* getMap();
+	void mapToLevel();
 	~Level();
 };
 

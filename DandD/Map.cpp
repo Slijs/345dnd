@@ -144,7 +144,7 @@ void Map::printMapWithMovableElements()
 			// check if there's a monster at this spot
 			if (!alreadyPrintedElement) {
 				for (int i = 0; i < monsters.size(); i++) {
-					if (monsters[i]->getPosition().x == i && monsters[i]->getPosition.y == j) {
+					if (monsters[i]->getPosition().x == i && monsters[i]->getPosition().y == j) {
 						std::cout << "Z ";
 						alreadyPrintedElement = true;
 					}
@@ -153,7 +153,7 @@ void Map::printMapWithMovableElements()
 			// check if there's a container at this spot
 			if (!alreadyPrintedElement) {
 				for (int i = 0; i < containers.size(); i++) {
-					if (containers[i]->getPosition().x == i && containers[i]->getPosition.y == j) {
+					if (containers[i]->getPosition().x == i && containers[i]->getPosition().y == j) {
 						std::cout << "C ";
 						alreadyPrintedElement = true;
 					}
@@ -161,7 +161,7 @@ void Map::printMapWithMovableElements()
 			}
 			// check if there's a player at this spot
 			if (!alreadyPrintedElement) {
-				if (player->getPosition().x == i && player->getPosition.y == j) {
+				if (player->getPosition().x == i && player->getPosition().y == j) {
 					std::cout << "P ";
 					alreadyPrintedElement = true;
 				}
