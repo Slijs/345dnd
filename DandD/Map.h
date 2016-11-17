@@ -2,22 +2,29 @@
 #ifndef Map_H
 #define Map_H
 
-#include<vector>
-#include<array>
-#include<memory>
-#include "MovableEntity.h"
+#include <vector>
+#include <array>
+#include <memory>
+#include <afx.h>
+#include "Monster.h"
+#include "Container.h"
+#include "Fighter.h"
+#include "MonsterFactory.h"
+#include "ContainerGenerator.h"
 
 using std::vector;
 
-class Map
+class Map : public CObject
 {
 protected:
 	int sizeX;
 	int sizeY;
 	vector<vector<char>> map;
-	MovableEntity* player;
-	vector<MovableEntity*> monsters;
-	vector<MovableEntity*> containers;
+	Fighter* player = NULL;
+	vector<Monster*> monsters;
+	vector<Container*> containers;
+	std::string environmentComponentPath; // This is the path to the theme that the map uses
+	DECLARE_SERIAL(Map);
 public:
 	Map();
 	Map(int x, int y);
@@ -29,19 +36,25 @@ public:
 	char getType(int indexX, int indexY);
 	char getType(Position position);
 	void fillWithEmpty();
-	void setPlayer(MovableEntity* player) { this->player = player; }
-	MovableEntity* getPlayer() { return player; }
-	void setMonsters(vector<MovableEntity*> newMonsters) { monsters = newMonsters; }
-	vector<MovableEntity*> getMonsters() { return monsters; }
-	MovableEntity* getMonster(int index);
-	void addMonster(MovableEntity* newMonster);
-	void setContainers(vector<MovableEntity*> newContainers) { containers = newContainers; }
-	vector<MovableEntity*> getContainers() { return containers; }
-	MovableEntity* getContainer(int index);
-	void addContainer(MovableEntity* newContainer);
+	void setPlayer(Fighter* player) { this->player = player; }
+	Fighter* getPlayer() { return player; }
+	void setPlayerPosition(int coordinateX, int coordinateY);
+	void setMonsters(vector<Monster*> newMonsters) { monsters = newMonsters; }
+	vector<Monster*> getMonsters() { return monsters; }
+	Monster* getMonster(int index);
+	void addMonster(Monster* newMonster);
+	void addMonster(int coordinateX, int coordinateY);
+	void setContainers(vector<Container*> newContainers) { containers = newContainers; }
+	vector<Container*> getContainers() { return containers; }
+	Container* getContainer(int index);
+	void addContainer(Container* newContainer);
+	void addContainer(int coordinateX, int coordinateY);
+	string getEnvironmentComponentPath() { return environmentComponentPath; }
+	void setEnvironmentComponentPath(string path) { environmentComponentPath = path; }
 	void printMap();
 	void printMapWithMovableElements();
 	bool equals(std::shared_ptr<Map> anotherMap);
+	virtual void Serialize(CArchive &ar);
 };
 
 #endif

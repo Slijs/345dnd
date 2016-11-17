@@ -6,7 +6,7 @@
 #include <iomanip>
 using namespace std;
 
-IMPLEMENT_SERIAL(Characters, CObject, 1);
+IMPLEMENT_SERIAL(Characters, MovableEntity, 1);
 
 int experience[3][20] = {
 	{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 },
@@ -583,7 +583,7 @@ bool Characters::validateProficiency()
 
 //! Allows for Characters to be saved to disk
 void Characters::Serialize(CArchive &ar) {
-	CObject::Serialize(ar);
+	MovableEntity::Serialize(ar);
 	if (ar.IsStoring()) {
 		calcAttackBonus();
 		calcDamageBonus();

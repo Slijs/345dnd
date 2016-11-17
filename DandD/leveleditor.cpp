@@ -26,6 +26,7 @@ LevelEditor::LevelEditor(LevelWindow* window, int themeIndex)
 			this->addRectToGamePlayGrids(dest);
 		}
 	}
+	_map = new Map(window->getGamePlay_X_Grids(), window->getGamePlay_Y_Grids());
 }
 
 //!accessor for theme index
@@ -535,7 +536,50 @@ int LevelEditor::getCharacterPortionEnd_X_Cor()
 //!saves level based on the path passed
 void LevelEditor::saveLevel(std::string levelpath)
 {
-	SingletonFilePathAndFolderManager::getInstance()->saveUserCreatedLevel(this->_level, this->_environmentComponentPath, levelpath);
+	//SingletonFilePathAndFolderManager::getInstance()->saveUserCreatedLevel(this->_level, this->_environmentComponentPath, levelpath);
+	// NEW MAP FUNCTIONALITY SECTION ---------------------------------------------------------------------------
+	// create new map
+	Map * tempMap = new Map();
+
+	// fuck windows
+	wchar_t *wpath = new wchar_t[strlen(levelpath.c_str()) + 1]; //memory allocation
+	mbstowcs(wpath, levelpath.c_str(), strlen(levelpath.c_str()) + 1);
+	// end fuck windows
+
+	// serialize 
+	CFile fileS;
+	// if the file is already there, open in write mode
+	if (FILE *file = fopen(levelpath.c_str(), "r")) {
+		fclose(file);
+		if (!fileS.Open(wpath, CFile::modeWrite))
+		{
+			std::cout << "Unable to open output file" << std::endl;
+			return;
+		}
+		CArchive arStore(&fileS, CArchive::store);
+		_map->Serialize(arStore);
+		arStore.Close();
+		fileS.Close();
+	}
+	// if the file isn't already there, open in create and write mode
+	else {
+		if (!fileS.Open(wpath, CFile::modeWrite | CFile::modeCreate))
+		{
+			std::cout << "Unable to open output file" << std::endl;
+		}
+		else {
+			CArchive arStore(&fileS, CArchive::store);
+			_map->Serialize(arStore);
+			arStore.Close();
+			fileS.Close();
+		}
+	}
+
+	// fuck windows a bit more
+	delete[]wpath;
+	// end fuck windows again
+	// END NEW MAP FUNCTIONALITY SECTION -----------------------------------------------------------------------
+
 }
 
 //!destroys all dynamically allocated memory

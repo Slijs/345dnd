@@ -2,6 +2,8 @@
 #include<stdexcept>
 #include "Map.h"
 
+IMPLEMENT_SERIAL(Map, CObject, 1);
+
 /**
 * @brief Create a new map of default size (10x10)
 */
@@ -93,7 +95,18 @@ void Map::fillWithEmpty() {
 	}
 }
 
-MovableEntity * Map::getMonster(int index)
+void Map::setPlayerPosition(int coordinateX, int coordinateY)
+{
+	if (!player) {
+		player = new Fighter();
+		player->MovableEntity::setPosition(coordinateX, coordinateY);
+	}
+	else {
+		player->MovableEntity::setPosition(coordinateX, coordinateY);
+	}
+}
+
+Monster * Map::getMonster(int index)
 {
 	if (index < monsters.size()) {
 		return monsters[index];
@@ -103,12 +116,32 @@ MovableEntity * Map::getMonster(int index)
 	}
 }
 
-void Map::addMonster(MovableEntity * newMonster)
+void Map::addMonster(Monster * newMonster)
 {
 	monsters.push_back(newMonster);
 }
 
-MovableEntity * Map::getContainer(int index)
+/**
+ * @brief Will add a monster appropriate to the level of the player at the specified position.
+ * If player is not yet set, will set the level of the monster to be appropriate for level 1 player
+ * @param coordinateX The x coordinate desired
+ * @param coordinateY The y coordinate desired
+ */
+void Map::addMonster(int coordinateX, int coordinateY)
+{
+	if (player != nullptr) {
+		Monster* tempMonster = MonsterFactory::createMonster(player);
+		tempMonster->setPosition(coordinateX, coordinateY);
+		monsters.push_back(tempMonster);
+	}
+	else {
+		Monster* tempMonster = MonsterFactory::createMonster(new Fighter());
+		tempMonster->setPosition(coordinateX, coordinateY);
+		monsters.push_back(tempMonster);
+	}
+}
+
+Container * Map::getContainer(int index)
 {
 	if (index < containers.size()) {
 		return containers[index];
@@ -118,9 +151,29 @@ MovableEntity * Map::getContainer(int index)
 	}
 }
 
-void Map::addContainer(MovableEntity * newContainer)
+void Map::addContainer(Container * newContainer)
 {
 	containers.push_back(newContainer);
+}
+
+/**
+* @brief Will add a container appropriate to the level of the player at the specified position.
+* If player is not yet set, will set the level of the container to be appropriate for level 1 player
+* @param coordinateX The x coordinate desired
+* @param coordinateY The y coordinate desired
+*/
+void Map::addContainer(int coordinateX, int coordinateY)
+{
+	if (player != nullptr) {
+		Container* tempContainer = ContainerGenerator::generateContainer(player);
+		tempContainer->setPosition(coordinateX, coordinateY);
+		containers.push_back(tempContainer);
+	}
+	else {
+		Container* tempContainer = ContainerGenerator::generateContainer(new Fighter());
+		tempContainer->setPosition(coordinateX, coordinateY);
+		containers.push_back(tempContainer);
+	}
 }
 
 /**
@@ -144,7 +197,7 @@ void Map::printMapWithMovableElements()
 			// check if there's a monster at this spot
 			if (!alreadyPrintedElement) {
 				for (int i = 0; i < monsters.size(); i++) {
-					if (monsters[i]->getPosition().x == i && monsters[i]->getPosition().y == j) {
+					if (monsters[i]->MovableEntity::getPosition().x == i && monsters[i]->MovableEntity::getPosition().y == j) {
 						std::cout << "Z ";
 						alreadyPrintedElement = true;
 					}
@@ -153,7 +206,7 @@ void Map::printMapWithMovableElements()
 			// check if there's a container at this spot
 			if (!alreadyPrintedElement) {
 				for (int i = 0; i < containers.size(); i++) {
-					if (containers[i]->getPosition().x == i && containers[i]->getPosition().y == j) {
+					if (containers[i]->MovableEntity::getPosition().x == i && containers[i]->MovableEntity::getPosition().y == j) {
 						std::cout << "C ";
 						alreadyPrintedElement = true;
 					}
@@ -161,7 +214,7 @@ void Map::printMapWithMovableElements()
 			}
 			// check if there's a player at this spot
 			if (!alreadyPrintedElement) {
-				if (player->getPosition().x == i && player->getPosition().y == j) {
+				if (player->MovableEntity::getPosition().x == i && player->MovableEntity::getPosition().y == j) {
 					std::cout << "P ";
 					alreadyPrintedElement = true;
 				}
@@ -194,3 +247,76 @@ void Map::printMapWithMovableElements()
 	 // all characters have been checked, map must be the same
 	 return true;
  }
+
+ void Map::Serialize(CArchive & ar)
+ {
+	CObject::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << sizeX;
+		ar << sizeY;
+		// store map
+		for (int x = 0; x < sizeX; x++) {
+			for (int y = 0; y < sizeY; y++) {
+				ar << map[x][y];
+			}
+		}
+		// store the player
+		player->Serialize(ar);
+		// store the monsters
+		ar << monsters.size();
+		for (int i = 0; i < monsters.size(); i++) {
+			monsters.at(i)->Serialize(ar);
+		}
+		// store the containers
+		ar << containers.size();
+		for (int i = 0; i < containers.size(); i++) {
+			containers.at(i)->Serialize(ar);
+		}
+		// store the environment component path (theme path for the map)
+		CString c_environmentComponentPath(environmentComponentPath.c_str());
+		ar << c_environmentComponentPath;
+	}
+	else {
+		ar >> sizeX;
+		ar >> sizeY;
+		// load map
+		std::vector<std::vector<char>> tempVectorX;
+		for (int x = 0; x < sizeX; x++) {
+			std::vector<char> tempVectorY;
+			for (int y = 0; y < sizeY; y++) {
+				char tempSymbol;
+				ar >> tempSymbol;
+				tempVectorY.push_back(tempSymbol);
+			}
+			tempVectorX.push_back(tempVectorY);
+		}
+		map = tempVectorX;
+		// load player
+		Fighter * tempPlayer = new Fighter();
+		tempPlayer->Serialize(ar);
+		// load monsters
+		int tempNumMonsters;
+		ar >> tempNumMonsters;
+		for (int i = 0; i < tempNumMonsters; i++) {
+			Monster * tempMonster = new Monster();
+			tempMonster->Serialize(ar);
+			monsters.push_back(tempMonster);
+		}
+		// load containers
+		int tempNumContainers;
+		ar >> tempNumContainers;
+		for (int i = 0; i < tempNumContainers; i++) {
+			Container* tempContainer = new Container();
+			tempContainer->Serialize(ar);
+			containers.push_back(tempContainer);
+		}
+		// load the environment component path (theme path for the map)
+		CString c_environmentComponentPath = "";
+		ar >> c_environmentComponentPath;
+		environmentComponentPath = "";
+		int strlen = c_environmentComponentPath.GetLength();
+		for (int i = 0; i < strlen; ++i) {
+			environmentComponentPath += c_environmentComponentPath.GetAt(i);
+		}
+	}
+}

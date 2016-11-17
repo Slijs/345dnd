@@ -5,10 +5,10 @@
 #pragma once
 #include "levels.h"
 #include "Fighter.h"
-#include "containerOnMap.h"
-#include "ContainerGenerator.h"
-#include "enemyonmap.h"
-#include "MonsterFactory.h"
+//#include "containerOnMap.h"
+//#include "ContainerGenerator.h"
+//#include "enemyonmap.h"
+//#include "MonsterFactory.h"
 #include "Subject.h"
 
 /*!
@@ -30,15 +30,15 @@ protected:
 	SDL_Rect _dest1ForObserver;
 	SDL_Rect _dest2ForObserver;
 	Fighter* _player;
-	std::vector<ContainerOnMap*> _containersOnMap;
-	std::vector<EnemiesOnMap*> _enemisOnMap;
+	//std::vector<ContainerOnMap*> _containersOnMap; // no longer needed with map class
+	//std::vector<EnemiesOnMap*> _enemisOnMap;		// no longer needed with map class
 
 public:
 	PreBuiltLevel();
 	PreBuiltLevel(std::string path, Fighter* player);
 	void loadUserCreatedLevel(std::string name);
 	Environment* _environmentForObserver;
-	std::vector<SDL_Rect*> getLevelComponentRects();
+	//std::vector<SDL_Rect*> getLevelComponentRects(); // previously undefined, maybe not necessary?
 	void setLevelOnTargetWindow();
 	void createLevelForTargetWindow();
 	std::string getEnvironmentComponentsPath() const;
@@ -47,10 +47,10 @@ public:
 	std::string getEnemyPath() const;
 	std::vector<std::string> getBuiltLevelFile() const;
 	Fighter* getPlayer();
-	void setupContainersOnMap();
-	void setupEnemiesOnMap();
-	std::vector<ContainerOnMap*> getContainersOnMap();
-	std::vector<EnemiesOnMap*> getEnemiesOnMap();
+	//void setupContainersOnMap();
+	//void setupEnemiesOnMap();
+	//std::vector<ContainerOnMap*> getContainersOnMap();
+	//std::vector<EnemiesOnMap*> getEnemiesOnMap();
 	std::vector<SDL_Rect> getAllButtonDestinations();
 	void setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2);
 	void getDestRectsForObserver(SDL_Rect* dest1, SDL_Rect* dest2);

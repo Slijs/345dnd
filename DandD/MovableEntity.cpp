@@ -1,5 +1,7 @@
 #include "MovableEntity.h"
 
+IMPLEMENT_SERIAL(MovableEntity, CObject, 1);
+
 //! Default constructor, sets to position (0, 0)
 MovableEntity::MovableEntity() : position(0, 0)
 {
@@ -46,5 +48,18 @@ void MovableEntity::setPosition(int xCoordinate, int yCoordinate)
 	if (xCoordinate >= 0 && yCoordinate >= 0) {
 		position.x = xCoordinate;
 		position.y = yCoordinate;
+	}
+}
+
+void MovableEntity::Serialize(CArchive & ar)
+{
+	CObject::Serialize(ar);
+	if (ar.IsStoring()) {
+		ar << MovableEntity::position.x;
+		ar << MovableEntity::position.y;
+	}
+	else {
+		ar >> MovableEntity::position.x;
+		ar >> MovableEntity::position.y;
 	}
 }

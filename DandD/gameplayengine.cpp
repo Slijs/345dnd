@@ -32,8 +32,8 @@ void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 	this->_level = level;
 	this->_event = event_;
 	this->_buttons = this->_level->getAllButtonDestinations();
-	this->_containers = this->_level->getContainersOnMap();
-	this->_enemies = this->_level->getEnemiesOnMap();
+	//this->_containers = this->_level->getContainersOnMap();
+	//this->_enemies = this->_level->getEnemiesOnMap();
 	this->_observer = new MapObserver(level);
 
 	std::vector<std::string> temp = this->_level->getMapSimpleVersion();

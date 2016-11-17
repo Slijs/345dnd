@@ -16,17 +16,56 @@ PreBuiltLevel::PreBuiltLevel(std::string path, Fighter* player)
 //!loads the user created level in private member variables
 void PreBuiltLevel::loadUserCreatedLevel(std::string path)
 {
+	/* CHANGED TO USE NEW MAPS
 	//load the level and component path
 	this->_level = SingletonFilePathAndFolderManager::getInstance()->loadUserGeneratedLevel(path, &this->_environmentComponentPath);
+	*/
 
-	//load the component names
+	// NEW MAP FUNCTIONALITY SECTION ---------------------------------------------------------------------------
+	// create new map
+	Map * tempMap = new Map();
+
+	// fuck windows
+	wchar_t *wpath = new wchar_t[strlen(path.c_str()) + 1]; //memory allocation
+	mbstowcs(wpath, path.c_str(), strlen(path.c_str()) + 1);
+	// end fuck windows
+
+	// 
+	CFile fileL;
+	if (!fileL.Open(wpath, CFile::modeRead))
+	{
+		std::cout << "Unable to open input file" << std::endl;
+	}
+	else {
+		CArchive arLoad(&fileL, CArchive::load);
+		tempMap->Serialize(arLoad);
+		arLoad.Close();
+	}
+	fileL.Close();
+
+	// set the map to be this loaded map, important to do this through
+	// the function setMap() so that this->_level is also properly set
+	// due to our dirty hacks
+	this->setMap(tempMap);
+
+	// fuck windows a bit more
+	delete []wpath;
+	// end fuck windows again
+	// END NEW MAP FUNCTIONALITY SECTION -----------------------------------------------------------------------
+
+	//load the component names (name of theme assets. The path _environmentComponentPath is saved in Map, and assigned when the map is set)
 	this->_environmentComponentNames = SingletonInputOutputManager::getInstance()->readFileLineByLine(this->_environmentComponentPath + SingletonFilePathAndFolderManager::getInstance()->getNameofFileContainingAssetNames());
+
 }
 
 //!sets the level text vector that would be used to set the level on the target window
 void PreBuiltLevel::setLevelOnTargetWindow()
 {
-	this->_level = SingletonInputOutputManager::getInstance()->readFileLineByLine(_directory_path_for_level_file_text_file);
+	// I don't think that this function is relevant anymore, seems to be identical in function to
+	// the previous function loadUserCreatedLevel()., but without parameters and doesn't set the environment component path.
+	// Will leave here for compatibility, and simply call loadUserCreatedLevel() providing a path.
+	//this->_level = SingletonInputOutputManager::getInstance()->readFileLineByLine(_directory_path_for_level_file_text_file);
+	loadUserCreatedLevel(_directory_path_for_level_file_text_file);
 }
 
 //!sets the pointer rect to values from current rects in map
@@ -90,6 +129,7 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_level_window->setMenuOnRenderer();
 }
 
+/* NO LONGER NEEDED WITH MAP CLASS
 //!sets up container coordinates on map
 void PreBuiltLevel::setupContainersOnMap()
 {
@@ -111,7 +151,7 @@ void PreBuiltLevel::setupContainersOnMap()
 	}
 }
 
-//!sets up enemy coordinates on map
+//sets up enemy coordinates on map
 void PreBuiltLevel::setupEnemiesOnMap()
 {
 	EnemiesOnMap* temp;
@@ -131,7 +171,7 @@ void PreBuiltLevel::setupEnemiesOnMap()
 		}
 	}
 }
-
+*/
 //!function to update destination rectangles for the observer
 void PreBuiltLevel::setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2)
 {
@@ -139,6 +179,7 @@ void PreBuiltLevel::setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2)
 	this->_dest2ForObserver = dest2;
 }
 
+/* NO LONGER NEEDED WITH MAP CLASS
 //!container coordinate accessor
 std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
 {
@@ -150,6 +191,7 @@ std::vector<EnemiesOnMap*> PreBuiltLevel::getEnemiesOnMap()
 {
 	return this->_enemisOnMap;
 }
+*/
 
 //!environment component path accessor
 std::string PreBuiltLevel::getEnvironmentComponentsPath() const
@@ -201,6 +243,7 @@ std::vector<SDL_Rect> PreBuiltLevel::getAllButtonDestinations()
 //!local destructor destroys the positions for enemies and containers
 PreBuiltLevel::~PreBuiltLevel()
 {
+	/* NO LONGER NEEDED WITH MAP CLASS
 	for (int x = 0; x < this->_containersOnMap.size(); x++)
 	{
 		if (this->_containersOnMap[x] != nullptr)
@@ -217,4 +260,5 @@ PreBuiltLevel::~PreBuiltLevel()
 			_enemisOnMap[x] = nullptr;
 		}
 	}
+	*/
 }

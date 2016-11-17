@@ -157,10 +157,10 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	GamePlayEngine* engine = new GamePlayEngine();
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
-	l->setupContainersOnMap();
+	//l->setupContainersOnMap();
 	
 	l->renderAndDisplayLevel();
-	l->setupEnemiesOnMap();
+	//l->setupEnemiesOnMap();
 
 	engine->attachLevel(l, &this->_event);
 	this->_currentFighterTracker->setMap(&l->getMapSimpleVersion());
@@ -224,7 +224,7 @@ int GameLoops::createNewMap(char* path, char* campaign)
 	std::cout<<"Please input the number of rows and columns you wish in your map."<<std::endl<<std::endl;
 	std::cout<<"Minimum: 5 X 5"<<std::endl;
 	std::cout<<"Maximum: 50 X 50"<<std::endl;
-	std::cout<<"Optimal 25 X 15"<<std::endl<<std::endl;
+	std::cout<<"Optimal 15 X 9"<<std::endl<<std::endl;
 
 	int totalhorizontalGameGrids = SingletonInputsAndStringManager::getInstance()->takeIntInput("Please input the number of rows minimum 5 and maximum 50: ", 5,50);
 	int totalVerticalGameGrids = SingletonInputsAndStringManager::getInstance()->takeIntInput("Please input the number of columns minimum 5 and maximum 50: ", 5,50);

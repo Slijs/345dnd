@@ -25,7 +25,7 @@ using std::vector;
 *@class Container
 *@brief Provides ability to manage an inventory
 */
-class Container : public GameComponent, public CObject, public MovableEntity {
+class Container : public GameComponent, public MovableEntity {
 	protected:
 		// Attributes common to all containers
 		int maxContents;

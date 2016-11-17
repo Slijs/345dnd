@@ -13,7 +13,7 @@
 using std::string;
 using std::vector;
 
-IMPLEMENT_SERIAL(Container, CObject, 1);
+IMPLEMENT_SERIAL(Container, MovableEntity, 1);
 
 // Constructors
 /**
@@ -167,7 +167,7 @@ string Container::contentsToString() {
 * Allows a Container to be serialized.
 */
 void Container::Serialize(CArchive &ar) {
-	CObject::Serialize(ar);
+	MovableEntity::Serialize(ar);
 	if (ar.IsStoring()) {
 		ar << maxContents;
 		ar << numContents;

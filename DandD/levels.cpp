@@ -49,6 +49,8 @@ void Level::mapToLevel()
 		tempLevel.push_back(tempString);
 	}
 	_level = tempLevel;
+	// sets the path to the themes
+	_environmentComponentPath = _map->getEnvironmentComponentPath();
 }
 
 //!accessor for string version of map that has all environment symbols simplified to just obstruction or free path
@@ -261,6 +263,7 @@ void Level::renderAndDisplayLevel()
 				break;
 			dest.x = x * this->_level_window->getGridX_Length();
 
+			/* DON'T RENDER MOVABLE OBJECTS YET. First render all base map elements, then render all other components on top of them
 			//check if it is player
 			if((_level[y].at(x) == _player->getComponentChar())) {
 				this->_level_window->loadTextureOnRenderer(_environment_components[0]->getImageDetails()->getImageTexture(), nullptr, &dest);
@@ -273,27 +276,55 @@ void Level::renderAndDisplayLevel()
 			//check if it is enemy
 			else if (_level[y].at(x) == this->_enemy->GameComponent::getComponentChar())
 				this->_level_window->loadTextureOnRenderer(_enemy->GameComponent::getImageDetails()->getImageTexture(), nullptr, &dest);
-
+			*/
 			//otherwise it is probaly envronment
 			//render the map
-			else
+			//else
+			//{
+			for(int j=0; j<_environment_components.size(); j++)
 			{
-				for(int j=0; j<_environment_components.size(); j++)
-				{
-					//check is it is environment
-					if(_level[y].at(x) == _environment_components[j]->getComponentChar())
-						this->_level_window->loadTextureOnRenderer(_environment_components[j]->getImageDetails()->getImageTexture(), nullptr, &dest);
+				//check is it is environment
+				if(_level[y].at(x) == _environment_components[j]->getComponentChar())
+					this->_level_window->loadTextureOnRenderer(_environment_components[j]->getImageDetails()->getImageTexture(), nullptr, &dest);
 
-					//check if it is player
-					//else if((_level[y].at(x) == _player->getComponentChar()))
-						//this->_level_window->loadTextureOnRenderer(_player->getImageDetails()->getImageTexture(), nullptr, &dest);
+				//check if it is player
+				//else if((_level[y].at(x) == _player->getComponentChar()))
+					//this->_level_window->loadTextureOnRenderer(_player->getImageDetails()->getImageTexture(), nullptr, &dest);
 
-					//check if it is container
-					//else if(_level[y].at(x) == _container->getComponentChar())
-						//this->_level_window->loadTextureOnRenderer(_container->getImageDetails()->getImageTexture(), nullptr, &dest);
+				//check if it is container
+				//else if(_level[y].at(x) == _container->getComponentChar())
+					//this->_level_window->loadTextureOnRenderer(_container->getImageDetails()->getImageTexture(), nullptr, &dest);
+			}
+			//}
+			//else nothing happens, grid remains blank
+		}
+		// NOW check for any movable entities, and render if they are present. Unfortunately I don't see how to directly go to a specific
+		// grid position easily, would make much more efficient than going over every single tile to see if there's a entity there, but
+		// oh well for now.
+		for (int x = 0; x<this->_level_window->getGamePlay_X_Grids(); x++)
+		{
+			this->_gameplayGrids.push_back(dest);
+			if (_level[y].length() < x + 1)
+				break;
+			dest.x = x * this->_level_window->getGridX_Length();
+
+			// CHANGED ALL TO IF statements, as entities could share the same space
+			//check if it is container FIRST, should render just above the ground
+			for (int i = 0; i < this->_map->getContainers().size(); i++) {
+				if (this->_map->getContainers().at(i)->MovableEntity::getPosition().x == x && this->_map->getContainers().at(i)->MovableEntity::getPosition().y == y) {
+					this->_level_window->loadTextureOnRenderer(_container->GameComponent::getImageDetails()->getImageTexture(), nullptr, &dest);
 				}
 			}
-			//else nothing happens, grid remains blank
+			//check if it is enemy
+			for (int i = 0; i < this->_map->getMonsters().size(); i++) {
+				if (this->_map->getMonsters().at(i)->MovableEntity::getPosition().x == x && this->_map->getMonsters().at(i)->MovableEntity::getPosition().y == y) {
+					this->_level_window->loadTextureOnRenderer(_enemy->GameComponent::getImageDetails()->getImageTexture(), nullptr, &dest);
+				}
+			}
+			//check if it is player LAST, player should render on top of anything else
+			if (this->_map->getPlayer()->MovableEntity::getPosition().x == x && this->_map->getPlayer()->MovableEntity::getPosition().y == y) {
+				this->_level_window->loadTextureOnRenderer(_player->getImageDetails()->getImageTexture(), nullptr, &dest);
+			}
 		}
 	}
 

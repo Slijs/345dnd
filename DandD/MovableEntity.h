@@ -1,6 +1,8 @@
 #ifndef MovableEntity_H
 #define MovableEntity_H
 
+#include <afx.h>
+
 //! Keeps the (x, y) coordinates
 struct Position {
 	Position() : x(0), y(0) {}
@@ -13,10 +15,11 @@ struct Position {
 /**
  * @brief Allows classes to inherit a position and its associated 
  */
-class MovableEntity
+class MovableEntity : public CObject
 {
 protected:
 	Position position;
+	DECLARE_SERIAL(MovableEntity);
 public:
 	MovableEntity();
 	MovableEntity(int x, int y);
@@ -26,6 +29,7 @@ public:
 	int getYCoordinate() { return position.y; }
 	void setPosition(Position position);
 	void setPosition(int xCoordinate, int yCoordinate);
+	virtual void Serialize(CArchive &ar);
 };
 
 #endif // !MovableEntity_H

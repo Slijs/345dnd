@@ -158,48 +158,81 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 		if (renderingOnGameplayGrids == true)
 		{
 			target = getRectGridOfMouse(this->level->getLevelWindow());
-			//only if a target is not alreaady rendered there
+			//only if a target is not alreaady rendered there FOR THE CASE OF ENVIRONMENT
 			if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == '.')
 			{
+				/*
 				if ((targetisplayer == true) && (playercounter == 0))
 				{
 					playercounter++;
-					std::cout << "Targert player: " << targetisplayer << std::endl;
+					std::cout << "Target player: " << targetisplayer << std::endl;
 					std::cout << "Player counter: " << playercounter << std::endl;
 					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
 					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), player->getComponentChar());
 					this->level->getLevelWindow()->displayWindow();
-				}
+				}*/
 				//else if ((envcomponents[targetIndex]->getComponentName() == "exit") && (exitdoorcounter == 0) && (targetisplayer == false))
-				else if ((this->targetisexit == true) && (exitdoorcounter == 0))
+				/*else*/ if ((this->targetisexit == true) && (exitdoorcounter == 0)) // Exit door will remain part of environment
 				{
-					std::cout << "Targert player rendered from exitdoor: " << targetisplayer << std::endl;
+					std::cout << "Target player rendered from exitdoor: " << targetisplayer << std::endl;
 					exitdoorcounter++;
 					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
 					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), envcomponents[targetIndex]->getComponentChar());
 					this->level->getLevelWindow()->displayWindow();
 				}
-
+				/* Containers will NOT be part of environment
 				else if(targetiscontainer == true)
 				{
 					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
 					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), container->getComponentChar());
 					this->level->getLevelWindow()->displayWindow();
 				}
-
+				// NOR will enemies
 				else if (this->targetisenemy == true)
 				{
 					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
 					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), this->enemy->getComponentChar());
 					this->level->getLevelWindow()->displayWindow();
 				}
-
+				*/
 				//else if ((targetisplayer == false) && (envcomponents[targetIndex]->getComponentName() != "exit"))
 				else if ((targetisplayer == false) && (targetisexit == false) && (targetiscontainer == false) && (targetisenemy==false))
 				{
 					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
 					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), envcomponents[targetIndex]->getComponentChar());
 					this->level->getLevelWindow()->displayWindow();
+				}
+			}
+			// now allow for addition of movable entities, which can be ANYWHERE
+			if (true)
+			{
+				
+				if ((targetisplayer == true) && (playercounter == 0))
+				{
+				playercounter++;
+				std::cout << "Target player: " << targetisplayer << std::endl;
+				std::cout << "Player counter: " << playercounter << std::endl;
+				SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
+				//fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), player->getComponentChar());
+				// add to map entities instead
+				this->level->getMap()->setPlayerPosition(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length());
+				this->level->getLevelWindow()->displayWindow();
+				}
+				// add container
+				else if(targetiscontainer == true)
+				{
+				SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
+				//fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), container->getComponentChar());
+				this->level->getMap()->addContainer(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length());
+				this->level->getLevelWindow()->displayWindow();
+				}
+				// add enemy
+				else if (this->targetisenemy == true)
+				{
+				SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
+				//fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), this->enemy->getComponentChar());
+				this->level->getMap()->addMonster(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length());
+				this->level->getLevelWindow()->displayWindow();
 				}
 			}
 		}
