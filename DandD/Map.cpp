@@ -106,6 +106,12 @@ void Map::setPlayerPosition(int coordinateX, int coordinateY)
 	}
 }
 
+void Map::deletePlayer()
+{
+	delete player;
+	player = NULL;
+}
+
 Monster * Map::getMonster(int index)
 {
 	if (index < monsters.size()) {
@@ -141,6 +147,20 @@ void Map::addMonster(int coordinateX, int coordinateY)
 	}
 }
 
+void Map::removeMonster(int coordinateX, int coordinateY)
+{
+	for (int i = 0; i < monsters.size(); i++) {
+		if (monsters.at(i)->MovableEntity::getPosition().x == coordinateX && monsters.at(i)->MovableEntity::getPosition().y == coordinateY) {
+			monsters.erase(monsters.begin() + i);
+		}
+	}
+}
+
+void Map::removeMonster(int index)
+{
+	monsters.erase(monsters.begin() + index);
+}
+
 Container * Map::getContainer(int index)
 {
 	if (index < containers.size()) {
@@ -174,6 +194,20 @@ void Map::addContainer(int coordinateX, int coordinateY)
 		tempContainer->setPosition(coordinateX, coordinateY);
 		containers.push_back(tempContainer);
 	}
+}
+
+void Map::removeContainer(int coordinateX, int coordinateY)
+{
+	for (int i = 0; i < containers.size(); i++) {
+		if (containers.at(i)->MovableEntity::getPosition().x == coordinateX && containers.at(i)->MovableEntity::getPosition().y == coordinateY) {
+			containers.erase(containers.begin() + i);
+		}
+	}
+}
+
+void Map::removeContainer(int index)
+{
+	containers.erase(containers.begin() + index);
 }
 
 /**

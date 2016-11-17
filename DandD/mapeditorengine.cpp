@@ -90,24 +90,56 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 			target = getRectGridOfMouse(this->level->getLevelWindow());
 			if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) != '.')
 			{
-				//check to see if exit door is being deleted
-				for (int x = 0; x<envcomponents.size(); x++)
-				{
-					if (envcomponents[x]->getComponentName() == "exit")
-						if (envcomponents[x]->getComponentChar() == templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())))
-							exitdoorcounter--;
-				}
-
+				// change to if-else-if statements so that only one element is deleted at a time.
+				// Order: player, monster, container, environment
+				bool alreadyDeleted = false;
 				//check to see if player is being deleted
-				if (player->getComponentChar() == templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())))
+				if (this->level->getMap()->getPlayer()->MovableEntity::getPosition().x == target.x / this->level->getLevelWindow()->getGridX_Length() && this->level->getMap()->getPlayer()->MovableEntity::getPosition().y == target.y / this->level->getLevelWindow()->getGridY_Length()) {
+					playercounter--;
+					std::cout << "Player counter after deletion: " << playercounter << std::endl;
+					this->level->getMap()->deletePlayer();
+					alreadyDeleted = true;
+				}
+				// check to see if monster is being deleted
+				else if (!alreadyDeleted) {
+					for (int i = 0; i < this->level->getMap()->getMonsters().size(); i++) {
+						if (this->level->getMap()->getMonsters().at(i)->MovableEntity::getPosition().x == target.x / this->level->getLevelWindow()->getGridX_Length() && this->level->getMap()->getMonsters().at(i)->MovableEntity::getPosition().y == target.y / this->level->getLevelWindow()->getGridY_Length()) {
+							this->level->getMap()->removeMonster(i);
+							alreadyDeleted = true;
+						}
+					}
+				}
+				// check to see if container is being deleted
+				else if (!alreadyDeleted) {
+					for (int i = 0; i < this->level->getMap()->getContainers().size(); i++) {
+						if (this->level->getMap()->getContainers().at(i)->MovableEntity::getPosition().x == target.x / this->level->getLevelWindow()->getGridX_Length() && this->level->getMap()->getContainers().at(i)->MovableEntity::getPosition().y == target.y / this->level->getLevelWindow()->getGridY_Length()) {
+							this->level->getMap()->removeContainer(i);
+							alreadyDeleted = true;
+						}
+					}
+				}
+				/*if (player->getComponentChar() == templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())))
 				{
 					playercounter--;
 					std::cout << "Player counter after deletion: " << playercounter << std::endl;
+				}*/
+				//check to see if exit door is being deleted
+				else if (!alreadyDeleted) {
+					for (int x = 0; x<envcomponents.size(); x++)
+					{
+						if (envcomponents[x]->getComponentName() == "exit")
+							if (envcomponents[x]->getComponentChar() == templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())))
+								exitdoorcounter--;
+					}
 				}
-
-				templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) = '.';
-				SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
-				SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
+				// check if environment
+				else if (!alreadyDeleted) {
+					templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) = '.';
+					SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
+					SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
+				}
+				// re-render
+				
 				this->level->getLevelWindow()->displayWindow();
 			}
 		}
