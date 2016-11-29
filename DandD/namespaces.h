@@ -19,6 +19,7 @@ namespace SimplifiedMapSymbols
 	const char _Player_ = 'p';
 	const char _BasicContainer_ = '@';
 	const char _Enemies_ = 'x';
+	const char _Friend_ = 'f';
 }
 
 /*!

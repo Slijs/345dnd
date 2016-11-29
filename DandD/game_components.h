@@ -39,6 +39,7 @@ public:
 	char getComponentChar();
 	std::string getComponentName();
 	void destroyComponent();
+	void setImagePath();
 	~GameComponent();
 };
 
