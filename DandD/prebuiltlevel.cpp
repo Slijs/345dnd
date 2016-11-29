@@ -54,7 +54,7 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_inventoryPaneDest.x = (this->_level_window->getGamePlay_X_Grids() * this->_level_window->getGridX_Length()) + (this->_level_window->getWindowWidth() - (this->_level_window->getGamePlay_X_Grids() * this->_level_window->getGridX_Length())) * 0.1;
 	this->_inventoryPaneDest.y = this->_level_window->getWindowHeight() * 0.05;
 	this->_inventoryPaneDest.w = (this->_level_window->getWindowWidth() - (this->_level_window->getGamePlay_X_Grids() * this->_level_window->getGridX_Length())) * 0.8;
-	this->_inventoryPaneDest.h = this->_level_window->getWindowHeight() * 0.05;
+	this->_inventoryPaneDest.h = this->_level_window->getWindowHeight() * 0.045;
 	this->_level_window->addButton("Player Status", 255, 0, 0, this->_inventoryPaneDest);
 
 	this->_movePlayerDest.x = this->_inventoryPaneDest.x;
@@ -81,10 +81,22 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_savePlayer.y = this->_attack.y + this->_inventoryPaneDest.h * 2;
 	this->_level_window->addButton("Save Player", 255, 0, 0, this->_savePlayer);
 
+	this->_endTurn.x = this->_inventoryPaneDest.x;
+	this->_endTurn.w = this->_inventoryPaneDest.w;
+	this->_endTurn.h = this->_inventoryPaneDest.h;
+	this->_endTurn.y = this->_savePlayer.y + this->_inventoryPaneDest.h * 2;
+	this->_level_window->addButton("End Turn", 255, 0, 0, this->_endTurn);
+
+	this->_gameLog.x = this->_inventoryPaneDest.x;
+	this->_gameLog.w = this->_inventoryPaneDest.w;
+	this->_gameLog.h = this->_inventoryPaneDest.h;
+	this->_gameLog.y = this->_endTurn.y + this->_inventoryPaneDest.h * 2;
+	this->_level_window->addButton("Game Log", 255, 0, 0, this->_gameLog);
+
 	this->_exitPlay.x = this->_inventoryPaneDest.x;
 	this->_exitPlay.w = this->_inventoryPaneDest.w * 0.8;
 	this->_exitPlay.h = this->_inventoryPaneDest.h;
-	this->_exitPlay.y = this->_savePlayer.y + this->_inventoryPaneDest.h * 2;
+	this->_exitPlay.y = this->_gameLog.y + this->_inventoryPaneDest.h * 2;
 	this->_level_window->addButton("Exit play", 255, 0, 0, this->_exitPlay);
 
 	//setup the menu component

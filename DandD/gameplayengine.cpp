@@ -138,6 +138,9 @@ int GamePlayEngine::runEngine()
 	return destToReturn;
 }
 
+//return 0 for program exit
+//return 2 for successfule turn completion
+//return 1 will figure it out
 int GamePlayEngine::runUserTurn(){
 	int turnCounter = 2;
 	//error check for level attachment
@@ -198,7 +201,7 @@ int GamePlayEngine::runUserTurn(){
 
 			//if attack select is true then run attack logic, decrease turncounter after successful move
 			if (this->_attackSelect == true)
-				if(attackEnemy())
+				if (attackEnemy())
 					turnCounter--;
 
 			//get current mouse coordinates
@@ -211,6 +214,9 @@ int GamePlayEngine::runUserTurn(){
 				//onGameplayGrids();
 			}
 
+			//Index 7 is quit
+			//index 6 is gamelog
+			//index 5 is end turn
 			//other wise prolly on right hand menu
 			else
 			{
@@ -219,7 +225,7 @@ int GamePlayEngine::runUserTurn(){
 					buttonindex = onRIghtHandMenu();
 					this->_currentButtonIndex = buttonindex;
 					//first check for exit
-					if (buttonindex == 5)
+					if (buttonindex == 7)
 					{
 						exit = true;
 						return 1;
@@ -263,7 +269,7 @@ int GamePlayEngine::runUserTurn(){
 					}
 				}
 			}
-		}
+		}//inner while end
 	}
 	return 2;
 }

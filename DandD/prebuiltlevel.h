@@ -36,6 +36,8 @@ protected:
 	SDL_Rect _interact;
 	SDL_Rect _attack;
 	SDL_Rect _savePlayer;
+	SDL_Rect _endTurn;
+	SDL_Rect _gameLog;
 	SDL_Rect _dest1ForObserver;
 	SDL_Rect _dest2ForObserver;
 	Fighter* _player;
