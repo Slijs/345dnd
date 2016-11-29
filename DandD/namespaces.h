@@ -73,6 +73,9 @@ namespace DestinationFromMenus
 	const int _CampaignManagerMenu_ = 7;
 	const int _CreateEditItems_ = 8;
 	const int _CreateEditPlayer_ = 9;
+	const int _CreateNewCharacter_ = 20;
+	const int _EditCharacter_ = 21;
+	const int _DeleteCharacter_ = 22;
 	const int _ExitToCommandPrompt_ = 100;
 }
 
@@ -112,4 +115,4 @@ enum CharacterType { Aggressor, Friendly, Player };
 *@enum MapUpdateFlag
 *@brief Flag to indicate what kind of update was recently made to the map
 */
-enum MapUpdateFlag {ThePlayer, Enemy, Nice};
+enum MapUpdateFlag {ThePlayer, Enemy, Nice, Corpse};

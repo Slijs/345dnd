@@ -37,15 +37,19 @@ Monster::Monster(string name, Type type, Size size, int level, int speed, int ST
 	this->_componentName = "enemy";
 	this->_componentType = gameplayGridComponentTypes::enemy;
 	this->_componentImage = nullptr;
-	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
+	
 	this->_obstructionToPlayer = true;
 
 	// Setup the Strategy
 	if (type == Beast){
+		this->_componentChar = SimplifiedMapSymbols::_Friend_;
+		this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_friend;
 		this->_strategy = new FriendlyStrategy(speed, theFighter);
 		_charType = Friendly;
 	}
 	else {
+		this->_componentChar = SimplifiedMapSymbols::_Enemies_;
+		this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
 		this->_strategy = new AggressorStrategy(speed, theFighter);
 		_charType = Aggressor;
 	}

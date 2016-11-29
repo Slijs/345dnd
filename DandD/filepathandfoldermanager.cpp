@@ -26,7 +26,8 @@ _player_image_path("assets/player/player.png"),
 _path_to_default_maps_list("assets/Campaigns/defaultmapslist.txt"),
 _path_to_default_maps("assets/Campaigns/DefaultMaps/"),
 _path_to_basic_container("assets/Containers/Container.png"),
-_path_to_basic_enemy("assets/enemies/enemy.jpg")
+_path_to_basic_enemy("assets/enemies/enemy.jpg"),
+_path_to_basic_friend("assets/friend/friendly.jpg")
 {
 	_folder_names_for_level_themes = SingletonInputOutputManager::getInstance()->readFileLineByLine(_directory_path_for_level_theme + _filename_containing_subfolder_names);
 
