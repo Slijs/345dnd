@@ -42,6 +42,7 @@ public:
 	void setImagePath();
 	void setImagePath(std::string newpath);
 	void setComponentChar(char thechar);
+	void setComponentName(std::string friends);
 	~GameComponent();
 };
 

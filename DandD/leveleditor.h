@@ -48,6 +48,7 @@ protected:
 	std::vector<SDL_Rect> _sideMenuRects;
 	SDL_Rect _playerDestinationAtBottom;
 	SDL_Rect _enemyDestinationAtBottom;
+	SDL_Rect _friendDestinationAtBottom;
 	SDL_Rect _basicContainerAtBottom;
 public:
 	LevelEditor(LevelWindow* window, int themIndex);
