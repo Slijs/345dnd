@@ -26,6 +26,8 @@ private:
 	bool _firstTimeGridTarget;
 	bool _buttonSelect;
 	bool _mapExit;
+	bool _gameLog;
+	bool _endPlayerTurn;
 	int _currentButtonIndex;
 	int _exitStringIndex;
 	int _exitCharacterIndex;

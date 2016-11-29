@@ -13,6 +13,8 @@ GamePlayEngine::GamePlayEngine()
 	this->_attackSelect = false;
 	this->_buttonSelect = false;
 	this->_mapExit = false;
+	this->_gameLog = false;
+	this->_endPlayerTurn = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
@@ -67,6 +69,8 @@ void GamePlayEngine::detachLevel()
 	this->_attackSelect = false;
 	this->_buttonSelect = false;
 	this->_mapExit = false;
+	this->_gameLog = false;
+	this->_endPlayerTurn = false;
 	this->_currentGrid.x = -1;
 	this->_currentGrid.y = -1;
 	this->_lastGrid.x = -1;
@@ -204,6 +208,18 @@ int GamePlayEngine::runUserTurn(){
 				if (attackEnemy())
 					turnCounter--;
 
+			//if game log is true, then run game log driver
+			if (this->_gameLog == true)
+			{
+				this->_level->getLevelWindow()->hideWindow();
+				system("cls");
+				std::cout << "Logic to be implemented.\n";
+				system("pause");
+				this->_level->getLevelWindow()->unHideWindow();
+				this->_gameLog = false;
+				this->_buttonSelect = false;
+			}
+
 			//get current mouse coordinates
 			SDL_GetMouseState(&mouse_X, &mouse_Y);
 
@@ -266,6 +282,18 @@ int GamePlayEngine::runUserTurn(){
 						this->_level->getLevelWindow()->hideWindow();
 						CharacterSaveManager::saveCharacter(this->_level->getPlayer());
 						this->_level->getLevelWindow()->unHideWindow();
+					}
+
+					//this means end turn button was clicked
+					if (buttonindex == 5)
+					{
+						//this->_endPlayerTurn = true;
+					}
+
+					//this means game log button was clicked logic is above in this function
+					if (buttonindex == 6)
+					{
+						this->_gameLog = true;
 					}
 				}
 			}
