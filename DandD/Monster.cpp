@@ -41,10 +41,12 @@ Monster::Monster(string name, Type type, Size size, int level, int speed, int ST
 
 	// Setup the Strategy
 	if (type == Beast){
+		this->_componentChar = SimplifiedMapSymbols::_Friend_;
 		this->_strategy = new FriendlyStrategy(speed, theFighter);
 		_charType = Friendly;
 	}
 	else {
+		this->_componentChar = SimplifiedMapSymbols::_Enemies_;
 		this->_strategy = new AggressorStrategy(speed, theFighter);
 		_charType = Aggressor;
 	}

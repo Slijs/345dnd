@@ -75,6 +75,7 @@
     <ClCompile Include="Belt.cpp" />
     <ClCompile Include="Boots.cpp" />
     <ClCompile Include="campaignselect.cpp" />
+    <ClCompile Include="CharacterCreateEditMenu.cpp" />
     <ClCompile Include="CharacterManager.cpp" />
     <ClCompile Include="CharacterObserver.cpp" />
     <ClCompile Include="Characters.cpp" />
@@ -83,6 +84,7 @@
     <ClCompile Include="CharBuilder.cpp" />
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="ContainerGenerator.cpp" />
+    <ClCompile Include="DeleteCharacterMenu.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
@@ -140,6 +142,7 @@
     <ClInclude Include="Belt.h" />
     <ClInclude Include="Boots.h" />
     <ClInclude Include="campaignselect.h" />
+    <ClInclude Include="CharacterCreateEditMenu.h" />
     <ClInclude Include="CharacterManager.h" />
     <ClInclude Include="CharacterObserver.h" />
     <ClInclude Include="Characters.h" />
@@ -149,6 +152,7 @@
     <ClInclude Include="Container.h" />
     <ClInclude Include="ContainerGenerator.h" />
     <ClInclude Include="containerOnMap.h" />
+    <ClInclude Include="DeleteCharacterMenu.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="enemyonmap.h" />
