@@ -61,6 +61,7 @@ public:
 	Fighter* getPlayer();
 	void setupContainersOnMap();
 	void setupEnemiesOnMap();
+	void addContainerOnTheMap(ContainerOnMap* prolly_a_dead_dude);
 	std::vector<ContainerOnMap*> getContainersOnMap();
 	std::vector<Monster*> getEnemiesOnMap();
 	std::vector<SDL_Rect> getAllButtonDestinations();
