@@ -3,6 +3,7 @@
 @brief Implementation of Fighter, which extends Characters
 */
 #pragma once
+#include <string>
 #include "Characters.h"
 #include "Dwarf.h"
 #include "HumanPlayerStrategy.h"

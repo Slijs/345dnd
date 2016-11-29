@@ -115,22 +115,24 @@ void Monster::displayBattle()
 If larger than AC, damage roll is calculated and inflicted on Fighter, otherwise attack fails*/
 void Monster::attack(Fighter* c)
 {
-
+	string message = "";
 	int aRoll = attackRoll(), dRoll;
 	string name;
-
-	cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
+	message += this->getName() + " rolled ";
+	message += aRoll + " for attack!\n";
+	//cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
 
 	if (aRoll < c->getArmorClass())
 	{
-		cout << "Attack missed!" << "\n" << endl;
+		message += "Attack missed!\n";
+		//cout << "Attack missed!" << "\n" << endl;
 	}
 	else
 	{
-		cout << "Attack was successful!" << endl;
+		message += "Attack was successful!\n";
+		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
 		c->receiveDamage(dRoll);
-
 	}
 }
 
@@ -138,7 +140,9 @@ void Monster::attack(Fighter* c)
 if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats*/
 void Monster::receiveDamage(int damage)
 {
+	string message;
 	hitPoints -= damage;
+	message = damage + " damage was inflicted on " + name + "!\n";
 	cout << damage << " damage was inflicted on " << name << "!" << endl;
 	if (hitPoints <= 0)
 	{
