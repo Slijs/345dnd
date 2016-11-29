@@ -332,12 +332,9 @@ void GamePlayEngine::interactEnvironment()
 	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
 	int charIndex = _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
-<<<<<<< HEAD
 	// update the container list in case any enemies have died
 	this->_containers = this->_level->getContainersOnMap();
-=======
 
->>>>>>> origin/Interim-Build
 	for (int x = 0; x < this->_containers.size(); x++)
 	{
 		interact = this->_level->getPlayer()->validateMapComponentWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
