@@ -140,6 +140,7 @@
     <ClInclude Include="Belt.h" />
     <ClInclude Include="Boots.h" />
     <ClInclude Include="campaignselect.h" />
+    <ClInclude Include="CharacterController.h" />
     <ClInclude Include="CharacterManager.h" />
     <ClInclude Include="CharacterObserver.h" />
     <ClInclude Include="Characters.h" />
@@ -150,12 +151,15 @@
     <ClInclude Include="ContainerGenerator.h" />
     <ClInclude Include="containerOnMap.h" />
     <ClInclude Include="Dice.h" />
+    <ClInclude Include="DiceController.h" />
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="enemyonmap.h" />
     <ClInclude Include="Enhancement.h" />
     <ClInclude Include="Fighter.h" />
     <ClInclude Include="FighterOnMapView.h" />
     <ClInclude Include="FriendlyStrategy.h" />
+    <ClInclude Include="GameController.h" />
+    <ClInclude Include="GameLog.h" />
     <ClInclude Include="gameplayengine.h" />
     <ClInclude Include="Helmet.h" />
     <ClInclude Include="HumanPlayerStrategy.h">
@@ -177,6 +181,7 @@
     <ClInclude Include="levels.h" />
     <ClInclude Include="levelwindow.h" />
     <ClInclude Include="filepathandfoldermanager.h" />
+    <ClInclude Include="MapController.h" />
     <ClInclude Include="mapeditorengine.h" />
     <ClInclude Include="campaignMAPmanagers.h" />
     <ClInclude Include="MapObserver.h" />
