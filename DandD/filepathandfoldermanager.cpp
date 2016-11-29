@@ -27,15 +27,11 @@ _path_to_default_maps_list("assets/Campaigns/defaultmapslist.txt"),
 _path_to_default_maps("assets/Campaigns/DefaultMaps/"),
 _path_to_basic_container("assets/Containers/Container.png"),
 _path_to_basic_enemy("assets/enemies/enemy.jpg"),
-<<<<<<< HEAD
 _path_to_gameController("assets/Logs/GameController.txt"),
 _path_to_mapController("assets/Logs/CharacterController.txt"),
 _path_to_diceController("assets/Logs/DiceController.txt"),
-_path_to_characterController("assets/Logs/CharacterController.txt")
-
-=======
+_path_to_characterController("assets/Logs/CharacterController.txt"),
 _path_to_basic_friend("assets/friend/friendly.jpg")
->>>>>>> origin/Interim-Build
 {
 	_folder_names_for_level_themes = SingletonInputOutputManager::getInstance()->readFileLineByLine(_directory_path_for_level_theme + _filename_containing_subfolder_names);
 
