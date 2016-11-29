@@ -34,6 +34,7 @@ protected:
 	std::string _playerPath;
 	std::string _basicContainerPath;
 	std::string _enemyPath;
+	std::string _friendPath;
 	std::string _directory_path_for_level_file_text_file;
 	std::vector<std::string> _level;
 	std::vector<SDL_Rect> _gameplayGrids;

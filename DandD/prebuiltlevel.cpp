@@ -37,6 +37,12 @@ void PreBuiltLevel::getDestRectsForObserver(SDL_Rect* dest1, SDL_Rect* dest2)
 	*dest2 = this->_dest2ForObserver;
 }
 
+//!when NPCs die, this function is called to have them added as a container on map
+void PreBuiltLevel::addContainerOnTheMap(ContainerOnMap* prolly_a_dead_dude)
+{
+	this->_containersOnMap.push_back(prolly_a_dead_dude);
+}
+
 //!first creates a level window based on the level text vector
 //!then calls parent function to setup the artwork on the window
 void PreBuiltLevel::createLevelForTargetWindow()

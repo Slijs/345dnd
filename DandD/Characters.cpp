@@ -244,7 +244,7 @@ void Characters::generateAbility()
 void Characters::orderArray(int a[])
 {
 	int temp;
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		for (int j = i + 1; j<MAX_NUM_SCORES; j++)
 		{
