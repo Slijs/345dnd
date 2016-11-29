@@ -27,6 +27,8 @@ public:
 	std::vector<std::string> readFileLineByLine(std::string path);
 	std::vector<std::string> readFileWordByWord(std::string path);
 	void writeToFile(std::string path, std::vector<std::string> lines);
+	void appendToFile(std::string path, std::string message);
+	void clearFile(std::string path);
 	std::vector<std::string> splitString(std::string toBeSplit);
 	std::vector<std::string> loadAllCampaign();
 	std::vector<std::string> loadONECampaign(std::string NAME);

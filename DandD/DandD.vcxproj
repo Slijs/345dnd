@@ -75,6 +75,7 @@
     <ClCompile Include="Belt.cpp" />
     <ClCompile Include="Boots.cpp" />
     <ClCompile Include="campaignselect.cpp" />
+    <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="CharacterManager.cpp" />
     <ClCompile Include="CharacterObserver.cpp" />
     <ClCompile Include="Characters.cpp" />
@@ -84,10 +85,13 @@
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="ContainerGenerator.cpp" />
     <ClCompile Include="Dice.cpp" />
+    <ClCompile Include="DiceController.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FighterOnMapView.cpp" />
     <ClCompile Include="FriendlyStrategy.cpp" />
+    <ClCompile Include="GameController.cpp" />
+    <ClCompile Include="GameLog.cpp" />
     <ClCompile Include="gameplayengine.cpp" />
     <ClCompile Include="Helmet.cpp" />
     <ClCompile Include="HumanPlayerStrategy.cpp">
@@ -110,6 +114,7 @@
     <ClCompile Include="levelwindow.cpp" />
     <ClCompile Include="filepathandfoldermanager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapController.cpp" />
     <ClCompile Include="mapeditorengine.cpp" />
     <ClCompile Include="MapObserver.cpp" />
     <ClCompile Include="menuengine.cpp" />
