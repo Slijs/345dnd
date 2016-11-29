@@ -159,7 +159,8 @@ int GamePlayEngine::runUserTurn(){
 	int mouse_Y;
 	int buttonindex;
 
-	while (exit == false && turnCounter > 0)
+	//while (exit == false && turnCounter > 0)
+	while (this->_endPlayerTurn == false )
 	{
 		while (SDL_PollEvent(this->_event) != 0)
 		{
@@ -287,7 +288,7 @@ int GamePlayEngine::runUserTurn(){
 					//this means end turn button was clicked
 					if (buttonindex == 5)
 					{
-						//this->_endPlayerTurn = true;
+						this->_endPlayerTurn = true;
 					}
 
 					//this means game log button was clicked logic is above in this function
@@ -299,6 +300,13 @@ int GamePlayEngine::runUserTurn(){
 			}
 		}//inner while end
 	}
+
+	//ensure player end turn button and button select is made false
+	//also player end button has to be rendered back to default color before rendering
+	this->_endPlayerTurn = false;
+	this->_buttonSelect = false;
+	if (this->_currentButtonIndex >= 0)
+		this->_level->getLevelWindow()->changeButtonColor(this->_currentButtonIndex, 255, 0, 0);
 	return 2;
 }
 
