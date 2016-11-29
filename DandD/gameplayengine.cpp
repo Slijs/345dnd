@@ -193,7 +193,9 @@ int GamePlayEngine::runUserTurn(){
 
 			//if move select is true all move function, decrease turncounter after successful move
 			if (this->_moveSelect == true){
-				if (movePlayer()){
+				//if (movePlayer())
+				if (turnCounter>0 && movePlayer())
+				{
 					cout << "I moved!";
 					turnCounter--;
 					cout << turnCounter << endl;
@@ -206,7 +208,7 @@ int GamePlayEngine::runUserTurn(){
 
 			//if attack select is true then run attack logic, decrease turncounter after successful move
 			if (this->_attackSelect == true)
-				if (attackEnemy())
+				if (turnCounter>0 && attackEnemy() )
 					turnCounter--;
 
 			//if game log is true, then run game log driver
