@@ -4,6 +4,7 @@
 */
 
 #include "Monster.h"
+#include "prebuiltlevel.h"
 
 //!Default constructor - for making dummy monsters
 Monster::Monster() : Characters() {
@@ -31,25 +32,20 @@ Monster::Monster(string name, Type type, Size size, int level, int speed, int ST
 	this->speed = speed;
 	detHitDie();
 	detHitPoints();
-	maxHitPoints = hitPoints;
 	equipWeapon(weapon);
 	this->_componentChar = SimplifiedMapSymbols::_Enemies_;
 	this->_componentName = "enemy";
 	this->_componentType = gameplayGridComponentTypes::enemy;
 	this->_componentImage = nullptr;
-	
+	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
 	this->_obstructionToPlayer = true;
 
 	// Setup the Strategy
 	if (type == Beast){
-		this->_componentChar = SimplifiedMapSymbols::_Friend_;
-		this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_friend;
 		this->_strategy = new FriendlyStrategy(speed, theFighter);
 		_charType = Friendly;
 	}
 	else {
-		this->_componentChar = SimplifiedMapSymbols::_Enemies_;
-		this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
 		this->_strategy = new AggressorStrategy(speed, theFighter);
 		_charType = Aggressor;
 	}
@@ -149,11 +145,10 @@ void Monster::receiveDamage(int damage)
 	hitPoints -= damage;
 	message = damage + " damage was inflicted on " + name + "!\n";
 	cout << damage << " damage was inflicted on " << name << "!" << endl;
-	cout << name << " now has " << hitPoints << "/" << maxHitPoints << " HP." << endl;
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
-		Notify();
+		dropContainer();
 		return;
 	}
 	currentState();
@@ -164,6 +159,46 @@ void Monster::displayDeath()
 {
 	cout << "\n" << name;
 	Characters::displayDeath();
+}
+
+
+//!Function for display of character death 
+void Monster::dropContainer() {
+	// make a container that will contain all of the characters equipment and is located at the characters location
+	// first make a vector of all the items that will be included
+	std::vector<Item*> items;
+	if (armor != nullptr) {
+		items.push_back(armor);
+	}
+	if (weapon != nullptr) {
+		items.push_back(weapon);
+	}
+	if (shield != nullptr) {
+		items.push_back(shield);
+	}
+	if (helmet != nullptr) {
+		items.push_back(helmet);
+	}
+	if (boots != nullptr) {
+		items.push_back(boots);
+	}
+	if (belt != nullptr) {
+		items.push_back(belt);
+	}
+	if (ring != nullptr) {
+		items.push_back(ring);
+	}
+
+	// create the container
+	Corpse* corpse = new Corpse(7, items);
+	corpse->setImage("assets/Containers/Corpse.png");
+
+	// add to containerOnMap
+	ContainerOnMap * containerOnMap = new ContainerOnMap();
+	containerOnMap->charIndex = getCharPos();
+	containerOnMap->stringIndex = getVectPos();
+	containerOnMap->container = corpse;
+	_subject->addContainerOnTheMap(containerOnMap);
 }
 
 void Monster::currentState()
