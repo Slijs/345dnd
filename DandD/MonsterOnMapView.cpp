@@ -89,6 +89,7 @@ void MonsterOnMapView::Update(){
 
 void MonsterOnMapView::renderDead(){
 	SDL_Rect dest;
+	SDL_Rect currentGrid;
 	std::vector<std::string> temp = _theMap->getMapStringVersiion();
 
 	//first render player to floor
@@ -113,9 +114,24 @@ void MonsterOnMapView::renderDead(){
 		}
 
 	}//done putting player to floor
+
+	// Now set the grid for the update
+	currentGrid.x = _sub->getCharPos()*_theMap->getLevelWindow()->getGridX_Length();
+	currentGrid.y = _sub->getVectPos()*_theMap->getLevelWindow()->getGridY_Length();
+	currentGrid.h = _theMap->getLevelWindow()->getGridY_Length();
+	currentGrid.w = _theMap->getLevelWindow()->getGridX_Length();
+
+	// Here, we can either indicate to the MapObserver that we are updatting with a Dead character, in which case we only render the environment
+	// and no other assets. Then outside of here we manage adding the new Container
+
+	//  OR we Create some sort of new Container that gets placed at the same location in the map, inserted into ContainersOnMap vector, then setup
+	// a new Observer for it. Its constructor will need to know the position right off the bat so that it can edit the level and notify MapObserver
+	// with the correct flag, in order to have the new container rendered to screen.
+	
+	//_theMap->setRecentUpdateFlag(Dead);
 	
 	//update the two destination rectangles in subject
-	_theMap->setDestRectsForObserver(dest, *_sub->getRecentGrid());
+	_theMap->setDestRectsForObserver(dest, currentGrid);
 
 	//call the observer update and render and display, also lets all LevelObservers know the level has changed
 	_theMap->Notify();
