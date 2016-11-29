@@ -13,6 +13,7 @@
 #include "Ring.h"
 #include "Subject.h"
 #include "Dice.h"
+#include "Corpse.h"
 #include "filepathandfoldermanager.h"
 #include "game_components.h"
 #include "namespaces.h"

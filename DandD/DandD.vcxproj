@@ -83,6 +83,7 @@
     <ClCompile Include="CharBuilder.cpp" />
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="ContainerGenerator.cpp" />
+    <ClCompile Include="Corpse.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Container.h" />
     <ClInclude Include="ContainerGenerator.h" />
     <ClInclude Include="containerOnMap.h" />
+    <ClInclude Include="Corpse.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="DiceController.h" />
     <ClInclude Include="Dwarf.h" />

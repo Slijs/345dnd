@@ -45,7 +45,7 @@ public:
 	void Monster::equipWeapon(Weapon* w);
 	void displayBattle();
 	void displayDeath();
-
+	void dropContainer();
 	void attack(Fighter* c);
 	void receiveDamage(int);
 	void currentState();
