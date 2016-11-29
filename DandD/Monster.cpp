@@ -141,6 +141,7 @@ void Monster::attack(Fighter* c)
 if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats*/
 void Monster::receiveDamage(int damage)
 {
+	underAttack();
 	string message;
 	hitPoints -= damage;
 	message = damage + " damage was inflicted on " + name + "!\n";
