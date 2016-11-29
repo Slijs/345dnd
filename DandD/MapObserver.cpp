@@ -31,7 +31,7 @@ void MapObserver::Update(){
 	case Nice:
 		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getEnemy()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
 		break;
-	case Corpse:
+	case Dead:
 		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getContainerComponent()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
 		break;
 	}
