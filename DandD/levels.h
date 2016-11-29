@@ -41,6 +41,7 @@ protected:
 	std::vector<Environment*> _environment_components;
 	GameComponent* _player;
 	Monster* _enemy;
+	Monster* _friend;
 	Container* _container;
 
 public:
@@ -54,6 +55,7 @@ public:
 	GameComponent* getPlayerComponent();
 	Container* getContainerComponent();
 	Monster* getEnemy();
+	Monster* getFriend();
 	void addRectToGamePlayGrids(SDL_Rect dest);
 	SDL_Texture* getEnvironmentTexture(int index);
 	std::vector<std::string> getMapStringVersiion();

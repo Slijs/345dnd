@@ -42,6 +42,7 @@ class Container : public GameComponent, public CObject{
 		int getMaxContents();
 		int getNumContents();
 		string getImage();
+		void setImage(string path) { image = path; };
 		vector<Item*> getContents();
 		Item* removeItem(int m_contentsIndex);
 		bool insertItem(Item *m_item);

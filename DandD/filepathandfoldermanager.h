@@ -45,6 +45,7 @@ public:
 	const std::string _path_to_mapController;
 	const std::string _path_to_diceController;
 	const std::string _path_to_characterController;
+	const std::string _path_to_basic_friend;
 	std::string getComponentPathForIndex(int index);
 	void saveUserCreatedLevel(std::vector<std::string> leveltosave, std::string componentspath, std::string nameoffile);
 	std::vector<std::string> loadUserGeneratedLevel(std::string name, std::string* componentspath);

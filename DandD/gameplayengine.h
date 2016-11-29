@@ -39,7 +39,7 @@ private:
 	std::vector<SDL_Rect> _buttons;
 	std::vector<ContainerOnMap*> _containers;
 	std::vector<Monster*> _enemies;
-
+	Characters* currentMovingMonster;
 public:
 	GamePlayEngine();
 	void attachLevel(PreBuiltLevel* level, SDL_Event* event_);
@@ -52,6 +52,7 @@ public:
 	bool attackEnemy();
 	SDL_Rect checkMousePosition(std::vector<SDL_Rect> components, int* targetIndex);
 	SDL_Event* getEvent() { return _event; };
+	Characters* getCurrentMovingMonster(){ return currentMovingMonster; }; //! Returns reference to the monster that has most recently been moved
 };
 
 #endif

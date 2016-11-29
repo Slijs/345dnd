@@ -30,6 +30,7 @@ private:
 	int hitDie;
 	string hitDieString;
 	int hitPoints;
+	int maxHitPoints;
 	int speed;
 	void detHitDie();
 	void detHitPoints();
@@ -45,7 +46,7 @@ public:
 	void Monster::equipWeapon(Weapon* w);
 	void displayBattle();
 	void displayDeath();
-
+	void dropContainer();
 	void attack(Fighter* c);
 	void receiveDamage(int);
 	void currentState();

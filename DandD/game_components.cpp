@@ -26,9 +26,32 @@ GameComponent::GameComponent(std::string componentname, char componentchar, game
 	this->_image_path = imagepath;
 }
 
+//!set the image path manually
+void GameComponent::setImagePath(std::string newpath)
+{
+	this->_image_path = newpath;
+}
+
+//!set the component char manuall
+void GameComponent::setComponentChar(char thechar)
+{
+	this->_componentChar = thechar;
+}
+
+//!set the name of component
+void GameComponent::setComponentName(std::string friends)
+{
+	this->_componentName = friends;
+}
+
 //!sets the component on target window rendered after loading the image
 void GameComponent::setupComponentOnTargetWindowRenderer(SDL_Renderer* window_renderer)
 {
+	if (this->_componentImage != nullptr)
+	{
+		delete this->_componentImage;
+		this->_componentImage = nullptr;
+	}
 	_componentImage = new SDL_Image(_image_path);
 	_componentImage->setupImageOnTargetWindowRenderer(window_renderer);
 }

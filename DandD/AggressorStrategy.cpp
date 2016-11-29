@@ -110,7 +110,7 @@ AFTER_ATTEMPT:
 	_recentGrid = currentGrid;
 	// IF player is adjascent to the Monster, then attack the player
 	if (abs(_playerCharPos - _charPos) <= 1 && abs(_playerVectPos - _vectPos) <= 1)
-		//_subject->underAttack();
+		
 		cout << "ATTACKING PLAYER WILL GO HERE" << endl;
 	return iMoved;
 }

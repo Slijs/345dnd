@@ -55,6 +55,7 @@ void LevelEditor::takeComponentsFromPreBuiltLevel(PreBuiltLevel* pbLevel)
 	this->_directory_path_for_level_file_text_file = pbLevel->getDirectoryPathForLevelTextFile();
 	this->_playerPath = pbLevel->getPlayerPath();
 	this->_enemyPath = pbLevel->getEnemyPath();
+	this->_friendPath = pbLevel->getFriendPath();
 	this->_basicContainerPath = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_container;
 	this->_level = pbLevel->getBuiltLevelFile();
 }
@@ -231,7 +232,7 @@ void LevelEditor::renderEnvironmentAtBottom()
 	//render player image
 	dest.y = _y_init;
 	dest.h = (this->_level_window->getWindowHeight() - dest.y ) * 0.7;
-	dest.w = (this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)* 0.35;
+	dest.w = (this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)* 0.23;
 	//dest.x = this->_X_Cor_ItemPortionEnd_CharacterPortionStart + ((this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart)/2) - dest.w/2;
 	dest.x = this->_X_Cor_ItemPortionEnd_CharacterPortionStart + ((this->_X_Cor_CharacterPortionEnd_DescriptionPortionStart - this->_X_Cor_ItemPortionEnd_CharacterPortionStart) * 0.15);
 	this->_level_window->loadTextureOnRenderer(this->_player->getImageDetails()->getImageTexture(), nullptr, &dest);
@@ -242,13 +243,16 @@ void LevelEditor::renderEnvironmentAtBottom()
 	this->_level_window->loadTextureOnRenderer(this->_enemy->getImageDetails()->getImageTexture(), nullptr, &dest);
 	this->_enemyDestinationAtBottom = dest;
 
+	//redner friend
+	dest.x = dest.x + dest.w + dest.w * 0.1;
+	this->_level_window->loadTextureOnRenderer(this->_friend->getImageDetails()->getImageTexture(), nullptr, &dest);
+	this->_friendDestinationAtBottom = dest;
+
 	//render basic container
 	dest.w = (this->_X_Cor_ItemPortionEnd_CharacterPortionStart - this->_X_Cor_EnvironmentPortionEnd_ItemPortionStart) * 0.8;
 	dest.x = this->_X_Cor_EnvironmentPortionEnd_ItemPortionStart + ((this->_X_Cor_ItemPortionEnd_CharacterPortionStart - this->_X_Cor_EnvironmentPortionEnd_ItemPortionStart)/2) - dest.w/2;
 	this->_level_window->loadTextureOnRenderer(this->_container->getImageDetails()->getImageTexture(), nullptr, &dest);
 	this->_basicContainerAtBottom = dest;
-
-
 
 	//now use y and x to render the environment text
 	this->getLevelWindow()->setFontType(9);
@@ -282,6 +286,9 @@ void LevelEditor::renderCharactersAtBottom()
 
 	//redner enemy
 	this->_level_window->loadTextureOnRenderer(this->_enemy->getImageDetails()->getImageTexture(), nullptr, &this->_enemyDestinationAtBottom);
+
+	//render friend
+	this->_level_window->loadTextureOnRenderer(this->_friend->getImageDetails()->getImageTexture(), nullptr, &this->_friendDestinationAtBottom);
 }
 
 //!function renders the description of the gamecomponent parameter on the bottom right

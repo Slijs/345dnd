@@ -129,6 +129,11 @@ void MonsterOnMapView::renderDead(){
 	//  OR we Create some sort of new Container that gets placed at the same location in the map, inserted into ContainersOnMap vector, then setup
 	// a new Observer for it. Its constructor will need to know the position right off the bat so that it can edit the level and notify MapObserver
 	// with the correct flag, in order to have the new container rendered to screen.
+
+
+	_theMap->setRecentUpdateFlag(Dead);
+	temp[_prevVectPos].at(_prevCharPos) = SimplifiedMapSymbols::_BasicContainer_;
+	_theMap->setMainMapVector(temp);
 	
 	//update the two destination rectangles in subject
 	_theMap->setDestRectsForObserver(dest, currentGrid);
