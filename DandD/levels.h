@@ -57,6 +57,7 @@ public:
 	SDL_Texture* getEnvironmentTexture(int index);
 	std::vector<std::string> getMapStringVersiion();
 	std::vector<std::string> getMapSimpleVersion();
+	std::vector<std::string>* getMapSimplePtrVersion();
 	void setMainMapVector(std::vector<std::string> newmap);
 	~Level();
 };

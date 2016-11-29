@@ -70,6 +70,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AggressorStrategy.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Belt.cpp" />
     <ClCompile Include="Boots.cpp" />
@@ -85,11 +86,17 @@
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="FighterOnMapView.cpp" />
+    <ClCompile Include="FriendlyStrategy.cpp" />
     <ClCompile Include="gameplayengine.cpp" />
     <ClCompile Include="Helmet.cpp" />
+    <ClCompile Include="HumanPlayerStrategy.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemCreator.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
+    <ClCompile Include="LevelObserver.cpp" />
     <ClCompile Include="mainmenu.cpp" />
     <ClCompile Include="campaignmanager.cpp" />
     <ClCompile Include="campaignMAPmanager.cpp" />
@@ -109,6 +116,8 @@
     <ClCompile Include="menus.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MonsterFactory.cpp" />
+    <ClCompile Include="MonsterOnMapView.cpp" />
+    <ClCompile Include="MovementStrategy.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="red_green_blue.cpp" />
     <ClCompile Include="Ring.cpp" />
@@ -126,6 +135,7 @@
     <ClCompile Include="windows.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AggressorStrategy.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Belt.h" />
     <ClInclude Include="Boots.h" />
@@ -144,11 +154,17 @@
     <ClInclude Include="enemyonmap.h" />
     <ClInclude Include="Enhancement.h" />
     <ClInclude Include="Fighter.h" />
+    <ClInclude Include="FighterOnMapView.h" />
+    <ClInclude Include="FriendlyStrategy.h" />
     <ClInclude Include="gameplayengine.h" />
     <ClInclude Include="Helmet.h" />
+    <ClInclude Include="HumanPlayerStrategy.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemCreator.h" />
     <ClInclude Include="ItemFactory.h" />
+    <ClInclude Include="LevelObserver.h" />
     <ClInclude Include="mainmenu.h" />
     <ClInclude Include="campaignmanager.h" />
     <ClInclude Include="campaignmenus.h" />
@@ -169,6 +185,10 @@
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterCreator.h" />
     <ClInclude Include="MonsterFactory.h" />
+    <ClInclude Include="MonsterOnMapView.h" />
+    <ClInclude Include="MovementStrategy.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="namespaces.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Ring.h" />

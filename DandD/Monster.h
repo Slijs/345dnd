@@ -2,6 +2,10 @@
 #include "Characters.h"
 #include "Fighter.h"
 #include "filepathandfoldermanager.h"
+#include "CharacterObserver.h"
+#include "AggressorStrategy.h"
+#include "FriendlyStrategy.h"
+#include "namespaces.h"
 
 /*!
 Class that inherits from Characters and each Monster has a Type, Size, name, hitDie, hitPoints and a speed
@@ -17,6 +21,7 @@ class Fighter;
 
 class Monster : public Characters
 {
+	friend class PreBuiltLevel;
 private:
 	Dice _theDie;
 	Type type;
@@ -28,9 +33,10 @@ private:
 	int speed;
 	void detHitDie();
 	void detHitPoints();
+	CharacterType _charType; //! The type of Monster (either Beast or Friendly)
 
 public:
-	Monster(string, Type, Size, int, int, int, int, int, int, int, int, int, Weapon*);
+	Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon, Characters* theFighter);
 	Monster();
 	~Monster();
 
@@ -44,5 +50,7 @@ public:
 	void receiveDamage(int);
 	void currentState();
 	virtual void displayStats();
-
+	void setupCharacterObserver(Characters* thePlayer);
+	virtual void underAttack(); //! Provides code needed to switch from Aggressive to Friendly Strategy
+	CharacterType getCharType(){ return _charType; }; //! Returns the CharacterType of the Monster
 };

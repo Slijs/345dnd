@@ -100,3 +100,15 @@ namespace ItemTypes
 {
 	enum ItemType { Armor, Belt, Boots, Helmet, Ring, Shield, Weapon, Item };
 }
+
+/**
+*@enum CharacterType
+*@brief Provides definition of the two types of monsters that can be made : Aggressor or Friendly.
+*/
+enum CharacterType { Aggressor, Friendly, Player }; 
+
+/**
+*@enum MapUpdateFlag
+*@brief Flag to indicate what kind of update was recently made to the map
+*/
+enum MapUpdateFlag {ThePlayer, Enemy, Nice};

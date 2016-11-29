@@ -15,6 +15,7 @@
 */
 class GamePlayEngine
 {
+	friend class HumanPlayerStrategy;
 private:
 	PreBuiltLevel* _level;
 	SDL_Event* _event;
@@ -35,18 +36,20 @@ private:
 	MapObserver* _observer;
 	std::vector<SDL_Rect> _buttons;
 	std::vector<ContainerOnMap*> _containers;
-	std::vector<EnemiesOnMap*> _enemies;
+	std::vector<Monster*> _enemies;
 
 public:
 	GamePlayEngine();
 	void attachLevel(PreBuiltLevel* level, SDL_Event* event_);
 	void detachLevel();
 	int runEngine();
+	int runUserTurn();
 	int onRIghtHandMenu();
-	void movePlayer();
+	bool movePlayer();
 	void interactEnvironment();
-	void attackEnemy();
+	bool attackEnemy();
 	SDL_Rect checkMousePosition(std::vector<SDL_Rect> components, int* targetIndex);
+	SDL_Event* getEvent() { return _event; };
 };
 
 #endif

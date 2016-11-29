@@ -92,6 +92,72 @@ std::vector<std::string> Level::getMapSimpleVersion()
 }
 
 
+//!accessor for string version of map that has all environment symbols simplified to just obstruction or free path
+std::vector<std::string>* Level::getMapSimplePtrVersion()
+{
+	std::vector<std::string>* temp = new std::vector<std::string>();
+	std::string s = "";
+
+	Environment* floor = nullptr;
+	Environment* exit = nullptr;
+	for (int x = 0; x < this->_environment_components.size(); x++)
+	{
+		if (this->_environment_components[x]->getComponentName() == "floor")
+			floor = this->_environment_components[x];
+		else if (this->_environment_components[x]->getComponentName() == "exit")
+			exit = this->_environment_components[x];
+	}
+
+	//first convert to simple map
+	for (int y = 0; y < this->_level.size(); y++)
+	{
+		s = "";
+		for (int x = 0; x < this->_level[y].length(); x++)
+		{
+			//first check player
+			if (this->_level[y].at(x) == SimplifiedMapSymbols::_Player_)
+			{
+				s += SimplifiedMapSymbols::_Player_;
+			}
+
+			//check container
+			else if (this->_level[y].at(x) == SimplifiedMapSymbols::_BasicContainer_)
+			{
+				s += SimplifiedMapSymbols::_BasicContainer_;
+			}
+
+			//check enemy
+			else if (this->_level[y].at(x) == SimplifiedMapSymbols::_Enemies_)
+			{
+				s += SimplifiedMapSymbols::_Enemies_;
+			}
+
+			//check free path for env component it should be floor
+			else if (this->_level[y].at(x) == floor->getComponentChar())
+			{
+				s += SimplifiedMapSymbols::_FreePath_;
+			}
+
+			//check for exit door
+			else if (this->_level[y].at(x) == exit->getComponentChar())
+			{
+				s += SimplifiedMapSymbols::_ExitDoor_;
+			}
+
+			//otherwise it is environment
+			else
+			{
+				s += SimplifiedMapSymbols::_Obstruction_;
+			}
+		}
+		//push the string back
+		temp->push_back(s);
+	}
+
+	//return the simple map
+	return temp;
+}
+
 //!this function loads the artwork and assigns them to approprate vectors
 void Level::createLevelForTargetWindow()
 {

@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CHARACTERS_H
+#define CHARACTERS_H
 #include "Entity.h"
 #include "Item.h"
 #include "Belt.h"
@@ -14,12 +16,18 @@
 #include "filepathandfoldermanager.h"
 #include "game_components.h"
 #include "namespaces.h"
+#include "MovementStrategy.h"
 #include <cstdlib>
 #include <ctime>
 #include <string>
 #include <vector>
 #include <afx.h>
 #include <afxver_.h>
+#include "LevelObserver.h"
+#include <SDL.h>
+
+class PreBuiltLevel; // Forward declaration
+class GamePlayEngine; // Forward declaration
 
 /*!
 Some changes were made from previous implementation of Characters Class
@@ -64,17 +72,13 @@ attackRoll = d20 + attackBonus ,and damageRoll = weaponDice + damageBonus.
 *@class Characters
 *@brief Provides resource for management of Characters within game
 */
-class Characters : public Subject, public CObject,
-	public GameComponent
+class Characters : public Subject, public CObject, public GameComponent, public LevelObserver
 {
 protected:
 	DECLARE_SERIAL(Characters);
-	static bool _validPosition(char posInQuestion);
-	static bool _validComponentPosition(char posInQuestion);
-	vector<int> position;
-	vector<string> *_map;
 	Dice _die;
 	int armorClass;
+	int _initiative; //! Used to determine turn order
 	Armor* armor;
 	Weapon* weapon;
 	Helmet* helmet;
@@ -83,6 +87,7 @@ protected:
 	Belt* belt;
 	Ring* ring;
 	Container* backpack;
+	MovementStrategy* _strategy; //! Strategy the Character uses to move
 
 private:
 	int const MAX_NUM_SCORES = 6;
@@ -120,13 +125,7 @@ private:
 	void detProficiencyBonus();	//from Level
 
 	void calcArmorClass();      //from equipement
-
-	//int processWeaponDice();
-
 	void gainLevel();
-
-
-
 
 public:
 	Characters();
@@ -144,12 +143,13 @@ public:
 	int getAttackBonus() { return attackBonus; }
 	int getDamageBonus() { return damageBonus; }
 	int getScores(int, int);
+	int getInitiative();
 	bool getInBattle();
 	bool getIsDead() { return isDead; }
 	void setIsDead(bool isDead) { this->isDead = isDead; }
 	bool getIsLevelUp() { return isLevelUp; }
 	void setIsLevelUp(bool isLevelUp) { this->isLevelUp = isLevelUp; }
-
+	void setInitiative();
 
 	//setters for items 
 	void setArmor(Armor* a){ armor = a; }
@@ -159,7 +159,6 @@ public:
 	void setRing(Ring* r){ ring = r; }
 	void setShield(Shield* s){ shield = s; }
 	void setBelt(Belt* b){ belt = b; }
-
 
 	//getters for items 
 	Armor* getArmor(){
@@ -184,8 +183,6 @@ public:
 	Belt* getBelt(){
 		return belt;
 	}
-
-	vector<int> getPosition() { return position; }
 
 	void calcAttackBonus();		//from STR/DEX mod & proficiency level and base attack bonus
 	void calcDamageBonus();		//from STR mod 
@@ -231,9 +228,14 @@ public:
 	void currentState();
 
 	// For the map
-	virtual bool validatePlayerMove(int x, int y);
-	void setMap(vector<string> *newMap);
-	void setPosition(int, int);
+	void setPosition(int vectPos, int charPos);
+	virtual void setMap(vector<string>* newMap);
+	int getVectPos();
+	int getCharPos();
+	virtual bool move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePlayEngine* engine);
+	virtual void setupLevelObserver(PreBuiltLevel* lebelSubject);
+	SDL_Rect* getRecentGrid(){ return _strategy->getRecentGrid(); }; //! Will get the most recent grid, needed for rerendering map
+
 
 	///FOR UNIT TEST
 	bool validateNewCharacter();
@@ -242,6 +244,9 @@ public:
 	// For Serialization
 	virtual void Serialize(CArchive &ar);
 	Characters& operator= (const Characters* otherChar);
+	bool operator <(const Characters &rhs);
 	Characters(Characters* otherChar);
 
 };
+
+#endif

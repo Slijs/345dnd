@@ -18,12 +18,12 @@
 */
 class CharacterObserver : public Observer
 {
-private:
+protected:
 	Characters* _sub;
 public:
 	CharacterObserver(Characters* s);
 	~CharacterObserver();
 
-	void Update();
+	virtual void Update();
 	void display();
 };

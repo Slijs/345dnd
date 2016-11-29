@@ -5,7 +5,7 @@
 #pragma once
 #include "Characters.h"
 #include "Dwarf.h"
-#include "Monster.h"
+#include "HumanPlayerStrategy.h"
 
 /*!
 This class inherits from Characters and creates a Fighter character. All fighters are created with a level and a name. Fighters have a constant Hit_Die = d10. This value is used to calculate the hit points as follows: At level 1: HitPoints = Hit_Die_Max + CON_mod = 10 + CON_mod With each level gained: HitPoints = HitPoints + Hit_Die_Roll + CON_mod
@@ -17,8 +17,8 @@ Namely functions to attack a monster, to receive damage which may result in char
 will trigger level up when applicable
 */
 
-// Forward declaration of Monster class
-class Monster;
+
+class Monster; // Forward declaration of Monster class to prevent cyclic dependencies
 
 /**
 *@class Fighter
@@ -28,6 +28,7 @@ class Fighter : public Characters
 {
 protected:
 	DECLARE_SERIAL(Fighter);
+	bool isMonsterAdjacent(Monster* theMonster);
 private:
 	const int HIT_DIE = 10; //d10
 	const string _HIT_DIE_STRING = "1d10";
@@ -102,13 +103,13 @@ public:
 	void displayBackpack();
 	void displayOnlyStats();
 
+	// For the Map
+	// virtual bool move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePlayEngine* engine);
+
 	//TEST
 	bool validateHitPoints();
 	bool validateDeath();
 	bool validateGainExperience(int);
-	bool validateMapComponentWithinRange(int x, int y);
-	bool validatePlayerMove(int x, int y);
-	
-
+	bool validateMapComponentWithinRange(int x, int y) { return _strategy->isWithinRange(x, y); };
 	virtual void Serialize(CArchive &ar);
 };

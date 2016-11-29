@@ -4,7 +4,11 @@
 #include "Item.h"
 #include "namespaces.h"
 #include <iomanip>
+#include "prebuiltlevel.h"
 using namespace std;
+
+class PreBuiltLevel;
+class GamePlayEngine;
 
 IMPLEMENT_SERIAL(Characters, CObject, 1);
 
@@ -23,7 +27,6 @@ Characters::Characters()
 	armorClass = 0;
 	inBattle = false;
 	isLevelUp = false;
-	_map = NULL;
 
 	armor = new Armor();
 	belt = new Belt();
@@ -34,8 +37,6 @@ Characters::Characters()
 	helmet = new Helmet();
 	backpack = new Container();
 
-	position.push_back(-1);
-	position.push_back(-1);
 }
 
 //!Parameterized constructor used for creation of dummy characters by setting level and all ability scores
@@ -67,12 +68,6 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	detExperience();
 	abilityScoreMod();
 	calcArmorClass();
-	_map = NULL;
-
-
-	// Sets dummy values to position so that its size is initialized
-	position.push_back(-1);
-	position.push_back(-1);
 }
 
 //!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
@@ -104,8 +99,6 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	detExp();
 	abilityScoreMod();
 	calcArmorClass();
-	_map = NULL;
-
 }
 
 //!Parameterized Constructor for Fighter class, sets level.
@@ -136,10 +129,7 @@ Characters::Characters(int level)
 
 	//calculate attackBonus and DamageBonus
 	calcAttackBonus();
-	calcDamageBonus();
-	_map = NULL;
-
-	
+	calcDamageBonus();	
 }
 
 //!Auxiliary function used to destroy all equipment objects
@@ -192,6 +182,21 @@ int Characters::getScores(int i, int j)
 bool Characters::getInBattle()
 {
 	return inBattle;
+}
+
+/**
+* Will set the initiative of the Character using a dice and their Dexterity modifier
+*/
+void Characters::setInitiative(){
+	_initiative = _die.roll("1d20") + getScores(1, 1);
+}
+
+/**
+* Returns the current initiative of the Character.
+@return int
+*/
+int Characters::getInitiative(){
+	return _initiative;
 }
 
 
@@ -523,17 +528,6 @@ void Characters::scoreIncrease(int index, int value)
 	abilityScoreMod();
 }
 
-/**
-* Sets the x and y position of the Character
-*/
-void Characters::setPosition(int y, int x)
-{
-	position.clear();
-	position.push_back(y);
-	position.push_back(x);
-}
-
-
 /*
 FOR SUBJECT
 
@@ -605,15 +599,7 @@ void Characters::Serialize(CArchive &ar) {
 		ar << equiped;
 		ar << attackBonus;
 		ar << damageBonus;
-		// If player position hasn't been set, then dummy values will be serialized
-		if (position.size() == 0){
-			ar << -1;
-			ar << -1;
-		}
-		else {
-			ar << (int)position[0];
-			ar << (int)position[1];
-		}
+		
 		armor->Serialize(ar);
 		weapon->Serialize(ar);
 		helmet->Serialize(ar);
@@ -643,19 +629,7 @@ void Characters::Serialize(CArchive &ar) {
 		ar >> equiped;
 		ar >> attackBonus;
 		ar >> damageBonus;
-		if (position.size() == 0){
-			int tempX = 0;
-			ar >> tempX;
-			position.push_back(0);
-			int tempY = 0;
-			ar >> tempY;
-			position.push_back(0);
-		}
-		else {
-			ar >> position[0];
-			ar >> position[1];
-		}
-	
+			
 		armor->Serialize(ar);
 		weapon->Serialize(ar);
 		helmet->Serialize(ar);
@@ -690,8 +664,6 @@ Characters& Characters::operator =(const Characters *otherChar) {
 	this->equiped = otherChar->equiped;
 	this->attackBonus = otherChar->attackBonus;
 	this->damageBonus = otherChar->damageBonus;
-	this->position.at(0) = otherChar->position.at(0);
-	this->position.at(1) = otherChar->position.at(1);
 	this->armor = otherChar->armor;
 	this->weapon = otherChar->weapon;
 	this->shield = otherChar->shield;
@@ -724,8 +696,6 @@ Characters::Characters(Characters* otherChar) {
 	this->equiped = otherChar->equiped;
 	this->attackBonus = otherChar->attackBonus;
 	this->damageBonus = otherChar->damageBonus;
-	this->position.at(0) = otherChar->position.at(0);
-	this->position.at(1) = otherChar->position.at(1);
 	this->armor = otherChar->armor;
 	this->weapon = otherChar->weapon;
 	this->shield = otherChar->shield;
@@ -733,66 +703,71 @@ Characters::Characters(Characters* otherChar) {
 	this->ring = otherChar->ring;
 }
 
+
 /**
-* Sets the Character's map data to a new map, deleting the old map data in the process
-*@param newMap vector<string>, where each string represents one line of the map
+* Will set the position of the Character using its Strategy.
+*@param vectPos integer representing which string in the vector
+*@param charPos integer representing which char in the string
 */
-void Characters::setMap(std::vector<std::string> *newMap){
-	if (_map == NULL){
-		_map = new vector<string>();
-	} else {
-		delete _map;
-		_map = new vector<string>();
-	}
-	for (int i = 0; i < newMap->size(); i++){
-		_map->push_back(newMap->at(i));
-	}
-	for (int i = 0; i < _map->size(); i++){
-		for (int j = 0; j < _map->at(i).size(); j++){
-			if (_map->at(i).at(j) == SimplifiedMapSymbols::_Player_){
-				position[0] = i;
-				position[1] = j;
-				return;
-			}
-		}
-	}
-	return;
+void Characters::setPosition(int vectPos, int charPos){
+	this->_strategy->setPosition(vectPos, charPos);
 }
 
 /**
-*Function helps to determine if the requested movement of a character is valid
+* Will return the position in the vector that the Character is located at
+*@return integer
 */
-bool Characters::validatePlayerMove(int x, int y){
-	// Determine valid square
-	if (x < 0 || x >= _map->size()){
-		return false;
-	}
-	if (y < 0 || y >= _map->at(0).size()){
-		return false;
-	}
-	char posInQuestion = _map->at(x).at(y);
-	return _validPosition(posInQuestion);
+int Characters::getVectPos(){
+	return _strategy->getVectPos();
 }
 
 /**
-*Function helps to determine if a certain position on the map is a valid position
-*If it is a position the Character should not be landing on, then false is returned
+* Will return the position in its string that the Character is located at
+*@return integer
 */
-bool Characters::_validPosition(char posInQuestion) {
-	if (posInQuestion == SimplifiedMapSymbols::_Obstruction_)
-		return false;
-	if (posInQuestion == SimplifiedMapSymbols::_BasicContainer_)
-		return false;
-	if (posInQuestion == SimplifiedMapSymbols::_Enemies_)
-		return false;
-	return true;
+int Characters::getCharPos(){
+	return _strategy->getCharPos();
 }
 
 /**
-* Function helps to determine if a certain position is not an obstruction
+* Sets the vector map for the Character, using the strategy's method
 */
-bool Characters::_validComponentPosition(char posInQuestion){
-	if (posInQuestion == SimplifiedMapSymbols::_Obstruction_)
-		return false;
-	return true;
+void Characters::setMap(vector<string>* newMap){
+	_strategy->setMap(newMap);
+}
+
+/**
+* Calls the Strategy's move method to move the Character, and then notifies
+* any observers of the position change.
+*@param level PreBuiltLevel* that the game is being played on
+*@param currentGrid SDL_Rect* grid of the game
+*@param engine GamePlayEngine* that is running the game
+@return bool True if player moved, False otherwise
+*/
+bool Characters::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePlayEngine* engine){
+	// First, we will call the strategy's move function. If we do move, we notify the observers
+	if (_strategy->move(level, currentGrid, engine)){
+		Notify();
+		return true;
+	}
+	// Next, we will notify all Observers that the Character has moved so that the Map can get redrawn
+	
+	return false;
+}
+
+/**
+* This method initializes the Level Observer portion of the Character
+*/
+void Characters::setupLevelObserver(PreBuiltLevel *subjectLevel){
+	_subject = subjectLevel;
+	_myself = this;
+	_subject->attach(this);
+}
+
+/**
+* Operator overload for less - than operator. A Character
+* is 'less-than' another Character if their initiative is lower.
+*/
+bool Characters::operator<(const Characters& rhs){
+	return (this->_initiative < rhs._initiative);
 }

@@ -11,6 +11,7 @@ PreBuiltLevel::PreBuiltLevel(std::string path, Fighter* player)
 {
 	this->_player = player;
 	this->_directory_path_for_level_file_text_file = path;
+
 }
 
 //!loads the user created level in private member variables
@@ -114,7 +115,8 @@ void PreBuiltLevel::setupContainersOnMap()
 //!sets up enemy coordinates on map
 void PreBuiltLevel::setupEnemiesOnMap()
 {
-	EnemiesOnMap* temp;
+	Monster* temp;
+	MonsterOnMapView* tempView;
 	//first find howmany an get there coordinates
 	for (int y = 0; y < this->_level.size(); y++)
 	{
@@ -122,10 +124,10 @@ void PreBuiltLevel::setupEnemiesOnMap()
 		{
 			if (_level[y].at(x) == SimplifiedMapSymbols::_Enemies_)
 			{
-				temp = new EnemiesOnMap();
-				temp->stringIndex = y;
-				temp->charIndex = x;
-				temp->monster = MonsterFactory::createMonster(this->_player);
+				temp = MonsterFactory::createMonster(this->_player);
+				temp->setPosition(y, x);
+				temp->setMap(&this->getMapSimpleVersion());
+				tempView = new MonsterOnMapView(temp, this, temp->_charType);
 				this->_enemisOnMap.push_back(temp);
 			}
 		}
@@ -146,7 +148,7 @@ std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
 }
 
 //!enemy coordiante accessor
-std::vector<EnemiesOnMap*> PreBuiltLevel::getEnemiesOnMap()
+std::vector<Monster*> PreBuiltLevel::getEnemiesOnMap()
 {
 	return this->_enemisOnMap;
 }
@@ -197,6 +199,33 @@ std::vector<SDL_Rect> PreBuiltLevel::getAllButtonDestinations()
 	return temp;
 }
 
+/**
+* Will set the initiative for all Characters that are on the map currently. Will then fill the initiative queue
+* with all Characters
+*/
+void PreBuiltLevel::setAllInitiative(){
+	// Will set the player, and then the Monster initiative
+	_player->setInitiative();
+	for (int i = 0; i < _enemisOnMap.size(); ++i){
+		_enemisOnMap.at(i)->setInitiative();
+	}
+	// Next, we will set the initiative queue up
+	setupInitiativeQueue();
+}
+
+/**
+* Fills the initiative priority queue with all Characters. Will be used to determine order of Character turns
+* during each round.
+*/
+void PreBuiltLevel::setupInitiativeQueue(){
+	// First, we will push the Character into the queue
+	_initiativeCharacterQueue.push(_player);
+
+	// Next, we will push all Monsters into the queue
+	for (int i = 0; i < _enemisOnMap.size(); ++i){
+		_initiativeCharacterQueue.push(_enemisOnMap.at(i));
+	}
+}
 
 //!local destructor destroys the positions for enemies and containers
 PreBuiltLevel::~PreBuiltLevel()

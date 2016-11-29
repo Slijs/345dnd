@@ -91,6 +91,55 @@ void GamePlayEngine::detachLevel()
 */
 int GamePlayEngine::runEngine()
 {
+	bool exit = false;
+	int destToReturn;
+	//this->_level->_player->setMap(&this->_level->getMapSimpleVersion());
+	this->_level->_player->setupLevelObserver(this->_level);
+
+	while (exit == false){
+		// First, we will set initiative for ALL characters, as per d20 rules
+		Characters* temp = NULL;
+		_level->setAllInitiative();
+		
+
+		// Next, we will iterate through all Characters in the initiative queue until it is empty
+		while (!_level->isInitiativeQueueEmpty()){
+			temp = _level->_initiativeCharacterQueue.top();
+			_level->_initiativeCharacterQueue.pop();
+
+
+			// If temp is the player Character, we will allow the user to work with the GUI - otherwise, we will just move the Character
+			if (typeid((*temp)) == typeid(Fighter)){
+				destToReturn = runUserTurn();
+				if (destToReturn < 2){
+					exit = true;
+					goto QUIT_CAMPAIGN;
+				}
+			}
+			// Then we will move the character, so long as they are not dead!
+			else if (!temp->getIsDead()){
+				temp->move(_level, &_currentGrid, this);
+			}
+		}
+
+		// Now, we will check if any Monsters are dead. If they are, they will be removed from the map
+		for (int i = 0; i < _enemies.size(); i++){
+			// Check HP. if 0, remove from the vector. Will have already been removed from the Map by its observer, so don't
+			// need to update the vectors
+			if (_enemies.at(i)->getIsDead()){
+				Monster *temp = _enemies.at(i); // Get temp holder
+				_enemies.erase(_enemies.begin() + i); // Remove from list
+				_level->_enemisOnMap.erase(_level->_enemisOnMap.begin() + i);
+				delete temp; // Deallocate memory!
+			}
+		}
+	}
+	QUIT_CAMPAIGN:
+	return destToReturn;
+}
+
+int GamePlayEngine::runUserTurn(){
+	int turnCounter = 2;
 	//error check for level attachment
 	if (this->_level == nullptr)
 	{
@@ -103,7 +152,7 @@ int GamePlayEngine::runEngine()
 	int mouse_Y;
 	int buttonindex;
 
-	while (exit == false)
+	while (exit == false && turnCounter > 0)
 	{
 		while (SDL_PollEvent(this->_event) != 0)
 		{
@@ -114,7 +163,7 @@ int GamePlayEngine::runEngine()
 				this->_interactSelect = false;
 				this->_attackSelect = false;
 				this->_buttonSelect = false;
-				if (this->_currentButtonIndex>=0)
+				if (this->_currentButtonIndex >= 0)
 					this->_level->getLevelWindow()->changeButtonColor(this->_currentButtonIndex, 255, 0, 0);
 			}
 
@@ -134,17 +183,23 @@ int GamePlayEngine::runEngine()
 				return 0;
 			}
 
-			//if move select is true all move function
-			if (this->_moveSelect == true)
-				movePlayer();
+			//if move select is true all move function, decrease turncounter after successful move
+			if (this->_moveSelect == true){
+				if (movePlayer()){
+					cout << "I moved!";
+					turnCounter--;
+					cout << turnCounter << endl;
+				}
+			}
 
 			//if interact select is true and run container interact logic
 			if (this->_interactSelect == true)
 				interactEnvironment();
 
-			//if attack select is true then run attack logic
+			//if attack select is true then run attack logic, decrease turncounter after successful move
 			if (this->_attackSelect == true)
-				attackEnemy();
+				if(attackEnemy())
+					turnCounter--;
 
 			//get current mouse coordinates
 			SDL_GetMouseState(&mouse_X, &mouse_Y);
@@ -210,7 +265,7 @@ int GamePlayEngine::runEngine()
 			}
 		}
 	}
-	return 0;
+	return 2;
 }
 
 /*!
@@ -255,7 +310,7 @@ void GamePlayEngine::interactEnvironment()
 /*!
 *funtion used when player wants to engage in combat with an enemy
 */
-void GamePlayEngine::attackEnemy()
+bool GamePlayEngine::attackEnemy()
 {
 	bool attack;
 	int mouseIndex;
@@ -268,11 +323,11 @@ void GamePlayEngine::attackEnemy()
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
 	for (int x = 0; x < this->_enemies.size(); x++)
 	{
-		attack = this->_level->getPlayer()->validateMapComponentWithinRange(this->_enemies[x]->stringIndex, this->_enemies[x]->charIndex);
+		attack = this->_level->getPlayer()->validateMapComponentWithinRange(this->_enemies[x]->getVectPos(), this->_enemies[x]->getCharPos());
 		if (attack == true)
 		{
-			enGridX = this->_enemies[x]->charIndex * this->_level->getLevelWindow()->getGridX_Length();
-			enGridY = this->_enemies[x]->stringIndex * this->_level->getLevelWindow()->getGridY_Length();
+			enGridX = this->_enemies[x]->getCharPos() * this->_level->getLevelWindow()->getGridX_Length();
+			enGridY = this->_enemies[x]->getVectPos() * this->_level->getLevelWindow()->getGridY_Length();
 			SDL_GetMouseState(&mouseX, &mouseY);
 			if ((mouseX >= enGridX) && (mouseX <= enGridX + this->_level->getLevelWindow()->getGridX_Length()) &&
 				(mouseY >= enGridY) && (mouseY <= enGridY + this->_level->getLevelWindow()->getGridY_Length()))
@@ -281,23 +336,26 @@ void GamePlayEngine::attackEnemy()
 				{
 					this->_level->getLevelWindow()->hideWindow();
 					system("cls");
-					this->_enemies[x]->monster->displayStats();
+					this->_enemies[x]->displayStats();
 					std::cout << "\nPress any key to continue.\n";
 					getch();
 					system("cls");
 					this->_level->getLevelWindow()->unHideWindow();
-					return;
+					return true;
 				}
 			}
 		}
 	}
+	return false;
 }
 
 /*!
 *function used to move player
 */
-void GamePlayEngine::movePlayer()
+bool GamePlayEngine::movePlayer()
 {
+	return this->_level->getPlayer()->move(this->_level, &this->_currentGrid, this);
+	/*
 	SDL_Rect dest;
 	int mouseIndex = 0;
 	std::vector<std::string> temp = this->_level->getMapStringVersiion();
@@ -311,9 +369,9 @@ void GamePlayEngine::movePlayer()
 	
 	std::cout << std::endl;
 	std::cout << "Before move\n";
-	for (int x = 0; x < this->_level->getMapSimpleVersion().size(); x++)
+	for (int x = 0; x < this->_level->getMapStringVersiion().size(); x++)
 	{
-		std::cout << this->_level->getMapSimpleVersion()[x];
+		std::cout << this->_level->getMapStringVersiion()[x];
 		std::cout<<std::endl;
 	}
 	std::cout << std::endl;
@@ -389,7 +447,7 @@ void GamePlayEngine::movePlayer()
 				this->_mapExit = true;
 			}
 		}
-	}
+	} */
 }
 
 /*!

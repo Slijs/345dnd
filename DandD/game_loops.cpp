@@ -1,4 +1,5 @@
 #include "game_loops.h"
+#include "Fighter.h"
 
 
 //!primary driver of the driver class game loops
@@ -163,8 +164,20 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	l->setupEnemiesOnMap();
 
 	engine->attachLevel(l, &this->_event);
-	this->_currentFighterTracker->setMap(&l->getMapSimpleVersion());
-
+	vector<string> simpleMap = l->getMapSimpleVersion();
+	//this->_currentFighterTracker->setMap(&simpleMap);
+	for (int i = 0; i < simpleMap.size(); i++){
+		for (int j = 0; j < simpleMap.at(i).size(); j++){
+			if (simpleMap.at(i).at(j) == SimplifiedMapSymbols::_Player_){
+				this->_currentFighterTracker->setPosition(i, j);
+				goto AFTER_SET_POSITION;
+			}
+		}
+	}
+	AFTER_SET_POSITION:
+	// We setup the FighterView so that the Fighter will be re-rendered whenever it is moved
+	FighterOnMapView *fighterView = new FighterOnMapView(this->_currentFighterTracker, l);
+	//_currentFighterTracker->setupLevelObserver(&l);
 	//f->setMap(&l->getMapSimpleVersion());
 
 
@@ -185,7 +198,10 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	std::cout << "testing maps, press any key to continue\n";
 	getch();*/
 
-	
+	// Now that all Characters on the Map have been setup, we will notify the Level's observers of its existance
+	//l->Notify();
+
+	// Now run the engine
 	destinationInt = engine->runEngine();
 	
 	/*while(quit==false)
@@ -206,6 +222,8 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	engine->detachLevel();
 	delete engine;
 	engine = nullptr;
+	delete fighterView;
+	fighterView = nullptr;
 	//delete f;
 	//f = nullptr;
 	delete l;

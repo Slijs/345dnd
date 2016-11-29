@@ -23,7 +23,7 @@ Monster::Monster() : Characters() {
 }
 
 //!Parameterized constructor allowing to set name, type, size, level, speed, scores, armor class and weapon of Monster
-Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
+Monster::Monster(string name, Type type, Size size, int level, int speed, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass, Weapon* weapon, Characters* theFighter) : Characters(level, STR, DEX, CON, INT, WIS, CHA, armorClass)
 {
 	this->name = name;
 	this->type = type;
@@ -38,8 +38,17 @@ Monster::Monster(string name, Type type, Size size, int level, int speed, int ST
 	this->_componentImage = nullptr;
 	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
 	this->_obstructionToPlayer = true;
-}
 
+	// Setup the Strategy
+	if (type == Beast){
+		this->_strategy = new FriendlyStrategy(speed, theFighter);
+		_charType = Friendly;
+	}
+	else {
+		this->_strategy = new AggressorStrategy(speed, theFighter);
+		_charType = Aggressor;
+	}
+}
 
 //!Destructor
 Monster::~Monster()
@@ -157,4 +166,23 @@ void Monster::displayStats(){
 	cout << "Name: " << name << endl;
 	cout << "Hit Points: " << hitPoints << endl;
 	this->Characters::displayStats();
+}
+
+/**
+* Skeletal method for implementing attacks. Makes sure that movement strategy is set appropriately. Notifies
+* observers of death if the Monster is now dead, or health loss.
+*/
+void Monster::underAttack(){
+
+	// If the current strategy is Friendly, will switch to Aggressive
+	if (typeid(*_strategy) == typeid(FriendlyStrategy)){
+		_charType = Aggressor; // Sets the type of Monster to beast
+		int vectPos = this->getVectPos();
+		int charPos = this->getCharPos();
+		// Create new AggressorStrategy with same properties as the other strategy
+		_strategy = new AggressorStrategy(dynamic_cast<FriendlyStrategy*>(_strategy));
+
+		// Will notify observers that type has changed
+		Notify();
+	}
 }
