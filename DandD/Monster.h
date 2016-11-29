@@ -30,6 +30,7 @@ private:
 	int hitDie;
 	string hitDieString;
 	int hitPoints;
+	int maxHitPoints;
 	int speed;
 	void detHitDie();
 	void detHitPoints();
