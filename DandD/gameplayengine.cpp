@@ -34,7 +34,7 @@ void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 	this->_level = level;
 	this->_event = event_;
 	this->_buttons = this->_level->getAllButtonDestinations();
-	this->_containers = this->_level->getContainersOnMap();
+	this->_containers = *this->_level->getContainersOnMap();
 	this->_enemies = this->_level->getEnemiesOnMap();
 	this->_observer = new MapObserver(level);
 
@@ -328,7 +328,7 @@ void GamePlayEngine::interactEnvironment()
 	int contGridY;
 	int mouseX;
 	int mouseY;
-	this->_containers = _level->getContainersOnMap();
+	this->_containers = *_level->getContainersOnMap();
 	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
 	int charIndex = _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();

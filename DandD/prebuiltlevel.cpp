@@ -4,6 +4,7 @@
 PreBuiltLevel::PreBuiltLevel()
 {
 	this->_player = nullptr;
+	this->_containersOnMap = new vector<ContainerOnMap*>();
 }
 
 //!parameterized constructor sets the path from which the pre built map needs to be loaded
@@ -11,6 +12,7 @@ PreBuiltLevel::PreBuiltLevel(std::string path, Fighter* player)
 {
 	this->_player = player;
 	this->_directory_path_for_level_file_text_file = path;
+	this->_containersOnMap = new vector<ContainerOnMap*>();
 
 }
 
@@ -40,7 +42,7 @@ void PreBuiltLevel::getDestRectsForObserver(SDL_Rect* dest1, SDL_Rect* dest2)
 //!when NPCs die, this function is called to have them added as a container on map
 void PreBuiltLevel::addContainerOnTheMap(ContainerOnMap* prolly_a_dead_dude)
 {
-	this->_containersOnMap.push_back(prolly_a_dead_dude);
+	this->_containersOnMap->push_back(prolly_a_dead_dude);
 }
 
 //!first creates a level window based on the level text vector
@@ -124,7 +126,7 @@ void PreBuiltLevel::setupContainersOnMap()
 				temp->stringIndex = y;
 				temp->charIndex = x;
 				temp->container = ContainerGenerator::generateContainer(this->_player);
-				this->_containersOnMap.push_back(temp);
+				this->_containersOnMap->push_back(temp);
 			}
 		}
 	}
@@ -146,6 +148,7 @@ void PreBuiltLevel::setupEnemiesOnMap()
 				temp->setPosition(y, x);
 				temp->setMap(&this->getMapSimpleVersion());
 				tempView = new MonsterOnMapView(temp, this, temp->_charType);
+				temp->setupLevelObserver(this);
 				this->_enemisOnMap.push_back(temp);
 			}
 		}
@@ -160,7 +163,7 @@ void PreBuiltLevel::setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2)
 }
 
 //!container coordinate accessor
-std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
+std::vector<ContainerOnMap*>* PreBuiltLevel::getContainersOnMap()
 {
 	return this->_containersOnMap;
 }
@@ -253,12 +256,12 @@ void PreBuiltLevel::setupInitiativeQueue(){
 //!local destructor destroys the positions for enemies and containers
 PreBuiltLevel::~PreBuiltLevel()
 {
-	for (int x = 0; x < this->_containersOnMap.size(); x++)
+	for (int x = 0; x < this->_containersOnMap->size(); x++)
 	{
-		if (this->_containersOnMap[x] != nullptr)
+		if (this->_containersOnMap->at(x) != nullptr)
 		{
-			delete this->_containersOnMap[x];
-			this->_containersOnMap[x] = nullptr;
+			delete this->_containersOnMap->at(x);
+			this->_containersOnMap->at(x) = nullptr;
 		}	
 	}
 	for (int x = 0; x < this->_enemisOnMap.size(); x++)
