@@ -201,6 +201,7 @@ void Monster::dropContainer() {
 	containerOnMap->stringIndex = getVectPos();
 	containerOnMap->container = corpse;
 	_subject->addContainerOnTheMap(containerOnMap);
+	//_subject->getContainersOnMap();
 }
 
 void Monster::currentState()
