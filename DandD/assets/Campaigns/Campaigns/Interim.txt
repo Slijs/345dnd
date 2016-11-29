@@ -9,3 +9,5 @@ Default6
 assets/Campaigns/MapsForCampaigns/Default6
 Default2
 assets/Campaigns/MapsForCampaigns/Default2
+test
+assets/Campaigns/MapsForCampaigns/test

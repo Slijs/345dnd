@@ -41,6 +41,7 @@ protected:
 	std::vector<Environment*> _environment_components;
 	GameComponent* _player;
 	Monster* _enemy;
+	Monster* _friend;
 	Container* _container;
 
 public:
