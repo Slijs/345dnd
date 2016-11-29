@@ -31,6 +31,7 @@ Monster::Monster(string name, Type type, Size size, int level, int speed, int ST
 	this->speed = speed;
 	detHitDie();
 	detHitPoints();
+	maxHitPoints = hitPoints;
 	equipWeapon(weapon);
 	this->_componentChar = SimplifiedMapSymbols::_Enemies_;
 	this->_componentName = "enemy";
@@ -148,9 +149,11 @@ void Monster::receiveDamage(int damage)
 	hitPoints -= damage;
 	message = damage + " damage was inflicted on " + name + "!\n";
 	cout << damage << " damage was inflicted on " << name << "!" << endl;
+	cout << name << " now has " << hitPoints << "/" << maxHitPoints << " HP." << endl;
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
+		Notify();
 		return;
 	}
 	currentState();

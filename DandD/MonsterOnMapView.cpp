@@ -130,7 +130,8 @@ void MonsterOnMapView::renderDead(){
 	// a new Observer for it. Its constructor will need to know the position right off the bat so that it can edit the level and notify MapObserver
 	// with the correct flag, in order to have the new container rendered to screen.
 
-	temp[_sub->getVectPos()].at(_sub->getCharPos()) = SimplifiedMapSymbols::_BasicContainer_;
+	temp[_prevVectPos].at(_prevCharPos) = SimplifiedMapSymbols::_BasicContainer_;
+	_theMap->setMainMapVector(temp);
 	_theMap->setRecentUpdateFlag(Corpse);
 	
 	//update the two destination rectangles in subject

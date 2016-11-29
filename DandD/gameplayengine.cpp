@@ -380,7 +380,8 @@ bool GamePlayEngine::attackEnemy()
 				{
 					//this->_level->getLevelWindow()->hideWindow();
 					system("cls");
-					this->_level->getPlayer()->attack(this->_enemies[x]);
+					this->_enemies[x]->setIsDead(true);
+					//this->_level->getPlayer()->attack(this->_enemies[x]);
 					std::cout << "\nPress any key to continue.\n";
 					//getch();
 					//system("cls");

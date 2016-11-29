@@ -244,6 +244,7 @@ void Fighter::displayDeath()
 If larger than AC, damage roll is calculated and inflicted on Monster, otherwise attack fails*/
 void Fighter::attack(Monster* c)
 {
+	c->underAttack(); // Tells the Monster it is under attack
 	std::string message ="";
 	int aRoll = attackRoll(), dRoll;
 	string name;
@@ -262,7 +263,6 @@ void Fighter::attack(Monster* c)
 		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
 		c->receiveDamage(dRoll);
-
 	}
 }
 
