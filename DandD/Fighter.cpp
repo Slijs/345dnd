@@ -247,6 +247,7 @@ void Fighter::attack(Monster* c)
 	c->underAttack(); // Tells the Monster it is under attack
 	std::string message ="";
 	int aRoll = attackRoll(), dRoll;
+	aRoll = 100;
 	string name;
 	message += this->getName() + " rolled ";
 	message += aRoll + " for attack!\n";
@@ -262,6 +263,7 @@ void Fighter::attack(Monster* c)
 		message += "Attack was successful!\n";
 		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
+		dRoll = 100;
 		c->receiveDamage(dRoll);
 	}
 }
@@ -273,8 +275,8 @@ void Fighter::receiveDamage(int damage)
 	string message;
 	hitPoints -= damage;
 	message = damage + " damage was inflicted on " + name + "!\n";
-	//cout << damage << " damage was inflicted on " << name << "!" << endl;
-	//cout << endl;
+	cout << damage << " damage was inflicted on " << name << "!" << endl;
+	cout << endl;
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);

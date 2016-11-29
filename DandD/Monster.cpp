@@ -149,8 +149,8 @@ void Monster::receiveDamage(int damage)
 	cout << damage << " damage was inflicted on " << name << "!" << endl;
 	if (hitPoints <= 0)
 	{
-		setIsDead(true);
 		dropContainer();
+		setIsDead(true);
 		return;
 	}
 	currentState();
