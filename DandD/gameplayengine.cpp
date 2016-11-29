@@ -380,11 +380,11 @@ bool GamePlayEngine::attackEnemy()
 				{
 					//this->_level->getLevelWindow()->hideWindow();
 					system("cls");
-					this->_enemies[x]->displayStats();
+					this->_level->getPlayer()->attack(this->_enemies[x]);
 					std::cout << "\nPress any key to continue.\n";
 					//getch();
-					system("cls");
-					this->_enemies[x]->setIsDead(true);
+					//system("cls");
+					//this->_enemies[x]->setIsDead(true);
 					this->_enemies[x]->Notify();
 					this->_level->getLevelWindow()->unHideWindow();
 					return true;

@@ -490,10 +490,10 @@ int Characters::attackRoll()
 //!Function to calculate damage roll with: weaponDice + damage bonus (if this yields value less than zero, damageRoll = 0)
 int Characters::damageRoll()
 {
-	//	int damage = processWeaponDice() + damageBonus;
-	//	if (damage < 0)
-	return 0;
-	//	return damage;
+	int damage = _die.roll(weapon->getAttackDice()) + damageBonus;
+	if (damage < 0)
+		return 0;
+	return damage;
 }
 
 //!Function that increases experience based on specified amount gained and if experience exceeds lower limit of next level it will trigger level up.
