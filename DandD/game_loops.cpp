@@ -38,6 +38,10 @@ void GameLoops::loopManager()
 			destination = createEditPlayer();
 			break;
 
+		/*case _DeleteCharacter_:
+			destination = deleteCharacter();
+			break; */
+
 		case _PlayCampaign_:
 			destination = playCampaignLoop(mappath, campaignname);
 			break;
@@ -513,12 +517,37 @@ int GameLoops::createEditItems()
 //launches cerate edit player for game
 int GameLoops::createEditPlayer()
 {
+	
 	system("CLS");
 	CharacterManager::createOrEditCharacter();
 	system("CLS");
 	//Create Edit Function call here
 	return _MainMenu_;
+	/*
+	CharacterCreateEditMenu* menu = new CharacterCreateEditMenu("CREATE / EDIT CHARACTERS");
+	menu->setupMenu();
+	menu->displayMenu();
+
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+	destination = menu->destinationMap(destination);
+
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return destination;*/
 }
+
+/*
+//! Launches menu for deleting saved Characters
+int GameLoops::deleteCharacter(){
+	DeleteCharacterMenu* menu = new DeleteCharacterMenu("DELETE EXISTING CHARACTER");
+	menu->setupMenu();
+	menu->displayMenu();
+	return 0;
+}*/
 
 //!once a campaign is selected, this function facilitates editing
 int GameLoops::editExistingCampaignLoop(char* path, char* campaign)

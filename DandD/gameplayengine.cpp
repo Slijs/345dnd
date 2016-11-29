@@ -122,7 +122,9 @@ int GamePlayEngine::runEngine()
 			}
 			// Then we will move the character, so long as they are not dead!
 			else if (!temp->getIsDead()){
+				currentMovingMonster = temp;
 				temp->move(_level, &_currentGrid, this);
+				currentMovingMonster = NULL;
 			}
 		}
 
