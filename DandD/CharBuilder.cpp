@@ -20,6 +20,6 @@ using namespace std;
 Fighter* CharacterBuilder::create(int level, Race race, string name)
 {
 	Dice _theDie;
-	Fighter *theChar = new Fighter(level, race, name, _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"), _theDie.roll("3d6"));
+	Fighter *theChar = new Fighter(level, race, name);
 	return theChar;
 }

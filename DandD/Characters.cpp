@@ -70,6 +70,43 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	calcArmorClass();
 }
 
+
+//!Parameterized Constructor for Fighter class, sets level.
+Characters::Characters(int level)
+{
+	this->level = level;
+
+	isDead = false;
+	isLevelUp = false;
+	inBattle = false;
+	
+	armorClass = 0;
+	
+	//call to set proficiencyBonus and exp
+	detExperience();
+	detProficiencyBonus();
+
+	srand(time(NULL));
+
+	//call to set abilityScore and modifiers
+	generateAbility();
+	abilityScoreMod();
+
+	armor = new Armor();
+	belt = new Belt();
+	weapon = new Weapon();
+	shield = new Shield();
+	boots = new Boots();
+	ring = new Ring();
+	helmet = new Helmet();
+
+	calcArmorClass();
+
+	//calculate attackBonus and DamageBonus
+	calcAttackBonus();
+	calcDamageBonus();
+}
+
 //!Parameterized Constructor for Monster class, sets level, ability scores and armor class.
 Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, int CHA, int armorClass)
 {
@@ -99,37 +136,6 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	detExp();
 	abilityScoreMod();
 	calcArmorClass();
-}
-
-//!Parameterized Constructor for Fighter class, sets level.
-Characters::Characters(int level)
-{
-	this->level = level;
-	isDead = false;
-	armorClass = 0;
-	inBattle = false;
-	//call to set proficiencyBonus and exp
-	detExperience();
-	detProficiencyBonus();
-
-	srand(time(NULL));
-
-	//call to set abilityScore and modifiers
-	generateAbility();
-
-	armor = new Armor();
-	belt = new Belt();
-	weapon = new Weapon();
-	shield = new Shield();
-	boots = new Boots();
-	ring = new Ring();
-	helmet = new Helmet();
-
-	calcArmorClass();
-
-	//calculate attackBonus and DamageBonus
-	calcAttackBonus();
-	calcDamageBonus();	
 }
 
 //!Auxiliary function used to destroy all equipment objects

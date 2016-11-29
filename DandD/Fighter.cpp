@@ -45,6 +45,10 @@ Fighter::Fighter(int level, Race race, string name) : Characters(level)
 	this->_componentType = gameplayGridComponentTypes::character;
 	this->_componentChar = SimplifiedMapSymbols::_Player_;
 	this->_obstructionToPlayer = false;
+	
+	backpack = new Container();
+	calcDamageBonus();
+	calcAttackBonus();
 	_strategy = new HumanPlayerStrategy(speed);
 }
 
