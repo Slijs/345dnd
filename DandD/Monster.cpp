@@ -4,6 +4,7 @@
 */
 
 #include "Monster.h"
+#include "Corpse.h"
 #include "prebuiltlevel.h"
 
 //!Default constructor - for making dummy monsters
@@ -194,7 +195,7 @@ void Monster::dropContainer() {
 	}
 
 	// create the container
-	Corpse* corpse = new Corpse(7, items);
+	Corpse * corpse = new Corpse(7, items);
 	corpse->setImage("assets/Containers/Corpse.png");
 
 	// add to containerOnMap

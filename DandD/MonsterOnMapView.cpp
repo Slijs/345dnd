@@ -131,7 +131,7 @@ void MonsterOnMapView::renderDead(){
 	// with the correct flag, in order to have the new container rendered to screen.
 
 	temp[_sub->getVectPos()].at(_sub->getCharPos()) = SimplifiedMapSymbols::_BasicContainer_;
-	_theMap->setRecentUpdateFlag(Corpse);
+	_theMap->setRecentUpdateFlag(Dead);
 	
 	//update the two destination rectangles in subject
 	_theMap->setDestRectsForObserver(dest, currentGrid);
