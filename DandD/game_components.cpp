@@ -38,6 +38,12 @@ void GameComponent::setComponentChar(char thechar)
 	this->_componentChar = thechar;
 }
 
+//!set the name of component
+void GameComponent::setComponentName(std::string friends)
+{
+	this->_componentName = friends;
+}
+
 //!sets the component on target window rendered after loading the image
 void GameComponent::setupComponentOnTargetWindowRenderer(SDL_Renderer* window_renderer)
 {

@@ -195,6 +195,11 @@ std::string PreBuiltLevel::getEnemyPath() const
 	return this->_enemyPath;
 }
 
+std::string PreBuiltLevel::getFriendPath() const
+{
+	return this->_friendPath;
+}
+
 //!level text vector accessor
 std::vector<std::string> PreBuiltLevel::getBuiltLevelFile() const
 {

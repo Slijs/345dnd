@@ -57,6 +57,7 @@ public:
 	std::string getDirectoryPathForLevelTextFile() const;
 	std::string getPlayerPath() const;
 	std::string getEnemyPath() const;
+	std::string getFriendPath() const;
 	std::vector<std::string> getBuiltLevelFile() const;
 	Fighter* getPlayer();
 	void setupContainersOnMap();

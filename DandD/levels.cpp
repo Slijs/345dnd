@@ -181,7 +181,7 @@ void Level::createLevelForTargetWindow()
 	this->_playerPath = SingletonFilePathAndFolderManager::getInstance()->getPlayerImagePath();
 	this->_basicContainerPath = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_container;
 	this->_enemyPath = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
-	//this->_friendPath = SingletonFilePathAndFolderManager::getInstance()->_pa
+	this->_friendPath = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_friend;
 	//environment rendering
 	//2 increment because after each line, I have 1 line for descriptions.
 	for(int x=0; x<this->_environmentComponentNames.size(); x+=2)
@@ -209,8 +209,10 @@ void Level::createLevelForTargetWindow()
 	this->_enemy = new Monster();
 
 	//friend loading
-	//this->_friend = new Monster();
-	//this->_friend->setImagePath();
+	this->_friend = new Monster();
+	this->_friend->setImagePath(SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_friend);
+	this->_friend->setComponentChar(SimplifiedMapSymbols::_Friend_);
+	this->_friend->setComponentName("friend");
 
 	//now check if theme is valid
 	//rule 1: 1 component that is named floor and that is not an obstruction to player
@@ -266,6 +268,7 @@ void Level::createLevelForTargetWindow()
 	this->_enemy->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
 
 	//setup friend image
+	this->_friend->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
 
 	//draw the vertical and horzontal lines for the level
 	SDL_SetRenderDrawColor(this->_level_window->getRenderer(), 0, 255, 0, 0);
@@ -332,8 +335,9 @@ void Level::renderAndDisplayLevel()
 			else if (_level[y].at(x) == this->_enemy->getComponentChar())
 				this->_level_window->loadTextureOnRenderer(_enemy->getImageDetails()->getImageTexture(), nullptr, &dest);
 
-
 			//check if it is friend
+			else if (_level[y].at(x) == this->_friend->getComponentChar())
+				this->_level_window->loadTextureOnRenderer(_friend->getImageDetails()->getImageTexture(), nullptr, &dest);
 
 			//otherwise it is probaly envronment
 			//render the map
@@ -384,6 +388,12 @@ GameComponent* Level::getPlayerComponent()
 Monster* Level::getEnemy()
 {
 	return this->_enemy;
+}
+
+//!accessor for dummy friend
+Monster* Level::getFriend()
+{
+	return this->_friend;
 }
 
 //!adds a recangle to the grids for gameplay
@@ -438,6 +448,12 @@ void Level::destroyLevel()
 		this->_enemy->destroyComponent();
 		delete this->_enemy;
 		this->_enemy = nullptr;
+	}
+	if (this->_friend != nullptr)
+	{
+		this->_friend->destroyComponent();
+		delete this->_friend;
+		this->_friend = nullptr;
 	}
 	if(this->_level_window!=nullptr)
 	{

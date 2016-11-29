@@ -55,6 +55,7 @@ public:
 	GameComponent* getPlayerComponent();
 	Container* getContainerComponent();
 	Monster* getEnemy();
+	Monster* getFriend();
 	void addRectToGamePlayGrids(SDL_Rect dest);
 	SDL_Texture* getEnvironmentTexture(int index);
 	std::vector<std::string> getMapStringVersiion();
