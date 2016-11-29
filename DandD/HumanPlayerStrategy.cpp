@@ -148,6 +148,7 @@ bool HumanPlayerStrategy::move(int vectI, int charI){
 bool HumanPlayerStrategy::isWithinRange(int vectI, int charI){
 	int absVectDiff = abs(vectI - _vectPos); // Absolute difference in vector axis
 	int absCharDiff = abs(charI - _charPos); // Absolute difference in char axis
+
 	// Check to make sure that any movement in vect and char axes is less than or equal to speed (irregardless of sign).
 	if ((absVectDiff <= _speed) && (absCharDiff <= _speed)){
 		return true;

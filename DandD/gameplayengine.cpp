@@ -115,7 +115,10 @@ int GamePlayEngine::runEngine()
 			// If temp is the player Character, we will allow the user to work with the GUI - otherwise, we will just move the Character
 			if (typeid((*temp)) == typeid(Fighter)){
 				destToReturn = runUserTurn();
-				if (destToReturn < 2){
+				if (destToReturn < 2 || this->_level->getPlayer()->getIsDead()){
+					this->_level->getLevelWindow()->hideWindow();
+					_getch();
+					this->_level->getLevelWindow()->unHideWindow();
 					exit = true;
 					goto QUIT_CAMPAIGN;
 				}
@@ -162,7 +165,7 @@ int GamePlayEngine::runUserTurn(){
 	int buttonindex;
 
 	//while (exit == false && turnCounter > 0)
-	while (this->_endPlayerTurn == false )
+	while (this->_endPlayerTurn == false && !this->_level->getPlayer()->getIsDead())
 	{
 		while (SDL_PollEvent(this->_event) != 0)
 		{
@@ -325,9 +328,11 @@ void GamePlayEngine::interactEnvironment()
 	int contGridY;
 	int mouseX;
 	int mouseY;
+	this->_containers = _level->getContainersOnMap();
 	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
 	int charIndex = _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
 	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
+
 	for (int x = 0; x < this->_containers.size(); x++)
 	{
 		interact = this->_level->getPlayer()->validateMapComponentWithinRange(this->_containers[x]->stringIndex, this->_containers[x]->charIndex);
@@ -382,8 +387,7 @@ bool GamePlayEngine::attackEnemy()
 				{
 					//this->_level->getLevelWindow()->hideWindow();
 					system("cls");
-					this->_enemies[x]->setIsDead(true);
-					//this->_level->getPlayer()->attack(this->_enemies[x]);
+					this->_level->getPlayer()->attack(this->_enemies[x]);
 					std::cout << "\nPress any key to continue.\n";
 					//getch();
 					//system("cls");
