@@ -279,6 +279,7 @@ void Characters::detExperience()
 void Characters::forceLevelIncrease(){
 	level++;
 	detExperience();
+	detProficiencyBonus();
 }
 
 /*!Function that determines initial experience level of character (namely Monster) based on level
@@ -501,6 +502,7 @@ void Characters::gainExperience(int gained)
 void Characters::gainLevel()
 {
 	level++;
+	detProficiencyBonus(); // Updates proficiency bonus as per level
 	isLevelUp = true;
 }
 
@@ -579,26 +581,16 @@ bool Characters::validateProficiency()
 void Characters::Serialize(CArchive &ar) {
 	CObject::Serialize(ar);
 	if (ar.IsStoring()) {
-		calcAttackBonus();
-		calcDamageBonus();
 		ar << exp;
 		ar << level;
-		ar << proficiencyBonus;
-		ar << armorClass;
 
-		for (int i = 0; i < 2; ++i) {
-			for (int j = 0; j < 6; ++j) {
-				ar << scores[i][j];
-			}
+		// Store the scores and modifiers for the player
+		for (int i = 0; i < 6; ++i) {
+			ar << scores[0][i];
 		}
 
 		ar << size;
-		ar << inBattle;
-		ar << isDead;
-		ar << isLevelUp;
 		ar << equiped;
-		ar << attackBonus;
-		ar << damageBonus;
 		
 		armor->Serialize(ar);
 		weapon->Serialize(ar);
@@ -611,25 +603,17 @@ void Characters::Serialize(CArchive &ar) {
 	else {
 		ar >> exp;
 		ar >> level;
-		ar >> proficiencyBonus;
-		ar >> armorClass;
 
-		for (int i = 0; i < 2; ++i) {
-			for (int j = 0; j < 6; ++j) {
-				ar >> scores[i][j];
-			}
+		// Retrieve the scores and modifiers for the player
+		for (int i = 0; i < 6; ++i) {
+				ar >> scores[0][i];
 		}
 
 		int tempSize = 0;
 		ar >> tempSize;
 		size = (Size)tempSize;
-		ar >> inBattle;
-		ar >> isDead;
-		ar >> isLevelUp;
 		ar >> equiped;
-		ar >> attackBonus;
-		ar >> damageBonus;
-			
+					
 		armor->Serialize(ar);
 		weapon->Serialize(ar);
 		helmet->Serialize(ar);
@@ -637,6 +621,20 @@ void Characters::Serialize(CArchive &ar) {
 		boots->Serialize(ar);
 		belt->Serialize(ar);
 		ring->Serialize(ar);
+
+		// NOW, we will calculate any values that can be calculated!
+		abilityScoreMod();
+		detProficiencyBonus();
+		calcArmorClass();
+		calcAttackBonus();
+		calcDamageBonus();
+
+		_initiative = 0;
+
+		// All bool variables will be set to false
+		inBattle = false;
+		isDead = false;
+		isLevelUp = false;
 	}
 }
 
