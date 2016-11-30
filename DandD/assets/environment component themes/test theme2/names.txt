@@ -38,3 +38,17 @@ g6 true g6.png
 g6
 g7 true g7.png
 g7
+g8 true g8.png
+g8
+g9 true g9.png
+g9
+g10 true g10.png
+g10
+g11 true g11.png
+g11
+g12 true g12.png
+g12
+w1 true w1.png
+w1
+w2 true w2.png
+w2
