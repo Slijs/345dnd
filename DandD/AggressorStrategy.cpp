@@ -49,6 +49,7 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 			switch (direction){
 			case North:
 				if (canMove(_vectPos - j, _charPos, North)){
+					logMoveAttempt(_vectPos - j, _charPos, engine);
 					setPosition(_vectPos - j, _charPos);
 					iMoved = true;
 					goto AFTER_ATTEMPT;
@@ -56,6 +57,7 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 				break;
 			case South:
 				if (canMove(_vectPos + j, _charPos, South)){
+					logMoveAttempt(_vectPos + j, _charPos, engine);
 					setPosition(_vectPos + j, _charPos);
 					iMoved = true;
 					goto AFTER_ATTEMPT;
@@ -63,6 +65,7 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 				break;
 			case East:
 				if (canMove(_vectPos, _charPos + j, East)){
+					logMoveAttempt(_vectPos, _charPos + j, engine);
 					setPosition(_vectPos, _charPos + j);
 					iMoved = true;
 					goto AFTER_ATTEMPT;
@@ -70,6 +73,7 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 				break;
 			case West:
 				if (canMove(_vectPos, _charPos - j, West)){
+					logMoveAttempt(_vectPos, _charPos - j, engine);
 					setPosition(_vectPos, _charPos - j);
 					iMoved = true;
 					goto AFTER_ATTEMPT;
@@ -77,6 +81,7 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 				break;
 			case NorthEast:
 				if (canMove(_vectPos - j, _charPos + j, NorthEast)){
+					logMoveAttempt(_vectPos - j, _charPos + j, engine);
 					setPosition(_vectPos - j, _charPos + j);
 					iMoved = true;
 					goto AFTER_ATTEMPT;
@@ -84,6 +89,7 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 				break;
 			case NorthWest:
 				if (canMove(_vectPos - j, _charPos - j, NorthWest)){
+					logMoveAttempt(_vectPos - j, _charPos - j, engine);
 					setPosition(_vectPos - j, _charPos - j);
 					iMoved = true;
 					goto AFTER_ATTEMPT;
@@ -91,6 +97,7 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 				break;
 			case SouthEast:
 				if (canMove(_vectPos + j, _charPos + j, SouthEast)){
+					logMoveAttempt(_vectPos + j, _charPos + j, engine);
 					setPosition(_vectPos + j, _charPos + j);
 					iMoved = true;
 					goto AFTER_ATTEMPT;
@@ -98,6 +105,7 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 				break;
 			case SouthWest:
 				if (canMove(_vectPos + j, _charPos - j, SouthWest)){
+					logMoveAttempt(_vectPos + j, _charPos - j, engine);
 					setPosition(_vectPos + j, _charPos - j);
 					iMoved = true;
 					goto AFTER_ATTEMPT;

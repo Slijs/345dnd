@@ -69,6 +69,10 @@ int Dice::roll(std::string exp) {
 		randomNumber = 1;
 	}
 	delete multiplier, diceName, modifier;
+
+	// Generate message for the Game Log
+	string message = to_string(randomNumber) + "was rolled by the dice on a " + exp + " roll.";
+	DiceController::getInstance()->log(message);
 	return randomNumber;
 };
 

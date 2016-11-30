@@ -45,6 +45,12 @@ void MovementStrategy::setPosition(int vectI, int charI){
 	_charPos = charI;
 }
 
+void MovementStrategy::logMoveAttempt(int vectI, int charI, GamePlayEngine *engine){
+	string message = dynamic_cast<Monster*>(engine->getCurrentMovingMonster())->getName() + " has moved from (X: " + to_string(_charPos) + " Y: " + to_string(_vectPos) + ")";
+	message += " to (X: " + to_string(vectI) + " Y: " + to_string(charI) + ").";
+	MapController::getInstance()->log(message);
+}
+
 /**
 * Confirms if the location the Character is trying to move to is within the bounds of the map.
 *@param vectI integer representing the index within the vector
