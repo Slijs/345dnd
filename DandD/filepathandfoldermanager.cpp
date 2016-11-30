@@ -32,6 +32,7 @@ _path_to_gameController("assets/Logs/GameController.txt"),
 _path_to_mapController("assets/Logs/MapController.txt"),
 _path_to_diceController("assets/Logs/DiceController.txt"),
 _path_to_characterController("assets/Logs/CharacterController.txt"),
+_path_to_unifiedLog("assets/Logs/UnifiedLog.txt"),
 _path_to_basic_friend("assets/friend/friendly.jpg")
 
 {

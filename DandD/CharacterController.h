@@ -8,6 +8,7 @@ private:
 	static CharacterController* _characterController;
 public:
 	static CharacterController* getInstance();
+	void log(string);
 	~CharacterController();
 
 

@@ -10,6 +10,7 @@ private:
 	static DiceController* _diceController;
 public:
 	static DiceController* getInstance();
+	void log(string);
 	~DiceController();
 
 

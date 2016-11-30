@@ -8,6 +8,7 @@ private:
 	static GameController* _gameController;
 public:
 	static GameController* getInstance();
+	void log(string);
 	~GameController();
 
 

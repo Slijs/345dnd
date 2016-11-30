@@ -4,31 +4,53 @@
 #include "GameController.h"
 
 struct GameLogTest{
-	static void gameLogTest()
+
+	static int checkInput(int input, int ub)
 	{
-		cout << "Test for Game Log" << endl;
-
-		int input;
-
-		cout << "Which log to read?\n";
-		cout << "1. Game\n2. Map\n3. Character\n4. Dice\n";
-
-		cin >> input;
-
-		while (cin.fail() || (input > 4 && input < 1))
+		while (cin.fail() || (input > ub && input < 0))
 		{
-			cout << "Not a valid option. Try again.\n";
+			std::cout << "Not a valid option. Try again.\n";
 			cin.clear();
 			cin.ignore(256, '\n');
 			cin >> input;
 		}
 
-		displayLogChanges(input);
+		return input;
+	}
 
-		
+	static void gameLogTest()
+	{
+		std::cout << "Test for Game Log" << endl;
 
+		int input;
+
+		std::cout << "What would you like to do? (0: Exit)\n";
+		std::cout << "1. Toggle Log\n2. View Log\n";
+		cin >> input;
+
+		input = checkInput(input,2);
+		if (input == 0)
+		{
+			std::system("pause");
+			return;
+		}
+		else if (input == 1)
+			toggleLog();
+
+		else if (input == 2)
+		{
+			std::cout << "Which log to read? (0: EXIT)\n";
+			std::cout << "1. Game\n2. Map\n3. Character\n4. Dice\n5. Unified\n";
+
+			cin >> input;
+
+			input = checkInput(input, 5);
+
+			displayLogChanges(input);
+		}
+	
 		int in2;
-		cout << "Would you like to continue? (0: No) ";
+		std::cout << "Would you like to continue? (0: No) ";
 		cin >> in2;
 		while (cin.fail() || in2 != 0)
 		{
@@ -38,6 +60,60 @@ struct GameLogTest{
 		}
 		
 	}
+
+	static void toggleLog()
+	{
+		std::cout << "Which log to toggle? (0: EXIT)\n";
+		std::cout << "1. Game (" << boolToString(GameController::getInstance()->getGameToggle())<< ")" << std::endl;
+		std::cout << "2. Map (" << boolToString(MapController::getInstance()->getMapToggle()) << ")" << std::endl;
+		std::cout << "3. Character (" << boolToString(CharacterController::getInstance()->getCharacterToggle()) << ")" << std::endl;
+		std::cout << "4. Dice (" << boolToString(DiceController::getInstance()->getDiceToggle()) << ")" << std::endl;
+		int input;
+		cin >> input;
+		input = checkInput(input, 4);
+		if (input != 0)
+			toggling(input);
+	}
+
+
+	static string boolToString(bool b)
+	{
+		return b ? "ON" : "OFF";
+	}
+
+
+	static void toggling(int input)
+	{
+		string log;
+		string toggle;
+		switch (input)
+		{
+		case 1:
+			log = "Game";
+			GameController::getInstance()->toggleGame();
+			toggle = boolToString(GameController::getInstance()->getGameToggle());
+			break;
+		case 2:
+			log = "Map";
+			MapController::getInstance()->toggleMap();
+			toggle = boolToString(MapController::getInstance()->getMapToggle());
+			break;
+		case 3:
+			log = "Character";
+			CharacterController::getInstance()->toggleCharacter();	
+			toggle = boolToString(CharacterController::getInstance()->getCharacterToggle());
+			break;
+		case 4:
+			log = "Dice";
+			DiceController::getInstance()->toggleDice();
+			toggle = boolToString(DiceController::getInstance()->getDiceToggle());
+			break;
+		}
+
+		std::cout << log << " is now toggled " << toggle << "!\n";
+		std::system("pause");
+	}
+
 
 	static void displayLogChanges(int input)
 	{
@@ -62,15 +138,19 @@ struct GameLogTest{
 			log = "Dice";
 			lines = SingletonInputOutputManager::getInstance()->readFileLineByLine(DiceController::getInstance()->getPath());
 			break;
+		case 5: 
+			log = "Unified";
+			lines = SingletonInputOutputManager::getInstance()->readFileLineByLine(DiceController::getInstance()->getUnifiedPath());
+			break;
 		}
 		
-		system("CLS");
+		std::system("CLS");
 
-		cout << log +" Controller log: \n";
+		std::cout << log +" Controller log: \n";
 		for (int i = 0; i < lines.size(); i++)
-			cout << lines[i] << endl;
+			std::cout << lines[i] << endl;
 
-		cout << "End of File.\n";
-		system("pause");
+		std::cout << "End of File.\n";
+		std::system("pause");
 	}
 };

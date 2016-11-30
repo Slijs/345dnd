@@ -46,6 +46,7 @@ public:
 	const std::string _path_to_mapController;
 	const std::string _path_to_diceController;
 	const std::string _path_to_characterController;
+	const std::string _path_to_unifiedLog;
 	const std::string _path_to_basic_friend;
 	std::string getComponentPathForIndex(int index);
 	void saveUserCreatedLevel(std::vector<std::string> leveltosave, std::string componentspath, std::string nameoffile);
