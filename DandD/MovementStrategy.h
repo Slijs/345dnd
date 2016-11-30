@@ -47,6 +47,7 @@ protected:
 	int _vectPos; //! The current vector position of the strategy
 	int _charPos; //! The current char position of the strategy
 	int _speed; //! The current speed of the strategy
+	void logMoveAttempt(int vectI, int charI, GamePlayEngine *engine);
 };
 
 #endif

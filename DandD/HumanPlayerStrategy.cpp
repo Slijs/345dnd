@@ -41,6 +41,9 @@ bool HumanPlayerStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, Game
 	{
 		if ((engine->getEvent()->type == SDL_MOUSEBUTTONDOWN) && (engine->getEvent()->button.button == SDL_BUTTON_LEFT))
 		{
+			string message = level->getPlayer()->getName() + " has moved from (X: " + to_string(_charPos) + " Y: " + to_string(_vectPos) + ")";
+			message += " to (X: " + to_string(vectorIndex) + " Y: " + to_string(charIndex) + ").";
+			MapController::getInstance()->log(message);
 			// Update the Character position
 			_vectPos = vectorIndex;
 			_charPos = charIndex;
