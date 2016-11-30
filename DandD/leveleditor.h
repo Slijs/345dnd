@@ -69,6 +69,7 @@ public:
 	SDL_Rect getPlayerDestinationAtBottomRect();
 	SDL_Rect getContainerDestinationAtBottomRect();
 	SDL_Rect getEnemyDestinationAtBottomRect();
+	SDL_Rect getFriendDestinationAtBottomRect();
 	int get_Y_start();
 	int getThemeIndex() const;
 	std::vector<std::string> getLevelMapVector() const;

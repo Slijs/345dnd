@@ -10,10 +10,15 @@
 *@param theChar Fighter* to the Fighter that will be used as reference
 *@return Monster* to a randomly generated Monster
 */
-Monster* MonsterFactory::createMonster(Fighter* theChar){
+Monster* MonsterFactory::createMonster(Fighter* theChar, bool friendFlag){
 	Dice adie;
 	int playerLevel = theChar->getLevel();
 	int randNum = adie.roll("1d10");
+	if (friendFlag == true)
+	{
+		return new Monster("Axe Beak", Beast, Large, playerLevel, 4, adie.roll("3d6"), adie.roll("3d6"), adie.roll("3d6"), adie.roll("3d6"), adie.roll("3d6"), adie.roll("3d6"), 11,
+			new Weapon("Beak", 5, 5, "assets/defaultWeapon.jpg", { { 0, 0, 0, 0, 0, 0, 0, 0, 0 } }, "1d8", 0), theChar);
+	}
 	switch (randNum){
 	case 1:
 		return new Monster("Goblin Soldier", Humanoid, Small, playerLevel, 2, adie.roll("3d6"), adie.roll("3d6"), adie.roll("3d6"), adie.roll("3d6"), adie.roll("3d6"), adie.roll("3d6"), 15, 

@@ -483,6 +483,12 @@ SDL_Rect LevelEditor::getPlayerDestinationAtBottomRect()
 	return this->_playerDestinationAtBottom;
 }
 
+//!access friend destination at bottom
+SDL_Rect LevelEditor::getFriendDestinationAtBottomRect()
+{
+	return this->_friendDestinationAtBottom;
+}
+
 SDL_Rect LevelEditor::getContainerDestinationAtBottomRect()
 {
 	return this->_basicContainerAtBottom;
@@ -542,6 +548,12 @@ int LevelEditor::getCharacterPortionEnd_X_Cor()
 //!saves level based on the path passed
 void LevelEditor::saveLevel(std::string levelpath)
 {
+	//saving
+	for (int x = 0; x < this->_level.size(); x++)
+	{
+		std::cout << this->_level[x] << std::endl;
+	}
+	cout<<std::endl;
 	SingletonFilePathAndFolderManager::getInstance()->saveUserCreatedLevel(this->_level, this->_environmentComponentPath, levelpath);
 }
 

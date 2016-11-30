@@ -24,8 +24,14 @@ bool SingletonRouting::routeValidity(std::vector<std::string> map)
 {
 	_map = map;
 
-	if(SingletonRouting::_routingInstance->_validPositions.size()!=0)
+	//if(SingletonRouting::_routingInstance->_validPositions.size()!=0)
 		SingletonRouting::_routingInstance->_validPositions.clear();
+
+	//wathcing the bugs
+	for (int x = 0; x < this->_map.size(); x++)
+		std::cout << this->_map[x] << std::endl;
+	std::cout << std::endl;
+	//system("pause");
 	
 	//start from player and initialize origin node with player
 	//while at it also take node of exit door position
@@ -58,6 +64,8 @@ bool SingletonRouting::routeValidity(std::vector<std::string> map)
 	}
 
 	//now check if exit door is in a valid position
+	std::cout << "returning false\n";
+	//system("pause");
 	return false;
 }
 

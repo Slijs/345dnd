@@ -332,11 +332,11 @@ void Level::renderAndDisplayLevel()
 					this->_level_window->loadTextureOnRenderer(_container->getImageDetails()->getImageTexture(), nullptr, &dest);
 
 			//check if it is enemy
-			else if (_level[y].at(x) == this->_enemy->getComponentChar())
+			else if (_level[y].at(x) == SimplifiedMapSymbols::_Enemies_)
 				this->_level_window->loadTextureOnRenderer(_enemy->getImageDetails()->getImageTexture(), nullptr, &dest);
 
 			//check if it is friend
-			else if (_level[y].at(x) == this->_friend->getComponentChar())
+			else if (_level[y].at(x) == SimplifiedMapSymbols::_Friend_)
 				this->_level_window->loadTextureOnRenderer(_friend->getImageDetails()->getImageTexture(), nullptr, &dest);
 
 			//otherwise it is probaly envronment

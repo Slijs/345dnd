@@ -89,8 +89,8 @@ bool MovementStrategy::_acceptableDestinationSquare(int vectI, int charI){
 		return false;
 	if (posInQuestion == SimplifiedMapSymbols::_Player_)
 		return false;
-	//if (posInQuestion == MapSymbols::_Friendly_)
-	//	return false;
+	if (posInQuestion == SimplifiedMapSymbols::_Friend_)
+		return false;
 	//if (posInQuestion == MapSymbols::_BasicContainer_)
 	//	return false;
 	cout << "True" << endl;

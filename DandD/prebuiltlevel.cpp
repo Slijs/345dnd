@@ -142,10 +142,21 @@ void PreBuiltLevel::setupEnemiesOnMap()
 		{
 			if (_level[y].at(x) == SimplifiedMapSymbols::_Enemies_)
 			{
-				temp = MonsterFactory::createMonster(this->_player);
+				temp = MonsterFactory::createMonster(this->_player, false);
 				temp->setPosition(y, x);
 				temp->setMap(&this->getMapSimpleVersion());
 				tempView = new MonsterOnMapView(temp, this, temp->_charType);
+				this->_enemisOnMap.push_back(temp);
+			}
+			if (_level[y].at(x) == SimplifiedMapSymbols::_Friend_)
+			{
+				temp = MonsterFactory::createMonster(this->_player, true);
+				temp->setComponentChar(SimplifiedMapSymbols::_Friend_);
+				temp->setImagePath(SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_friend);
+				temp->setPosition(y, x);
+				temp->setMap(&this->getMapSimpleVersion());
+				tempView = new MonsterOnMapView(temp, this, temp->_charType);
+				temp->setupLevelObserver(this);
 				this->_enemisOnMap.push_back(temp);
 			}
 		}

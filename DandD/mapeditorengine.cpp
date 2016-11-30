@@ -37,12 +37,15 @@ MapEditorEngine::MapEditorEngine(LevelEditor* level_)
 	targetisexit = false;
 	targetiscontainer = false;
 	targetisenemy = false;
+	targetisfriend = false;
 	this->components = this->level->getGameplayGridsRects();
 	this->characterTarget.push_back(this->level->getPlayerDestinationAtBottomRect());
 	this->containerTarget.push_back(this->level->getContainerDestinationAtBottomRect());
 	this->enemytarget.push_back(this->level->getEnemyDestinationAtBottomRect());
+	this->friendtarget.push_back(this->level->getFriendDestinationAtBottomRect());
 	this->player = this->level->getPlayerComponent();
 	this->enemy = this->level->getEnemy();
+	this->friends = this->level->getFriend();
 	this->container = this->level->getContainerComponent();
 	this->envcomponents = this->level->getEnvironmentComponents();
 
@@ -105,7 +108,10 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 					std::cout << "Player counter after deletion: " << playercounter << std::endl;
 				}
 
+				std::cout << "Delete executed: Component at the place char is: " << templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length()));
 				templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) = '.';
+				//std::cout << "Delete executed: Component at the place char is: " << templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length()));
+				//system("pause");
 				SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
 				SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
 				this->level->getLevelWindow()->displayWindow();
@@ -187,10 +193,17 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 					this->level->getLevelWindow()->displayWindow();
 				}
 
-				else if (this->targetisenemy == true)
+				else if ((this->targetisenemy == true))
 				{
 					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
 					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), this->enemy->getComponentChar());
+					this->level->getLevelWindow()->displayWindow();
+				}
+
+				else if ((this->targetisfriend == true))
+				{
+					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
+					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), this->friends->getComponentChar());
 					this->level->getLevelWindow()->displayWindow();
 				}
 
@@ -374,6 +387,32 @@ void MapEditorEngine::onCharacterGrid(SDL_Event* _event)
 				targetTexture = enemy->getImageDetails()->getImageTexture();
 			}
 		}
+
+
+		//following is for freiend
+		target = checkMousePosition(this->friendtarget, &targetIndex);
+		//if mouse is on character target check to see for a click event
+		if (target.x >= 0)
+		{
+			if (ontargetfirsttime == false)
+			{
+				this->level->renderDescriptionAtBottomRIght(this->level->getFriend());
+				ontargetfirsttime = true;
+				SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 255, 0, 75);
+				SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
+				this->level->getLevelWindow()->displayWindow();
+			}
+
+			//lookout for a click event for target
+			if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_LEFT))
+			{
+				targetselected = true;
+				targetisfriend = true;
+				canDelete = false;
+				targetTexture = friends->getImageDetails()->getImageTexture();
+			}
+		}
+
 		//if mouse is not selected by character targer and not on character rectangle then render the bottom fresh
 		else if (targetselected == false && ontargetfirsttime == false)
 		{
@@ -528,6 +567,18 @@ bool MapEditorEngine::validateMap()
 				simplemap[x].at(y) = player->getComponentChar();
 			}
 
+			//check if it is enemy
+			if (tempchar == enemy->getComponentChar())
+			{
+				simplemap[x].at(y) = _Obstruction_;
+			}
+
+			//check if it is friend
+			if (tempchar == friends->getComponentChar())
+			{
+				simplemap[x].at(y) = _Obstruction_;
+			}
+
 			//tempcharacter correspondes to envronment
 			else
 			{
@@ -558,7 +609,7 @@ bool MapEditorEngine::validateMap()
 		}
 	}
 	condition = SingletonRouting::getInstance()->routeValidity(simplemap);
-	std::cout<<SingletonRouting::getInstance()->routeValidity(simplemap)<<std::endl;
+	//std::cout<<SingletonRouting::getInstance()->routeValidity(simplemap)<<std::endl;
 	return condition;
 }
 
