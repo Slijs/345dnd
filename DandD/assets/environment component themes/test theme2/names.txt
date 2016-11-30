@@ -52,3 +52,29 @@ w1 true w1.png
 w1
 w2 true w2.png
 w2
+floor2 true floor2.png
+floor2
+g13 true g13.png
+g13
+g14 true g14.png
+g14
+g15 true g15.png
+g15
+g16 true g16.png
+g16
+g17 true g17.png
+g17
+g18 true g18.png
+g18
+g19 true g19.png
+g19
+g20 true g20.png
+g20
+g21 true g21.png
+g21
+g22 true g22.png
+g22
+g23 true g23.png
+g23
+g24 true g24.png
+g24
