@@ -353,7 +353,7 @@ void GamePlayEngine::interactEnvironment()
 					this->_level->getLevelWindow()->hideWindow();
 					system("cls");
 					this->_level->getPlayer()->interactWithContainer(this->_containers[x]->container);
-					if (this->_containers[x]->container->getNumContents == 0) {
+					if (this->_containers[x]->container->getNumContents() == 0) {
 						this->_level->removeContainerOnMap(x);
 						this->_containers = this->_level->getContainersOnMap();
 					}
