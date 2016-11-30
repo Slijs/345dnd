@@ -168,7 +168,7 @@ void Monster::receiveDamage(int damage)
 		dropContainer();
 
 		// Pass experience to player
-		_subject->getPlayer()->Character::gainExperience(this->getExp());
+		_subject->getPlayer()->Characters::gainExperience(this->getExp());
 		return;
 	}
 	currentState();

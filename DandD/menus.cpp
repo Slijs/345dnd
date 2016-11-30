@@ -33,10 +33,10 @@ Menus::Menus(std::string title)
 	this->_baseMenuColors.push_back(new RGB_C(100,35,45));
 
 	//yes button at index 1
-	this->_baseMenuColors.push_back(new RGB_C(255,255,255));
+	this->_baseMenuColors.push_back(new RGB_C(101,204,204));
 
 	//no button at index 2
-	this->_baseMenuColors.push_back(new RGB_C(226,145,145));
+	this->_baseMenuColors.push_back(new RGB_C(255,255,255));
 
 	//title at index 3
 	this->_baseMenuColors.push_back(new RGB_C(255,255,255));
