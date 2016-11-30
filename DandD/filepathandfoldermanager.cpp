@@ -17,6 +17,7 @@ SingletonFilePathAndFolderManager::SingletonFilePathAndFolderManager() :
 _directory_path_for_level_theme("assets/environment component themes/"),
 _directory_path_for_user_created_levels("assets/user created levels/"),
 _directory_path_for_true_type_fonts("assets/fonts/"),
+_path_to_corpse("assets/Corpse/corpse.png"),
 _path_to_savedCampaignsList("assets/Campaigns/campaignList.txt"),
 _path_to_campaigns_folder("assets/Campaigns/Campaigns/"),
 _path_to_savedCampaignMaps("assets/Campaigns/maps.txt"),

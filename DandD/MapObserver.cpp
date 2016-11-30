@@ -32,7 +32,7 @@ void MapObserver::Update(){
 		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getFriend()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
 		break;
 	case Dead:
-		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getContainerComponent()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
+		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getCorpseComponent()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
 		break;
 	case EmptyContainer:
 		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->_environmentForObserver->getImageDetails()->getImageTexture(), nullptr, &this->dest2);

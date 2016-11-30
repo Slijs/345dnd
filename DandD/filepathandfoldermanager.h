@@ -35,6 +35,7 @@ public:
 	const std::string _player_image_path;
 	const std::string _path_to_savedCampaignsList;
 	const std::string _path_to_savedCampaignMaps;
+	const std::string _path_to_corpse;
 	const std::string _path_to_exactMapFolder;
 	const std::string _path_to_campaigns_folder;
 	const std::string _path_to_default_maps_list;

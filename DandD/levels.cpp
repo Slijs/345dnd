@@ -202,6 +202,8 @@ void Level::createLevelForTargetWindow()
 	std::vector<Item*> test;
 	this->_container = new Container(0, test, "basic container", MapSymbolsData::_BasicContainer_, container, this->_basicContainerPath);
 
+	this->_corpse = new Container(0, test, "basic container", MapSymbolsData::_BasicContainer_, container, SingletonFilePathAndFolderManager::getInstance()->_path_to_corpse);
+
 	//characters loading
 	this->_player = new GameComponent("player", _Player_, character, this->_playerPath);
 
@@ -269,6 +271,9 @@ void Level::createLevelForTargetWindow()
 
 	//setup friend image
 	this->_friend->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
+
+	//setup corpse image 
+	this->_corpse->setupComponentOnTargetWindowRenderer(this->_level_window->getRenderer());
 
 	//draw the vertical and horzontal lines for the level
 	SDL_SetRenderDrawColor(this->_level_window->getRenderer(), 0, 255, 0, 0);
