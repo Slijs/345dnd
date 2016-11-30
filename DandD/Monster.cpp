@@ -42,8 +42,8 @@ Monster::Monster(string name, Type type, Size size, int level, int speed, int ST
 	this->_image_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_enemy;
 	this->_obstructionToPlayer = true;
 
-	// Setup the Strategy
-	if (type == Beast){
+	// Setup the Strategy, Friendly if Humanoid
+	if (type == Humanoid){
 		this->_strategy = new FriendlyStrategy(speed, theFighter);
 		_charType = Friendly;
 	}

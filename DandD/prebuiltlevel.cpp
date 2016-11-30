@@ -44,7 +44,7 @@ void PreBuiltLevel::addContainerOnTheMap(ContainerOnMap* prolly_a_dead_dude)
 }
 
 //!first creates a level window based on the level text vector
-//!then calls parent function to setup the artwork on the window
+//!then calls parent function to the artwork on the window
 void PreBuiltLevel::createLevelForTargetWindow()
 {
 	//make level window based on loaded text vector

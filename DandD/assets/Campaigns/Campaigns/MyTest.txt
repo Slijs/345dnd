@@ -1,0 +1,3 @@
+MyTest
+Tester
+assets/Campaigns/MapsForCampaigns/Tester
