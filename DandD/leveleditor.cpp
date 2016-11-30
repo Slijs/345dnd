@@ -89,11 +89,11 @@ void LevelEditor::createLevelForTargetWindow()
 	//draw line for environment rectagle
 	if((this->_level_window->getGamePlay_X_Grids()%2) == 0)
 	{
-		x = ((this->_level_window->getGamePlay_X_Grids())*(this->_level_window->getGridX_Length()))/2;
+		x = ((this->_level_window->getGamePlay_X_Grids())*(this->_level_window->getGridX_Length()))/1.2;
 	}
 	else
 	{
-		x = ((this->_level_window->getGamePlay_X_Grids())*(this->_level_window->getGridX_Length()))/2 + 1;
+		x = ((this->_level_window->getGamePlay_X_Grids())*(this->_level_window->getGridX_Length()))/1.2 + 1;
 	}
 
 	this->_X_Cor_EnvironmentPortionEnd_ItemPortionStart = x;
@@ -181,10 +181,12 @@ void LevelEditor::renderEnvironmentAtBottom()
 	//(total components * 2) + (50% of one component) divisions horizontally
 	int totalspacings;
 	int horizontallyplaced;
+	//TEST
 	if((this->_environment_components.size()%2)==0)
 		horizontallyplaced = (this->_environment_components.size()/2);
 	else
 		horizontallyplaced = (this->_environment_components.size()/2) + 1;
+
 
 
 	double unit_horizontal_spaces = ((horizontallyplaced*2) + 1) / 2.0;
@@ -255,9 +257,9 @@ void LevelEditor::renderEnvironmentAtBottom()
 	this->_basicContainerAtBottom = dest;
 
 	//now use y and x to render the environment text
-	this->getLevelWindow()->setFontType(9);
-	this->getLevelWindow()->addTextLabel("Environment", 255,0,0, this->_environmentTextDestination);
-	this->getLevelWindow()->setTitleFontSize(72);
+	//this->getLevelWindow()->setFontType(9);
+	//this->getLevelWindow()->addTextLabel("Environment", 255,0,0, this->_environmentTextDestination);
+	//this->getLevelWindow()->setTitleFontSize(72);
 	this->getLevelWindow()->setMenuOnRenderer();
 }
 
