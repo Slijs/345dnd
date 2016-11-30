@@ -14,6 +14,11 @@ void GameLoops::loopManager()
 	SingletonDefaultMapsMenu::getInstance()->setupMenu();
 	SingletonDefaultMapsMenu::getInstance()->hideMenu();
 
+	//instantiate the sounds for menu
+	ContinousEffect* background = new ContinousEffect("assets/Sound/Menu/Background/mainmenu.mp3");
+	//
+	//
+	background->play();
 	_currentFighterTracker = nullptr;
 	bool quit = false;
 	int destination;
@@ -68,6 +73,12 @@ void GameLoops::loopManager()
 			quit = true;
 		}
 	}
+	background->stopPlay();
+	delete background;
+	background = nullptr;
+	//
+	//
+	
 
 	delete mappath;
 	delete campaignname;

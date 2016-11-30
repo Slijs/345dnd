@@ -18,6 +18,7 @@
 #include "campaignselect.h"
 #include "ItemCreator.h"
 #include "gameplayengine.h"
+#include "Sound.h"
 #include <conio.h>
 #include <vector>
 

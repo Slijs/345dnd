@@ -88,7 +88,15 @@ namespace CampaignMaximums
 	const int _MaximumMapsPerCampaign_ = 10;
 	const int _MaximumNameStringSize_ = 10;
 }
-
+/*!
+*constant paths for sound effects
+*/
+namespace SoundPaths
+{
+	//const string _MenuBackground_ = "assets/Sound/Menu/Background/mainmenu.mp3";
+	//const string _ButtonClick_ = "assets/Sound/Menu/Buttons/click.wav";
+	//const string _ButtonRollOver_ = "assets/Sound/Menu/Buttons/rollover.wav";
+}
 /*!
 *some other very useful global constants used in the project
 */
@@ -116,3 +124,4 @@ enum CharacterType { Aggressor, Friendly, Player };
 *@brief Flag to indicate what kind of update was recently made to the map
 */
 enum MapUpdateFlag {ThePlayer, Enemy, Nice, Dead, EmptyContainer};
+
