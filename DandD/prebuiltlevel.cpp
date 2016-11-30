@@ -166,6 +166,12 @@ std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
 	return this->_containersOnMap;
 }
 
+//!container coordinate accessor
+void PreBuiltLevel::removeContainerOnMap(int index)
+{
+	this->_containersOnMap.erase(this->_containersOnMap.begin() + index);
+}
+
 //!enemy coordiante accessor
 std::vector<Monster*> PreBuiltLevel::getEnemiesOnMap()
 {
