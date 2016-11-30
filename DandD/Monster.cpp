@@ -173,26 +173,33 @@ void Monster::dropContainer() {
 	// make a container that will contain all of the characters equipment and is located at the characters location
 	// first make a vector of all the items that will be included
 	std::vector<Item*> items;
-	if (armor->getName().compare("None") != 0) {
+	if (armor->getName().compare("None") != 0 && armor != nullptr) {
 		items.push_back(armor);
+		armor = nullptr;
 	}
-	if (weapon->getName().compare("None") != 0) {
+	if (weapon->getName().compare("None") != 0 && weapon != nullptr) {
 		items.push_back(weapon);
+		weapon = nullptr;
 	}
-	if (shield->getName().compare("None") != 0) {
+	if (shield->getName().compare("None") != 0 && shield != nullptr) {
 		items.push_back(shield);
+		shield = nullptr;
 	}
-	if (helmet->getName().compare("None") != 0) {
+	if (helmet->getName().compare("None") != 0 && helmet != nullptr) {
 		items.push_back(helmet);
+		helmet = nullptr;
 	}
-	if (boots->getName().compare("None") != 0) {
+	if (boots->getName().compare("None") != 0 && boots != nullptr) {
 		items.push_back(boots);
+		boots = nullptr;
 	}
-	if (belt->getName().compare("None") != 0) {
+	if (belt->getName().compare("None") != 0 && belt != nullptr) {
 		items.push_back(belt);
+		belt = nullptr;
 	}
-	if (ring->getName().compare("None") != 0) {
+	if (ring->getName().compare("None") != 0 && ring != nullptr) {
 		items.push_back(ring);
+		ring = nullptr;
 	}
 
 	// create the container

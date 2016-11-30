@@ -115,4 +115,4 @@ enum CharacterType { Aggressor, Friendly, Player };
 *@enum MapUpdateFlag
 *@brief Flag to indicate what kind of update was recently made to the map
 */
-enum MapUpdateFlag {ThePlayer, Enemy, Nice, Dead};
+enum MapUpdateFlag {ThePlayer, Enemy, Nice, Dead, EmptyContainer};

@@ -1,4 +1,6 @@
 Interim
+start
+assets/Campaigns/MapsForCampaigns/start
 Default3
 assets/Campaigns/MapsForCampaigns/Default3
 Default4
