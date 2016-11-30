@@ -30,3 +30,11 @@ g2 true g2.png
 g2
 g3 true g3.png
 g3
+g4 true g4.png
+g4
+g5 true g5.png
+g5
+g6 true g6.png
+g6
+g7 true g7.png
+g7
