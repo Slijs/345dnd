@@ -1,3 +1,5 @@
 Test
 Hello
 assets/Campaigns/MapsForCampaigns/Hello
+Testing
+assets/Campaigns/MapsForCampaigns/Testing

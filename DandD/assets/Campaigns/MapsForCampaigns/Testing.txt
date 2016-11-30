@@ -1,7 +1,6 @@
-BBBBBB
-BBffBB
-ABffBp
-BfffBB
-BffffB
-BBBffB
+BBxBB
+BBBBB
+A@BpB
+BBBBB
+BBfBB
 assets/environment component themes/test theme2/

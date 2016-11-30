@@ -116,7 +116,7 @@ int GamePlayEngine::runEngine()
 				destToReturn = runUserTurn();
 				if (destToReturn < 2 || this->_level->getPlayer()->getIsDead()){
 					this->_level->getLevelWindow()->hideWindow();
-					_getch();
+					//_getch();
 					this->_level->getLevelWindow()->unHideWindow();
 					exit = true;
 					goto QUIT_CAMPAIGN;

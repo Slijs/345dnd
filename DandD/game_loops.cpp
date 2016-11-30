@@ -78,6 +78,7 @@ void GameLoops::loopManager()
 //!the loop that handles playing of a full campaign
 int GameLoops::playCampaignLoop(char* path, char* campaign)
 {
+	GameController::getInstance()->log("Campaign "+SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(campaign)+" was loaded for play.");
 	//first load menu to select campaign
 	CampaignSelect* c_menu = new CampaignSelect("menu");
 	c_menu->setupMenu();
@@ -153,6 +154,7 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 //!template in assignment 3, interim and final project
 int GameLoops::gameLevelLoop(std::string mappath)
 {
+	GameController::getInstance()->log("New map was loaded for play.");
 	int destinationInt;
 	bool quit = false;
 
@@ -280,6 +282,10 @@ int GameLoops::createNewMap(char* path, char* campaign)
 		manager->hideMenu();
 		delete manager;
 	}
+	else
+	{
+		GameController::getInstance()->log("New map was created.");
+	}
 
 	return _EditExistingCampaign_;
 }
@@ -287,6 +293,7 @@ int GameLoops::createNewMap(char* path, char* campaign)
 //!edits an existing map
 int GameLoops::editExistingMap(char* path, char* campaign)
 {
+	
 	//get a valid map name from the maps already in file
 	PreBuiltLevel* l = new PreBuiltLevel();
 	//l->loadUserCreatedLevel(_userCreatedLevelFileName);
@@ -310,13 +317,14 @@ int GameLoops::editExistingMap(char* path, char* campaign)
 	
 	//DO NOT delete the level editor here, the level editor map is taking care of it
 	levelEditorLoop(level, path, campaign);
-
+	GameController::getInstance()->log("An existing map was edited and saved.");
 	return _EditExistingCampaign_;
 }
 
 //!lets user create a map
 int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 {
+	GameController::getInstance()->log("Map Editor loaded.");
 	level->renderAndDisplayLevel();
 	int destinationInt = -1;
 	LevelWindow* const window = level->getLevelWindow();
@@ -469,6 +477,7 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 //!manages campaign editor menu, and driver for assignment 2 specifications
 int GameLoops::mainMenuLoop(char* path, char* campaign)
 {
+	GameController::getInstance()->log("Main menu loaded.");
 	MainMenu* menu = new MainMenu("Main Menu");
 	menu->setupMenu();
 	menu->displayMenu();
@@ -476,7 +485,7 @@ int GameLoops::mainMenuLoop(char* path, char* campaign)
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
 	int destination = engine->runEngine();
 	destination = menu->destinationMap(destination);
-
+	
 	menu->hideMenu();
 	delete engine;
 	engine = nullptr;
@@ -488,7 +497,8 @@ int GameLoops::mainMenuLoop(char* path, char* campaign)
 //!launches the campaign editor main menu loop
 int GameLoops::campaignManagerLoop(char* path, char* campaign)
 {
-	CampaignManager* manager = new CampaignManager("assignment2");
+	GameController::getInstance()->log("Campaign menu loaded.");
+	CampaignManager* manager = new CampaignManager("final build");
 	manager->setupMenu();
 	manager->displayMenu();
 	MenuEngine* engine = new MenuEngine(manager, this->_event);
@@ -513,6 +523,7 @@ int GameLoops::campaignManagerLoop(char* path, char* campaign)
 int GameLoops::createEditItems()
 {
 	system("CLS");
+	GameController::getInstance()->log("Create / Edit items menu loaded.");
 	ItemCreator::createItems();
 	system("CLS");
 	return _MainMenu_;
@@ -523,6 +534,7 @@ int GameLoops::createEditPlayer()
 {
 	
 	system("CLS");
+	GameController::getInstance()->log("Create / Edit player menu loaded.");
 	CharacterManager::createOrEditCharacter();
 	system("CLS");
 	//Create Edit Function call here
@@ -556,12 +568,13 @@ int GameLoops::deleteCharacter(){
 //!once a campaign is selected, this function facilitates editing
 int GameLoops::editExistingCampaignLoop(char* path, char* campaign)
 {
+	GameController::getInstance()->log("A campaign was loaded for play.");
 	START_AFTER_SEQUENCE_CHANGE:
 	std::cout<<path<<std::endl;
 	CampaignMapManagers* manager = new CampaignMapManagers("assignment2", this->_currentCampaignTracker);
 	manager->setupMenu();
 	manager->displayMenu();
-
+	
 	MenuEngine* engine = new MenuEngine(manager, this->_event);
 
 	int destination;
@@ -593,7 +606,7 @@ int GameLoops::editExistingCampaignLoop(char* path, char* campaign)
 			goto ABORT_SEQUENCE_CHANGE;
 
 		manager->changeSequence(index1, index2);
-
+		GameController::getInstance()->log("Map sequence for campaign " + (SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(campaign)) +" was changed");
 		manager->hideMenu();
 		delete engine;
 		engine = nullptr;
