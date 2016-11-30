@@ -301,14 +301,6 @@ void Fighter::recalcHitPoints()
 	hitPoints += _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
 }
 
-/**Function to increase experience when monster is defeated.
-Calls parent gainExperience(int) function. Notifies change in character state*/
-void Fighter::gainExperience(int gain)
-{
-	Characters::gainExperience(gain);
-	currentState();
-}
-
 //!Function for level up processing to increment chosen ability score and recalculates hitpoints
 void Fighter::levelUp(int choice)
 {

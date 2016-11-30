@@ -166,6 +166,9 @@ void Monster::receiveDamage(int damage)
 		string death = this->name + " is defeated!\nContainer was dropped!";
 		CharacterController::getInstance()->log(death);
 		dropContainer();
+
+		// Pass experience to player
+		_subject->getPlayer()->Character::gainExperience(this->getExp());
 		return;
 	}
 	currentState();
