@@ -113,19 +113,46 @@ int GamePlayEngine::runEngine()
 
 			// If temp is the player Character, we will allow the user to work with the GUI - otherwise, we will just move the Character
 			if (typeid((*temp)) == typeid(Fighter)){
+				// GameController Logging
+				string message = "It is " + dynamic_cast<Fighter*>(temp)->getName() + "'s turn (AKA it is your turn!)";
+				GameController::getInstance()->log(message);
+
+				//CharacterController Logging
+				message = dynamic_cast<Fighter*>(temp)->getName() + "'s turn: ";
+				CharacterController::getInstance()->log(message);
+
+				// Now run the turn
 				destToReturn = runUserTurn();
+
+				message = "End turn";
+				CharacterController::getInstance()->log(message);
+
+				// Check destToReturn Flag. If 2, user wants to quit the game. OR if the Character is dead, we immediately quit
 				if (destToReturn < 2 || this->_level->getPlayer()->getIsDead()){
-					this->_level->getLevelWindow()->hideWindow();
-					//_getch();
-					this->_level->getLevelWindow()->unHideWindow();
 					exit = true;
 					goto QUIT_CAMPAIGN;
 				}
 			}
-			// Then we will move the character, so long as they are not dead!
+
+			// Else, the Character is a Monster. We will make sure that the Monster is not dead. If they are dead, we just skip moving them
 			else if (!temp->getIsDead()){
+				// We set the currentMovingMonster, which will be used elsewhere in game
 				currentMovingMonster = temp;
+
+				// GameController Logging
+				string message = "It is " + dynamic_cast<Monster*>(temp)->getName() + "'s turn.";
+				GameController::getInstance()->log(message);
+
+				//CharacterController Logging
+				message = dynamic_cast<Monster*>(temp)->getName() + "'s turn:";
+				CharacterController::getInstance()->log(message);
+
 				temp->move(_level, &_currentGrid, this);
+
+				//CharacterController Logging - Log end turn
+				message = "End turn";
+				CharacterController::getInstance()->log(message);
+
 				currentMovingMonster = NULL;
 			}
 		}

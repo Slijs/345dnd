@@ -128,13 +128,13 @@ void Monster::attack(Fighter* c)
 	
 	dice += this->getName() + " rolled " + to_string(aRoll) + " for attack!\n";
 
-	DiceController::getInstance()->log(dice); 
 	message += dice;
 	//cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
 	
 	if (aRoll < c->getArmorClass())
 	{
 		message += "Attack missed!\n";
+		CharacterController::getInstance()->log(message);
 		//cout << "Attack missed!" << "\n" << endl;
 	}
 	else
@@ -157,14 +157,18 @@ void Monster::receiveDamage(int damage)
 	string dice;
 	hitPoints -= damage;
 	dice += to_string(damage) + " damage was inflicted on " + name + "!\n";
-	DiceController::getInstance()->log(dice);
 	message = to_string(damage) + " damage was inflicted on " + name + "!\n";
 	//cout << damage << " damage was inflicted on " << name << "!" << endl;
 	CharacterController::getInstance()->log(message);
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
+		string death = this->name + " is defeated!\nContainer was dropped!";
+		CharacterController::getInstance()->log(death);
 		dropContainer();
+
+		// Pass experience to player
+		_subject->getPlayer()->gainExperience(this->getExp());
 		return;
 	}
 	currentState();

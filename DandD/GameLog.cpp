@@ -3,5 +3,6 @@
 
 void GameLog::log(string input)
 {
-	SingletonInputOutputManager::getInstance()->appendToFile(_path, input);
+	if (_toggle == true)
+		SingletonInputOutputManager::getInstance()->appendToFile(_path, input);
 }

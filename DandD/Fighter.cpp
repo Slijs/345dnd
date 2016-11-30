@@ -251,13 +251,13 @@ void Fighter::attack(Monster* c)
 	aRoll = 100;
 	string name;
 	dice += this->getName() + " rolled "+ to_string(aRoll) + " for attack!\n";
-	DiceController::getInstance()->log(dice);
 	message += dice;
 	//cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
 	
 	if (aRoll < c->getArmorClass())
 	{
 		message += "Attack missed!\n";
+		CharacterController::getInstance()->log(message);
 		//cout << "Attack missed!" << "\n" << endl;
 	}
 	else
@@ -280,7 +280,6 @@ void Fighter::receiveDamage(int damage)
 	string dice;
 	hitPoints -= damage;
 	dice += to_string(damage) + " damage was inflicted on " + name + "!\n";
-	DiceController::getInstance()->log(dice);
 	message = to_string(damage) + " damage was inflicted on " + name + "!\n";
 	//cout << damage << " damage was inflicted on " << name << "!" << endl;
 	CharacterController::getInstance()->log(message);
@@ -288,6 +287,9 @@ void Fighter::receiveDamage(int damage)
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
+		string death = this->name + " is dead!\nGame Over!";
+		CharacterController::getInstance()->log(death);
+
 	}
 	currentState();
 	
@@ -297,14 +299,6 @@ void Fighter::receiveDamage(int damage)
 void Fighter::recalcHitPoints()
 {
 	hitPoints += _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
-}
-
-/**Function to increase experience when monster is defeated.
-Calls parent gainExperience(int) function. Notifies change in character state*/
-void Fighter::gainExperience(int gain)
-{
-	Characters::gainExperience(gain);
-	currentState();
 }
 
 //!Function for level up processing to increment chosen ability score and recalculates hitpoints
