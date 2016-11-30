@@ -146,7 +146,6 @@ void PreBuiltLevel::setupEnemiesOnMap()
 				temp->setPosition(y, x);
 				temp->setMap(&this->getMapSimpleVersion());
 				tempView = new MonsterOnMapView(temp, this, temp->_charType);
-				temp->setupLevelObserver(this);
 				this->_enemisOnMap.push_back(temp);
 			}
 		}
