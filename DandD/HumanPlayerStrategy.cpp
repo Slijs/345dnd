@@ -20,22 +20,10 @@ bool HumanPlayerStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, Game
 	int mouseIndex = 0;
 	std::vector<std::string> temp = level->getMapStringVersiion();
 	currentGrid = &engine->checkMousePosition(level->getGameplayGridsRects(), &mouseIndex);
-	//level->_dest2ForObserver = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
 	int charIndex = currentGrid->x / level->getLevelWindow()->getGridX_Length();
 	int vectorIndex = currentGrid->y / level->getLevelWindow()->getGridY_Length();
 	bool canMove = move(vectorIndex, charIndex);
-	/*std::cout << "testing move function\n" << canMove << "\n";
-	std::cout << "X: " << currentGrid->x / level->getLevelWindow()->getGridX_Length() << ", Y: " << currentGrid->y /level->getLevelWindow()->getGridY_Length() << std::endl;
-	std::cout << "PlayerX: " << _charPos << endl;
-	std::cout << "PlayerY: " << _vectPos << endl;
-	std::cout << std::endl;
-	std::cout << "Before move\n";
-	for (int x = 0; x < level->getMapSimpleVersion().size(); x++)
-	{
-		std::cout << level->getMapSimpleVersion()[x];
-		std::cout << std::endl;
-	}
-	std::cout << std::endl; */
+
 
 	if (canMove)
 	{
@@ -48,41 +36,7 @@ bool HumanPlayerStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, Game
 			_vectPos = vectorIndex;
 			_charPos = charIndex;
 			_recentGrid = currentGrid;
-			/*
-			//first render player to floor
-			//make the coordinate in map a free path
-						//this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
-			for (int k = 0; k < level->getEnvironmentComponents().size(); k++)
-				{
-					//render the floor
-					if (level->getEnvironmentComponents()[k]->getComponentName() == "floor")
-						{
-							dest.x = _charPos*level->getLevelWindow()->getGridX_Length();
-								dest.y = _vectPos*level->getLevelWindow()->getGridY_Length();
-								dest.h = level->getLevelWindow()->getGridY_Length();
-								dest.w = level->getLevelWindow()->getGridX_Length();
-
-								//now update the environment for the observer
-								level->_environmentForObserver = level->getEnvironmentComponents()[k];
-
-								//make the x y of loop a free path
-								temp[_vectPos].at(_charPos) = level->getEnvironmentComponents()[k]->getComponentChar();
-								level->setMainMapVector(temp);
-						}
-					
-				}//done putting player to floor
-
-			// Update map and set new position!
-			temp[vectorIndex].at(charIndex) = SimplifiedMapSymbols::_Player_;
-			_vectPos = vectorIndex;
-			_charPos = charIndex;
-			level->setMainMapVector(temp);
-
-			//update the two destination rectangles in subject
-			level->setDestRectsForObserver(dest, *currentGrid);
-			//call the observer update and render and display
-			level->Notify();
-			*/
+			
 			// Set true if Character has reached exit
 			if ((vectorIndex == engine->_exitStringIndex) && (charIndex == engine->_exitCharacterIndex))
 			{

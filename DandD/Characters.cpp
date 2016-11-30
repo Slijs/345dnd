@@ -194,7 +194,10 @@ bool Characters::getInBattle()
 * Will set the initiative of the Character using a dice and their Dexterity modifier
 */
 void Characters::setInitiative(){
-	_initiative = _die.roll("1d20") + getScores(1, 1);
+	int newInitiative = _die.roll("1d20") + getScores(1, 1);
+	if (newInitiative > 0)
+		_initiative = newInitiative;
+	else _initiative = 1;
 }
 
 /**
@@ -499,6 +502,10 @@ int Characters::damageRoll()
 //!Function that increases experience based on specified amount gained and if experience exceeds lower limit of next level it will trigger level up.
 void Characters::gainExperience(int gained)
 {
+	// Log experience gain
+	string message = "You have gained " + to_string(gained) + " EXP.";
+	CharacterController::getInstance()->log(message);
+
 	exp += gained;
 	if (exp >= experience[1][level])
 		gainLevel();
@@ -510,6 +517,10 @@ void Characters::gainLevel()
 	level++;
 	detProficiencyBonus(); // Updates proficiency bonus as per level
 	isLevelUp = true;
+
+	// Log level increase
+	string message = "You have gained a level! You are now level " + to_string(level) + ".";
+	CharacterController::getInstance()->log(message);
 }
 
 //!Function used when level up to increment an chosen ability score and end level up process.

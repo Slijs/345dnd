@@ -248,7 +248,6 @@ void Fighter::attack(Monster* c)
 	string message ="";
 	string dice;
 	int aRoll = attackRoll(), dRoll;
-	aRoll = 100;
 	string name;
 	dice += this->getName() + " rolled "+ to_string(aRoll) + " for attack!\n";
 	message += dice;
@@ -265,7 +264,6 @@ void Fighter::attack(Monster* c)
 		message += "Attack was successful!\n";
 		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
-		dRoll = 100;
 		CharacterController::getInstance()->log(message);
 		c->receiveDamage(dRoll);
 	}
@@ -298,7 +296,9 @@ void Fighter::receiveDamage(int damage)
 //!Function to recalculate hitpoints when leveling up but adding a roll of hitDice and dexterity modifier
 void Fighter::recalcHitPoints()
 {
-	hitPoints += _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
+	int toAdd = _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
+	hitPoints += toAdd;
+	maxHitPoints += toAdd;
 }
 
 //!Function for level up processing to increment chosen ability score and recalculates hitpoints
@@ -345,6 +345,16 @@ bool Fighter::validateGainExperience(int exp)
 	return false;
 }
 
+/**Function to increase experience when monster is defeated.
+Calls parent gainExperience(int) function. Notifies change in character state*/
+void Fighter::gainExperience(int gain)
+{
+	Characters::gainExperience(gain);
+	currentState();
+	if (isLevelUp)
+		recalcHitPoints();
+	isLevelUp = false;
+}
 
 //!Function to display when player will equip-dequip equipment
 void Fighter::equipOptions()
@@ -1073,6 +1083,8 @@ void Fighter::forceLevelIncrease(){
 	int toAdd = _die.roll(_HIT_DIE_STRING) + this->getScores(1, 2);
 	hitPoints += toAdd;
 	maxHitPoints += toAdd;
+
+	CharacterController::getInstance()->log(getName() + " has gained a level from finishing the map! The new level is " + to_string(getLevel()));
 }
 
 

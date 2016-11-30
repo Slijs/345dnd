@@ -208,9 +208,11 @@ void PreBuiltLevel::removeContainerOnMap(int index)
 			//make the x y of loop a free path
 			temp[coordinateY].at(coordinateX) = getEnvironmentComponents()[k]->getComponentChar();
 			setMainMapVector(temp);
+			goto DONE_FLOOR;
 		}
 
 	}//done putting player to floor
+	DONE_FLOOR:
 
 	// Now set the grid for the update
 	currentGrid.x = coordinateX*getLevelWindow()->getGridX_Length();
@@ -289,6 +291,7 @@ std::vector<SDL_Rect> PreBuiltLevel::getAllButtonDestinations()
 * with all Characters
 */
 void PreBuiltLevel::setAllInitiative(){
+	GameController::getInstance()->log("Setting initiative for all characters in game.");
 	// Will set the player, and then the Monster initiative
 	_player->setInitiative();
 	for (int i = 0; i < _enemisOnMap.size(); ++i){
@@ -304,12 +307,15 @@ void PreBuiltLevel::setAllInitiative(){
 */
 void PreBuiltLevel::setupInitiativeQueue(){
 	// First, we will push the Character into the queue
+	GameController::getInstance()->log("\nAdding characters to priority queue...");
 	_initiativeCharacterQueue.push(_player);
-
+	GameController::getInstance()->log(_player->getName() + " has been added to the priority queue.");
 	// Next, we will push all Monsters into the queue
 	for (int i = 0; i < _enemisOnMap.size(); ++i){
 		_initiativeCharacterQueue.push(_enemisOnMap.at(i));
+		GameController::getInstance()->log(_enemisOnMap.at(i)->getName() + " has been added to the priority queue.");
 	}
+	GameController::getInstance()->log("Done adding players to queue.");
 }
 
 //!local destructor destroys the positions for enemies and containers

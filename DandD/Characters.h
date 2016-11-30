@@ -89,6 +89,7 @@ protected:
 	Ring* ring;
 	Container* backpack;
 	MovementStrategy* _strategy; //! Strategy the Character uses to move
+	bool isLevelUp;
 
 private:
 	int const MAX_NUM_SCORES = 6;
@@ -106,7 +107,7 @@ private:
 
 	bool inBattle;
 	bool isDead;
-	bool isLevelUp;
+	
 
 	bool equiped; //start as false changes to true when equip something with bonus for AC
 
@@ -219,7 +220,7 @@ public:
 	int attackRoll();
 	int damageRoll();
 
-	void gainExperience(int);
+	virtual void gainExperience(int);
 	void updateAbilityScore(int);
 
 	//For fighter race

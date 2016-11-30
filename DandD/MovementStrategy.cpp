@@ -47,8 +47,12 @@ void MovementStrategy::setPosition(int vectI, int charI){
 
 void MovementStrategy::logMoveAttempt(int vectI, int charI, GamePlayEngine *engine){
 	string message = dynamic_cast<Monster*>(engine->getCurrentMovingMonster())->getName() + " has moved from (X: " + to_string(_charPos) + " Y: " + to_string(_vectPos) + ")";
-	message += " to (X: " + to_string(vectI) + " Y: " + to_string(charI) + ").";
+	message += " to (X: " + to_string(charI) + " Y: " + to_string(vectI) + ").";
 	MapController::getInstance()->log(message);
+
+	// Now log for CharacterCOntroller
+	message = dynamic_cast<Monster*>(engine->getCurrentMovingMonster())->getName() + " has moved.";
+	CharacterController::getInstance()->log(message);
 }
 
 /**
@@ -81,7 +85,6 @@ bool MovementStrategy::_locationWithinMapBounds(int vectI, int charI){
 bool MovementStrategy::_acceptableDestinationSquare(int vectI, int charI){
 	// Retrieve the position to be analyzed
 	char posInQuestion = _theMap->at(vectI).at(charI);
-	cout << posInQuestion;
 
 	// Check if position is an obstruction
 	if (posInQuestion == SimplifiedMapSymbols::_Obstruction_)
@@ -97,9 +100,7 @@ bool MovementStrategy::_acceptableDestinationSquare(int vectI, int charI){
 		return false;
 	if (posInQuestion == SimplifiedMapSymbols::_Friend_)
 		return false;
-	//if (posInQuestion == MapSymbols::_BasicContainer_)
-	//	return false;
-	cout << "True" << endl;
+
 	// If position is none of these things, then the player can theoretically stand on this square
 	return true;
 }

@@ -30,7 +30,6 @@ void FighterOnMapView::Update(){
 	} else {
 		//first render player to floor
 		//make the coordinate in map a free path
-		//this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
 		for (int k = 0; k < _theMap->getEnvironmentComponents().size(); k++)
 		{
 			//render the floor
@@ -47,9 +46,11 @@ void FighterOnMapView::Update(){
 				//make the x y of loop a free path
 				temp[_prevVectPos].at(_prevCharPos) = _theMap->getEnvironmentComponents()[k]->getComponentChar();
 				_theMap->setMainMapVector(temp);
+				goto DONE_FLOOR;
 			}
 
 		}//done putting player to floor
+		DONE_FLOOR:
 
 		// Now set the grid for the update
 		currentGrid.x = _sub->getCharPos()*_theMap->getLevelWindow()->getGridX_Length();

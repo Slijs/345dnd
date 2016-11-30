@@ -73,6 +73,7 @@ public:
 	void receiveDamage(int);
 
 	void levelUp(int);
+	void gainExperience(int);
 	void dead();
 
 	void currentState();
