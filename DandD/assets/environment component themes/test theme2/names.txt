@@ -78,3 +78,21 @@ g23 true g23.png
 g23
 g24 true g24.png
 g24
+c1 true c1.png
+c1
+c2 true c2.png
+c2
+c3 true c3.png
+c3
+c4 true c4.png
+c4
+c5 true c5.png
+c5
+c6 true c6.png
+c6
+c7 true c7.png
+c7
+c8 true c8.png
+c8
+c9 true c9.png
+c9
