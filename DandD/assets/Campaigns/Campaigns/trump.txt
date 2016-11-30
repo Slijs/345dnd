@@ -1,1 +1,5 @@
 trump
+trump
+assets/Campaigns/MapsForCampaigns/trump
+test
+assets/Campaigns/MapsForCampaigns/test

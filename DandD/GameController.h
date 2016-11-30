@@ -1,6 +1,6 @@
 #pragma once
 #include "GameLog.h"
-
+class GameLog;
 class GameController : public GameLog
 {
 private:

@@ -122,12 +122,16 @@ If larger than AC, damage roll is calculated and inflicted on Fighter, otherwise
 void Monster::attack(Fighter* c)
 {
 	string message = "";
+	string dice;
 	int aRoll = attackRoll(), dRoll;
 	string name;
-	message += this->getName() + " rolled ";
-	message += aRoll + " for attack!\n";
-	//cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
+	
+	dice += this->getName() + " rolled " + to_string(aRoll) + " for attack!\n";
 
+	DiceController::getInstance()->log(dice); 
+	message += dice;
+	//cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
+	
 	if (aRoll < c->getArmorClass())
 	{
 		message += "Attack missed!\n";
@@ -137,9 +141,11 @@ void Monster::attack(Fighter* c)
 	{
 		message += "Attack was successful!\n";
 		//cout << "Attack was successful!" << endl;
+		CharacterController::getInstance()->log(message);
 		dRoll = damageRoll();
 		c->receiveDamage(dRoll);
 	}
+	
 }
 
 /**Function that reduces hitpoints based on damage taken,
@@ -148,9 +154,13 @@ void Monster::receiveDamage(int damage)
 {
 	underAttack();
 	string message;
+	string dice;
 	hitPoints -= damage;
-	message = damage + " damage was inflicted on " + name + "!\n";
-	cout << damage << " damage was inflicted on " << name << "!" << endl;
+	dice += to_string(damage) + " damage was inflicted on " + name + "!\n";
+	DiceController::getInstance()->log(dice);
+	message = to_string(damage) + " damage was inflicted on " + name + "!\n";
+	//cout << damage << " damage was inflicted on " << name << "!" << endl;
+	CharacterController::getInstance()->log(message);
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
@@ -158,6 +168,7 @@ void Monster::receiveDamage(int damage)
 		return;
 	}
 	currentState();
+	
 }
 
 //!Function to display monster death, calls parent displayDeath()

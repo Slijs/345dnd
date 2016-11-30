@@ -1,5 +1,4 @@
 #include "gameplayengine.h"
-
 /*!
 *default constructor just sets all values to default and false
 */
@@ -221,7 +220,9 @@ int GamePlayEngine::runUserTurn(){
 			{
 				this->_level->getLevelWindow()->hideWindow();
 				system("cls");
-				std::cout << "Logic to be implemented.\n";
+				//Add here
+				GameLogTest::gameLogTest();
+				//End here
 				system("pause");
 				this->_level->getLevelWindow()->unHideWindow();
 				this->_gameLog = false;

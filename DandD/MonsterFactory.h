@@ -13,7 +13,8 @@
 */
 class MonsterFactory{
 public:
-	static Monster* createMonster(Fighter* theChar);
+	static Monster* createMonster(Fighter* theChar, bool friendFlag);
+	
 };
 
 #endif

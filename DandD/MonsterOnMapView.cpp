@@ -70,7 +70,7 @@ void MonsterOnMapView::Update(){
 			_theMap->setRecentUpdateFlag(Enemy);
 		}
 		else { //!! NEED TO UPDATE SO THAT DISPLAYS FRIENDLY TO MAP
-			temp[_sub->getVectPos()].at(_sub->getCharPos()) = SimplifiedMapSymbols::_Enemies_;
+			temp[_sub->getVectPos()].at(_sub->getCharPos()) = SimplifiedMapSymbols::_Friend_;
 			_theMap->setRecentUpdateFlag(Nice);
 		}
 			//temp[_sub->getVectPos()].at(_sub->getCharPos()) = SimplifiedMapSymbols::_Friendly_;

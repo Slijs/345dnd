@@ -4,6 +4,7 @@
 */
 #pragma once
 #include <string>
+#include "GameLogTest.h"
 #include "Characters.h"
 #include "Dwarf.h"
 #include "HumanPlayerStrategy.h"

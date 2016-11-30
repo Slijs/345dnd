@@ -33,10 +33,12 @@ private:
 	bool targetisexit;
 	bool targetiscontainer;
 	bool targetisenemy;
+	
 	SDL_Rect target;
 	Environment* currentenvcomponent;
 	GameComponent* player;
 	Monster* enemy;
+	Monster* friends;
 	Container* container;
 	LevelEditor* level;
 	int lastButtonIndex;
@@ -50,11 +52,13 @@ private:
 	std::vector<SDL_Rect> characterTarget;
 	std::vector<SDL_Rect> containerTarget;
 	std::vector<SDL_Rect> enemytarget;
+	std::vector<SDL_Rect> friendtarget;
 	
 
 public:
 	void setTargetTexture(SDL_Texture* t);
 	SDL_Texture* getTargetTexture();
+	bool targetisfriend;
 	void setQuit(bool q);
 	bool getQuit();
 	void setOnTargetFirstTime(bool o);

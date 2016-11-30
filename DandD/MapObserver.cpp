@@ -29,7 +29,7 @@ void MapObserver::Update(){
 		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getPlayerComponent()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
 		break;
 	case Nice:
-		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getEnemy()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
+		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getFriend()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
 		break;
 	case Dead:
 		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getContainerComponent()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
