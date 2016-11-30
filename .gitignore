@@ -301,3 +301,4 @@ __pycache__/
 *.idb
 *.filters
 DandD/Fighter.cpp
+DandD/assets/Logs/*.txt
