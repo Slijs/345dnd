@@ -162,10 +162,11 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	GamePlayEngine* engine = new GamePlayEngine();
 	l->loadUserCreatedLevel(mappath);
 	l->createLevelForTargetWindow();
-	l->setupContainersOnMap();
-	
-	l->renderAndDisplayLevel();
 	l->setupEnemiesOnMap();
+	//l->createLevelForTargetWindow();
+	l->setupContainersOnMap();
+	l->renderAndDisplayLevel();
+	
 
 	engine->attachLevel(l, &this->_event);
 	vector<string> simpleMap = l->getMapSimpleVersion();
@@ -344,6 +345,7 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 			{
 				m->setTargetSelected(false);
 				m->setTargetIsPlayer(false);
+				m->targetisfriend = false;
 				m->setTargetIsExit(false);
 				m->setTargetisContainer(false);
 				m->setTargetisEnemy(false);
@@ -445,7 +447,9 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 		//save the level on text file
 		level->setEnvironmentTextVector(templevel);
 		level->saveLevel(SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(path));
-
+		
+		std::cout << "Saved Level";
+		//system("pause");
 
 		delete level;
 		level = nullptr;

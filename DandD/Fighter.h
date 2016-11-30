@@ -4,6 +4,7 @@
 */
 #pragma once
 #include <string>
+#include "GameLogTest.h"
 #include "Characters.h"
 #include "Dwarf.h"
 #include "HumanPlayerStrategy.h"
@@ -42,7 +43,7 @@ private:
 	void detRaceTraits(Race race);
 	bool _isNullItem(Item* theItem);
 
-	Container* backpack;
+	//Container* backpack;
 
 public:
 	Fighter(int, Race, string);

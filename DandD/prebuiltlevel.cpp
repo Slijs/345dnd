@@ -44,7 +44,7 @@ void PreBuiltLevel::addContainerOnTheMap(ContainerOnMap* prolly_a_dead_dude)
 }
 
 //!first creates a level window based on the level text vector
-//!then calls parent function to setup the artwork on the window
+//!then calls parent function to the artwork on the window
 void PreBuiltLevel::createLevelForTargetWindow()
 {
 	//make level window based on loaded text vector
@@ -142,7 +142,18 @@ void PreBuiltLevel::setupEnemiesOnMap()
 		{
 			if (_level[y].at(x) == SimplifiedMapSymbols::_Enemies_)
 			{
-				temp = MonsterFactory::createMonster(this->_player);
+				temp = MonsterFactory::createMonster(this->_player, false);
+				temp->setPosition(y, x);
+				temp->setMap(&this->getMapSimpleVersion());
+				tempView = new MonsterOnMapView(temp, this, temp->_charType);
+				temp->setupLevelObserver(this);
+				this->_enemisOnMap.push_back(temp);
+			}
+			if (_level[y].at(x) == SimplifiedMapSymbols::_Friend_)
+			{
+				temp = MonsterFactory::createMonster(this->_player, true);
+				temp->setComponentChar(SimplifiedMapSymbols::_Friend_);
+				temp->setImagePath(SingletonFilePathAndFolderManager::getInstance()->_path_to_basic_friend);
 				temp->setPosition(y, x);
 				temp->setMap(&this->getMapSimpleVersion());
 				tempView = new MonsterOnMapView(temp, this, temp->_charType);
@@ -169,7 +180,51 @@ std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
 //!container coordinate accessor
 void PreBuiltLevel::removeContainerOnMap(int index)
 {
+	SDL_Rect dest;
+	SDL_Rect currentGrid;
+	std::vector<std::string> temp = getMapStringVersiion();
+
+	// container coordinates
+	int coordinateX = _containersOnMap[index]->charIndex;
+	int coordinateY = _containersOnMap[index]->stringIndex;
+
+	// delete the container
 	this->_containersOnMap.erase(this->_containersOnMap.begin() + index);
+
+	// rerender the map
+	for (int k = 0; k < getEnvironmentComponents().size(); k++)
+	{
+		//render the floor
+		if (getEnvironmentComponents()[k]->getComponentName() == "floor")
+		{
+			dest.x = coordinateX*getLevelWindow()->getGridX_Length();
+			dest.y = coordinateY*getLevelWindow()->getGridY_Length();
+			dest.h = getLevelWindow()->getGridY_Length();
+			dest.w = getLevelWindow()->getGridX_Length();
+
+			//now update the environment for the observer
+			_environmentForObserver = getEnvironmentComponents()[k];
+
+			//make the x y of loop a free path
+			temp[coordinateY].at(coordinateX) = getEnvironmentComponents()[k]->getComponentChar();
+			setMainMapVector(temp);
+		}
+
+	}//done putting player to floor
+
+	// Now set the grid for the update
+	currentGrid.x = coordinateX*getLevelWindow()->getGridX_Length();
+	currentGrid.y = coordinateY*getLevelWindow()->getGridY_Length();
+	currentGrid.h = getLevelWindow()->getGridY_Length();
+	currentGrid.w = getLevelWindow()->getGridX_Length();
+
+	//update the two destination rectangles in subject
+	setDestRectsForObserver(dest, currentGrid);
+
+	//call the observer update and render and display, also lets all LevelObservers know the level has changed
+	setRecentUpdateFlag(EmptyContainer);
+	Notify();
+	
 }
 
 //!enemy coordiante accessor
