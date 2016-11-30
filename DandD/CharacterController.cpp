@@ -6,7 +6,9 @@ CharacterController* CharacterController::_characterController = nullptr;
 CharacterController::CharacterController()
 {
 	_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_characterController;
+	_toggle = true;
 	SingletonInputOutputManager::getInstance()->clearFile(_path);
+
 }
 
 //!Function that returns a singleton instance of character controller (creates a new one if not already created)

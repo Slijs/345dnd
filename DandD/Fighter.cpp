@@ -287,6 +287,9 @@ void Fighter::receiveDamage(int damage)
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
+		string death = this->name + " is dead!\nGame Over!";
+		CharacterController::getInstance()->log(death);
+
 	}
 	currentState();
 	

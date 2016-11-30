@@ -6,6 +6,7 @@ DiceController::DiceController()
 {
 	_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_diceController;
 	SingletonInputOutputManager::getInstance()->clearFile(_path);
+	_toggle = true;
 }
 
 DiceController* DiceController::getInstance()

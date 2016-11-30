@@ -7,6 +7,7 @@ MapController::MapController()
 {
 	_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_mapController;
 	SingletonInputOutputManager::getInstance()->clearFile(_path);
+	_toggle = true;
 }
 
 MapController* MapController::getInstance()

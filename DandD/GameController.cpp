@@ -7,6 +7,7 @@ GameController::GameController()
 {
 	_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_gameController;
 	SingletonInputOutputManager::getInstance()->clearFile(_path);
+	_toggle = true;
 }
 
 //!Function that returns a singleton instance of game controller (creates a new one if not already created)

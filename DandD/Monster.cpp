@@ -163,6 +163,8 @@ void Monster::receiveDamage(int damage)
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
+		string death = this->name + " is defeated!\nContainer was dropped!";
+		CharacterController::getInstance()->log(death);
 		dropContainer();
 		return;
 	}
