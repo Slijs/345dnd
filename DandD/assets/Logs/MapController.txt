@@ -1,1 +1,0 @@
-Sprite has moved from (X: 12 Y: 7) to (X: 5 Y: 12).
