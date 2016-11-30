@@ -41,7 +41,7 @@ protected:
 	SDL_Rect _dest1ForObserver;
 	SDL_Rect _dest2ForObserver;
 	Fighter* _player;
-	std::vector<ContainerOnMap*> *_containersOnMap;
+	std::vector<ContainerOnMap*> _containersOnMap;
 	std::vector<Monster*> _enemisOnMap; //! vector storing ALL monsters on Map who are alive
 	priority_queue<Characters, vector<Characters*>> _initiativeCharacterQueue; //! PQ which is used to manage turn execution during each round
 
@@ -63,7 +63,7 @@ public:
 	void setupContainersOnMap();
 	void setupEnemiesOnMap();
 	void addContainerOnTheMap(ContainerOnMap* prolly_a_dead_dude);
-	std::vector<ContainerOnMap*>* getContainersOnMap();
+	std::vector<ContainerOnMap*> getContainersOnMap();
 	std::vector<Monster*> getEnemiesOnMap();
 	std::vector<SDL_Rect> getAllButtonDestinations();
 	void setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2);
