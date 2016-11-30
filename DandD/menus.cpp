@@ -27,7 +27,7 @@ Menus::Menus(std::string title)
 	const int _YesButtonSelect_ = 1;
 	const int _NoButtonSelect_ = 2;
 	const int _Title_ = 3;
-	const int _OtherText_ = 4;*/
+	const int _OtherText = 4;*/
 
 	//background at index 0
 	this->_baseMenuColors.push_back(new RGB_C(100,35,45));
@@ -42,7 +42,7 @@ Menus::Menus(std::string title)
 	this->_baseMenuColors.push_back(new RGB_C(255,255,255));
 
 	//other text at index 4
-	this->_baseMenuColors.push_back(new RGB_C(241, 155, 155));
+	this->_baseMenuColors.push_back(new RGB_C(255,200,0));
 }
 
 //!menu window accessor

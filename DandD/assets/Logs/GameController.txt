@@ -1,0 +1,4 @@
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+Map Editor loaded.

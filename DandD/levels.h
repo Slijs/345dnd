@@ -43,6 +43,8 @@ protected:
 	Monster* _enemy;
 	Monster* _friend;
 	Container* _container;
+	Container* _corpse;
+
 
 public:
 	Level(std::string path, LevelWindow* window);
@@ -63,6 +65,9 @@ public:
 	std::vector<std::string>* getMapSimplePtrVersion();
 	void setMainMapVector(std::vector<std::string> newmap);
 	~Level();
+	Container* getCorpseComponent(){
+		return _corpse;
+	}
 };
 
 #endif

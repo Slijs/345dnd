@@ -27,20 +27,20 @@ void MainMenu::setupMenu()
 	
 	//setup title
 	this->_menuWindow->setTitleFontSize(500);
-	this->_menuWindow->setTitle("Advanced Program Design W ith C++: COMP345", this->_baseMenuColors[_OtherText_]->red,this->_baseMenuColors[_OtherText_]->green,this->_baseMenuColors[_OtherText_]->blue, menucomponent);
+	this->_menuWindow->setTitle("Advanced Program Design W ith C++: COMP345", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 	//setup follow up text
 	menucomponent.y = menucomponent.y + menucomponent.h;
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.25);
-	this->_menuWindow->addTextLabel("Dungeons & Dragons interim demonstration", this->_baseMenuColors[_OtherText_]->red,this->_baseMenuColors[_OtherText_]->green,this->_baseMenuColors[_OtherText_]->blue, menucomponent);
+	this->_menuWindow->addTextLabel("Dungeons & Dragons interim demonstration", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 	menucomponent.y = menucomponent.y + menucomponent.h;
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.26);
-	this->_menuWindow->addTextLabel("Program submission date: November 10th 2016", this->_baseMenuColors[_OtherText_]->red,this->_baseMenuColors[_OtherText_]->green,this->_baseMenuColors[_OtherText_]->blue, menucomponent);
+	this->_menuWindow->addTextLabel("Program submission date: November 10th 2016", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 	menucomponent.y = menucomponent.y + menucomponent.h;
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.3);
-	this->_menuWindow->addTextLabel("Game developed by: Jeremiah, Sabin, Andres, Phil, Khatib.", this->_baseMenuColors[_OtherText_]->red,this->_baseMenuColors[_OtherText_]->green,this->_baseMenuColors[_OtherText_]->blue, menucomponent);
+	this->_menuWindow->addTextLabel("Game developed by: Jeremiah, Sabin, Andres, Phil, Khatib.", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 	/*menucomponent.y = menucomponent.y + menucomponent.h;
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.40);
@@ -48,7 +48,7 @@ void MainMenu::setupMenu()
 
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.25);
 	menucomponent.y = menucomponent.y + menucomponent.h;
-	this->_menuWindow->addTextLabel("Course Instructor: Dr. Mohammed Taleb", this->_baseMenuColors[_OtherText_]->red,this->_baseMenuColors[_OtherText_]->green,this->_baseMenuColors[_OtherText_]->blue, menucomponent);
+	this->_menuWindow->addTextLabel("Course Instructor: Dr. Mohammed Taleb", this->_baseMenuColors[_Title_]->red,this->_baseMenuColors[_Title_]->green,this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 
 	// Add title
