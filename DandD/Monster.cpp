@@ -173,25 +173,25 @@ void Monster::dropContainer() {
 	// make a container that will contain all of the characters equipment and is located at the characters location
 	// first make a vector of all the items that will be included
 	std::vector<Item*> items;
-	if (armor != nullptr) {
+	if (armor->getName().compare("None") != 0) {
 		items.push_back(armor);
 	}
-	if (weapon != nullptr) {
+	if (weapon->getName().compare("None") != 0) {
 		items.push_back(weapon);
 	}
-	if (shield != nullptr) {
+	if (shield->getName().compare("None") != 0) {
 		items.push_back(shield);
 	}
-	if (helmet != nullptr) {
+	if (helmet->getName().compare("None") != 0) {
 		items.push_back(helmet);
 	}
-	if (boots != nullptr) {
+	if (boots->getName().compare("None") != 0) {
 		items.push_back(boots);
 	}
-	if (belt != nullptr) {
+	if (belt->getName().compare("None") != 0) {
 		items.push_back(belt);
 	}
-	if (ring != nullptr) {
+	if (ring->getName().compare("None") != 0) {
 		items.push_back(ring);
 	}
 
