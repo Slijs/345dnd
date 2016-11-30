@@ -104,13 +104,13 @@ int GamePlayEngine::runEngine()
 		Characters* temp = NULL;
 		_level->setAllInitiative();
 		
-
+		GameController::getInstance()->log("\nStarting new round.");
 		// Next, we will iterate through all Characters in the initiative queue until it is empty
 		while (!_level->isInitiativeQueueEmpty()){
 			temp = _level->_initiativeCharacterQueue.top();
 			_level->_initiativeCharacterQueue.pop();
 
-
+			
 			// If temp is the player Character, we will allow the user to work with the GUI - otherwise, we will just move the Character
 			if (typeid((*temp)) == typeid(Fighter)){
 				// GameController Logging
@@ -118,13 +118,13 @@ int GamePlayEngine::runEngine()
 				GameController::getInstance()->log(message);
 
 				//CharacterController Logging
-				message = dynamic_cast<Fighter*>(temp)->getName() + "'s turn: ";
+				message = "\n" + dynamic_cast<Fighter*>(temp)->getName() + "'s turn: ";
 				CharacterController::getInstance()->log(message);
 
 				// Now run the turn
 				destToReturn = runUserTurn();
 
-				message = "End turn";
+				message = "End turn.";
 				CharacterController::getInstance()->log(message);
 
 				// Check destToReturn Flag. If 2, user wants to quit the game. OR if the Character is dead, we immediately quit
@@ -144,24 +144,29 @@ int GamePlayEngine::runEngine()
 				GameController::getInstance()->log(message);
 
 				//CharacterController Logging
-				message = dynamic_cast<Monster*>(temp)->getName() + "'s turn:";
+				message = "\n" + dynamic_cast<Monster*>(temp)->getName() + "'s turn:";
 				CharacterController::getInstance()->log(message);
 
 				temp->move(_level, &_currentGrid, this);
 
 				//CharacterController Logging - Log end turn
-				message = "End turn";
+				message = "End turn.";
 				CharacterController::getInstance()->log(message);
 
 				currentMovingMonster = NULL;
 			}
 		}
 
+		// Log end of round
+		GameController::getInstance()->log("End of round.");
 		// Now, we will check if any Monsters are dead. If they are, they will be removed from the map
 		for (int i = 0; i < _enemies.size(); i++){
 			// Check HP. if 0, remove from the vector. Will have already been removed from the Map by its observer, so don't
 			// need to update the vectors
 			if (_enemies.at(i)->getIsDead()){
+				// Log removing dead Monster
+				GameController::getInstance()->log("Removing dead Monster from game."); 
+
 				Monster *temp = _enemies.at(i); // Get temp holder
 				_enemies.erase(_enemies.begin() + i); // Remove from list
 				_level->_enemisOnMap.erase(_level->_enemisOnMap.begin() + i);
@@ -420,15 +425,9 @@ bool GamePlayEngine::attackEnemy()
 			{
 				if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_LEFT))
 				{
-					//this->_level->getLevelWindow()->hideWindow();
 					system("cls");
 					this->_level->getPlayer()->attack(this->_enemies[x]);
-					std::cout << "\nPress any key to continue.\n";
-					//getch();
-					//system("cls");
-					//this->_enemies[x]->setIsDead(true);
 					this->_enemies[x]->Notify();
-					this->_level->getLevelWindow()->unHideWindow();
 					return true;
 				}
 			}
@@ -443,99 +442,6 @@ bool GamePlayEngine::attackEnemy()
 bool GamePlayEngine::movePlayer()
 {
 	return this->_level->getPlayer()->move(this->_level, &this->_currentGrid, this);
-	/*
-	SDL_Rect dest;
-	int mouseIndex = 0;
-	std::vector<std::string> temp = this->_level->getMapStringVersiion();
-	this->_currentGrid = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
-	//this->_level->_dest2ForObserver = checkMousePosition(this->_level->getGameplayGridsRects(), &mouseIndex);
-	int charIndex = _currentGrid.x / this->_level->getLevelWindow()->getGridX_Length();
-	int vectorIndex = _currentGrid.y / this->_level->getLevelWindow()->getGridY_Length();
-	this->_moveValidityTracker = this->_level->getPlayer()->validatePlayerMove(vectorIndex, charIndex);
-	std::cout << "testing move function\n" << this->_moveValidityTracker<<"\n";
-	std::cout << "X: " << _currentGrid.x/this->_level->getLevelWindow()->getGridX_Length() << ", Y: " << _currentGrid.y/this->_level->getLevelWindow()->getGridY_Length() << std::endl;
-	
-	std::cout << std::endl;
-	std::cout << "Before move\n";
-	for (int x = 0; x < this->_level->getMapStringVersiion().size(); x++)
-	{
-		std::cout << this->_level->getMapStringVersiion()[x];
-		std::cout<<std::endl;
-	}
-	std::cout << std::endl;
-
-	if (this->_moveValidityTracker == true)
-	{
-		if ((_event->type == SDL_MOUSEBUTTONDOWN) && (_event->button.button == SDL_BUTTON_LEFT))
-		{
-			//first render player to floor
-			//loop till find player
-			for (int y = 0; y < temp.size(); y++)
-			{
-				for (int x = 0; x < temp[y].length(); x++)
-				{
-					//check if player then render floor
-					if (temp[y].at(x) == SimplifiedMapSymbols::_Player_)
-					{
-						//make the coordinate in map a free path
-						//this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
-						for (int k = 0; k < this->_level->getEnvironmentComponents().size(); k++)
-						{
-							//render the floor
-							if (this->_level->getEnvironmentComponents()[k]->getComponentName() == "floor")
-							{
-								dest.x = x*this->_level->getLevelWindow()->getGridX_Length();
-								dest.y = y*this->_level->getLevelWindow()->getGridY_Length();
-								dest.h = this->_level->getLevelWindow()->getGridY_Length();
-								dest.w = this->_level->getLevelWindow()->getGridX_Length();
-								
-								//now update the environment for the observer
-								this->_level->_environmentForObserver = this->_level->getEnvironmentComponents()[k];
-
-								//make the x y of loop a free path
-								temp[y].at(x) = this->_level->getEnvironmentComponents()[k]->getComponentChar();
-								this->_level->setMainMapVector(temp);
-								std::cout << std::endl;
-								std::cout << "During move\n";
-								for (int x = 0; x < this->_level->getMapSimpleVersion().size(); x++)
-								{
-									std::cout << this->_level->getMapSimpleVersion()[x];
-									std::cout << std::endl;
-								}
-								std::cout << std::endl;
-							}
-						}
-					}
-				}
-			}//done putting player to floor
-
-			temp[vectorIndex].at(charIndex) = SimplifiedMapSymbols::_Player_;
-			this->_level->setMainMapVector(temp);
-
-			//finally update the players vector
-			//this->_level->getPlayer()->setMap(&this->_level->getMapSimpleVersion());
-
-			std::cout << std::endl;
-			std::cout << "After move\n";
-			for (int x = 0; x < this->_level->getMapSimpleVersion().size(); x++)
-			{
-				std::cout << this->_level->getMapSimpleVersion()[x];
-				std::cout << std::endl;
-			}
-			std::cout << std::endl;
-		
-			//update the two destination rectangles in subject
-			this->_level->setDestRectsForObserver(dest, this->_currentGrid);
-			//call the observer update and render and display
-			this->_level->Notify();
-
-			//check for end level
-			if ((vectorIndex == this->_exitStringIndex) && (charIndex == this->_exitCharacterIndex))
-			{
-				this->_mapExit = true;
-			}
-		}
-	} */
 }
 
 /*!
