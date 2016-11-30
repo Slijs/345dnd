@@ -41,6 +41,10 @@ public:
 	const std::string _path_to_default_maps;
 	const std::string _path_to_basic_container;
 	const std::string _path_to_basic_enemy;
+	const std::string _path_to_gameController;
+	const std::string _path_to_mapController;
+	const std::string _path_to_diceController;
+	const std::string _path_to_characterController;
 	const std::string _path_to_basic_friend;
 	std::string getComponentPathForIndex(int index);
 	void saveUserCreatedLevel(std::vector<std::string> leveltosave, std::string componentspath, std::string nameoffile);

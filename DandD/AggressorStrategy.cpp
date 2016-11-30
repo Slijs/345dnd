@@ -6,6 +6,7 @@
 #include "AggressorStrategy.h"
 #include "FriendlyStrategy.h"
 #include "prebuiltlevel.h"
+#include "gameplayengine.h"
 #define M_PI 3.141592653589 //! Value used for PI
 
 /**
@@ -110,8 +111,7 @@ AFTER_ATTEMPT:
 	_recentGrid = currentGrid;
 	// IF player is adjascent to the Monster, then attack the player
 	if (abs(_playerCharPos - _charPos) <= 1 && abs(_playerVectPos - _vectPos) <= 1)
-		
-		cout << "ATTACKING PLAYER WILL GO HERE" << endl;
+		dynamic_cast<Monster*>(engine->getCurrentMovingMonster())->attack(dynamic_cast<Fighter*>(_sub));
 	return iMoved;
 }
 

@@ -245,13 +245,16 @@ If larger than AC, damage roll is calculated and inflicted on Monster, otherwise
 void Fighter::attack(Monster* c)
 {
 	c->underAttack(); // Tells the Monster it is under attack
-	std::string message ="";
+	string message ="";
+	string dice;
 	int aRoll = attackRoll(), dRoll;
+	aRoll = 100;
 	string name;
-	message += this->getName() + " rolled ";
-	message += aRoll + " for attack!\n";
+	dice += this->getName() + " rolled "+ to_string(aRoll) + " for attack!\n";
+	DiceController::getInstance()->log(dice);
+	message += dice;
 	//cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
-
+	
 	if (aRoll < c->getArmorClass())
 	{
 		message += "Attack missed!\n";
@@ -262,8 +265,11 @@ void Fighter::attack(Monster* c)
 		message += "Attack was successful!\n";
 		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
+		dRoll = 100;
+		CharacterController::getInstance()->log(message);
 		c->receiveDamage(dRoll);
 	}
+	
 }
 
 /**Function that reduces hitpoints based on damage taken,
@@ -271,17 +277,20 @@ if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character 
 void Fighter::receiveDamage(int damage)
 {
 	string message;
+	string dice;
 	hitPoints -= damage;
-	message = damage + " damage was inflicted on " + name + "!\n";
+	dice += to_string(damage) + " damage was inflicted on " + name + "!\n";
+	DiceController::getInstance()->log(dice);
+	message = to_string(damage) + " damage was inflicted on " + name + "!\n";
 	//cout << damage << " damage was inflicted on " << name << "!" << endl;
-	//cout << endl;
+	CharacterController::getInstance()->log(message);
+	cout << endl;
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
 	}
 	currentState();
-
-
+	
 }
 
 //!Function to recalculate hitpoints when leveling up but adding a roll of hitDice and dexterity modifier

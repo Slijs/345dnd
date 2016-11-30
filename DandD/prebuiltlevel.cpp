@@ -146,6 +146,7 @@ void PreBuiltLevel::setupEnemiesOnMap()
 				temp->setPosition(y, x);
 				temp->setMap(&this->getMapSimpleVersion());
 				tempView = new MonsterOnMapView(temp, this, temp->_charType);
+				temp->setupLevelObserver(this);
 				this->_enemisOnMap.push_back(temp);
 			}
 			if (_level[y].at(x) == SimplifiedMapSymbols::_Friend_)
@@ -174,6 +175,12 @@ void PreBuiltLevel::setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2)
 std::vector<ContainerOnMap*> PreBuiltLevel::getContainersOnMap()
 {
 	return this->_containersOnMap;
+}
+
+//!container coordinate accessor
+void PreBuiltLevel::removeContainerOnMap(int index)
+{
+	this->_containersOnMap.erase(this->_containersOnMap.begin() + index);
 }
 
 //!enemy coordiante accessor

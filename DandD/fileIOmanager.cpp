@@ -65,10 +65,28 @@ std::vector<std::string> SingletonInputOutputManager::readFileLineByLine(std::st
 	return lines;
 }
 
+//!Function to clear file of a specified path 
+void SingletonInputOutputManager::clearFile(std::string path)
+{
+	std::ofstream erase;
+	erase.open(path, std::ofstream::out | std::ofstream::trunc);
+	erase.clear();
+}
+
+//!Function to append to a file on a specified path
+void SingletonInputOutputManager::appendToFile(std::string path, std::string message)
+{
+	std::fstream write;
+	write.open(path, std::ios::app);
+	write << message << std::endl;
+	write.close();
+}
+
 //!this funtion writes a string vector to a file based on the path that is passed
 void SingletonInputOutputManager::writeToFile(std::string path, std::vector<std::string> lines)
 {
 	std::ofstream write;
+	
 	write.open(path);
 	for(int x=0; x< lines.size(); x++)
 		write<<lines[x]<<std::endl;
