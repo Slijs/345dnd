@@ -1,5 +1,4 @@
 #include "gameplayengine.h"
-
 /*!
 *default constructor just sets all values to default and false
 */
@@ -221,7 +220,9 @@ int GamePlayEngine::runUserTurn(){
 			{
 				this->_level->getLevelWindow()->hideWindow();
 				system("cls");
-				std::cout << "Logic to be implemented.\n";
+				//Add here
+				GameLogTest::gameLogTest();
+				//End here
 				system("pause");
 				this->_level->getLevelWindow()->unHideWindow();
 				this->_gameLog = false;
@@ -351,7 +352,7 @@ void GamePlayEngine::interactEnvironment()
 					this->_level->getLevelWindow()->hideWindow();
 					system("cls");
 					this->_level->getPlayer()->interactWithContainer(this->_containers[x]->container);
-					if (this->_containers[x]->container->getNumContents == 0) {
+					if (this->_containers[x]->container->getNumContents() == 0) {
 						this->_level->removeContainerOnMap(x);
 						this->_containers = this->_level->getContainersOnMap();
 					}

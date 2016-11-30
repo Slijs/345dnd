@@ -2,6 +2,7 @@
 #include <iostream>
 #include "fileIOmanager.h"
 
+
 using namespace std;
 
 class GameLog
@@ -11,6 +12,8 @@ protected:
 	bool _toggle;
 	
 public:
+	string getPath(){ return _path; }
 	void log(string);
 
 };
+
