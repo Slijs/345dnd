@@ -32,6 +32,7 @@ _path_to_mapController("assets/Logs/CharacterController.txt"),
 _path_to_diceController("assets/Logs/DiceController.txt"),
 _path_to_characterController("assets/Logs/CharacterController.txt"),
 _path_to_basic_friend("assets/friend/friendly.jpg")
+
 {
 	_folder_names_for_level_themes = SingletonInputOutputManager::getInstance()->readFileLineByLine(_directory_path_for_level_theme + _filename_containing_subfolder_names);
 

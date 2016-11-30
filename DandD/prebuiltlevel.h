@@ -64,6 +64,7 @@ public:
 	void setupEnemiesOnMap();
 	void addContainerOnTheMap(ContainerOnMap* prolly_a_dead_dude);
 	std::vector<ContainerOnMap*> getContainersOnMap();
+	void removeContainerOnMap(int index);
 	std::vector<Monster*> getEnemiesOnMap();
 	std::vector<SDL_Rect> getAllButtonDestinations();
 	void setDestRectsForObserver(SDL_Rect dest1, SDL_Rect dest2);
