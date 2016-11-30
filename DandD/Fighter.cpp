@@ -250,8 +250,7 @@ void Fighter::attack(Monster* c)
 	int aRoll = attackRoll(), dRoll;
 	aRoll = 100;
 	string name;
-	dice += this->getName() + " rolled ";
-	dice += aRoll + " for attack!\n";
+	dice += this->getName() + " rolled "+ to_string(aRoll) + " for attack!\n";
 	DiceController::getInstance()->log(dice);
 	message += dice;
 	//cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
@@ -267,9 +266,10 @@ void Fighter::attack(Monster* c)
 		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
 		dRoll = 100;
+		CharacterController::getInstance()->log(message);
 		c->receiveDamage(dRoll);
 	}
-	CharacterController::getInstance()->log(message);
+	
 }
 
 /**Function that reduces hitpoints based on damage taken,
@@ -279,18 +279,18 @@ void Fighter::receiveDamage(int damage)
 	string message;
 	string dice;
 	hitPoints -= damage;
-	dice += this->getName() + " rolled ";
-	dice += damage + " for damage!\n";
+	dice += to_string(damage) + " damage was inflicted on " + name + "!\n";
 	DiceController::getInstance()->log(dice);
-	message = damage + " damage was inflicted on " + name + "!\n";
+	message = to_string(damage) + " damage was inflicted on " + name + "!\n";
 	//cout << damage << " damage was inflicted on " << name << "!" << endl;
+	CharacterController::getInstance()->log(message);
 	cout << endl;
 	if (hitPoints <= 0)
 	{
 		setIsDead(true);
 	}
 	currentState();
-	CharacterController::getInstance()->log(message);
+	
 }
 
 //!Function to recalculate hitpoints when leveling up but adding a roll of hitDice and dexterity modifier

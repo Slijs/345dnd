@@ -1,5 +1,4 @@
 #include "gameplayengine.h"
-#include "GameLogTest.h"
 /*!
 *default constructor just sets all values to default and false
 */
