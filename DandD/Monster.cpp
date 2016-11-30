@@ -122,12 +122,16 @@ If larger than AC, damage roll is calculated and inflicted on Fighter, otherwise
 void Monster::attack(Fighter* c)
 {
 	string message = "";
+	string dice;
 	int aRoll = attackRoll(), dRoll;
 	string name;
-	message += this->getName() + " rolled ";
-	message += aRoll + " for attack!\n";
+	
+	dice += this->getName() + " rolled ";
+	dice += aRoll + " for attack!\n";
+	DiceController::getInstance()->log(dice); 
+	message += dice;
 	//cout << this->getName() << " rolled " << aRoll << " for attack!" << endl;
-
+	
 	if (aRoll < c->getArmorClass())
 	{
 		message += "Attack missed!\n";
@@ -140,6 +144,7 @@ void Monster::attack(Fighter* c)
 		dRoll = damageRoll();
 		c->receiveDamage(dRoll);
 	}
+	CharacterController::getInstance()->log(message);
 }
 
 /**Function that reduces hitpoints based on damage taken,
@@ -148,7 +153,11 @@ void Monster::receiveDamage(int damage)
 {
 	underAttack();
 	string message;
+	string dice;
 	hitPoints -= damage;
+	dice += this->getName() + " rolled ";
+	dice += damage + " for damage!\n";
+	DiceController::getInstance()->log(dice);
 	message = damage + " damage was inflicted on " + name + "!\n";
 	cout << damage << " damage was inflicted on " << name << "!" << endl;
 	if (hitPoints <= 0)
@@ -158,6 +167,7 @@ void Monster::receiveDamage(int damage)
 		return;
 	}
 	currentState();
+	CharacterController::getInstance()->log(message);
 }
 
 //!Function to display monster death, calls parent displayDeath()
