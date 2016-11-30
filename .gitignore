@@ -302,3 +302,7 @@ __pycache__/
 *.filters
 DandD/Fighter.cpp
 DandD/assets/Campaigns/Campaigns/Please.txt
+DandD/assets/Logs/CharacterController.txt
+DandD/assets/Logs/DiceController.txt
+DandD/assets/Logs/GameController.txt
+DandD/assets/Logs/MapController.txt

@@ -1,4 +1,1 @@
-Wolf has moved from (X: 12 Y: 7) to (X: 6 Y: 12).
-Wolf has moved from (X: 10 Y: 7) to (X: 6 Y: 10).
-Wolf has moved from (X: 8 Y: 7) to (X: 6 Y: 8).
-Wolf has moved from (X: 6 Y: 7) to (X: 6 Y: 6).
+Sprite has moved from (X: 12 Y: 7) to (X: 5 Y: 12).

@@ -312,6 +312,13 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 		}
 	}
 
+	// log the container creation
+	GameController::getInstance()->log("Container created with " + to_string(container->getNumContents()) + " items.");
+	std::vector<Item*> tempAllContents = container->getContents();
+	for (int i = 0; i < tempAllContents.size(); i++) {
+		GameController::getInstance()->log("\tItem " + to_string(i + 1) + ": " + tempAllContents.at(i)->getName());
+	}
+
 	// return the container full of items
 	return container;
 }
