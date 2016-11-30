@@ -94,7 +94,7 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 				// Order: player, monster, container, environment
 				bool alreadyDeleted = false;
 				//check to see if player is being deleted
-				if (this->level->getMap()->getPlayer()->MovableEntity::getPosition().x == target.x / this->level->getLevelWindow()->getGridX_Length() && this->level->getMap()->getPlayer()->MovableEntity::getPosition().y == target.y / this->level->getLevelWindow()->getGridY_Length()) {
+				if (playercounter >= 1 && this->level->getMap()->getPlayer()->MovableEntity::getPosition().x == target.x / this->level->getLevelWindow()->getGridX_Length() && this->level->getMap()->getPlayer()->MovableEntity::getPosition().y == target.y / this->level->getLevelWindow()->getGridY_Length()) {
 					playercounter--;
 					std::cout << "Player counter after deletion: " << playercounter << std::endl;
 					this->level->getMap()->deletePlayer();
@@ -133,13 +133,20 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 					}
 				}
 				// check if environment
-				else if (!alreadyDeleted) {
+				/*else if (!alreadyDeleted) {
 					templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) = '.';
 					SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
 					SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
-				}
+				}*/
+			
+				// delete the environment underneath too.
+				// TODO: allow deletion of only movable element without deleting the underlying environment element
+				// Tried previously and the delete works, but wasn't able to get map to refresh properly
+				templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) = '.';
+				SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
+				SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
 				// re-render
-				
+				//this->level->renderAndDisplayLevel(); //?????
 				this->level->getLevelWindow()->displayWindow();
 			}
 		}
