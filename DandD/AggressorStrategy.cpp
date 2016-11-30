@@ -36,13 +36,12 @@ bool AggressorStrategy::move(PreBuiltLevel* level, SDL_Rect *currentGrid, GamePl
 	// Determine order of directions to attempt moving in
 	vector<MovementDirection> *dirToTry = &_determinePlayerDirection();
 	_theMap = level->getMapSimplePtrVersion();
-	for (int x = 0; x < level->getMapSimpleVersion().size(); x++)
-	{
-		std::cout << level->getMapSimpleVersion()[x];
-		std::cout << std::endl;
-	}
 	bool iMoved = false;
-
+	// If the Monster is directly next to the Character, it will immediately attack instead of trying to moved
+	if (abs(_playerCharPos - _charPos) <= 1 && abs(_playerVectPos - _vectPos) <= 1){
+		dynamic_cast<Monster*>(engine->getCurrentMovingMonster())->attack(dynamic_cast<Fighter*>(_sub));
+		return true;
+	}
 	// Will iterate through each direction, trying to move either SPEED or fewer squares in that direction. If cannot, will move onto the next direction
 	for (int i = 0; i < dirToTry->size(); ++i){
 		MovementDirection direction = dirToTry->at(i);
