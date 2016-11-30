@@ -34,6 +34,9 @@ void MapObserver::Update(){
 	case Dead:
 		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->getContainerComponent()->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
 		break;
+	case EmptyContainer:
+		SDL_RenderCopy(this->_theMap->getLevelWindow()->getRenderer(), this->_theMap->_environmentForObserver->getImageDetails()->getImageTexture(), nullptr, &this->dest2);
+		break;
 	}
 
 	//now update the window

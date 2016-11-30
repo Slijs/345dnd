@@ -352,12 +352,13 @@ void GamePlayEngine::interactEnvironment()
 					this->_level->getLevelWindow()->hideWindow();
 					system("cls");
 					this->_level->getPlayer()->interactWithContainer(this->_containers[x]->container);
+					this->_level->getLevelWindow()->unHideWindow();
 					if (this->_containers[x]->container->getNumContents() == 0) {
 						this->_level->removeContainerOnMap(x);
 						this->_containers = this->_level->getContainersOnMap();
 					}
 					system("cls");
-					this->_level->getLevelWindow()->unHideWindow();
+					
 					return;
 				}
 			}

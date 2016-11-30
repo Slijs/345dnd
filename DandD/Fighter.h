@@ -43,7 +43,7 @@ private:
 	void detRaceTraits(Race race);
 	bool _isNullItem(Item* theItem);
 
-	Container* backpack;
+	//Container* backpack;
 
 public:
 	Fighter(int, Race, string);
