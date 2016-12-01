@@ -35,6 +35,7 @@ public:
 	void addButton(std::string text, unsigned int r, unsigned int g, unsigned int b, int xpos, int ypos);
 	void addTextLabel(std::string text, unsigned int r, unsigned int g, unsigned int b, SDL_Rect destination);
 	void addTextLabel(std::string text, unsigned int r, unsigned int g, unsigned int b, int xpos, int ypos);
+	void clearTextLabels();
 	void setTitleFontSize(int size);
 	void setButtonFontSize(int size);
 	void changeButtonColor(int index, int r, int g, int b);

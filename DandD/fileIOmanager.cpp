@@ -73,6 +73,40 @@ void SingletonInputOutputManager::clearFile(std::string path)
 	erase.clear();
 }
 
+std::vector<std::string> SingletonInputOutputManager::getlast10(std::string path)
+{
+	std::vector<std::string> list = readFileLineByLine(path);
+	std::vector<std::string> newList;
+	int index,num;
+
+	if (list.size() > 10)
+	{
+		index = list.size() - 10;
+		num = 10;
+	}
+	else
+	{
+		index = 0;
+		num = list.size();
+	}
+	
+	for (int i = 0; i < num; i++)
+	{
+		newList.push_back(list[index]);
+		index++;
+	}
+	/*int counter = 0;
+	for (int x = 0; x < list.size(); x++)
+	{
+		newList.push_back(list[list.size()-1-x]);
+		counter++;
+		if (counter == 10)
+			break;
+	}*/
+
+	return newList;
+}
+
 //!Function to append to a file on a specified path
 void SingletonInputOutputManager::appendToFile(std::string path, std::string message)
 {

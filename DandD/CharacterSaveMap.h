@@ -12,6 +12,7 @@
 #include <afx.h>
 #include <iostream>
 #include "CharSaveManager.h"
+#include <vector>
 using namespace std;
 
 /**
@@ -35,6 +36,7 @@ public:
 	CString remove(const CString &charName); // Removes the entry associated w/ charName
 	void printNames(); // Will print the names of all Characters
 	void Serialize(CArchive &ar); // Saves to file
+	vector<string>* getNames();
 	~CharacterSaveMap() {}; // Default destructor
 private:
 	static const int _MAX_SIZE = 20; //! Max # of entries in the map = 20

@@ -6,7 +6,10 @@
 #ifndef CHARSAVEMANAGER_H
 #define CHARSAVEMANAGER_H
 #include "CharacterSaveMap.h" // Provides data structure for keeping track of save paths
+#include "SaveOverConfirmationMenu.h"
+#include "menuengine.h"
 #include "Fighter.h"
+#include <SDL.h>
 #include <string>
 #include <iostream>
 
@@ -18,8 +21,10 @@
 */
 class CharacterSaveManager {
 public:
-	static bool saveCharacter(Fighter *theChar);
+	static vector<string>* getNames();
+	static bool saveCharacter(Fighter *theChar, SDL_Event event_);
 	static Fighter* loadCharacter();
+	static Fighter* loadCharacter(string name);
 	static void removeCharacter();
 	static void removeCharacter(string name);
 	static string cstrTostr(CString &cstr);

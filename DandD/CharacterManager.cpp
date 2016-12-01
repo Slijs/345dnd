@@ -33,7 +33,7 @@ void CharacterManager::createOrEditCharacter(){
 		cin >> conf;
 		switch (conf){
 		case '1': // User wants to create a new character
-			_createNewCharacter();
+			createNewCharacter();
 			break;
 		case '2': // User wants to edit a saved character
 			_editCharacter();
@@ -54,7 +54,7 @@ void CharacterManager::createOrEditCharacter(){
 /**
 * Will be used to create a new Character and save it to file.
 */
-void CharacterManager::_createNewCharacter(){
+void CharacterManager::createNewCharacter(){
 	string name = "";	// Will be used to get Character's name
 	string input = "";	// Will store input
 	int selectedRace = 0; // Will be used to get Character's race
@@ -139,7 +139,7 @@ void CharacterManager::_createNewCharacter(){
 		myChar->fillBackpack(ItemCreator::loadItemsFromFile());
 
 	// The Character will now be saved to file.
-	CharacterSaveManager::saveCharacter(myChar);
+	CharacterSaveManager::saveCharacter(myChar, *(new SDL_Event()));
 	myChar->displayOnlyStats();
 	delete myChar;
 	myChar = NULL;
@@ -174,7 +174,7 @@ void CharacterManager::_editCharacter(){
 		cin >> conf;
 		switch (conf){
 		case '1': // User wants to edit Character name
-			_editName(theChar);
+			editName(theChar, *(new SDL_Event()));
 			break;
 		case '2': // User wants to edit a Character race
 			_editRace(theChar);
@@ -237,7 +237,7 @@ void CharacterManager::_editRace(Fighter* theFighter){
 	conf = 'x';
 	theFighter->setRace(Race(selectedRace));
 	cout << "Changes will now be saved." << endl;
-	CharacterSaveManager::saveCharacter(theFighter);
+	CharacterSaveManager::saveCharacter(theFighter, *(new SDL_Event()));
 	system("PAUSE");
 	return;
 }
@@ -276,9 +276,11 @@ void CharacterManager::_displayEditMenu(){
 /**
 * Allows the user to edit the name of a Character
 *@param theFighter Fighter* to the fighter which will be edited
+*@return destination to go to in the menu
 */
-void CharacterManager::_editName(Fighter *theFighter){
+int CharacterManager::editName(Fighter *theFighter, SDL_Event _event){
 	// Displays to the user the current name of the Character
+	system("CLS");
 	string prevName = theFighter->getName();
 	cout << prevName << " is the current name." << endl;
 	string name = "";
@@ -299,15 +301,15 @@ void CharacterManager::_editName(Fighter *theFighter){
 	theFighter->setName(name);
 
 	// Saves the Fighter using new name
-	if (CharacterSaveManager::saveCharacter(theFighter)) {
+	if (CharacterSaveManager::saveCharacter(theFighter, _event)) {
 		cout << theFighter->getName() << " has been updated!" << endl;
 	// Deletes the entry corresponding to the old name
 		CharacterSaveManager::removeCharacter(prevName);
-		return;
+		return _SuccessNameChange_;
 	} else { // Means that saving returned false and no updates were saved
-		cout << "Could not updated " << theFighter->getName() << " properly. Reverting to " << prevName<< "." << endl;
+		cout << "Could not update " << theFighter->getName() << " properly. Reverting to " << prevName<< "." << endl;
 		theFighter->setName(prevName);
-		return;
+		return _CreateEditPlayer_;
 	}
 }
 

@@ -255,17 +255,25 @@ void Fighter::attack(Monster* c)
 	
 	if (aRoll < c->getArmorClass())
 	{
-		message += "Attack missed!\n";
+		OneTimeEffect* attackmiss = new OneTimeEffect("assets/Sound/CharacterActions/attackmiss.wav");
+		attackmiss->play();
+		message += "Attack missed!";
 		CharacterController::getInstance()->log(message);
 		//cout << "Attack missed!" << "\n" << endl;
+		delete attackmiss;
+		attackmiss = nullptr;
 	}
 	else
 	{
-		message += "Attack was successful!\n";
+		OneTimeEffect* attacksuccess = new OneTimeEffect("assets/Sound/CharacterActions/attacksuccess.wav");
+		attacksuccess->play();
+		message += "Attack was successful!";
 		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
 		CharacterController::getInstance()->log(message);
 		c->receiveDamage(dRoll);
+		delete attacksuccess;
+		attacksuccess = nullptr;
 	}
 	
 }
@@ -275,10 +283,8 @@ if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character 
 void Fighter::receiveDamage(int damage)
 {
 	string message;
-	string dice;
 	hitPoints -= damage;
-	dice += to_string(damage) + " damage was inflicted on " + name + "!\n";
-	message = to_string(damage) + " damage was inflicted on " + name + "!\n";
+	message = to_string(damage) + " damage was inflicted on " + name + "!";
 	//cout << damage << " damage was inflicted on " << name << "!" << endl;
 	CharacterController::getInstance()->log(message);
 	cout << endl;

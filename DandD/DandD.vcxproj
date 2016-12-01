@@ -70,12 +70,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddUserMadeItemsConfMenu.cpp" />
     <ClCompile Include="AggressorStrategy.cpp" />
     <ClCompile Include="Armor.cpp" />
     <ClCompile Include="Belt.cpp" />
     <ClCompile Include="Boots.cpp" />
     <ClCompile Include="campaignselect.cpp" />
     <ClCompile Include="CharacterController.cpp" />
+    <ClCompile Include="CharacterCreateEditMenu.cpp" />
     <ClCompile Include="CharacterManager.cpp" />
     <ClCompile Include="CharacterObserver.cpp" />
     <ClCompile Include="Characters.cpp" />
@@ -85,8 +87,11 @@
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="ContainerGenerator.cpp" />
     <ClCompile Include="Corpse.cpp" />
+    <ClCompile Include="DeleteCharacterMenu.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="DiceController.cpp" />
+    <ClCompile Include="EditCharacterMenu.cpp" />
+    <ClCompile Include="EditRaceMenu.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FighterOnMapView.cpp" />
@@ -103,6 +108,7 @@
     <ClCompile Include="ItemFactory.cpp" />
     <ClCompile Include="ItemMenus.cpp" />
     <ClCompile Include="LevelObserver.cpp" />
+    <ClCompile Include="LoadCharacterMenu.cpp" />
     <ClCompile Include="mainmenu.cpp" />
     <ClCompile Include="campaignmanager.cpp" />
     <ClCompile Include="campaignMAPmanager.cpp" />
@@ -129,9 +135,12 @@
     <ClCompile Include="red_green_blue.cpp" />
     <ClCompile Include="Ring.cpp" />
     <ClCompile Include="routing.cpp" />
+    <ClCompile Include="SaveOverConfirmationMenu.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="SuccessOnNameChangeMenu.cpp" />
+    <ClCompile Include="SuccessOnRaceChangeMenu.cpp" />
     <ClCompile Include="TestItem.cpp" />
     <ClCompile Include="userinputandstringmanager.cpp" />
     <ClCompile Include="textbasedwindow.cpp" />
@@ -143,12 +152,14 @@
     <ClCompile Include="windows.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddUserMadeItemsConfMenu.h" />
     <ClInclude Include="AggressorStrategy.h" />
     <ClInclude Include="Armor.h" />
     <ClInclude Include="Belt.h" />
     <ClInclude Include="Boots.h" />
     <ClInclude Include="campaignselect.h" />
     <ClInclude Include="CharacterController.h" />
+    <ClInclude Include="CharacterCreateEditMenu.h" />
     <ClInclude Include="CharacterManager.h" />
     <ClInclude Include="CharacterObserver.h" />
     <ClInclude Include="Characters.h" />
@@ -159,16 +170,21 @@
     <ClInclude Include="ContainerGenerator.h" />
     <ClInclude Include="containerOnMap.h" />
     <ClInclude Include="Corpse.h" />
+    <ClInclude Include="DeleteCharacterMenu.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="DiceController.h" />
     <ClInclude Include="Dwarf.h" />
+    <ClInclude Include="EditCharacterMenu.h" />
+    <ClInclude Include="EditRaceMenu.h" />
     <ClInclude Include="enemyonmap.h" />
     <ClInclude Include="Enhancement.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Fighter.h" />
     <ClInclude Include="FighterOnMapView.h" />
     <ClInclude Include="FriendlyStrategy.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameLog.h" />
+    <ClInclude Include="GameLogMenu.h" />
     <ClInclude Include="GameLogTest.h" />
     <ClInclude Include="gameplayengine.h" />
     <ClInclude Include="Helmet.h" />
@@ -180,6 +196,7 @@
     <ClInclude Include="ItemFactory.h" />
     <ClInclude Include="ItemMenus.h" />
     <ClInclude Include="LevelObserver.h" />
+    <ClInclude Include="LoadCharacterMenu.h" />
     <ClInclude Include="mainmenu.h" />
     <ClInclude Include="campaignmanager.h" />
     <ClInclude Include="campaignmenus.h" />
@@ -209,9 +226,12 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Ring.h" />
     <ClInclude Include="routing.h" />
+    <ClInclude Include="SaveOverConfirmationMenu.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Subject.h" />
+    <ClInclude Include="SuccessOnNameChangeMenu.h" />
+    <ClInclude Include="SuccessOnRaceChangeMenu.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="userinputandstringmanager.h" />
     <ClInclude Include="textbasedwindow.h" />

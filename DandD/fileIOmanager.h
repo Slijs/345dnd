@@ -29,6 +29,7 @@ public:
 	void writeToFile(std::string path, std::vector<std::string> lines);
 	void appendToFile(std::string path, std::string message);
 	void clearFile(std::string path);
+	std::vector<std::string> getlast10(std::string path);
 	std::vector<std::string> splitString(std::string toBeSplit);
 	std::vector<std::string> loadAllCampaign();
 	std::vector<std::string> loadONECampaign(std::string NAME);

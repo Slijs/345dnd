@@ -40,6 +40,9 @@ private:
 	std::vector<ContainerOnMap*> _containers;
 	std::vector<Monster*> _enemies;
 	Characters* currentMovingMonster;
+	void logRender();
+	SDL_Rect maplogger;
+	SDL_Rect charlogger;
 public:
 	GamePlayEngine();
 	void attachLevel(PreBuiltLevel* level, SDL_Event* event_);

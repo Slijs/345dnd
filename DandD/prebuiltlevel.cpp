@@ -105,6 +105,28 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	this->_exitPlay.y = this->_gameLog.y + this->_inventoryPaneDest.h * 2;
 	this->_level_window->addButton("Exit play", 255, 0, 0, this->_exitPlay);
 
+	//setup the line for game log
+	int x = this->getLevelWindow()->getWindowWidth() / 2;
+	SDL_SetRenderDrawColor(this->getLevelWindow()->getRenderer(), 0, 255, 0, 0);
+	for (int y = this->getLevelWindow()->getGamePlay_Y_Grids()*this->getLevelWindow()->getGridY_Length()+1; y < this->getLevelWindow()->getWindowHeight(); y++)
+	{
+		SDL_RenderDrawPoint(this->getLevelWindow()->getRenderer(), x, y);
+	}
+	//using namespace LoggerColorGame;
+	//now give a text labels
+	SDL_Rect loggers;
+	loggers.w = this->_exitPlay.w;
+	loggers.h = this->_exitPlay.h / 2;
+	loggers.x = ((this->getLevelWindow()->getWindowWidth() / 2)/2) - loggers.w / 2;
+	loggers.y = this->getLevelWindow()->getGamePlay_Y_Grids()*this->getLevelWindow()->getGridY_Length() + 8;
+	this->_loggerYend = loggers.y +loggers.h;
+	this->_level_window->addTextLabel("Map log", 255, 165, 0, loggers);
+
+	loggers.w = loggers.w * 2;
+	loggers.x = ((this->getLevelWindow()->getWindowWidth() / 2)) + ((this->getLevelWindow()->getWindowWidth() / 2) / 2) - loggers.w / 2;
+	//this->_level_window->addTextLabel("Character log", _CHAR_R_, _CHAR_G_, _CHAR_B_, loggers);
+	this->_level_window->addTextLabel("Character log", 0, 255, 0, loggers);
+
 	//setup the menu component
 	this->_level_window->setMenuOnRenderer();
 }

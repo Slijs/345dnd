@@ -117,7 +117,10 @@ void LevelEditor::createLevelForTargetWindow()
 	//divede whatever pixels I have by four, 1 portion for header, 2 portions for placement, and 1 portion for spacing 33%
 	_ypixels = this->_level_window->getWindowHeight() - this->_bottom_Y_start;
 	_yportion = _ypixels/4;
-	_y_init = this->_bottom_Y_start + _yportion + ((_yportion/100.00) * 33);
+	//Test Start
+	//_y_init = this->_bottom_Y_start + _yportion + ((_yportion/100.00) * 33);
+	//Test end
+	_y_init = this->_bottom_Y_start + ((_yportion / 100.00) * 33);
 	_y_height = _yportion;
 	_y_space = ((_yportion/100.00) * 33);
 
@@ -182,11 +185,17 @@ void LevelEditor::renderEnvironmentAtBottom()
 	int totalspacings;
 	int horizontallyplaced;
 	//TEST
-	if((this->_environment_components.size()%2)==0)
+	/*if((this->_environment_components.size()%2)==0)
 		horizontallyplaced = (this->_environment_components.size()/2);
 	else
-		horizontallyplaced = (this->_environment_components.size()/2) + 1;
-
+		horizontallyplaced = (this->_environment_components.size()/2) + 1;*/
+	//END TEST
+	if ((this->_environment_components.size() % 3) == 0)
+		horizontallyplaced = (this->_environment_components.size() / 3);
+	else if ((this->_environment_components.size() % 3) == 2)
+		horizontallyplaced = (this->_environment_components.size() / 3) + 2;
+	else if ((this->_environment_components.size() % 3) == 1)
+		horizontallyplaced = (this->_environment_components.size() / 3) + 1;
 
 
 	double unit_horizontal_spaces = ((horizontallyplaced*2) + 1) / 2.0;
@@ -215,8 +224,10 @@ void LevelEditor::renderEnvironmentAtBottom()
 		//pushback the detination rect
 		this->levelComponentRects.push_back(dest);
 
+		
+		//TEST
 		//render top
-		if(j%2 == 0)
+		/*if(j%2 == 0)
 		{
 			this->_level_window->loadTextureOnRenderer(this->_environment_components[j]->getImageDetails()->getImageTexture(), nullptr, &dest);
 			dest.y = dest.y + _y_space + dest.h;
@@ -224,6 +235,28 @@ void LevelEditor::renderEnvironmentAtBottom()
 		
 		//render bottom
 		else
+		{
+			this->_level_window->loadTextureOnRenderer(this->_environment_components[j]->getImageDetails()->getImageTexture(), nullptr, &dest);
+			dest.y = _y_init;
+			dest.x = dest.x + x_space + dest.w;
+		}*/
+		//TEST END
+
+		//render top
+		if (j % 3 == 0)
+		{
+			this->_level_window->loadTextureOnRenderer(this->_environment_components[j]->getImageDetails()->getImageTexture(), nullptr, &dest);
+			dest.y = dest.y + _y_space + dest.h;
+		}
+
+		else if (j % 3 == 1)
+		{
+			this->_level_window->loadTextureOnRenderer(this->_environment_components[j]->getImageDetails()->getImageTexture(), nullptr, &dest);
+			dest.y = dest.y + _y_space + dest.h;
+		}
+
+		//render bottom
+		else if (j % 3 == 2)
 		{
 			this->_level_window->loadTextureOnRenderer(this->_environment_components[j]->getImageDetails()->getImageTexture(), nullptr, &dest);
 			dest.y = _y_init;
@@ -267,10 +300,10 @@ void LevelEditor::renderEnvironmentAtBottom()
 void LevelEditor::renderItemsAtBottom()
 {
 	//first render the text
-	this->getLevelWindow()->setFontType(9);
-	this->getLevelWindow()->addTextLabel("Container", 255,0,0, this->_itemsTextDestination);
-	this->getLevelWindow()->setTitleFontSize(72);
-	this->getLevelWindow()->setMenuOnRenderer();
+	//this->getLevelWindow()->setFontType(9);
+	//this->getLevelWindow()->addTextLabel("Container", 255,0,0, this->_itemsTextDestination);
+	//this->getLevelWindow()->setTitleFontSize(72);
+	//this->getLevelWindow()->setMenuOnRenderer();
 	this->_level_window->loadTextureOnRenderer(this->_container->getImageDetails()->getImageTexture(), nullptr, &this->_basicContainerAtBottom);
 }
 
@@ -278,10 +311,10 @@ void LevelEditor::renderItemsAtBottom()
 void LevelEditor::renderCharactersAtBottom()
 {
 	//first render the text
-	this->getLevelWindow()->setFontType(9);
-	this->getLevelWindow()->addTextLabel("Characters", 255,0,0, this->_characterTextDestination);
-	this->getLevelWindow()->setTitleFontSize(72);
-	this->getLevelWindow()->setMenuOnRenderer();
+	//this->getLevelWindow()->setFontType(9);
+	//this->getLevelWindow()->addTextLabel("Characters", 255,0,0, this->_characterTextDestination);
+	//this->getLevelWindow()->setTitleFontSize(72);
+	//this->getLevelWindow()->setMenuOnRenderer();
 
 	//render player
 	this->_level_window->loadTextureOnRenderer(this->_player->getImageDetails()->getImageTexture(), nullptr, &this->_playerDestinationAtBottom);

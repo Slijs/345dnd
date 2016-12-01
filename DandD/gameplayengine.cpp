@@ -37,6 +37,15 @@ void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 	this->_enemies = this->_level->getEnemiesOnMap();
 	this->_observer = new MapObserver(level);
 
+	this->maplogger.y = level->_loggerYend + 5;
+	this->maplogger.x = 5;
+	this->maplogger.h = level->getLevelWindow()->getWindowHeight() - level->_loggerYend;
+	this->maplogger.w = level->getLevelWindow()->getWindowWidth() / 2 - 5;
+	this->charlogger.y = level->_loggerYend + 5;
+	this->charlogger.x = (level->getLevelWindow()->getWindowWidth() / 2) + 5;
+	this->charlogger.h = level->getLevelWindow()->getWindowHeight() - level->_loggerYend;
+	this->charlogger.w = level->getLevelWindow()->getWindowWidth() / 2 - 5;
+
 	std::vector<std::string> temp = this->_level->getMapSimpleVersion();
 	//setup the exit coordinates
 	for (int stringC = 0; stringC < temp.size(); stringC++)
@@ -104,9 +113,10 @@ int GamePlayEngine::runEngine()
 		Characters* temp = NULL;
 		_level->setAllInitiative();
 		
-		GameController::getInstance()->log("\nStarting new round.");
+		GameController::getInstance()->log("Starting new round.");
 		// Next, we will iterate through all Characters in the initiative queue until it is empty
 		while (!_level->isInitiativeQueueEmpty()){
+			logRender();
 			temp = _level->_initiativeCharacterQueue.top();
 			_level->_initiativeCharacterQueue.pop();
 
@@ -118,7 +128,8 @@ int GamePlayEngine::runEngine()
 				GameController::getInstance()->log(message);
 
 				//CharacterController Logging
-				message = "\n" + dynamic_cast<Fighter*>(temp)->getName() + "'s turn: ";
+				//message = "\n" + dynamic_cast<Fighter*>(temp)->getName() + "'s turn: ";
+				message = dynamic_cast<Fighter*>(temp)->getName() + "'s turn: ";
 				CharacterController::getInstance()->log(message);
 
 				// Now run the turn
@@ -144,7 +155,8 @@ int GamePlayEngine::runEngine()
 				GameController::getInstance()->log(message);
 
 				//CharacterController Logging
-				message = "\n" + dynamic_cast<Monster*>(temp)->getName() + "'s turn:";
+				//message = "\n" + dynamic_cast<Monster*>(temp)->getName() + "'s turn:";
+				message = dynamic_cast<Monster*>(temp)->getName() + "'s turn:";
 				CharacterController::getInstance()->log(message);
 
 				temp->move(_level, &_currentGrid, this);
@@ -321,7 +333,7 @@ int GamePlayEngine::runUserTurn(){
 					{
 						this->_buttonSelect = false;
 						this->_level->getLevelWindow()->hideWindow();
-						CharacterSaveManager::saveCharacter(this->_level->getPlayer());
+						CharacterSaveManager::saveCharacter(this->_level->getPlayer(), *this->_event);
 						this->_level->getLevelWindow()->unHideWindow();
 					}
 
@@ -349,6 +361,68 @@ int GamePlayEngine::runUserTurn(){
 		this->_level->getLevelWindow()->changeButtonColor(this->_currentButtonIndex, 255, 0, 0);
 	return 2;
 }
+
+/*!
+*renders map and character log at bottom
+*/
+void GamePlayEngine::logRender()
+{
+	//render map log on the left
+	int y = this->_level->_loggerYend + 5;
+	int x = 5;
+
+	SDL_Rect temp;
+	temp.y = y;
+	temp.x = x;
+	temp.h = (this->_level->getLevelWindow()->getWindowHeight() - y) / 10;
+	temp.w = this->_level->getLevelWindow()->getWindowWidth() / 2 - 5;
+
+	SDL_Rect temp2;
+	temp2.y = y;
+	temp2.x = temp.x + this->_level->getLevelWindow()->getWindowWidth() / 2;
+	temp2.h = ((this->_level->getLevelWindow()->getWindowHeight() - y) / 10);
+	temp2.w = (this->_level->getLevelWindow()->getWindowWidth() / 2 - 5) / 2;
+
+
+	SDL_SetRenderDrawColor(this->_level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
+	SDL_RenderFillRect(this->_level->getLevelWindow()->getRenderer(), &this->maplogger);
+	SDL_RenderFillRect(this->_level->getLevelWindow()->getRenderer(), &this->charlogger);
+	//for clearing the logger part
+	this->_level->getLevelWindow()->clearTextLabels();
+
+	std::vector<std::string> local = SingletonInputOutputManager::getInstance()->getlast10(MapController::getInstance()->getPath());
+	std::vector<std::string> local2 = SingletonInputOutputManager::getInstance()->getlast10(CharacterController::getInstance()->getPath());
+	this->_level->getLevelWindow()->clearTextLabels();
+	
+	for (int h = 0; h < 10; h++)
+	{
+		if (local.size() > h)
+		{
+			if (local[h].length() > 0)
+			{
+				temp.w = Menus::textWidthCalculator2(local[h], "hello world", (this->_level->getLevelWindow()->getGridX_Length()*1.1));
+				temp.x = maplogger.x + maplogger.w / 2 - temp.w / 2;
+				this->_level->getLevelWindow()->addTextLabel(local[h], 255, 165, 0, temp);
+				temp.y = temp.h + temp.y;
+			}
+		}
+
+		//render the character part
+		if (local2.size() > h)
+		{
+			if (local2[h].length() > 0)
+			{
+				temp2.w = Menus::textWidthCalculator2(local2[h], "hello world", (this->_level->getLevelWindow()->getGridX_Length()*1.1));
+				temp2.x = charlogger.x + charlogger.w / 2 - temp2.w / 2;
+				this->_level->getLevelWindow()->addTextLabel(local2[h], 0, 255, 0, temp2);
+				temp2.y = temp2.h + temp2.y;
+			}
+		}
+	}
+	this->_level->getLevelWindow()->setMenuOnRenderer();
+
+}
+
 
 /*!
 *function used when player wants to interact with container on environment

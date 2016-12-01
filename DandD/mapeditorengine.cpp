@@ -8,7 +8,7 @@ MapEditorEngine::MapEditorEngine()
 	{
 		templevel.push_back("");
 		for(int y=0; y<10; y++)
-			templevel[x] = templevel[x] + ".";
+			templevel[x] = templevel[x] + SimplifiedMapSymbols::_FreePath_;
 	}
 }
 
@@ -63,7 +63,7 @@ MapEditorEngine::MapEditorEngine(LevelEditor* level_)
 		{
 			templevel.push_back("");
 			for(int x=0; x<this->level->getLevelWindow()->getGamePlay_X_Grids(); x++)
-				templevel[y] = templevel[y] + "."; 
+				templevel[y] = templevel[y] + SimplifiedMapSymbols::_FreePath_; 
 		}
 	}
 }
@@ -91,7 +91,7 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 		if ((_event->type == SDL_MOUSEBUTTONUP) && (_event->button.button == SDL_BUTTON_RIGHT) && (canDelete == true))
 		{
 			target = getRectGridOfMouse(this->level->getLevelWindow());
-			if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) != '.')
+			if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) != SimplifiedMapSymbols::_FreePath_)
 			{
 				//check to see if exit door is being deleted
 				for (int x = 0; x<envcomponents.size(); x++)
@@ -109,7 +109,7 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 				}
 
 				std::cout << "Delete executed: Component at the place char is: " << templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length()));
-				templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) = '.';
+				templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) = SimplifiedMapSymbols::_FreePath_;
 				//std::cout << "Delete executed: Component at the place char is: " << templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length()));
 				//system("pause");
 				SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
@@ -124,7 +124,7 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 			if (checkIfMouseOnARectangle(&target) == false)
 			{
 				//moved away from target render the target rect back to old state
-				if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == '.')
+				if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == SimplifiedMapSymbols::_FreePath_)
 				{
 					SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
 					SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
@@ -143,7 +143,7 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 			if (target.x >= 0)
 			{
 				//alphablend only if the grid does not have an exsting texture
-				if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == '.')
+				if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == SimplifiedMapSymbols::_FreePath_)
 				{
 					ontargetfirsttime = true;
 					SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 255, 0, 75);
@@ -165,7 +165,7 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 		{
 			target = getRectGridOfMouse(this->level->getLevelWindow());
 			//only if a target is not alreaady rendered there
-			if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == '.')
+			if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == SimplifiedMapSymbols::_FreePath_)
 			{
 				if ((targetisplayer == true) && (playercounter == 0))
 				{
@@ -173,7 +173,7 @@ void MapEditorEngine::onGameplayGrids(SDL_Event* _event)
 					std::cout << "Targert player: " << targetisplayer << std::endl;
 					std::cout << "Player counter: " << playercounter << std::endl;
 					SDL_RenderCopy(this->level->getLevelWindow()->getRenderer(), targetTexture, nullptr, &target);
-					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), player->getComponentChar());
+					fillCell(target.x / this->level->getLevelWindow()->getGridX_Length(), target.y / this->level->getLevelWindow()->getGridY_Length(), SimplifiedMapSymbols::_Player_);
 					this->level->getLevelWindow()->displayWindow();
 				}
 				//else if ((envcomponents[targetIndex]->getComponentName() == "exit") && (exitdoorcounter == 0) && (targetisplayer == false))
@@ -257,12 +257,14 @@ void MapEditorEngine::setTargetisContainer(bool c)
 //!components can be selected
 void MapEditorEngine::onEnvironmentGrid(SDL_Event* _event)
 {
+	//if (targetselected == true)
+		//return;
 	//first correctly render back the last gameplay grid the mouse cursor was on
 	if (wasAtGamePlayGrids == true)
 	{
 		wasAtGamePlayGrids = false;
 		ontargetfirsttime = false;
-		if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == '.')
+		if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == SimplifiedMapSymbols::_FreePath_)
 		{
 			SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
 			SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
@@ -322,7 +324,7 @@ void MapEditorEngine::onCharacterGrid(SDL_Event* _event)
 	{
 		wasAtGamePlayGrids = false;
 		ontargetfirsttime = false;
-		if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == '.')
+		if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == SimplifiedMapSymbols::_FreePath_)
 		{
 			SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
 			SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
@@ -431,7 +433,7 @@ void MapEditorEngine::onContainerGrid(SDL_Event* _event)
 	{
 		wasAtGamePlayGrids = false;
 		ontargetfirsttime = false;
-		if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == '.')
+		if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == SimplifiedMapSymbols::_FreePath_)
 		{
 			SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
 			SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
@@ -501,7 +503,7 @@ SDL_Rect MapEditorEngine::checkMousePosition(std::vector<SDL_Rect> components, i
 //!checks if a cell is occupied or not
 bool MapEditorEngine::isOccupied(int x, int y)
 {
-	if (templevel[y].at(x) == '.')
+	if (templevel[y].at(x) == SimplifiedMapSymbols::_FreePath_)
 		return false;
 	return true;
 }
@@ -545,13 +547,21 @@ bool MapEditorEngine::validateMap()
 
 	//first check if 1 player and 1 exit
 	if ((this->exitdoorcounter == 0) || (this->playercounter == 0))
+	{
+		std::cout << "something wrong with player and exit counter";
+		//system("pause");
 		return false;
+	}
 
 	//first check if all grids are filled
 	for (int x = 0; x<this->templevel.size(); x++)
 		for (int y = 0; y<this->templevel[x].length(); y++)
-			if (this->templevel[x].at(y) == '.')
+			if (this->templevel[x].at(y) == SimplifiedMapSymbols::_FreePath_)
+			{
+				std::cout << "did not fill all cell";
+				//system("pause");
 				return false;
+			}
 
 	//now convert the temp level map into a simplistic map
 	this->simplemap = this->templevel;
@@ -562,23 +572,28 @@ bool MapEditorEngine::validateMap()
 		{
 			tempchar = templevel[x].at(y);
 			//check if the character is player
-			if (tempchar == player->getComponentChar())
+			if (tempchar == SimplifiedMapSymbols::_Player_)
 			{
-				simplemap[x].at(y) = player->getComponentChar();
+				simplemap[x].at(y) = SimplifiedMapSymbols::_Player_;
 			}
 
 			//check if it is enemy
-			if (tempchar == enemy->getComponentChar())
+			else if (tempchar == enemy->getComponentChar())
 			{
 				simplemap[x].at(y) = _Obstruction_;
 			}
 
 			//check if it is friend
-			if (tempchar == friends->getComponentChar())
+			else if (tempchar == friends->getComponentChar())
 			{
 				simplemap[x].at(y) = _Obstruction_;
 			}
 
+			//check if it is container
+			else if (tempchar == SimplifiedMapSymbols::_BasicContainer_)
+			{
+				simplemap[x].at(y) = _Obstruction_;
+			}
 			//tempcharacter correspondes to envronment
 			else
 			{
@@ -623,7 +638,7 @@ int MapEditorEngine::onRightHandMenuGrid(SDL_Event* _event)
 	{
 		wasAtGamePlayGrids = false;
 		ontargetfirsttime = false;
-		if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == '.')
+		if (templevel[target.y / this->level->getLevelWindow()->getGridY_Length()].at((target.x / this->level->getLevelWindow()->getGridX_Length())) == SimplifiedMapSymbols::_FreePath_)
 		{
 			SDL_SetRenderDrawColor(this->level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
 			SDL_RenderFillRect(this->level->getLevelWindow()->getRenderer(), &target);
