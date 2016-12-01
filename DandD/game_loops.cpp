@@ -370,7 +370,7 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 			//then when the mouse is taken back to gameplay grid nothing renders
 			if(m->getRenderingOnGameplayGrids() == true && (_event.type==SDL_MOUSEBUTTONUP))
 				m->setRenderingOnGameplayGrids(false);
-
+			
 			//quit if user presses red on top right
 			if(_event.type == SDL_QUIT)
 			{
@@ -572,11 +572,12 @@ int GameLoops::createEditItems()
 //launches cerate edit player for game
 int GameLoops::createEditPlayer()
 {
+	GameController::getInstance()->log("Character Management Menu loaded.");
 	CharacterCreateEditMenu* menu = new CharacterCreateEditMenu("CREATE / EDIT CHARACTERS");
 	menu->setupMenu();
 	menu->displayMenu();
 	bool returnToMainMenu = false;
-	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
 	int destination;
 
 	// Start loop to prevent prematurely going back to main menu
@@ -612,6 +613,7 @@ int GameLoops::createEditPlayer()
 }
 
 int GameLoops::createNewPlayer(){
+	GameController::getInstance()->log("Character Creation sequence started.");
 	// First, we will have to go to console to get the name of the new Character
 	char conf = 'X'; // Will be used to confirm console input from the user
 	string name = ""; // Will be used to get the Character's name
@@ -677,6 +679,7 @@ int GameLoops::createNewPlayer(){
 }
 
 int GameLoops::editExistingPlayer(){
+	GameController::getInstance()->log("Character Editing sequence started.");
 	Fighter* thePlayer = loadPlayer();
 
 	// If we didn't get a player, then we MUST return
@@ -689,7 +692,7 @@ int GameLoops::editExistingPlayer(){
 	menu->displayMenu();
 
 	// Create the MenuEngine to gather input
-	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
 	int destination = engine->runEngine();
 	destination = menu->destinationMap(destination);
 	
@@ -722,6 +725,7 @@ int GameLoops::editExistingPlayer(){
 
 //! Launches menu to edit Race of a preloaded Fighter
 int GameLoops::editPlayerRace(Fighter* thePlayer){
+	GameController::getInstance()->log("Race Editing sequence started.");
 	// Setup menu to edit race
 	EditRaceMenu* menu = new EditRaceMenu("SELECT RACE");
 	menu->setupMenu();
@@ -769,6 +773,7 @@ bool GameLoops::addUserMadeItems(){
 //! Gets back the Race which will be used for a new Fighter
 int GameLoops::choosePlayerRace(){
 	// Setup menu to edit race
+	GameController::getInstance()->log("Race Selection sequence loaded.");
 	EditRaceMenu* menu = new EditRaceMenu("SELECT RACE");
 	menu->setupMenu();
 	menu->displayMenu();
@@ -790,6 +795,7 @@ int GameLoops::choosePlayerRace(){
 }
 
 int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
+	GameController::getInstance()->log("Race change - success!");
 	SuccessOnRaceChangeMenu* menu = new SuccessOnRaceChangeMenu("SUCCESS", thePlayer);
 	menu->setupMenu();
 	menu->displayMenu();
@@ -808,6 +814,7 @@ int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
 }
 
 int GameLoops::displaySuccessfulNameChange(Fighter* thePlayer){
+	GameController::getInstance()->log("Name change - success!");
 	SuccessOnNameChangeMenu* menu = new SuccessOnNameChangeMenu("SUCCESS", thePlayer);
 	menu->setupMenu();
 	menu->displayMenu();
@@ -826,25 +833,31 @@ int GameLoops::displaySuccessfulNameChange(Fighter* thePlayer){
 }
 
 Fighter* GameLoops::loadPlayer(){
+	GameController::getInstance()->log("Initiating character load sequence");
 	Fighter* temp = nullptr;
 	LoadCharacterMenu* menu = new LoadCharacterMenu("LOAD CHARACTER");
 	menu->setupMenu();
 	menu->displayMenu();
-
+	bool returnFighter = false;
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	while (!returnFighter){
+		// Get the destination from running the engine
+		int destination = engine->runEngine();
 
-	// Get the destination from running the engine
-	int destination = engine->runEngine();
+		// Get name of Character based on the destination
+		string tempName = menu->getNameOfCharacterFromIndex(destination);
 
-	// Get name of Character based on the destination
-	string tempName = menu->getNameOfCharacterFromIndex(destination);
+		destination = menu->destinationMap(destination);
 
-	destination = menu->destinationMap(destination);
-
-	// If getting from destination map returns 1, it means the user selected a valid name
-	// This means that we can load the Character
-	if (destination == 1){
-		temp = CharacterSaveManager::loadCharacter(tempName);
+		// If getting from destination map returns 1, it means the user selected a valid name
+		// This means that we can load the Character
+		if (destination == 1){
+			temp = CharacterSaveManager::loadCharacter(tempName);
+			GameController::getInstance()->log("Character load successful.");
+			returnFighter = true;
+		}
+		else if (destination == 0)
+			returnFighter = true; // Dummy value just to break the loop
 	}
 
 	menu->hideMenu();
@@ -857,7 +870,7 @@ Fighter* GameLoops::loadPlayer(){
 
 //! Launches menu for deleting saved Characters
 int GameLoops::deleteCharacter(){
-
+	GameController::getInstance()->log("Initiating Character Deletion Sequence.");
 	// Setup the Delete Menu
 	DeleteCharacterMenu* menu = new DeleteCharacterMenu("DELETE EXISTING CHARACTER");
 	menu->setupMenu();

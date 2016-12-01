@@ -71,8 +71,8 @@ void LoadCharacterMenu::setupMenu(){
 	// Remove offset
 	menucomponent.x -= (0.5) * menucomponent.x;
 	menucomponent.y = menucomponent.y + (menucomponent.h);
-	menucomponent.w = textWidthCalculator("Back to Main Menu", buttonbase, totalwidth);
-	this->_menuWindow->addButton("Back to Main Menu", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
+	menucomponent.w = textWidthCalculator("Go Back", buttonbase, totalwidth);
+	this->_menuWindow->addButton("Go Back", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 	this->_menuWindow->setMenuOnRenderer();
 	this->_menuWindow->displayWindow();
@@ -85,8 +85,8 @@ int LoadCharacterMenu::destinationMap(int index){
 		return 1;
 	// Else, if index is max of names, then return Character Management index
 	else if (index == this->_characterNames->size())
-		return _CreateEditPlayer_;
-	else return _MainMenu_;
+		return 0;
+	else return 0;
 }
 
 //! Returns the Name of the Character the user wants to delete
