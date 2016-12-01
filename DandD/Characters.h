@@ -76,6 +76,7 @@ attackRoll = d20 + attackBonus ,and damageRoll = weaponDice + damageBonus.
 */
 class Characters : public Subject, public CObject, public GameComponent, public LevelObserver
 {
+	friend class TestMonsterStrategies;
 protected:
 	DECLARE_SERIAL(Characters);
 	Dice _die;
@@ -92,8 +93,6 @@ protected:
 	MovementStrategy* _strategy; //! Strategy the Character uses to move
 	bool isLevelUp;
 
-	
-
 private:
 	int const MAX_NUM_SCORES = 6;
 	//int* diceThrows; only a temporary thing to be used during randomizing with dice
@@ -103,14 +102,14 @@ private:
 	int exp;
 	int level;
 	int proficiencyBonus;
-	 //can update when equip armor, shield, helmet, boots &/or ring
+	//can update when equip armor, shield, helmet, boots &/or ring
 	//or when dex goes up
 
 	Size size;
 
 	bool inBattle;
 	bool isDead;
-	
+
 
 	bool equiped; //start as false changes to true when equip something with bonus for AC
 
@@ -137,7 +136,7 @@ public:
 	Characters(int, int, int, int, int, int, int);
 	Characters(int, int, int, int, int, int, int, int);
 	Characters(int);
-
+	
 	void destroyObject();
 	~Characters();
 
@@ -147,15 +146,18 @@ public:
 	int getArmorClass() { return armorClass; }
 	int getAttackBonus() { return attackBonus; }
 	int getDamageBonus() { return damageBonus; }
+	int getProficiencyBonus() { return proficiencyBonus; };
 	int getScores(int, int);
 	int getInitiative();
+	Container* getBackPack() { return backpack; };
 	bool getInBattle();
 	bool getIsDead() { return isDead; }
 	void setIsDead(bool isDead) { this->isDead = isDead; }
 	bool getIsLevelUp() { return isLevelUp; }
 	void setIsLevelUp(bool isLevelUp) { this->isLevelUp = isLevelUp; }
 	void setInitiative();
-
+	MovementStrategy* getStrategy() { return _strategy; };
+	int roll4D6();
 	//setters for items 
 	void setArmor(Armor* a){ armor = a; }
 	void setWeapon(Weapon* w){ weapon = w; }

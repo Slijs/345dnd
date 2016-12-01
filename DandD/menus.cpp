@@ -43,6 +43,9 @@ Menus::Menus(std::string title)
 
 	//other text at index 4
 	this->_baseMenuColors.push_back(new RGB_C(255,200,0));
+
+	//label text at index 5
+	this->_baseMenuColors.push_back(new RGB_C(150, 150, 150));
 }
 
 //!menu window accessor

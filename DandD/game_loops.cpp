@@ -76,6 +76,10 @@ void GameLoops::loopManager()
 			destination = deleteCharacter();
 			break;
 
+		case _DisplayPlayerStats_:
+			destination = displayPlayerStats(_currentFighterTracker);
+			break;
+
 		case _PlayCampaign_:
 			destination = playCampaignLoop(mappath, campaignname);
 			break;
@@ -207,6 +211,15 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 			{
 				if (gameLevelLoop(mappaths[x]) > 0)
 					break;
+				if (x == mappaths.size() - 1)
+				{
+					c_menu->getMenuWindow()->hideWindow();
+					system("cls");
+					std::cout << "CONGRATS!!!\nYou beat campaign " << temp<<std::endl;
+					GameController::getInstance()->log("Campaign "+temp+" was won.");
+					system("pause");
+					CharacterSaveManager::saveCharacter(_currentFighterTracker, this->_event);
+				}
 			}
 		}
 		else
@@ -624,10 +637,11 @@ int GameLoops::createEditPlayer()
 	bool returnToMainMenu = false;
 	MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
 	int destination;
+	int buttonNum;
 
 	// Run engine and get the destination
-	destination = engine->runEngine();
-	destination = menu->destinationMap(destination);
+	buttonNum = engine->runEngine();
+	destination = menu->destinationMap(buttonNum);
 	
 	// Hide menu, return back
 	menu->hideMenu();
@@ -694,15 +708,18 @@ int GameLoops::createNewPlayer(){
 		//myChar->fillBackpack(ItemCreator::loadItemsFromFile());
 		ItemCreator::loadItemsFromFile(myChar->backpack);
 
+	int destination;
 	// The Character will now be saved to file. If saved successfully, display stats
 	if (CharacterSaveManager::saveCharacter(myChar, *(new SDL_Event()))){
-		myChar->displayOnlyStats();
-		cout << endl << "Press any key to return to character management menu." << endl;
-		system("PAUSE");
+		destination = _DisplayPlayerStats_;
+		_currentFighterTracker = myChar;
+	}
+	else {
+		destination = _CreateEditPlayer_;
+		delete myChar;
 	}
 
-	delete myChar;
-	return _CreateEditPlayer_;
+	return destination;
 }
 
 int GameLoops::editExistingPlayer(){
@@ -721,8 +738,8 @@ int GameLoops::editExistingPlayer(){
 
 	// Create the MenuEngine to gather input
 	MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
-	int destination = engine->runEngine();
-	destination = menu->destinationMap(destination);
+	int buttonNum = engine->runEngine();
+	int destination = menu->destinationMap(buttonNum);
 	
 	// Delete the menu
 	menu->hideMenu();
@@ -749,6 +766,9 @@ int GameLoops::editPlayerRace(Fighter* thePlayer){
 	int selectedRace = menu->destinationMap(destination);
 	thePlayer->setRace(Race(selectedRace));
 
+	// Save the Character
+
+	CharacterSaveManager::saveCharacter(thePlayer, *(new SDL_Event()));
 	// Delete the menu and return
 	menu->hideMenu();
 	delete engine;
@@ -767,7 +787,8 @@ bool GameLoops::addUserMadeItems(){
 	// Create engine and run it
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
 	int destination = engine->runEngine();
-	if (destination == 0)
+	destination = menu->destinationMap(destination);
+	if (destination == _YesConfirmation_)
 		canAddItems = true;
 	else canAddItems = false;
 
@@ -804,6 +825,39 @@ int GameLoops::choosePlayerRace(){
 	return selectedRace;
 }
 
+int GameLoops::displayPlayerStats(Fighter* thePlayer){
+	DisplayPlayerStatsWindow* menu = new DisplayPlayerStatsWindow("PLAYER STATS", thePlayer);
+	menu->setupMenu();
+	menu->displayMenu();
+
+	// Create engine and run it
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int buttonNum = engine->runEngine();
+	int destination = menu->destinationMap(buttonNum);
+
+	// if the player wants to manage their equipment, we will go do that.
+	// Return _DisplayPlayerStats_ afterward to return back to this menu
+	if (destination == _ManageEquipment_){
+		menu->hideMenu();
+		thePlayer->equipOptions();
+		destination = _DisplayPlayerStats_;
+	}
+	else {
+		// Otherwise, the player selected to go back, so we will go back to Create/Edit
+		destination = _CreateEditPlayer_;
+		delete _currentFighterTracker;
+	}
+	
+
+	// Delete the menu and return
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return destination;
+}
+
 int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
 	GameController::getInstance()->log("Race change - success!");
 	SuccessOnRaceChangeMenu* menu = new SuccessOnRaceChangeMenu("SUCCESS", thePlayer);
@@ -812,8 +866,8 @@ int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
 
 	// Create engine and run it
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
-	int destination = engine->runEngine();
-	destination = menu->destinationMap(destination);
+	int buttonNum = engine->runEngine();
+	int destination = menu->destinationMap(buttonNum);
 
 	// Once we have run the menu, we can delete the _currentPlayerTracker
 	if (_currentFighterTracker != nullptr){
@@ -837,8 +891,8 @@ int GameLoops::displaySuccessfulNameChange(Fighter* thePlayer){
 
 	// Create engine and run it
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
-	int destination = engine->runEngine();
-	destination = menu->destinationMap(destination);
+	int buttonNum = engine->runEngine();
+	int destination = menu->destinationMap(buttonNum);
 
 	// Once we have run the menu, we can delete the _currentPlayerTracker
 	if (_currentFighterTracker != nullptr){

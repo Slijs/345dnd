@@ -1,4 +1,5 @@
 #include "gameplayengine.h"
+#include "GameLogMenu.h"
 /*!
 *default constructor just sets all values to default and false
 */
@@ -107,6 +108,7 @@ int GamePlayEngine::runEngine()
 	int destToReturn;
 	//this->_level->_player->setMap(&this->_level->getMapSimpleVersion());
 	this->_level->_player->setupLevelObserver(this->_level);
+	SDL_Event keyevent;    //The SDL event that we will poll to check if key is pressed during turn rolling
 
 	while (exit == false){
 		// First, we will set initiative for ALL characters, as per d20 rules
@@ -162,9 +164,19 @@ int GamePlayEngine::runEngine()
 				temp->move(_level, &_currentGrid, this);
 
 				//CharacterController Logging - Log end turn
-				message = "End turn.";
+				message = "End turn. Click to continue.";
 				CharacterController::getInstance()->log(message);
-
+				/*
+				// Wait for click to end the turn
+				while (SDL_WaitEvent(&keyevent) >= 0)  //Poll our SDL key event for any keystrokes.
+				{
+					switch (keyevent.type){
+					case SDL_MOUSEBUTTONDOWN:
+						goto BACK_TO_GAME;
+						break;
+					}
+				}
+				BACK_TO_GAME: */
 				currentMovingMonster = NULL;
 			}
 		}
@@ -186,7 +198,15 @@ int GamePlayEngine::runEngine()
 			}
 		}
 	}
-	QUIT_CAMPAIGN:
+QUIT_CAMPAIGN:
+	if (this->_level->getPlayer()->getIsDead() == true)
+	{
+		this->_level->getLevelWindow()->hideWindow();
+		system("cls");
+		std::cout << "You Died!!\nPractice some more and try again!!\n";
+		system("pause");
+	}
+
 	return destToReturn;
 }
 
@@ -233,9 +253,10 @@ int GamePlayEngine::runUserTurn(){
 				std::cout << "\n\nPress any key to see " << this->_level->getPlayer()->getName() << "'s new stats.\n";
 				_getch();
 				this->_level->getPlayer()->forceLevelIncrease();
-				this->_level->getPlayer()->displayOnlyStats();
-				std::cout << "\n\nPress any key to continue\n";
-				_getch();
+				this->_level->getPlayer()->displayStats();
+				system("cls");
+				//std::cout << "\n\nPress any key to continue\n";
+				//_getch();
 				return 0;
 			}
 
@@ -267,14 +288,37 @@ int GamePlayEngine::runUserTurn(){
 			if (this->_gameLog == true)
 			{
 				this->_level->getLevelWindow()->hideWindow();
-				system("cls");
+				//system("cls");
 				//Add here
-				GameLogTest::gameLogTest();
+				GameLogMenu* menu = new GameLogMenu("GAME LOG");
+				menu->setupMenu();
+				menu->displayMenu();
+
+				// Create engine and run it
+				MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
+				int buttonNum = engine->runEngine();
+				int destination = menu->destinationMap(buttonNum);
+				if (destination == _ViewLog_)
+				{
+
+				}
+				else if (destination == _ToggleLog_)
+				{
+
+				}
+				else if (destination == _ReturnToGame_)
+				{
+					this->_gameLog = false;
+				}
+				//GameLogTest::gameLogTest();
 				//End here
-				system("pause");
 				this->_level->getLevelWindow()->unHideWindow();
+				menu->getMenuWindow()->hideWindow();
+				delete menu;
+				menu = nullptr;
 				this->_gameLog = false;
 				this->_buttonSelect = false;
+				this->_level->getLevelWindow()->unHideWindow();
 			}
 
 			//get current mouse coordinates

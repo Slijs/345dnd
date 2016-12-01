@@ -20,6 +20,24 @@ Dice::Dice() {
 	_VALID_DICE[4] = 12;
 	_VALID_DICE[5] = 20;
 	_VALID_DICE[6] = 100;
+	_isTesting = false;
+};
+
+/**
+* Constructor for a Dice object. isTesting set to true to prevent logging
+*/
+Dice::Dice(bool isTesting) {
+	_DICE_REG_EX = std::regex("[0-9]+(D|d)[0-9]+((\\+|\\-)[0-9]+)?");
+	_MODIFIER_REG_EX = std::regex("\\[(\\+|\\-)[0-9]+\\]");
+	_INTEGER_REG_EX = std::regex("(\\+|\\-)?[0-9]+");
+	_VALID_DICE[0] = 4;
+	_VALID_DICE[1] = 6;
+	_VALID_DICE[2] = 8;
+	_VALID_DICE[3] = 10;
+	_VALID_DICE[4] = 12;
+	_VALID_DICE[5] = 20;
+	_VALID_DICE[6] = 100;
+	_isTesting = true;
 };
 
 /**
@@ -72,7 +90,8 @@ int Dice::roll(std::string exp) {
 
 	// Generate message for the Game Log
 	string message = to_string(randomNumber) + " was rolled by the dice on a " + exp + " roll.";
-	DiceController::getInstance()->log(message);
+	if (!_isTesting)
+		DiceController::getInstance()->log(message);
 	return randomNumber;
 };
 

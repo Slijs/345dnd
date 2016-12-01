@@ -20,7 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -90,11 +90,15 @@
     <ClCompile Include="DeleteCharacterMenu.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="DiceController.cpp" />
+    <ClCompile Include="DisplayPlayerStatsWindow.cpp" />
     <ClCompile Include="EditCharacterMenu.cpp" />
     <ClCompile Include="EditRaceMenu.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FighterOnMapView.cpp" />
+    <ClCompile Include="FighterTest.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="FriendlyStrategy.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameLog.cpp" />
@@ -141,7 +145,12 @@
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="SuccessOnNameChangeMenu.cpp" />
     <ClCompile Include="SuccessOnRaceChangeMenu.cpp" />
+    <ClCompile Include="TestDice.cpp" />
+    <ClCompile Include="TestFighterStrategy.cpp" />
     <ClCompile Include="TestItem.cpp" />
+    <ClCompile Include="TestMonsterStrategy.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="userinputandstringmanager.cpp" />
     <ClCompile Include="textbasedwindow.cpp" />
     <ClCompile Include="prebuiltlevel.cpp" />
@@ -173,6 +182,7 @@
     <ClInclude Include="DeleteCharacterMenu.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="DiceController.h" />
+    <ClInclude Include="DisplayPlayerStatsWindow.h" />
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="EditCharacterMenu.h" />
     <ClInclude Include="EditRaceMenu.h" />
