@@ -135,7 +135,7 @@ void Monster::attack(Fighter* c)
 	{
 		OneTimeEffect* attackmiss = new OneTimeEffect("assets/Sound/CharacterActions/attackmiss.wav");
 		attackmiss->play();
-		message += "Attack missed!\n";
+		message += "Attack missed!";
 		CharacterController::getInstance()->log(message);
 		//cout << "Attack missed!" << "\n" << endl;
 		delete attackmiss;
@@ -145,7 +145,7 @@ void Monster::attack(Fighter* c)
 	{
 		OneTimeEffect* attacksuccess = new OneTimeEffect("assets/Sound/CharacterActions/attacksuccess.wav");
 		attacksuccess->play();
-		message += "Attack was successful!\n";
+		message += "Attack was successful!";
 		//cout << "Attack was successful!" << endl;
 		CharacterController::getInstance()->log(message);
 		dRoll = damageRoll();
@@ -162,10 +162,8 @@ void Monster::receiveDamage(int damage)
 {
 	underAttack();
 	string message;
-	string dice;
 	hitPoints -= damage;
-	dice += to_string(damage) + " damage was inflicted on " + name + "!\n";
-	message = to_string(damage) + " damage was inflicted on " + name + "!\n";
+	message = to_string(damage) + " damage was inflicted on " + name + "!";
 	//cout << damage << " damage was inflicted on " << name << "!" << endl;
 	CharacterController::getInstance()->log(message);
 	if (hitPoints <= 0)

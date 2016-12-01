@@ -120,7 +120,7 @@ void PreBuiltLevel::createLevelForTargetWindow()
 	loggers.x = ((this->getLevelWindow()->getWindowWidth() / 2)/2) - loggers.w / 2;
 	loggers.y = this->getLevelWindow()->getGamePlay_Y_Grids()*this->getLevelWindow()->getGridY_Length() + 8;
 	this->_loggerYend = loggers.y +loggers.h;
-	this->_level_window->addTextLabel("Map log", 0, 0, 255, loggers);
+	this->_level_window->addTextLabel("Map log", 255, 165, 0, loggers);
 
 	loggers.w = loggers.w * 2;
 	loggers.x = ((this->getLevelWindow()->getWindowWidth() / 2)) + ((this->getLevelWindow()->getWindowWidth() / 2) / 2) - loggers.w / 2;

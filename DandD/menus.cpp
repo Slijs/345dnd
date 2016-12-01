@@ -68,6 +68,12 @@ int Menus::textWidthCalculator(std::string subject, std::string base, int basewi
 	int charwidth = basewidth / base.length();
 	return charwidth*subject.length();
 }
+//!calculates text width, only this one is static
+int Menus::textWidthCalculator2(std::string subject, std::string base, int basewidth)
+{
+	int charwidth = basewidth / base.length();
+	return charwidth*subject.length();
+}
 
 //!sets the color for a specific menu component
 void Menus::setAMenuComponentColor(const int r, const int g, const int b, const int index)

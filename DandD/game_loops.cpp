@@ -14,12 +14,16 @@ void GameLoops::loopManager()
 	SingletonDefaultMapsMenu::getInstance()->setupMenu();
 	SingletonDefaultMapsMenu::getInstance()->hideMenu();
 
+	// instantiate the user container for item cration
+	Container * userContainer = new Container();
+
 	//instantiate the sounds for menu
 	ContinousEffect* background = new ContinousEffect("assets/Sound/Menu/Background/mainmenu.mp3");
 	background->setVolume(40);
 	//
 	//
 	background->play();
+
 	_currentFighterTracker = nullptr;
 	bool quit = false;
 	int destination;
@@ -97,6 +101,43 @@ void GameLoops::loopManager()
 		case _EditExistingCampaign_:
 			destination = editExistingCampaignLoop(mappath, campaignname);
 			break;
+
+		// START ITEM CREATION MENU OPTIONS
+		case _CreateWeapon_:
+			destination = createEditItems(userContainer, _CreateWeapon_);
+			break;
+		case _CreateArmour_:
+			destination = createEditItems(userContainer, _CreateArmour_);
+			break;
+		case _CreateShield_:
+			destination = createEditItems(userContainer, _CreateShield_);
+			break;
+		case _CreateHelmet_:
+			destination = createEditItems(userContainer, _CreateHelmet_);
+			break;
+		case _CreateBelt_:
+			destination = createEditItems(userContainer, _CreateBelt_);
+			break;
+		case _CreateBoots_:
+			destination = createEditItems(userContainer, _CreateBoots_);
+			break;
+		case _CreateRing_:
+			destination = createEditItems(userContainer, _CreateRing_);
+			break;
+		case _PrintItems_:
+			destination = createEditItems(userContainer, _PrintItems_);
+			break;
+		case _LoadItemsFromFile_:
+			destination = createEditItems(userContainer, _LoadItemsFromFile_);
+			break;
+		case _SaveItemsToFile_:
+			destination = createEditItems(userContainer, _SaveItemsToFile_);
+			break;
+		case _RandomlyGenerateItems_:
+			destination = createEditItems(userContainer, _RandomlyGenerateItems_);
+			break;
+
+		// END ITEM CREATION MENU OPTIONS
 
 		case _ExitToCommandPrompt_:
 			quit = true;
@@ -577,6 +618,7 @@ int GameLoops::campaignManagerLoop(char* path, char* campaign)
 }
 
 //launches create edit items for game
+/*
 int GameLoops::createEditItems()
 {
 	system("CLS");
@@ -587,6 +629,38 @@ int GameLoops::createEditItems()
 	//Phil menu logic end
 	system("CLS");
 	return _MainMenu_;
+}
+*/
+int GameLoops::createEditItems()
+{
+	GameController::getInstance()->log("Item creation menu loaded.");
+	ItemMenus* menu = new ItemMenus("Item Creation");
+	menu->setupMenu();
+	menu->displayMenu();
+
+	Container * userContainer = new Container();
+
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+	destination = menu->destinationMap(destination);
+
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return destination;
+}
+
+int GameLoops::createEditItems(Container * userContainer, int choice)
+{
+	system("CLS");
+	GameController::getInstance()->log("Create weapon menu loaded.");
+	//	cout << "1) Create Weapon\n2) Create Armour\n3) Create Helmet\n4) Create Shield\n5) Create Belt\n6) Create Ring\n7) Create Boots\n
+	// 8) Print created items\n9) Save Items to File\n10) Load Items from File\n11) Back to Menu\n12) Randomly Generate Items\nEnter Choice: ";
+	ItemCreator::createItems(userContainer, choice);
+	system("CLS");
+	return _CreateEditItems_;
 }
 
 //launches cerate edit player for game

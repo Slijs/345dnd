@@ -95,8 +95,16 @@ std::vector<std::string> SingletonInputOutputManager::getlast10(std::string path
 		newList.push_back(list[index]);
 		index++;
 	}
+	/*int counter = 0;
+	for (int x = 0; x < list.size(); x++)
+	{
+		newList.push_back(list[list.size()-1-x]);
+		counter++;
+		if (counter == 10)
+			break;
+	}*/
 
-	return list;
+	return newList;
 }
 
 //!Function to append to a file on a specified path
