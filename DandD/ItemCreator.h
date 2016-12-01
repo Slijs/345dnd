@@ -21,9 +21,18 @@
 
 class ItemCreator {
 public:
-	static void createItems();
+	static void createItems(Container * userContainer, int userChoice);
+	static void createWeapon(Container * userContainer);
+	static void createArmour(Container * userContainer);
+	static void createShield(Container * userContainer);
+	static void createBelt(Container * userContainer);
+	static void createBoots(Container * userContainer);
+	static void createHelmet(Container * userContainer);
+	static void createRing(Container * userContainer);
+	static std::string printItems(Container * container);
+	static Container * randomlyGenerateItems();
 	static Container * loadItemsFromFile();
-	static void saveItemsToFile(Container * myContainer);
+	static void saveItemsToFile(Container * container);
 };
 
 #endif

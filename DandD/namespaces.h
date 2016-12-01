@@ -76,6 +76,19 @@ namespace DestinationFromMenus
 	const int _CreateNewCharacter_ = 20;
 	const int _EditCharacter_ = 21;
 	const int _DeleteCharacter_ = 22;
+	// item creation menus
+	const int _CreateWeapon_ = 40;
+	const int _CreateArmour_ = 41;
+	const int _CreateBelt_ = 42;
+	const int _CreateBoots_ = 43;
+	const int _CreateHelmet_ = 44;
+	const int _CreateRing_ = 45;
+	const int _CreateShield_ = 46;
+	const int _PrintItems_ = 47;
+	const int _LoadItemsFromFile_ = 48;
+	const int _SaveItemsToFile_ = 49;
+	const int _RandomlyGenerateItems_ = 50;
+	// end item creation menus
 	const int _ExitToCommandPrompt_ = 100;
 }
 

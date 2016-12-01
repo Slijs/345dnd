@@ -20,7 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -101,6 +101,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemCreator.cpp" />
     <ClCompile Include="ItemFactory.cpp" />
+    <ClCompile Include="ItemMenus.cpp" />
     <ClCompile Include="LevelObserver.cpp" />
     <ClCompile Include="mainmenu.cpp" />
     <ClCompile Include="campaignmanager.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemCreator.h" />
     <ClInclude Include="ItemFactory.h" />
+    <ClInclude Include="ItemMenus.h" />
     <ClInclude Include="LevelObserver.h" />
     <ClInclude Include="mainmenu.h" />
     <ClInclude Include="campaignmanager.h" />

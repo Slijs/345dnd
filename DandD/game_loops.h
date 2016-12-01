@@ -11,6 +11,7 @@
 #include "menuengine.h"
 #include "userinputandstringmanager.h"
 #include "mainmenu.h"
+#include "ItemMenus.h"
 #include "campaignmanager.h"
 #include "campaignMAPmanagers.h"
 #include "CharacterManager.h"
@@ -53,6 +54,8 @@ public:
 	int editExistingCampaignLoop(char* path, char* campaign);
 	int campaignManagerLoop(char* path, char* campaign);
 	int createEditItems();
+	int createEditItems(Container * userContainer, int choice);
+	int createWeapon();
 	int createEditPlayer();
 
 };
