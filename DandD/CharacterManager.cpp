@@ -33,7 +33,7 @@ void CharacterManager::createOrEditCharacter(){
 		cin >> conf;
 		switch (conf){
 		case '1': // User wants to create a new character
-			_createNewCharacter();
+			createNewCharacter();
 			break;
 		case '2': // User wants to edit a saved character
 			_editCharacter();
@@ -54,7 +54,7 @@ void CharacterManager::createOrEditCharacter(){
 /**
 * Will be used to create a new Character and save it to file.
 */
-void CharacterManager::_createNewCharacter(){
+void CharacterManager::createNewCharacter(){
 	string name = "";	// Will be used to get Character's name
 	string input = "";	// Will store input
 	int selectedRace = 0; // Will be used to get Character's race

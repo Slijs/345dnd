@@ -18,8 +18,10 @@
 */
 class CharacterSaveManager {
 public:
+	static vector<string>* getNames();
 	static bool saveCharacter(Fighter *theChar);
 	static Fighter* loadCharacter();
+	static Fighter* loadCharacter(string name);
 	static void removeCharacter();
 	static void removeCharacter(string name);
 	static string cstrTostr(CString &cstr);
