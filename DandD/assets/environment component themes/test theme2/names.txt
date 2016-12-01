@@ -12,18 +12,10 @@ rock true rock.png
 rock
 rock2 true rock2.png
 rock2
-tree true tree.png
-tree
 TreeStump true TreeStump.png
 TreeStump 
 HighGrass true HighGrass.png
 HighGrass
-lava true lava.png
-lava
-SinkHole true SinkHole.png
-SinkHole
-DirtHill true DirtHill.png
-DirtHill 
 g1 true g1.png
 g1
 g2 true g2.png
@@ -52,8 +44,6 @@ w1 true w1.png
 w1
 w2 true w2.png
 w2
-floor2 true floor2.png
-floor2
 g13 true g13.png
 g13
 g14 true g14.png
