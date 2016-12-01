@@ -257,6 +257,8 @@ void MapEditorEngine::setTargetisContainer(bool c)
 //!components can be selected
 void MapEditorEngine::onEnvironmentGrid(SDL_Event* _event)
 {
+	//if (targetselected == true)
+		//return;
 	//first correctly render back the last gameplay grid the mouse cursor was on
 	if (wasAtGamePlayGrids == true)
 	{

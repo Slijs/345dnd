@@ -1,0 +1,7 @@
+!TRY_THIS!
+MAP1
+assets/Campaigns/MapsForCampaigns/MAP1
+MAP2
+assets/Campaigns/MapsForCampaigns/MAP2
+MAP3
+assets/Campaigns/MapsForCampaigns/MAP3
