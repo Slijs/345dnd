@@ -32,7 +32,7 @@ public:
 	static Fighter* getCharacter(); // Allows user to load Fighter from file to play game
 	static void createOrEditCharacter(); // Allows user to create a new Character, or edit a pre-existing one
 	static void createNewCharacter();
-	static bool editName(Fighter* theFighter, SDL_Event _event);
+	static int editName(Fighter* theFighter, SDL_Event _event);
 };
 
 #endif

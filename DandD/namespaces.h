@@ -92,6 +92,8 @@ namespace DestinationFromMenus
 	const int _DeleteCharacter_ = 22;
 	const int _EditName_ = 23;
 	const int _EditRace_ = 24;
+	const int _SuccessNameChange_ = 25;
+	const int _SuccessRaceChange_ = 26;
 	const int _ExitToCommandPrompt_ = 100;
 }
 

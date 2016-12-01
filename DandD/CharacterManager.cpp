@@ -276,9 +276,9 @@ void CharacterManager::_displayEditMenu(){
 /**
 * Allows the user to edit the name of a Character
 *@param theFighter Fighter* to the fighter which will be edited
-*@return True if edits name, False otherwise
+*@return destination to go to in the menu
 */
-bool CharacterManager::editName(Fighter *theFighter, SDL_Event _event){
+int CharacterManager::editName(Fighter *theFighter, SDL_Event _event){
 	// Displays to the user the current name of the Character
 	system("CLS");
 	string prevName = theFighter->getName();
@@ -305,11 +305,11 @@ bool CharacterManager::editName(Fighter *theFighter, SDL_Event _event){
 		cout << theFighter->getName() << " has been updated!" << endl;
 	// Deletes the entry corresponding to the old name
 		CharacterSaveManager::removeCharacter(prevName);
-		return true;
+		return _SuccessNameChange_;
 	} else { // Means that saving returned false and no updates were saved
 		cout << "Could not update " << theFighter->getName() << " properly. Reverting to " << prevName<< "." << endl;
 		theFighter->setName(prevName);
-		return false;
+		return _CreateEditPlayer_;
 	}
 }
 

@@ -52,6 +52,22 @@ void GameLoops::loopManager()
 			destination = editExistingPlayer();
 			break;
 
+		case _EditName_:
+			destination = CharacterManager::editName(_currentFighterTracker, this->_event);
+			break;
+
+		case _EditRace_:
+			destination = editPlayerRace(_currentFighterTracker);
+			break;
+
+		case _SuccessNameChange_:
+			destination = displaySuccessfulNameChange(_currentFighterTracker);
+			break;
+
+		case _SuccessRaceChange_:
+			destination = displaySuccessfulRaceChange(_currentFighterTracker);
+			break;
+
 		case _DeleteCharacter_:
 			destination = deleteCharacter();
 			break;
@@ -580,36 +596,17 @@ int GameLoops::createEditPlayer()
 	MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
 	int destination;
 
-	// Start loop to prevent prematurely going back to main menu
-	while (!returnToMainMenu){
-		destination = engine->runEngine();
-		destination = menu->destinationMap(destination);
-		switch (destination){
-		case _CreateNewCharacter_:
-			menu->hideMenu();
-			destination = createNewPlayer();
-			menu->displayMenu();
-			break;
-
-		case _EditCharacter_:
-			destination = editExistingPlayer();
-			break;
-
-		case _DeleteCharacter_:
-			destination = deleteCharacter();
-			break;
-		case _MainMenu_:
-			returnToMainMenu = true;
-			break;
-		}
-	}
-
+	// Run engine and get the destination
+	destination = engine->runEngine();
+	destination = menu->destinationMap(destination);
+	
+	// Hide menu, return back
 	menu->hideMenu();
 	delete engine;
 	engine = nullptr;
 	delete menu;
 	menu = nullptr;
-	return _MainMenu_;
+	return destination;
 }
 
 int GameLoops::createNewPlayer(){
@@ -686,6 +683,7 @@ int GameLoops::editExistingPlayer(){
 	if (thePlayer == NULL)
 		return _CreateEditPlayer_;
 
+	_currentFighterTracker = thePlayer;
 	// Else we can start editing the player! Setup menu and display it
 	EditCharacterMenu* menu = new EditCharacterMenu("EDIT CHARACTER", thePlayer);
 	menu->setupMenu();
@@ -696,31 +694,13 @@ int GameLoops::editExistingPlayer(){
 	int destination = engine->runEngine();
 	destination = menu->destinationMap(destination);
 	
-	// Hide menu so that we can load other ones
-	menu->hideMenu();
-	bool willExit = false;
-	// Depending on the destination, load the necessary menu to edit the Character
-	switch (destination){
-	case _EditName_:
-		if (CharacterManager::editName(thePlayer, this->_event))
-			displaySuccessfulNameChange(thePlayer);
-		break;
-	case _EditRace_:
-		editPlayerRace(thePlayer);
-		if (CharacterSaveManager::saveCharacter(thePlayer, this->_event))
-			displaySuccessfulRaceChange(thePlayer);
-		break;
-	case _CreateEditPlayer_:
-		break;
-	}	
-
 	// Delete the menu
 	menu->hideMenu();
 	delete engine;
 	engine = nullptr;
 	delete menu;
 	menu = nullptr;
-	return _CreateEditPlayer_;
+	return destination;
 }
 
 //! Launches menu to edit Race of a preloaded Fighter
@@ -745,7 +725,7 @@ int GameLoops::editPlayerRace(Fighter* thePlayer){
 	engine = nullptr;
 	delete menu;
 	menu = nullptr;
-	return 0;
+	return _SuccessRaceChange_;
 }
 
 bool GameLoops::addUserMadeItems(){
@@ -803,6 +783,12 @@ int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
 	// Create engine and run it
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
 	int destination = engine->runEngine();
+	destination = menu->destinationMap(destination);
+
+	// Once we have run the menu, we can delete the _currentPlayerTracker
+	if (_currentFighterTracker != nullptr){
+		delete _currentFighterTracker;
+	}
 
 	// Delete the menu and return
 	menu->hideMenu();
@@ -810,7 +796,7 @@ int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
 	engine = nullptr;
 	delete menu;
 	menu = nullptr;
-	return 0;
+	return destination;
 }
 
 int GameLoops::displaySuccessfulNameChange(Fighter* thePlayer){
@@ -822,14 +808,19 @@ int GameLoops::displaySuccessfulNameChange(Fighter* thePlayer){
 	// Create engine and run it
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
 	int destination = engine->runEngine();
+	destination = menu->destinationMap(destination);
 
+	// Once we have run the menu, we can delete the _currentPlayerTracker
+	if (_currentFighterTracker != nullptr){
+		delete _currentFighterTracker;
+	}
 	// Delete the menu and return
 	menu->hideMenu();
 	delete engine;
 	engine = nullptr;
 	delete menu;
 	menu = nullptr;
-	return 0;
+	return destination;
 }
 
 Fighter* GameLoops::loadPlayer(){
