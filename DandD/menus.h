@@ -31,6 +31,7 @@ public:
 	RGB_C* getAMenuComponentColor(int index) const;
 	void setAMenuComponentColor(const int r, const int g, const int b, const int index);
 	int textWidthCalculator(std::string subject, std::string base, int basewidth);
+	static int textWidthCalculator2(std::string subject, std::string base, int basewidth);
 	~Menus();
 };
 
