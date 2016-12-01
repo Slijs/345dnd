@@ -86,7 +86,7 @@ int LoadCharacterMenu::destinationMap(int index){
 	// Else, if index is max of names, then return Character Management index
 	else if (index == this->_characterNames->size())
 		return _CreateEditPlayer_;
-	else return -1;
+	else return _MainMenu_;
 }
 
 //! Returns the Name of the Character the user wants to delete

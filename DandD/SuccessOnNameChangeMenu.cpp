@@ -60,5 +60,5 @@ void SuccessOnNameChangeMenu::setupMenu(){
 }
 
 int SuccessOnNameChangeMenu::destinationMap(int index){
-	return 0;
+	return _CreateEditPlayer_;
 }

@@ -72,5 +72,5 @@ void SaveOverConfirmationMenu::setupMenu(){
 }
 
 int SaveOverConfirmationMenu::destinationMap(int index){
-	return 0;
+	return _MainMenu_;
 }

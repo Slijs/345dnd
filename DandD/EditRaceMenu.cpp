@@ -100,5 +100,5 @@ int EditRaceMenu::destinationMap(int index)
 	case 3:
 		return Human;
 	}
-	return _ExitToCommandPrompt_;
+	return _CreateEditPlayer_;
 }

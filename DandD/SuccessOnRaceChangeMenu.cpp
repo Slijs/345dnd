@@ -74,5 +74,5 @@ void SuccessOnRaceChangeMenu::setupMenu(){
 }
 
 int SuccessOnRaceChangeMenu::destinationMap(int index){
-	return 0;
+	return _CreateEditPlayer_;
 }

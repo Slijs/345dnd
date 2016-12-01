@@ -86,5 +86,5 @@ int CharacterCreateEditMenu::destinationMap(int index)
 	case 3:
 		return _MainMenu_;
 	}
-	return _ExitToCommandPrompt_;
+	return _MainMenu_;
 }

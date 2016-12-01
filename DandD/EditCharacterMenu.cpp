@@ -86,5 +86,5 @@ int EditCharacterMenu::destinationMap(int index){
 	case 2:
 		return _CreateEditPlayer_;
 	}
-	return _ExitToCommandPrompt_;
+	return _CreateEditPlayer_;
 }
