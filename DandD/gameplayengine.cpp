@@ -198,7 +198,15 @@ int GamePlayEngine::runEngine()
 			}
 		}
 	}
-	QUIT_CAMPAIGN:
+QUIT_CAMPAIGN:
+	if (this->_level->getPlayer()->getIsDead() == true)
+	{
+		this->_level->getLevelWindow()->hideWindow();
+		system("cls");
+		std::cout << "You Died!!\nPractice some more and try again!!\n";
+		system("pause");
+	}
+
 	return destToReturn;
 }
 
