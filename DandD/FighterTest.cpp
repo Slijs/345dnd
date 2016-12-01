@@ -53,30 +53,30 @@ void FighterTest::testValidExpGain()
 
 void FighterTest::testValidNewCharacter()
 {
-	Fighter *conan = new Fighter(1, "Conan");
+	Fighter *conan = new Fighter(1, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateNewCharacter());
 }
 
 void FighterTest::testHitPoints()
 {
-	Fighter *conan = new Fighter(1, "Conan");
+	Fighter *conan = new Fighter(1, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateHitPoints());
-	conan = new Fighter(2, "Conan");
+	conan = new Fighter(2, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateHitPoints());
 }
 
 void FighterTest::testProficiencyBonus()
 {
-	Fighter* conan = new Fighter(3, "Conan");
+	Fighter* conan = new Fighter(3, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateProficiency());
-	conan = new Fighter(6, "Conan");
+	conan = new Fighter(6, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateProficiency());
-	conan = new Fighter(9, "Conan");
+	conan = new Fighter(9, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateProficiency());
-	conan = new Fighter(12, "Conan");
+	conan = new Fighter(12, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateProficiency());
-	conan = new Fighter(15, "Conan");
+	conan = new Fighter(15, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateProficiency());
-	conan = new Fighter(18, "Conan");
+	conan = new Fighter(18, Dwarf, "Conan");
 	CPPUNIT_ASSERT(conan->validateProficiency());
 }
