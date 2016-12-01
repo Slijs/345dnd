@@ -39,15 +39,16 @@
 *@brief Allows random number generation using DnD dice types
 */
 class Dice {
-
+	friend class TestDice;
 public:
 
 	int roll(std::string exp);	// Attempts to roll a die according to the string 'exp'
 	Dice();		// Constructor for a Dice object
+	Dice(bool test); // Constructor for a test dice
 	~Dice();	// Destructor for Dice object
 
 private:
-
+	bool _isTesting;
 	int _VALID_DICE[7];	// List of valid dice types
 	std::regex _DICE_REG_EX;		// Will store the reg-exp of how the dice roll should be presented
 	std::regex _MODIFIER_REG_EX;	// Will store reg-exp of the optional modifier

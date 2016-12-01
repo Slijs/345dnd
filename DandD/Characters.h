@@ -76,6 +76,7 @@ attackRoll = d20 + attackBonus ,and damageRoll = weaponDice + damageBonus.
 */
 class Characters : public Subject, public CObject, public GameComponent, public LevelObserver
 {
+	friend class TestMonsterStrategies;
 protected:
 	DECLARE_SERIAL(Characters);
 	Dice _die;
