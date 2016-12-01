@@ -1,4 +1,5 @@
 #include "gameplayengine.h"
+#include "GameLogMenu.h"
 /*!
 *default constructor just sets all values to default and false
 */
@@ -278,14 +279,37 @@ int GamePlayEngine::runUserTurn(){
 			if (this->_gameLog == true)
 			{
 				this->_level->getLevelWindow()->hideWindow();
-				system("cls");
+				//system("cls");
 				//Add here
-				GameLogTest::gameLogTest();
+				GameLogMenu* menu = new GameLogMenu("GAME LOG");
+				menu->setupMenu();
+				menu->displayMenu();
+
+				// Create engine and run it
+				MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
+				int buttonNum = engine->runEngine();
+				int destination = menu->destinationMap(buttonNum);
+				if (destination == _ViewLog_)
+				{
+
+				}
+				else if (destination == _ToggleLog_)
+				{
+
+				}
+				else if (destination == _ReturnToGame_)
+				{
+					this->_gameLog = false;
+				}
+				//GameLogTest::gameLogTest();
 				//End here
-				system("pause");
 				this->_level->getLevelWindow()->unHideWindow();
+				menu->getMenuWindow()->hideWindow();
+				delete menu;
+				menu = nullptr;
 				this->_gameLog = false;
 				this->_buttonSelect = false;
+				this->_level->getLevelWindow()->unHideWindow();
 			}
 
 			//get current mouse coordinates

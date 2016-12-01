@@ -4,7 +4,10 @@
 */
 #pragma once
 #include <string>
-#include "GameLogTest.h"
+#include "DiceController.h"
+#include "MapController.h"
+#include "CharacterController.h"
+#include "GameController.h"
 #include "Characters.h"
 #include "Dwarf.h"
 #include "HumanPlayerStrategy.h"
