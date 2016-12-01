@@ -502,3 +502,498 @@ Map Editor loaded.
 A campaign was loaded for play.
 Campaign menu loaded.
 Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Create / Edit player menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+New map was created.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+An existing map was edited and saved.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Campaign empty was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Setting initiative for all characters in game.
+2 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+Joe has moved from (X: 4 Y: 2) to (X: 2 Y: 3).
+Joe has moved from (X: 3 Y: 2) to (X: 2 Y: 2).
+End turn.
+End of round.
+Setting initiative for all characters in game.
+9 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+End of round.
+Setting initiative for all characters in game.
+9 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+Joe has moved from (X: 2 Y: 2) to (X: 2 Y: 1).
+Joe has moved from (X: 1 Y: 2) to (X: 2 Y: 0).
+8 was rolled by the dice on a 1d10 roll.
+Joe has gained a level from finishing the map! The new level is 3
+End turn.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+New map was created.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+New map was created.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+Main menu loaded.
+Create / Edit player menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+New map was created.
+A campaign was loaded for play.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+New map was created.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+An existing map was edited and saved.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+An existing map was edited and saved.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+An existing map was edited and saved.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Campaign empty was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+6 was rolled by the dice on a 1d10 roll.
+2 was rolled by the dice on a 1d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+3 was rolled by the dice on a 1d4 roll.
+19 was rolled by the dice on a 1d20 roll.
+6 was rolled by the dice on a 1d10 roll.
+2 was rolled by the dice on a 1d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+14 was rolled by the dice on a 3d6 roll.
+3 was rolled by the dice on a 1d4 roll.
+19 was rolled by the dice on a 1d20 roll.
+5 was rolled by the dice on a 1d6 roll.
+Container created with 5 items.
+	Item 1: Padded Cowl of Ending Freedom
+	Item 2: Greatboots of Condemned Kings
+	Item 3: Fortune's Padded Boots
+	Item 4: Innocent Root Ring
+	Item 5: Voice of Reason, Keeper of Anguish
+Setting initiative for all characters in game.
+3 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Skeleton has been added to the priority queue.
+Sarah has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Sarah's turn.
+
+Sarah's turn:
+Sarah has moved from (X: 2 Y: 8) to (X: 4 Y: 8).
+Sarah has moved.
+End turn.
+It is Skeleton's turn.
+
+Skeleton's turn:
+Skeleton has moved from (X: 2 Y: 7) to (X: 4 Y: 9).
+Skeleton has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+Joe has moved from (X: 1 Y: 7) to (X: 7 Y: 2).
+Joe has moved from (X: 2 Y: 7) to (X: 7 Y: 1).
+End turn.
+End of round.
+Setting initiative for all characters in game.
+2 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Skeleton has been added to the priority queue.
+Sarah has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Sarah's turn.
+
+Sarah's turn:
+Sarah has moved from (X: 4 Y: 8) to (X: 6 Y: 8).
+Sarah has moved.
+End turn.
+It is Skeleton's turn.
+
+Skeleton's turn:
+Skeleton has moved from (X: 4 Y: 9) to (X: 4 Y: 8).
+Skeleton has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+Joe has moved from (X: 1 Y: 7) to (X: 7 Y: 2).
+Joe has moved from (X: 2 Y: 7) to (X: 8 Y: 3).
+End turn.
+End of round.
+Setting initiative for all characters in game.
+6 was rolled by the dice on a 1d20 roll.
+6 was rolled by the dice on a 1d20 roll.
+6 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Skeleton has been added to the priority queue.
+Sarah has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Sarah's turn.
+
+Sarah's turn:
+Sarah has moved from (X: 6 Y: 8) to (X: 5 Y: 8).
+Sarah has moved.
+End turn.
+It is Skeleton's turn.
+
+Skeleton's turn:
+10 was rolled by the dice on a 1d20 roll.
+Skeleton rolled 14 for attack!
+Attack was successful!
+
+2 was rolled by the dice on a 1d6 roll.
+4 damage was inflicted on Joe!
+
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+19 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d4 roll.
+Joe rolled 18 for attack!
+Attack was successful!
+
+0 damage was inflicted on Skeleton!
+
+Joe has moved from (X: 3 Y: 8) to (X: 9 Y: 4).
+End turn.
+End of round.
+Setting initiative for all characters in game.
+16 was rolled by the dice on a 1d20 roll.
+19 was rolled by the dice on a 1d20 roll.
+19 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Skeleton has been added to the priority queue.
+Sarah has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Sarah's turn.
+
+Sarah's turn:
+Sarah has moved from (X: 5 Y: 8) to (X: 5 Y: 9).
+Sarah has moved.
+End turn.
+It is Skeleton's turn.
+
+Skeleton's turn:
+19 was rolled by the dice on a 1d20 roll.
+Skeleton rolled 23 for attack!
+Attack was successful!
+
+1 was rolled by the dice on a 1d6 roll.
+3 damage was inflicted on Joe!
+
+Joe is dead!
+Game Over!
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+Main menu loaded.
+Create / Edit items menu loaded.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Main menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+An existing map was edited and saved.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.

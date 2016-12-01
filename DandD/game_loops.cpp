@@ -340,6 +340,7 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 	int destinationInt = -1;
 	LevelWindow* const window = level->getLevelWindow();
 	MapEditorEngine* m = new MapEditorEngine(level);
+	bool mapvalid = false;
 	
 	while(m->getQuit()==false)
 	{
@@ -436,9 +437,14 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 				
 				//validate map
 				case 2:
-					if(m->validateMap() == true)
-
+					if (m->validateMap() == true)
+					{
+						destinationInt = 1;
+						mapvalid = true;
+						std::cout << "map valideted to true.\n";
 						m->setQuit(true);
+						break;
+					}
 					else
 					{
 						level->getLevelWindow()->hideWindow();
@@ -458,8 +464,10 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 	}
 
 	//if main menu was quit without a valid level then, the level will not be saved
-	if(destinationInt != -1)
+	//if(destinationInt != -1)
+	if (mapvalid==true)
 	{
+		std::cout << "Trying to save level\n";
 		std::vector<std::string> templevel = m->getEnvironmentTextLevel();
 		std::cout<<std::endl<<std::endl;
 
@@ -468,7 +476,7 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 		level->saveLevel(SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(path));
 		
 		std::cout << "Saved Level";
-		//system("pause");
+		system("pause");
 
 		delete level;
 		level = nullptr;
