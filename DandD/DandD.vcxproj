@@ -142,6 +142,7 @@
     <ClCompile Include="SaveOverConfirmationMenu.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="LogViewMenu.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="SuccessOnNameChangeMenu.cpp" />
     <ClCompile Include="SuccessOnRaceChangeMenu.cpp" />
@@ -203,6 +204,7 @@
     <ClInclude Include="ItemMenus.h" />
     <ClInclude Include="LevelObserver.h" />
     <ClInclude Include="LoadCharacterMenu.h" />
+    <ClInclude Include="LogViewMenu.h" />
     <ClInclude Include="mainmenu.h" />
     <ClInclude Include="campaignmanager.h" />
     <ClInclude Include="campaignmenus.h" />

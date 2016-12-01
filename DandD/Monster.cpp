@@ -98,6 +98,7 @@ void Monster::detHitPoints()
 	{
 		hitPoints += _die.roll(hitDieString) + this->getScores(1, 2);
 	}
+	maxHitPoints = hitPoints;
 }
 
 //!Function to equip weapon and calculate Attack and Damage Bonuses
@@ -163,7 +164,8 @@ void Monster::receiveDamage(int damage)
 	underAttack();
 	string message;
 	hitPoints -= damage;
-	message = to_string(damage) + " damage was inflicted on " + name + "!";
+	message = to_string(damage) + " damage was inflicted on " + name + "!\n";
+	message = this->name + " current HP: " + to_string(this->hitPoints) + "/" + to_string(maxHitPoints);
 	//cout << damage << " damage was inflicted on " << name << "!" << endl;
 	CharacterController::getInstance()->log(message);
 	if (hitPoints <= 0)

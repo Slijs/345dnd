@@ -221,6 +221,28 @@ int Characters::rollDice(int i)
 	return x;
 }
 
+int Characters::roll4D6()
+{
+	int temp;
+	int rolls[4];
+	for (int i = 0; i <= 3; i++)
+	{
+		rolls[i] = _die.roll("1d6");
+
+	}
+
+	for (int i = 1; i <= 3; i++)
+	{
+		if (rolls[i] > rolls[i - 1])
+		{
+			temp = rolls[i];
+			rolls[i] = rolls[i - 1];
+			rolls[i - 1] = temp;
+		}
+	}
+
+	return rolls[0] + rolls[1] + rolls[2];
+}
 //!Function that rolls 4D6 for each ability score and sets two largest values to STR and CON
 void Characters::generateAbility()
 {
@@ -228,7 +250,7 @@ void Characters::generateAbility()
 	int abscor[6];
 	for (int i = 0; i < MAX_NUM_SCORES; i++)
 	{
-		abscor[i] = _die.roll("4d6");
+		abscor[i] = roll4D6();
 	}
 
 	orderArray(abscor);

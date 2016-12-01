@@ -136,7 +136,7 @@ public:
 	Characters(int, int, int, int, int, int, int);
 	Characters(int, int, int, int, int, int, int, int);
 	Characters(int);
-
+	
 	void destroyObject();
 	~Characters();
 
@@ -156,7 +156,7 @@ public:
 	bool getIsLevelUp() { return isLevelUp; }
 	void setIsLevelUp(bool isLevelUp) { this->isLevelUp = isLevelUp; }
 	void setInitiative();
-
+	int roll4D6();
 	//setters for items 
 	void setArmor(Armor* a){ armor = a; }
 	void setWeapon(Weapon* w){ weapon = w; }
