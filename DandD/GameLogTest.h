@@ -31,7 +31,6 @@ struct GameLogTest{
 		input = checkInput(input,2);
 		if (input == 0)
 		{
-			std::system("pause");
 			return;
 		}
 		else if (input == 1)
