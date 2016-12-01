@@ -136,7 +136,8 @@ void CharacterManager::createNewCharacter(){
 	} while (!(conf == 'Y' || conf == 'y' || conf == 'N' || conf == 'n'));
 
 	if (conf == 'Y' || conf == 'y')
-		myChar->fillBackpack(ItemCreator::loadItemsFromFile());
+		//myChar->fillBackpack(ItemCreator::loadItemsFromFile());
+		ItemCreator::loadItemsFromFile(myChar->backpack);
 
 	// The Character will now be saved to file.
 	CharacterSaveManager::saveCharacter(myChar, *(new SDL_Event()));

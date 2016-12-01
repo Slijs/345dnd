@@ -30,8 +30,8 @@ public:
 	static void createHelmet(Container * userContainer);
 	static void createRing(Container * userContainer);
 	static std::string printItems(Container * container);
-	static Container * randomlyGenerateItems();
-	static Container * loadItemsFromFile();
+	static void randomlyGenerateItems(Container * userContainer);
+	static void loadItemsFromFile(Container * userContainer);
 	static void saveItemsToFile(Container * container);
 };
 

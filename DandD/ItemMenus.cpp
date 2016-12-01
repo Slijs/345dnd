@@ -1,4 +1,5 @@
 #include "ItemMenus.h"
+#include <sstream>
 
 //!parameterized constructor sets up the menu window
 ItemMenus::ItemMenus(std::string title) : Menus(title)
@@ -162,5 +163,109 @@ int ItemMenus::destinationMap(int index)
 }
 
 ItemMenus::~ItemMenus()
+{
+}
+
+PrintItemsMenus::PrintItemsMenus(std::string title) : Menus(title)
+{
+	userContainer = new Container();
+}
+
+void PrintItemsMenus::setupMenu()
+{
+	SDL_Rect menucomponent;
+	//set menu rectangle for title
+	menucomponent.x = 30;
+	menucomponent.y = 30;
+
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.02);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.23);
+
+	std::cout << menucomponent.x << " " << menucomponent.y << std::endl;
+
+	//set menu font type
+	this->_menuWindow->setFontType(10);
+
+	//set menu background color
+	this->_baseMenuColors[_MenuBackground_]->red;
+	this->_menuWindow->setBackgroudColor(this->_baseMenuColors[_MenuBackground_]->red, this->_baseMenuColors[_MenuBackground_]->green, this->_baseMenuColors[_MenuBackground_]->blue);
+
+	// Add title
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.14);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.6);
+	menucomponent.y = menucomponent.y + (menucomponent.h*0.1);
+	menucomponent.x = (this->_menuWindow->getWindowWidth() / 2) - (menucomponent.w / 2);
+	this->_menuWindow->setFontType(10);
+	this->_menuWindow->addTextLabel("Current Items", this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
+
+	// container output
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.03);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.18);
+	menucomponent.y = menucomponent.y + (menucomponent.h*5);
+	menucomponent.x = (this->_menuWindow->getWindowWidth() / 12);
+	
+	//this->_menuWindow->addTextLabel(userContainer->contentsToString(), this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
+
+	int originalMenuComponentY = menucomponent.y;
+	this->_menuWindow->setFontType(9);
+	std::string containerContents = userContainer->contentsToString();
+	std::istringstream iss(containerContents);
+	std::string line;
+	while (std::getline(iss, line))
+	{
+		if (line.size() == 0) {
+			line = " ";
+			if (menucomponent.y + (menucomponent.h * 6) > this->_menuWindow->getWindowHeight() - 30) {
+				menucomponent.y = originalMenuComponentY - (menucomponent.h*1.2);
+				menucomponent.x = menucomponent.x + (this->_menuWindow->getWindowWidth() / 2);
+			}
+		}
+		//menucomponent.y = menucomponent.y + (menucomponent.h*1.2);
+		/*
+		if (menucomponent.y + (menucomponent.h*1.2) > this->_menuWindow->getWindowHeight() - 30) {
+			menucomponent.y = originalMenuComponentY + (menucomponent.h*1.2);
+			menucomponent.x = menucomponent.x + (this->_menuWindow->getWindowWidth() / 3);
+		}
+		else {
+			menucomponent.y = menucomponent.y + (menucomponent.h*1.2);
+		}*/
+		menucomponent.y = menucomponent.y + (menucomponent.h*1.2);
+		menucomponent.w = Menus::textWidthCalculator(line, "aaaaaaaaaaaaaaaaaaaaaaaa", this->_menuWindow->getWindowWidth() * (0.18));
+		this->_menuWindow->addTextLabel(line, this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
+	}
+	
+
+	//setup buttons
+	this->_menuWindow->setFontType(9);
+	// create weapon
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.04);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.15);
+	menucomponent.x = (this->_menuWindow->getWindowWidth() / 8)*7 - (menucomponent.w / 2);
+	menucomponent.y = (this->_menuWindow->getWindowHeight() / 16)*15;
+	this->_menuWindow->addButton("Back", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
+
+
+
+	//setup menu renderer and display
+	this->_menuWindow->setMenuOnRenderer();
+	this->_menuWindow->displayWindow();
+}
+
+void PrintItemsMenus::setContainer(Container * userConatainer)
+{
+	userContainer = userConatainer;
+}
+
+int PrintItemsMenus::destinationMap(int index)
+{
+	switch (index)
+	{
+	case 0:
+		return _CreateEditItems_;
+	}
+	return _CreateEditItems_;
+}
+
+PrintItemsMenus::~PrintItemsMenus()
 {
 }

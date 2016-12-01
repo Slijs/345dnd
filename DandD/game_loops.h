@@ -64,7 +64,7 @@ public:
 	int createEditItems();
 	int createEditItems(Container * userContainer, int choice);
 	Fighter* loadPlayer();
-	int createWeapon();
+	int printItems(Container * userContainer);
 	int createEditPlayer();
 	int createNewPlayer();
 	int editPlayerRace(Fighter* thePlayer);

@@ -121,7 +121,8 @@ void GameLoops::loopManager()
 			destination = createEditItems(userContainer, _CreateRing_);
 			break;
 		case _PrintItems_:
-			destination = createEditItems(userContainer, _PrintItems_);
+			//destination = createEditItems(userContainer, _PrintItems_);
+			destination = printItems(userContainer);
 			break;
 		case _LoadItemsFromFile_:
 			destination = createEditItems(userContainer, _LoadItemsFromFile_);
@@ -613,52 +614,6 @@ int GameLoops::campaignManagerLoop(char* path, char* campaign)
 	return destination;
 }
 
-//launches create edit items for game
-/*
-int GameLoops::createEditItems()
-{
-	system("CLS");
-	GameController::getInstance()->log("Create / Edit items menu loaded.");
-	ItemCreator::createItems();
-	//Phil menu logic start
-	//whatever happens in your direver
-	//Phil menu logic end
-	system("CLS");
-	return _MainMenu_;
-}
-*/
-int GameLoops::createEditItems()
-{
-	GameController::getInstance()->log("Item creation menu loaded.");
-	ItemMenus* menu = new ItemMenus("Item Creation");
-	menu->setupMenu();
-	menu->displayMenu();
-
-	Container * userContainer = new Container();
-
-	MenuEngine* engine = new MenuEngine(menu, this->_event);
-	int destination = engine->runEngine();
-	destination = menu->destinationMap(destination);
-
-	menu->hideMenu();
-	delete engine;
-	engine = nullptr;
-	delete menu;
-	menu = nullptr;
-	return destination;
-}
-
-int GameLoops::createEditItems(Container * userContainer, int choice)
-{
-	system("CLS");
-	GameController::getInstance()->log("Create weapon menu loaded.");
-	//	cout << "1) Create Weapon\n2) Create Armour\n3) Create Helmet\n4) Create Shield\n5) Create Belt\n6) Create Ring\n7) Create Boots\n
-	// 8) Print created items\n9) Save Items to File\n10) Load Items from File\n11) Back to Menu\n12) Randomly Generate Items\nEnter Choice: ";
-	ItemCreator::createItems(userContainer, choice);
-	system("CLS");
-	return _CreateEditItems_;
-}
-
 //launches cerate edit player for game
 int GameLoops::createEditPlayer()
 {
@@ -736,7 +691,8 @@ int GameLoops::createNewPlayer(){
 	// The user will be asked if they want to put the user-created items into their Character's backpack
 	Fighter *myChar = CharacterBuilder::create(selectedLevel, Race(selectedRace), name);
 	if (addUserMadeItems())
-		myChar->fillBackpack(ItemCreator::loadItemsFromFile());
+		//myChar->fillBackpack(ItemCreator::loadItemsFromFile());
+		ItemCreator::loadItemsFromFile(myChar->backpack);
 
 	// The Character will now be saved to file. If saved successfully, display stats
 	if (CharacterSaveManager::saveCharacter(myChar, *(new SDL_Event()))){
@@ -931,6 +887,76 @@ Fighter* GameLoops::loadPlayer(){
 	delete menu;
 	menu = nullptr;
 	return temp;
+}
+
+
+//launches create edit items for game
+/*
+int GameLoops::createEditItems()
+{
+system("CLS");
+GameController::getInstance()->log("Create / Edit items menu loaded.");
+ItemCreator::createItems();
+//Phil menu logic start
+//whatever happens in your direver
+//Phil menu logic end
+system("CLS");
+return _MainMenu_;
+}
+*/
+
+
+int GameLoops::createEditItems(Container * userContainer, int choice)
+{
+	//system("CLS");
+	GameController::getInstance()->log("Create weapon menu loaded.");
+	//	cout << "1) Create Weapon\n2) Create Armour\n3) Create Helmet\n4) Create Shield\n5) Create Belt\n6) Create Ring\n7) Create Boots\n
+	// 8) Print created items\n9) Save Items to File\n10) Load Items from File\n11) Back to Menu\n12) Randomly Generate Items\nEnter Choice: ";
+	ItemCreator::createItems(userContainer, choice);
+	//system("CLS");
+	return _CreateEditItems_;
+}
+
+int GameLoops::createEditItems()
+{
+	GameController::getInstance()->log("Item creation menu loaded.");
+	ItemMenus* menu = new ItemMenus("Item Creation");
+	menu->setupMenu();
+	menu->displayMenu();
+
+	Container * userContainer = new Container();
+
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+	destination = menu->destinationMap(destination);
+
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return destination;
+}
+
+int GameLoops::printItems(Container * userContainer)
+{
+	GameController::getInstance()->log("Print items menu loaded.");
+	PrintItemsMenus * menu = new  PrintItemsMenus("Print Items");
+	cout << userContainer->contentsToString();
+	menu->setContainer(userContainer);
+	menu->setupMenu();
+	menu->displayMenu();
+
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+	destination = menu->destinationMap(destination);
+
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return destination;
 }
 
 //! Launches menu for deleting saved Characters
