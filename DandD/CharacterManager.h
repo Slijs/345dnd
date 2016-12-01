@@ -9,6 +9,7 @@
 #include "Entity.h"
 #include "CharSaveManager.h"
 #include "CharBuilder.h"
+#include <SDL.h>
 
 /**
 *@class CharacterManager
@@ -25,12 +26,13 @@ private:
 	
 	static void _editCharacter();
 	static void _deleteCharacter();
-	static void _editName(Fighter* theFighter);
+	
 	static void _editRace(Fighter* theFighter);
 public:
 	static Fighter* getCharacter(); // Allows user to load Fighter from file to play game
 	static void createOrEditCharacter(); // Allows user to create a new Character, or edit a pre-existing one
 	static void createNewCharacter();
+	static bool editName(Fighter* theFighter, SDL_Event _event);
 };
 
 #endif

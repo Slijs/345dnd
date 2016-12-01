@@ -48,6 +48,10 @@ void GameLoops::loopManager()
 			destination = createNewPlayer();
 			break;
 
+		case _EditCharacter_:
+			destination = editExistingPlayer();
+			break;
+
 		case _DeleteCharacter_:
 			destination = deleteCharacter();
 			break;
@@ -132,6 +136,11 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 
 			// Now load the player
 			this->_currentFighterTracker = loadPlayer();
+
+			// Check if Fighter is nullptr - if it is, means we didn't load so we have to quit!
+			if (_currentFighterTracker == nullptr){
+				goto QUIT_LOAD;
+			}
 			c_menu->getMenuWindow()->hideWindow();
 			/*this->_currentFighterTracker = CharacterManager::getCharacter();
 			*/
@@ -160,6 +169,7 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 		goto GET_CAMPAIGN_NAME;
 
 	//last option is return to main menu so delete and return
+	QUIT_LOAD:
 	c_menu->hideMenu();
 	delete c_menu;
 	c_menu = nullptr;
@@ -579,12 +589,187 @@ int GameLoops::createEditPlayer()
 }
 
 int GameLoops::createNewPlayer(){
+	// First, we will have to go to console to get the name of the new Character
+	char conf = 'X'; // Will be used to confirm console input from the user
+	string name = ""; // Will be used to get the Character's name
+	string input = ""; // Will be used to get input
+	int selectedRace = 0; // Will be used to get the Character's race
+	int selectedLevel = 0; // Will be used to get the Character's selected level
+
+	// Get the Name the user wants
+	do {
+		system("CLS");
+		cout << "Please enter the name you would like to have for your character: ";
+		cin >> name;
+		cout << "You entered " << name << ". Are you happy with this? (Y/N) ";
+		cin >> conf;
+	} while (!(conf == 'Y' || conf == 'y'));
+	conf = 'X';
+
+	// Next, get the Race of the Fighter
+	selectedRace = choosePlayerRace();
+
+	// Will get the starting level of the Character, confirming that a proper value is provided
+	do {
+		cout << "Please enter which level you would like your character to start at (1 - 20) : ";
+		cin >> input;
+		try {
+			selectedLevel = stoi(input);
+		}
+		catch (invalid_argument) {
+			cout << "You entered an invalid argument. Please try again." << endl;
+			continue;
+		}
+		if (selectedLevel < 0 || selectedLevel > 20) {
+			cout << "You entered an invalid level! Please try again." << endl;
+			continue;
+		}
+		else {
+			cout << "You entered " << selectedLevel << " as your starting level. Are you happy with this? (Y/N) : ";
+			cin >> conf;
+		}
+	} while (!(conf == 'Y' || conf == 'y'));
+	conf = 'x';
+
+	// The Character will now be created
+	// The user will be asked if they want to put the user-created items into their Character's backpack
+	Fighter *myChar = CharacterBuilder::create(selectedLevel, Race(selectedRace), name);
+
 	CharacterManager::createNewCharacter();
 	return _CreateEditPlayer_;
 }
 
+int GameLoops::editExistingPlayer(){
+	Fighter* thePlayer = loadPlayer();
+
+	// If we didn't get a player, then we MUST return
+	if (thePlayer == NULL)
+		return _CreateEditPlayer_;
+
+	// Else we can start editing the player! Setup menu and display it
+	EditCharacterMenu* menu = new EditCharacterMenu("EDIT CHARACTER", thePlayer);
+	menu->setupMenu();
+	menu->displayMenu();
+
+	// Create the MenuEngine to gather input
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+	destination = menu->destinationMap(destination);
+	
+	// Hide menu so that we can load other ones
+	menu->hideMenu();
+	bool willExit = false;
+	// Depending on the destination, load the necessary menu to edit the Character
+	switch (destination){
+	case _EditName_:
+		if (CharacterManager::editName(thePlayer, this->_event))
+			displaySuccessfulNameChange(thePlayer);
+		break;
+	case _EditRace_:
+		editPlayerRace(thePlayer);
+		if (CharacterSaveManager::saveCharacter(thePlayer, this->_event))
+			displaySuccessfulRaceChange(thePlayer);
+		break;
+	case _CreateEditPlayer_:
+			
+		break;
+	}	
+
+	// Delete the menu
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return _CreateEditPlayer_;
+}
+
+//! Launches menu to edit Race of a preloaded Fighter
+int GameLoops::editPlayerRace(Fighter* thePlayer){
+	// Setup menu to edit race
+	EditRaceMenu* menu = new EditRaceMenu("SELECT RACE");
+	menu->setupMenu();
+	menu->displayMenu();
+
+	// Create engine and run it
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+
+	// Get and set selected race
+	int selectedRace = menu->destinationMap(destination);
+	thePlayer->setRace(Race(selectedRace));
+
+	// Delete the menu and return
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return 0;
+}
+
+//! Gets back the Race which will be used for a new Fighter
+int GameLoops::choosePlayerRace(){
+	// Setup menu to edit race
+	EditRaceMenu* menu = new EditRaceMenu("SELECT RACE");
+	menu->setupMenu();
+	menu->displayMenu();
+
+	// Create engine and run it
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+
+	// Get and set selected race
+	int selectedRace = menu->destinationMap(destination);
+
+	// Delete the menu and return
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return selectedRace;
+
+}
+
+int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
+	SuccessOnRaceChangeMenu* menu = new SuccessOnRaceChangeMenu("SUCCESS", thePlayer);
+	menu->setupMenu();
+	menu->displayMenu();
+
+	// Create engine and run it
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+
+	// Delete the menu and return
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return 0;
+}
+
+int GameLoops::displaySuccessfulNameChange(Fighter* thePlayer){
+	SuccessOnNameChangeMenu* menu = new SuccessOnNameChangeMenu("SUCCESS", thePlayer);
+	menu->setupMenu();
+	menu->displayMenu();
+
+	// Create engine and run it
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+
+	// Delete the menu and return
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return 0;
+}
+
 Fighter* GameLoops::loadPlayer(){
-	Fighter* temp = NULL;
+	Fighter* temp = nullptr;
 	LoadCharacterMenu* menu = new LoadCharacterMenu("LOAD CHARACTER");
 	menu->setupMenu();
 	menu->displayMenu();

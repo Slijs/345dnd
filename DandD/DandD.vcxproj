@@ -89,6 +89,8 @@
     <ClCompile Include="DeleteCharacterMenu.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="DiceController.cpp" />
+    <ClCompile Include="EditCharacterMenu.cpp" />
+    <ClCompile Include="EditRaceMenu.cpp" />
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FighterOnMapView.cpp" />
@@ -131,9 +133,12 @@
     <ClCompile Include="red_green_blue.cpp" />
     <ClCompile Include="Ring.cpp" />
     <ClCompile Include="routing.cpp" />
+    <ClCompile Include="SaveOverConfirmationMenu.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="SuccessOnNameChangeMenu.cpp" />
+    <ClCompile Include="SuccessOnRaceChangeMenu.cpp" />
     <ClCompile Include="TestItem.cpp" />
     <ClCompile Include="userinputandstringmanager.cpp" />
     <ClCompile Include="textbasedwindow.cpp" />
@@ -166,6 +171,8 @@
     <ClInclude Include="Dice.h" />
     <ClInclude Include="DiceController.h" />
     <ClInclude Include="Dwarf.h" />
+    <ClInclude Include="EditCharacterMenu.h" />
+    <ClInclude Include="EditRaceMenu.h" />
     <ClInclude Include="enemyonmap.h" />
     <ClInclude Include="Enhancement.h" />
     <ClInclude Include="Entity.h" />
@@ -214,9 +221,12 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Ring.h" />
     <ClInclude Include="routing.h" />
+    <ClInclude Include="SaveOverConfirmationMenu.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Subject.h" />
+    <ClInclude Include="SuccessOnNameChangeMenu.h" />
+    <ClInclude Include="SuccessOnRaceChangeMenu.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="userinputandstringmanager.h" />
     <ClInclude Include="textbasedwindow.h" />

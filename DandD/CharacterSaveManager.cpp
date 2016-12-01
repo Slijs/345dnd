@@ -9,7 +9,7 @@ using namespace std;
 * Attempts to save a Character to disk. If the Character is already saved, the user will be asked if they want to replace the file.
 *@param theChar Fighter* to the Fighter being saved
 */
-bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
+bool CharacterSaveManager::saveCharacter(Fighter *theChar, SDL_Event _event) {
 	system("CLS");
 	CFile mapFile; // Map of all Character saves
 	string input = "";
@@ -32,27 +32,38 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 	catch (CArchiveException &exp) {}
 	mapArchive.Close();
 	mapFile.Close();
+
+	
+	
 	// Checks to see if the Character has already been saved
 	if (charMap->contains(charName)) {
-		std::cout << "There is already a save file for " << cstrTostr(charName) << "." << endl;
-		std::cout << "Would you like to save over it? (Y/N): ";
 
-		// Will continue to ask for user input until they provide something valid
-		while (true) {
-			cin.clear();
-			cin >> input;
-			if (input.at(0) == 'Y' || input.at(0) == 'y')
-				break; // Breaks the loops to continue
-			else if (input.at(0) == 'N' || input.at(0) == 'n') {
-				std::cout << "Aborting save attempt." << endl;
-				return false;
-			}
-			else {
-				std::cout << "I'm sorry, but you entered an invalid response." << endl;
-				std::cout << "Would you like to save over the character? Please enter Y or N: ";
-			}
+		// Create menu to get save confirmation
+		SaveOverConfirmationMenu* menu = new SaveOverConfirmationMenu("SAVE CONFIRMATION", theChar);
+		menu->setupMenu();
+		menu->displayMenu();
+
+		// Create the MenuEngine to gather input
+		MenuEngine* engine = new MenuEngine(menu, _event);
+		int conf = engine->runEngine();
+	
+		// Check the confirmation. If 1, don't save
+		if (conf == 1){
+			menu->hideMenu();
+			delete engine;
+			engine = nullptr;
+			delete menu;
+			menu = nullptr;
+			return false;
+		} else {
+		// Else, just close the menu and continue
+			menu->hideMenu();
+			delete engine;
+			engine = nullptr;
+			delete menu;
+			menu = nullptr;
 		}
-	}
+	} 
 	CString path = charName + "StateFile.txt";
 	charMap->put(charName, path); // Puts the entry in the Character Map
 	// Now, the Character themself will be Serialized

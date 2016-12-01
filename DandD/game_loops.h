@@ -25,6 +25,10 @@
 #include "DeleteCharacterMenu.h"
 #include "CharacterManager.h"
 #include "LoadCharacterMenu.h"
+#include "EditCharacterMenu.h"
+#include "EditRaceMenu.h"
+#include "SuccessOnRaceChangeMenu.h"
+#include "SuccessOnNameChangeMenu.h"
 
 //enum destination {mainmenu, gamelevel, leveleditor};
 /*!
@@ -60,7 +64,12 @@ public:
 	Fighter* loadPlayer();
 	int createEditPlayer();
 	int createNewPlayer();
+	int editPlayerRace(Fighter* thePlayer);
+	int editExistingPlayer();
 	int deleteCharacter();
+	int displaySuccessfulRaceChange(Fighter* thePlayer);
+	int displaySuccessfulNameChange(Fighter* thePlayer);
+	int choosePlayerRace();
 };
 
 #endif

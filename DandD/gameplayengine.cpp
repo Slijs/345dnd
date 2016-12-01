@@ -107,6 +107,7 @@ int GamePlayEngine::runEngine()
 		GameController::getInstance()->log("\nStarting new round.");
 		// Next, we will iterate through all Characters in the initiative queue until it is empty
 		while (!_level->isInitiativeQueueEmpty()){
+			
 			temp = _level->_initiativeCharacterQueue.top();
 			_level->_initiativeCharacterQueue.pop();
 
@@ -321,7 +322,7 @@ int GamePlayEngine::runUserTurn(){
 					{
 						this->_buttonSelect = false;
 						this->_level->getLevelWindow()->hideWindow();
-						CharacterSaveManager::saveCharacter(this->_level->getPlayer());
+						CharacterSaveManager::saveCharacter(this->_level->getPlayer(), *this->_event);
 						this->_level->getLevelWindow()->unHideWindow();
 					}
 

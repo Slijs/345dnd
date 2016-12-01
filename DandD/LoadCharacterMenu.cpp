@@ -75,6 +75,7 @@ void LoadCharacterMenu::setupMenu(){
 	this->_menuWindow->addButton("Back to Main Menu", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 	this->_menuWindow->setMenuOnRenderer();
+	this->_menuWindow->displayWindow();
 }
 
 //! Returns the int representing the destination of the Menu
