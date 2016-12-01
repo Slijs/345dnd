@@ -16,6 +16,7 @@ void GameLoops::loopManager()
 
 	//instantiate the sounds for menu
 	ContinousEffect* background = new ContinousEffect("assets/Sound/Menu/Background/mainmenu.mp3");
+	background->setVolume(40);
 	//
 	//
 	background->play();
@@ -43,9 +44,13 @@ void GameLoops::loopManager()
 			destination = createEditPlayer();
 			break;
 
-		/*case _DeleteCharacter_:
+		case _CreateNewCharacter_:
+			destination = createNewPlayer();
+			break;
+
+		case _DeleteCharacter_:
 			destination = deleteCharacter();
-			break; */
+			break;
 
 		case _PlayCampaign_:
 			destination = playCampaignLoop(mappath, campaignname);
@@ -125,9 +130,12 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 				mappaths.push_back(campaigndatabase[x+1]);
 			}
 
-			//now play the maps one by one
+			// Now load the player
+			this->_currentFighterTracker = loadPlayer();
 			c_menu->getMenuWindow()->hideWindow();
-			this->_currentFighterTracker = CharacterManager::getCharacter();
+			/*this->_currentFighterTracker = CharacterManager::getCharacter();
+			*/
+
 			for (int x = 0; x < mappaths.size(); x++)
 			{
 				if (gameLevelLoop(mappaths[x]) > 0)
@@ -555,13 +563,13 @@ int GameLoops::createEditItems()
 int GameLoops::createEditPlayer()
 {
 	
-	system("CLS");
+	/*system("CLS");
 	GameController::getInstance()->log("Create / Edit player menu loaded.");
 	CharacterManager::createOrEditCharacter();
 	system("CLS");
 	//Create Edit Function call here
-	return _MainMenu_;
-	/*
+	return _MainMenu_; */
+	
 	CharacterCreateEditMenu* menu = new CharacterCreateEditMenu("CREATE / EDIT CHARACTERS");
 	menu->setupMenu();
 	menu->displayMenu();
@@ -575,17 +583,77 @@ int GameLoops::createEditPlayer()
 	engine = nullptr;
 	delete menu;
 	menu = nullptr;
-	return destination;*/
+	return destination;
 }
 
-/*
+int GameLoops::createNewPlayer(){
+	CharacterManager::createNewCharacter();
+	return _CreateEditPlayer_;
+}
+
+Fighter* GameLoops::loadPlayer(){
+	Fighter* temp = NULL;
+	LoadCharacterMenu* menu = new LoadCharacterMenu("LOAD CHARACTER");
+	menu->setupMenu();
+	menu->displayMenu();
+
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+
+	// Get the destination from running the engine
+	int destination = engine->runEngine();
+
+	// Get name of Character based on the destination
+	string tempName = menu->getNameOfCharacterFromIndex(destination);
+
+	destination = menu->destinationMap(destination);
+
+	// If getting from destination map returns 1, it means the user selected a valid name
+	// This means that we can load the Character
+	if (destination == 1){
+		temp = CharacterSaveManager::loadCharacter(tempName);
+	}
+
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return temp;
+}
+
 //! Launches menu for deleting saved Characters
 int GameLoops::deleteCharacter(){
+
+	// Setup the Delete Menu
 	DeleteCharacterMenu* menu = new DeleteCharacterMenu("DELETE EXISTING CHARACTER");
 	menu->setupMenu();
 	menu->displayMenu();
-	return 0;
-}*/
+
+	// Setup MenuEngine, attach it to the Delete Menu
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+
+	// Get the destination from running the engine
+	int destination = engine->runEngine();
+
+	// Get name of Character based on the destination
+	string tempName = menu->getNameOfCharacterFromIndex(destination);
+
+	// Get if valid name was selected
+	destination = menu->destinationMap(destination);
+	
+	// If getting from destination map returns 1, it means the user selected a valid name
+	// This means that we can delete the Character
+	if (destination == 1){
+		CharacterSaveManager::removeCharacter(tempName);
+	}
+
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return _CreateEditPlayer_;
+}
 
 //!once a campaign is selected, this function facilitates editing
 int GameLoops::editExistingCampaignLoop(char* path, char* campaign)

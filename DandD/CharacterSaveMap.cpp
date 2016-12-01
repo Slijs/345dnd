@@ -42,6 +42,17 @@ void CharacterSaveMap::put(const CString &charName, const CString &charPath) {
 }
 
 /**
+* Returns a vector of strings with all the names of Characters saved
+*/
+vector<string>* CharacterSaveMap::getNames() {
+	vector<string> *names = new vector<string>();
+	for (int i = 0; i < _size; i++) {
+		names->push_back(CharacterSaveManager::cstrTostr(_charMap[i][0]));
+	}
+	return names;
+}
+
+/**
 * Used to return the path of the desired character
 *@param charName CString of the name of the desired character
 *@return CString, path of the desired Character

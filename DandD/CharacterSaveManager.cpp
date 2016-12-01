@@ -93,6 +93,38 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar) {
 }
 
 /**
+* Returns a vector containing the names of all Characters which have been saved to disk
+*@return vector<string>
+*/
+vector<string>* CharacterSaveManager::getNames() {
+	CFile mapFile; // Map of all Character saves
+	vector<string>* names = nullptr;
+
+	// Will create charMap that will contain all Character save locations
+	CharacterSaveMap* charMap = new CharacterSaveMap();
+
+	// If the CharMap file can be opened successfully, charMap will be serialized to load the data
+	try {
+		mapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeRead);
+	}
+	catch (CFileException *e) {
+		cout << "There was an error accessing Character save files. Attempt aborted." << endl;
+		return names;
+	}
+	CArchive mapArchive(&mapFile, CArchive::load);
+	charMap->Serialize(mapArchive);
+	mapArchive.Close();
+	mapFile.Close();
+	// If the charMap is empty at this point, it means that there are no Characters to remove
+	if (charMap->isEmpty()) {
+		cout << "There are no Characters to remove." << endl;
+		return names;
+	}
+	names = charMap->getNames();
+	return names;
+}
+
+/**
 * Will load a Character from disk based on user selection, and returns a pointer to that Character
 *@param Fighter*, pointing to the loaded Character
 */
@@ -157,6 +189,51 @@ Fighter* CharacterSaveManager::loadCharacter() {
 	charArchive.Close();
 	charFile.Close();
 	cout << loadedChar->getName() << " has been loaded!" << endl;
+	delete charMap;
+	return loadedChar;
+}
+
+/**
+* Loads a Fighter from file, based on the name string provided to the menu
+*@param name, string of the name of the Fighter to load
+*/
+Fighter* CharacterSaveManager::loadCharacter(string name){
+
+	CFile mapFile; // Map of all Character saves
+
+	// Will create charMap that will contain all Character save locations
+	CharacterSaveMap* charMap = new CharacterSaveMap();
+
+	// If the CharMap file can be opened successfully, charMap will be serialized to load the data
+	try {
+		mapFile.Open(_T("CharacterSaveMap.txt"), CFile::modeRead);
+	}
+	catch (CFileException *e) {
+		cout << "There was an error accessing Character save files. Attempt aborted." << endl;
+		return NULL;
+	}
+	CArchive mapArchive(&mapFile, CArchive::load);
+	charMap->Serialize(mapArchive);
+	mapArchive.Close();
+	mapFile.Close();
+
+	CString path = charMap->getPath(name.c_str()); // Gets path from map
+	Fighter *loadedChar = new Fighter();
+
+	// Now, the Character themself will be Serialized
+	CFile charFile;
+	try {
+		charFile.Open(path, CFile::modeRead);
+	}
+	catch (CFileException &exp) {
+		cout << "There was an error trying to save. Aborting attempt." << endl;
+		return NULL;
+	}
+	CArchive charArchive(&charFile, CArchive::load);
+	loadedChar->Serialize(charArchive);
+	charArchive.Close();
+	charFile.Close();
+
 	delete charMap;
 	return loadedChar;
 }

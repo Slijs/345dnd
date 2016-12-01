@@ -100,6 +100,7 @@ Characters::Characters(int level)
 	ring = new Ring();
 	helmet = new Helmet();
 
+
 	calcArmorClass();
 
 	//calculate attackBonus and DamageBonus
@@ -132,6 +133,8 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	ring = new Ring();
 	helmet = new Helmet();
 
+
+
 	detProficiencyBonus();
 	detExp();
 	abilityScoreMod();
@@ -162,7 +165,6 @@ void Characters::destroyObject()
 	if (belt != nullptr)
 		delete belt;
 	belt = nullptr;
-
 }
 //!Destructor
 Characters::~Characters()

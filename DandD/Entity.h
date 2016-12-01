@@ -41,6 +41,8 @@ enum Size{
 
 }; // add more later
 
+
+
 class Entity
 {
 	/*!Entity class that includes all entities like monsters, fighters, etc

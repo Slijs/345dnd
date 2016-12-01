@@ -19,6 +19,7 @@ private:
 
 public:
 	OneTimeEffect(std::string path);
+	void setVolume(int);
 	void play();
 	~OneTimeEffect();
 };
@@ -32,6 +33,7 @@ public:
 	ContinousEffect(std::string path);
 	void play();
 	void fadeInPlay(int milliseconds);
+	void setVolume(int);
 	void stopPlay();
 	void fadeOutStopPlay(int milliseconds);
 	~ContinousEffect();

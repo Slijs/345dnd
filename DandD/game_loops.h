@@ -21,6 +21,10 @@
 #include "Sound.h"
 #include <conio.h>
 #include <vector>
+#include "CharacterCreateEditMenu.h"
+#include "DeleteCharacterMenu.h"
+#include "CharacterManager.h"
+#include "LoadCharacterMenu.h"
 
 //enum destination {mainmenu, gamelevel, leveleditor};
 /*!
@@ -53,8 +57,10 @@ public:
 	int editExistingCampaignLoop(char* path, char* campaign);
 	int campaignManagerLoop(char* path, char* campaign);
 	int createEditItems();
+	Fighter* loadPlayer();
 	int createEditPlayer();
-
+	int createNewPlayer();
+	int deleteCharacter();
 };
 
 #endif

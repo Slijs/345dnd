@@ -22,7 +22,7 @@ class CharacterManager {
 private:
 	static void _displayCreateEditMenu();
 	static void _displayEditMenu();
-	static void _createNewCharacter();
+	
 	static void _editCharacter();
 	static void _deleteCharacter();
 	static void _editName(Fighter* theFighter);
@@ -30,7 +30,7 @@ private:
 public:
 	static Fighter* getCharacter(); // Allows user to load Fighter from file to play game
 	static void createOrEditCharacter(); // Allows user to create a new Character, or edit a pre-existing one
-
+	static void createNewCharacter();
 };
 
 #endif
