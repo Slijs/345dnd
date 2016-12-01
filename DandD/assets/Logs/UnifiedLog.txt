@@ -997,3 +997,439 @@ An existing map was edited and saved.
 A campaign was loaded for play.
 Campaign menu loaded.
 Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+An existing map was edited and saved.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Setting initiative for all characters in game.
+3 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+5 was rolled by the dice on a 1d10 roll.
+6 was rolled by the dice on a 1d8 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+17 was rolled by the dice on a 1d20 roll.
+5 was rolled by the dice on a 1d10 roll.
+6 was rolled by the dice on a 1d8 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+17 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d4 roll.
+Container created with 3 items.
+	Item 1: Heavy Plate
+	Item 2: Doom Bastion
+	Item 3: Demonic Girdle of Doom
+Setting initiative for all characters in game.
+2 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Sprite has been added to the priority queue.
+Little Bo has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Little Bo's turn.
+
+Little Bo's turn:
+Little Bo has moved from (X: 2 Y: 8) to (X: 0 Y: 8).
+Little Bo has moved.
+End turn.
+It is Sprite's turn.
+
+Sprite's turn:
+Sprite has moved from (X: 2 Y: 7) to (X: 1 Y: 8).
+Sprite has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+5 was rolled by the dice on a 1d10 roll.
+4 was rolled by the dice on a 1d8 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+7 was rolled by the dice on a 1d20 roll.
+5 was rolled by the dice on a 1d10 roll.
+4 was rolled by the dice on a 1d8 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+10 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d4 roll.
+Container created with 1 items.
+	Item 1: Flanged mace
+Setting initiative for all characters in game.
+10 was rolled by the dice on a 1d20 roll.
+10 was rolled by the dice on a 1d20 roll.
+10 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Sprite has been added to the priority queue.
+Little Bo has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Little Bo's turn.
+
+Little Bo's turn:
+Little Bo has moved from (X: 2 Y: 8) to (X: 0 Y: 8).
+Little Bo has moved.
+End turn.
+It is Sprite's turn.
+
+Sprite's turn:
+Sprite has moved from (X: 2 Y: 7) to (X: 1 Y: 8).
+Sprite has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.
+Campaign menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+A campaign was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+An existing map was edited and saved.
+A campaign was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Map Editor loaded.
+An existing map was edited and saved.
+A campaign was loaded for play.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign menu loaded.
+Main menu loaded.
+Campaign empty was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d10 roll.
+3 was rolled by the dice on a 1d4 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+3 was rolled by the dice on a 1d4 roll.
+7 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d10 roll.
+3 was rolled by the dice on a 1d4 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+17 was rolled by the dice on a 3d6 roll.
+3 was rolled by the dice on a 1d4 roll.
+7 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Container created with 5 items.
+	Item 1: Ruby Infused Linen Gunbelt
+	Item 2: Baluse
+	Item 3: Katana
+	Item 4: Bright Swan Ring
+	Item 5: Sectioned Armor
+Setting initiative for all characters in game.
+7 was rolled by the dice on a 1d20 roll.
+7 was rolled by the dice on a 1d20 roll.
+7 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Grimlock has been added to the priority queue.
+Ugo has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Grimlock's turn.
+
+Grimlock's turn:
+Grimlock has moved from (X: 2 Y: 7) to (X: 1 Y: 8).
+Grimlock has moved.
+End turn.
+It is Ugo's turn.
+
+Ugo's turn:
+Ugo has moved from (X: 2 Y: 8) to (X: 2 Y: 7).
+Ugo has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.
+Campaign menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+7 was rolled by the dice on a 1d10 roll.
+2 was rolled by the dice on a 2d4 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+1 was rolled by the dice on a 1d4 roll.
+18 was rolled by the dice on a 1d20 roll.
+7 was rolled by the dice on a 1d10 roll.
+2 was rolled by the dice on a 2d4 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+1 was rolled by the dice on a 1d4 roll.
+18 was rolled by the dice on a 1d20 roll.
+5 was rolled by the dice on a 1d6 roll.
+1 was rolled by the dice on a 1d4 roll.
+Container created with 5 items.
+	Item 1: Sharkskin Armor
+	Item 2: Bright Memorial Ring
+	Item 3: Longbow
+	Item 4: Sharkskin Armor
+	Item 5: Bill
+Setting initiative for all characters in game.
+2 was rolled by the dice on a 1d20 roll.
+5 was rolled by the dice on a 1d20 roll.
+5 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Wolf has been added to the priority queue.
+John has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is John's turn.
+
+John's turn:
+John has moved from (X: 2 Y: 8) to (X: 1 Y: 8).
+John has moved.
+End turn.
+It is Wolf's turn.
+
+Wolf's turn:
+Wolf has moved from (X: 2 Y: 7) to (X: 2 Y: 8).
+Wolf has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d10 roll.
+2 was rolled by the dice on a 1d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+9 was rolled by the dice on a 3d6 roll.
+1 was rolled by the dice on a 1d4 roll.
+7 was rolled by the dice on a 1d20 roll.
+4 was rolled by the dice on a 1d10 roll.
+1 was rolled by the dice on a 1d4 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+1 was rolled by the dice on a 1d4 roll.
+7 was rolled by the dice on a 1d20 roll.
+5 was rolled by the dice on a 1d6 roll.
+Container created with 5 items.
+	Item 1: Lavish Glamour
+	Item 2: Kalasag
+	Item 3: Liar's Chain Spurs
+	Item 4: Leather Girdle of Cursed Dreams
+	Item 5: Bronze Spurs of Divine Hope
+Setting initiative for all characters in game.
+10 was rolled by the dice on a 1d20 roll.
+10 was rolled by the dice on a 1d20 roll.
+10 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Goblin Soldier has been added to the priority queue.
+Robert has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Robert's turn.
+
+Robert's turn:
+Robert has moved from (X: 2 Y: 8) to (X: 0 Y: 8).
+Robert has moved.
+End turn.
+It is Goblin Soldier's turn.
+
+Goblin Soldier's turn:
+Goblin Soldier has moved from (X: 2 Y: 7) to (X: 1 Y: 8).
+Goblin Soldier has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý««««««««îþîþîþîþ was loaded for play.
+New map was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d4 roll.
+7 was rolled by the dice on a 1d10 roll.
+2 was rolled by the dice on a 2d4 roll.
+6 was rolled by the dice on a 3d6 roll.
+6 was rolled by the dice on a 3d6 roll.
+6 was rolled by the dice on a 3d6 roll.
+6 was rolled by the dice on a 3d6 roll.
+6 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+16 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d10 roll.
+3 was rolled by the dice on a 1d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+10 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+16 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d6 roll.
+Container created with 3 items.
+	Item 1: Oathkeeper's Silk Sash
+	Item 2: Heater Shield
+	Item 3: Spidersilk
+Setting initiative for all characters in game.
+16 was rolled by the dice on a 1d20 roll.
+16 was rolled by the dice on a 1d20 roll.
+16 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Wolf has been added to the priority queue.
+Herbert has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Herbert's turn.
+
+Herbert's turn:
+Herbert has moved from (X: 2 Y: 8) to (X: 1 Y: 8).
+Herbert has moved.
+End turn.
+It is Wolf's turn.
+
+Wolf's turn:
+Wolf has moved from (X: 2 Y: 7) to (X: 2 Y: 8).
+Wolf has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.

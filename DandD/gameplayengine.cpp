@@ -107,6 +107,7 @@ int GamePlayEngine::runEngine()
 		GameController::getInstance()->log("\nStarting new round.");
 		// Next, we will iterate through all Characters in the initiative queue until it is empty
 		while (!_level->isInitiativeQueueEmpty()){
+			//render logic here for game log
 			temp = _level->_initiativeCharacterQueue.top();
 			_level->_initiativeCharacterQueue.pop();
 
