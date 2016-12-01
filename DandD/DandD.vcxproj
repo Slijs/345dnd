@@ -147,7 +147,6 @@
     <ClCompile Include="SuccessOnRaceChangeMenu.cpp" />
     <ClCompile Include="TestDice.cpp" />
     <ClCompile Include="TestItem.cpp" />
-    <ClCompile Include="TestMonsterStrategies.cpp" />
     <ClCompile Include="userinputandstringmanager.cpp" />
     <ClCompile Include="textbasedwindow.cpp" />
     <ClCompile Include="prebuiltlevel.cpp" />
