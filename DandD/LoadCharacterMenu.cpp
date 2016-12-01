@@ -60,7 +60,6 @@ void LoadCharacterMenu::setupMenu(){
 		menucomponent.y = menucomponent.y + menucomponent.h;
 	}
 	else
-
 		// Display all Character names, offset x to indent
 		for (int i = 0; i < _characterNames->size(); i++){
 		menucomponent.w = textWidthCalculator(_characterNames->at(i), buttonbase, totalwidth);

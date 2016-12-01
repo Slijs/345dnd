@@ -57,6 +57,7 @@ namespace BaseMenuColorIndex
 	const int _NoButtonSelect_ = 2;
 	const int _Title_ = 3;
 	const int _OtherText_ = 4;
+	const int _Label_ = 5;
 }
 
 /*!
@@ -94,6 +95,11 @@ namespace DestinationFromMenus
 	const int _EditRace_ = 24;
 	const int _SuccessNameChange_ = 25;
 	const int _SuccessRaceChange_ = 26;
+	const int _YesConfirmation_ = 27;
+	const int _NoConfirmation_ = 28;
+	const int _DisplayPlayerStats_ = 29;
+	const int _GoBack_ = 30;
+	const int _ManageEquipment_ = 31;
 	const int _ExitToCommandPrompt_ = 100;
 }
 

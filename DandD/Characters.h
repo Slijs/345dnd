@@ -90,9 +90,7 @@ protected:
 	Ring* ring;
 	Container* backpack;
 	MovementStrategy* _strategy; //! Strategy the Character uses to move
-	bool isLevelUp;
-
-	
+	bool isLevelUp;	
 
 private:
 	int const MAX_NUM_SCORES = 6;
@@ -147,8 +145,10 @@ public:
 	int getArmorClass() { return armorClass; }
 	int getAttackBonus() { return attackBonus; }
 	int getDamageBonus() { return damageBonus; }
+	int getProficiencyBonus() { return proficiencyBonus; };
 	int getScores(int, int);
 	int getInitiative();
+	Container* getBackPack() { return backpack; };
 	bool getInBattle();
 	bool getIsDead() { return isDead; }
 	void setIsDead(bool isDead) { this->isDead = isDead; }

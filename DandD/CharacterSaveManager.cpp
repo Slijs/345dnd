@@ -44,9 +44,10 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar, SDL_Event _event) {
 		// Create the MenuEngine to gather input
 		MenuEngine* engine = new MenuEngine(menu, _event);
 		int conf = engine->runEngine();
+		conf = menu->destinationMap(conf);
 	
 		// Check the confirmation. If 1, don't save
-		if (conf == 1){
+		if (conf == _NoConfirmation_){
 			menu->hideMenu();
 			delete engine;
 			engine = nullptr;
