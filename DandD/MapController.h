@@ -10,6 +10,7 @@ private:
 	static MapController* _mapController;
 public:
 	static MapController* getInstance();
+	void log(string);
 	~MapController();
 
 

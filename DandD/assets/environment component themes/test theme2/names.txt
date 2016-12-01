@@ -156,3 +156,19 @@ h13 true h13.png
 h13
 h14 true h14.png
 h14
+b1 true b1.png
+b1
+b2 true b2.png
+b2
+b3 true b3.png
+b3
+b4 true b4.png
+b4
+b5 true b5.png
+b5
+b6 true b6.png
+b6
+b7 true b7.png
+b7
+b8 true b8.png
+b8

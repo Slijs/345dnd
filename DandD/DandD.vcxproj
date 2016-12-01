@@ -132,6 +132,7 @@
     <ClCompile Include="Ring.cpp" />
     <ClCompile Include="routing.cpp" />
     <ClCompile Include="Shield.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="TestItem.cpp" />
     <ClCompile Include="userinputandstringmanager.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="Ring.h" />
     <ClInclude Include="routing.h" />
     <ClInclude Include="Shield.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="userinputandstringmanager.h" />

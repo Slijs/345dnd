@@ -7,7 +7,18 @@ GameController::GameController()
 {
 	_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_gameController;
 	SingletonInputOutputManager::getInstance()->clearFile(_path);
-	_toggle = true;
+	_toggleGame = true;
+}
+
+void GameController::log(string input)
+{
+	if (this->_toggleGame == true)
+	{
+		//log for game controller
+		SingletonInputOutputManager::getInstance()->appendToFile(_path, input);
+		//log for unified by calling parent log
+		GameLog::log(input);
+	}
 }
 
 //!Function that returns a singleton instance of game controller (creates a new one if not already created)

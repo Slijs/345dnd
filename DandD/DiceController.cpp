@@ -6,7 +6,18 @@ DiceController::DiceController()
 {
 	_path = SingletonFilePathAndFolderManager::getInstance()->_path_to_diceController;
 	SingletonInputOutputManager::getInstance()->clearFile(_path);
-	_toggle = true;
+	_toggleDice = true;
+}
+
+void DiceController::log(string input)
+{
+	if (this->_toggleDice == true)
+	{
+		//log for game controller
+		SingletonInputOutputManager::getInstance()->appendToFile(_path, input);
+		//log for unified by calling parent log
+		GameLog::log(input);
+	}
 }
 
 DiceController* DiceController::getInstance()

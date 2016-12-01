@@ -14,6 +14,11 @@ void GameLoops::loopManager()
 	SingletonDefaultMapsMenu::getInstance()->setupMenu();
 	SingletonDefaultMapsMenu::getInstance()->hideMenu();
 
+	//instantiate the sounds for menu
+	ContinousEffect* background = new ContinousEffect("assets/Sound/Menu/Background/mainmenu.mp3");
+	//
+	//
+	background->play();
 	_currentFighterTracker = nullptr;
 	bool quit = false;
 	int destination;
@@ -72,6 +77,12 @@ void GameLoops::loopManager()
 			quit = true;
 		}
 	}
+	background->stopPlay();
+	delete background;
+	background = nullptr;
+	//
+	//
+	
 
 	delete mappath;
 	delete campaignname;
@@ -532,6 +543,9 @@ int GameLoops::createEditItems()
 	system("CLS");
 	GameController::getInstance()->log("Create / Edit items menu loaded.");
 	ItemCreator::createItems();
+	//Phil menu logic start
+	//whatever happens in your direver
+	//Phil menu logic end
 	system("CLS");
 	return _MainMenu_;
 }

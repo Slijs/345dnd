@@ -10,11 +10,15 @@ MenuEngine::MenuEngine(Menus* menu, SDL_Event event_)
 	this->_lastButtonIndex = -1;
 	this->_mouse_X_cor = 0;
 	this->_mouse_Y_cor = 0;
+	rollover = new OneTimeEffect("assets/Sound/Menu/Buttons/rollover.wav");
+	click = new OneTimeEffect("assets/Sound/Menu/Buttons/click.wav");
 }
 
 //!primary run engine method runs a menu for which only functions are taking a button input and mapping a destination
 int MenuEngine::runEngine()
 {
+	bool onButton = false;
+	
 	bool quit = false;
 	while(quit==false)
 	{
@@ -33,6 +37,7 @@ int MenuEngine::runEngine()
 			//this means I am not at any button, and the last button should be rendered back to old color
 			if(_currentButtonIndex < 0)
 			{
+				onButton = false;
 				if(_lastButtonIndex != -1)
 				{
 					_menu->getMenuWindow()->changeButtonColor(_lastButtonIndex, _menu->getAMenuComponentColor(_NoButtonSelect_)->red, _menu->getAMenuComponentColor(_NoButtonSelect_)->green, _menu->getAMenuComponentColor(_NoButtonSelect_)->blue);
@@ -43,6 +48,11 @@ int MenuEngine::runEngine()
 			//this means I am on a valid button
 			if(_currentButtonIndex>=0)
 			{
+				if (onButton == false)
+				{
+					onButton = true;
+					rollover->play();
+				}
 				//this means I arrived at a button first time
 				if(_currentButtonIndex!=_lastButtonIndex)
 				{
@@ -60,11 +70,20 @@ int MenuEngine::runEngine()
 			}
 
 			//if I am at a valid button then I need to get input
-			if((_event.type == SDL_MOUSEBUTTONUP)&&(_event.button.button == SDL_BUTTON_LEFT))
-				if(_currentButtonIndex>=0)
+			if ((_event.type == SDL_MOUSEBUTTONUP) && (_event.button.button == SDL_BUTTON_LEFT))
+			{
+				
+				if (_currentButtonIndex >= 0)
+				{
 					quit = true;
+					click->play();
+					SDL_Delay(200);
+					std::cout << "Clicked\n";
+				}
+			}
 		}
 	}
+
 	return this->_currentButtonIndex;
 }
 
@@ -73,6 +92,7 @@ int MenuEngine::runEngine()
 //!for deletenig we have to give the name of corresponding button index, otherwise a nullptr has to be returned
 int MenuEngine::runEngine(char* buttontracker)
 {
+	bool onButton = false;
 	bool quit = false;
 	//buttontracker = nullptr;
 	int lowerdeleteindex;
@@ -123,6 +143,7 @@ int MenuEngine::runEngine(char* buttontracker)
 			//this means I am not at any button, and the last button should be rendered back to old color
 			if(_currentButtonIndex < 0)
 			{
+				onButton = false;
 				if(_lastButtonIndex != -1)
 				{
 					_menu->getMenuWindow()->changeButtonColor(_lastButtonIndex, _menu->getAMenuComponentColor(_NoButtonSelect_)->red, _menu->getAMenuComponentColor(_NoButtonSelect_)->green, _menu->getAMenuComponentColor(_NoButtonSelect_)->blue);
@@ -133,6 +154,11 @@ int MenuEngine::runEngine(char* buttontracker)
 			//this means I am on a valid button
 			if(_currentButtonIndex>=0)
 			{
+				if (onButton == false)
+				{
+					onButton = true;
+					rollover->play();
+				}
 				//this means I arrived at a button first time
 				if(_currentButtonIndex!=_lastButtonIndex)
 				{
@@ -153,6 +179,8 @@ int MenuEngine::runEngine(char* buttontracker)
 			//left button click surely means edit or create new map
 			if((_event.type == SDL_MOUSEBUTTONUP)&&(_event.button.button == SDL_BUTTON_LEFT)&&(_currentButtonIndex>=0))
 			{
+				click->play();
+				SDL_Delay(200);
 				SingletonInputsAndStringManager::getInstance()->assignStringToCharPointer(buttontracker, manager->getNameOfButtonFromIndex(_currentButtonIndex));
 				return _currentButtonIndex;
 				quit = true;
@@ -175,6 +203,7 @@ int MenuEngine::runEngine(char* buttontracker)
 //!and also input will be ignored
 int MenuEngine::runEngine(int ignoreRender1, int ignoreRender2, char* buttontracker)
 {
+	bool onButton = false;
 	bool quit = false;
 	int lowerdeleteindex;
 	int upperdeleteindex;
@@ -211,10 +240,14 @@ int MenuEngine::runEngine(int ignoreRender1, int ignoreRender2, char* buttontrac
 
 			//check which button cursor is on
 			_currentButtonIndex = _menu->getMenuWindow()->getButtonIndexThatMouseIsOn(this->_mouse_X_cor, this->_mouse_Y_cor);
-
+			if ((_currentButtonIndex >= 0))
+			{
+				rollover->play();
+			}
 			//this means I am not at any button, and the last button should be rendered back to old color, and if the last button was of the ignore render, then just ignore rendering
 			if(_currentButtonIndex < 0)
 			{
+				
 				if((_lastButtonIndex != -1) && (_lastButtonIndex != ignoreRender1) && (_lastButtonIndex != ignoreRender2))
 				{
 					//std::cout<<_lastButtonIndex<<std::endl;
@@ -226,9 +259,15 @@ int MenuEngine::runEngine(int ignoreRender1, int ignoreRender2, char* buttontrac
 			//this means I am on a valid button
 			if(_currentButtonIndex>=0)
 			{
+				
 				//this means I arrived at a button first time
 				if(_currentButtonIndex!=_lastButtonIndex)
 				{
+					//if (onButton == false)
+					//{
+						//onButton = true;
+						
+					//}
 					//first render the current button to new color ignore the render ones of course
 					if((_currentButtonIndex != ignoreRender1) && (_currentButtonIndex != ignoreRender2))
 						_menu->getMenuWindow()->changeButtonColor(_currentButtonIndex, _menu->getAMenuComponentColor(_YesButtonSelect_)->red, _menu->getAMenuComponentColor(_YesButtonSelect_)->green, _menu->getAMenuComponentColor(_YesButtonSelect_)->blue);
@@ -249,6 +288,8 @@ int MenuEngine::runEngine(int ignoreRender1, int ignoreRender2, char* buttontrac
 			{
 
 				SingletonInputsAndStringManager::getInstance()->assignStringToCharPointer(buttontracker, manager->getNameOfButtonFromIndex(_currentButtonIndex));
+				click->play();
+				SDL_Delay(200);
 				return _currentButtonIndex;
 			}
 
@@ -273,4 +314,14 @@ int MenuEngine::runEngine(int ignoreRender1, int ignoreRender2, char* buttontrac
 MenuEngine::~MenuEngine()
 {
 	this->_menu = nullptr;
+	if (this->click != nullptr)
+	{
+		delete click;
+		click = nullptr;
+	}
+	if (this->rollover != nullptr)
+	{
+		delete rollover;
+		rollover = nullptr;
+	}
 }

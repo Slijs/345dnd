@@ -10,6 +10,7 @@
 #include "userinputandstringmanager.h"
 #include "campaignmenus.h"
 #include "campaignMAPmanagers.h"
+#include "Sound.h"
 /*!
 *@class MenuEngine
 *this class was designed to run the menus for the assignment
@@ -24,7 +25,8 @@ private:
 	int _lastButtonIndex;
 	int _mouse_X_cor;
 	int _mouse_Y_cor;
-
+	OneTimeEffect* rollover;
+	OneTimeEffect* click;
 public:
 	MenuEngine(Menus* menu, SDL_Event event_);
 	int runEngine();
