@@ -35,15 +35,15 @@ namespace MapSymbolsData
 /*!
 *mages logger colors
 */
-namespace LoggerColor
+/*namespace LoggerColorGame
 {
-	const int _CHAR_R_ = 0;
-	const int _CHAR_G_ = 255;
-	const int _CHAR_B_ = 0;
-	const int _MAP_R_ = 0;
-	const int _MAP_G_ = 0;
-	const int _MAP_B_ = 255;
-}
+	int _CHAR_R_ = 0;
+	int _CHAR_G_ = 255;
+	int _CHAR_B_ = 0;
+	int _MAP_R_ = 0;
+	int _MAP_G_ = 0;
+	int _MAP_B_ = 255;
+}*/
 /*!
 *the menu classes hierarchy has a vector for color information
 *this namespace keeps the indices for which index has which color constant

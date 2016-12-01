@@ -23,6 +23,7 @@ GamePlayEngine::GamePlayEngine()
 	this->_exitCharacterIndex = -1;
 	this->_exitStringIndex = -1;
 	this->_currentButtonIndex = -1;
+	
 }
 
 /*!
@@ -36,7 +37,14 @@ void GamePlayEngine::attachLevel(PreBuiltLevel* level, SDL_Event* event_)
 	this->_containers = this->_level->getContainersOnMap();
 	this->_enemies = this->_level->getEnemiesOnMap();
 	this->_observer = new MapObserver(level);
-
+	maplogger.y = this->_level->_loggerYend + 1;
+	maplogger.x = 1;
+	maplogger.w = (this->_level->getLevelWindow()->getWindowWidth() / 2) - 2;
+	maplogger.h = this->_level->getLevelWindow()->getWindowHeight() - maplogger.y;
+	charlogger.y = this->_level->_loggerYend + 1;
+	charlogger.x = (this->_level->getLevelWindow()->getWindowWidth() / 2) + 1;
+	charlogger.w = (this->_level->getLevelWindow()->getWindowWidth() / 2) - 2;
+	charlogger.h = this->_level->getLevelWindow()->getWindowHeight() - maplogger.y;
 	std::vector<std::string> temp = this->_level->getMapSimpleVersion();
 	//setup the exit coordinates
 	for (int stringC = 0; stringC < temp.size(); stringC++)
@@ -108,6 +116,7 @@ int GamePlayEngine::runEngine()
 		// Next, we will iterate through all Characters in the initiative queue until it is empty
 		while (!_level->isInitiativeQueueEmpty()){
 			//render logic here for game log
+			logRender();
 			temp = _level->_initiativeCharacterQueue.top();
 			_level->_initiativeCharacterQueue.pop();
 
@@ -177,6 +186,42 @@ int GamePlayEngine::runEngine()
 	}
 	QUIT_CAMPAIGN:
 	return destToReturn;
+}
+/*!
+*for rendering map and character logs 
+*/
+void GamePlayEngine::logRender()
+{
+	//render map log on the left
+	int y = this->_level->_loggerYend+5;
+	int x = 5;
+
+	SDL_Rect temp;
+	temp.y = y;
+	temp.x = x;
+	temp.h = (this->_level->getLevelWindow()->getWindowHeight() - y)/10;
+	temp.w = this->_level->getLevelWindow()->getWindowWidth()/2 -5;
+
+	//for clearing the logger part
+	SDL_SetRenderDrawColor(this->_level->getLevelWindow()->getRenderer(), 0, 0, 0, 255);
+	SDL_RenderFillRect(this->_level->getLevelWindow()->getRenderer(), &this->maplogger);
+	SDL_RenderFillRect(this->_level->getLevelWindow()->getRenderer(), &this->charlogger);
+	this->_level->getLevelWindow()->clearTextLabels();
+	std::vector<std::string> local = SingletonInputOutputManager::getInstance()->readFileLineByLine(MapController::getInstance()->getPath());
+	for (int h = 0; h < 10; h++)
+	{
+		//render the map part
+		//this->_level->getLevelWindow()->addTextLabel(local[h], LoggerColorGame::_MAP_R_, LoggerColorGame::_MAP_G_, LoggerColorGame::_MAP_B_, temp);
+		if (local.size() > h)
+		{
+			this->_level->getLevelWindow()->addTextLabel(local[h], 0, 0, 255, temp);
+			temp.y = temp.h + temp.y;
+			this->_level->getLevelWindow()->setMenuOnRenderer();
+		}
+		
+	}
+	//void Text::setOptimalHeightWidthRect(int xpos, int ypos)
+	//SDL_QueryTexture(this->_texture, nullptr, nullptr, &this->_width, &this->_height);
 }
 
 //return 0 for program exit

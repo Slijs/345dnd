@@ -1433,3 +1433,401 @@ It is Joe's turn (AKA it is your turn!)
 Joe's turn: 
 End turn.
 Main menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+New map was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d10 roll.
+3 was rolled by the dice on a 1d4 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+1 was rolled by the dice on a 1d4 roll.
+1 was rolled by the dice on a 1d20 roll.
+7 was rolled by the dice on a 1d10 roll.
+2 was rolled by the dice on a 2d4 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+12 was rolled by the dice on a 3d6 roll.
+1 was rolled by the dice on a 1d4 roll.
+4 was rolled by the dice on a 1d20 roll.
+Container created with 3 items.
+	Item 1: Armament of the Dragons
+	Item 2: Ocean Leaf
+	Item 3: Cloth Waistband of Hallowed Fortunes
+Setting initiative for all characters in game.
+4 was rolled by the dice on a 1d20 roll.
+4 was rolled by the dice on a 1d20 roll.
+4 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Grimlock has been added to the priority queue.
+John has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+3 was rolled by the dice on a 1d10 roll.
+3 was rolled by the dice on a 1d4 roll.
+8 was rolled by the dice on a 3d6 roll.
+8 was rolled by the dice on a 3d6 roll.
+8 was rolled by the dice on a 3d6 roll.
+8 was rolled by the dice on a 3d6 roll.
+8 was rolled by the dice on a 3d6 roll.
+8 was rolled by the dice on a 3d6 roll.
+3 was rolled by the dice on a 1d4 roll.
+6 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d10 roll.
+3 was rolled by the dice on a 1d4 roll.
+8 was rolled by the dice on a 3d6 roll.
+8 was rolled by the dice on a 3d6 roll.
+11 was rolled by the dice on a 3d6 roll.
+11 was rolled by the dice on a 3d6 roll.
+11 was rolled by the dice on a 3d6 roll.
+11 was rolled by the dice on a 3d6 roll.
+3 was rolled by the dice on a 1d4 roll.
+9 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d4 roll.
+Container created with 4 items.
+	Item 1: Demonic Sabatons of the Bear
+	Item 2: Peurise Teumaga
+	Item 3: Serene Globe
+	Item 4: Titanium Stompers of Holy Warlords
+Setting initiative for all characters in game.
+13 was rolled by the dice on a 1d20 roll.
+13 was rolled by the dice on a 1d20 roll.
+13 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Grimlock has been added to the priority queue.
+Ugo has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+Main menu loaded.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d10 roll.
+1 was rolled by the dice on a 1d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+5 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d10 roll.
+1 was rolled by the dice on a 1d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+13 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+5 was rolled by the dice on a 1d20 roll.
+Container created with 1 items.
+	Item 1: Oathkeeper's Silk Sash
+Setting initiative for all characters in game.
+9 was rolled by the dice on a 1d20 roll.
+9 was rolled by the dice on a 1d20 roll.
+9 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Goblin Archer has been added to the priority queue.
+Herbert has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Herbert's turn.
+
+Herbert's turn:
+Herbert has moved from (X: 2 Y: 8) to (X: 1 Y: 8).
+Herbert has moved.
+End turn.
+It is Goblin Archer's turn.
+
+Goblin Archer's turn:
+Goblin Archer has moved from (X: 2 Y: 7) to (X: 2 Y: 8).
+Goblin Archer has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+19 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d4 roll.
+Joe rolled 27 for attack!
+Attack was successful!
+
+8 damage was inflicted on Herbert!
+
+3 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d4 roll.
+Joe rolled 11 for attack!
+Attack was successful!
+
+8 damage was inflicted on Goblin Archer!
+
+End turn.
+End of round.
+Setting initiative for all characters in game.
+4 was rolled by the dice on a 1d20 roll.
+4 was rolled by the dice on a 1d20 roll.
+4 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Goblin Archer has been added to the priority queue.
+Herbert has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Herbert's turn.
+
+Herbert's turn:
+Herbert has moved from (X: 1 Y: 8) to (X: 2 Y: 7).
+Herbert has moved.
+End turn.
+It is Goblin Archer's turn.
+
+Goblin Archer's turn:
+Goblin Archer has moved from (X: 2 Y: 8) to (X: 1 Y: 8).
+Goblin Archer has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+11 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d4 roll.
+Joe rolled 19 for attack!
+Attack was successful!
+
+9 damage was inflicted on Goblin Archer!
+
+14 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d4 roll.
+Joe rolled 22 for attack!
+Attack was successful!
+
+9 damage was inflicted on Goblin Archer!
+
+End turn.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.
+5 was rolled by the dice on a 1d10 roll.
+7 was rolled by the dice on a 1d8 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+8 was rolled by the dice on a 1d20 roll.
+5 was rolled by the dice on a 1d10 roll.
+7 was rolled by the dice on a 1d8 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+4 was rolled by the dice on a 3d6 roll.
+2 was rolled by the dice on a 1d4 roll.
+8 was rolled by the dice on a 1d20 roll.
+Container created with 2 items.
+	Item 1: Fusion Padded Belt
+	Item 2: Conqueror Waistband of Dismay
+Setting initiative for all characters in game.
+12 was rolled by the dice on a 1d20 roll.
+12 was rolled by the dice on a 1d20 roll.
+12 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Sprite has been added to the priority queue.
+Little Bo has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Little Bo's turn.
+
+Little Bo's turn:
+Little Bo has moved from (X: 2 Y: 8) to (X: 0 Y: 8).
+Little Bo has moved.
+End turn.
+It is Sprite's turn.
+
+Sprite's turn:
+Sprite has moved from (X: 2 Y: 7) to (X: 1 Y: 8).
+Sprite has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+15 was rolled by the dice on a 1d20 roll.
+1 was rolled by the dice on a 1d4 roll.
+Joe rolled 23 for attack!
+Attack was successful!
+
+7 damage was inflicted on Sprite!
+
+End turn.
+End of round.
+Setting initiative for all characters in game.
+7 was rolled by the dice on a 1d20 roll.
+7 was rolled by the dice on a 1d20 roll.
+7 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Sprite has been added to the priority queue.
+Little Bo has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Little Bo's turn.
+
+Little Bo's turn:
+Little Bo has moved from (X: 0 Y: 8) to (X: 1 Y: 9).
+Little Bo has moved.
+End turn.
+It is Sprite's turn.
+
+Sprite's turn:
+Sprite has moved from (X: 1 Y: 8) to (X: 2 Y: 7).
+Sprite has moved.
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+Joe has moved from (X: 1 Y: 7) to (X: 8 Y: 2).
+5 was rolled by the dice on a 1d20 roll.
+2 was rolled by the dice on a 1d4 roll.
+Joe rolled 13 for attack!
+Attack was successful!
+
+8 damage was inflicted on Little Bo!
+
+End turn.
+End of round.
+Setting initiative for all characters in game.
+3 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d20 roll.
+3 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Sprite has been added to the priority queue.
+Little Bo has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Little Bo's turn.
+
+Little Bo's turn:
+6 was rolled by the dice on a 1d20 roll.
+Little Bo rolled 5 for attack!
+Attack missed!
+
+End turn.
+It is Sprite's turn.
+
+Sprite's turn:
+6 was rolled by the dice on a 1d20 roll.
+Sprite rolled 5 for attack!
+Attack missed!
+
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+Joe has moved from (X: 2 Y: 8) to (X: 7 Y: 1).
+4 was rolled by the dice on a 1d20 roll.
+1 was rolled by the dice on a 1d4 roll.
+Joe rolled 12 for attack!
+Attack was successful!
+
+7 damage was inflicted on Sprite!
+
+End turn.
+End of round.
+Setting initiative for all characters in game.
+1 was rolled by the dice on a 1d20 roll.
+1 was rolled by the dice on a 1d20 roll.
+1 was rolled by the dice on a 1d20 roll.
+
+Adding characters to priority queue...
+Joe has been added to the priority queue.
+Sprite has been added to the priority queue.
+Little Bo has been added to the priority queue.
+Done adding players to queue.
+
+Starting new round.
+It is Little Bo's turn.
+
+Little Bo's turn:
+Little Bo has moved from (X: 1 Y: 9) to (X: 1 Y: 8).
+Little Bo has moved.
+1 was rolled by the dice on a 1d20 roll.
+Little Bo rolled 0 for attack!
+Attack missed!
+
+End turn.
+It is Sprite's turn.
+
+Sprite's turn:
+5 was rolled by the dice on a 1d20 roll.
+Sprite rolled 4 for attack!
+Attack missed!
+
+End turn.
+It is Joe's turn (AKA it is your turn!)
+
+Joe's turn: 
+End turn.
+Main menu loaded.
+Main menu loaded.
+Campaign ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍýýýý«««««««« was loaded for play.
+New map was loaded for play.
+2 was rolled by the dice on a 1d4 roll.
+2 was rolled by the dice on a 1d4 roll.

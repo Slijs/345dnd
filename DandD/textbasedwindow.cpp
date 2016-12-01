@@ -26,6 +26,24 @@ void TextBasedWindow::setBackgroudColor(unsigned int r, unsigned int g, unsigned
 	SDL_RenderClear(this->_renderer);
 }
 
+//!clears existing text lables
+void TextBasedWindow::clearTextLabels()
+{
+	std::vector<Text*> temp;
+	temp.push_back(this->_textLabel[0]);
+	temp.push_back(this->_textLabel[1]);
+	for (int x = 2; x < this->_textLabel.size(); x++)
+	{
+		if (this->_textLabel[x] != nullptr)
+		{
+			delete this->_textLabel[x];
+			this->_textLabel[x] = nullptr;
+		}
+	}
+	this->_textLabel = temp;
+	
+	//this->_textLabel.clear();
+}
 //!sets the font size that is related to the window titles
 void TextBasedWindow::setTitleFontSize(int size)
 {
