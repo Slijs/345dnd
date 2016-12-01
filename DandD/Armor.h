@@ -9,7 +9,7 @@
 #ifndef Armor_H
 #define Armor_H
 
-
+//this is a test
 #include <string>
 #include <afx.h>
 #include "Item.h"
