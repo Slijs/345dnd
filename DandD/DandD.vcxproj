@@ -125,6 +125,7 @@
     <ClCompile Include="MapController.cpp" />
     <ClCompile Include="mapeditorengine.cpp" />
     <ClCompile Include="MapObserver.cpp" />
+    <ClCompile Include="MapTest.cpp" />
     <ClCompile Include="menuengine.cpp" />
     <ClCompile Include="menus.cpp" />
     <ClCompile Include="Monster.cpp" />
