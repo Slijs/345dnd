@@ -183,6 +183,7 @@
     <ClInclude Include="FriendlyStrategy.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameLog.h" />
+    <ClInclude Include="GameLogMenu.h" />
     <ClInclude Include="GameLogTest.h" />
     <ClInclude Include="gameplayengine.h" />
     <ClInclude Include="Helmet.h" />
