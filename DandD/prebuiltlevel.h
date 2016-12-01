@@ -40,12 +40,14 @@ protected:
 	SDL_Rect _gameLog;
 	SDL_Rect _dest1ForObserver;
 	SDL_Rect _dest2ForObserver;
+	int _loggerYend;
 	Fighter* _player;
 	std::vector<ContainerOnMap*> _containersOnMap;
 	std::vector<Monster*> _enemisOnMap; //! vector storing ALL monsters on Map who are alive
 	priority_queue<Characters, vector<Characters*>> _initiativeCharacterQueue; //! PQ which is used to manage turn execution during each round
 
 public:
+	
 	PreBuiltLevel();
 	PreBuiltLevel(std::string path, Fighter* player);
 	void loadUserCreatedLevel(std::string name);
@@ -77,6 +79,7 @@ public:
 	void setupInitiativeQueue();
 	bool isInitiativeQueueEmpty() { return _initiativeCharacterQueue.empty(); };
 	//void runTurn();
+	
 };
 
 #endif;

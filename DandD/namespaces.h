@@ -15,13 +15,14 @@
 */
 namespace SimplifiedMapSymbols
 {
-	const char _Obstruction_ = 'o';
-	const char _FreePath_ = '.';
-	const char _ExitDoor_ = 'e';
-	const char _Player_ = 'p';
-	const char _BasicContainer_ = '@';
-	const char _Enemies_ = 'x';
-	const char _Friend_ = 'f';
+	const char _Obstruction_ = '#';
+	const char _FreePath_ = '$';
+	const char _ExitDoor_ = '%';
+	const char _Player_ = '&';
+	const char _BasicContainer_ = '(';
+	const char _InvalidSymbol_ = '"';
+	const char _Friend_ = '!';
+	const char _Enemies_ = ')';
 }
 
 /*!
@@ -30,10 +31,21 @@ namespace SimplifiedMapSymbols
 */
 namespace MapSymbolsData
 {
-	const int _EnvironmentStart_ = 65;
-	const char _BasicContainer_ = '@';
+	const int _EnvironmentStart_ = 128;
+	const char _BasicContainer_ = '(';
 }
-
+/*!
+*mages logger colors
+*/
+/*namespace LoggerColorGame
+{
+	int _CHAR_R_ = 0;
+	int _CHAR_G_ = 255;
+	int _CHAR_B_ = 0;
+	int _MAP_R_ = 0;
+	int _MAP_G_ = 0;
+	int _MAP_B_ = 255;
+}*/
 /*!
 *the menu classes hierarchy has a vector for color information
 *this namespace keeps the indices for which index has which color constant
