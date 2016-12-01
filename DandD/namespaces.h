@@ -95,13 +95,11 @@ namespace DestinationFromMenus
 	const int _EditRace_ = 24;
 	const int _SuccessNameChange_ = 25;
 	const int _SuccessRaceChange_ = 26;
-<<<<<<< HEAD
 	const int _YesConfirmation_ = 27;
 	const int _NoConfirmation_ = 28;
 	const int _DisplayPlayerStats_ = 29;
 	const int _GoBack_ = 30;
 	const int _ManageEquipment_ = 31;
-=======
 
 	// item creation menus
 	const int _CreateWeapon_ = 40;
@@ -116,7 +114,6 @@ namespace DestinationFromMenus
 	const int _SaveItemsToFile_ = 49;
 	const int _RandomlyGenerateItems_ = 50;
 	// end item creation menus
->>>>>>> 9b8120c995d43081b7b87c41647e010d9b812b7b
 	const int _ExitToCommandPrompt_ = 100;
 }
 
