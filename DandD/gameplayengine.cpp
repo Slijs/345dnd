@@ -400,7 +400,8 @@ void GamePlayEngine::logRender()
 		{
 			if (local[h].length() > 0)
 			{
-				temp.w = Menus::textWidthCalculator2(local[h], "hello world", (this->_level->getLevelWindow()->getGridX_Length()*0.9));
+				temp.w = Menus::textWidthCalculator2(local[h], "hello world", (this->_level->getLevelWindow()->getGridX_Length()*1.1));
+				temp.x = maplogger.x + maplogger.w / 2 - temp.w / 2;
 				this->_level->getLevelWindow()->addTextLabel(local[h], 255, 165, 0, temp);
 				temp.y = temp.h + temp.y;
 			}
@@ -411,7 +412,8 @@ void GamePlayEngine::logRender()
 		{
 			if (local2[h].length() > 0)
 			{
-				temp2.w = Menus::textWidthCalculator2(local2[h], "hello world", (this->_level->getLevelWindow()->getGridX_Length()*0.9));
+				temp2.w = Menus::textWidthCalculator2(local2[h], "hello world", (this->_level->getLevelWindow()->getGridX_Length()*1.1));
+				temp2.x = charlogger.x + charlogger.w / 2 - temp2.w / 2;
 				this->_level->getLevelWindow()->addTextLabel(local2[h], 0, 255, 0, temp2);
 				temp2.y = temp2.h + temp2.y;
 			}
