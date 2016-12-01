@@ -16,6 +16,7 @@ Monster::Monster() : Characters() {
 	detHitDie();
 	detHitPoints();
 	_subject = NULL;
+	_strategy = new AggressorStrategy(1, new Fighter());
 
 	this->_componentChar = SimplifiedMapSymbols::_Enemies_;
 	this->_componentName = "enemy";

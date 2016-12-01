@@ -133,8 +133,6 @@ Characters::Characters(int level, int STR, int DEX, int CON, int INT, int WIS, i
 	ring = new Ring();
 	helmet = new Helmet();
 
-
-
 	detProficiencyBonus();
 	detExp();
 	abilityScoreMod();

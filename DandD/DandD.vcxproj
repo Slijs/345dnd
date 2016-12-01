@@ -96,7 +96,9 @@
     <ClCompile Include="Enhancement.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FighterOnMapView.cpp" />
-    <ClCompile Include="FighterTest.cpp" />
+    <ClCompile Include="FighterTest.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="FriendlyStrategy.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameLog.cpp" />
@@ -144,8 +146,11 @@
     <ClCompile Include="SuccessOnNameChangeMenu.cpp" />
     <ClCompile Include="SuccessOnRaceChangeMenu.cpp" />
     <ClCompile Include="TestDice.cpp" />
+    <ClCompile Include="TestFighterStrategy.cpp" />
     <ClCompile Include="TestItem.cpp" />
-    <ClCompile Include="TestMonsterStrategies.cpp" />
+    <ClCompile Include="TestMonsterStrategy.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="userinputandstringmanager.cpp" />
     <ClCompile Include="textbasedwindow.cpp" />
     <ClCompile Include="prebuiltlevel.cpp" />
