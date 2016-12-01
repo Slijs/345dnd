@@ -6,6 +6,10 @@
 using namespace std;
 #include "Fighter.h"
 #include "Monster.h"
+#include "menus.h"
+#include "DisplayPlayerStatsWindow.h"
+#include "menuengine.h"
+#include <SDL.h>
 IMPLEMENT_SERIAL(Fighter, Characters, 1);
 
 /* CONSTRUCTOR */
@@ -175,6 +179,32 @@ void Fighter::displayOnlyStats(){
 //!Function to displays the fighter stats, calls parent displayStats()
 void Fighter::displayStats()
 {
+	DisplayPlayerStatsWindow* menu = new DisplayPlayerStatsWindow("PLAYER STATS", this);
+	menu->setupMenu();
+	menu->displayMenu();
+
+	// Create engine and run it
+	MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
+	int buttonNum = engine->runEngine();
+	int destination = menu->destinationMap(buttonNum);
+
+	// if the player wants to manage their equipment, we will go do that.
+	// Return _DisplayPlayerStats_ afterward to return back to this menu
+	if (destination == _ManageEquipment_){
+		menu->hideMenu();
+		this->equipOptions();
+		displayStats(); // After equipping
+	}
+	
+	// Delete the menu and return
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return;
+	// Commenting out to allow menu access
+	/*
 	system("CLS");
 	string raceName;
 	cout << "Name: " << name << endl;
@@ -204,7 +234,7 @@ void Fighter::displayStats()
 	}
 	if (in == 1)
 		equipOptions();
-	else
+	else */
 		return;
 }
 
@@ -708,9 +738,6 @@ void Fighter::equipOptions()
 		}
 
 	} while (in != 0);
-
-	displayStats();
-
 }
 
 /*EQUIP FUNCTIONS:

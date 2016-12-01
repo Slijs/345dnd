@@ -44,6 +44,8 @@ void MapObserver::Update(){
 
 	SDL_Event keyevent;    //The SDL event that we will poll to get events.
 
+	// Commented out to move to gameplayengine
+	
 	// Pause gameplay to display enemy movement, ONLY if moving enemies
 	if (_theMap->_recentFlag == Enemy || _theMap->_recentFlag == Nice){
 		while (SDL_WaitEvent(&keyevent) >= 0)  //Poll our SDL key event for any keystrokes.
@@ -55,6 +57,7 @@ void MapObserver::Update(){
 			}
 		}
 	}
+	
 	BACK_TO_GAME:
 	//now update the players map
 	return;

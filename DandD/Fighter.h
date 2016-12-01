@@ -9,6 +9,7 @@
 #include "Dwarf.h"
 #include "HumanPlayerStrategy.h"
 
+
 /*!
 This class inherits from Characters and creates a Fighter character. All fighters are created with a level and a name. Fighters have a constant Hit_Die = d10. This value is used to calculate the hit points as follows: At level 1: HitPoints = Hit_Die_Max + CON_mod = 10 + CON_mod With each level gained: HitPoints = HitPoints + Hit_Die_Roll + CON_mod
 All other information about the fighter is generated in the Characters class See Characters class for more details.
@@ -58,6 +59,12 @@ public:
 	void displayBattle();
 	void displayLevelUp();
 	void displayDeath();
+
+	//! Returns hit points
+	int getHP() { return hitPoints; }
+
+	//! Returns max hit points
+	int getMaxHP() { return maxHitPoints; };
 
 	//!Returns name of Fighter
 	string getName() { return name; }

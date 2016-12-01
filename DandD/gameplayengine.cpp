@@ -107,6 +107,7 @@ int GamePlayEngine::runEngine()
 	int destToReturn;
 	//this->_level->_player->setMap(&this->_level->getMapSimpleVersion());
 	this->_level->_player->setupLevelObserver(this->_level);
+	SDL_Event keyevent;    //The SDL event that we will poll to check if key is pressed during turn rolling
 
 	while (exit == false){
 		// First, we will set initiative for ALL characters, as per d20 rules
@@ -162,9 +163,19 @@ int GamePlayEngine::runEngine()
 				temp->move(_level, &_currentGrid, this);
 
 				//CharacterController Logging - Log end turn
-				message = "End turn.";
+				message = "End turn. Click to continue.";
 				CharacterController::getInstance()->log(message);
-
+				/*
+				// Wait for click to end the turn
+				while (SDL_WaitEvent(&keyevent) >= 0)  //Poll our SDL key event for any keystrokes.
+				{
+					switch (keyevent.type){
+					case SDL_MOUSEBUTTONDOWN:
+						goto BACK_TO_GAME;
+						break;
+					}
+				}
+				BACK_TO_GAME: */
 				currentMovingMonster = NULL;
 			}
 		}

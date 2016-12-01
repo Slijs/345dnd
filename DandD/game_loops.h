@@ -31,6 +31,7 @@
 #include "SuccessOnRaceChangeMenu.h"
 #include "SuccessOnNameChangeMenu.h"
 #include "AddUserMadeItemsConfMenu.h"
+#include "DisplayPlayerStatsWindow.h"
 //enum destination {mainmenu, gamelevel, leveleditor};
 /*!
 *@class GameLoops
@@ -73,6 +74,7 @@ public:
 	int displaySuccessfulRaceChange(Fighter* thePlayer);
 	int displaySuccessfulNameChange(Fighter* thePlayer);
 	int choosePlayerRace();
+	int displayPlayerStats(Fighter* thePlayer);
 	bool addUserMadeItems();
 };
 

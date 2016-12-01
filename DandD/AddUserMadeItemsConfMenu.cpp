@@ -66,5 +66,10 @@ void AddUseMadeItemsConfirmationMenu::setupMenu(){
 }
 
 int AddUseMadeItemsConfirmationMenu::destinationMap(int index){
-	return index;
+	switch (index){
+	case 0:
+		return _YesConfirmation_;
+	case 1:
+		return _NoConfirmation_;
+	}
 }
