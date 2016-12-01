@@ -1,15 +1,16 @@
 /**
-*@file SaveOverConfirmationMenu.cpp
-*@brief Provides definition of Menu which will confirm if user wants to save over a pre-existing Character
+*@file AddUserMadeItemsConfMenu.cpp
+*@brief Implements methods which will display a menu which gets user confirmation on whether or not they want to add user-made items
+* to their character
 */
-#include "SaveOverConfirmationMenu.h"
+#include "AddUserMadeItemsConfMenu.h"
 
-SaveOverConfirmationMenu::SaveOverConfirmationMenu(std::string name, Fighter* thePlayer) : Menus(name), theFighter(thePlayer) {}
+AddUseMadeItemsConfirmationMenu::AddUseMadeItemsConfirmationMenu(std::string name) : Menus(name) {}
 
-void SaveOverConfirmationMenu::setupMenu(){
+void AddUseMadeItemsConfirmationMenu::setupMenu(){
 
 	// Buttonbase that sets good text size :)
-	string buttonbase = "Create New Character";
+	std::string buttonbase = "Create New Character";
 	int totalwidth = this->_menuWindow->getWindowWidth() * (0.3);
 
 	// Set the menu background color and font
@@ -31,7 +32,7 @@ void SaveOverConfirmationMenu::setupMenu(){
 	menucomponent.x = this->_menuWindow->getWindowWidth() / 2 - menucomponent.w / 2;
 	menucomponent.y = 30;
 	menucomponent.h = this->_menuWindow->getWindowHeight() * 0.1;
-	this->_menuWindow->setTitle("SAVE CONFIRMATION", this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
+	this->_menuWindow->setTitle("CONFIRMATION", this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
 
 	// Setup Text, first set Font
 	this->_menuWindow->setFontType(9);
@@ -39,18 +40,11 @@ void SaveOverConfirmationMenu::setupMenu(){
 	// Display save confirmation menu
 	menucomponent.y = menucomponent.y + (menucomponent.h*(1.5));
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.05);
-	string toDisplay = "There is already a save file for " + theFighter->getName();
+	std::string toDisplay = "Do you want to add user-made items to your character?";
 	menucomponent.w = textWidthCalculator(toDisplay, buttonbase, totalwidth);
 	this->_menuWindow->addTextLabel(toDisplay, this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
 	menucomponent.y = menucomponent.y + (menucomponent.h);
-
-	menucomponent.y = menucomponent.y + (menucomponent.h*(1.5));
-	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.05);
-	toDisplay = "Would you like to save over it?";
-	menucomponent.w = textWidthCalculator(toDisplay, buttonbase, totalwidth);
-	this->_menuWindow->addTextLabel(toDisplay, this->_baseMenuColors[_Title_]->red, this->_baseMenuColors[_Title_]->green, this->_baseMenuColors[_Title_]->blue, menucomponent);
-	menucomponent.y = menucomponent.y + (menucomponent.h);
-
+	
 	// ADD YES / NO BUTTON
 
 	// Yes
@@ -71,6 +65,6 @@ void SaveOverConfirmationMenu::setupMenu(){
 	this->_menuWindow->displayWindow();
 }
 
-int SaveOverConfirmationMenu::destinationMap(int index){
+int AddUseMadeItemsConfirmationMenu::destinationMap(int index){
 	return index;
 }

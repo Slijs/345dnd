@@ -33,8 +33,6 @@ bool CharacterSaveManager::saveCharacter(Fighter *theChar, SDL_Event _event) {
 	mapArchive.Close();
 	mapFile.Close();
 
-	
-	
 	// Checks to see if the Character has already been saved
 	if (charMap->contains(charName)) {
 

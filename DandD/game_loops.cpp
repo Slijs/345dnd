@@ -572,28 +572,43 @@ int GameLoops::createEditItems()
 //launches cerate edit player for game
 int GameLoops::createEditPlayer()
 {
-	
-	/*system("CLS");
-	GameController::getInstance()->log("Create / Edit player menu loaded.");
-	CharacterManager::createOrEditCharacter();
-	system("CLS");
-	//Create Edit Function call here
-	return _MainMenu_; */
-	
 	CharacterCreateEditMenu* menu = new CharacterCreateEditMenu("CREATE / EDIT CHARACTERS");
 	menu->setupMenu();
 	menu->displayMenu();
-
+	bool returnToMainMenu = false;
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
-	int destination = engine->runEngine();
-	destination = menu->destinationMap(destination);
+	int destination;
+
+	// Start loop to prevent prematurely going back to main menu
+	while (!returnToMainMenu){
+		destination = engine->runEngine();
+		destination = menu->destinationMap(destination);
+		switch (destination){
+		case _CreateNewCharacter_:
+			menu->hideMenu();
+			destination = createNewPlayer();
+			menu->displayMenu();
+			break;
+
+		case _EditCharacter_:
+			destination = editExistingPlayer();
+			break;
+
+		case _DeleteCharacter_:
+			destination = deleteCharacter();
+			break;
+		case _MainMenu_:
+			returnToMainMenu = true;
+			break;
+		}
+	}
 
 	menu->hideMenu();
 	delete engine;
 	engine = nullptr;
 	delete menu;
 	menu = nullptr;
-	return destination;
+	return _MainMenu_;
 }
 
 int GameLoops::createNewPlayer(){
@@ -604,46 +619,60 @@ int GameLoops::createNewPlayer(){
 	int selectedRace = 0; // Will be used to get the Character's race
 	int selectedLevel = 0; // Will be used to get the Character's selected level
 
-	// Get the Name the user wants
-	do {
-		system("CLS");
-		cout << "Please enter the name you would like to have for your character: ";
-		cin >> name;
-		cout << "You entered " << name << ". Are you happy with this? (Y/N) ";
-		cin >> conf;
-	} while (!(conf == 'Y' || conf == 'y'));
-	conf = 'X';
-
-	// Next, get the Race of the Fighter
-	selectedRace = choosePlayerRace();
-
-	// Will get the starting level of the Character, confirming that a proper value is provided
-	do {
-		cout << "Please enter which level you would like your character to start at (1 - 20) : ";
-		cin >> input;
-		try {
-			selectedLevel = stoi(input);
-		}
-		catch (invalid_argument) {
-			cout << "You entered an invalid argument. Please try again." << endl;
-			continue;
-		}
-		if (selectedLevel < 0 || selectedLevel > 20) {
-			cout << "You entered an invalid level! Please try again." << endl;
-			continue;
-		}
-		else {
-			cout << "You entered " << selectedLevel << " as your starting level. Are you happy with this? (Y/N) : ";
+	bool characterIsReady = false;
+	while (!characterIsReady){
+		// Get the Name the user wants
+		do {
+			system("CLS");
+			cout << "Please enter the name you would like to have for your character: ";
+			cin >> name;
+			cout << "You entered " << name << ". Are you happy with this? (Y/N) ";
 			cin >> conf;
-		}
-	} while (!(conf == 'Y' || conf == 'y'));
-	conf = 'x';
+		} while (!(conf == 'Y' || conf == 'y'));
+		conf = 'X';
+
+		// Next, get the Race of the Fighter
+		selectedRace = choosePlayerRace();
+
+		// Will get the starting level of the Character, confirming that a proper value is provided
+		do {
+			system("CLS");
+			cout << "Please enter which level you would like your character to start at (1 - 20) : ";
+			cin >> input;
+			try {
+				selectedLevel = stoi(input);
+			}
+			catch (invalid_argument) {
+				cout << "You entered an invalid argument. Please try again." << endl;
+				continue;
+			}
+			if (selectedLevel < 0 || selectedLevel > 20) {
+				cout << "You entered an invalid level! Please try again." << endl;
+				continue;
+			}
+			else {
+				cout << "You entered " << selectedLevel << " as your starting level. Are you happy with this? (Y/N) : ";
+				cin >> conf;
+			}
+		} while (!(conf == 'Y' || conf == 'y'));
+		conf = 'x';
+		characterIsReady = true;
+	}
 
 	// The Character will now be created
 	// The user will be asked if they want to put the user-created items into their Character's backpack
 	Fighter *myChar = CharacterBuilder::create(selectedLevel, Race(selectedRace), name);
+	if (addUserMadeItems())
+		myChar->fillBackpack(ItemCreator::loadItemsFromFile());
 
-	CharacterManager::createNewCharacter();
+	// The Character will now be saved to file. If saved successfully, display stats
+	if (CharacterSaveManager::saveCharacter(myChar, *(new SDL_Event()))){
+		myChar->displayOnlyStats();
+		cout << endl << "Press any key to return to character management menu." << endl;
+		system("PAUSE");
+	}
+
+	delete myChar;
 	return _CreateEditPlayer_;
 }
 
@@ -679,7 +708,6 @@ int GameLoops::editExistingPlayer(){
 			displaySuccessfulRaceChange(thePlayer);
 		break;
 	case _CreateEditPlayer_:
-			
 		break;
 	}	
 
@@ -716,6 +744,28 @@ int GameLoops::editPlayerRace(Fighter* thePlayer){
 	return 0;
 }
 
+bool GameLoops::addUserMadeItems(){
+	AddUseMadeItemsConfirmationMenu *menu = new AddUseMadeItemsConfirmationMenu("CONFIRM");
+	menu->setupMenu();
+	menu->displayMenu();
+	bool canAddItems = false;
+
+	// Create engine and run it
+	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	int destination = engine->runEngine();
+	if (destination == 0)
+		canAddItems = true;
+	else canAddItems = false;
+
+	// Delete the menu and return
+	menu->hideMenu();
+	delete engine;
+	engine = nullptr;
+	delete menu;
+	menu = nullptr;
+	return canAddItems;
+}
+
 //! Gets back the Race which will be used for a new Fighter
 int GameLoops::choosePlayerRace(){
 	// Setup menu to edit race
@@ -737,7 +787,6 @@ int GameLoops::choosePlayerRace(){
 	delete menu;
 	menu = nullptr;
 	return selectedRace;
-
 }
 
 int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
@@ -813,23 +862,30 @@ int GameLoops::deleteCharacter(){
 	DeleteCharacterMenu* menu = new DeleteCharacterMenu("DELETE EXISTING CHARACTER");
 	menu->setupMenu();
 	menu->displayMenu();
+	bool returnToPrevMenu = false; // To prevent returning to previous menu
+	int destination;
+	string tempName;
 
 	// Setup MenuEngine, attach it to the Delete Menu
 	MenuEngine* engine = new MenuEngine(menu, this->_event);
+	while (!returnToPrevMenu){
 
-	// Get the destination from running the engine
-	int destination = engine->runEngine();
+		// Get the destination from running the engine
+		destination = engine->runEngine();
 
-	// Get name of Character based on the destination
-	string tempName = menu->getNameOfCharacterFromIndex(destination);
+		// Get name of Character based on the destination
+		tempName = menu->getNameOfCharacterFromIndex(destination);
 
-	// Get if valid name was selected
-	destination = menu->destinationMap(destination);
-	
-	// If getting from destination map returns 1, it means the user selected a valid name
-	// This means that we can delete the Character
-	if (destination == 1){
-		CharacterSaveManager::removeCharacter(tempName);
+		// Get if valid name was selected
+		destination = menu->destinationMap(destination);
+
+		// If getting from destination map returns 1, it means the user selected a valid name
+		// This means that we can delete the Character
+		if (destination == 1){
+			CharacterSaveManager::removeCharacter(tempName);
+			returnToPrevMenu = true;
+		}
+		else returnToPrevMenu = true;
 	}
 
 	menu->hideMenu();

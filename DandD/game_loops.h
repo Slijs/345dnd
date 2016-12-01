@@ -29,7 +29,7 @@
 #include "EditRaceMenu.h"
 #include "SuccessOnRaceChangeMenu.h"
 #include "SuccessOnNameChangeMenu.h"
-
+#include "AddUserMadeItemsConfMenu.h"
 //enum destination {mainmenu, gamelevel, leveleditor};
 /*!
 *@class GameLoops
@@ -70,6 +70,7 @@ public:
 	int displaySuccessfulRaceChange(Fighter* thePlayer);
 	int displaySuccessfulNameChange(Fighter* thePlayer);
 	int choosePlayerRace();
+	bool addUserMadeItems();
 };
 
 #endif
