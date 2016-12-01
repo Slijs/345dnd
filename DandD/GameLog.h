@@ -52,6 +52,6 @@ public:
 			_toggleDice = true;
 	}
 	virtual void log(string);
-
+	void clearLog();
 };
 

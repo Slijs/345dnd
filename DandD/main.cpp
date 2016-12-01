@@ -50,8 +50,6 @@ int main(int argc, char** argv)
 		return success;
 	}
 	std::cout << "CPP unit test successful\n\n." << std::endl;
-
-
 	std::cout << "press any key to continue with demonstration." << std::endl;
 	getch();
 	system("cls");

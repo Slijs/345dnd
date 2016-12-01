@@ -114,6 +114,12 @@ namespace DestinationFromMenus
 	const int _SaveItemsToFile_ = 49;
 	const int _RandomlyGenerateItems_ = 50;
 	// end item creation menus
+
+	//Game Log Menus
+	const int _ViewLog_ = 60;
+	const int _ToggleLog_ = 61;
+	const int _ReturnToGame_ = 62;
+
 	const int _ExitToCommandPrompt_ = 100;
 }
 

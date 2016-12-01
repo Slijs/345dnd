@@ -210,6 +210,15 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 			{
 				if (gameLevelLoop(mappaths[x]) > 0)
 					break;
+				if (x == mappaths.size() - 1)
+				{
+					c_menu->getMenuWindow()->hideWindow();
+					system("cls");
+					std::cout << "CONGRATS!!!\nYou beat campaign " << temp<<std::endl;
+					GameController::getInstance()->log("Campaign "+temp+" was won.");
+					system("pause");
+					CharacterSaveManager::saveCharacter(_currentFighterTracker, this->_event);
+				}
 			}
 		}
 		else

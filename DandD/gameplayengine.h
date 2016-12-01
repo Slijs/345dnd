@@ -4,6 +4,7 @@
 #include "containerOnMap.h"
 #include "enemyonmap.h"
 #include "CharSaveManager.h"
+#include "GameLogTest.h"
 #include "MapObserver.h"
 #include <vector>
 /*!

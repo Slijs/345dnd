@@ -5,3 +5,8 @@ void GameLog::log(string input)
 {
 		SingletonInputOutputManager::getInstance()->appendToFile(_unifiedPath, input);
 }
+
+void GameLog::clearLog()
+{
+	SingletonInputOutputManager::getInstance()->clearFile(_path);
+}
