@@ -24,6 +24,7 @@
 #include <vector>
 #include <afx.h>
 #include <afxver_.h>
+#include "Sound.h"
 #include "LevelObserver.h"
 #include <SDL.h>
 
@@ -90,6 +91,8 @@ protected:
 	Container* backpack;
 	MovementStrategy* _strategy; //! Strategy the Character uses to move
 	bool isLevelUp;
+
+	
 
 private:
 	int const MAX_NUM_SCORES = 6;

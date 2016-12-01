@@ -16,6 +16,7 @@ void GameLoops::loopManager()
 
 	//instantiate the sounds for menu
 	ContinousEffect* background = new ContinousEffect("assets/Sound/Menu/Background/mainmenu.mp3");
+	background->setVolume(40);
 	//
 	//
 	background->play();

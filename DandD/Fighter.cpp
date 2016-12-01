@@ -255,17 +255,25 @@ void Fighter::attack(Monster* c)
 	
 	if (aRoll < c->getArmorClass())
 	{
+		OneTimeEffect* attackmiss = new OneTimeEffect("assets/Sound/CharacterActions/attackmiss.wav");
+		attackmiss->play();
 		message += "Attack missed!\n";
 		CharacterController::getInstance()->log(message);
 		//cout << "Attack missed!" << "\n" << endl;
+		delete attackmiss;
+		attackmiss = nullptr;
 	}
 	else
 	{
+		OneTimeEffect* attacksuccess = new OneTimeEffect("assets/Sound/CharacterActions/attacksuccess.wav");
+		attacksuccess->play();
 		message += "Attack was successful!\n";
 		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
 		CharacterController::getInstance()->log(message);
 		c->receiveDamage(dRoll);
+		delete attacksuccess;
+		attacksuccess = nullptr;
 	}
 	
 }

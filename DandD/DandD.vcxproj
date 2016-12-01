@@ -168,6 +168,7 @@
     <ClInclude Include="Dwarf.h" />
     <ClInclude Include="enemyonmap.h" />
     <ClInclude Include="Enhancement.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Fighter.h" />
     <ClInclude Include="FighterOnMapView.h" />
     <ClInclude Include="FriendlyStrategy.h" />

@@ -11,6 +11,10 @@ OneTimeEffect::OneTimeEffect(std::string path)
 		system("pause");
 	}
 }
+void OneTimeEffect::setVolume(int volume)
+{
+	Mix_VolumeMusic(volume);
+}
 //!plays the sound effect once
 void OneTimeEffect::play()
 {
@@ -35,6 +39,9 @@ ContinousEffect::ContinousEffect(std::string path)
 		std::cout<<"Could not load music, "<<path.c_str()<<" "<<SDL_GetError()<<std::endl;
 	}
 }
+
+
+
 //!plays the music continously in infinite loops until it is stopped
 void ContinousEffect::play()
 {
@@ -50,6 +57,12 @@ void ContinousEffect::stopPlay()
 {
 	Mix_HaltMusic();
 }
+
+void ContinousEffect::setVolume(int volume)
+{
+	Mix_VolumeMusic(volume);
+}
+
 //!stops music play, fades it out as per parameter passed in milliseconds
 void ContinousEffect::fadeOutStopPlay(int milliseconds)
 {	 	
