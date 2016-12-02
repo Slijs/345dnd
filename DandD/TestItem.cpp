@@ -2,7 +2,7 @@
 //! @brief File containing the Test Class and the Test Methods
 //!
 
-/*#include <iostream>
+#include <iostream>
 #include <cppunit/TestCase.h>
 #include <cppunit/TestFixture.h>
 #include <cppunit/ui/text/TextTestRunner.h>
@@ -42,7 +42,7 @@ CPPUNIT_TEST_SUITE_REGISTRATION(TestItem);//most important
 void TestItem::testValidItem(void)
 {
 	std::cout << "Test to see whether a valid item can be made...\n";
-	CPPUNIT_ASSERT_NO_THROW(Item newItem("Random Item", 10, 2, "/some/image/path", { 0,0,0,0,0,0,0,0,0 }));
+	CPPUNIT_ASSERT_NO_THROW(Item newItem());
 }
 
 //! test method to thest the validateItem() method of the Item class
@@ -50,6 +50,7 @@ void TestItem::testValidItem(void)
 void TestItem::testInvalidItem(void)
 {
 	std::cout << "Test to see whether an invalid item can be made...\n";
-	CPPUNIT_ASSERT_THROW(Item newItem("Random Item", 10, 2, "/some/image/path", { 0,0,0,10,0,0,0,0,0 }), invalid_argument);
-}*/
+	Item newItem = Item();
+	CPPUNIT_ASSERT_THROW(newItem.setWeight(5000), std::exception*);
+}
 
