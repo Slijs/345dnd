@@ -125,7 +125,7 @@ int MainMenu::destinationMap(int index)
 		return _CreateEditPlayer_;
 
 	case 3:
-		return _CreateNewCampaign_;
+		return _CampaignManagerMenu_;
 	case 4:
 		return _GameLog_;
 	case 5:
