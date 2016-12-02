@@ -9,4 +9,5 @@ void GameLog::log(string input)
 void GameLog::clearLog()
 {
 	SingletonInputOutputManager::getInstance()->clearFile(_path);
+	SingletonInputOutputManager::getInstance()->clearFile(_unifiedPath);
 }
