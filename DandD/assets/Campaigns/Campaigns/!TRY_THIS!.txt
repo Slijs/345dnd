@@ -5,3 +5,7 @@ MAP2
 assets/Campaigns/MapsForCampaigns/MAP2
 MAP3
 assets/Campaigns/MapsForCampaigns/MAP3
+.2
+assets/Campaigns/MapsForCampaigns/.2
+MAP4
+assets/Campaigns/MapsForCampaigns/MAP4
