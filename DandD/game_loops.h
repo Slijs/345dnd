@@ -32,6 +32,9 @@
 #include "SuccessOnNameChangeMenu.h"
 #include "AddUserMadeItemsConfMenu.h"
 #include "DisplayPlayerStatsWindow.h"
+#include "ToggleLogMenu.h"
+#include "GameLogMenu.h"
+#include "LogViewMenu.h"
 //enum destination {mainmenu, gamelevel, leveleditor};
 /*!
 *@class GameLoops
@@ -76,6 +79,7 @@ public:
 	int choosePlayerRace();
 	int displayPlayerStats(Fighter* thePlayer);
 	bool addUserMadeItems();
+	int displayGameLog();
 };
 
 #endif

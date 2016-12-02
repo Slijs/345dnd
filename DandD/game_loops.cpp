@@ -101,7 +101,9 @@ void GameLoops::loopManager()
 		case _EditExistingCampaign_:
 			destination = editExistingCampaignLoop(mappath, campaignname);
 			break;
-
+		case _GameLog_:
+			destination = displayGameLog();
+			break;
 		// START ITEM CREATION MENU OPTIONS
 		case _CreateWeapon_:
 			destination = createEditItems(userContainer, _CreateWeapon_);
@@ -580,6 +582,85 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 	
 	delete m;
 	return -1;
+}
+
+int GameLoops::displayGameLog(){
+
+	GameLogMenu* menu = new GameLogMenu("GAME LOG");
+	menu->setupMenu();
+	menu->displayMenu();
+
+	// Create engine and run it
+	MenuEngine* engine = new MenuEngine(menu, *(new SDL_Event()));
+	int buttonNum = engine->runEngine();
+	int destination = menu->destinationMap(buttonNum);
+	if (destination == _ViewLog_)
+	{
+		menu->getMenuWindow()->hideWindow();
+		LogViewMenu* menu2 = new LogViewMenu("GAME LOG VIEW");
+		menu2->setupMenu();
+		menu2->displayMenu();
+
+		MenuEngine* engine2 = new MenuEngine(menu2, *(new SDL_Event()));
+		int buttonNum = engine2->runEngine();
+		int destination = menu2->destinationMap(buttonNum);
+		menu2->getMenuWindow()->hideWindow();
+		GameLogTest::displayLogChanges(destination);
+		delete menu2;
+		menu2 = nullptr;
+		delete engine2;
+		engine2 = nullptr;
+	}
+	else if (destination == _ToggleLog_)
+	{
+		menu->getMenuWindow()->hideWindow();
+		ToggleLogMenu* menu3;
+		MenuEngine* engine3;
+		bool exit = false;
+		do{
+			menu3 = new ToggleLogMenu("GAME LOG TOGGLE");
+			menu3->setupMenu();
+			menu3->displayMenu();
+
+			engine3 = new MenuEngine(menu3, *(new SDL_Event()));
+			int buttonNum = engine3->runEngine();
+			int destination = menu3->destinationMap(buttonNum);
+
+			switch (destination)
+			{
+			case _GameLog_:
+				GameController::getInstance()->toggleGame();
+				break;
+			case _MapLog_:
+				MapController::getInstance()->toggleMap();
+				break;
+			case _CharacterLog_:
+				CharacterController::getInstance()->toggleCharacter();
+				break;
+			case _DiceLog_:
+				DiceController::getInstance()->toggleDice();
+				break;
+			case _ReturnToGame_:
+				exit = true;
+				break;
+			}
+			menu3->getMenuWindow()->hideWindow();
+			delete menu3;
+			menu3 = nullptr;
+			delete engine3;
+			engine3 = nullptr;
+
+		} while (exit == false);
+
+	}
+
+	//End here
+	menu->getMenuWindow()->hideWindow();
+	delete menu;
+	menu = nullptr;
+	delete engine;
+	engine = nullptr;
+	return _MainMenu_;
 }
 
 //!manages campaign editor menu, and driver for assignment 2 specifications

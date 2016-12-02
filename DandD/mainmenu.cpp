@@ -66,7 +66,7 @@ void MainMenu::setupMenu()
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.24);
 	menucomponent.x = (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
-	menucomponent.y = menucomponent.y + (menucomponent.h * 5);
+	menucomponent.y = menucomponent.y + (menucomponent.h * 4);
 	this->_menuWindow->addButton("Play Campaign", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 	//create / edit item
@@ -89,10 +89,16 @@ void MainMenu::setupMenu()
 	menucomponent.y = menucomponent.y + (menucomponent.h * 2);
 	this->_menuWindow->addButton("Create / Edit Campaign", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 	
+	//Open game log
+	menucomponent.y = menucomponent.y + (menucomponent.h * 2);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.23);
+	menucomponent.x += 10;
+	this->_menuWindow->addButton("View Game Log", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
+
 	//exit engine
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.06);
 	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.18);
-	menucomponent.x = (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
+	menucomponent.x = 5 + (this->_menuWindow->getWindowWidth()/2) - (menucomponent.w / 2);
 	menucomponent.y = menucomponent.y + (menucomponent.h * 1.2);
 	this->_menuWindow->addButton("Exit Engine", this->_baseMenuColors[_NoButtonSelect_]->red,this->_baseMenuColors[_NoButtonSelect_]->green,this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
@@ -119,7 +125,11 @@ int MainMenu::destinationMap(int index)
 		return _CreateEditPlayer_;
 
 	case 3:
-		return _CampaignManagerMenu_;
+		return _CreateNewCampaign_;
+	case 4:
+		return _GameLog_;
+	case 5:
+		return _ExitToCommandPrompt_;
 	}
-	return _ExitToCommandPrompt_;
+	return _MainMenu_;
 }
