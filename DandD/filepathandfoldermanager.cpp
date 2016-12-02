@@ -38,7 +38,7 @@ _path_to_basic_friend("assets/friend/friendly.jpg")
 {
 	_folder_names_for_level_themes = SingletonInputOutputManager::getInstance()->readFileLineByLine(_directory_path_for_level_theme + _filename_containing_subfolder_names);
 
-	std::cout<<"folder name for level them x: "<<_folder_names_for_level_themes[0]<<std::endl;
+	//std::cout<<"folder name for level them x: "<<_folder_names_for_level_themes[0]<<std::endl;
 	for(int x=0; x< _folder_names_for_level_themes.size(); x++)
 		_folder_names_for_level_themes[x] = _directory_path_for_level_theme + _folder_names_for_level_themes[x];
 

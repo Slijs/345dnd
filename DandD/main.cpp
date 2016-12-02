@@ -19,8 +19,8 @@ int main(int argc, char** argv)
 {
 	std::cout << "CONCORDIA UNIVERSITY DEPARTMENT OF ENGINEERING AND COMPUTER SCIENCE" << std::endl<<std::endl;
 	std::cout << "Advanced Program Design with C++: COMP345" << std::endl;
-	std::cout << "Dungeons and Dragons game interim demonstration" << std::endl;
-	std::cout << "Program Submission Date: 31st December 2016" << std::endl;
+	std::cout << "Dungeons and Dragons game final demonstration" << std::endl;
+	std::cout << "Program Submission Date: 1st December 2016" << std::endl;
 	std::cout << "Game developed by: Jeremiah, Sabin, Andres, Phil, Khatib." << std::endl;
 	std::cout << "Course Instructor: Dr Mohammed Taleb" << std::endl << std::endl;
 	int success = 0;

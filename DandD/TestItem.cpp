@@ -41,7 +41,7 @@ CPPUNIT_TEST_SUITE_REGISTRATION(TestItem);//most important
 //! Test Case: calling validateItem() on a valid item should return true 
 void TestItem::testValidItem(void)
 {
-	std::cout << "Test to see whether a valid item can be made...\n";
+	//std::cout << "Test to see whether a valid item can be made...\n";
 	CPPUNIT_ASSERT_NO_THROW(Item newItem());
 }
 
@@ -49,7 +49,7 @@ void TestItem::testValidItem(void)
 //! Test Case: calling validateItem() on an invalid item should return true 
 void TestItem::testInvalidItem(void)
 {
-	std::cout << "Test to see whether an invalid item can be made...\n";
+	//std::cout << "Test to see whether an invalid item can be made...\n";
 	Item newItem = Item();
 	CPPUNIT_ASSERT_THROW(newItem.setWeight(5000), std::exception*);
 }
