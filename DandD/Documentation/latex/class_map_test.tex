@@ -1,0 +1,120 @@
+\hypertarget{class_map_test}{}\section{Map\+Test Class Reference}
+\label{class_map_test}\index{Map\+Test@{Map\+Test}}
+
+
+Test Class for the Map class.  
+
+
+Inheritance diagram for Map\+Test\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_map_test}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_map_test_a548501698e49e4de388482c502962cfd}{}\label{class_map_test_a548501698e49e4de388482c502962cfd} 
+void \hyperlink{class_map_test_a548501698e49e4de388482c502962cfd}{set\+Up} ()
+\begin{DoxyCompactList}\small\item\em method called before every test case in this test class \end{DoxyCompactList}\item 
+\hypertarget{class_map_test_a1a75bd7462d39afc6f5039fa36252cca}{}\label{class_map_test_a1a75bd7462d39afc6f5039fa36252cca} 
+void \hyperlink{class_map_test_a1a75bd7462d39afc6f5039fa36252cca}{tear\+Down} ()
+\begin{DoxyCompactList}\small\item\em method called after every test case in this test class \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_map_test_a07e1aa96435351d15809b880ff7a7efb}{test\+Map\+Cell\+Filled} ()
+\item 
+void \hyperlink{class_map_test_a83bb3473f74089996c7f6bee8d59a97c}{test\+Map\+Cell\+Empty} ()
+\item 
+void \hyperlink{class_map_test_ae7a28d196c97101aa248a326af2a3f5b}{test\+Valid\+Path} ()
+\item 
+void \hyperlink{class_map_test_ad8823027d386c8d25f378d02adad120d}{test\+Invalid\+Path} ()
+\item 
+void \hyperlink{class_map_test_ac82274fe5fff0c9eea7425f49a55bfb5}{test\+If\+Player\+Is\+On\+A\+Cell} ()
+\begin{DoxyCompactList}\small\item\em following are my own test cases \end{DoxyCompactList}\item 
+void \hyperlink{class_map_test_ad1ed8e9db8609f3e45f8a6a0a17b4ec0}{test\+If\+A\+Cell\+Is\+An\+Obstruction\+To\+Player} ()
+\item 
+void \hyperlink{class_map_test_a4676b2ea500115cb5c711d54decc1c62}{test\+Already\+Proposed\+Map\+Name\+In\+Database} ()
+\item 
+void \hyperlink{class_map_test_afebfa18bc151eb842156e7b3db24f567}{test\+Mapdatabase\+Is\+Less\+Than\+Max} ()
+\item 
+void \hyperlink{class_map_test_a35bb26a632d1d4926ef62a6871e5f3c9}{test\+Mapdatabase\+Is\+More\+Than\+Max} ()
+\item 
+void \hyperlink{class_map_test_adb1babd418a102b71ebd712fbff3a3d3}{test\+Proposed\+Map\+Name\+Not\+In\+Database} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Test Class for the Map class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_map_test_a4676b2ea500115cb5c711d54decc1c62}{}\label{class_map_test_a4676b2ea500115cb5c711d54decc1c62} 
+\index{Map\+Test@{Map\+Test}!test\+Already\+Proposed\+Map\+Name\+In\+Database@{test\+Already\+Proposed\+Map\+Name\+In\+Database}}
+\index{test\+Already\+Proposed\+Map\+Name\+In\+Database@{test\+Already\+Proposed\+Map\+Name\+In\+Database}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+Already\+Proposed\+Map\+Name\+In\+Database()}{testAlreadyProposedMapNameInDatabase()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+Already\+Proposed\+Map\+Name\+In\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test check\+If\+Proposed\+Map\+Name\+In\+Database(std\+::string newmap) method of \hyperlink{class_campaign_map_managers}{Campaign\+Map\+Managers} class Test Case\+: the returned value should be false if a proposed new name is already in the campaign database Tested item\+: \hyperlink{class_campaign_map_managers_a6e04b8ac8bbc2872bb0441428e0042b3}{Campaign\+Map\+Managers\+::check\+If\+Proposed\+Map\+Name\+In\+Database(std\+::string newmap)}; \hypertarget{class_map_test_ad1ed8e9db8609f3e45f8a6a0a17b4ec0}{}\label{class_map_test_ad1ed8e9db8609f3e45f8a6a0a17b4ec0} 
+\index{Map\+Test@{Map\+Test}!test\+If\+A\+Cell\+Is\+An\+Obstruction\+To\+Player@{test\+If\+A\+Cell\+Is\+An\+Obstruction\+To\+Player}}
+\index{test\+If\+A\+Cell\+Is\+An\+Obstruction\+To\+Player@{test\+If\+A\+Cell\+Is\+An\+Obstruction\+To\+Player}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+If\+A\+Cell\+Is\+An\+Obstruction\+To\+Player()}{testIfACellIsAnObstructionToPlayer()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+If\+A\+Cell\+Is\+An\+Obstruction\+To\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test is\+Cell\+An\+Obstruction(int x, int y) method of Map\+Editor\+Eninge class Test case\+: the returned value should be true if the test cell is an obstruction to player Tested item\+: Map\+Editor\+Eninge\+::is\+Cell\+An\+Obstruction(int x, int y) \hypertarget{class_map_test_ac82274fe5fff0c9eea7425f49a55bfb5}{}\label{class_map_test_ac82274fe5fff0c9eea7425f49a55bfb5} 
+\index{Map\+Test@{Map\+Test}!test\+If\+Player\+Is\+On\+A\+Cell@{test\+If\+Player\+Is\+On\+A\+Cell}}
+\index{test\+If\+Player\+Is\+On\+A\+Cell@{test\+If\+Player\+Is\+On\+A\+Cell}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+If\+Player\+Is\+On\+A\+Cell()}{testIfPlayerIsOnACell()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+If\+Player\+Is\+On\+A\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+following are my own test cases 
+
+test method to test is\+Player\+On\+Cell(int x, int y) method of Map\+Editor\+Eninge class Test case\+: the returned value should be true if player is on the cell Tested item\+: Map\+Editor\+Eninge\+::is\+Player\+On\+Cell(int x, int y) \hypertarget{class_map_test_ad8823027d386c8d25f378d02adad120d}{}\label{class_map_test_ad8823027d386c8d25f378d02adad120d} 
+\index{Map\+Test@{Map\+Test}!test\+Invalid\+Path@{test\+Invalid\+Path}}
+\index{test\+Invalid\+Path@{test\+Invalid\+Path}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+Invalid\+Path()}{testInvalidPath()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+Invalid\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test the validate\+Map() method of the Map\+Editor\+Eninge class Test Case\+: the returned value should be false if there is no valid path in the map Tested item\+: Map\+Editor\+Eninge\+::validate\+Map() \hypertarget{class_map_test_a83bb3473f74089996c7f6bee8d59a97c}{}\label{class_map_test_a83bb3473f74089996c7f6bee8d59a97c} 
+\index{Map\+Test@{Map\+Test}!test\+Map\+Cell\+Empty@{test\+Map\+Cell\+Empty}}
+\index{test\+Map\+Cell\+Empty@{test\+Map\+Cell\+Empty}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+Map\+Cell\+Empty()}{testMapCellEmpty()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+Map\+Cell\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test the is\+Occupied() method of the Map\+Editor\+Eninge class Test Case\+: the returned value should be true after emptying the cell Tested item\+: Map\+Editor\+Eninge\+::is\+Occupied() \hypertarget{class_map_test_a07e1aa96435351d15809b880ff7a7efb}{}\label{class_map_test_a07e1aa96435351d15809b880ff7a7efb} 
+\index{Map\+Test@{Map\+Test}!test\+Map\+Cell\+Filled@{test\+Map\+Cell\+Filled}}
+\index{test\+Map\+Cell\+Filled@{test\+Map\+Cell\+Filled}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+Map\+Cell\+Filled()}{testMapCellFilled()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+Map\+Cell\+Filled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test the is\+Occupied() method of the Map\+Editor\+Eninge class Test Case\+: the returned value should be true after filling the cell Tested item\+: Map\+Editor\+Eninge\+::is\+Occupied() \hypertarget{class_map_test_afebfa18bc151eb842156e7b3db24f567}{}\label{class_map_test_afebfa18bc151eb842156e7b3db24f567} 
+\index{Map\+Test@{Map\+Test}!test\+Mapdatabase\+Is\+Less\+Than\+Max@{test\+Mapdatabase\+Is\+Less\+Than\+Max}}
+\index{test\+Mapdatabase\+Is\+Less\+Than\+Max@{test\+Mapdatabase\+Is\+Less\+Than\+Max}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+Mapdatabase\+Is\+Less\+Than\+Max()}{testMapdatabaseIsLessThanMax()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+Mapdatabase\+Is\+Less\+Than\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test check\+If\+Mapdatabase\+Is\+Less\+Than\+Max() method of \hyperlink{class_campaign_map_managers}{Campaign\+Map\+Managers} class Test Case\+: the returned value should be true if the total maps in the campaign less than maximum allowable Tested item\+: \hyperlink{class_campaign_map_managers_ab68ada5bdef5137358cb80c0ad732b79}{Campaign\+Map\+Managers\+::check\+If\+Mapdatabase\+Is\+Less\+Than\+Max()}; \hypertarget{class_map_test_a35bb26a632d1d4926ef62a6871e5f3c9}{}\label{class_map_test_a35bb26a632d1d4926ef62a6871e5f3c9} 
+\index{Map\+Test@{Map\+Test}!test\+Mapdatabase\+Is\+More\+Than\+Max@{test\+Mapdatabase\+Is\+More\+Than\+Max}}
+\index{test\+Mapdatabase\+Is\+More\+Than\+Max@{test\+Mapdatabase\+Is\+More\+Than\+Max}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+Mapdatabase\+Is\+More\+Than\+Max()}{testMapdatabaseIsMoreThanMax()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+Mapdatabase\+Is\+More\+Than\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test check\+If\+Mapdatabase\+Is\+Less\+Than\+Max() method of \hyperlink{class_campaign_map_managers}{Campaign\+Map\+Managers} class Test Case\+: the returned value should be false if the total maps in the campaign more than or equal to maximum allowable Tested item\+: \hyperlink{class_campaign_map_managers_ab68ada5bdef5137358cb80c0ad732b79}{Campaign\+Map\+Managers\+::check\+If\+Mapdatabase\+Is\+Less\+Than\+Max()}; \hypertarget{class_map_test_adb1babd418a102b71ebd712fbff3a3d3}{}\label{class_map_test_adb1babd418a102b71ebd712fbff3a3d3} 
+\index{Map\+Test@{Map\+Test}!test\+Proposed\+Map\+Name\+Not\+In\+Database@{test\+Proposed\+Map\+Name\+Not\+In\+Database}}
+\index{test\+Proposed\+Map\+Name\+Not\+In\+Database@{test\+Proposed\+Map\+Name\+Not\+In\+Database}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+Proposed\+Map\+Name\+Not\+In\+Database()}{testProposedMapNameNotInDatabase()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+Proposed\+Map\+Name\+Not\+In\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test check\+If\+Proposed\+Map\+Name\+In\+Database(std\+::string newmap) method of \hyperlink{class_campaign_map_managers}{Campaign\+Map\+Managers} class Test Case\+: the returned value should be true if a proposed new name is not in the campaign database Tested item\+: \hyperlink{class_campaign_map_managers_a6e04b8ac8bbc2872bb0441428e0042b3}{Campaign\+Map\+Managers\+::check\+If\+Proposed\+Map\+Name\+In\+Database(std\+::string newmap)}; \hypertarget{class_map_test_ae7a28d196c97101aa248a326af2a3f5b}{}\label{class_map_test_ae7a28d196c97101aa248a326af2a3f5b} 
+\index{Map\+Test@{Map\+Test}!test\+Valid\+Path@{test\+Valid\+Path}}
+\index{test\+Valid\+Path@{test\+Valid\+Path}!Map\+Test@{Map\+Test}}
+\subsubsection{\texorpdfstring{test\+Valid\+Path()}{testValidPath()}}
+{\footnotesize\ttfamily void Map\+Test\+::test\+Valid\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method to test the validate\+Map() method of the Map\+Editor\+Eninge class Test Case\+: the returned value should be true if there is a valid path in the map Tested item\+: Map\+Editor\+Eninge\+::validate\+Map() 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_map_test_8cpp}{Map\+Test.\+cpp}\end{DoxyCompactItemize}

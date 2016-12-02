@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weapon',['Weapon',['../class_weapon.html',1,'']]]
+  ['unifiedlog',['UnifiedLog',['../class_unified_log.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMP 345 - INTERIM BUILD: PreBuiltLevel Class Reference</title>
+<title>COMP 345 - DRAGONS - Final Build: PreBuiltLevel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">COMP 345 - INTERIM BUILD
+   <div id="projectname">COMP 345 - DRAGONS - Final Build
    </div>
+   <div id="projectbrief">Final Build of project for COMP 345</div>
   </td>
  </tr>
  </tbody>
@@ -62,6 +63,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_pre_built_level-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PreBuiltLevel Class Reference</div>  </div>
@@ -82,9 +84,8 @@ Inheritance diagram for PreBuiltLevel:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a86e618ddeb7a0ca8484f268dc927819d"><td class="memItemLeft" align="right" valign="top"><a id="a86e618ddeb7a0ca8484f268dc927819d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a86e618ddeb7a0ca8484f268dc927819d">PreBuiltLevel</a> ()</td></tr>
-<tr class="memdesc:a86e618ddeb7a0ca8484f268dc927819d"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor for testing purposes only <br /></td></tr>
+<tr class="memitem:a86e618ddeb7a0ca8484f268dc927819d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a86e618ddeb7a0ca8484f268dc927819d">PreBuiltLevel</a> ()</td></tr>
+<tr class="memdesc:a86e618ddeb7a0ca8484f268dc927819d"><td class="mdescLeft">&#160;</td><td class="mdescRight">PQ which is used to manage turn execution during each round.  <a href="#a86e618ddeb7a0ca8484f268dc927819d">More...</a><br /></td></tr>
 <tr class="separator:a86e618ddeb7a0ca8484f268dc927819d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf37d637c8cea3dfa78adc4ee066a8be"><td class="memItemLeft" align="right" valign="top"><a id="abf37d637c8cea3dfa78adc4ee066a8be"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#abf37d637c8cea3dfa78adc4ee066a8be">PreBuiltLevel</a> (std::string path, <a class="el" href="class_fighter.html">Fighter</a> *player)</td></tr>
@@ -119,6 +120,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#acbde88b4ef5e5c62612baa33d0940aa4">getEnemyPath</a> () const</td></tr>
 <tr class="memdesc:acbde88b4ef5e5c62612baa33d0940aa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">enemy file path accessor <br /></td></tr>
 <tr class="separator:acbde88b4ef5e5c62612baa33d0940aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaff0fcfd5b13180fdbe973ea10a27f7"><td class="memItemLeft" align="right" valign="top"><a id="afaff0fcfd5b13180fdbe973ea10a27f7"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getFriendPath</b> () const</td></tr>
+<tr class="separator:afaff0fcfd5b13180fdbe973ea10a27f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c7c3ad889ff5eab0cfb367945523d6b"><td class="memItemLeft" align="right" valign="top"><a id="a5c7c3ad889ff5eab0cfb367945523d6b"></a>
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a5c7c3ad889ff5eab0cfb367945523d6b">getBuiltLevelFile</a> () const</td></tr>
 <tr class="memdesc:a5c7c3ad889ff5eab0cfb367945523d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">level text vector accessor <br /></td></tr>
@@ -135,14 +139,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a53bd1cda4f32c5da41e1c21295ef4861">setupEnemiesOnMap</a> ()</td></tr>
 <tr class="memdesc:a53bd1cda4f32c5da41e1c21295ef4861"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets up enemy coordinates on map <br /></td></tr>
 <tr class="separator:a53bd1cda4f32c5da41e1c21295ef4861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32c66e3eb960c12deb55024688ab76a3"><td class="memItemLeft" align="right" valign="top"><a id="a32c66e3eb960c12deb55024688ab76a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a32c66e3eb960c12deb55024688ab76a3">addContainerOnTheMap</a> (<a class="el" href="struct_container_on_map.html">ContainerOnMap</a> *prolly_a_dead_dude)</td></tr>
+<tr class="memdesc:a32c66e3eb960c12deb55024688ab76a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">when NPCs die, this function is called to have them added as a container on map <br /></td></tr>
+<tr class="separator:a32c66e3eb960c12deb55024688ab76a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0089fb9d42b5ee32e395b7b7c4fd3576"><td class="memItemLeft" align="right" valign="top"><a id="a0089fb9d42b5ee32e395b7b7c4fd3576"></a>
 std::vector&lt; <a class="el" href="struct_container_on_map.html">ContainerOnMap</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a0089fb9d42b5ee32e395b7b7c4fd3576">getContainersOnMap</a> ()</td></tr>
 <tr class="memdesc:a0089fb9d42b5ee32e395b7b7c4fd3576"><td class="mdescLeft">&#160;</td><td class="mdescRight">container coordinate accessor <br /></td></tr>
 <tr class="separator:a0089fb9d42b5ee32e395b7b7c4fd3576"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12a3cd62a8b7913e674befc2af8f41dc"><td class="memItemLeft" align="right" valign="top"><a id="a12a3cd62a8b7913e674befc2af8f41dc"></a>
-std::vector&lt; <a class="el" href="struct_enemies_on_map.html">EnemiesOnMap</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a12a3cd62a8b7913e674befc2af8f41dc">getEnemiesOnMap</a> ()</td></tr>
-<tr class="memdesc:a12a3cd62a8b7913e674befc2af8f41dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">enemy coordiante accessor <br /></td></tr>
-<tr class="separator:a12a3cd62a8b7913e674befc2af8f41dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4606a6b775f2804426be10ab0b803a6"><td class="memItemLeft" align="right" valign="top"><a id="ac4606a6b775f2804426be10ab0b803a6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#ac4606a6b775f2804426be10ab0b803a6">removeContainerOnMap</a> (int index)</td></tr>
+<tr class="memdesc:ac4606a6b775f2804426be10ab0b803a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">container coordinate accessor <br /></td></tr>
+<tr class="separator:ac4606a6b775f2804426be10ab0b803a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f55b7e0a86849db228582550917667"><td class="memItemLeft" align="right" valign="top"><a id="ad8f55b7e0a86849db228582550917667"></a>
+std::vector&lt; <a class="el" href="class_monster.html">Monster</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#ad8f55b7e0a86849db228582550917667">getEnemiesOnMap</a> ()</td></tr>
+<tr class="memdesc:ad8f55b7e0a86849db228582550917667"><td class="mdescLeft">&#160;</td><td class="mdescRight">enemy coordiante accessor <br /></td></tr>
+<tr class="separator:ad8f55b7e0a86849db228582550917667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac03a041e9981a044dceb7aa0b2fa5639"><td class="memItemLeft" align="right" valign="top"><a id="ac03a041e9981a044dceb7aa0b2fa5639"></a>
 std::vector&lt; SDL_Rect &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#ac03a041e9981a044dceb7aa0b2fa5639">getAllButtonDestinations</a> ()</td></tr>
 <tr class="memdesc:ac03a041e9981a044dceb7aa0b2fa5639"><td class="mdescLeft">&#160;</td><td class="mdescRight">map menu buttons accessor <br /></td></tr>
@@ -159,6 +171,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a06411fd72dc81d3792c3e6e6fe0fc416">~PreBuiltLevel</a> ()</td></tr>
 <tr class="memdesc:a06411fd72dc81d3792c3e6e6fe0fc416"><td class="mdescLeft">&#160;</td><td class="mdescRight">local destructor destroys the positions for enemies and containers <br /></td></tr>
 <tr class="separator:a06411fd72dc81d3792c3e6e6fe0fc416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab970ca56afa175ec359b8fa7814b894"><td class="memItemLeft" align="right" valign="top"><a id="aab970ca56afa175ec359b8fa7814b894"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setRecentUpdateFlag</b> (<a class="el" href="namespaces_8h.html#a8327c0c98430b2c5832c39f0b272c172">MapUpdateFlag</a> newUpdate)</td></tr>
+<tr class="separator:aab970ca56afa175ec359b8fa7814b894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e56751cdcbf9eeb4e093a0b7b9ca53b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a4e56751cdcbf9eeb4e093a0b7b9ca53b">setAllInitiative</a> ()</td></tr>
+<tr class="memdesc:a4e56751cdcbf9eeb4e093a0b7b9ca53b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the recent update flag to indicate how the Map should render.  <a href="#a4e56751cdcbf9eeb4e093a0b7b9ca53b">More...</a><br /></td></tr>
+<tr class="separator:a4e56751cdcbf9eeb4e093a0b7b9ca53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50d13df8b51ee7aee339aa6f2007940e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a50d13df8b51ee7aee339aa6f2007940e">setupInitiativeQueue</a> ()</td></tr>
+<tr class="separator:a50d13df8b51ee7aee339aa6f2007940e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0344b21db14e95ae8da32384822acf07"><td class="memItemLeft" align="right" valign="top"><a id="a0344b21db14e95ae8da32384822acf07"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInitiativeQueueEmpty</b> ()</td></tr>
+<tr class="separator:a0344b21db14e95ae8da32384822acf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_level"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_level')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_level.html">Level</a></td></tr>
 <tr class="memitem:aba4f031f3752773a8a04bf58997776b9 inherit pub_methods_class_level"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#aba4f031f3752773a8a04bf58997776b9">Level</a> (std::string path, <a class="el" href="class_level_window.html">LevelWindow</a> *window)</td></tr>
 <tr class="separator:aba4f031f3752773a8a04bf58997776b9 inherit pub_methods_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,6 +217,10 @@ std::vector&lt; <a class="el" href="class_environment.html">Environment</a> * &g
 <a class="el" href="class_monster.html">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a0c2bba08da53fd7894c80c4e6ecd402c">getEnemy</a> ()</td></tr>
 <tr class="memdesc:a0c2bba08da53fd7894c80c4e6ecd402c inherit pub_methods_class_level"><td class="mdescLeft">&#160;</td><td class="mdescRight">accessor for dummy enemy <br /></td></tr>
 <tr class="separator:a0c2bba08da53fd7894c80c4e6ecd402c inherit pub_methods_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe392ee79c0a831ab86dfccb5c02f069 inherit pub_methods_class_level"><td class="memItemLeft" align="right" valign="top"><a id="abe392ee79c0a831ab86dfccb5c02f069"></a>
+<a class="el" href="class_monster.html">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#abe392ee79c0a831ab86dfccb5c02f069">getFriend</a> ()</td></tr>
+<tr class="memdesc:abe392ee79c0a831ab86dfccb5c02f069 inherit pub_methods_class_level"><td class="mdescLeft">&#160;</td><td class="mdescRight">accessor for dummy friend <br /></td></tr>
+<tr class="separator:abe392ee79c0a831ab86dfccb5c02f069 inherit pub_methods_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5fecd0532486e19176f0ca3dced9c23 inherit pub_methods_class_level"><td class="memItemLeft" align="right" valign="top"><a id="ac5fecd0532486e19176f0ca3dced9c23"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#ac5fecd0532486e19176f0ca3dced9c23">addRectToGamePlayGrids</a> (SDL_Rect dest)</td></tr>
 <tr class="memdesc:ac5fecd0532486e19176f0ca3dced9c23 inherit pub_methods_class_level"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds a recangle to the grids for gameplay <br /></td></tr>
@@ -210,6 +237,10 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a36e2b0bc3c817fa70eb4b618edcb6d70">getMapSimpleVersion</a> ()</td></tr>
 <tr class="memdesc:a36e2b0bc3c817fa70eb4b618edcb6d70 inherit pub_methods_class_level"><td class="mdescLeft">&#160;</td><td class="mdescRight">accessor for string version of map that has all environment symbols simplified to just obstruction or free path <br /></td></tr>
 <tr class="separator:a36e2b0bc3c817fa70eb4b618edcb6d70 inherit pub_methods_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e190e0b0c05bad7b6839f67cbd9e6e7 inherit pub_methods_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a0e190e0b0c05bad7b6839f67cbd9e6e7"></a>
+std::vector&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a0e190e0b0c05bad7b6839f67cbd9e6e7">getMapSimplePtrVersion</a> ()</td></tr>
+<tr class="memdesc:a0e190e0b0c05bad7b6839f67cbd9e6e7 inherit pub_methods_class_level"><td class="mdescLeft">&#160;</td><td class="mdescRight">accessor for string version of map that has all environment symbols simplified to just obstruction or free path <br /></td></tr>
+<tr class="separator:a0e190e0b0c05bad7b6839f67cbd9e6e7 inherit pub_methods_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5087842ccd1a2b5f1e4dc0bab6d6823c inherit pub_methods_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a5087842ccd1a2b5f1e4dc0bab6d6823c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a5087842ccd1a2b5f1e4dc0bab6d6823c">setMainMapVector</a> (std::vector&lt; std::string &gt; newmap)</td></tr>
 <tr class="memdesc:a5087842ccd1a2b5f1e4dc0bab6d6823c inherit pub_methods_class_level"><td class="mdescLeft">&#160;</td><td class="mdescRight">setter for main map that is NOT simplified <br /></td></tr>
@@ -218,6 +249,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level.html#a249eac1e8f19ff44134efa5e986feaca">~Level</a> ()</td></tr>
 <tr class="memdesc:a249eac1e8f19ff44134efa5e986feaca inherit pub_methods_class_level"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor just calls the destroy level method <br /></td></tr>
 <tr class="separator:a249eac1e8f19ff44134efa5e986feaca inherit pub_methods_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b26f3fb3db168f5f0037fa38c5d73b4 inherit pub_methods_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a6b26f3fb3db168f5f0037fa38c5d73b4"></a>
+<a class="el" href="class_container.html">Container</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getCorpseComponent</b> ()</td></tr>
+<tr class="separator:a6b26f3fb3db168f5f0037fa38c5d73b4 inherit pub_methods_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_subject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_subject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_subject.html">Subject</a></td></tr>
 <tr class="memitem:aec0d2f94b266d79c426b0ac454d823a5 inherit pub_methods_class_subject"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_subject.html#aec0d2f94b266d79c426b0ac454d823a5">attach</a> (<a class="el" href="class_observer.html">Observer</a> *obs)</td></tr>
 <tr class="separator:aec0d2f94b266d79c426b0ac454d823a5 inherit pub_methods_class_subject"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -238,6 +272,9 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a4445b1a7c512c2ae4d844844889daa43"><td class="memItemLeft" align="right" valign="top"><a id="a4445b1a7c512c2ae4d844844889daa43"></a>
+<a class="el" href="namespaces_8h.html#a8327c0c98430b2c5832c39f0b272c172">MapUpdateFlag</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_recentFlag</b></td></tr>
+<tr class="separator:a4445b1a7c512c2ae4d844844889daa43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ad1ddb709d1134c31749bdedda1ec4a"><td class="memItemLeft" align="right" valign="top"><a id="a0ad1ddb709d1134c31749bdedda1ec4a"></a>
 std::vector&lt; SDL_Rect * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_levelComponentRects</b></td></tr>
 <tr class="separator:a0ad1ddb709d1134c31749bdedda1ec4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,21 +296,34 @@ SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>_attack</b></td><
 <tr class="memitem:ac548cf0eb963c29aedf7d930a9828e2f"><td class="memItemLeft" align="right" valign="top"><a id="ac548cf0eb963c29aedf7d930a9828e2f"></a>
 SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>_savePlayer</b></td></tr>
 <tr class="separator:ac548cf0eb963c29aedf7d930a9828e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0af43cbd492b80a3aae011426a4e0b87"><td class="memItemLeft" align="right" valign="top"><a id="a0af43cbd492b80a3aae011426a4e0b87"></a>
+SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>_endTurn</b></td></tr>
+<tr class="separator:a0af43cbd492b80a3aae011426a4e0b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affb216fb86f22ae8500621cf45efbacd"><td class="memItemLeft" align="right" valign="top"><a id="affb216fb86f22ae8500621cf45efbacd"></a>
+SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>_gameLog</b></td></tr>
+<tr class="separator:affb216fb86f22ae8500621cf45efbacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd2b8176d4c4d1de51c58d3352492416"><td class="memItemLeft" align="right" valign="top"><a id="abd2b8176d4c4d1de51c58d3352492416"></a>
 SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>_dest1ForObserver</b></td></tr>
 <tr class="separator:abd2b8176d4c4d1de51c58d3352492416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ab513978b0fdbacc89d53a1be7b1d20"><td class="memItemLeft" align="right" valign="top"><a id="a4ab513978b0fdbacc89d53a1be7b1d20"></a>
 SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>_dest2ForObserver</b></td></tr>
 <tr class="separator:a4ab513978b0fdbacc89d53a1be7b1d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52bf873681d57d9a08f432de8eafe544"><td class="memItemLeft" align="right" valign="top"><a id="a52bf873681d57d9a08f432de8eafe544"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_loggerYend</b></td></tr>
+<tr class="separator:a52bf873681d57d9a08f432de8eafe544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b17bc23df363f269fedf0aceafc9a02"><td class="memItemLeft" align="right" valign="top"><a id="a2b17bc23df363f269fedf0aceafc9a02"></a>
 <a class="el" href="class_fighter.html">Fighter</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_player</b></td></tr>
 <tr class="separator:a2b17bc23df363f269fedf0aceafc9a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a757b4089f043d4cef9c24a19b24811fe"><td class="memItemLeft" align="right" valign="top"><a id="a757b4089f043d4cef9c24a19b24811fe"></a>
 std::vector&lt; <a class="el" href="struct_container_on_map.html">ContainerOnMap</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_containersOnMap</b></td></tr>
 <tr class="separator:a757b4089f043d4cef9c24a19b24811fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae816d9cfc76becdd0f24fe281a909884"><td class="memItemLeft" align="right" valign="top"><a id="ae816d9cfc76becdd0f24fe281a909884"></a>
-std::vector&lt; <a class="el" href="struct_enemies_on_map.html">EnemiesOnMap</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_enemisOnMap</b></td></tr>
-<tr class="separator:ae816d9cfc76becdd0f24fe281a909884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41aee8e2e46946ee9e7b0405b7fa3983"><td class="memItemLeft" align="right" valign="top"><a id="a41aee8e2e46946ee9e7b0405b7fa3983"></a>
+std::vector&lt; <a class="el" href="class_monster.html">Monster</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_enemisOnMap</b></td></tr>
+<tr class="separator:a41aee8e2e46946ee9e7b0405b7fa3983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a80761f7e8f6db2aa006cb21df4dd28"><td class="memItemLeft" align="right" valign="top"><a id="a0a80761f7e8f6db2aa006cb21df4dd28"></a>
+priority_queue&lt; <a class="el" href="class_characters.html">Characters</a>, vector&lt; <a class="el" href="class_characters.html">Characters</a> * &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pre_built_level.html#a0a80761f7e8f6db2aa006cb21df4dd28">_initiativeCharacterQueue</a></td></tr>
+<tr class="memdesc:a0a80761f7e8f6db2aa006cb21df4dd28"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector storing ALL monsters on Map who are alive <br /></td></tr>
+<tr class="separator:a0a80761f7e8f6db2aa006cb21df4dd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_level"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_level')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_level.html">Level</a></td></tr>
 <tr class="memitem:aa13108f91760be62ede356de5d672053 inherit pro_attribs_class_level"><td class="memItemLeft" align="right" valign="top"><a id="aa13108f91760be62ede356de5d672053"></a>
 <a class="el" href="class_level_window.html">LevelWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_level_window</b></td></tr>
@@ -293,6 +343,9 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_basicContaine
 <tr class="memitem:a78e37613bc65b80bc5cf71dc652b259f inherit pro_attribs_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a78e37613bc65b80bc5cf71dc652b259f"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_enemyPath</b></td></tr>
 <tr class="separator:a78e37613bc65b80bc5cf71dc652b259f inherit pro_attribs_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a095367526cda7163a8537009c6811f67 inherit pro_attribs_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a095367526cda7163a8537009c6811f67"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_friendPath</b></td></tr>
+<tr class="separator:a095367526cda7163a8537009c6811f67 inherit pro_attribs_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68a007eb38444afd0536f038f85df306 inherit pro_attribs_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a68a007eb38444afd0536f038f85df306"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_directory_path_for_level_file_text_file</b></td></tr>
 <tr class="separator:a68a007eb38444afd0536f038f85df306 inherit pro_attribs_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -311,9 +364,24 @@ std::vector&lt; <a class="el" href="class_environment.html">Environment</a> * &g
 <tr class="memitem:ad7db6f5c2cb8559da37f567219e8e22b inherit pro_attribs_class_level"><td class="memItemLeft" align="right" valign="top"><a id="ad7db6f5c2cb8559da37f567219e8e22b"></a>
 <a class="el" href="class_monster.html">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_enemy</b></td></tr>
 <tr class="separator:ad7db6f5c2cb8559da37f567219e8e22b inherit pro_attribs_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10ab3150ddeb876097c011f2744c1466 inherit pro_attribs_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a10ab3150ddeb876097c011f2744c1466"></a>
+<a class="el" href="class_monster.html">Monster</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_friend</b></td></tr>
+<tr class="separator:a10ab3150ddeb876097c011f2744c1466 inherit pro_attribs_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04250fd0b458eef2ea45fffc03c26455 inherit pro_attribs_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a04250fd0b458eef2ea45fffc03c26455"></a>
 <a class="el" href="class_container.html">Container</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_container</b></td></tr>
 <tr class="separator:a04250fd0b458eef2ea45fffc03c26455 inherit pro_attribs_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1187bd4f8ac20aa051409ac8067db564 inherit pro_attribs_class_level"><td class="memItemLeft" align="right" valign="top"><a id="a1187bd4f8ac20aa051409ac8067db564"></a>
+<a class="el" href="class_container.html">Container</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_corpse</b></td></tr>
+<tr class="separator:a1187bd4f8ac20aa051409ac8067db564 inherit pro_attribs_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a111095a31d446732dbc0b23807c31ef4"><td class="memItemLeft" align="right" valign="top"><a id="a111095a31d446732dbc0b23807c31ef4"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>GamePlayEngine</b></td></tr>
+<tr class="separator:a111095a31d446732dbc0b23807c31ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ff3038998158d7b28113f579f77909a"><td class="memItemLeft" align="right" valign="top"><a id="a8ff3038998158d7b28113f579f77909a"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>MapObserver</b></td></tr>
+<tr class="separator:a8ff3038998158d7b28113f579f77909a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -324,8 +392,29 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a7a696c928ca5d5354db6e50e46d0f67d inherit pro_methods_class_level"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Inherits from levels, not much specific functionalities added except for just loading a text file from a path and creating a graphical level out of it on the <a class="el" href="class_level_window.html">LevelWindow</a> instance that it would contain </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Inherits from levels, not much specific functionalities added except for just loading a text file from a path and creating a graphical level out of it on the <a class="el" href="class_level_window.html">LevelWindow</a> instance that it would contain. Extends <a class="el" href="class_subject.html" title="Abstract implementation of Model in the MVC pattern. ">Subject</a> so that <a class="el" href="class_characters.html" title="Provides resource for management of Characters within game. ">Characters</a> can observe the <a class="el" href="class_level.html">Level</a> for any changes and update their own Map. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a86e618ddeb7a0ca8484f268dc927819d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86e618ddeb7a0ca8484f268dc927819d">&sect;&nbsp;</a></span>PreBuiltLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PreBuiltLevel::PreBuiltLevel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>PQ which is used to manage turn execution during each round. </p>
+<p>default constructor for testing purposes only </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac55f77e0ee464325cdd3ffa91292b0c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac55f77e0ee464325cdd3ffa91292b0c8">&sect;&nbsp;</a></span>createLevelForTargetWindow()</h2>
 
@@ -348,15 +437,53 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>first creates a level window based on the level text vector then calls parent function to setup the artwork on the window </p>
+<p>first creates a level window based on the level text vector then calls parent function to the artwork on the window </p>
 
 <p>Reimplemented from <a class="el" href="class_level.html#abe1e2e7c89fef892c4620d1a41e5ac22">Level</a>.</p>
 
 </div>
 </div>
+<a id="a4e56751cdcbf9eeb4e093a0b7b9ca53b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e56751cdcbf9eeb4e093a0b7b9ca53b">&sect;&nbsp;</a></span>setAllInitiative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreBuiltLevel::setAllInitiative </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the recent update flag to indicate how the Map should render. </p>
+<p>Will set the initiative for all <a class="el" href="class_characters.html" title="Provides resource for management of Characters within game. ">Characters</a> that are on the map currently. Will then fill the initiative queue with all <a class="el" href="class_characters.html" title="Provides resource for management of Characters within game. ">Characters</a> </p>
+
+</div>
+</div>
+<a id="a50d13df8b51ee7aee339aa6f2007940e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50d13df8b51ee7aee339aa6f2007940e">&sect;&nbsp;</a></span>setupInitiativeQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PreBuiltLevel::setupInitiativeQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fills the initiative priority queue with all <a class="el" href="class_characters.html" title="Provides resource for management of Characters within game. ">Characters</a>. Will be used to determine order of Character turns during each round. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="prebuiltlevel_8h_source.html">prebuiltlevel.h</a></li>
-<li>prebuiltlevel.cpp</li>
+<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/<a class="el" href="prebuiltlevel_8h_source.html">prebuiltlevel.h</a></li>
+<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/prebuiltlevel.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

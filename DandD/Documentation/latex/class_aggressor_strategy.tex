@@ -1,0 +1,174 @@
+\hypertarget{class_aggressor_strategy}{}\section{Aggressor\+Strategy Class Reference}
+\label{class_aggressor_strategy}\index{Aggressor\+Strategy@{Aggressor\+Strategy}}
+
+
+Provides movement strategy used by Aggressive Monsters. This strategy ensures that the \hyperlink{class_monster}{Monster} attacks the player after they move, if they are able to do so.  
+
+
+
+
+{\ttfamily \#include $<$Aggressor\+Strategy.\+h$>$}
+
+Inheritance diagram for Aggressor\+Strategy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_aggressor_strategy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_aggressor_strategy_ab6f672135588d2ef8d9115535712deec}{Aggressor\+Strategy} (int speed, \hyperlink{class_characters}{Characters} $\ast$the\+Player)
+\item 
+\hyperlink{class_aggressor_strategy_a28ff17baf09805d74c4a970287382930}{Aggressor\+Strategy} (\hyperlink{class_friendly_strategy}{Friendly\+Strategy} $\ast$other\+Strat)
+\item 
+\hypertarget{class_aggressor_strategy_a0eaec48b251b374d18ae2b4865804ad6}{}\label{class_aggressor_strategy_a0eaec48b251b374d18ae2b4865804ad6} 
+bool \hyperlink{class_aggressor_strategy_a0eaec48b251b374d18ae2b4865804ad6}{move} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Determines movement logic. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_aggressor_strategy_a2bda41203cace4fbdbcb6a05bfd5243d}{\+\_\+acceptable\+Destination\+Square} (int vectI, int charI)
+\item 
+virtual bool \hyperlink{class_aggressor_strategy_aa6af9166835315b10af4ada4b614f954}{move} (\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$level, S\+D\+L\+\_\+\+Rect $\ast$current\+Grid, \hyperlink{class_game_play_engine}{Game\+Play\+Engine} $\ast$engine)
+\item 
+bool \hyperlink{class_aggressor_strategy_a48ef31f068f59cbeef6c949658103ea9}{can\+Move} (int vectI, int charI, \hyperlink{_movement_strategy_8h_a0b5e764f0ec9a407e9b8789f0259d754}{Movement\+Direction} dir)
+\item 
+virtual void \hyperlink{class_aggressor_strategy_ad4ccf5fe66478c9066e84f0e302d08b1}{Update} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{_movement_strategy_8h_a0b5e764f0ec9a407e9b8789f0259d754}{Movement\+Direction} $>$ \& \hyperlink{class_aggressor_strategy_a00a432f2a77f2aa0a4b7c2abafd28b53}{\+\_\+determine\+Player\+Direction} ()
+\item 
+bool \hyperlink{class_aggressor_strategy_afab4da3199721fd5e4ee20833dd191ef}{is\+Within\+Range} (int vect\+Index, int char\+Index)
+\begin{DoxyCompactList}\small\item\em Char position of the Human Player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_aggressor_strategy_adf6903d1ca861fe3183e660c893ae04c}{}\label{class_aggressor_strategy_adf6903d1ca861fe3183e660c893ae04c} 
+int {\bfseries \+\_\+player\+Vect\+Pos}
+\item 
+\hypertarget{class_aggressor_strategy_a9a5504ef627051006c0f941adfe8b7c4}{}\label{class_aggressor_strategy_a9a5504ef627051006c0f941adfe8b7c4} 
+int \hyperlink{class_aggressor_strategy_a9a5504ef627051006c0f941adfe8b7c4}{\+\_\+player\+Char\+Pos}
+\begin{DoxyCompactList}\small\item\em Vector position of the Human Player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_aggressor_strategy_acd1214449703bd4d1b095efc07489f45}{}\label{class_aggressor_strategy_acd1214449703bd4d1b095efc07489f45} 
+class {\bfseries Monster}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides movement strategy used by Aggressive Monsters. This strategy ensures that the \hyperlink{class_monster}{Monster} attacks the player after they move, if they are able to do so. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_aggressor_strategy_ab6f672135588d2ef8d9115535712deec}{}\label{class_aggressor_strategy_ab6f672135588d2ef8d9115535712deec} 
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\subsubsection{\texorpdfstring{Aggressor\+Strategy()}{AggressorStrategy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aggressor\+Strategy\+::\+Aggressor\+Strategy (\begin{DoxyParamCaption}\item[{int}]{speed,  }\item[{\hyperlink{class_characters}{Characters} $\ast$}]{the\+Player }\end{DoxyParamCaption})}
+
+Parameterized Constructor. Takes the speed of the Aggressor as a parameter and passes it to the parent super constructor \hypertarget{class_aggressor_strategy_a28ff17baf09805d74c4a970287382930}{}\label{class_aggressor_strategy_a28ff17baf09805d74c4a970287382930} 
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\subsubsection{\texorpdfstring{Aggressor\+Strategy()}{AggressorStrategy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aggressor\+Strategy\+::\+Aggressor\+Strategy (\begin{DoxyParamCaption}\item[{\hyperlink{class_friendly_strategy}{Friendly\+Strategy} $\ast$}]{other\+Strategy }\end{DoxyParamCaption})}
+
+Copy constructor, which allows conversion from Friendly Strategy to \hyperlink{class_aggressor_strategy}{Aggressor\+Strategy} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_aggressor_strategy_a2bda41203cace4fbdbcb6a05bfd5243d}{}\label{class_aggressor_strategy_a2bda41203cace4fbdbcb6a05bfd5243d} 
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!\+\_\+acceptable\+Destination\+Square@{\+\_\+acceptable\+Destination\+Square}}
+\index{\+\_\+acceptable\+Destination\+Square@{\+\_\+acceptable\+Destination\+Square}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\subsubsection{\texorpdfstring{\+\_\+acceptable\+Destination\+Square()}{\_acceptableDestinationSquare()}}
+{\footnotesize\ttfamily bool Aggressor\+Strategy\+::\+\_\+acceptable\+Destination\+Square (\begin{DoxyParamCaption}\item[{int}]{vectI,  }\item[{int}]{charI }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Confirms if the square the Character is trying to land on is an acceptable destination. 
+
+In other words, this method attempts to determine whether or not the destination is an obstruction. 
+
+Adds in functionality to make sure exit door is not valid! 
+\begin{DoxyParams}{Parameters}
+{\em vectI} & index in the vector of the vertical position the character is moving to \\
+\hline
+{\em charI} & index in the string of the horizonal char the character is moving to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, True if N\+OT an obstacle, False if IS an obstacle 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_movement_strategy_a7767e4732545752f69dab06fe478152c}{Movement\+Strategy}.
+
+\hypertarget{class_aggressor_strategy_a00a432f2a77f2aa0a4b7c2abafd28b53}{}\label{class_aggressor_strategy_a00a432f2a77f2aa0a4b7c2abafd28b53} 
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!\+\_\+determine\+Player\+Direction@{\+\_\+determine\+Player\+Direction}}
+\index{\+\_\+determine\+Player\+Direction@{\+\_\+determine\+Player\+Direction}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\subsubsection{\texorpdfstring{\+\_\+determine\+Player\+Direction()}{\_determinePlayerDirection()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{_movement_strategy_8h_a0b5e764f0ec9a407e9b8789f0259d754}{Movement\+Direction} $>$ \& Aggressor\+Strategy\+::\+\_\+determine\+Player\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Based on the current possition that the player is at, will generate a vector with all directions the monster should try moving, from best to worst. Starts with the \textquotesingle{}primary\textquotesingle{} direction that the character is in, and then blooms out (ie if character is North, then should try North first, followed by North\+East and North\+West, then West and East, etc). \hypertarget{class_aggressor_strategy_a48ef31f068f59cbeef6c949658103ea9}{}\label{class_aggressor_strategy_a48ef31f068f59cbeef6c949658103ea9} 
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!can\+Move@{can\+Move}}
+\index{can\+Move@{can\+Move}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\subsubsection{\texorpdfstring{can\+Move()}{canMove()}}
+{\footnotesize\ttfamily bool Aggressor\+Strategy\+::can\+Move (\begin{DoxyParamCaption}\item[{int}]{vectI,  }\item[{int}]{charI,  }\item[{\hyperlink{_movement_strategy_8h_a0b5e764f0ec9a407e9b8789f0259d754}{Movement\+Direction}}]{dir }\end{DoxyParamCaption})}
+
+Determines if the \hyperlink{class_monster}{Monster} is able to move to the requested position in the indicated direction. 
+
+First, makes sure that the location is within the map\textquotesingle{}s bounds. 
+
+Second, checks if the destination can be landed on. 
+
+Third, checks if there are any obstacles in the path that the character will have to follow. 
+
+If all is successful, then the player can move there. \hypertarget{class_aggressor_strategy_afab4da3199721fd5e4ee20833dd191ef}{}\label{class_aggressor_strategy_afab4da3199721fd5e4ee20833dd191ef} 
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!is\+Within\+Range@{is\+Within\+Range}}
+\index{is\+Within\+Range@{is\+Within\+Range}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\subsubsection{\texorpdfstring{is\+Within\+Range()}{isWithinRange()}}
+{\footnotesize\ttfamily bool Aggressor\+Strategy\+::is\+Within\+Range (\begin{DoxyParamCaption}\item[{int}]{vectI,  }\item[{int}]{charI }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Char position of the Human Player. 
+
+Determines if the square the player is trying to jump to is within the player\textquotesingle{}s range. 
+\begin{DoxyParams}{Parameters}
+{\em vectI} & of desired location \\
+\hline
+{\em charI} & of desired location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, True if destination is within range, False otherwise 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_movement_strategy}{Movement\+Strategy}.
+
+\hypertarget{class_aggressor_strategy_aa6af9166835315b10af4ada4b614f954}{}\label{class_aggressor_strategy_aa6af9166835315b10af4ada4b614f954} 
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!move@{move}}
+\index{move@{move}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily bool Aggressor\+Strategy\+::move (\begin{DoxyParamCaption}\item[{\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$}]{level,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{current\+Grid,  }\item[{\hyperlink{class_game_play_engine}{Game\+Play\+Engine} $\ast$}]{engine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Movement logic algorithm. 
+
+Attempts to move the \hyperlink{class_monster}{Monster} to an appropriate direction. Will determine directions that will help the monster move toward the character, and will then try moving in each of those directions S\+P\+E\+ED steps or less. Updates position after movement, and attacks the player if they are next to the \hyperlink{class_monster}{Monster} 
+
+Implements \hyperlink{class_movement_strategy}{Movement\+Strategy}.
+
+\hypertarget{class_aggressor_strategy_ad4ccf5fe66478c9066e84f0e302d08b1}{}\label{class_aggressor_strategy_ad4ccf5fe66478c9066e84f0e302d08b1} 
+\index{Aggressor\+Strategy@{Aggressor\+Strategy}!Update@{Update}}
+\index{Update@{Update}!Aggressor\+Strategy@{Aggressor\+Strategy}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Aggressor\+Strategy\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Will be called any time a change has been made to the Player character. Will check if position has changed, and if it has, will then update in the \hyperlink{class_monster}{Monster} so the \hyperlink{class_monster}{Monster} knows where the player is. 
+
+Reimplemented from \hyperlink{class_character_observer_a398d6d784065c7ed36c928d44a574630}{Character\+Observer}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_aggressor_strategy_8h}{Aggressor\+Strategy.\+h}\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_aggressor_strategy_8cpp}{Aggressor\+Strategy.\+cpp}\end{DoxyCompactItemize}

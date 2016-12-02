@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMP 345 - INTERIM BUILD: CharacterSaveManager Class Reference</title>
+<title>COMP 345 - DRAGONS - Final Build: CharacterSaveManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">COMP 345 - INTERIM BUILD
+   <div id="projectname">COMP 345 - DRAGONS - Final Build
    </div>
+   <div id="projectbrief">Final Build of project for COMP 345</div>
   </td>
  </tr>
  </tbody>
@@ -73,10 +74,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7e4ce04eed479a22b1d3f70c9fe06652"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#a7e4ce04eed479a22b1d3f70c9fe06652">saveCharacter</a> (<a class="el" href="class_fighter.html">Fighter</a> *theChar)</td></tr>
-<tr class="separator:a7e4ce04eed479a22b1d3f70c9fe06652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56637487c732f1813992d3d6b558c817"><td class="memItemLeft" align="right" valign="top">static vector&lt; string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#a56637487c732f1813992d3d6b558c817">getNames</a> ()</td></tr>
+<tr class="separator:a56637487c732f1813992d3d6b558c817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb417d00055faa42333a69d64b29da6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#a4cb417d00055faa42333a69d64b29da6">saveCharacter</a> (<a class="el" href="class_fighter.html">Fighter</a> *theChar, SDL_Event event_)</td></tr>
+<tr class="separator:a4cb417d00055faa42333a69d64b29da6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44105e8553b29cd7e37f3eec6f1a7ce7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_fighter.html">Fighter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#a44105e8553b29cd7e37f3eec6f1a7ce7">loadCharacter</a> ()</td></tr>
 <tr class="separator:a44105e8553b29cd7e37f3eec6f1a7ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee1fcce6a61b16b41dfa675264d5bdf"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_fighter.html">Fighter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#a8ee1fcce6a61b16b41dfa675264d5bdf">loadCharacter</a> (string name)</td></tr>
+<tr class="separator:a8ee1fcce6a61b16b41dfa675264d5bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8ee3fecc5c19f1f61f98e9132a26b5f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#af8ee3fecc5c19f1f61f98e9132a26b5f">removeCharacter</a> ()</td></tr>
 <tr class="separator:af8ee3fecc5c19f1f61f98e9132a26b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49dd1eedbdf0e2b7cedfba64d4fb8d53"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_save_manager.html#a49dd1eedbdf0e2b7cedfba64d4fb8d53">removeCharacter</a> (string name)</td></tr>
@@ -122,8 +127,34 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a56637487c732f1813992d3d6b558c817"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56637487c732f1813992d3d6b558c817">&sect;&nbsp;</a></span>getNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; string &gt; * CharacterSaveManager::getNames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a vector containing the names of all <a class="el" href="class_characters.html" title="Provides resource for management of Characters within game. ">Characters</a> which have been saved to disk </p><dl class="section return"><dt>Returns</dt><dd>vector&lt;string&gt; </dd></dl>
+
+</div>
+</div>
 <a id="a44105e8553b29cd7e37f3eec6f1a7ce7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44105e8553b29cd7e37f3eec6f1a7ce7">&sect;&nbsp;</a></span>loadCharacter()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a44105e8553b29cd7e37f3eec6f1a7ce7">&sect;&nbsp;</a></span>loadCharacter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,6 +178,38 @@ Static Public Member Functions</h2></td></tr>
 <p>Will load a Character from disk based on user selection, and returns a pointer to that Character </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Fighter*,pointing</td><td>to the loaded Character </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ee1fcce6a61b16b41dfa675264d5bdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee1fcce6a61b16b41dfa675264d5bdf">&sect;&nbsp;</a></span>loadCharacter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_fighter.html">Fighter</a> * CharacterSaveManager::loadCharacter </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Loads a <a class="el" href="class_fighter.html" title="Provides resource for management of Fighter within game. ">Fighter</a> from file, based on the name string provided to the menu </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name,string</td><td>of the name of the <a class="el" href="class_fighter.html" title="Provides resource for management of Fighter within game. ">Fighter</a> to load </td></tr>
   </table>
   </dd>
 </dl>
@@ -211,8 +274,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7e4ce04eed479a22b1d3f70c9fe06652"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e4ce04eed479a22b1d3f70c9fe06652">&sect;&nbsp;</a></span>saveCharacter()</h2>
+<a id="a4cb417d00055faa42333a69d64b29da6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cb417d00055faa42333a69d64b29da6">&sect;&nbsp;</a></span>saveCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,8 +287,18 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">bool CharacterSaveManager::saveCharacter </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_fighter.html">Fighter</a> *&#160;</td>
-          <td class="paramname"><em>theChar</em></td><td>)</td>
+          <td class="paramname"><em>theChar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">SDL_Event&#160;</td>
+          <td class="paramname"><em>_event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -244,8 +317,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_char_save_manager_8h_source.html">CharSaveManager.h</a></li>
-<li><a class="el" href="_character_save_manager_8cpp.html">CharacterSaveManager.cpp</a></li>
+<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/<a class="el" href="_char_save_manager_8h_source.html">CharSaveManager.h</a></li>
+<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/<a class="el" href="_character_save_manager_8cpp.html">CharacterSaveManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

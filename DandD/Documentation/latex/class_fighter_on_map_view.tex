@@ -1,0 +1,74 @@
+\hypertarget{class_fighter_on_map_view}{}\section{Fighter\+On\+Map\+View Class Reference}
+\label{class_fighter_on_map_view}\index{Fighter\+On\+Map\+View@{Fighter\+On\+Map\+View}}
+
+
+\hyperlink{class_fighter_on_map_view}{Fighter\+On\+Map\+View} allows rendering of the \hyperlink{class_fighter}{Fighter} character on the map, ensuring that any changes to its position are displayed to the user during play.  
+
+
+
+
+{\ttfamily \#include $<$Fighter\+On\+Map\+View.\+h$>$}
+
+Inheritance diagram for Fighter\+On\+Map\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_fighter_on_map_view}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_fighter_on_map_view_a825620eacc7214901bd8d5b640fbb1c2}{Fighter\+On\+Map\+View} (\hyperlink{class_characters}{Characters} $\ast$my\+Char, \hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$the\+Map)
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_level}{Level} that the game is being played on. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_fighter_on_map_view_a7f091d8f5f3c46f7a7670c46210673bc}{Update} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_fighter_on_map_view_a1fe8d0d16f040441e11da3f4586a709a}{}\label{class_fighter_on_map_view_a1fe8d0d16f040441e11da3f4586a709a} 
+int {\bfseries \+\_\+prev\+Vect\+Pos}
+\item 
+\hypertarget{class_fighter_on_map_view_a61bbad37f81bdab3127ce13481777a69}{}\label{class_fighter_on_map_view_a61bbad37f81bdab3127ce13481777a69} 
+int \hyperlink{class_fighter_on_map_view_a61bbad37f81bdab3127ce13481777a69}{\+\_\+prev\+Char\+Pos}
+\begin{DoxyCompactList}\small\item\em The last known vector position of the Player. \end{DoxyCompactList}\item 
+\hypertarget{class_fighter_on_map_view_a3b8e0bae2204cd40dac9402d54611d66}{}\label{class_fighter_on_map_view_a3b8e0bae2204cd40dac9402d54611d66} 
+\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$ \hyperlink{class_fighter_on_map_view_a3b8e0bae2204cd40dac9402d54611d66}{\+\_\+the\+Map}
+\begin{DoxyCompactList}\small\item\em The last known char position of the Player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_fighter_on_map_view}{Fighter\+On\+Map\+View} allows rendering of the \hyperlink{class_fighter}{Fighter} character on the map, ensuring that any changes to its position are displayed to the user during play. 
+
+\hyperlink{class_fighter_on_map_view}{Fighter\+On\+Map\+View} will ensure that the Character\textquotesingle{}s position on the map gets updated correctly. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_fighter_on_map_view_a825620eacc7214901bd8d5b640fbb1c2}{}\label{class_fighter_on_map_view_a825620eacc7214901bd8d5b640fbb1c2} 
+\index{Fighter\+On\+Map\+View@{Fighter\+On\+Map\+View}!Fighter\+On\+Map\+View@{Fighter\+On\+Map\+View}}
+\index{Fighter\+On\+Map\+View@{Fighter\+On\+Map\+View}!Fighter\+On\+Map\+View@{Fighter\+On\+Map\+View}}
+\subsubsection{\texorpdfstring{Fighter\+On\+Map\+View()}{FighterOnMapView()}}
+{\footnotesize\ttfamily Fighter\+On\+Map\+View\+::\+Fighter\+On\+Map\+View (\begin{DoxyParamCaption}\item[{\hyperlink{class_characters}{Characters} $\ast$}]{the\+Char,  }\item[{\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$}]{the\+Map }\end{DoxyParamCaption})}
+
+
+
+The \hyperlink{class_level}{Level} that the game is being played on. 
+
+Parameterized Constructor. Ensures that the tracking of the Character\textquotesingle{}s position is set up properly. Also ensures that the pointer to the \hyperlink{class_level}{Level} is set, which will be used to help updating the map 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_fighter_on_map_view_a7f091d8f5f3c46f7a7670c46210673bc}{}\label{class_fighter_on_map_view_a7f091d8f5f3c46f7a7670c46210673bc} 
+\index{Fighter\+On\+Map\+View@{Fighter\+On\+Map\+View}!Update@{Update}}
+\index{Update@{Update}!Fighter\+On\+Map\+View@{Fighter\+On\+Map\+View}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Fighter\+On\+Map\+View\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Method which indicates to the \hyperlink{class_observer}{Observer} that an update has been made. Will update the \hyperlink{class_fighter}{Fighter}\textquotesingle{}s position on the Map 
+
+Reimplemented from \hyperlink{class_character_observer_a398d6d784065c7ed36c928d44a574630}{Character\+Observer}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_fighter_on_map_view_8h}{Fighter\+On\+Map\+View.\+h}\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_fighter_on_map_view_8cpp}{Fighter\+On\+Map\+View.\+cpp}\end{DoxyCompactItemize}

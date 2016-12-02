@@ -1,0 +1,78 @@
+\hypertarget{class_monster_on_map_view}{}\section{Monster\+On\+Map\+View Class Reference}
+\label{class_monster_on_map_view}\index{Monster\+On\+Map\+View@{Monster\+On\+Map\+View}}
+
+
+\hyperlink{class_monster_on_map_view}{Monster\+On\+Map\+View} allows rendering of the Monsters on the map, ensuring that any changes to their position are displayed to the user during play.  
+
+
+
+
+{\ttfamily \#include $<$Monster\+On\+Map\+View.\+h$>$}
+
+Inheritance diagram for Monster\+On\+Map\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_monster_on_map_view}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_monster_on_map_view_a52f838a3d411108d54b648879d3174ee}{Monster\+On\+Map\+View} (\hyperlink{class_characters}{Characters} $\ast$my\+Char, \hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$the\+Map, \hyperlink{namespaces_8h_ad0cd52c7c9b13be13f9aafebd2e1c860}{Character\+Type} their\+Type)
+\item 
+virtual void \hyperlink{class_monster_on_map_view_a033dc1facbc3fcda212e1f5ed7cd668b}{Update} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_monster_on_map_view_af45d5a264be4977616bb865d8221f9a4}{}\label{class_monster_on_map_view_af45d5a264be4977616bb865d8221f9a4} 
+void \hyperlink{class_monster_on_map_view_af45d5a264be4977616bb865d8221f9a4}{render\+Dead} ()
+\begin{DoxyCompactList}\small\item\em The type of the Character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_monster_on_map_view_aa5af57d72caa0ec610ac7d4a264f188c}{}\label{class_monster_on_map_view_aa5af57d72caa0ec610ac7d4a264f188c} 
+int {\bfseries \+\_\+prev\+Vect\+Pos}
+\item 
+\hypertarget{class_monster_on_map_view_a0dc5d087c778a6d6cf0ebcd12976c219}{}\label{class_monster_on_map_view_a0dc5d087c778a6d6cf0ebcd12976c219} 
+int \hyperlink{class_monster_on_map_view_a0dc5d087c778a6d6cf0ebcd12976c219}{\+\_\+prev\+Char\+Pos}
+\begin{DoxyCompactList}\small\item\em The last known vector position of the \hyperlink{class_monster}{Monster}. \end{DoxyCompactList}\item 
+\hypertarget{class_monster_on_map_view_a48d69301ce79af73f8358e53ce728ec4}{}\label{class_monster_on_map_view_a48d69301ce79af73f8358e53ce728ec4} 
+\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$ \hyperlink{class_monster_on_map_view_a48d69301ce79af73f8358e53ce728ec4}{\+\_\+the\+Map}
+\begin{DoxyCompactList}\small\item\em The last known char position of the \hyperlink{class_monster}{Monster}. \end{DoxyCompactList}\item 
+\hypertarget{class_monster_on_map_view_a9391e73ba7d92f9d2da534becfcbb1e6}{}\label{class_monster_on_map_view_a9391e73ba7d92f9d2da534becfcbb1e6} 
+\hyperlink{namespaces_8h_ad0cd52c7c9b13be13f9aafebd2e1c860}{Character\+Type} \hyperlink{class_monster_on_map_view_a9391e73ba7d92f9d2da534becfcbb1e6}{\+\_\+the\+Type}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_level}{Level} that the game is being played on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_monster_on_map_view}{Monster\+On\+Map\+View} allows rendering of the Monsters on the map, ensuring that any changes to their position are displayed to the user during play. 
+
+\hyperlink{class_monster}{Monster} On\+Map\+View will ensure that the \hyperlink{class_monster}{Monster}\textquotesingle{}s position on the map gets updated correctly. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_monster_on_map_view_a52f838a3d411108d54b648879d3174ee}{}\label{class_monster_on_map_view_a52f838a3d411108d54b648879d3174ee} 
+\index{Monster\+On\+Map\+View@{Monster\+On\+Map\+View}!Monster\+On\+Map\+View@{Monster\+On\+Map\+View}}
+\index{Monster\+On\+Map\+View@{Monster\+On\+Map\+View}!Monster\+On\+Map\+View@{Monster\+On\+Map\+View}}
+\subsubsection{\texorpdfstring{Monster\+On\+Map\+View()}{MonsterOnMapView()}}
+{\footnotesize\ttfamily Monster\+On\+Map\+View\+::\+Monster\+On\+Map\+View (\begin{DoxyParamCaption}\item[{\hyperlink{class_characters}{Characters} $\ast$}]{the\+Char,  }\item[{\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$}]{the\+Map,  }\item[{\hyperlink{namespaces_8h_ad0cd52c7c9b13be13f9aafebd2e1c860}{Character\+Type}}]{their\+Type }\end{DoxyParamCaption})}
+
+Parameterized Constructor. Ensures that the tracking of the Monsters\textquotesingle{}s position is set up properly. Also ensures that the pointer to the \hyperlink{class_level}{Level} is set, which will be used to help updating the map 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_monster_on_map_view_a033dc1facbc3fcda212e1f5ed7cd668b}{}\label{class_monster_on_map_view_a033dc1facbc3fcda212e1f5ed7cd668b} 
+\index{Monster\+On\+Map\+View@{Monster\+On\+Map\+View}!Update@{Update}}
+\index{Update@{Update}!Monster\+On\+Map\+View@{Monster\+On\+Map\+View}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Monster\+On\+Map\+View\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Method which indicates to the \hyperlink{class_observer}{Observer} that an update has been made. Will update the \hyperlink{class_fighter}{Fighter}\textquotesingle{}s position on the Map ! N\+E\+ED TO U\+P\+D\+A\+TE SO T\+H\+AT D\+I\+S\+P\+L\+A\+YS F\+R\+I\+E\+N\+D\+LY TO M\+AP 
+
+Reimplemented from \hyperlink{class_character_observer_a398d6d784065c7ed36c928d44a574630}{Character\+Observer}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_monster_on_map_view_8h}{Monster\+On\+Map\+View.\+h}\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_monster_on_map_view_8cpp}{Monster\+On\+Map\+View.\+cpp}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type',['Type',['../_entity_8h.html#a1d1cfd8ffb84e947f82999c682b666a7',1,'Entity.h']]]
+  ['race',['Race',['../_entity_8h.html#aa2df4028f474807638d438104900b003',1,'Entity.h']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMP 345 - INTERIM BUILD: Dice Class Reference</title>
+<title>COMP 345 - DRAGONS - Final Build: Dice Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">COMP 345 - INTERIM BUILD
+   <div id="projectname">COMP 345 - DRAGONS - Final Build
    </div>
+   <div id="projectbrief">Final Build of project for COMP 345</div>
   </td>
  </tr>
  </tbody>
@@ -60,6 +61,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_dice-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Dice Class Reference</div>  </div>
@@ -77,15 +79,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0bc8f4b697804af0785f34b801cd6feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b9eadd945ad8fd3840379c8824e5d48"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dice.html#a6b9eadd945ad8fd3840379c8824e5d48">Dice</a> ()</td></tr>
 <tr class="separator:a6b9eadd945ad8fd3840379c8824e5d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72fb3216967ca28dc6f81653f4c3c07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dice.html#ad72fb3216967ca28dc6f81653f4c3c07">Dice</a> (bool test)</td></tr>
+<tr class="separator:ad72fb3216967ca28dc6f81653f4c3c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48e90392d2ff1e6736c88f22e8a87751"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dice.html#a48e90392d2ff1e6736c88f22e8a87751">~Dice</a> ()</td></tr>
 <tr class="separator:a48e90392d2ff1e6736c88f22e8a87751"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a7cb71db64a34c9d95fe3f41ccbb1e8c7"><td class="memItemLeft" align="right" valign="top"><a id="a7cb71db64a34c9d95fe3f41ccbb1e8c7"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>TestDice</b></td></tr>
+<tr class="separator:a7cb71db64a34c9d95fe3f41ccbb1e8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides methods for creating dice specified valid number of faces. </p>
 <p>Allows random number generation using DnD dice types. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6b9eadd945ad8fd3840379c8824e5d48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b9eadd945ad8fd3840379c8824e5d48">&sect;&nbsp;</a></span>Dice()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b9eadd945ad8fd3840379c8824e5d48">&sect;&nbsp;</a></span>Dice() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -99,6 +109,25 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Constructor for a <a class="el" href="class_dice.html" title="Provides methods for creating dice specified valid number of faces. ">Dice</a> object. Takes no parameters. </p>
+
+</div>
+</div>
+<a id="ad72fb3216967ca28dc6f81653f4c3c07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72fb3216967ca28dc6f81653f4c3c07">&sect;&nbsp;</a></span>Dice() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dice::Dice </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isTesting</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constructor for a <a class="el" href="class_dice.html" title="Provides methods for creating dice specified valid number of faces. ">Dice</a> object. isTesting set to true to prevent logging </p>
 
 </div>
 </div>
@@ -150,8 +179,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="_dice_8h_source.html">Dice.h</a></li>
-<li>Dice.cpp</li>
+<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/<a class="el" href="_dice_8h_source.html">Dice.h</a></li>
+<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/Dice.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

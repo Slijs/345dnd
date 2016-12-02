@@ -1,0 +1,81 @@
+\hypertarget{class_test_dice}{}\section{Test\+Dice Class Reference}
+\label{class_test_dice}\index{Test\+Dice@{Test\+Dice}}
+Inheritance diagram for Test\+Dice\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_test_dice}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_test_dice_ab667ce059357171f1d8518c052e50f64}{set\+Up} (void)
+\item 
+void \hyperlink{class_test_dice_af92d20c1d04e258061ebba44ac109d43}{tear\+Down} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_test_dice_a7a6a244b7820f9638b424ff16f3bb602}{test\+Valid\+Dice} (void)
+\item 
+void \hyperlink{class_test_dice_ac7ebcb4fcc5e519bb3f7cc6b7924ade7}{test\+Negative\+Number\+Of\+Dice} (void)
+\item 
+void \hyperlink{class_test_dice_a1c5bd286c8d9714b97b67ddbfccb12f6}{test\+Dice\+Roll\+Input\+Validity} (void)
+\item 
+void \hyperlink{class_test_dice_a6e81399d8157900629dee02c92ce5f8a}{test\+Dice\+Rolling\+Bounds} (void)
+\item 
+void \hyperlink{class_test_dice_aac292c8e6ca7593d523aedd526f24500}{test\+Dice\+Lower\+Bound} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_test_dice}{Test\+Dice} is the test class for the \hyperlink{class_dice}{Dice} class. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_test_dice_ab667ce059357171f1d8518c052e50f64}{}\label{class_test_dice_ab667ce059357171f1d8518c052e50f64} 
+\index{Test\+Dice@{Test\+Dice}!set\+Up@{set\+Up}}
+\index{set\+Up@{set\+Up}!Test\+Dice@{Test\+Dice}}
+\subsubsection{\texorpdfstring{set\+Up()}{setUp()}}
+{\footnotesize\ttfamily void Test\+Dice\+::set\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initializes the \hyperlink{class_dice}{Dice} object used by the test unit. \hypertarget{class_test_dice_af92d20c1d04e258061ebba44ac109d43}{}\label{class_test_dice_af92d20c1d04e258061ebba44ac109d43} 
+\index{Test\+Dice@{Test\+Dice}!tear\+Down@{tear\+Down}}
+\index{tear\+Down@{tear\+Down}!Test\+Dice@{Test\+Dice}}
+\subsubsection{\texorpdfstring{tear\+Down()}{tearDown()}}
+{\footnotesize\ttfamily void Test\+Dice\+::tear\+Down (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Deletes the \hyperlink{class_dice}{Dice} object used by the test unit. \hypertarget{class_test_dice_aac292c8e6ca7593d523aedd526f24500}{}\label{class_test_dice_aac292c8e6ca7593d523aedd526f24500} 
+\index{Test\+Dice@{Test\+Dice}!test\+Dice\+Lower\+Bound@{test\+Dice\+Lower\+Bound}}
+\index{test\+Dice\+Lower\+Bound@{test\+Dice\+Lower\+Bound}!Test\+Dice@{Test\+Dice}}
+\subsubsection{\texorpdfstring{test\+Dice\+Lower\+Bound()}{testDiceLowerBound()}}
+{\footnotesize\ttfamily void Test\+Dice\+::test\+Dice\+Lower\+Bound (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This test ensures that the minimal value returned is equal to the total number of dice that should be rolled. For example, if you roll 6 dice the minimum number is 6 (from 6 dice rolling 1). Another example, for rolling 12 dice the minimum number is 12 (from rolling 12 1s). \hypertarget{class_test_dice_a6e81399d8157900629dee02c92ce5f8a}{}\label{class_test_dice_a6e81399d8157900629dee02c92ce5f8a} 
+\index{Test\+Dice@{Test\+Dice}!test\+Dice\+Rolling\+Bounds@{test\+Dice\+Rolling\+Bounds}}
+\index{test\+Dice\+Rolling\+Bounds@{test\+Dice\+Rolling\+Bounds}!Test\+Dice@{Test\+Dice}}
+\subsubsection{\texorpdfstring{test\+Dice\+Rolling\+Bounds()}{testDiceRollingBounds()}}
+{\footnotesize\ttfamily void Test\+Dice\+::test\+Dice\+Rolling\+Bounds (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method for role function of the \hyperlink{class_dice}{Dice} class Test Case\+: the upperbound of all values returned from roll function \hypertarget{class_test_dice_a1c5bd286c8d9714b97b67ddbfccb12f6}{}\label{class_test_dice_a1c5bd286c8d9714b97b67ddbfccb12f6} 
+\index{Test\+Dice@{Test\+Dice}!test\+Dice\+Roll\+Input\+Validity@{test\+Dice\+Roll\+Input\+Validity}}
+\index{test\+Dice\+Roll\+Input\+Validity@{test\+Dice\+Roll\+Input\+Validity}!Test\+Dice@{Test\+Dice}}
+\subsubsection{\texorpdfstring{test\+Dice\+Roll\+Input\+Validity()}{testDiceRollInputValidity()}}
+{\footnotesize\ttfamily void Test\+Dice\+::test\+Dice\+Roll\+Input\+Validity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+test method for role function of the \hyperlink{class_dice}{Dice} class Test Case\+: the the validity of input string \hypertarget{class_test_dice_ac7ebcb4fcc5e519bb3f7cc6b7924ade7}{}\label{class_test_dice_ac7ebcb4fcc5e519bb3f7cc6b7924ade7} 
+\index{Test\+Dice@{Test\+Dice}!test\+Negative\+Number\+Of\+Dice@{test\+Negative\+Number\+Of\+Dice}}
+\index{test\+Negative\+Number\+Of\+Dice@{test\+Negative\+Number\+Of\+Dice}!Test\+Dice@{Test\+Dice}}
+\subsubsection{\texorpdfstring{test\+Negative\+Number\+Of\+Dice()}{testNegativeNumberOfDice()}}
+{\footnotesize\ttfamily void Test\+Dice\+::test\+Negative\+Number\+Of\+Dice (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This test will ensure that negative multipliers, or in other words negative numbers of dice, cannot be rolled. \hypertarget{class_test_dice_a7a6a244b7820f9638b424ff16f3bb602}{}\label{class_test_dice_a7a6a244b7820f9638b424ff16f3bb602} 
+\index{Test\+Dice@{Test\+Dice}!test\+Valid\+Dice@{test\+Valid\+Dice}}
+\index{test\+Valid\+Dice@{test\+Valid\+Dice}!Test\+Dice@{Test\+Dice}}
+\subsubsection{\texorpdfstring{test\+Valid\+Dice()}{testValidDice()}}
+{\footnotesize\ttfamily void Test\+Dice\+::test\+Valid\+Dice (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+This test will go through and ensure that all members of \+\_\+\+V\+A\+L\+I\+D\+\_\+\+D\+I\+CE are, in fact, considered to be valid. It will test all values between 0 to 100. Any value that should be a member of \+\_\+\+V\+A\+L\+I\+D\+\_\+\+D\+I\+CE is asserted to be true, while all other values are asserted to be false. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_test_dice_8cpp}{Test\+Dice.\+cpp}\end{DoxyCompactItemize}
