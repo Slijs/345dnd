@@ -1,5 +1,7 @@
 #include "gameplayengine.h"
 #include "GameLogMenu.h"
+#include "LogViewMenu.h"
+#include "ToggleLogMenu.h"
 /*!
 *default constructor just sets all values to default and false
 */
@@ -291,11 +293,62 @@ int GamePlayEngine::runUserTurn(){
 				int destination = menu->destinationMap(buttonNum);
 				if (destination == _ViewLog_)
 				{
+					menu->getMenuWindow()->hideWindow();
+					LogViewMenu* menu2 = new LogViewMenu("GAME LOG VIEW");
+					menu2->setupMenu();
+					menu2->displayMenu();
 
+					MenuEngine* engine2 = new MenuEngine(menu2, *(new SDL_Event()));
+					int buttonNum = engine2->runEngine();
+					int destination = menu2->destinationMap(buttonNum);
+					menu2->getMenuWindow()->hideWindow();
+					GameLogTest::displayLogChanges(destination);
+					delete menu2;
+					menu2 = nullptr;
+					delete engine2;
+					engine2 = nullptr;
 				}
 				else if (destination == _ToggleLog_)
 				{
+					menu->getMenuWindow()->hideWindow();
+					ToggleLogMenu* menu3;
+					MenuEngine* engine3;
+					bool exit = false;
+					do{
+					menu3 = new ToggleLogMenu("GAME LOG TOGGLE");
+					menu3->setupMenu();
+					menu3->displayMenu();
 
+					engine3 = new MenuEngine(menu3, *(new SDL_Event()));
+					int buttonNum = engine3->runEngine();
+					int destination = menu3->destinationMap(buttonNum);
+
+					switch (destination)
+					{
+					case _GameLog_:
+						GameController::getInstance()->toggleGame();
+						break;
+					case _MapLog_:
+						MapController::getInstance()->toggleMap();
+						break;
+					case _CharacterLog_:
+						CharacterController::getInstance()->toggleCharacter();
+						break;
+					case _DiceLog_:
+						DiceController::getInstance()->toggleDice();
+						break;
+					case _ReturnToGame_:
+						exit = true;
+						break;
+					}
+					menu3->getMenuWindow()->hideWindow();
+					delete menu3;
+					menu3 = nullptr;
+					delete engine3;
+					engine3 = nullptr;
+
+					} while (exit==false);
+				
 				}
 				else if (destination == _ReturnToGame_)
 				{
@@ -307,6 +360,8 @@ int GamePlayEngine::runUserTurn(){
 				menu->getMenuWindow()->hideWindow();
 				delete menu;
 				menu = nullptr;
+				delete engine;
+				engine = nullptr;
 				this->_gameLog = false;
 				this->_buttonSelect = false;
 				this->_level->getLevelWindow()->unHideWindow();

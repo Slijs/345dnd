@@ -120,32 +120,33 @@ struct GameLogTest{
 		vector<string> lines;
 		switch (input)
 		{
-		case 1:
+		case _GameLog_:
 			log = "Game";
 			lines = SingletonInputOutputManager::getInstance()->readFileLineByLine(GameController::getInstance()->getPath());
 			break;
-		case 2:
+		case _MapLog_:
 			log = "Map";
 			lines = SingletonInputOutputManager::getInstance()->readFileLineByLine(MapController::getInstance()->getPath());
-
 			break;
-		case 3:
+		case _CharacterLog_:
 			log ="Character";
 			lines = SingletonInputOutputManager::getInstance()->readFileLineByLine(CharacterController::getInstance()->getPath());
 			break;
-		case 4:
+		case _DiceLog_:
 			log = "Dice";
 			lines = SingletonInputOutputManager::getInstance()->readFileLineByLine(DiceController::getInstance()->getPath());
 			break;
-		case 5: 
+		case _UnifiedLog_: 
 			log = "Unified";
 			lines = SingletonInputOutputManager::getInstance()->readFileLineByLine(DiceController::getInstance()->getUnifiedPath());
 			break;
+		case _ReturnToGame_: 
+			return;
 		}
 		
 		std::system("CLS");
 
-		std::cout << log +" Controller log: \n";
+		std::cout << log << " Controller log: \n";
 		for (int i = 0; i < lines.size(); i++)
 			std::cout << lines[i] << endl;
 

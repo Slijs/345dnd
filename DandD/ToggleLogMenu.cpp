@@ -1,9 +1,10 @@
-#include "LogViewMenu.h"
+#include "ToggleLogMenu.h"
+#include "GameLogTest.h"
 
-LogViewMenu::LogViewMenu(std::string title) : Menus(title){}
+ToggleLogMenu::ToggleLogMenu(std::string title) : Menus(title){}
 
 //!Function to initialize the menu
-void LogViewMenu::setupMenu()
+void ToggleLogMenu::setupMenu()
 {
 	std::string buttonbase = "Create New Character";
 	int totalwidth = this->_menuWindow->getWindowWidth() * (0.3);
@@ -45,40 +46,60 @@ void LogViewMenu::setupMenu()
 	nextDisplay = "Game";
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
 	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
+	menucomponent.x = 30;
 	menucomponent.y = menucomponent.y + (menucomponent.h);
 	this->_menuWindow->addButton(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
+	nextDisplay = "(" + GameLogTest::boolToString(GameController::getInstance()->getGameToggle()) + ")";
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
+	menucomponent.x = menucomponent.x + menucomponent.w + 5;
+	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
+	this->_menuWindow->addTextLabel(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 
 	//Map
 	nextDisplay = "Map";
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
 	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
+	menucomponent.x = 30;
 	menucomponent.y = menucomponent.y + (menucomponent.h);
 	this->_menuWindow->addButton(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
+
+	nextDisplay = "(" + GameLogTest::boolToString(MapController::getInstance()->getMapToggle()) + ")";
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
+	menucomponent.x = menucomponent.x + menucomponent.w + 5;
+	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
+	this->_menuWindow->addTextLabel(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
+
 
 	//Character
 	nextDisplay = "Character";
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
 	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
+	menucomponent.x = 30;
 	menucomponent.y = menucomponent.y + (menucomponent.h);
 	this->_menuWindow->addButton(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
+
+	nextDisplay = "(" + GameLogTest::boolToString(CharacterController::getInstance()->getCharacterToggle()) + ")";
+	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
+	menucomponent.x = menucomponent.x + menucomponent.w + 5;
+	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
+	this->_menuWindow->addTextLabel(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 
 	//Dice
 	nextDisplay = "Dice";
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
 	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
+	menucomponent.x = 30;
 	menucomponent.y = menucomponent.y + (menucomponent.h);
 	this->_menuWindow->addButton(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
-
-	//Unified
-	nextDisplay = "Unified";
+	nextDisplay = "(" + GameLogTest::boolToString(DiceController::getInstance()->getDiceToggle()) + ")";
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
+	menucomponent.x = menucomponent.x + menucomponent.w + 5;
 	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
-	menucomponent.y = menucomponent.y + (menucomponent.h);
-	this->_menuWindow->addButton(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
+	this->_menuWindow->addTextLabel(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 
 
 	// Return to main menu !
@@ -92,7 +113,7 @@ void LogViewMenu::setupMenu()
 	this->_menuWindow->displayWindow();
 }
 
-int LogViewMenu::destinationMap(int index)
+int ToggleLogMenu::destinationMap(int index)
 {
 	switch (index)
 	{
@@ -105,8 +126,6 @@ int LogViewMenu::destinationMap(int index)
 	case 3:
 		return _DiceLog_;
 	case 4:
-		return _UnifiedLog_;
-	case 5:
 		return _ReturnToGame_;
 	}
 	return _ReturnToGame_;

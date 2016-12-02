@@ -53,8 +53,6 @@ void GameLogMenu::setupMenu()
 	//Toggle Log
 	nextDisplay = "Toggle Log";
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.07);
-	menucomponent.w = textWidthCalculator(nextDisplay, buttonbase, totalwidth);
-	menucomponent.x += menucomponent.x;
 	menucomponent.y = menucomponent.y + (menucomponent.h);
 	this->_menuWindow->addButton(nextDisplay, this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
 

@@ -119,6 +119,11 @@ namespace DestinationFromMenus
 	const int _ViewLog_ = 60;
 	const int _ToggleLog_ = 61;
 	const int _ReturnToGame_ = 62;
+	const int _GameLog_ = 63;
+	const int _MapLog_ = 64;
+	const int _CharacterLog_ = 65;
+	const int _DiceLog_ = 66;
+	const int _UnifiedLog_ = 67;
 
 	const int _ExitToCommandPrompt_ = 100;
 }
