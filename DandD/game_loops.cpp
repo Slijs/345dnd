@@ -13,7 +13,7 @@ void GameLoops::loopManager()
 	//instantiate signleton object, create the menu and set it up once
 	SingletonDefaultMapsMenu::getInstance()->setupMenu();
 	SingletonDefaultMapsMenu::getInstance()->hideMenu();
-
+	CharacterController::getInstance()->clearLog();
 	// instantiate the user container for item cration
 	Container * userContainer = new Container();
 
@@ -162,7 +162,6 @@ void GameLoops::loopManager()
 //!the loop that handles playing of a full campaign
 int GameLoops::playCampaignLoop(char* path, char* campaign)
 {
-	GameController::getInstance()->log("Campaign "+SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(campaign)+" was loaded for play.");
 	//first load menu to select campaign
 	CampaignSelect* c_menu = new CampaignSelect("menu");
 	c_menu->setupMenu();
@@ -186,6 +185,7 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 		//first check that there is atleast 1 map
 		if(SingletonInputOutputManager::getInstance()->loadONECampaign(temp).size() > 1)
 		{
+			GameController::getInstance()->log("Campaign "+temp+" was loaded for play.");
 			//it is ok to play the campaign
 			//load the campaign in a vector
 			std::vector<std::string> campaigndatabase = SingletonInputOutputManager::getInstance()->loadONECampaign(temp);
@@ -211,17 +211,25 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 
 			for (int x = 0; x < mappaths.size(); x++)
 			{
+				GameController::getInstance()->log("Map "+mapnames[x]+" of campaign "+temp+" was loaded for play.");
 				if (gameLevelLoop(mappaths[x]) > 0)
+				{
+					GameController::getInstance()->log("Map " + mapnames[x] + " of campaign " + temp + " was exited before completion.");
+					GameController::getInstance()->log("Campaign " + temp + " was aborted before completion.");
 					break;
+				}
 				if (x == mappaths.size() - 1)
 				{
 					c_menu->getMenuWindow()->hideWindow();
 					system("cls");
 					std::cout << "CONGRATS!!!\nYou beat campaign " << temp<<std::endl;
+					GameController::getInstance()->log("Map " + mapnames[x] + " of campaign " + temp + " was successfully completed.");
 					GameController::getInstance()->log("Campaign "+temp+" was won.");
 					system("pause");
 					CharacterSaveManager::saveCharacter(_currentFighterTracker, this->_event);
+					break;
 				}
+				GameController::getInstance()->log("Map " + mapnames[x] + " of campaign " + temp + " was successfully completed.");
 			}
 		}
 		else
@@ -230,6 +238,7 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 			c_menu->getMenuWindow()->hideWindow();
 			system("cls");
 			std::cout<<"There is not a single map in campaign "<<temp<<", please first create a map for this campaign, or select a different campaign\n\n";
+			GameController::getInstance()->log("Campaign " + temp + " failed to load due to insufficient maps.");
 			std::cout<<"Press any key to continue\n";
 			getch();
 			c_menu->getMenuWindow()->unHideWindow();
@@ -256,7 +265,6 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 //!template in assignment 3, interim and final project
 int GameLoops::gameLevelLoop(std::string mappath)
 {
-	GameController::getInstance()->log("New map was loaded for play.");
 	int destinationInt;
 	bool quit = false;
 
@@ -567,7 +575,7 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 		level->saveLevel(SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(path));
 		
 		std::cout << "Saved Level";
-		system("pause");
+		//system("pause");
 
 		delete level;
 		level = nullptr;

@@ -6,11 +6,12 @@ OneTimeEffect::OneTimeEffect(std::string path)
 	this->_effect = Mix_LoadWAV( _path.c_str() );
 	if(this->_effect == nullptr)
 	{
-		std::cout<<"Could not load sound effect "<<path.c_str()<<"\n"<<SDL_GetError()<<std::endl;
-		std::cout<<std::endl;
-		system("pause");
+		//std::cout<<"Could not load sound effect "<<path.c_str()<<"\n"<<SDL_GetError()<<std::endl;
+		//std::cout<<std::endl;
+		//system("pause");
 	}
 }
+//!sets the volume
 void OneTimeEffect::setVolume(int volume)
 {
 	Mix_VolumeMusic(volume);
@@ -57,7 +58,7 @@ void ContinousEffect::stopPlay()
 {
 	Mix_HaltMusic();
 }
-
+//!sets volume
 void ContinousEffect::setVolume(int volume)
 {
 	Mix_VolumeMusic(volume);
