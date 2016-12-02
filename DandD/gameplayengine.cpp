@@ -130,9 +130,9 @@ int GamePlayEngine::runEngine()
 				// GameController Logging
 				string message = "It is " + dynamic_cast<Fighter*>(temp)->getName() + "'s turn (AKA it is your turn!)";
 				GameController::getInstance()->log(message);
+				CharacterController::getInstance()->log(message);
 
 				//CharacterController Logging
-				//message = "\n" + dynamic_cast<Fighter*>(temp)->getName() + "'s turn: ";
 				message = dynamic_cast<Fighter*>(temp)->getName() + "'s turn: ";
 				CharacterController::getInstance()->log(message);
 
@@ -168,17 +168,6 @@ int GamePlayEngine::runEngine()
 				//CharacterController Logging - Log end turn
 				message = "End turn. Click to continue.";
 				CharacterController::getInstance()->log(message);
-				/*
-				// Wait for click to end the turn
-				while (SDL_WaitEvent(&keyevent) >= 0)  //Poll our SDL key event for any keystrokes.
-				{
-					switch (keyevent.type){
-					case SDL_MOUSEBUTTONDOWN:
-						goto BACK_TO_GAME;
-						break;
-					}
-				}
-				BACK_TO_GAME: */
 				currentMovingMonster = NULL;
 			}
 		}
@@ -363,7 +352,7 @@ int GamePlayEngine::runUserTurn(){
 				{
 					this->_gameLog = false;
 				}
-				//GameLogTest::gameLogTest();
+
 				//End here
 				this->_level->getLevelWindow()->unHideWindow();
 				menu->getMenuWindow()->hideWindow();
@@ -412,7 +401,7 @@ int GamePlayEngine::runUserTurn(){
 						// DISPLAY CHARACTER STATS AND INVENTORY HERE
 						//!!!!!!!!!!!!!!!!!!!!
 						this->_level->getPlayer()->displayStats();
-						//getch();
+					
 						system("cls");
 						this->_level->getLevelWindow()->unHideWindow();
 					}

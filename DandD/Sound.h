@@ -1,7 +1,15 @@
+/**
+*@file Sound.h
+*@brief Provides the methods required to implement the sound engine!
+*/
 #if !defined (SOUND_H)
 #define SOUND_H
 #include "sdl_initialize.h"
 
+/**
+*@class Sound
+*@brief Gives ability to play sound during the game
+*/
 class Sound
 {
 protected:
@@ -12,6 +20,10 @@ public:
 	virtual void play() = 0;
 };
 
+/**
+*@class OneTimeEffect
+*@brief Class for implementing a one-off sound that only occurs once
+*/
 class OneTimeEffect : public Sound
 {
 private:
@@ -24,6 +36,10 @@ public:
 	~OneTimeEffect();
 };
 
+/**
+*@class ContinuousEffect
+*@brief Provides the ability to play a sound continuously while the program is running
+*/
 class ContinousEffect : public Sound
 {
 private:
