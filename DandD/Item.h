@@ -12,7 +12,7 @@
 #include <string>
 #include <array>
 #include <afx.h>
-
+#include <exception>
 using std::string;
 using std::array;
 
@@ -56,7 +56,7 @@ public:
 	string getName();
 	void setName(string name);
 	int getWeight();
-	void setWeight(int weight);
+	void setWeight(int weight) throw();
 	int getValue();
 	void setValue(int value);
 	string getImage();

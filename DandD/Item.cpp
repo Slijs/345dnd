@@ -125,7 +125,7 @@ int Item::getWeight() {
 void Item::setWeight(int weight)
 {
 	if (weight < 0 || weight > 25) {
-		throw "Weight must be between 0 and 25";
+		throw new std::exception();
 	}
 	else {
 		this->weight = weight;
@@ -139,7 +139,7 @@ int Item::getValue() {
 void Item::setValue(int value)
 {
 	if (value < 0 || value > 999) {
-		throw "Value must be between 0 and 999.";
+		throw "value must be between 0 and 999";
 	}
 	else {
 		this->value = value;
