@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMP 345 - DRAGONS - Final Build: D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/MonsterFactory.h Source File</title>
+<title>COMP 345 - INTERIM BUILD: MonsterFactory.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">COMP 345 - DRAGONS - Final Build
+   <div id="projectname">COMP 345 - INTERIM BUILD
    </div>
-   <div id="projectbrief">Final Build of project for COMP 345</div>
   </td>
  </tr>
  </tbody>
@@ -60,13 +59,13 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/MonsterFactory.h</div>  </div>
+<div class="title">MonsterFactory.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_monster_factory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef MONSTERFACTORY_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define MONSTERFACTORY_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Monster.h&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_monster_factory.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_monster_factory.html">MonsterFactory</a>{</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_monster.html">Monster</a>* <a class="code" href="class_monster_factory.html#a6313087b1702d07efc97777a75cc0e32">createMonster</a>(<a class="code" href="class_fighter.html">Fighter</a>* theChar, <span class="keywordtype">bool</span> friendFlag);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_monster_factory_html_a6313087b1702d07efc97777a75cc0e32"><div class="ttname"><a href="class_monster_factory.html#a6313087b1702d07efc97777a75cc0e32">MonsterFactory::createMonster</a></div><div class="ttdeci">static Monster * createMonster(Fighter *theChar, bool friendFlag)</div><div class="ttdef"><b>Definition:</b> MonsterFactory.cpp:13</div></div>
-<div class="ttc" id="class_monster_factory_html"><div class="ttname"><a href="class_monster_factory.html">MonsterFactory</a></div><div class="ttdoc">allows for the creation of a random monster, based on the level of the Character provided to it ...</div><div class="ttdef"><b>Definition:</b> MonsterFactory.h:14</div></div>
-<div class="ttc" id="class_monster_html"><div class="ttname"><a href="class_monster.html">Monster</a></div><div class="ttdef"><b>Definition:</b> Monster.h:22</div></div>
-<div class="ttc" id="class_fighter_html"><div class="ttname"><a href="class_fighter.html">Fighter</a></div><div class="ttdoc">Provides resource for management of Fighter within game. </div><div class="ttdef"><b>Definition:</b> Fighter.h:33</div></div>
+<a href="_monster_factory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef MONSTERFACTORY_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define MONSTERFACTORY_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Monster.h&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_monster_factory.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_monster_factory.html">MonsterFactory</a>{</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_monster.html">Monster</a>* <a class="code" href="class_monster_factory.html#a7d532f0754e191b1f281c18e0c8fe8bf">createMonster</a>(<a class="code" href="class_fighter.html">Fighter</a>* theChar);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_monster_factory_html"><div class="ttname"><a href="class_monster_factory.html">MonsterFactory</a></div><div class="ttdoc">allows for the creation of a random monster, based on the level of the Character provided to it ...</div><div class="ttdef"><b>Definition:</b> MonsterFactory.h:14</div></div>
+<div class="ttc" id="class_monster_html"><div class="ttname"><a href="class_monster.html">Monster</a></div><div class="ttdef"><b>Definition:</b> Monster.h:18</div></div>
+<div class="ttc" id="class_fighter_html"><div class="ttname"><a href="class_fighter.html">Fighter</a></div><div class="ttdoc">Provides resource for management of Fighter within game. </div><div class="ttdef"><b>Definition:</b> Fighter.h:27</div></div>
+<div class="ttc" id="class_monster_factory_html_a7d532f0754e191b1f281c18e0c8fe8bf"><div class="ttname"><a href="class_monster_factory.html#a7d532f0754e191b1f281c18e0c8fe8bf">MonsterFactory::createMonster</a></div><div class="ttdeci">static Monster * createMonster(Fighter *theChar)</div><div class="ttdef"><b>Definition:</b> MonsterFactory.cpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

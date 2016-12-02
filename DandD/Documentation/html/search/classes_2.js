@@ -5,8 +5,6 @@ var searchData=
   ['campaignmenus',['CampaignMenus',['../class_campaign_menus.html',1,'']]],
   ['campaignselect',['CampaignSelect',['../class_campaign_select.html',1,'']]],
   ['characterbuilder',['CharacterBuilder',['../class_character_builder.html',1,'']]],
-  ['charactercontroller',['CharacterController',['../class_character_controller.html',1,'']]],
-  ['charactercreateeditmenu',['CharacterCreateEditMenu',['../class_character_create_edit_menu.html',1,'']]],
   ['charactermanager',['CharacterManager',['../class_character_manager.html',1,'']]],
   ['characterobserver',['CharacterObserver',['../class_character_observer.html',1,'']]],
   ['characters',['Characters',['../class_characters.html',1,'']]],
@@ -14,8 +12,5 @@ var searchData=
   ['charactersavemap',['CharacterSaveMap',['../class_character_save_map.html',1,'']]],
   ['container',['Container',['../class_container.html',1,'']]],
   ['containergenerator',['ContainerGenerator',['../class_container_generator.html',1,'']]],
-  ['containeronmap',['ContainerOnMap',['../struct_container_on_map.html',1,'']]],
-  ['continouseffect',['ContinousEffect',['../class_continous_effect.html',1,'']]],
-  ['continuouseffect',['ContinuousEffect',['../class_continuous_effect.html',1,'']]],
-  ['corpse',['Corpse',['../class_corpse.html',1,'']]]
+  ['containeronmap',['ContainerOnMap',['../struct_container_on_map.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['soundpaths',['SoundPaths',['../namespace_sound_paths.html',1,'']]]
+  ['windowheightwidthdivideaspect',['WindowHeightWidthDivideAspect',['../namespace_window_height_width_divide_aspect.html',1,'']]]
 ];

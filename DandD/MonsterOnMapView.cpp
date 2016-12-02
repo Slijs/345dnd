@@ -71,10 +71,11 @@ void MonsterOnMapView::Update(){
 			temp[_sub->getVectPos()].at(_sub->getCharPos()) = SimplifiedMapSymbols::_Enemies_;
 			_theMap->setRecentUpdateFlag(Enemy);
 		}
-		else {
+		else { //!! NEED TO UPDATE SO THAT DISPLAYS FRIENDLY TO MAP
 			temp[_sub->getVectPos()].at(_sub->getCharPos()) = SimplifiedMapSymbols::_Friend_;
 			_theMap->setRecentUpdateFlag(Nice);
 		}
+			//temp[_sub->getVectPos()].at(_sub->getCharPos()) = SimplifiedMapSymbols::_Friendly_;
 
 		_prevVectPos = _sub->getVectPos();
 		_prevCharPos = _sub->getCharPos();
@@ -95,6 +96,7 @@ void MonsterOnMapView::renderDead(){
 
 	//first render player to floor
 	//make the coordinate in map a free path
+	//this->_level->getMapStringVersiion()[y].at(x) = SimplifiedMapSymbols::_FreePath_;
 	for (int k = 0; k < _theMap->getEnvironmentComponents().size(); k++)
 	{
 		//render the floor
@@ -120,6 +122,16 @@ void MonsterOnMapView::renderDead(){
 	currentGrid.y = _sub->getVectPos()*_theMap->getLevelWindow()->getGridY_Length();
 	currentGrid.h = _theMap->getLevelWindow()->getGridY_Length();
 	currentGrid.w = _theMap->getLevelWindow()->getGridX_Length();
+
+	// Here, we can either indicate to the MapObserver that we are updatting with a Dead character, in which case we only render the environment
+	// and no other assets. Then outside of here we manage adding the new Container
+
+	//_theMap->setRecentUpdateFlag(Dead); TEMP if we go with option above
+
+	//  OR we Create some sort of new Container that gets placed at the same location in the map, inserted into ContainersOnMap vector, then setup
+	// a new Observer for it. Its constructor will need to know the position right off the bat so that it can edit the level and notify MapObserver
+	// with the correct flag, in order to have the new container rendered to screen.
+
 
 	_theMap->setRecentUpdateFlag(Dead);
 	temp[_prevVectPos].at(_prevCharPos) = SimplifiedMapSymbols::_BasicContainer_;

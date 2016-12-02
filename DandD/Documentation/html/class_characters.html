@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMP 345 - DRAGONS - Final Build: Characters Class Reference</title>
+<title>COMP 345 - INTERIM BUILD: Characters Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">COMP 345 - DRAGONS - Final Build
+   <div id="projectname">COMP 345 - INTERIM BUILD
    </div>
-   <div id="projectbrief">Final Build of project for COMP 345</div>
   </td>
  </tr>
  </tbody>
@@ -62,8 +61,8 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="class_characters-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Characters Class Reference</div>  </div>
@@ -80,12 +79,10 @@ Inheritance diagram for Characters:</div>
  <div class="center">
   <img src="class_characters.png" usemap="#Characters_map" alt=""/>
   <map id="Characters_map" name="Characters_map">
-<area href="class_subject.html" title="Abstract implementation of Model in the MVC pattern. " alt="Subject" shape="rect" coords="0,56,107,80"/>
-<area href="class_game_component.html" alt="GameComponent" shape="rect" coords="234,56,341,80"/>
-<area href="class_level_observer.html" title="Provides the ability for an Object to observe a Level, in order to know when changes have been made..." alt="LevelObserver" shape="rect" coords="351,56,458,80"/>
-<area href="class_observer.html" title="Abstract Class used for Observer Pattern. " alt="Observer" shape="rect" coords="351,0,458,24"/>
-<area href="class_fighter.html" title="Provides resource for management of Fighter within game. " alt="Fighter" shape="rect" coords="117,168,224,192"/>
-<area href="class_monster.html" alt="Monster" shape="rect" coords="234,168,341,192"/>
+<area href="class_subject.html" title="Abstract implementation of Model in the MVC pattern. " alt="Subject" shape="rect" coords="0,0,107,24"/>
+<area href="class_game_component.html" alt="GameComponent" shape="rect" coords="234,0,341,24"/>
+<area href="class_fighter.html" title="Provides resource for management of Fighter within game. " alt="Fighter" shape="rect" coords="58,112,165,136"/>
+<area href="class_monster.html" alt="Monster" shape="rect" coords="175,112,282,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -133,16 +130,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getAttackBonus</b> ()<
 <tr class="memitem:a8c6138b3dcb05fc26952f78dad8d6296"><td class="memItemLeft" align="right" valign="top"><a id="a8c6138b3dcb05fc26952f78dad8d6296"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getDamageBonus</b> ()</td></tr>
 <tr class="separator:a8c6138b3dcb05fc26952f78dad8d6296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfb9c7c938b2cc023eb353f6ed7e3690"><td class="memItemLeft" align="right" valign="top"><a id="acfb9c7c938b2cc023eb353f6ed7e3690"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getProficiencyBonus</b> ()</td></tr>
-<tr class="separator:acfb9c7c938b2cc023eb353f6ed7e3690"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a498fb8e0caaa6503fbb1e1694a082c4c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a498fb8e0caaa6503fbb1e1694a082c4c">getScores</a> (int, int)</td></tr>
 <tr class="separator:a498fb8e0caaa6503fbb1e1694a082c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af37c83d77c4c29f8f6ac230474e0177a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#af37c83d77c4c29f8f6ac230474e0177a">getInitiative</a> ()</td></tr>
-<tr class="separator:af37c83d77c4c29f8f6ac230474e0177a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab95f371ea93eea0dca3fb3cd9aaaac7d"><td class="memItemLeft" align="right" valign="top"><a id="ab95f371ea93eea0dca3fb3cd9aaaac7d"></a>
-<a class="el" href="class_container.html">Container</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getBackPack</b> ()</td></tr>
-<tr class="separator:ab95f371ea93eea0dca3fb3cd9aaaac7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d6d1b6c6fbf0af1dabcbfe5a5975153"><td class="memItemLeft" align="right" valign="top"><a id="a2d6d1b6c6fbf0af1dabcbfe5a5975153"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a2d6d1b6c6fbf0af1dabcbfe5a5975153">getInBattle</a> ()</td></tr>
 <tr class="memdesc:a2d6d1b6c6fbf0af1dabcbfe5a5975153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns boolean which represents battle status of character. <br /></td></tr>
@@ -157,16 +146,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsDead</b> (bool i
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getIsLevelUp</b> ()</td></tr>
 <tr class="separator:a8eb0b2d6e53a4b0b56f8afce9a9b9371"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec4cbbc7de57f0cb1f128fbd162b3246"><td class="memItemLeft" align="right" valign="top"><a id="aec4cbbc7de57f0cb1f128fbd162b3246"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsLevelUp</b> (bool <a class="el" href="class_characters.html#a9aa6aaad9efeee2713ebb94db9f9b63e">isLevelUp</a>)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsLevelUp</b> (bool isLevelUp)</td></tr>
 <tr class="separator:aec4cbbc7de57f0cb1f128fbd162b3246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e31bc19f7d2ce5d7da2ac9d62ae03e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a2e31bc19f7d2ce5d7da2ac9d62ae03e1">setInitiative</a> ()</td></tr>
-<tr class="separator:a2e31bc19f7d2ce5d7da2ac9d62ae03e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d8109f688d18ec5ca782970b755e426"><td class="memItemLeft" align="right" valign="top"><a id="a7d8109f688d18ec5ca782970b755e426"></a>
-<a class="el" href="class_movement_strategy.html">MovementStrategy</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getStrategy</b> ()</td></tr>
-<tr class="separator:a7d8109f688d18ec5ca782970b755e426"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7c133d2a67e759db09084c6798c81fe"><td class="memItemLeft" align="right" valign="top"><a id="ae7c133d2a67e759db09084c6798c81fe"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>roll4D6</b> ()</td></tr>
-<tr class="separator:ae7c133d2a67e759db09084c6798c81fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad95f204f70f468bb5923f917018d6054"><td class="memItemLeft" align="right" valign="top"><a id="ad95f204f70f468bb5923f917018d6054"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setArmor</b> (<a class="el" href="class_armor.html">Armor</a> *a)</td></tr>
 <tr class="separator:ad95f204f70f468bb5923f917018d6054"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,6 +190,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setBelt</b> (<a class
 <tr class="memitem:a0f32959981f93b31889eed35f257f4c6"><td class="memItemLeft" align="right" valign="top"><a id="a0f32959981f93b31889eed35f257f4c6"></a>
 <a class="el" href="class_belt.html">Belt</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getBelt</b> ()</td></tr>
 <tr class="separator:a0f32959981f93b31889eed35f257f4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea3ce859280087ef57932ff212d96749"><td class="memItemLeft" align="right" valign="top"><a id="aea3ce859280087ef57932ff212d96749"></a>
+vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> ()</td></tr>
+<tr class="separator:aea3ce859280087ef57932ff212d96749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafcca03cc72ce2b389c0412229864c6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#aafcca03cc72ce2b389c0412229864c6e">calcAttackBonus</a> ()</td></tr>
 <tr class="separator:aafcca03cc72ce2b389c0412229864c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af750209704e0be8b911cbc29fc1362ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#af750209704e0be8b911cbc29fc1362ee">calcDamageBonus</a> ()</td></tr>
@@ -289,7 +273,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memdesc:acfbeb255a424493efe9224a1d177ea5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to calculate damage roll with: weaponDice + damage bonus (if this yields value less than zero, damageRoll = 0) <br /></td></tr>
 <tr class="separator:acfbeb255a424493efe9224a1d177ea5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77bd85803742621607c58d7c3593d7b0"><td class="memItemLeft" align="right" valign="top"><a id="a77bd85803742621607c58d7c3593d7b0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a77bd85803742621607c58d7c3593d7b0">gainExperience</a> (int)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a77bd85803742621607c58d7c3593d7b0">gainExperience</a> (int)</td></tr>
 <tr class="memdesc:a77bd85803742621607c58d7c3593d7b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that increases experience based on specified amount gained and if experience exceeds lower limit of next level it will trigger level up. <br /></td></tr>
 <tr class="separator:a77bd85803742621607c58d7c3593d7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3328b1a080cff8bab2af7597f98be6a"><td class="memItemLeft" align="right" valign="top"><a id="af3328b1a080cff8bab2af7597f98be6a"></a>
@@ -304,23 +288,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a4359f1dd1537ed6fac7f5ff47801e4ca">currentState</a> ()</td></tr>
 <tr class="memdesc:a4359f1dd1537ed6fac7f5ff47801e4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to notify changes in character state and redisplay stats. <br /></td></tr>
 <tr class="separator:a4359f1dd1537ed6fac7f5ff47801e4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a717e24c7c3c4cb1d78e5814a3f0df0db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a717e24c7c3c4cb1d78e5814a3f0df0db">setPosition</a> (int vectPos, int charPos)</td></tr>
-<tr class="separator:a717e24c7c3c4cb1d78e5814a3f0df0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ea2bd80b72476d35173691d31e80727"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a7ea2bd80b72476d35173691d31e80727">setMap</a> (vector&lt; string &gt; *newMap)</td></tr>
+<tr class="memitem:a42bbd977aed8772f446510e7fcfd577f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a42bbd977aed8772f446510e7fcfd577f">validatePlayerMove</a> (int x, int y)</td></tr>
+<tr class="separator:a42bbd977aed8772f446510e7fcfd577f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ea2bd80b72476d35173691d31e80727"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a7ea2bd80b72476d35173691d31e80727">setMap</a> (vector&lt; string &gt; *newMap)</td></tr>
 <tr class="separator:a7ea2bd80b72476d35173691d31e80727"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb4cb606374d17c34f17846809306f91"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#adb4cb606374d17c34f17846809306f91">getVectPos</a> ()</td></tr>
-<tr class="separator:adb4cb606374d17c34f17846809306f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaffff77a9e5713dec43ca2563cfe4dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#acaffff77a9e5713dec43ca2563cfe4dd">getCharPos</a> ()</td></tr>
-<tr class="separator:acaffff77a9e5713dec43ca2563cfe4dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e5007e526b373bc2db936a6034c5064"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a2e5007e526b373bc2db936a6034c5064">move</a> (<a class="el" href="class_pre_built_level.html">PreBuiltLevel</a> *level, SDL_Rect *currentGrid, <a class="el" href="class_game_play_engine.html">GamePlayEngine</a> *engine)</td></tr>
-<tr class="separator:a2e5007e526b373bc2db936a6034c5064"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e8a0b81e4be9eb6a1c75a5ae5d8bb27"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a8e8a0b81e4be9eb6a1c75a5ae5d8bb27">setupLevelObserver</a> (<a class="el" href="class_pre_built_level.html">PreBuiltLevel</a> *lebelSubject)</td></tr>
-<tr class="separator:a8e8a0b81e4be9eb6a1c75a5ae5d8bb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbb87a09e90ccc798464675933e59e66"><td class="memItemLeft" align="right" valign="top"><a id="acbb87a09e90ccc798464675933e59e66"></a>
-SDL_Rect *&#160;</td><td class="memItemRight" valign="bottom"><b>getRecentGrid</b> ()</td></tr>
-<tr class="separator:acbb87a09e90ccc798464675933e59e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dac165846c7eb9cacb6a2807a75f845"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a9dac165846c7eb9cacb6a2807a75f845">setPosition</a> (int, int)</td></tr>
+<tr class="separator:a9dac165846c7eb9cacb6a2807a75f845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1273e2d7fe2e959cd3ed513c5717f6b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a1273e2d7fe2e959cd3ed513c5717f6b7">validateNewCharacter</a> ()</td></tr>
-<tr class="memdesc:a1273e2d7fe2e959cd3ed513c5717f6b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will get the most recent grid, needed for rerendering map.  <a href="#a1273e2d7fe2e959cd3ed513c5717f6b7">More...</a><br /></td></tr>
+<tr class="memdesc:a1273e2d7fe2e959cd3ed513c5717f6b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">FOR UNIT TEST.  <a href="#a1273e2d7fe2e959cd3ed513c5717f6b7">More...</a><br /></td></tr>
 <tr class="separator:a1273e2d7fe2e959cd3ed513c5717f6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a13cb967bd25662f86eac505e3e874a"><td class="memItemLeft" align="right" valign="top"><a id="a8a13cb967bd25662f86eac505e3e874a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a8a13cb967bd25662f86eac505e3e874a">validateProficiency</a> ()</td></tr>
@@ -332,8 +307,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="separator:ad8eafe3c0b8b2138dc28f4d52050d434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a161bd4230b1ff594c36db697ee2d3707"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_characters.html">Characters</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a161bd4230b1ff594c36db697ee2d3707">operator=</a> (const <a class="el" href="class_characters.html">Characters</a> *otherChar)</td></tr>
 <tr class="separator:a161bd4230b1ff594c36db697ee2d3707"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac44afaf70aa3ed022c4af4b1f1d56f9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#ac44afaf70aa3ed022c4af4b1f1d56f9a">operator&lt;</a> (const <a class="el" href="class_characters.html">Characters</a> &amp;rhs)</td></tr>
-<tr class="separator:ac44afaf70aa3ed022c4af4b1f1d56f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a695ed5b59463f54d4eb52a551a25949b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a695ed5b59463f54d4eb52a551a25949b">Characters</a> (<a class="el" href="class_characters.html">Characters</a> *otherChar)</td></tr>
 <tr class="separator:a695ed5b59463f54d4eb52a551a25949b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_subject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_subject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_subject.html">Subject</a></td></tr>
@@ -382,67 +355,40 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_component.html#af77731abc50adb4b200ddf5679984848">destroyComponent</a> ()</td></tr>
 <tr class="memdesc:af77731abc50adb4b200ddf5679984848 inherit pub_methods_class_game_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">destroys image portion of the component <br /></td></tr>
 <tr class="separator:af77731abc50adb4b200ddf5679984848 inherit pub_methods_class_game_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc8e10db4dba562cdc58e2422b1ea1d9 inherit pub_methods_class_game_component"><td class="memItemLeft" align="right" valign="top"><a id="acc8e10db4dba562cdc58e2422b1ea1d9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setImagePath</b> ()</td></tr>
-<tr class="separator:acc8e10db4dba562cdc58e2422b1ea1d9 inherit pub_methods_class_game_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1196de733be3723db810f90d93ed09a inherit pub_methods_class_game_component"><td class="memItemLeft" align="right" valign="top"><a id="ad1196de733be3723db810f90d93ed09a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_component.html#ad1196de733be3723db810f90d93ed09a">setImagePath</a> (std::string newpath)</td></tr>
-<tr class="memdesc:ad1196de733be3723db810f90d93ed09a inherit pub_methods_class_game_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the image path manually <br /></td></tr>
-<tr class="separator:ad1196de733be3723db810f90d93ed09a inherit pub_methods_class_game_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a3e912a768389ea43f4a5e83f1b90ba inherit pub_methods_class_game_component"><td class="memItemLeft" align="right" valign="top"><a id="a0a3e912a768389ea43f4a5e83f1b90ba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_component.html#a0a3e912a768389ea43f4a5e83f1b90ba">setComponentChar</a> (char thechar)</td></tr>
-<tr class="memdesc:a0a3e912a768389ea43f4a5e83f1b90ba inherit pub_methods_class_game_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the component char manuall <br /></td></tr>
-<tr class="separator:a0a3e912a768389ea43f4a5e83f1b90ba inherit pub_methods_class_game_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1d0d48b6fb481bf66826d1c3978f492 inherit pub_methods_class_game_component"><td class="memItemLeft" align="right" valign="top"><a id="aa1d0d48b6fb481bf66826d1c3978f492"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_component.html#aa1d0d48b6fb481bf66826d1c3978f492">setComponentName</a> (std::string friends)</td></tr>
-<tr class="memdesc:aa1d0d48b6fb481bf66826d1c3978f492 inherit pub_methods_class_game_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the name of component <br /></td></tr>
-<tr class="separator:aa1d0d48b6fb481bf66826d1c3978f492 inherit pub_methods_class_game_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d4c3872b9603eb0673655c4b4c0b183 inherit pub_methods_class_game_component"><td class="memItemLeft" align="right" valign="top"><a id="a6d4c3872b9603eb0673655c4b4c0b183"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_component.html#a6d4c3872b9603eb0673655c4b4c0b183">~GameComponent</a> ()</td></tr>
 <tr class="memdesc:a6d4c3872b9603eb0673655c4b4c0b183 inherit pub_methods_class_game_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor invokes the destroy component method <br /></td></tr>
 <tr class="separator:a6d4c3872b9603eb0673655c4b4c0b183 inherit pub_methods_class_game_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_level_observer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_level_observer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_level_observer.html">LevelObserver</a></td></tr>
-<tr class="memitem:af9335950382fc7bc63dd77a92bab563f inherit pub_methods_class_level_observer"><td class="memItemLeft" align="right" valign="top"><a id="af9335950382fc7bc63dd77a92bab563f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_observer.html#af9335950382fc7bc63dd77a92bab563f">LevelObserver</a> ()</td></tr>
-<tr class="memdesc:af9335950382fc7bc63dd77a92bab563f inherit pub_methods_class_level_observer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the Character itself (to ensure they update all properties accurately) <br /></td></tr>
-<tr class="separator:af9335950382fc7bc63dd77a92bab563f inherit pub_methods_class_level_observer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89ab0b90a4d29dbfa3527d37e83824c0 inherit pub_methods_class_level_observer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_observer.html#a89ab0b90a4d29dbfa3527d37e83824c0">LevelObserver</a> (<a class="el" href="class_pre_built_level.html">PreBuiltLevel</a> *myMap, <a class="el" href="class_characters.html">Characters</a> *myself)</td></tr>
-<tr class="separator:a89ab0b90a4d29dbfa3527d37e83824c0 inherit pub_methods_class_level_observer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d36fff128f92b806f8cb0e9c5dd317f inherit pub_methods_class_level_observer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_observer.html#a1d36fff128f92b806f8cb0e9c5dd317f">~LevelObserver</a> ()</td></tr>
-<tr class="separator:a1d36fff128f92b806f8cb0e9c5dd317f inherit pub_methods_class_level_observer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6107e84befc375ee764f52dd3061d9f inherit pub_methods_class_level_observer"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_observer.html#af6107e84befc375ee764f52dd3061d9f">Update</a> ()</td></tr>
-<tr class="separator:af6107e84befc375ee764f52dd3061d9f inherit pub_methods_class_level_observer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_observer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_observer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_observer.html">Observer</a></td></tr>
-<tr class="memitem:a450645e61c136826f09940a1334c7f34 inherit pub_methods_class_observer"><td class="memItemLeft" align="right" valign="top"><a id="a450645e61c136826f09940a1334c7f34"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observer.html#a450645e61c136826f09940a1334c7f34">~Observer</a> ()</td></tr>
-<tr class="memdesc:a450645e61c136826f09940a1334c7f34 inherit pub_methods_class_observer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
-<tr class="separator:a450645e61c136826f09940a1334c7f34 inherit pub_methods_class_observer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ad71f0049d5bcf2d9c67278c237ad441b"><td class="memItemLeft" align="right" valign="top"><a id="ad71f0049d5bcf2d9c67278c237ad441b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>DECLARE_SERIAL</b> (<a class="el" href="class_characters.html">Characters</a>)</td></tr>
 <tr class="separator:ad71f0049d5bcf2d9c67278c237ad441b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_class_observer"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_observer')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_observer.html">Observer</a></td></tr>
-<tr class="memitem:a19c43f80a38a332a6f694783df3c9835 inherit pro_methods_class_observer"><td class="memItemLeft" align="right" valign="top"><a id="a19c43f80a38a332a6f694783df3c9835"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observer.html#a19c43f80a38a332a6f694783df3c9835">Observer</a> ()</td></tr>
-<tr class="memdesc:a19c43f80a38a332a6f694783df3c9835 inherit pro_methods_class_observer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor. <br /></td></tr>
-<tr class="separator:a19c43f80a38a332a6f694783df3c9835 inherit pro_methods_class_observer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:ab509433a15fb7604b2080e0568e41d0d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#ab509433a15fb7604b2080e0568e41d0d">_validPosition</a> (char posInQuestion)</td></tr>
+<tr class="separator:ab509433a15fb7604b2080e0568e41d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c85f79c62aba2dbf3e8d77e20ffb52"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#af2c85f79c62aba2dbf3e8d77e20ffb52">_validComponentPosition</a> (char posInQuestion)</td></tr>
+<tr class="separator:af2c85f79c62aba2dbf3e8d77e20ffb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a4a257d97e159dc2a0045a24996155314"><td class="memItemLeft" align="right" valign="top"><a id="a4a257d97e159dc2a0045a24996155314"></a>
+vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>position</b></td></tr>
+<tr class="separator:a4a257d97e159dc2a0045a24996155314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da634bd68441445cc53f920f59c6a4b"><td class="memItemLeft" align="right" valign="top"><a id="a1da634bd68441445cc53f920f59c6a4b"></a>
+vector&lt; string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>_map</b></td></tr>
+<tr class="separator:a1da634bd68441445cc53f920f59c6a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af86008aff2fe089a3d2fb1a0577a8337"><td class="memItemLeft" align="right" valign="top"><a id="af86008aff2fe089a3d2fb1a0577a8337"></a>
 <a class="el" href="class_dice.html">Dice</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_die</b></td></tr>
 <tr class="separator:af86008aff2fe089a3d2fb1a0577a8337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b25e6b617c51e3ffae2cbb4e164dbe6"><td class="memItemLeft" align="right" valign="top"><a id="a6b25e6b617c51e3ffae2cbb4e164dbe6"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>armorClass</b></td></tr>
 <tr class="separator:a6b25e6b617c51e3ffae2cbb4e164dbe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3fed94d849d41c498300484291dfb74"><td class="memItemLeft" align="right" valign="top"><a id="aa3fed94d849d41c498300484291dfb74"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>_initiative</b></td></tr>
-<tr class="separator:aa3fed94d849d41c498300484291dfb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57e35013d914968e76639ec4dfd67da0"><td class="memItemLeft" align="right" valign="top"><a id="a57e35013d914968e76639ec4dfd67da0"></a>
-<a class="el" href="class_armor.html">Armor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a57e35013d914968e76639ec4dfd67da0">armor</a></td></tr>
-<tr class="memdesc:a57e35013d914968e76639ec4dfd67da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to determine turn order. <br /></td></tr>
+<a class="el" href="class_armor.html">Armor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>armor</b></td></tr>
 <tr class="separator:a57e35013d914968e76639ec4dfd67da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add8192820b7e7c0b99a65c126134124a"><td class="memItemLeft" align="right" valign="top"><a id="add8192820b7e7c0b99a65c126134124a"></a>
 <a class="el" href="class_weapon.html">Weapon</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>weapon</b></td></tr>
@@ -465,13 +411,6 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_initiative</b></td></
 <tr class="memitem:adf846a705a8a0641248e601c87c25403"><td class="memItemLeft" align="right" valign="top"><a id="adf846a705a8a0641248e601c87c25403"></a>
 <a class="el" href="class_container.html">Container</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>backpack</b></td></tr>
 <tr class="separator:adf846a705a8a0641248e601c87c25403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd9ea9b263752c20bea91d3a7c4ed8db"><td class="memItemLeft" align="right" valign="top"><a id="acd9ea9b263752c20bea91d3a7c4ed8db"></a>
-<a class="el" href="class_movement_strategy.html">MovementStrategy</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_strategy</b></td></tr>
-<tr class="separator:acd9ea9b263752c20bea91d3a7c4ed8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aa6aaad9efeee2713ebb94db9f9b63e"><td class="memItemLeft" align="right" valign="top"><a id="a9aa6aaad9efeee2713ebb94db9f9b63e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_characters.html#a9aa6aaad9efeee2713ebb94db9f9b63e">isLevelUp</a></td></tr>
-<tr class="memdesc:a9aa6aaad9efeee2713ebb94db9f9b63e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strategy the Character uses to move. <br /></td></tr>
-<tr class="separator:a9aa6aaad9efeee2713ebb94db9f9b63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_game_component"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_game_component')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_game_component.html">GameComponent</a></td></tr>
 <tr class="memitem:a87432810a6a4a93719f07cdafa640e37 inherit pro_attribs_class_game_component"><td class="memItemLeft" align="right" valign="top"><a id="a87432810a6a4a93719f07cdafa640e37"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_image_path</b></td></tr>
@@ -491,20 +430,6 @@ gameplayGridComponentTypes&#160;</td><td class="memItemRight" valign="bottom"><b
 <tr class="memitem:aad2dc6eb1db96a5e03faedcbaeabbb4e inherit pro_attribs_class_game_component"><td class="memItemLeft" align="right" valign="top"><a id="aad2dc6eb1db96a5e03faedcbaeabbb4e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>_obstructionToPlayer</b></td></tr>
 <tr class="separator:aad2dc6eb1db96a5e03faedcbaeabbb4e inherit pro_attribs_class_game_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_class_level_observer"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_level_observer')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_level_observer.html">LevelObserver</a></td></tr>
-<tr class="memitem:ab150621378f03c4b4ad976fa190eb567 inherit pro_attribs_class_level_observer"><td class="memItemLeft" align="right" valign="top"><a id="ab150621378f03c4b4ad976fa190eb567"></a>
-<a class="el" href="class_pre_built_level.html">PreBuiltLevel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_subject</b></td></tr>
-<tr class="separator:ab150621378f03c4b4ad976fa190eb567 inherit pro_attribs_class_level_observer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af684808fe42ea6cf2e6b113590208d7e inherit pro_attribs_class_level_observer"><td class="memItemLeft" align="right" valign="top"><a id="af684808fe42ea6cf2e6b113590208d7e"></a>
-<a class="el" href="class_characters.html">Characters</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_observer.html#af684808fe42ea6cf2e6b113590208d7e">_myself</a></td></tr>
-<tr class="memdesc:af684808fe42ea6cf2e6b113590208d7e inherit pro_attribs_class_level_observer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Map the observer is observing. <br /></td></tr>
-<tr class="separator:af684808fe42ea6cf2e6b113590208d7e inherit pro_attribs_class_level_observer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a718f64183332e896211a2eaf90cdd989"><td class="memItemLeft" align="right" valign="top"><a id="a718f64183332e896211a2eaf90cdd989"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategies</b></td></tr>
-<tr class="separator:a718f64183332e896211a2eaf90cdd989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides resource for management of <a class="el" href="class_characters.html" title="Provides resource for management of Characters within game. ">Characters</a> within game. </p>
@@ -537,6 +462,60 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategie
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af2c85f79c62aba2dbf3e8d77e20ffb52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2c85f79c62aba2dbf3e8d77e20ffb52">&sect;&nbsp;</a></span>_validComponentPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Characters::_validComponentPosition </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>posInQuestion</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function helps to determine if a certain position is not an obstruction </p>
+
+</div>
+</div>
+<a id="ab509433a15fb7604b2080e0568e41d0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab509433a15fb7604b2080e0568e41d0d">&sect;&nbsp;</a></span>_validPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Characters::_validPosition </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>posInQuestion</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function helps to determine if a certain position on the map is a valid position If it is a position the Character should not be landing on, then false is returned </p>
+
+</div>
+</div>
 <a id="aafcca03cc72ce2b389c0412229864c6e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aafcca03cc72ce2b389c0412229864c6e">&sect;&nbsp;</a></span>calcAttackBonus()</h2>
 
@@ -601,42 +580,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategie
 
 </div>
 </div>
-<a id="acaffff77a9e5713dec43ca2563cfe4dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acaffff77a9e5713dec43ca2563cfe4dd">&sect;&nbsp;</a></span>getCharPos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Characters::getCharPos </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Will return the position in its string that the Character is located at </p><dl class="section return"><dt>Returns</dt><dd>integer </dd></dl>
-
-</div>
-</div>
-<a id="af37c83d77c4c29f8f6ac230474e0177a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af37c83d77c4c29f8f6ac230474e0177a">&sect;&nbsp;</a></span>getInitiative()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Characters::getInitiative </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns the current initiative of the Character. </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-</div>
-</div>
 <a id="a498fb8e0caaa6503fbb1e1694a082c4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a498fb8e0caaa6503fbb1e1694a082c4c">&sect;&nbsp;</a></span>getScores()</h2>
 
@@ -666,94 +609,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategie
 
 </div>
 </div>
-<a id="adb4cb606374d17c34f17846809306f91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb4cb606374d17c34f17846809306f91">&sect;&nbsp;</a></span>getVectPos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Characters::getVectPos </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Will return the position in the vector that the Character is located at </p><dl class="section return"><dt>Returns</dt><dd>integer </dd></dl>
-
-</div>
-</div>
-<a id="a2e5007e526b373bc2db936a6034c5064"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e5007e526b373bc2db936a6034c5064">&sect;&nbsp;</a></span>move()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Characters::move </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_pre_built_level.html">PreBuiltLevel</a> *&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Rect *&#160;</td>
-          <td class="paramname"><em>currentGrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_game_play_engine.html">GamePlayEngine</a> *&#160;</td>
-          <td class="paramname"><em>engine</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Calls the Strategy's move method to move the Character, and then notifies any observers of the position change. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">level</td><td>PreBuiltLevel* that the game is being played on </td></tr>
-    <tr><td class="paramname">currentGrid</td><td>SDL_Rect* grid of the game </td></tr>
-    <tr><td class="paramname">engine</td><td>GamePlayEngine* that is running the game </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>bool True if player moved, False otherwise </dd></dl>
-
-</div>
-</div>
-<a id="ac44afaf70aa3ed022c4af4b1f1d56f9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac44afaf70aa3ed022c4af4b1f1d56f9a">&sect;&nbsp;</a></span>operator<()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Characters::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_characters.html">Characters</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Operator overload for less - than operator. A Character is 'less-than' another Character if their initiative is lower. </p>
-
-</div>
-</div>
 <a id="a161bd4230b1ff594c36db697ee2d3707"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a161bd4230b1ff594c36db697ee2d3707">&sect;&nbsp;</a></span>operator=()</h2>
 
@@ -773,32 +628,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategie
 
 </div>
 </div>
-<a id="a2e31bc19f7d2ce5d7da2ac9d62ae03e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e31bc19f7d2ce5d7da2ac9d62ae03e1">&sect;&nbsp;</a></span>setInitiative()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Characters::setInitiative </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Will set the initiative of the Character using a dice and their Dexterity modifier </p>
-
-</div>
-</div>
 <a id="a7ea2bd80b72476d35173691d31e80727"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ea2bd80b72476d35173691d31e80727">&sect;&nbsp;</a></span>setMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Characters::setMap </td>
@@ -808,18 +642,18 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategie
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>Sets the vector map for the Character, using the strategy's method </p>
+<p>Sets the Character's map data to a new map, deleting the old map data in the process </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newMap</td><td>vector&lt;string&gt;, where each string represents one line of the map </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a717e24c7c3c4cb1d78e5814a3f0df0db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a717e24c7c3c4cb1d78e5814a3f0df0db">&sect;&nbsp;</a></span>setPosition()</h2>
+<a id="a9dac165846c7eb9cacb6a2807a75f845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dac165846c7eb9cacb6a2807a75f845">&sect;&nbsp;</a></span>setPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -828,13 +662,13 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategie
           <td class="memname">void Characters::setPosition </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>vectPos</em>, </td>
+          <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>charPos</em>&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -843,40 +677,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategie
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Will set the position of the Character using its Strategy. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">vectPos</td><td>integer representing which string in the vector </td></tr>
-    <tr><td class="paramname">charPos</td><td>integer representing which char in the string </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8e8a0b81e4be9eb6a1c75a5ae5d8bb27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e8a0b81e4be9eb6a1c75a5ae5d8bb27">&sect;&nbsp;</a></span>setupLevelObserver()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Characters::setupLevelObserver </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_pre_built_level.html">PreBuiltLevel</a> *&#160;</td>
-          <td class="paramname"><em>subjectLevel</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This method initializes the <a class="el" href="class_level.html">Level</a> <a class="el" href="class_observer.html" title="Abstract Class used for Observer Pattern. ">Observer</a> portion of the Character </p>
+<p>Sets the x and y position of the Character </p>
 
 </div>
 </div>
@@ -895,15 +696,53 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestMonsterStrategie
       </table>
 </div><div class="memdoc">
 
-<p>Will get the most recent grid, needed for rerendering map. </p>
-<p>Check to see if score values are valid (3 to 18)</p>
-<p>FOR UNIT TEST </p>
+<p>FOR UNIT TEST. </p>
+<p>Check to see if score values are valid (3 to 18) </p>
+
+</div>
+</div>
+<a id="a42bbd977aed8772f446510e7fcfd577f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42bbd977aed8772f446510e7fcfd577f">&sect;&nbsp;</a></span>validatePlayerMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Characters::validatePlayerMove </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function helps to determine if the requested movement of a character is valid </p>
+
+<p>Reimplemented in <a class="el" href="class_fighter.html#ab2a750803d7df7f1d66e9b40074f7a41">Fighter</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/<a class="el" href="_characters_8h_source.html">Characters.h</a></li>
-<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/Characters.cpp</li>
+<li><a class="el" href="_characters_8h_source.html">Characters.h</a></li>
+<li>Characters.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

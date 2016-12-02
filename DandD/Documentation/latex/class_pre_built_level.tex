@@ -13,8 +13,9 @@ Inheritance diagram for Pre\+Built\+Level\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_pre_built_level_a86e618ddeb7a0ca8484f268dc927819d}{}\label{class_pre_built_level_a86e618ddeb7a0ca8484f268dc927819d} 
 \hyperlink{class_pre_built_level_a86e618ddeb7a0ca8484f268dc927819d}{Pre\+Built\+Level} ()
-\begin{DoxyCompactList}\small\item\em PQ which is used to manage turn execution during each round. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em default constructor for testing purposes only \end{DoxyCompactList}\item 
 \hypertarget{class_pre_built_level_abf37d637c8cea3dfa78adc4ee066a8be}{}\label{class_pre_built_level_abf37d637c8cea3dfa78adc4ee066a8be} 
 \hyperlink{class_pre_built_level_abf37d637c8cea3dfa78adc4ee066a8be}{Pre\+Built\+Level} (std\+::string path, \hyperlink{class_fighter}{Fighter} $\ast$player)
 \begin{DoxyCompactList}\small\item\em parameterized constructor sets the path from which the pre built map needs to be loaded \end{DoxyCompactList}\item 
@@ -41,9 +42,6 @@ std\+::string \hyperlink{class_pre_built_level_a521829d7ce603cca33415de35cf848ea
 \hypertarget{class_pre_built_level_acbde88b4ef5e5c62612baa33d0940aa4}{}\label{class_pre_built_level_acbde88b4ef5e5c62612baa33d0940aa4} 
 std\+::string \hyperlink{class_pre_built_level_acbde88b4ef5e5c62612baa33d0940aa4}{get\+Enemy\+Path} () const
 \begin{DoxyCompactList}\small\item\em enemy file path accessor \end{DoxyCompactList}\item 
-\hypertarget{class_pre_built_level_afaff0fcfd5b13180fdbe973ea10a27f7}{}\label{class_pre_built_level_afaff0fcfd5b13180fdbe973ea10a27f7} 
-std\+::string {\bfseries get\+Friend\+Path} () const
-\item 
 \hypertarget{class_pre_built_level_a5c7c3ad889ff5eab0cfb367945523d6b}{}\label{class_pre_built_level_a5c7c3ad889ff5eab0cfb367945523d6b} 
 std\+::vector$<$ std\+::string $>$ \hyperlink{class_pre_built_level_a5c7c3ad889ff5eab0cfb367945523d6b}{get\+Built\+Level\+File} () const
 \begin{DoxyCompactList}\small\item\em level text vector accessor \end{DoxyCompactList}\item 
@@ -56,17 +54,11 @@ void \hyperlink{class_pre_built_level_ae49e0ab74872be75e2546610607d5868}{setup\+
 \hypertarget{class_pre_built_level_a53bd1cda4f32c5da41e1c21295ef4861}{}\label{class_pre_built_level_a53bd1cda4f32c5da41e1c21295ef4861} 
 void \hyperlink{class_pre_built_level_a53bd1cda4f32c5da41e1c21295ef4861}{setup\+Enemies\+On\+Map} ()
 \begin{DoxyCompactList}\small\item\em sets up enemy coordinates on map \end{DoxyCompactList}\item 
-\hypertarget{class_pre_built_level_a32c66e3eb960c12deb55024688ab76a3}{}\label{class_pre_built_level_a32c66e3eb960c12deb55024688ab76a3} 
-void \hyperlink{class_pre_built_level_a32c66e3eb960c12deb55024688ab76a3}{add\+Container\+On\+The\+Map} (\hyperlink{struct_container_on_map}{Container\+On\+Map} $\ast$prolly\+\_\+a\+\_\+dead\+\_\+dude)
-\begin{DoxyCompactList}\small\item\em when N\+P\+Cs die, this function is called to have them added as a container on map \end{DoxyCompactList}\item 
 \hypertarget{class_pre_built_level_a0089fb9d42b5ee32e395b7b7c4fd3576}{}\label{class_pre_built_level_a0089fb9d42b5ee32e395b7b7c4fd3576} 
 std\+::vector$<$ \hyperlink{struct_container_on_map}{Container\+On\+Map} $\ast$ $>$ \hyperlink{class_pre_built_level_a0089fb9d42b5ee32e395b7b7c4fd3576}{get\+Containers\+On\+Map} ()
 \begin{DoxyCompactList}\small\item\em container coordinate accessor \end{DoxyCompactList}\item 
-\hypertarget{class_pre_built_level_ac4606a6b775f2804426be10ab0b803a6}{}\label{class_pre_built_level_ac4606a6b775f2804426be10ab0b803a6} 
-void \hyperlink{class_pre_built_level_ac4606a6b775f2804426be10ab0b803a6}{remove\+Container\+On\+Map} (int index)
-\begin{DoxyCompactList}\small\item\em container coordinate accessor \end{DoxyCompactList}\item 
-\hypertarget{class_pre_built_level_ad8f55b7e0a86849db228582550917667}{}\label{class_pre_built_level_ad8f55b7e0a86849db228582550917667} 
-std\+::vector$<$ \hyperlink{class_monster}{Monster} $\ast$ $>$ \hyperlink{class_pre_built_level_ad8f55b7e0a86849db228582550917667}{get\+Enemies\+On\+Map} ()
+\hypertarget{class_pre_built_level_a12a3cd62a8b7913e674befc2af8f41dc}{}\label{class_pre_built_level_a12a3cd62a8b7913e674befc2af8f41dc} 
+std\+::vector$<$ \hyperlink{struct_enemies_on_map}{Enemies\+On\+Map} $\ast$ $>$ \hyperlink{class_pre_built_level_a12a3cd62a8b7913e674befc2af8f41dc}{get\+Enemies\+On\+Map} ()
 \begin{DoxyCompactList}\small\item\em enemy coordiante accessor \end{DoxyCompactList}\item 
 \hypertarget{class_pre_built_level_ac03a041e9981a044dceb7aa0b2fa5639}{}\label{class_pre_built_level_ac03a041e9981a044dceb7aa0b2fa5639} 
 std\+::vector$<$ S\+D\+L\+\_\+\+Rect $>$ \hyperlink{class_pre_built_level_ac03a041e9981a044dceb7aa0b2fa5639}{get\+All\+Button\+Destinations} ()
@@ -79,17 +71,7 @@ void \hyperlink{class_pre_built_level_ab96ad8d821e97b075c0bf616ef8eddd5}{get\+De
 \begin{DoxyCompactList}\small\item\em sets the pointer rect to values from current rects in map \end{DoxyCompactList}\item 
 \hypertarget{class_pre_built_level_a06411fd72dc81d3792c3e6e6fe0fc416}{}\label{class_pre_built_level_a06411fd72dc81d3792c3e6e6fe0fc416} 
 \hyperlink{class_pre_built_level_a06411fd72dc81d3792c3e6e6fe0fc416}{$\sim$\+Pre\+Built\+Level} ()
-\begin{DoxyCompactList}\small\item\em local destructor destroys the positions for enemies and containers \end{DoxyCompactList}\item 
-\hypertarget{class_pre_built_level_aab970ca56afa175ec359b8fa7814b894}{}\label{class_pre_built_level_aab970ca56afa175ec359b8fa7814b894} 
-void {\bfseries set\+Recent\+Update\+Flag} (\hyperlink{namespaces_8h_a8327c0c98430b2c5832c39f0b272c172}{Map\+Update\+Flag} new\+Update)
-\item 
-void \hyperlink{class_pre_built_level_a4e56751cdcbf9eeb4e093a0b7b9ca53b}{set\+All\+Initiative} ()
-\begin{DoxyCompactList}\small\item\em Sets the recent update flag to indicate how the Map should render. \end{DoxyCompactList}\item 
-void \hyperlink{class_pre_built_level_a50d13df8b51ee7aee339aa6f2007940e}{setup\+Initiative\+Queue} ()
-\item 
-\hypertarget{class_pre_built_level_a0344b21db14e95ae8da32384822acf07}{}\label{class_pre_built_level_a0344b21db14e95ae8da32384822acf07} 
-bool {\bfseries is\+Initiative\+Queue\+Empty} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em local destructor destroys the positions for enemies and containers \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -98,9 +80,6 @@ bool {\bfseries is\+Initiative\+Queue\+Empty} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
-\item 
-\hypertarget{class_pre_built_level_a4445b1a7c512c2ae4d844844889daa43}{}\label{class_pre_built_level_a4445b1a7c512c2ae4d844844889daa43} 
-\hyperlink{namespaces_8h_a8327c0c98430b2c5832c39f0b272c172}{Map\+Update\+Flag} {\bfseries \+\_\+recent\+Flag}
 \item 
 \hypertarget{class_pre_built_level_a0ad1ddb709d1134c31749bdedda1ec4a}{}\label{class_pre_built_level_a0ad1ddb709d1134c31749bdedda1ec4a} 
 std\+::vector$<$ S\+D\+L\+\_\+\+Rect $\ast$ $>$ {\bfseries \+\_\+level\+Component\+Rects}
@@ -123,20 +102,11 @@ S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+attack}
 \hypertarget{class_pre_built_level_ac548cf0eb963c29aedf7d930a9828e2f}{}\label{class_pre_built_level_ac548cf0eb963c29aedf7d930a9828e2f} 
 S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+save\+Player}
 \item 
-\hypertarget{class_pre_built_level_a0af43cbd492b80a3aae011426a4e0b87}{}\label{class_pre_built_level_a0af43cbd492b80a3aae011426a4e0b87} 
-S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+end\+Turn}
-\item 
-\hypertarget{class_pre_built_level_affb216fb86f22ae8500621cf45efbacd}{}\label{class_pre_built_level_affb216fb86f22ae8500621cf45efbacd} 
-S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+game\+Log}
-\item 
 \hypertarget{class_pre_built_level_abd2b8176d4c4d1de51c58d3352492416}{}\label{class_pre_built_level_abd2b8176d4c4d1de51c58d3352492416} 
 S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+dest1\+For\+Observer}
 \item 
 \hypertarget{class_pre_built_level_a4ab513978b0fdbacc89d53a1be7b1d20}{}\label{class_pre_built_level_a4ab513978b0fdbacc89d53a1be7b1d20} 
 S\+D\+L\+\_\+\+Rect {\bfseries \+\_\+dest2\+For\+Observer}
-\item 
-\hypertarget{class_pre_built_level_a52bf873681d57d9a08f432de8eafe544}{}\label{class_pre_built_level_a52bf873681d57d9a08f432de8eafe544} 
-int {\bfseries \+\_\+logger\+Yend}
 \item 
 \hypertarget{class_pre_built_level_a2b17bc23df363f269fedf0aceafc9a02}{}\label{class_pre_built_level_a2b17bc23df363f269fedf0aceafc9a02} 
 \hyperlink{class_fighter}{Fighter} $\ast$ {\bfseries \+\_\+player}
@@ -144,39 +114,14 @@ int {\bfseries \+\_\+logger\+Yend}
 \hypertarget{class_pre_built_level_a757b4089f043d4cef9c24a19b24811fe}{}\label{class_pre_built_level_a757b4089f043d4cef9c24a19b24811fe} 
 std\+::vector$<$ \hyperlink{struct_container_on_map}{Container\+On\+Map} $\ast$ $>$ {\bfseries \+\_\+containers\+On\+Map}
 \item 
-\hypertarget{class_pre_built_level_a41aee8e2e46946ee9e7b0405b7fa3983}{}\label{class_pre_built_level_a41aee8e2e46946ee9e7b0405b7fa3983} 
-std\+::vector$<$ \hyperlink{class_monster}{Monster} $\ast$ $>$ {\bfseries \+\_\+enemis\+On\+Map}
-\item 
-\hypertarget{class_pre_built_level_a0a80761f7e8f6db2aa006cb21df4dd28}{}\label{class_pre_built_level_a0a80761f7e8f6db2aa006cb21df4dd28} 
-priority\+\_\+queue$<$ \hyperlink{class_characters}{Characters}, vector$<$ \hyperlink{class_characters}{Characters} $\ast$ $>$ $>$ \hyperlink{class_pre_built_level_a0a80761f7e8f6db2aa006cb21df4dd28}{\+\_\+initiative\+Character\+Queue}
-\begin{DoxyCompactList}\small\item\em vector storing A\+LL monsters on Map who are alive \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-\hypertarget{class_pre_built_level_a111095a31d446732dbc0b23807c31ef4}{}\label{class_pre_built_level_a111095a31d446732dbc0b23807c31ef4} 
-class {\bfseries Game\+Play\+Engine}
-\item 
-\hypertarget{class_pre_built_level_a8ff3038998158d7b28113f579f77909a}{}\label{class_pre_built_level_a8ff3038998158d7b28113f579f77909a} 
-class {\bfseries Map\+Observer}
+\hypertarget{class_pre_built_level_ae816d9cfc76becdd0f24fe281a909884}{}\label{class_pre_built_level_ae816d9cfc76becdd0f24fe281a909884} 
+std\+::vector$<$ \hyperlink{struct_enemies_on_map}{Enemies\+On\+Map} $\ast$ $>$ {\bfseries \+\_\+enemis\+On\+Map}
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-Inherits from levels, not much specific functionalities added except for just loading a text file from a path and creating a graphical level out of it on the \hyperlink{class_level_window}{Level\+Window} instance that it would contain. Extends \hyperlink{class_subject}{Subject} so that \hyperlink{class_characters}{Characters} can observe the \hyperlink{class_level}{Level} for any changes and update their own Map. 
-
-\subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_pre_built_level_a86e618ddeb7a0ca8484f268dc927819d}{}\label{class_pre_built_level_a86e618ddeb7a0ca8484f268dc927819d} 
-\index{Pre\+Built\+Level@{Pre\+Built\+Level}!Pre\+Built\+Level@{Pre\+Built\+Level}}
-\index{Pre\+Built\+Level@{Pre\+Built\+Level}!Pre\+Built\+Level@{Pre\+Built\+Level}}
-\subsubsection{\texorpdfstring{Pre\+Built\+Level()}{PreBuiltLevel()}}
-{\footnotesize\ttfamily Pre\+Built\+Level\+::\+Pre\+Built\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-PQ which is used to manage turn execution during each round. 
-
-default constructor for testing purposes only 
+Inherits from levels, not much specific functionalities added except for just loading a text file from a path and creating a graphical level out of it on the \hyperlink{class_level_window}{Level\+Window} instance that it would contain 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_pre_built_level_ac55f77e0ee464325cdd3ffa91292b0c8}{}\label{class_pre_built_level_ac55f77e0ee464325cdd3ffa91292b0c8} 
@@ -185,29 +130,13 @@ default constructor for testing purposes only
 \subsubsection{\texorpdfstring{create\+Level\+For\+Target\+Window()}{createLevelForTargetWindow()}}
 {\footnotesize\ttfamily void Pre\+Built\+Level\+::create\+Level\+For\+Target\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-first creates a level window based on the level text vector then calls parent function to the artwork on the window 
+first creates a level window based on the level text vector then calls parent function to setup the artwork on the window 
 
 Reimplemented from \hyperlink{class_level_abe1e2e7c89fef892c4620d1a41e5ac22}{Level}.
 
-\hypertarget{class_pre_built_level_a4e56751cdcbf9eeb4e093a0b7b9ca53b}{}\label{class_pre_built_level_a4e56751cdcbf9eeb4e093a0b7b9ca53b} 
-\index{Pre\+Built\+Level@{Pre\+Built\+Level}!set\+All\+Initiative@{set\+All\+Initiative}}
-\index{set\+All\+Initiative@{set\+All\+Initiative}!Pre\+Built\+Level@{Pre\+Built\+Level}}
-\subsubsection{\texorpdfstring{set\+All\+Initiative()}{setAllInitiative()}}
-{\footnotesize\ttfamily void Pre\+Built\+Level\+::set\+All\+Initiative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-
-
-Sets the recent update flag to indicate how the Map should render. 
-
-Will set the initiative for all \hyperlink{class_characters}{Characters} that are on the map currently. Will then fill the initiative queue with all \hyperlink{class_characters}{Characters} \hypertarget{class_pre_built_level_a50d13df8b51ee7aee339aa6f2007940e}{}\label{class_pre_built_level_a50d13df8b51ee7aee339aa6f2007940e} 
-\index{Pre\+Built\+Level@{Pre\+Built\+Level}!setup\+Initiative\+Queue@{setup\+Initiative\+Queue}}
-\index{setup\+Initiative\+Queue@{setup\+Initiative\+Queue}!Pre\+Built\+Level@{Pre\+Built\+Level}}
-\subsubsection{\texorpdfstring{setup\+Initiative\+Queue()}{setupInitiativeQueue()}}
-{\footnotesize\ttfamily void Pre\+Built\+Level\+::setup\+Initiative\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Fills the initiative priority queue with all \hyperlink{class_characters}{Characters}. Will be used to determine order of Character turns during each round. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{prebuiltlevel_8h}{prebuiltlevel.\+h}\item 
-D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/prebuiltlevel.\+cpp\end{DoxyCompactItemize}
+\hyperlink{prebuiltlevel_8h}{prebuiltlevel.\+h}\item 
+prebuiltlevel.\+cpp\end{DoxyCompactItemize}

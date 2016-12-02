@@ -298,7 +298,6 @@ void Fighter::attack(Monster* c)
 		OneTimeEffect* attacksuccess = new OneTimeEffect("assets/Sound/CharacterActions/attacksuccess.wav");
 		attacksuccess->play();
 		message += "Attack was successful!";
-		//cout << "Attack was successful!" << endl;
 		dRoll = damageRoll();
 		CharacterController::getInstance()->log(message);
 		c->receiveDamage(dRoll);

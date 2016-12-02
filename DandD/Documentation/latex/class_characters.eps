@@ -24,8 +24,8 @@
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 4 def
-/cols 4 def
+/rows 3 def
+/cols 3 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -177,8 +177,6 @@ boxfont setfont
 (Subject) cw
 (CObject) cw
 (GameComponent) cw
-(LevelObserver) cw
-(Observer) cw
 (Fighter) cw
 (Monster) cw
 /boxwidth boxwidth marginwidth 2 mul add def
@@ -192,21 +190,19 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (Characters) 1.500000 1.000000 box
+ (Characters) 1.000000 1.000000 box
  (Subject) 0.000000 2.000000 box
  (CObject) 1.000000 2.000000 box
  (GameComponent) 2.000000 2.000000 box
- (LevelObserver) 3.000000 2.000000 box
- (Observer) 3.000000 3.000000 box
- (Fighter) 1.000000 0.000000 box
- (Monster) 2.000000 0.000000 box
+ (Fighter) 0.500000 0.000000 box
+ (Monster) 1.500000 0.000000 box
 
 % ----- relations -----
 
 solid
-0 1.500000 1.000000 out
+0 1.000000 1.000000 out
 solid
-0.000000 3.000000 2.000000 conn
+0.000000 2.000000 2.000000 conn
 solid
 1 0.000000 2.000000 in
 solid
@@ -214,16 +210,10 @@ solid
 solid
 1 2.000000 2.000000 in
 solid
-1 3.000000 2.000000 in
+1 1.000000 0.250000 out
 solid
-0 3.000000 2.000000 out
+0.500000 1.500000 1.000000 conn
 solid
-1 3.000000 3.000000 in
+0 0.500000 0.750000 in
 solid
-1 1.500000 0.250000 out
-solid
-1.000000 2.000000 1.000000 conn
-solid
-0 1.000000 0.750000 in
-solid
-0 2.000000 0.750000 in
+0 1.500000 0.750000 in

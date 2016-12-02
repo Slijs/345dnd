@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMP 345 - DRAGONS - Final Build: CharacterManager Class Reference</title>
+<title>COMP 345 - INTERIM BUILD: CharacterManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">COMP 345 - DRAGONS - Final Build
+   <div id="projectname">COMP 345 - INTERIM BUILD
    </div>
-   <div id="projectbrief">Final Build of project for COMP 345</div>
   </td>
  </tr>
  </tbody>
@@ -78,42 +77,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a2b13fedd6c3913ae52a9be8051300276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adec8bcfbce9bbb46052655e75d8f496f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#adec8bcfbce9bbb46052655e75d8f496f">createOrEditCharacter</a> ()</td></tr>
 <tr class="separator:adec8bcfbce9bbb46052655e75d8f496f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ca49607713616f15b70b12df1597100"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#a0ca49607713616f15b70b12df1597100">createNewCharacter</a> ()</td></tr>
-<tr class="separator:a0ca49607713616f15b70b12df1597100"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a185baadd16768d6b81386c7987593c5a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character_manager.html#a185baadd16768d6b81386c7987593c5a">editName</a> (<a class="el" href="class_fighter.html">Fighter</a> *theFighter, SDL_Event _event)</td></tr>
-<tr class="separator:a185baadd16768d6b81386c7987593c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides static methods to allow for management of saved characters. </p>
 <p>Provides the user with the ability to either <a class="el" href="class_character_manager.html#a2b13fedd6c3913ae52a9be8051300276">getCharacter()</a> from file, or to <a class="el" href="class_character_manager.html#adec8bcfbce9bbb46052655e75d8f496f">createOrEditCharacter()</a>, which will then be saved to file. </p>
 <p>To prevent changes from completely undoing d20 regulations regarding character stats, the user is only able to edit a Character's name and race. Further modification of <a class="el" href="class_characters.html" title="Provides resource for management of Characters within game. ">Characters</a> would have too many ripple-down effects </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0ca49607713616f15b70b12df1597100"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ca49607713616f15b70b12df1597100">&sect;&nbsp;</a></span>createNewCharacter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CharacterManager::createNewCharacter </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Will be used to create a new Character and save it to file. </p>
-
-</div>
-</div>
 <a id="adec8bcfbce9bbb46052655e75d8f496f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adec8bcfbce9bbb46052655e75d8f496f">&sect;&nbsp;</a></span>createOrEditCharacter()</h2>
 
@@ -137,49 +106,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Provides a menu to allow the user to either create a new Character, edit a Character, or delete a Character </p>
-
-</div>
-</div>
-<a id="a185baadd16768d6b81386c7987593c5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a185baadd16768d6b81386c7987593c5a">&sect;&nbsp;</a></span>editName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int CharacterManager::editName </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_fighter.html">Fighter</a> *&#160;</td>
-          <td class="paramname"><em>theFighter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Event&#160;</td>
-          <td class="paramname"><em>_event</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Allows the user to edit the name of a Character </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">theFighter</td><td>Fighter* to the fighter which will be edited </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>destination to go to in the menu </dd></dl>
 
 </div>
 </div>
@@ -210,8 +136,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/<a class="el" href="_character_manager_8h_source.html">CharacterManager.h</a></li>
-<li>D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/<a class="el" href="_character_manager_8cpp.html">CharacterManager.cpp</a></li>
+<li><a class="el" href="_character_manager_8h_source.html">CharacterManager.h</a></li>
+<li><a class="el" href="_character_manager_8cpp.html">CharacterManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

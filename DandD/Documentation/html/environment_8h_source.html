@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COMP 345 - DRAGONS - Final Build: D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/environment.h Source File</title>
+<title>COMP 345 - INTERIM BUILD: environment.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,9 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">COMP 345 - DRAGONS - Final Build
+   <div id="projectname">COMP 345 - INTERIM BUILD
    </div>
-   <div id="projectbrief">Final Build of project for COMP 345</div>
   </td>
  </tr>
  </tbody>
@@ -60,7 +59,7 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">D:/Documents/AASCHOOL/3- Fall 2016/COMP 345/Group Project/345dnd/DandD/environment.h</div>  </div>
+<div class="title">environment.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="game__components_8h.html">game_components.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_environment.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_environment.html">Environment</a> : <span class="keyword">public</span> <a class="code" href="class_game_component.html">GameComponent</a></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">protected</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::string _description;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_environment.html#aa8343da91ebb48313d00baefe2c993a4">Environment</a>(std::string componentname, std::string description, <span class="keywordtype">char</span> componentchar, gameplayGridComponentTypes componenttype, <span class="keywordtype">bool</span> obstructiontoplayer, std::string imagepath);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_environment.html#a01c5f648a057546973596b9e5336bf86">setObstructionToPlayer</a>(<span class="keywordtype">bool</span> isobstructiontoplayer);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::string <a class="code" href="class_environment.html#a930634cbf36d2840f74d025253722dbf">getEnvironmentDescription</a>();</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_environment.html#a7427445e57ccdb66b13ede6ed151263c">isComponentObstructionToPlayer</a>();</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_environment.html#a8e294735187880dd3d59be10c425b29d">~Environment</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div><div class="ttc" id="class_environment_html_a7427445e57ccdb66b13ede6ed151263c"><div class="ttname"><a href="class_environment.html#a7427445e57ccdb66b13ede6ed151263c">Environment::isComponentObstructionToPlayer</a></div><div class="ttdeci">bool isComponentObstructionToPlayer()</div><div class="ttdoc">returns if the component is obstruction to player or not </div><div class="ttdef"><b>Definition:</b> environment.cpp:12</div></div>

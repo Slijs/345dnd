@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['editcharactermenu',['EditCharacterMenu',['../class_edit_character_menu.html#ac5ccf5f076cb527b6a2b37d3354dfbcb',1,'EditCharacterMenu']]],
   ['editexistingcampaignloop',['editExistingCampaignLoop',['../class_game_loops.html#a4b51acac6c216a920ae948bf5d60e303',1,'GameLoops']]],
   ['editexistingmap',['editExistingMap',['../class_game_loops.html#a2874d34df0e78bb7b2ed1ffb95c0858e',1,'GameLoops']]],
-  ['editexistingplayer',['editExistingPlayer',['../class_game_loops.html#a113c1d86e74ed13427ce64438da0890a',1,'GameLoops']]],
-  ['editname',['editName',['../class_character_manager.html#a185baadd16768d6b81386c7987593c5a',1,'CharacterManager']]],
-  ['editplayerrace',['editPlayerRace',['../class_game_loops.html#a06e6311c1df62d3024eec29eab436a53',1,'GameLoops']]],
-  ['editracemenu',['EditRaceMenu',['../class_edit_race_menu.html#ad5f87005234bed0a1a93367130fa0ef9',1,'EditRaceMenu']]],
   ['endbattle',['endBattle',['../class_characters.html#a115192e66e8bd958c49093e76208d17b',1,'Characters']]],
   ['enhancement',['Enhancement',['../class_enhancement.html#ab348c08841ab57c76daa7c3eab2ad4a3',1,'Enhancement::Enhancement()'],['../class_enhancement.html#a808475a07d34038bdccd59e69d8ad2df',1,'Enhancement::Enhancement(string type, int bonus)']]],
   ['entity',['Entity',['../class_entity.html#a980f368aa07ce358583982821533a54a',1,'Entity::Entity()'],['../class_entity.html#aaed442bc1dcf2d646827d8fd117e52d4',1,'Entity::Entity(Race entityRace, int entityLevel)']]],
