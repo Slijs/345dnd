@@ -106,35 +106,34 @@ void TestDice::testNegativeNumberOfDice(void) {
 * Another example, for rolling 12 dice the minimum number is 12 (from rolling 12 1s).
 */
 void TestDice::testDiceLowerBound(void) {
-
 	int result = 0;
 
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("2d4");
 		CPPUNIT_ASSERT(result >= 2);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("3d6");
 		CPPUNIT_ASSERT(result >= 3);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		int result = myDice.roll("4d8");
 		CPPUNIT_ASSERT(result >= 4);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		int result = myDice.roll("12d10");
 		CPPUNIT_ASSERT(result >= 12);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		int result = myDice.roll("52d12");
 		CPPUNIT_ASSERT(result >= 52);
 	}
 
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		int result = myDice.roll("34d20");
 		CPPUNIT_ASSERT(result >= 34);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		int result = myDice.roll("46d100");
 		CPPUNIT_ASSERT(result >= 46);
 	}
@@ -145,7 +144,6 @@ void TestDice::testDiceLowerBound(void) {
 void TestDice::testDiceRollInputValidity()
 {
 	int result = 0;
-
 	// test that if the string is valid, the result is calculated
 	result = myDice.roll("4d20");
 	CPPUNIT_ASSERT(result > 0);
@@ -168,38 +166,37 @@ void TestDice::testDiceRollInputValidity()
 void TestDice::testDiceRollingBounds()
 {
 	int result = 0;
-
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("1d4");
 		CPPUNIT_ASSERT(result >= 1);
 		CPPUNIT_ASSERT(result <= 4);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("1d6");
 		CPPUNIT_ASSERT(result >= 1);
 		CPPUNIT_ASSERT(result <= 6);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("1d8");
 		CPPUNIT_ASSERT(result >= 1);
 		CPPUNIT_ASSERT(result <= 8);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("1d10");
 		CPPUNIT_ASSERT(result >= 1);
 		CPPUNIT_ASSERT(result <= 10);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("1d12");
 		CPPUNIT_ASSERT(result >= 1);
 		CPPUNIT_ASSERT(result <= 12);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("1d20");
 		CPPUNIT_ASSERT(result >= 1);
 		CPPUNIT_ASSERT(result <= 20);
 	}
-	for (int j = 1; j <= 1000; j++) {
+	for (int j = 1; j <= 100; j++) {
 		result = myDice.roll("1d100");
 		CPPUNIT_ASSERT(result >= 1);
 		CPPUNIT_ASSERT(result <= 100);

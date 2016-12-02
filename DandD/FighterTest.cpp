@@ -9,6 +9,7 @@
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/XmlOutputter.h>
+#include <cppunit/XmlOutputter.h>
 using namespace CppUnit;
 #include "Characters.h"
 #include "Fighter.h"
@@ -17,15 +18,12 @@ class FighterTest : public CppUnit::TestFixture
 {
 	CPPUNIT_TEST_SUITE(FighterTest);
 	CPPUNIT_TEST(testValidNewCharacter);
-//	CPPUNIT_TEST(testHitPoints);
 	CPPUNIT_TEST(testProficiencyBonus);
 	CPPUNIT_TEST(testValidDeath);
-	
 	CPPUNIT_TEST(testValidExpGain);
 	CPPUNIT_TEST_SUITE_END();
 protected:
 	void testValidNewCharacter();
-//	void testHitPoints();
 	void testProficiencyBonus();
 	void testValidDeath();
 	void testValidExpGain();

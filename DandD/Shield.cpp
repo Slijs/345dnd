@@ -120,7 +120,7 @@ std::string Shield::toString() {
 	tempString += Item::toString();
 	
 	tempString += "Defense: " + std::to_string(getDefense()) + 
-		"\tAttack dice: " + getAttackDice() + "\n";
+		"   Attack dice: " + getAttackDice() + "\n";
 
 	return tempString;
 }

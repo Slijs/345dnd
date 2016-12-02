@@ -27,6 +27,10 @@ Container * ContainerGenerator::generateContainer(Fighter * fighter)
 	int level = fighter->getLevel();
 	// produce a random number of elements between 1 and 5
 	int numElementsToCreate = rand() % 5 + 1;
+	// weird ass random behaviour -- very rarely greater than 5?!?!
+	if (numElementsToCreate > 5) {
+		numElementsToCreate = 5;
+	}
 	// create a new default container
 	Container * container = new Container();
 

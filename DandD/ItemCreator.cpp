@@ -63,12 +63,12 @@ void ItemCreator::createItems(Container * userContainer, int number)
 				return;
 			} 
 			else if (number == _LoadItemsFromFile_) {
-				userContainer = loadItemsFromFile();
+				loadItemsFromFile(userContainer);
 				return;
 			}
 			// TEST ITEM CREATOR
 			else if (number == _RandomlyGenerateItems_) {
-				userContainer = randomlyGenerateItems();
+				randomlyGenerateItems(userContainer);
 				return;
 			}
 			// END TEST ITEM CREATOR
@@ -85,7 +85,7 @@ void ItemCreator::createItems(Container * userContainer, int number)
 	
 }
 
-Container * ItemCreator::loadItemsFromFile()
+void ItemCreator::loadItemsFromFile(Container * userContainer)
 {
 	/* TODO -- make user be able to define path. At this time,
 	* this isn't possible, because can't convert to type of
@@ -94,27 +94,35 @@ Container * ItemCreator::loadItemsFromFile()
 	string Lpath;
 	std::getline(std::cin, Lpath);
 	*/
-	Container * userContainer = new Container();
+	userContainer = new Container();
 	CFile fileL;
 	if (!fileL.Open(_T("serializedItems.dat"), CFile::modeRead))
 	{
 		std::cout << "Unable to open input file" << std::endl;
-		return userContainer;
+		return;
 	}
 	cout << "Loading items...\n";
 	CArchive arLoad(&fileL, CArchive::load);
 	userContainer->Serialize(arLoad);
 	arLoad.Close();
 	fileL.Close();
+	return;
 }
 
-Container * ItemCreator::randomlyGenerateItems()
+void ItemCreator::randomlyGenerateItems(Container * userContainer)
 {
 	Race race = Human;
 	Fighter * player = new Fighter(1, race, "Name");
 	Container * anotherContainer = ContainerGenerator::generateContainer(player);
 	std::cout << anotherContainer->contentsToString();
-	return anotherContainer;
+	std::vector<Item*> containerContents = anotherContainer->getContents();
+	// remove all current items
+	while (userContainer->getNumContents() > 0) {
+		userContainer->removeItem(0);
+	}
+	for (int i = 0; i < containerContents.size(); i++) {
+		userContainer->insertItem(containerContents.at(i));
+	}
 }
 
 void ItemCreator::saveItemsToFile(Container * userContainer)

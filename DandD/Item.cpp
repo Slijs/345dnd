@@ -168,13 +168,13 @@ array<bool, 9> Item::getEnchantmentsPossible() {
 string Item::toString() {
 	string tempString;
 	tempString += getName() + "\n";
-	tempString += "Weight: " + std::to_string(getWeight()) + "\tValue: "
+	tempString += "Weight: " + std::to_string(getWeight()) + "   Value: "
 		+ std::to_string(getValue())+"\n";
 	tempString += "Enchantments:\n";
-	tempString += "STR\tDEX\tCON\tINT\tWIS\tCHA\tARM\tATT\tDAM\n";
+	tempString += "STR DEX CON INT WIS CHA ARM ATT DAM\n";
 	array<int, 9> tempEnchantmentValues = getEnchantmentValues();
 	for (int i = 0; i < 9; i++) {
-		tempString += std::to_string(tempEnchantmentValues[i]) + "\t";
+		tempString += " " + std::to_string(tempEnchantmentValues[i]) + "  ";
 	}
 	tempString += "\n";
 	return tempString;

@@ -87,7 +87,7 @@ std::string Weapon::toString() {
 	tempString += Item::toString();
 	
 	tempString += "Attack Dice: " + getAttackDice() +
-		"\tRange: " + std::to_string(getRange()) + "\n";
+		"   Range: " + std::to_string(getRange()) + "\n";
 
 	return tempString;
 }

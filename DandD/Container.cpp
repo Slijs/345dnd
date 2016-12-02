@@ -155,7 +155,7 @@ string Container::toString() {
  */
 string Container::contentsToString() {
 	string itemList;
-	itemList += "----------------- Container Contents -----------------\n";
+	//itemList += "----------------- Container Contents -----------------\n";
 	for (int i = 0; i < contents.size(); i++) {
 		itemList += std::to_string(i + 1) + ") ";
 		itemList += contents.at(i)->toString() + "\n";

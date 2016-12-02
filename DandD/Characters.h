@@ -91,7 +91,7 @@ protected:
 	Ring* ring;
 	Container* backpack;
 	MovementStrategy* _strategy; //! Strategy the Character uses to move
-	bool isLevelUp;	
+	bool isLevelUp;
 
 private:
 	int const MAX_NUM_SCORES = 6;
@@ -102,14 +102,14 @@ private:
 	int exp;
 	int level;
 	int proficiencyBonus;
-	 //can update when equip armor, shield, helmet, boots &/or ring
+	//can update when equip armor, shield, helmet, boots &/or ring
 	//or when dex goes up
 
 	Size size;
 
 	bool inBattle;
 	bool isDead;
-	
+
 
 	bool equiped; //start as false changes to true when equip something with bonus for AC
 
@@ -156,6 +156,7 @@ public:
 	bool getIsLevelUp() { return isLevelUp; }
 	void setIsLevelUp(bool isLevelUp) { this->isLevelUp = isLevelUp; }
 	void setInitiative();
+	MovementStrategy* getStrategy() { return _strategy; };
 	int roll4D6();
 	//setters for items 
 	void setArmor(Armor* a){ armor = a; }

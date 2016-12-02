@@ -200,7 +200,15 @@ int GamePlayEngine::runEngine()
 			}
 		}
 	}
-	QUIT_CAMPAIGN:
+QUIT_CAMPAIGN:
+	if (this->_level->getPlayer()->getIsDead() == true)
+	{
+		this->_level->getLevelWindow()->hideWindow();
+		system("cls");
+		std::cout << "You Died!!\nPractice some more and try again!!\n";
+		system("pause");
+	}
+
 	return destToReturn;
 }
 
@@ -247,9 +255,10 @@ int GamePlayEngine::runUserTurn(){
 				std::cout << "\n\nPress any key to see " << this->_level->getPlayer()->getName() << "'s new stats.\n";
 				_getch();
 				this->_level->getPlayer()->forceLevelIncrease();
-				this->_level->getPlayer()->displayOnlyStats();
-				std::cout << "\n\nPress any key to continue\n";
-				_getch();
+				this->_level->getPlayer()->displayStats();
+				system("cls");
+				//std::cout << "\n\nPress any key to continue\n";
+				//_getch();
 				return 0;
 			}
 
