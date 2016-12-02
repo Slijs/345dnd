@@ -197,6 +197,7 @@ int GameLoops::playCampaignLoop(char* path, char* campaign)
 			}
 
 			// Now load the player
+			_currentFighterTracker = nullptr;
 			this->_currentFighterTracker = loadPlayer();
 
 			// Check if Fighter is nullptr - if it is, means we didn't load so we have to quit!
@@ -992,7 +993,7 @@ Fighter* GameLoops::loadPlayer(){
 		else if (destination == 0)
 			returnFighter = true; // Dummy value just to break the loop
 	}
-	GameController::getInstance()->log(temp->getName() + " has been loaded for use.");
+
 	menu->hideMenu();
 	delete engine;
 	engine = nullptr;
