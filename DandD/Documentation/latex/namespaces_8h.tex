@@ -1,5 +1,5 @@
-\hypertarget{namespaces_8h}{}\section{namespaces.\+h File Reference}
-\label{namespaces_8h}\index{namespaces.\+h@{namespaces.\+h}}
+\hypertarget{namespaces_8h}{}\section{D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+MP 345/\+Group Project/345dnd/\+Dand\+D/namespaces.h File Reference}
+\label{namespaces_8h}\index{D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/namespaces.\+h@{D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/namespaces.\+h}}
 
 
 Provides namespaces which are used to retrieve various constants or enums.  
@@ -19,6 +19,8 @@ Provides namespaces which are used to retrieve various constants or enums.
 \item 
  \hyperlink{namespace_campaign_maximums}{Campaign\+Maximums}
 \item 
+ \hyperlink{namespace_sound_paths}{Sound\+Paths}
+\item 
  \hyperlink{namespace_others}{Others}
 \end{DoxyCompactItemize}
 \subsection*{Enumerations}
@@ -36,15 +38,31 @@ enum {\bfseries Item\+Type} \{ \newline
 {\bfseries Weapon}, 
 {\bfseries Item}
  \}
+\item 
+\hypertarget{namespaces_8h_ad0cd52c7c9b13be13f9aafebd2e1c860}{}\label{namespaces_8h_ad0cd52c7c9b13be13f9aafebd2e1c860} 
+enum \hyperlink{namespaces_8h_ad0cd52c7c9b13be13f9aafebd2e1c860}{Character\+Type} \{ {\bfseries Aggressor}, 
+{\bfseries Friendly}, 
+{\bfseries Player}
+ \}\begin{DoxyCompactList}\small\item\em Provides definition of the two types of monsters that can be made \+: Aggressor or Friendly. \end{DoxyCompactList}
+\item 
+\hypertarget{namespaces_8h_a8327c0c98430b2c5832c39f0b272c172}{}\label{namespaces_8h_a8327c0c98430b2c5832c39f0b272c172} 
+enum \hyperlink{namespaces_8h_a8327c0c98430b2c5832c39f0b272c172}{Map\+Update\+Flag} \{ \newline
+{\bfseries The\+Player}, 
+{\bfseries Enemy}, 
+{\bfseries Nice}, 
+{\bfseries Dead}, 
+\newline
+{\bfseries Empty\+Container}
+ \}\begin{DoxyCompactList}\small\item\em Flag to indicate what kind of update was recently made to the map. \end{DoxyCompactList}
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{namespace_map_symbols_data_a05f9ea588b6fba356454972c587c7620}{}\label{namespace_map_symbols_data_a05f9ea588b6fba356454972c587c7620} 
-const int {\bfseries Map\+Symbols\+Data\+::\+\_\+\+Environment\+Start\+\_\+} = 65
+const int {\bfseries Map\+Symbols\+Data\+::\+\_\+\+Environment\+Start\+\_\+} = 128
 \item 
 \hypertarget{namespace_map_symbols_data_a3019a34c15fe9301da37d5971a2d6e9f}{}\label{namespace_map_symbols_data_a3019a34c15fe9301da37d5971a2d6e9f} 
-const char {\bfseries Map\+Symbols\+Data\+::\+\_\+\+Basic\+Container\+\_\+} = \textquotesingle{}@\textquotesingle{}
+const char {\bfseries Map\+Symbols\+Data\+::\+\_\+\+Basic\+Container\+\_\+} = \textquotesingle{}(\textquotesingle{}
 \item 
 \hypertarget{namespace_base_menu_color_index_abd8c272dac8688636684f7c021ecbe21}{}\label{namespace_base_menu_color_index_abd8c272dac8688636684f7c021ecbe21} 
 const int {\bfseries Base\+Menu\+Color\+Index\+::\+\_\+\+Menu\+Background\+\_\+} = 0
@@ -60,6 +78,9 @@ const int {\bfseries Base\+Menu\+Color\+Index\+::\+\_\+\+Title\+\_\+} = 3
 \item 
 \hypertarget{namespace_base_menu_color_index_a00892e91c5696d84522744278d3e00c8}{}\label{namespace_base_menu_color_index_a00892e91c5696d84522744278d3e00c8} 
 const int {\bfseries Base\+Menu\+Color\+Index\+::\+\_\+\+Other\+Text\+\_\+} = 4
+\item 
+\hypertarget{namespace_base_menu_color_index_ad83b49fb37caeafdca6be67c60d817f9}{}\label{namespace_base_menu_color_index_ad83b49fb37caeafdca6be67c60d817f9} 
+const int {\bfseries Base\+Menu\+Color\+Index\+::\+\_\+\+Label\+\_\+} = 5
 \item 
 \hypertarget{namespace_window_height_width_divide_aspect_a69fb9ab234f9a5360344288f324acb87}{}\label{namespace_window_height_width_divide_aspect_a69fb9ab234f9a5360344288f324acb87} 
 const double {\bfseries Window\+Height\+Width\+Divide\+Aspect\+::\+\_\+\+Window\+Height\+Divide\+Aspect\+\_\+} = 1.\+2
@@ -96,6 +117,99 @@ const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Edit\+Items\+\_
 \item 
 \hypertarget{namespace_destination_from_menus_ab57ef8401e26238764a2621416fc1bf0}{}\label{namespace_destination_from_menus_ab57ef8401e26238764a2621416fc1bf0} 
 const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Edit\+Player\+\_\+} = 9
+\item 
+\hypertarget{namespace_destination_from_menus_aa89df97ff10e756df3d98befe06fedfa}{}\label{namespace_destination_from_menus_aa89df97ff10e756df3d98befe06fedfa} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+New\+Character\+\_\+} = 20
+\item 
+\hypertarget{namespace_destination_from_menus_ae806af78ff03bb3f9eafb30d13f041b8}{}\label{namespace_destination_from_menus_ae806af78ff03bb3f9eafb30d13f041b8} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Edit\+Character\+\_\+} = 21
+\item 
+\hypertarget{namespace_destination_from_menus_ab7d863928e41142bf19b836056125cee}{}\label{namespace_destination_from_menus_ab7d863928e41142bf19b836056125cee} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Delete\+Character\+\_\+} = 22
+\item 
+\hypertarget{namespace_destination_from_menus_a12b0f8103c42f9f6b78b7a394c5321c2}{}\label{namespace_destination_from_menus_a12b0f8103c42f9f6b78b7a394c5321c2} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Edit\+Name\+\_\+} = 23
+\item 
+\hypertarget{namespace_destination_from_menus_a64b44b98f68aeb326a07c512ab2e27cb}{}\label{namespace_destination_from_menus_a64b44b98f68aeb326a07c512ab2e27cb} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Edit\+Race\+\_\+} = 24
+\item 
+\hypertarget{namespace_destination_from_menus_a9805542838906ee7c62e7dffaf0c941a}{}\label{namespace_destination_from_menus_a9805542838906ee7c62e7dffaf0c941a} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Success\+Name\+Change\+\_\+} = 25
+\item 
+\hypertarget{namespace_destination_from_menus_a7b976c044a01ae99574c90de96413b45}{}\label{namespace_destination_from_menus_a7b976c044a01ae99574c90de96413b45} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Success\+Race\+Change\+\_\+} = 26
+\item 
+\hypertarget{namespace_destination_from_menus_af173ddb94da76e55e08355d34b9a21a9}{}\label{namespace_destination_from_menus_af173ddb94da76e55e08355d34b9a21a9} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Yes\+Confirmation\+\_\+} = 27
+\item 
+\hypertarget{namespace_destination_from_menus_a4545351112b1c1ee1b9fd4a9be46ff90}{}\label{namespace_destination_from_menus_a4545351112b1c1ee1b9fd4a9be46ff90} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+No\+Confirmation\+\_\+} = 28
+\item 
+\hypertarget{namespace_destination_from_menus_aa183396fd31c71338f1a1626cf7bae5c}{}\label{namespace_destination_from_menus_aa183396fd31c71338f1a1626cf7bae5c} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Display\+Player\+Stats\+\_\+} = 29
+\item 
+\hypertarget{namespace_destination_from_menus_a76a215772f1970ba37f51a0fa311425b}{}\label{namespace_destination_from_menus_a76a215772f1970ba37f51a0fa311425b} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Go\+Back\+\_\+} = 30
+\item 
+\hypertarget{namespace_destination_from_menus_aaab5f4abf045e064abc8e37365d37277}{}\label{namespace_destination_from_menus_aaab5f4abf045e064abc8e37365d37277} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Manage\+Equipment\+\_\+} = 31
+\item 
+\hypertarget{namespace_destination_from_menus_a5083f5a48bd033959ce0f473a1ce0f2e}{}\label{namespace_destination_from_menus_a5083f5a48bd033959ce0f473a1ce0f2e} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Weapon\+\_\+} = 40
+\item 
+\hypertarget{namespace_destination_from_menus_a61343337f515224ada1b48fa26260a89}{}\label{namespace_destination_from_menus_a61343337f515224ada1b48fa26260a89} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Armour\+\_\+} = 41
+\item 
+\hypertarget{namespace_destination_from_menus_a0d9997792ee06115bcc7507333f2cf8e}{}\label{namespace_destination_from_menus_a0d9997792ee06115bcc7507333f2cf8e} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Belt\+\_\+} = 42
+\item 
+\hypertarget{namespace_destination_from_menus_a8d30b5f15fdff5b3eab881f5a9b7f12a}{}\label{namespace_destination_from_menus_a8d30b5f15fdff5b3eab881f5a9b7f12a} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Boots\+\_\+} = 43
+\item 
+\hypertarget{namespace_destination_from_menus_aa8a8c6c8012a705059a4e39d5c57d625}{}\label{namespace_destination_from_menus_aa8a8c6c8012a705059a4e39d5c57d625} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Helmet\+\_\+} = 44
+\item 
+\hypertarget{namespace_destination_from_menus_ad59a0fc83ccd1fb9e0e103158d0ae6c8}{}\label{namespace_destination_from_menus_ad59a0fc83ccd1fb9e0e103158d0ae6c8} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Ring\+\_\+} = 45
+\item 
+\hypertarget{namespace_destination_from_menus_a917860d6ab83ec57484fb92dcb98e25f}{}\label{namespace_destination_from_menus_a917860d6ab83ec57484fb92dcb98e25f} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Create\+Shield\+\_\+} = 46
+\item 
+\hypertarget{namespace_destination_from_menus_a614dc4897cd8415ed876bd8ade0ae042}{}\label{namespace_destination_from_menus_a614dc4897cd8415ed876bd8ade0ae042} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Print\+Items\+\_\+} = 47
+\item 
+\hypertarget{namespace_destination_from_menus_a4e2f46eed8f5889c0195a76e56027674}{}\label{namespace_destination_from_menus_a4e2f46eed8f5889c0195a76e56027674} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Load\+Items\+From\+File\+\_\+} = 48
+\item 
+\hypertarget{namespace_destination_from_menus_ae8958cd96cc2f8bc973146b976fca628}{}\label{namespace_destination_from_menus_ae8958cd96cc2f8bc973146b976fca628} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Save\+Items\+To\+File\+\_\+} = 49
+\item 
+\hypertarget{namespace_destination_from_menus_a197ce8b76c34e841cf94263e7c3e115b}{}\label{namespace_destination_from_menus_a197ce8b76c34e841cf94263e7c3e115b} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Randomly\+Generate\+Items\+\_\+} = 50
+\item 
+\hypertarget{namespace_destination_from_menus_a920e8bce85a6ee717d7fb26007c0f868}{}\label{namespace_destination_from_menus_a920e8bce85a6ee717d7fb26007c0f868} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+View\+Log\+\_\+} = 60
+\item 
+\hypertarget{namespace_destination_from_menus_a02c6bba2bab87a2c829318a21bc95135}{}\label{namespace_destination_from_menus_a02c6bba2bab87a2c829318a21bc95135} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Toggle\+Log\+\_\+} = 61
+\item 
+\hypertarget{namespace_destination_from_menus_ad10bf3e55b400495c712eb2d788e5a77}{}\label{namespace_destination_from_menus_ad10bf3e55b400495c712eb2d788e5a77} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Return\+To\+Game\+\_\+} = 62
+\item 
+\hypertarget{namespace_destination_from_menus_afeeec0c87996486312e6029b8c43a992}{}\label{namespace_destination_from_menus_afeeec0c87996486312e6029b8c43a992} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Game\+Log\+\_\+} = 63
+\item 
+\hypertarget{namespace_destination_from_menus_ad7d5b43c18a15e4a944273581a300187}{}\label{namespace_destination_from_menus_ad7d5b43c18a15e4a944273581a300187} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Map\+Log\+\_\+} = 64
+\item 
+\hypertarget{namespace_destination_from_menus_ae62a7a744a2a8da3329f0a84dc76aaa1}{}\label{namespace_destination_from_menus_ae62a7a744a2a8da3329f0a84dc76aaa1} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Character\+Log\+\_\+} = 65
+\item 
+\hypertarget{namespace_destination_from_menus_a2170d390d2785bedc3d233f949919b6d}{}\label{namespace_destination_from_menus_a2170d390d2785bedc3d233f949919b6d} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Dice\+Log\+\_\+} = 66
+\item 
+\hypertarget{namespace_destination_from_menus_a5f8c455afab681708ccea3434951c58c}{}\label{namespace_destination_from_menus_a5f8c455afab681708ccea3434951c58c} 
+const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Unified\+Log\+\_\+} = 67
 \item 
 \hypertarget{namespace_destination_from_menus_a98e9db67799478d29a6520aaa62fcf1e}{}\label{namespace_destination_from_menus_a98e9db67799478d29a6520aaa62fcf1e} 
 const int {\bfseries Destination\+From\+Menus\+::\+\_\+\+Exit\+To\+Command\+Prompt\+\_\+} = 100

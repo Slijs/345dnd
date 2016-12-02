@@ -3,15 +3,14 @@
 Inheritance diagram for Monster\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{class_monster}
+\includegraphics[height=4.000000cm]{class_monster}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_monster_ac7222e2f2db276b4772d342361ca7444}{}\label{class_monster_ac7222e2f2db276b4772d342361ca7444} 
-\hyperlink{class_monster_ac7222e2f2db276b4772d342361ca7444}{Monster} (string, \hyperlink{_entity_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type}, \hyperlink{_entity_8h_a1c40db1d9b56c27240e420765695f1c4}{Size}, int, int, int, int, int, int, int, int, int, \hyperlink{class_weapon}{Weapon} $\ast$)
-\begin{DoxyCompactList}\small\item\em Parameterized constructor allowing to set name, type, size, level, speed, scores, armor class and weapon of \hyperlink{class_monster}{Monster}. \end{DoxyCompactList}\item 
+\hyperlink{class_monster_ae0c9e6b3fe1421e7a5367e50fa182d93}{Monster} (string name, \hyperlink{_entity_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type} type, \hyperlink{_entity_8h_a1c40db1d9b56c27240e420765695f1c4}{Size} size, int level, int speed, int S\+TR, int D\+EX, int C\+ON, int I\+NT, int W\+IS, int C\+HA, int armor\+Class, \hyperlink{class_weapon}{Weapon} $\ast$weapon, \hyperlink{class_characters}{Characters} $\ast$the\+Fighter)
+\begin{DoxyCompactList}\small\item\em The type of \hyperlink{class_monster}{Monster} (either Beast or Friendly) \end{DoxyCompactList}\item 
 \hypertarget{class_monster_a3dfc253fbec8331d42ac13c20bf9425f}{}\label{class_monster_a3dfc253fbec8331d42ac13c20bf9425f} 
 \hyperlink{class_monster_a3dfc253fbec8331d42ac13c20bf9425f}{Monster} ()
 \begin{DoxyCompactList}\small\item\em Default constructor -\/ for making dummy monsters. \end{DoxyCompactList}\item 
@@ -30,6 +29,9 @@ void \hyperlink{class_monster_a42e4c033144046eebe6cb502566423f7}{display\+Battle
 \hypertarget{class_monster_a9ef924b193478c29baa90b0fa5845711}{}\label{class_monster_a9ef924b193478c29baa90b0fa5845711} 
 void \hyperlink{class_monster_a9ef924b193478c29baa90b0fa5845711}{display\+Death} ()
 \begin{DoxyCompactList}\small\item\em Function to display monster death, calls parent \hyperlink{class_monster_a9ef924b193478c29baa90b0fa5845711}{display\+Death()} \end{DoxyCompactList}\item 
+\hypertarget{class_monster_ae86b41f41c3777be98b958c3c39b5665}{}\label{class_monster_ae86b41f41c3777be98b958c3c39b5665} 
+void \hyperlink{class_monster_ae86b41f41c3777be98b958c3c39b5665}{drop\+Container} ()
+\begin{DoxyCompactList}\small\item\em Function for display of character death. \end{DoxyCompactList}\item 
 void \hyperlink{class_monster_ad1805087dbd4472ace66a45f053aa250}{attack} (\hyperlink{class_fighter}{Fighter} $\ast$c)
 \item 
 void \hyperlink{class_monster_a8a0aadbb74bed6181adb79b58d67d0a8}{receive\+Damage} (int)
@@ -39,12 +41,39 @@ void {\bfseries current\+State} ()
 \item 
 \hypertarget{class_monster_a7dca19cf268fa2a8602b0ccbfe1eda09}{}\label{class_monster_a7dca19cf268fa2a8602b0ccbfe1eda09} 
 virtual void \hyperlink{class_monster_a7dca19cf268fa2a8602b0ccbfe1eda09}{display\+Stats} ()
-\begin{DoxyCompactList}\small\item\em Function to display \hyperlink{class_monster}{Monster}\textquotesingle{}s stats (calls Character\textquotesingle{}s displaystats) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function to display \hyperlink{class_monster}{Monster}\textquotesingle{}s stats (calls Character\textquotesingle{}s displaystats) \end{DoxyCompactList}\item 
+\hypertarget{class_monster_a0e5d5c1509f429fc0627403d1b27e157}{}\label{class_monster_a0e5d5c1509f429fc0627403d1b27e157} 
+void {\bfseries setup\+Character\+Observer} (\hyperlink{class_characters}{Characters} $\ast$the\+Player)
+\item 
+virtual void \hyperlink{class_monster_a217f6f3df7398d65ffea6964931207f2}{under\+Attack} ()
+\item 
+\hypertarget{class_monster_a9271c8983fe8f58c50d859d60243c8c7}{}\label{class_monster_a9271c8983fe8f58c50d859d60243c8c7} 
+\hyperlink{namespaces_8h_ad0cd52c7c9b13be13f9aafebd2e1c860}{Character\+Type} \hyperlink{class_monster_a9271c8983fe8f58c50d859d60243c8c7}{get\+Char\+Type} ()
+\begin{DoxyCompactList}\small\item\em Provides code needed to switch from Aggressive to Friendly Strategy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_monster_a2abc12bff809dc7bb630fef5c30199fb}{}\label{class_monster_a2abc12bff809dc7bb630fef5c30199fb} 
+class {\bfseries Pre\+Built\+Level}
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
 Subclass of \hyperlink{class_characters}{Characters}, \textquotesingle{}\hyperlink{class_monster}{Monster}\textquotesingle{} class implementation 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_monster_ae0c9e6b3fe1421e7a5367e50fa182d93}{}\label{class_monster_ae0c9e6b3fe1421e7a5367e50fa182d93} 
+\index{Monster@{Monster}!Monster@{Monster}}
+\index{Monster@{Monster}!Monster@{Monster}}
+\subsubsection{\texorpdfstring{Monster()}{Monster()}}
+{\footnotesize\ttfamily Monster\+::\+Monster (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{\hyperlink{_entity_8h_a1d1cfd8ffb84e947f82999c682b666a7}{Type}}]{type,  }\item[{\hyperlink{_entity_8h_a1c40db1d9b56c27240e420765695f1c4}{Size}}]{size,  }\item[{int}]{level,  }\item[{int}]{speed,  }\item[{int}]{S\+TR,  }\item[{int}]{D\+EX,  }\item[{int}]{C\+ON,  }\item[{int}]{I\+NT,  }\item[{int}]{W\+IS,  }\item[{int}]{C\+HA,  }\item[{int}]{armor\+Class,  }\item[{\hyperlink{class_weapon}{Weapon} $\ast$}]{weapon,  }\item[{\hyperlink{class_characters}{Characters} $\ast$}]{the\+Fighter }\end{DoxyParamCaption})}
+
+
+
+The type of \hyperlink{class_monster}{Monster} (either Beast or Friendly) 
+
+Parameterized constructor allowing to set name, type, size, level, speed, scores, armor class and weapon of \hyperlink{class_monster}{Monster}. 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_monster_ad1805087dbd4472ace66a45f053aa250}{}\label{class_monster_ad1805087dbd4472ace66a45f053aa250} 
@@ -59,9 +88,15 @@ Function for attacking a \hyperlink{class_fighter}{Fighter}, generates attack ro
 \subsubsection{\texorpdfstring{receive\+Damage()}{receiveDamage()}}
 {\footnotesize\ttfamily void Monster\+::receive\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})}
 
-Function that reduces hitpoints based on damage taken, if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats 
+Function that reduces hitpoints based on damage taken, if hitpoints reduce to 0 or less, fighter is dead. Notifies change in character stats \hypertarget{class_monster_a217f6f3df7398d65ffea6964931207f2}{}\label{class_monster_a217f6f3df7398d65ffea6964931207f2} 
+\index{Monster@{Monster}!under\+Attack@{under\+Attack}}
+\index{under\+Attack@{under\+Attack}!Monster@{Monster}}
+\subsubsection{\texorpdfstring{under\+Attack()}{underAttack()}}
+{\footnotesize\ttfamily void Monster\+::under\+Attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Skeletal method for implementing attacks. Makes sure that movement strategy is set appropriately. Notifies observers of death if the \hyperlink{class_monster}{Monster} is now dead, or health loss. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Monster.\+h\item 
-Monster.\+cpp\end{DoxyCompactItemize}
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/Monster.\+h\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/Monster.\+cpp\end{DoxyCompactItemize}

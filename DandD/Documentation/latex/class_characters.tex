@@ -12,7 +12,7 @@ Provides resource for management of \hyperlink{class_characters}{Characters} wit
 Inheritance diagram for Characters\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{class_characters}
+\includegraphics[height=4.000000cm]{class_characters}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -53,7 +53,15 @@ int {\bfseries get\+Attack\+Bonus} ()
 \hypertarget{class_characters_a8c6138b3dcb05fc26952f78dad8d6296}{}\label{class_characters_a8c6138b3dcb05fc26952f78dad8d6296} 
 int {\bfseries get\+Damage\+Bonus} ()
 \item 
+\hypertarget{class_characters_acfb9c7c938b2cc023eb353f6ed7e3690}{}\label{class_characters_acfb9c7c938b2cc023eb353f6ed7e3690} 
+int {\bfseries get\+Proficiency\+Bonus} ()
+\item 
 int \hyperlink{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c}{get\+Scores} (int, int)
+\item 
+int \hyperlink{class_characters_af37c83d77c4c29f8f6ac230474e0177a}{get\+Initiative} ()
+\item 
+\hypertarget{class_characters_ab95f371ea93eea0dca3fb3cd9aaaac7d}{}\label{class_characters_ab95f371ea93eea0dca3fb3cd9aaaac7d} 
+\hyperlink{class_container}{Container} $\ast$ {\bfseries get\+Back\+Pack} ()
 \item 
 \hypertarget{class_characters_a2d6d1b6c6fbf0af1dabcbfe5a5975153}{}\label{class_characters_a2d6d1b6c6fbf0af1dabcbfe5a5975153} 
 bool \hyperlink{class_characters_a2d6d1b6c6fbf0af1dabcbfe5a5975153}{get\+In\+Battle} ()
@@ -68,7 +76,15 @@ void {\bfseries set\+Is\+Dead} (bool is\+Dead)
 bool {\bfseries get\+Is\+Level\+Up} ()
 \item 
 \hypertarget{class_characters_aec4cbbc7de57f0cb1f128fbd162b3246}{}\label{class_characters_aec4cbbc7de57f0cb1f128fbd162b3246} 
-void {\bfseries set\+Is\+Level\+Up} (bool is\+Level\+Up)
+void {\bfseries set\+Is\+Level\+Up} (bool \hyperlink{class_characters_a9aa6aaad9efeee2713ebb94db9f9b63e}{is\+Level\+Up})
+\item 
+void \hyperlink{class_characters_a2e31bc19f7d2ce5d7da2ac9d62ae03e1}{set\+Initiative} ()
+\item 
+\hypertarget{class_characters_a7d8109f688d18ec5ca782970b755e426}{}\label{class_characters_a7d8109f688d18ec5ca782970b755e426} 
+\hyperlink{class_movement_strategy}{Movement\+Strategy} $\ast$ {\bfseries get\+Strategy} ()
+\item 
+\hypertarget{class_characters_ae7c133d2a67e759db09084c6798c81fe}{}\label{class_characters_ae7c133d2a67e759db09084c6798c81fe} 
+int {\bfseries roll4\+D6} ()
 \item 
 \hypertarget{class_characters_ad95f204f70f468bb5923f917018d6054}{}\label{class_characters_ad95f204f70f468bb5923f917018d6054} 
 void {\bfseries set\+Armor} (\hyperlink{class_armor}{Armor} $\ast$a)
@@ -111,9 +127,6 @@ void {\bfseries set\+Belt} (\hyperlink{class_belt}{Belt} $\ast$b)
 \item 
 \hypertarget{class_characters_a0f32959981f93b31889eed35f257f4c6}{}\label{class_characters_a0f32959981f93b31889eed35f257f4c6} 
 \hyperlink{class_belt}{Belt} $\ast$ {\bfseries get\+Belt} ()
-\item 
-\hypertarget{class_characters_aea3ce859280087ef57932ff212d96749}{}\label{class_characters_aea3ce859280087ef57932ff212d96749} 
-vector$<$ int $>$ {\bfseries get\+Position} ()
 \item 
 void \hyperlink{class_characters_aafcca03cc72ce2b389c0412229864c6e}{calc\+Attack\+Bonus} ()
 \item 
@@ -177,7 +190,7 @@ int \hyperlink{class_characters_a7b8da28aa1fca4191bf181f6f10ddb23}{attack\+Roll}
 int \hyperlink{class_characters_acfbeb255a424493efe9224a1d177ea5c}{damage\+Roll} ()
 \begin{DoxyCompactList}\small\item\em Function to calculate damage roll with\+: weapon\+Dice + damage bonus (if this yields value less than zero, damage\+Roll = 0) \end{DoxyCompactList}\item 
 \hypertarget{class_characters_a77bd85803742621607c58d7c3593d7b0}{}\label{class_characters_a77bd85803742621607c58d7c3593d7b0} 
-void \hyperlink{class_characters_a77bd85803742621607c58d7c3593d7b0}{gain\+Experience} (int)
+virtual void \hyperlink{class_characters_a77bd85803742621607c58d7c3593d7b0}{gain\+Experience} (int)
 \begin{DoxyCompactList}\small\item\em Function that increases experience based on specified amount gained and if experience exceeds lower limit of next level it will trigger level up. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_af3328b1a080cff8bab2af7597f98be6a}{}\label{class_characters_af3328b1a080cff8bab2af7597f98be6a} 
 void \hyperlink{class_characters_af3328b1a080cff8bab2af7597f98be6a}{update\+Ability\+Score} (int)
@@ -188,14 +201,23 @@ void \hyperlink{class_characters_aef5536d88930d9aff77844d9eec7c71c}{score\+Incre
 \hypertarget{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca}{}\label{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca} 
 void \hyperlink{class_characters_a4359f1dd1537ed6fac7f5ff47801e4ca}{current\+State} ()
 \begin{DoxyCompactList}\small\item\em Function used to notify changes in character state and redisplay stats. \end{DoxyCompactList}\item 
-virtual bool \hyperlink{class_characters_a42bbd977aed8772f446510e7fcfd577f}{validate\+Player\+Move} (int x, int y)
+void \hyperlink{class_characters_a717e24c7c3c4cb1d78e5814a3f0df0db}{set\+Position} (int vect\+Pos, int char\+Pos)
 \item 
-void \hyperlink{class_characters_a7ea2bd80b72476d35173691d31e80727}{set\+Map} (vector$<$ string $>$ $\ast$new\+Map)
+virtual void \hyperlink{class_characters_a7ea2bd80b72476d35173691d31e80727}{set\+Map} (vector$<$ string $>$ $\ast$new\+Map)
 \item 
-void \hyperlink{class_characters_a9dac165846c7eb9cacb6a2807a75f845}{set\+Position} (int, int)
+int \hyperlink{class_characters_adb4cb606374d17c34f17846809306f91}{get\+Vect\+Pos} ()
+\item 
+int \hyperlink{class_characters_acaffff77a9e5713dec43ca2563cfe4dd}{get\+Char\+Pos} ()
+\item 
+virtual bool \hyperlink{class_characters_a2e5007e526b373bc2db936a6034c5064}{move} (\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$level, S\+D\+L\+\_\+\+Rect $\ast$current\+Grid, \hyperlink{class_game_play_engine}{Game\+Play\+Engine} $\ast$engine)
+\item 
+virtual void \hyperlink{class_characters_a8e8a0b81e4be9eb6a1c75a5ae5d8bb27}{setup\+Level\+Observer} (\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$lebel\+Subject)
+\item 
+\hypertarget{class_characters_acbb87a09e90ccc798464675933e59e66}{}\label{class_characters_acbb87a09e90ccc798464675933e59e66} 
+S\+D\+L\+\_\+\+Rect $\ast$ {\bfseries get\+Recent\+Grid} ()
 \item 
 bool \hyperlink{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7}{validate\+New\+Character} ()
-\begin{DoxyCompactList}\small\item\em F\+OR U\+N\+IT T\+E\+ST. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Will get the most recent grid, needed for rerendering map. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_a8a13cb967bd25662f86eac505e3e874a}{}\label{class_characters_a8a13cb967bd25662f86eac505e3e874a} 
 bool \hyperlink{class_characters_a8a13cb967bd25662f86eac505e3e874a}{validate\+Proficiency} ()
 \begin{DoxyCompactList}\small\item\em Check if proficiency bonus is correct. \end{DoxyCompactList}\item 
@@ -203,6 +225,8 @@ bool \hyperlink{class_characters_a8a13cb967bd25662f86eac505e3e874a}{validate\+Pr
 virtual void \hyperlink{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434}{Serialize} (C\+Archive \&ar)
 \begin{DoxyCompactList}\small\item\em Allows for \hyperlink{class_characters}{Characters} to be saved to disk. \end{DoxyCompactList}\item 
 \hyperlink{class_characters}{Characters} \& \hyperlink{class_characters_a161bd4230b1ff594c36db697ee2d3707}{operator=} (const \hyperlink{class_characters}{Characters} $\ast$other\+Char)
+\item 
+bool \hyperlink{class_characters_ac44afaf70aa3ed022c4af4b1f1d56f9a}{operator$<$} (const \hyperlink{class_characters}{Characters} \&rhs)
 \item 
 \hyperlink{class_characters_a695ed5b59463f54d4eb52a551a25949b}{Characters} (\hyperlink{class_characters}{Characters} $\ast$other\+Char)
 \end{DoxyCompactItemize}
@@ -212,21 +236,8 @@ virtual void \hyperlink{class_characters_ad8eafe3c0b8b2138dc28f4d52050d434}{Seri
 \hypertarget{class_characters_ad71f0049d5bcf2d9c67278c237ad441b}{}\label{class_characters_ad71f0049d5bcf2d9c67278c237ad441b} 
 {\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+E\+R\+I\+AL} (\hyperlink{class_characters}{Characters})
 \end{DoxyCompactItemize}
-\subsection*{Static Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static bool \hyperlink{class_characters_ab509433a15fb7604b2080e0568e41d0d}{\+\_\+valid\+Position} (char pos\+In\+Question)
-\item 
-static bool \hyperlink{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52}{\+\_\+valid\+Component\+Position} (char pos\+In\+Question)
-\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
-\item 
-\hypertarget{class_characters_a4a257d97e159dc2a0045a24996155314}{}\label{class_characters_a4a257d97e159dc2a0045a24996155314} 
-vector$<$ int $>$ {\bfseries position}
-\item 
-\hypertarget{class_characters_a1da634bd68441445cc53f920f59c6a4b}{}\label{class_characters_a1da634bd68441445cc53f920f59c6a4b} 
-vector$<$ string $>$ $\ast$ {\bfseries \+\_\+map}
 \item 
 \hypertarget{class_characters_af86008aff2fe089a3d2fb1a0577a8337}{}\label{class_characters_af86008aff2fe089a3d2fb1a0577a8337} 
 \hyperlink{class_dice}{Dice} {\bfseries \+\_\+die}
@@ -234,9 +245,12 @@ vector$<$ string $>$ $\ast$ {\bfseries \+\_\+map}
 \hypertarget{class_characters_a6b25e6b617c51e3ffae2cbb4e164dbe6}{}\label{class_characters_a6b25e6b617c51e3ffae2cbb4e164dbe6} 
 int {\bfseries armor\+Class}
 \item 
-\hypertarget{class_characters_a57e35013d914968e76639ec4dfd67da0}{}\label{class_characters_a57e35013d914968e76639ec4dfd67da0} 
-\hyperlink{class_armor}{Armor} $\ast$ {\bfseries armor}
+\hypertarget{class_characters_aa3fed94d849d41c498300484291dfb74}{}\label{class_characters_aa3fed94d849d41c498300484291dfb74} 
+int {\bfseries \+\_\+initiative}
 \item 
+\hypertarget{class_characters_a57e35013d914968e76639ec4dfd67da0}{}\label{class_characters_a57e35013d914968e76639ec4dfd67da0} 
+\hyperlink{class_armor}{Armor} $\ast$ \hyperlink{class_characters_a57e35013d914968e76639ec4dfd67da0}{armor}
+\begin{DoxyCompactList}\small\item\em Used to determine turn order. \end{DoxyCompactList}\item 
 \hypertarget{class_characters_add8192820b7e7c0b99a65c126134124a}{}\label{class_characters_add8192820b7e7c0b99a65c126134124a} 
 \hyperlink{class_weapon}{Weapon} $\ast$ {\bfseries weapon}
 \item 
@@ -257,6 +271,18 @@ int {\bfseries armor\+Class}
 \item 
 \hypertarget{class_characters_adf846a705a8a0641248e601c87c25403}{}\label{class_characters_adf846a705a8a0641248e601c87c25403} 
 \hyperlink{class_container}{Container} $\ast$ {\bfseries backpack}
+\item 
+\hypertarget{class_characters_acd9ea9b263752c20bea91d3a7c4ed8db}{}\label{class_characters_acd9ea9b263752c20bea91d3a7c4ed8db} 
+\hyperlink{class_movement_strategy}{Movement\+Strategy} $\ast$ {\bfseries \+\_\+strategy}
+\item 
+\hypertarget{class_characters_a9aa6aaad9efeee2713ebb94db9f9b63e}{}\label{class_characters_a9aa6aaad9efeee2713ebb94db9f9b63e} 
+bool \hyperlink{class_characters_a9aa6aaad9efeee2713ebb94db9f9b63e}{is\+Level\+Up}
+\begin{DoxyCompactList}\small\item\em Strategy the Character uses to move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_characters_a718f64183332e896211a2eaf90cdd989}{}\label{class_characters_a718f64183332e896211a2eaf90cdd989} 
+class {\bfseries Test\+Monster\+Strategies}
 \end{DoxyCompactItemize}
 
 
@@ -289,19 +315,7 @@ New functions were also implemented for leveling up and battle purposes. Namely 
 Copy Constructor -\/ creates a new Character with the same attributes as another Character object 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52}{}\label{class_characters_af2c85f79c62aba2dbf3e8d77e20ffb52} 
-\index{Characters@{Characters}!\+\_\+valid\+Component\+Position@{\+\_\+valid\+Component\+Position}}
-\index{\+\_\+valid\+Component\+Position@{\+\_\+valid\+Component\+Position}!Characters@{Characters}}
-\subsubsection{\texorpdfstring{\+\_\+valid\+Component\+Position()}{\_validComponentPosition()}}
-{\footnotesize\ttfamily bool Characters\+::\+\_\+valid\+Component\+Position (\begin{DoxyParamCaption}\item[{char}]{pos\+In\+Question }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
-
-Function helps to determine if a certain position is not an obstruction \hypertarget{class_characters_ab509433a15fb7604b2080e0568e41d0d}{}\label{class_characters_ab509433a15fb7604b2080e0568e41d0d} 
-\index{Characters@{Characters}!\+\_\+valid\+Position@{\+\_\+valid\+Position}}
-\index{\+\_\+valid\+Position@{\+\_\+valid\+Position}!Characters@{Characters}}
-\subsubsection{\texorpdfstring{\+\_\+valid\+Position()}{\_validPosition()}}
-{\footnotesize\ttfamily bool Characters\+::\+\_\+valid\+Position (\begin{DoxyParamCaption}\item[{char}]{pos\+In\+Question }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
-
-Function helps to determine if a certain position on the map is a valid position If it is a position the Character should not be landing on, then false is returned \hypertarget{class_characters_aafcca03cc72ce2b389c0412229864c6e}{}\label{class_characters_aafcca03cc72ce2b389c0412229864c6e} 
+\hypertarget{class_characters_aafcca03cc72ce2b389c0412229864c6e}{}\label{class_characters_aafcca03cc72ce2b389c0412229864c6e} 
 \index{Characters@{Characters}!calc\+Attack\+Bonus@{calc\+Attack\+Bonus}}
 \index{calc\+Attack\+Bonus@{calc\+Attack\+Bonus}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{calc\+Attack\+Bonus()}{calcAttackBonus()}}
@@ -323,36 +337,101 @@ Function that, when called, automatically increases the Character\textquotesingl
 
 Reimplemented in \hyperlink{class_fighter_a774a40f8466eec10bee12b02e43e0aad}{Fighter}.
 
+\hypertarget{class_characters_acaffff77a9e5713dec43ca2563cfe4dd}{}\label{class_characters_acaffff77a9e5713dec43ca2563cfe4dd} 
+\index{Characters@{Characters}!get\+Char\+Pos@{get\+Char\+Pos}}
+\index{get\+Char\+Pos@{get\+Char\+Pos}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{get\+Char\+Pos()}{getCharPos()}}
+{\footnotesize\ttfamily int Characters\+::get\+Char\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Will return the position in its string that the Character is located at \begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+\hypertarget{class_characters_af37c83d77c4c29f8f6ac230474e0177a}{}\label{class_characters_af37c83d77c4c29f8f6ac230474e0177a} 
+\index{Characters@{Characters}!get\+Initiative@{get\+Initiative}}
+\index{get\+Initiative@{get\+Initiative}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{get\+Initiative()}{getInitiative()}}
+{\footnotesize\ttfamily int Characters\+::get\+Initiative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the current initiative of the Character. \begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
 \hypertarget{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c}{}\label{class_characters_a498fb8e0caaa6503fbb1e1694a082c4c} 
 \index{Characters@{Characters}!get\+Scores@{get\+Scores}}
 \index{get\+Scores@{get\+Scores}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{get\+Scores()}{getScores()}}
 {\footnotesize\ttfamily int Characters\+::get\+Scores (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
 
-Accessor for scores, i\+: 0 for ability scores values, 1 for ability score modifiers and j\+: 0 for S\+TR, 1 for D\+EX, 2 for C\+ON, 3 for I\+NT, 4 for W\+IS, 5 for C\+HA \hypertarget{class_characters_a161bd4230b1ff594c36db697ee2d3707}{}\label{class_characters_a161bd4230b1ff594c36db697ee2d3707} 
+Accessor for scores, i\+: 0 for ability scores values, 1 for ability score modifiers and j\+: 0 for S\+TR, 1 for D\+EX, 2 for C\+ON, 3 for I\+NT, 4 for W\+IS, 5 for C\+HA \hypertarget{class_characters_adb4cb606374d17c34f17846809306f91}{}\label{class_characters_adb4cb606374d17c34f17846809306f91} 
+\index{Characters@{Characters}!get\+Vect\+Pos@{get\+Vect\+Pos}}
+\index{get\+Vect\+Pos@{get\+Vect\+Pos}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{get\+Vect\+Pos()}{getVectPos()}}
+{\footnotesize\ttfamily int Characters\+::get\+Vect\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Will return the position in the vector that the Character is located at \begin{DoxyReturn}{Returns}
+integer 
+\end{DoxyReturn}
+\hypertarget{class_characters_a2e5007e526b373bc2db936a6034c5064}{}\label{class_characters_a2e5007e526b373bc2db936a6034c5064} 
+\index{Characters@{Characters}!move@{move}}
+\index{move@{move}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily bool Characters\+::move (\begin{DoxyParamCaption}\item[{\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$}]{level,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{current\+Grid,  }\item[{\hyperlink{class_game_play_engine}{Game\+Play\+Engine} $\ast$}]{engine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Calls the Strategy\textquotesingle{}s move method to move the Character, and then notifies any observers of the position change. 
+\begin{DoxyParams}{Parameters}
+{\em level} & Pre\+Built\+Level$\ast$ that the game is being played on \\
+\hline
+{\em current\+Grid} & S\+D\+L\+\_\+\+Rect$\ast$ grid of the game \\
+\hline
+{\em engine} & Game\+Play\+Engine$\ast$ that is running the game \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if player moved, False otherwise 
+\end{DoxyReturn}
+\hypertarget{class_characters_ac44afaf70aa3ed022c4af4b1f1d56f9a}{}\label{class_characters_ac44afaf70aa3ed022c4af4b1f1d56f9a} 
+\index{Characters@{Characters}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Characters\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \hyperlink{class_characters}{Characters} \&}]{rhs }\end{DoxyParamCaption})}
+
+Operator overload for less -\/ than operator. A Character is \textquotesingle{}less-\/than\textquotesingle{} another Character if their initiative is lower. \hypertarget{class_characters_a161bd4230b1ff594c36db697ee2d3707}{}\label{class_characters_a161bd4230b1ff594c36db697ee2d3707} 
 \index{Characters@{Characters}!operator=@{operator=}}
 \index{operator=@{operator=}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily \hyperlink{class_characters}{Characters} \& Characters\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{class_characters}{Characters} $\ast$}]{other\+Char }\end{DoxyParamCaption})}
 
-Operator overload for assignment operator. Allows the Character object to take on copies of the same members of another Character object. \hypertarget{class_characters_a7ea2bd80b72476d35173691d31e80727}{}\label{class_characters_a7ea2bd80b72476d35173691d31e80727} 
+Operator overload for assignment operator. Allows the Character object to take on copies of the same members of another Character object. \hypertarget{class_characters_a2e31bc19f7d2ce5d7da2ac9d62ae03e1}{}\label{class_characters_a2e31bc19f7d2ce5d7da2ac9d62ae03e1} 
+\index{Characters@{Characters}!set\+Initiative@{set\+Initiative}}
+\index{set\+Initiative@{set\+Initiative}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{set\+Initiative()}{setInitiative()}}
+{\footnotesize\ttfamily void Characters\+::set\+Initiative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Will set the initiative of the Character using a dice and their Dexterity modifier \hypertarget{class_characters_a7ea2bd80b72476d35173691d31e80727}{}\label{class_characters_a7ea2bd80b72476d35173691d31e80727} 
 \index{Characters@{Characters}!set\+Map@{set\+Map}}
 \index{set\+Map@{set\+Map}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{set\+Map()}{setMap()}}
-{\footnotesize\ttfamily void Characters\+::set\+Map (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ $\ast$}]{new\+Map }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Characters\+::set\+Map (\begin{DoxyParamCaption}\item[{vector$<$ string $>$ $\ast$}]{new\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Sets the Character\textquotesingle{}s map data to a new map, deleting the old map data in the process 
-\begin{DoxyParams}{Parameters}
-{\em new\+Map} & vector$<$string$>$, where each string represents one line of the map \\
-\hline
-\end{DoxyParams}
-\hypertarget{class_characters_a9dac165846c7eb9cacb6a2807a75f845}{}\label{class_characters_a9dac165846c7eb9cacb6a2807a75f845} 
+Sets the vector map for the Character, using the strategy\textquotesingle{}s method \hypertarget{class_characters_a717e24c7c3c4cb1d78e5814a3f0df0db}{}\label{class_characters_a717e24c7c3c4cb1d78e5814a3f0df0db} 
 \index{Characters@{Characters}!set\+Position@{set\+Position}}
 \index{set\+Position@{set\+Position}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
-{\footnotesize\ttfamily void Characters\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{x }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Characters\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{vect\+Pos,  }\item[{int}]{char\+Pos }\end{DoxyParamCaption})}
 
-Sets the x and y position of the Character \hypertarget{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7}{}\label{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7} 
+Will set the position of the Character using its Strategy. 
+\begin{DoxyParams}{Parameters}
+{\em vect\+Pos} & integer representing which string in the vector \\
+\hline
+{\em char\+Pos} & integer representing which char in the string \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_characters_a8e8a0b81e4be9eb6a1c75a5ae5d8bb27}{}\label{class_characters_a8e8a0b81e4be9eb6a1c75a5ae5d8bb27} 
+\index{Characters@{Characters}!setup\+Level\+Observer@{setup\+Level\+Observer}}
+\index{setup\+Level\+Observer@{setup\+Level\+Observer}!Characters@{Characters}}
+\subsubsection{\texorpdfstring{setup\+Level\+Observer()}{setupLevelObserver()}}
+{\footnotesize\ttfamily void Characters\+::setup\+Level\+Observer (\begin{DoxyParamCaption}\item[{\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$}]{subject\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+This method initializes the \hyperlink{class_level}{Level} \hyperlink{class_observer}{Observer} portion of the Character \hypertarget{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7}{}\label{class_characters_a1273e2d7fe2e959cd3ed513c5717f6b7} 
 \index{Characters@{Characters}!validate\+New\+Character@{validate\+New\+Character}}
 \index{validate\+New\+Character@{validate\+New\+Character}!Characters@{Characters}}
 \subsubsection{\texorpdfstring{validate\+New\+Character()}{validateNewCharacter()}}
@@ -360,21 +439,13 @@ Sets the x and y position of the Character \hypertarget{class_characters_a1273e2
 
 
 
-F\+OR U\+N\+IT T\+E\+ST. 
+Will get the most recent grid, needed for rerendering map. 
 
-Check to see if score values are valid (3 to 18) \hypertarget{class_characters_a42bbd977aed8772f446510e7fcfd577f}{}\label{class_characters_a42bbd977aed8772f446510e7fcfd577f} 
-\index{Characters@{Characters}!validate\+Player\+Move@{validate\+Player\+Move}}
-\index{validate\+Player\+Move@{validate\+Player\+Move}!Characters@{Characters}}
-\subsubsection{\texorpdfstring{validate\+Player\+Move()}{validatePlayerMove()}}
-{\footnotesize\ttfamily bool Characters\+::validate\+Player\+Move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+Check to see if score values are valid (3 to 18)
 
-Function helps to determine if the requested movement of a character is valid 
-
-Reimplemented in \hyperlink{class_fighter_ab2a750803d7df7f1d66e9b40074f7a41}{Fighter}.
-
-
+F\+OR U\+N\+IT T\+E\+ST 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Characters.\+h\item 
-Characters.\+cpp\end{DoxyCompactItemize}
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/Characters.\+h\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/Characters.\+cpp\end{DoxyCompactItemize}

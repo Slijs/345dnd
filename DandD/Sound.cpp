@@ -38,7 +38,6 @@ ContinousEffect::ContinousEffect(std::string path)
 	if(this->_music == nullptr )
 	{
 		std::cout<<"Could not load music, "<<path.c_str()<<" "<<SDL_GetError()<<std::endl;
-		system("pause");
 	}
 }
 

@@ -1,0 +1,176 @@
+\hypertarget{class_friendly_strategy}{}\section{Friendly\+Strategy Class Reference}
+\label{class_friendly_strategy}\index{Friendly\+Strategy@{Friendly\+Strategy}}
+
+
+Provides movement strategy that will be used by Friendly Monsters. Does N\+OT allow for attacking after movement.  
+
+
+
+
+{\ttfamily \#include $<$Friendly\+Strategy.\+h$>$}
+
+Inheritance diagram for Friendly\+Strategy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_friendly_strategy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_friendly_strategy_a0a06f0fe84fd38cb762892eee051d44d}{Friendly\+Strategy} (int speed, \hyperlink{class_characters}{Characters} $\ast$the\+Player)
+\begin{DoxyCompactList}\small\item\em Char position of the Human Player. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_friendly_strategy_a8d0ce840204e9fd240ee0613d04ef803}{move} (\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$level, S\+D\+L\+\_\+\+Rect $\ast$current\+Grid, \hyperlink{class_game_play_engine}{Game\+Play\+Engine} $\ast$engine)
+\item 
+\hypertarget{class_friendly_strategy_a5ad535963dbf46c1034e01fcdc739ebd}{}\label{class_friendly_strategy_a5ad535963dbf46c1034e01fcdc739ebd} 
+bool \hyperlink{class_friendly_strategy_a5ad535963dbf46c1034e01fcdc739ebd}{move} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Determines movement logic. \end{DoxyCompactList}\item 
+bool \hyperlink{class_friendly_strategy_ac1f5837825bf7090d31c06f88f463e35}{can\+Move} (int vectI, int charI, \hyperlink{_movement_strategy_8h_a0b5e764f0ec9a407e9b8789f0259d754}{Movement\+Direction} dir)
+\begin{DoxyCompactList}\small\item\em Allows for movement to a specific location. \end{DoxyCompactList}\item 
+bool \hyperlink{class_friendly_strategy_a569177588c0dbf099988222eee8dc8cb}{is\+Within\+Range} (int vectI, int charI)
+\item 
+virtual void \hyperlink{class_friendly_strategy_a9758d387409a12ab2291c42e52313fcb}{Update} ()
+\item 
+virtual bool \hyperlink{class_friendly_strategy_a7490a78b29add77bb9485899b05661b4}{\+\_\+acceptable\+Destination\+Square} (int vectI, int charI)
+\item 
+\hypertarget{class_friendly_strategy_a1e937a36ea7c4c1a0324faec41cf5f2c}{}\label{class_friendly_strategy_a1e937a36ea7c4c1a0324faec41cf5f2c} 
+\hyperlink{class_characters}{Characters} $\ast$ {\bfseries get\+Subject} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{_movement_strategy_8h_a0b5e764f0ec9a407e9b8789f0259d754}{Movement\+Direction} $>$ \& \hyperlink{class_friendly_strategy_a83e515ba2c3a8d9895f2bdde08091b1d}{\+\_\+determine\+Player\+Direction} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_friendly_strategy_a88c6a8387aae5dd266d167e43d4088f7}{}\label{class_friendly_strategy_a88c6a8387aae5dd266d167e43d4088f7} 
+int {\bfseries \+\_\+player\+Vect\+Pos}
+\item 
+\hypertarget{class_friendly_strategy_a3c35c8ee0aee35980193013f20dff11f}{}\label{class_friendly_strategy_a3c35c8ee0aee35980193013f20dff11f} 
+int \hyperlink{class_friendly_strategy_a3c35c8ee0aee35980193013f20dff11f}{\+\_\+player\+Char\+Pos}
+\begin{DoxyCompactList}\small\item\em Vector position of the Human Player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_friendly_strategy_ae7b46fff3330dfbc891c8d661d6e8f07}{}\label{class_friendly_strategy_ae7b46fff3330dfbc891c8d661d6e8f07} 
+class {\bfseries Aggressor\+Strategy}
+\item 
+\hypertarget{class_friendly_strategy_acd1214449703bd4d1b095efc07489f45}{}\label{class_friendly_strategy_acd1214449703bd4d1b095efc07489f45} 
+class {\bfseries Monster}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides movement strategy that will be used by Friendly Monsters. Does N\+OT allow for attacking after movement. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_friendly_strategy_a0a06f0fe84fd38cb762892eee051d44d}{}\label{class_friendly_strategy_a0a06f0fe84fd38cb762892eee051d44d} 
+\index{Friendly\+Strategy@{Friendly\+Strategy}!Friendly\+Strategy@{Friendly\+Strategy}}
+\index{Friendly\+Strategy@{Friendly\+Strategy}!Friendly\+Strategy@{Friendly\+Strategy}}
+\subsubsection{\texorpdfstring{Friendly\+Strategy()}{FriendlyStrategy()}}
+{\footnotesize\ttfamily Friendly\+Strategy\+::\+Friendly\+Strategy (\begin{DoxyParamCaption}\item[{int}]{speed,  }\item[{\hyperlink{class_characters}{Characters} $\ast$}]{the\+Player }\end{DoxyParamCaption})}
+
+
+
+Char position of the Human Player. 
+
+Parameterized Constructor. Takes the speed of the Friendly as a parameter and passes it to the parent super constructor 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_friendly_strategy_a7490a78b29add77bb9485899b05661b4}{}\label{class_friendly_strategy_a7490a78b29add77bb9485899b05661b4} 
+\index{Friendly\+Strategy@{Friendly\+Strategy}!\+\_\+acceptable\+Destination\+Square@{\+\_\+acceptable\+Destination\+Square}}
+\index{\+\_\+acceptable\+Destination\+Square@{\+\_\+acceptable\+Destination\+Square}!Friendly\+Strategy@{Friendly\+Strategy}}
+\subsubsection{\texorpdfstring{\+\_\+acceptable\+Destination\+Square()}{\_acceptableDestinationSquare()}}
+{\footnotesize\ttfamily bool Friendly\+Strategy\+::\+\_\+acceptable\+Destination\+Square (\begin{DoxyParamCaption}\item[{int}]{vectI,  }\item[{int}]{charI }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Confirms if the square the Character is trying to land on is an acceptable destination. 
+
+In other words, this method attempts to determine whether or not the destination is an obstruction. 
+
+Adds in functionality to make sure exit door is not valid! 
+\begin{DoxyParams}{Parameters}
+{\em vectI} & index in the vector of the vertical position the character is moving to \\
+\hline
+{\em charI} & index in the string of the horizonal char the character is moving to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, True if N\+OT an obstacle, False if IS an obstacle 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_movement_strategy_a7767e4732545752f69dab06fe478152c}{Movement\+Strategy}.
+
+\hypertarget{class_friendly_strategy_a83e515ba2c3a8d9895f2bdde08091b1d}{}\label{class_friendly_strategy_a83e515ba2c3a8d9895f2bdde08091b1d} 
+\index{Friendly\+Strategy@{Friendly\+Strategy}!\+\_\+determine\+Player\+Direction@{\+\_\+determine\+Player\+Direction}}
+\index{\+\_\+determine\+Player\+Direction@{\+\_\+determine\+Player\+Direction}!Friendly\+Strategy@{Friendly\+Strategy}}
+\subsubsection{\texorpdfstring{\+\_\+determine\+Player\+Direction()}{\_determinePlayerDirection()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{_movement_strategy_8h_a0b5e764f0ec9a407e9b8789f0259d754}{Movement\+Direction} $>$ \& Friendly\+Strategy\+::\+\_\+determine\+Player\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Based on the current possition that the player is at, will generate a vector with all directions the monster should try moving, from best to worst. Starts with the \textquotesingle{}primary\textquotesingle{} direction that the character is in, and then blooms out (ie if character is North, then should try North first, followed by North\+East and North\+West, then West and East, etc.) \hypertarget{class_friendly_strategy_ac1f5837825bf7090d31c06f88f463e35}{}\label{class_friendly_strategy_ac1f5837825bf7090d31c06f88f463e35} 
+\index{Friendly\+Strategy@{Friendly\+Strategy}!can\+Move@{can\+Move}}
+\index{can\+Move@{can\+Move}!Friendly\+Strategy@{Friendly\+Strategy}}
+\subsubsection{\texorpdfstring{can\+Move()}{canMove()}}
+{\footnotesize\ttfamily bool Friendly\+Strategy\+::can\+Move (\begin{DoxyParamCaption}\item[{int}]{vectI,  }\item[{int}]{charI,  }\item[{\hyperlink{_movement_strategy_8h_a0b5e764f0ec9a407e9b8789f0259d754}{Movement\+Direction}}]{dir }\end{DoxyParamCaption})}
+
+
+
+Allows for movement to a specific location. 
+
+Determines if the \hyperlink{class_monster}{Monster} is able to move to the requested position in the indicated direction. 
+
+First, makes sure that the location is within the map\textquotesingle{}s bounds. 
+
+Second, checks if the destination can be landed on. 
+
+Third, checks if there are any obstacles in the path that the character will have to follow. 
+
+If all is successful, then the player can move there. \hypertarget{class_friendly_strategy_a569177588c0dbf099988222eee8dc8cb}{}\label{class_friendly_strategy_a569177588c0dbf099988222eee8dc8cb} 
+\index{Friendly\+Strategy@{Friendly\+Strategy}!is\+Within\+Range@{is\+Within\+Range}}
+\index{is\+Within\+Range@{is\+Within\+Range}!Friendly\+Strategy@{Friendly\+Strategy}}
+\subsubsection{\texorpdfstring{is\+Within\+Range()}{isWithinRange()}}
+{\footnotesize\ttfamily bool Friendly\+Strategy\+::is\+Within\+Range (\begin{DoxyParamCaption}\item[{int}]{vectI,  }\item[{int}]{charI }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Determines if the square the player is trying to jump to is within the player\textquotesingle{}s range. 
+\begin{DoxyParams}{Parameters}
+{\em vectI} & of desired location \\
+\hline
+{\em charI} & of desired location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool, True if destination is within range, False otherwise 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_movement_strategy}{Movement\+Strategy}.
+
+\hypertarget{class_friendly_strategy_a8d0ce840204e9fd240ee0613d04ef803}{}\label{class_friendly_strategy_a8d0ce840204e9fd240ee0613d04ef803} 
+\index{Friendly\+Strategy@{Friendly\+Strategy}!move@{move}}
+\index{move@{move}!Friendly\+Strategy@{Friendly\+Strategy}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily bool Friendly\+Strategy\+::move (\begin{DoxyParamCaption}\item[{\hyperlink{class_pre_built_level}{Pre\+Built\+Level} $\ast$}]{level,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$}]{current\+Grid,  }\item[{\hyperlink{class_game_play_engine}{Game\+Play\+Engine} $\ast$}]{engine }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Movement logic algorithm. 
+
+Attempts to move the \hyperlink{class_monster}{Monster} to an appropriate direction. Will determine directions that will help the monster move toward the character, and will then try moving in each of those directions S\+P\+E\+ED steps or less. Updates position after movement. 
+
+Implements \hyperlink{class_movement_strategy}{Movement\+Strategy}.
+
+\hypertarget{class_friendly_strategy_a9758d387409a12ab2291c42e52313fcb}{}\label{class_friendly_strategy_a9758d387409a12ab2291c42e52313fcb} 
+\index{Friendly\+Strategy@{Friendly\+Strategy}!Update@{Update}}
+\index{Update@{Update}!Friendly\+Strategy@{Friendly\+Strategy}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Friendly\+Strategy\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Will be called any time a change has been made to the Player character. Will check if position has changed, and if it has, will then update in the \hyperlink{class_monster}{Monster} 
+
+Reimplemented from \hyperlink{class_character_observer_a398d6d784065c7ed36c928d44a574630}{Character\+Observer}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_friendly_strategy_8h}{Friendly\+Strategy.\+h}\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_friendly_strategy_8cpp}{Friendly\+Strategy.\+cpp}\end{DoxyCompactItemize}

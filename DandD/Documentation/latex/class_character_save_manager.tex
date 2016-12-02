@@ -12,9 +12,13 @@ Provides static methods used to save, load and remove characters from disk.
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static bool \hyperlink{class_character_save_manager_a7e4ce04eed479a22b1d3f70c9fe06652}{save\+Character} (\hyperlink{class_fighter}{Fighter} $\ast$the\+Char)
+static vector$<$ string $>$ $\ast$ \hyperlink{class_character_save_manager_a56637487c732f1813992d3d6b558c817}{get\+Names} ()
+\item 
+static bool \hyperlink{class_character_save_manager_a4cb417d00055faa42333a69d64b29da6}{save\+Character} (\hyperlink{class_fighter}{Fighter} $\ast$the\+Char, S\+D\+L\+\_\+\+Event event\+\_\+)
 \item 
 static \hyperlink{class_fighter}{Fighter} $\ast$ \hyperlink{class_character_save_manager_a44105e8553b29cd7e37f3eec6f1a7ce7}{load\+Character} ()
+\item 
+static \hyperlink{class_fighter}{Fighter} $\ast$ \hyperlink{class_character_save_manager_a8ee1fcce6a61b16b41dfa675264d5bdf}{load\+Character} (string name)
 \item 
 static void \hyperlink{class_character_save_manager_af8ee3fecc5c19f1f61f98e9132a26b5f}{remove\+Character} ()
 \item 
@@ -46,15 +50,35 @@ Helper method to convert C\+Strings back to regular strings
 \begin{DoxyReturn}{Returns}
 string version of the C\+String 
 \end{DoxyReturn}
+\hypertarget{class_character_save_manager_a56637487c732f1813992d3d6b558c817}{}\label{class_character_save_manager_a56637487c732f1813992d3d6b558c817} 
+\index{Character\+Save\+Manager@{Character\+Save\+Manager}!get\+Names@{get\+Names}}
+\index{get\+Names@{get\+Names}!Character\+Save\+Manager@{Character\+Save\+Manager}}
+\subsubsection{\texorpdfstring{get\+Names()}{getNames()}}
+{\footnotesize\ttfamily vector$<$ string $>$ $\ast$ Character\+Save\+Manager\+::get\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a vector containing the names of all \hyperlink{class_characters}{Characters} which have been saved to disk \begin{DoxyReturn}{Returns}
+vector$<$string$>$ 
+\end{DoxyReturn}
 \hypertarget{class_character_save_manager_a44105e8553b29cd7e37f3eec6f1a7ce7}{}\label{class_character_save_manager_a44105e8553b29cd7e37f3eec6f1a7ce7} 
 \index{Character\+Save\+Manager@{Character\+Save\+Manager}!load\+Character@{load\+Character}}
 \index{load\+Character@{load\+Character}!Character\+Save\+Manager@{Character\+Save\+Manager}}
-\subsubsection{\texorpdfstring{load\+Character()}{loadCharacter()}}
+\subsubsection{\texorpdfstring{load\+Character()}{loadCharacter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \hyperlink{class_fighter}{Fighter} $\ast$ Character\+Save\+Manager\+::load\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Will load a Character from disk based on user selection, and returns a pointer to that Character 
 \begin{DoxyParams}{Parameters}
 {\em Fighter$\ast$,pointing} & to the loaded Character \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_save_manager_a8ee1fcce6a61b16b41dfa675264d5bdf}{}\label{class_character_save_manager_a8ee1fcce6a61b16b41dfa675264d5bdf} 
+\index{Character\+Save\+Manager@{Character\+Save\+Manager}!load\+Character@{load\+Character}}
+\index{load\+Character@{load\+Character}!Character\+Save\+Manager@{Character\+Save\+Manager}}
+\subsubsection{\texorpdfstring{load\+Character()}{loadCharacter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{class_fighter}{Fighter} $\ast$ Character\+Save\+Manager\+::load\+Character (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads a \hyperlink{class_fighter}{Fighter} from file, based on the name string provided to the menu 
+\begin{DoxyParams}{Parameters}
+{\em name,string} & of the name of the \hyperlink{class_fighter}{Fighter} to load \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_character_save_manager_af8ee3fecc5c19f1f61f98e9132a26b5f}{}\label{class_character_save_manager_af8ee3fecc5c19f1f61f98e9132a26b5f} 
@@ -74,11 +98,11 @@ Will allow a specific Character to be deleted based on the name provided
 {\em name} & string representing the name of the Character to be removed \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_character_save_manager_a7e4ce04eed479a22b1d3f70c9fe06652}{}\label{class_character_save_manager_a7e4ce04eed479a22b1d3f70c9fe06652} 
+\hypertarget{class_character_save_manager_a4cb417d00055faa42333a69d64b29da6}{}\label{class_character_save_manager_a4cb417d00055faa42333a69d64b29da6} 
 \index{Character\+Save\+Manager@{Character\+Save\+Manager}!save\+Character@{save\+Character}}
 \index{save\+Character@{save\+Character}!Character\+Save\+Manager@{Character\+Save\+Manager}}
 \subsubsection{\texorpdfstring{save\+Character()}{saveCharacter()}}
-{\footnotesize\ttfamily bool Character\+Save\+Manager\+::save\+Character (\begin{DoxyParamCaption}\item[{\hyperlink{class_fighter}{Fighter} $\ast$}]{the\+Char }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily bool Character\+Save\+Manager\+::save\+Character (\begin{DoxyParamCaption}\item[{\hyperlink{class_fighter}{Fighter} $\ast$}]{the\+Char,  }\item[{S\+D\+L\+\_\+\+Event}]{\+\_\+event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Attempts to save a Character to disk. If the Character is already saved, the user will be asked if they want to replace the file. 
 \begin{DoxyParams}{Parameters}
@@ -89,5 +113,5 @@ Attempts to save a Character to disk. If the Character is already saved, the use
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_char_save_manager_8h}{Char\+Save\+Manager.\+h}\item 
-\hyperlink{_character_save_manager_8cpp}{Character\+Save\+Manager.\+cpp}\end{DoxyCompactItemize}
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_char_save_manager_8h}{Char\+Save\+Manager.\+h}\item 
+D\+:/\+Documents/\+A\+A\+S\+C\+H\+O\+O\+L/3-\/ Fall 2016/\+C\+O\+M\+P 345/\+Group Project/345dnd/\+Dand\+D/\hyperlink{_character_save_manager_8cpp}{Character\+Save\+Manager.\+cpp}\end{DoxyCompactItemize}
