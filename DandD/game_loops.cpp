@@ -20,8 +20,7 @@ void GameLoops::loopManager()
 	//instantiate the sounds for menu
 	ContinousEffect* background = new ContinousEffect("assets/Sound/Menu/Background/mainmenu.mp3");
 	background->setVolume(40);
-	//
-	//
+
 	background->play();
 
 	_currentFighterTracker = nullptr;
@@ -127,7 +126,6 @@ void GameLoops::loopManager()
 			destination = createEditItems(userContainer, _CreateRing_);
 			break;
 		case _PrintItems_:
-			//destination = createEditItems(userContainer, _PrintItems_);
 			destination = printItems(userContainer);
 			break;
 		case _LoadItemsFromFile_:
@@ -294,55 +292,17 @@ int GameLoops::gameLevelLoop(std::string mappath)
 	AFTER_SET_POSITION:
 	// We setup the FighterView so that the Fighter will be re-rendered whenever it is moved
 	FighterOnMapView *fighterView = new FighterOnMapView(this->_currentFighterTracker, l);
-	//_currentFighterTracker->setupLevelObserver(&l);
-	//f->setMap(&l->getMapSimpleVersion());
-
-
-	//first test the original MAP
-	/*std::cout << std::endl;
-	for (int y = 0; y < l->getMapStringVersiion().size(); y++)
-	{
-		std::cout << l->getMapStringVersiion()[y];
-		std::cout<<std::endl;
-	}
-	std::cout << std::endl;
-	//then test simple map
-	for (int y = 0; y < l->getMapSimpleVersion().size(); y++)
-	{
-		std::cout<<l->getMapSimpleVersion()[y];
-		std::cout<<std::endl;
-	}
-	std::cout << "testing maps, press any key to continue\n";
-	getch();*/
-
-	// Now that all Characters on the Map have been setup, we will notify the Level's observers of its existance
-	//l->Notify();
-
+	
 	// Now run the engine
 	destinationInt = engine->runEngine();
 	
-	/*while(quit==false)
-	{
-		while(SDL_PollEvent(&_event) != 0)
-		{
-			if(_event.type == SDL_QUIT)
-			{
-				quit = true;
-			}
-			engine->runEngine();
-			quit = true;
-		}
-	}*/
-
-
 	l->getLevelWindow()->hideWindow();
 	engine->detachLevel();
 	delete engine;
 	engine = nullptr;
 	delete fighterView;
 	fighterView = nullptr;
-	//delete f;
-	//f = nullptr;
+
 	delete l;
 	l=nullptr;
 	return destinationInt;
@@ -406,7 +366,6 @@ int GameLoops::editExistingMap(char* path, char* campaign)
 	
 	//get a valid map name from the maps already in file
 	PreBuiltLevel* l = new PreBuiltLevel();
-	//l->loadUserCreatedLevel(_userCreatedLevelFileName);
 	l->loadUserCreatedLevel(SingletonInputsAndStringManager::getInstance()->convertCharPointerToString(path));
 	l->createLevelForTargetWindow();
 
@@ -592,8 +551,9 @@ int GameLoops::levelEditorLoop(LevelEditor* level, char* path, char* campaign)
 	return -1;
 }
 
+//! Displays the menu that allows access to game log
 int GameLoops::displayGameLog(){
-
+	GameController::getInstance()->log("Accessing game logs.");
 	GameLogMenu* menu = new GameLogMenu("GAME LOG");
 	menu->setupMenu();
 	menu->displayMenu();
@@ -716,7 +676,7 @@ int GameLoops::campaignManagerLoop(char* path, char* campaign)
 	return destination;
 }
 
-//launches cerate edit player for game
+//launches create edit player for game
 int GameLoops::createEditPlayer()
 {
 	GameController::getInstance()->log("Character Management Menu loaded.");
@@ -741,6 +701,7 @@ int GameLoops::createEditPlayer()
 	return destination;
 }
 
+//! Initiates sequence to create a new player
 int GameLoops::createNewPlayer(){
 	GameController::getInstance()->log("Character Creation sequence started.");
 	// First, we will have to go to console to get the name of the new Character
@@ -811,6 +772,7 @@ int GameLoops::createNewPlayer(){
 	return destination;
 }
 
+//! Initiates sequence to edit an existing character
 int GameLoops::editExistingPlayer(){
 	GameController::getInstance()->log("Character Editing sequence started.");
 	Fighter* thePlayer = loadPlayer();
@@ -867,7 +829,9 @@ int GameLoops::editPlayerRace(Fighter* thePlayer){
 	return _SuccessRaceChange_;
 }
 
+//! Launches menu asking if wanting to add user-created items to user-created player
 bool GameLoops::addUserMadeItems(){
+	GameController::getInstance()->log("Confirming addition of user-created items");
 	AddUseMadeItemsConfirmationMenu *menu = new AddUseMadeItemsConfirmationMenu("CONFIRM");
 	menu->setupMenu();
 	menu->displayMenu();
@@ -914,7 +878,9 @@ int GameLoops::choosePlayerRace(){
 	return selectedRace;
 }
 
+//! Displays the players stats on screen
 int GameLoops::displayPlayerStats(Fighter* thePlayer){
+	GameController::getInstance()->log("Displaying player stats");
 	DisplayPlayerStatsWindow* menu = new DisplayPlayerStatsWindow("PLAYER STATS", thePlayer);
 	menu->setupMenu();
 	menu->displayMenu();
@@ -947,6 +913,7 @@ int GameLoops::displayPlayerStats(Fighter* thePlayer){
 	return destination;
 }
 
+//! Displays that race was changed successfully
 int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
 	GameController::getInstance()->log("Race change - success!");
 	SuccessOnRaceChangeMenu* menu = new SuccessOnRaceChangeMenu("SUCCESS", thePlayer);
@@ -972,6 +939,7 @@ int GameLoops::displaySuccessfulRaceChange(Fighter* thePlayer){
 	return destination;
 }
 
+//! Displays that name was changed successfully
 int GameLoops::displaySuccessfulNameChange(Fighter* thePlayer){
 	GameController::getInstance()->log("Name change - success!");
 	SuccessOnNameChangeMenu* menu = new SuccessOnNameChangeMenu("SUCCESS", thePlayer);
@@ -996,6 +964,7 @@ int GameLoops::displaySuccessfulNameChange(Fighter* thePlayer){
 	return destination;
 }
 
+//! Loads a character from file as per user selection, and returns a pointer to it
 Fighter* GameLoops::loadPlayer(){
 	GameController::getInstance()->log("Initiating character load sequence");
 	Fighter* temp = nullptr;
@@ -1023,7 +992,7 @@ Fighter* GameLoops::loadPlayer(){
 		else if (destination == 0)
 			returnFighter = true; // Dummy value just to break the loop
 	}
-
+	GameController::getInstance()->log(temp->getName() + " has been loaded for use.");
 	menu->hideMenu();
 	delete engine;
 	engine = nullptr;
@@ -1032,23 +1001,7 @@ Fighter* GameLoops::loadPlayer(){
 	return temp;
 }
 
-
-//launches create edit items for game
-/*
-int GameLoops::createEditItems()
-{
-system("CLS");
-GameController::getInstance()->log("Create / Edit items menu loaded.");
-ItemCreator::createItems();
-//Phil menu logic start
-//whatever happens in your direver
-//Phil menu logic end
-system("CLS");
-return _MainMenu_;
-}
-*/
-
-
+//! Displays menu for creating and editing items
 int GameLoops::createEditItems(Container * userContainer, int choice)
 {
 	//system("CLS");
@@ -1060,6 +1013,7 @@ int GameLoops::createEditItems(Container * userContainer, int choice)
 	return _CreateEditItems_;
 }
 
+//! Allows for creating and editing items
 int GameLoops::createEditItems()
 {
 	GameController::getInstance()->log("Item creation menu loaded.");
@@ -1081,6 +1035,7 @@ int GameLoops::createEditItems()
 	return destination;
 }
 
+//! Prints items to screen
 int GameLoops::printItems(Container * userContainer)
 {
 	GameController::getInstance()->log("Print items menu loaded.");

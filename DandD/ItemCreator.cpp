@@ -87,14 +87,6 @@ void ItemCreator::createItems(Container * userContainer, int number)
 
 void ItemCreator::loadItemsFromFile(Container * userContainer)
 {
-	/* TODO -- make user be able to define path. At this time,
-	* this isn't possible, because can't convert to type of
-	* string that CFile.open will accept...
-	cout << "Enter file name: ";
-	string Lpath;
-	std::getline(std::cin, Lpath);
-	*/
-	userContainer = new Container();
 	CFile fileL;
 	if (!fileL.Open(_T("serializedItems.dat"), CFile::modeRead))
 	{

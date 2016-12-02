@@ -239,7 +239,7 @@ void PrintItemsMenus::setupMenu()
 	this->_menuWindow->setFontType(9);
 	// create weapon
 	menucomponent.h = this->_menuWindow->getWindowHeight() * (0.04);
-	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.15);
+	menucomponent.w = this->_menuWindow->getWindowWidth() * (0.10);
 	menucomponent.x = (this->_menuWindow->getWindowWidth() / 8)*7 - (menucomponent.w / 2);
 	menucomponent.y = (this->_menuWindow->getWindowHeight() / 16)*15;
 	this->_menuWindow->addButton("Back", this->_baseMenuColors[_NoButtonSelect_]->red, this->_baseMenuColors[_NoButtonSelect_]->green, this->_baseMenuColors[_NoButtonSelect_]->blue, menucomponent);
