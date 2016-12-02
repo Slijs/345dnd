@@ -180,7 +180,7 @@ void Monster::receiveDamage(int damage)
 		_subject->getPlayer()->gainExperience(this->getExp());
 		return;
 	}
-	currentState();
+	//currentState();
 	
 }
 
